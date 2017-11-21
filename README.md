@@ -1,6 +1,13 @@
 # MECCA-platform
-The Music Education Composition Creation Application,
-built with Clojure leveraging the Overtone framework and Supercollider engine.
+The Music Education Composition Creation Application.
+
+You are the student.
+
+You are the composer.
+
+You are the creator.
+
+A custom interface for the Overtone framework and Supercollider engine.
 Aiming to present a UI to unify the process of learning, writing and performing music, focusing on custom synth creation based on specific variables to facilitate intuitive acoustic modeling of software instruments.
 
 For example, I often begin a tune with the kick drum, just get it going deep and punchy. But you don't pick a drum hit from a pile of samples, you synthesize them yourself, beginning with a preset and tweaking the parameters as desired.

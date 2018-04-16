@@ -30,8 +30,8 @@ You can now jam on your keyboard in 2 full octaves:
 
      2 3   6 7 8
     q w e r t y u i
-     s d   g h j
-    z x c v b n m ,
+     s d   g h j   l ;
+    z x c v b n m , . /
 
 
 ## TODO:

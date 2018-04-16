@@ -9,6 +9,11 @@ Seeking comprehensive integration of learning, writing and performance. When the
 
 Written completely in bash shell using simple scripts to generate waveforms and automagically stitch them together. 
 
+# Installation
+
+Download the two files, bass.sh and synth.sh.
+The first one defines the bass notes and generates your samples, and the second one provides a keyboard interface.
+
 ## Dependencies
 MECCA uses [sox](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. Your distro might already have it.
 If not:

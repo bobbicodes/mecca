@@ -4,7 +4,7 @@ while true; do
 	read -n1 key
 	case $key in
 		z)
-			play c2_quarter.wav &
+			play -n synth 0.2 tri 65.41 &
 			;;
 		s)
 			play csharp2_quarter.wav &
@@ -91,7 +91,7 @@ while true; do
 			play b3_quarter.wav &
   	      ;;
 		i)
-			play c3_quarter.wav &
+			play -n synth 0.2 tri 261.63 &
   	      ;;
 	esac
 done

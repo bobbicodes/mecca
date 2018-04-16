@@ -10,7 +10,7 @@ Aiming to unify the process of learning, writing and performing music. Because o
 Written completely in bash shell using simple scripts to generate waveforms and automagically stitch them together. 
 
 ## Dependencies
-MECCA uses sox, the Swiss-Army Knife of audio manipulation. Your distro might already have it.
+MECCA uses [sox](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. Your distro might already have it.
 If not:
 
     $ sudo apt-get install sox

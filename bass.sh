@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Generate notes
+# Generate note samples
 
 sox -n c2_half.wav synth 0.5 tri 65.41 fade 0 0.7 0.25 trim 0 0.5
 sox c2_half.wav c2_quarter.wav trim 0.25 0.5

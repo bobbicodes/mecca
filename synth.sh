@@ -56,42 +56,42 @@ while true; do
 			;;
 		q)
 			play c3_quarter.wav &
-        ;;
+        		;;
 		2)
 			play csharp3_quarter.wav &
-  		    ;;
+  		  	;;
 		w)
 			play d3_quarter.wav &
 	 		;;
 		3)
 			play dsharp3_quarter.wav &
-  	      ;;
+  	      		;;
 		e)
 			play e3_quarter.wav &
-		    ;;
+		    	;;
 		r)
 			play f3_quarter.wav &
-		    ;;
+		    	;;
 		5)
 			play fsharp3_quarter.wav &
 			;;
 		t)
 			play g3_quarter.wav &
-  	      ;;
+  	      		;;
 		6)
 			play gsharp3_quarter.wav &
-  	      ;;
+  	      		;;
 		y)
 			play a3_quarter.wav &
-  	      ;;
+  	      		;;
 		7)
 			play asharp3_quarter.wav &
-  	      ;;
+  	      		;;
 		u)
 			play b3_quarter.wav &
-  	      ;;
+  	      		;;
 		i)
 			play -n synth 0.2 tri 261.63 &
-  	      ;;
+  	      		;;
 	esac
 done

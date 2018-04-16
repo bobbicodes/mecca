@@ -24,12 +24,12 @@ If not:
 
 Install [MinGW](http://www.mingw.org/) and add it to your system PATH according to [these instructions](http://www.computerhope.com/issues/ch000549.htm).
 
-## Usage
+# Usage
 
     $ chmod +x bass.sh
     $ ./bass.sh
 
-This will produce triangle wave samples for the notes C2 - B3, in half, quarter, and eighth-note lengths as well as a double-eighth note sample for each. 
+This will produce triangle wave samples for the notes C2 - C4, in half, quarter, and eighth-note lengths as well as a double-eighth note sample for each. 
 
 Then, start the synth:
 

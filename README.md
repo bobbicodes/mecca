@@ -5,7 +5,7 @@ You are the student.
 You are the composer.
 You are the creator.
 
-Aiming to unify the process of learning, writing and performing music. Because when these are realized as all part of a single activity, life will be at once [a dream](https://www.youtube.com/watch?v=0TgrorCZg80). We must subtly encourage "desirable" musical idioms while preserving maximum expressive potential, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
+Seeking comprehensive integration of learning, writing and performance. When these are fully realized as part of a potentially greater activity, life will be at once [a dream](https://www.youtube.com/watch?v=0TgrorCZg80). We must subtly encourage what culture recognizes as "desirable" musical idioms while preserving expressivity, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
 
 Written completely in bash shell using simple scripts to generate waveforms and automagically stitch them together. 
 

@@ -15,7 +15,7 @@ If not:
 
 ## Windows:
 
-Download and install [MinGW](http://www.mingw.org/). If it present you with a list of packages pick at least mingw32-base and msys-base. Add the compiler and other programs to your system PATH variable according to [these instructions](http://www.computerhope.com/issues/ch000549.htm) appending the value ;C:\MinGW\bin to your PATH.
+Install [MinGW](http://www.mingw.org/) and add it to your system PATH according to [these instructions](http://www.computerhope.com/issues/ch000549.htm) 
 
 ## Usage
 

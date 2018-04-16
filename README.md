@@ -17,7 +17,7 @@ If not:
 
 ## Windows:
 
-Install [MinGW](http://www.mingw.org/) and add it to your system PATH according to [these instructions](http://www.computerhope.com/issues/ch000549.htm) 
+Install [MinGW](http://www.mingw.org/) and add it to your system PATH according to [these instructions](http://www.computerhope.com/issues/ch000549.htm).
 
 ## Usage
 

@@ -36,4 +36,4 @@ You can now jam on your keyboard in 2 full octaves:
 
 ## TODO:
 
-Make virtual piano with mouse support using ncurses.
+Provide scripts for common chord progressions for use as sequencing templates.

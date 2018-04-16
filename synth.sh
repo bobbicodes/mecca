@@ -2,22 +2,21 @@
 while true; do
 	echo "Synth ready..."
 	read -n1 key
-
 	case $key in
 		z)
-			play c2_quarter.wav
+			play c2_quarter.wav &
 			;;
 		s)
-			play csharp2_quarter.wav
+			play csharp2_quarter.wav &
 			;;
 		x)
-			play d2_quarter.wav
+			play d2_quarter.wav &
 			;;
 		d)
-			play dsharp2_quarter.wav
+			play dsharp2_quarter.wav &
 			;;
 		c)
-			play e2_quarter.wav
+			play e2_quarter.wav &
 			;;
 		v)
 			play f2_quarter.wav

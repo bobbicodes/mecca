@@ -7,11 +7,11 @@ You are the creator.
 
 Seeking comprehensive integration of learning, writing and performance. When these are fully realized as part of a potentially greater activity, life will be at once [a dream](https://www.youtube.com/watch?v=0TgrorCZg80). We must subtly encourage what culture recognizes as "desirable" musical idioms while preserving expressivity, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
 
-Written completely in bash shell using simple scripts to generate waveforms and automagically stitch them together. 
+Written completely in bash shell using simple scripts to generate waveforms and automagically stitch them together into songs.
 
 # Installation
 
-    $ chmod +x synth.sh bass.sh sequencer.sh
+    $ chmod +x synth.sh sequencer.sh
     
 MECCA uses [sox](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. Your distro might already have it.
 If not:
@@ -38,36 +38,13 @@ You can jam on your keyboard in 2 full octaves:
 
     $ ./sequencer [note 1] [note 2] [note 3] [note 4]
     
-To define a 4-chord progression for the bassline, the notes can be any of the following:
+Define a 4-chord progression for the bassline using the same note keys.
 
-    c2
-    csharp2
-    d2
-    dsharp2
-    e2
-    f2
-    fsharp2
-    g2
-    gsharp2
-    a2
-    asharp2
-    b2
-    c3
-    csharp3
-    d3
-    dsharp3
-    e3
-    f3
-    fsharp3
-    g3
-    gsharp3
-    a3
-    asharp3
-    b3
+  
 
 You can try the test progression, the boss stage from Megaman 2:
 
-    $ ./sequencer csharp3 a2 b2 csharp3
+    $ ./sequencer , n m ,
 
 
 ## LICENSE

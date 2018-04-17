@@ -11,10 +11,8 @@ Written completely in bash shell using simple scripts to generate waveforms and 
 
 # Installation
 
-Download the two files, bass.sh and synth.sh.
-The first one defines the bass notes and generates your samples, and the second one provides a keyboard interface.
-
-## Dependencies
+    $ chmod +x synth.sh bass.sh sequencer.sh
+    
 MECCA uses [sox](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. Your distro might already have it.
 If not:
 
@@ -25,11 +23,10 @@ If not:
 Install [MinGW](http://www.mingw.org/) and add it to your system PATH according to [these instructions](http://www.computerhope.com/issues/ch000549.htm).
 
 # Usage
-
-    $ chmod +x synth.sh
+    
     $ ./synth.sh
     
-You can now jam on your keyboard in 2 full octaves:
+You can jam on your keyboard in 2 full octaves:
 
      2 3   5 6 7   9 0   =   
     q w e r t y u i o p [ ]
@@ -37,9 +34,41 @@ You can now jam on your keyboard in 2 full octaves:
     z x c v b n m , . /
 
 
-## TODO:
+## Building songs
 
-Provide scripts for common chord progressions for use as sequencing templates.
+    $ ./sequencer [note 1] [note 2] [note 3] [note 4]
+    
+To define a 4-chord progression for the bassline, the notes can be any of the following:
+
+    c2
+    csharp2
+    d2
+    dsharp2
+    e2
+    f2
+    fsharp2
+    g2
+    gsharp2
+    a2
+    asharp2
+    b2
+    c3
+    csharp3
+    d3
+    dsharp3
+    e3
+    f3
+    fsharp3
+    g3
+    gsharp3
+    a3
+    asharp3
+    b3
+
+You can try the test progression, the boss stage from Megaman 2:
+
+    $ ./sequencer csharp3 a2 b2 csharp3
+
 
 ## LICENSE
 

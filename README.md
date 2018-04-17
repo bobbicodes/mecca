@@ -26,21 +26,14 @@ Install [MinGW](http://www.mingw.org/) and add it to your system PATH according 
 
 # Usage
 
-    $ chmod +x bass.sh
-    $ ./bass.sh
-
-This will produce triangle wave samples for the notes C2 - C4, in half, quarter, and eighth-note lengths as well as a double-eighth note sample for each. 
-
-Then, start the synth:
-
     $ chmod +x synth.sh
     $ ./synth.sh
     
 You can now jam on your keyboard in 2 full octaves:
 
-     2 3   6 7 8
-    q w e r t y u i
-     s d   g h j   l ;
+     2 3   5 6 7   9 0   =   
+    q w e r t y u i o p [ ]
+     s d   g h j   l ; '
     z x c v b n m , . /
 
 

@@ -113,17 +113,17 @@ esac
 
 # From the half notes make quarter notes
 
-sox $1h.wav $1h.wav trim 0.25 0.5
+sox $1h.wav $1q.wav trim 0.25 0.5
 sox $2h.wav $2q.wav trim 0.25 0.5
 sox $3h.wav $3q.wav trim 0.25 0.5
 sox $4h.wav $4q.wav trim 0.25 0.5
 
 # And then eighths
 
-sox $1q.wav $1e.wav trim 0.375 0.5
-sox $2q.wav $2e.wav trim 0.375 0.5
-sox $3q.wav $3e.wav trim 0.375 0.5
-sox $4q.wav $4e.wav trim 0.375 0.5
+sox $1h.wav $1e.wav trim 0.375 0.5
+sox $2h.wav $2e.wav trim 0.375 0.5
+sox $3h.wav $3e.wav trim 0.375 0.5
+sox $4h.wav $4e.wav trim 0.375 0.5
 
 # Make double-eighths
 

@@ -2,6 +2,9 @@
 while true; do
 	echo "Synth ready..."
 	read -n1 key
+	
+#  Map keypresses to notes C2 - C4 following the usual convention for virtual pianos
+	
 	case $key in
 		z)
 			play -n synth 0.2 tri 65.41 &

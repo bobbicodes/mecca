@@ -36,7 +36,7 @@ You can jam on your keyboard in 2 full octaves:
 
 ## Building songs
 
-    $ ./sequencer [note 1] [note 2] [note 3] [note 4]
+    $ ./sequencer.sh [note 1] [note 2] [note 3] [note 4]
     
 Define a 4-chord progression for the bassline using the same note keys.
 

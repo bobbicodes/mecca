@@ -36,9 +36,9 @@ You can jam on your keyboard in 2 full octaves:
 
 ## Building songs
     
-Define a 4-chord progression for the bassline using the following syntax:
+Define a chord progression for the bassline using the following syntax:
 
-    $ ./sequencer.sh [note1] [note2] [note3] [note4]
+    $ ./sequencer.sh [note1] [note2] [note3] [note4] . . .
     
 Where a note can be:
 
@@ -46,9 +46,14 @@ Where a note can be:
     c2  d2  e2  f2  g2  a2  b2  c3  d3  e3  f3  g3  a3  b3  c4
     
 
-You can try the test progression, the boss stage from Megaman 2:
+You can try the bassline to the boss stage from Megaman 2:
 
-    $ ./sequencer cs3 a2 b2 cs3
+    $ ./sequencer.sh cs3 cs3 a2 a2 b2 b2 cs3 cs3
+    
+Or maybe House of the Rising Sun:
+
+    $ ./sequencer.sh a2 c3 d3 f3 a2 c3 e3 e3
+
 
 
 ## LICENSE

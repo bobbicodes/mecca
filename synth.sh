@@ -1,9 +1,12 @@
 #!/bin/bash
 while true; do
 	echo "Synth ready..."
+	
+# Grab single keypress from user
+	
 	read -n1 key
 	
-#  Map keypresses to notes C2 - C4 following the usual convention for virtual pianos
+# Map keypress to notes C2 - C4 following the usual convention for virtual pianos
 	
 	case $key in
 		z)

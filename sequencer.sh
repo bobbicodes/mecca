@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# Generate half-note samples for each of the args
-
 for note in "$@"
 do
+
+# Generate half-note samples
+
     case "$note" in
 	c2) sox -n c2h.wav synth 0.5 tri 65.41 fade 0 0.7 0.25 trim 0 0.5 ;;
 	cs2) sox -n cs2h.wav synth 0.5 tri 69.3 fade 0 0.7 0.25 trim 0 0.5 ;;
@@ -43,9 +44,8 @@ do
 	b4) sox -n b4h.wav synth 0.5 tri 493.88 fade 0 0.7 0.25 trim 0 0.5 ;; 
 	c5) sox -n c5h.wav synth 0.5 tri 523.25 fade 0 0.7 0.25 trim 0 0.5 ;; 
     esac
-    # From the half notes make quarter notes
+    # From the half notes make quarters and eighths
     sox "$note"h.wav "$note"q.wav trim 0.25 0.5
-    # And eighths from halves
     sox "$note"h.wav "$note"e.wav trim 0.375 0.5
     # Make double-eighths
     sox "$note"e.wav "$note"e.wav "$note"de.wav splice 0.125

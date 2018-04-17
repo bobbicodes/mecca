@@ -1,13 +1,12 @@
 #!/bin/bash
 while true; do
 	echo "Synth ready..."
-	
-# Grab single keypress from user
-	
 	read -n1 key
 	
-# Map keypress to notes C2 - C4 following the usual convention for virtual pianos
-	
+# Map keypresses to notes C2 - G4 following the usual convention.
+# The following calls to SoX produce a triangle wave for 0.3 seconds
+# at its proper frequency in the equal-tempered scale in Hz:
+
 	case $key in
 		z) play -n synth 0.3 tri 65.41 & ;;
 		s) play -n synth 0.3 tri 69.3 & ;;

@@ -10,94 +10,80 @@ while true; do
 	
 	case $key in
 		z)
-			play -n synth 0.2 tri 65.41 &
-			;;
+			play -n synth 0.2 tri 65.41 & ;;
 		s)
-			play csharp2_quarter.wav &
-			;;
+			play -n synth 0.2 tri 69.3 & ;;
 		x)
-			play d2_quarter.wav &
-			;;
+			play -n synth 0.2 tri 73.42 & ;;
 		d)
-			play dsharp2_quarter.wav &
-			;;
+			play -n synth 0.2 tri 77.78 & ;;
 		c)
-			play e2_quarter.wav &
-			;;
+			play -n synth 0.2 tri 82.41 & ;;
 		v)
-			play f2_quarter.wav &
-			;;
+			play -n synth 0.2 tri 87.31 & ;;
 		g)
-			play fsharp2_quarter.wav &
-			;;
+			play -n synth 0.2 tri 92.5 & ;;
 		b)
-			play g2_quarter.wav &
-			;;
+			play -n synth 0.2 tri 98 & ;;
 		h)
-			play gsharp2_quarter.wav &
-			;;
+			play -n synth 0.2 tri 103.83 & ;;
 		n)
-			play a2_quarter.wav &
-			;;
+			play -n synth 0.2 tri 110 & ;;
 		j)
-			play asharp2_quarter.wav &
-			;;
+			play -n synth 0.2 tri 116.54 & ;;
 		m)
-			play b2_quarter.wav &
-			;;
+			play -n synth 0.2 tri 123.47 & ;;
 		,)
-			play c3_quarter.wav &
-			;;
+			play -n synth 0.2 tri 130.81 & ;;
 		l)
-			play csharp3_quarter.wav &
-			;;
+			play -n synth 0.2 tri 138.59 & ;;
 		.)
-			play d3_quarter.wav &
-			;;
+			play -n synth 0.2 tri 146.83 & ;;
 		\;)
-			play dsharp3_quarter.wav &
-			;;
+			play -n synth 0.2 tri 155.56 & ;;
 		/)
-			play e3_quarter.wav &
-			;;
+			play -n synth 0.2 tri 164.81 & ;;
+		')
+			play -n synth 0.2 tri 174.61 & ;;
 		q)
-			play c3_quarter.wav &
-        		;;
+			play -n synth 0.2 tri 130.81 & ;;
 		2)
-			play csharp3_quarter.wav &
-  		  	;;
+			play -n synth 0.2 tri 138.59 & ;;
 		w)
-			play d3_quarter.wav &
-	 		;;
+			play -n synth 0.2 tri 146.83 & ;;
 		3)
-			play dsharp3_quarter.wav &
-  	      		;;
+			play -n synth 0.2 tri 155.56 & ;;
 		e)
-			play e3_quarter.wav &
-		    	;;
+			play -n synth 0.2 tri 164.81 & ;;
 		r)
-			play f3_quarter.wav &
-		    	;;
+			play -n synth 0.2 tri 174.61 & ;;
 		5)
-			play fsharp3_quarter.wav &
-			;;
+			play -n synth 0.2 tri 185 & ;;
 		t)
-			play g3_quarter.wav &
-  	      		;;
+			play -n synth 0.2 tri 196 & ;;
 		6)
-			play gsharp3_quarter.wav &
-  	      		;;
+			play -n synth 0.2 tri 207.65 & ;;
 		y)
-			play a3_quarter.wav &
-  	      		;;
+			play -n synth 0.2 tri 220 & ;;
 		7)
-			play asharp3_quarter.wav &
-  	      		;;
+			play -n synth 0.2 tri 233.08 & ;;
 		u)
-			play b3_quarter.wav &
-  	      		;;
+			play -n synth 0.2 tri 246.94 & ;;
 		i)
-			play -n synth 0.2 tri 261.63 &
-  	      		;;
+			play -n synth 0.2 tri 261.63 & ;;
+		9)
+			play -n synth 0.2 tri 277.18 & ;;
+		o)
+			play -n synth 0.2 tri 293.66 & ;;
+		0)
+			play -n synth 0.2 tri 311.13 & ;;
+		p)
+			play -n synth 0.2 tri 329.63 & ;;
+		[)
+			play -n synth 0.2 tri 349.23 & ;;
+		=)
+			play -n synth 0.2 tri 369.99 & ;;
+		])
+			play -n synth 0.2 tri 392 & ;;
 	esac
 done

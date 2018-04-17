@@ -113,7 +113,7 @@ esac
 
 # From the half notes make quarter notes
 
-sox $1h.wav $1.wav trim 0.25 0.5
+sox $1h.wav $1h.wav trim 0.25 0.5
 sox $2h.wav $2q.wav trim 0.25 0.5
 sox $3h.wav $3q.wav trim 0.25 0.5
 sox $4h.wav $4q.wav trim 0.25 0.5

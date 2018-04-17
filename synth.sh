@@ -9,11 +9,9 @@ echo "Synth ready..."
 
 while true; do
 
-# Grab single keypress from user
-	
 	read -n1 key
 	
-# Map keypress to notes C2 - C4 following the usual convention for virtual pianos
+# Map keypresses to notes following the usual convention
 	
 	case $key in
 		z) play -n synth 0.3 tri 65.41 &>/dev/null &

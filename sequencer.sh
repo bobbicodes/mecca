@@ -1,10 +1,16 @@
 #!/bin/bash
 
+# Cleanup old pattern files
+rm pat*.wav
+
+# Set pattern variable
+i=1
+
+# Process chord progression
+
 for note in "$@"
 do
-
 # Generate half-note samples
-
     case "$note" in
 	c2) sox -n c2h.wav synth 0.5 tri 65.41 fade 0 0.7 0.25 trim 0 0.5 ;;
 	cs2) sox -n cs2h.wav synth 0.5 tri 69.3 fade 0 0.7 0.25 trim 0 0.5 ;;
@@ -44,23 +50,26 @@ do
 	b4) sox -n b4h.wav synth 0.5 tri 493.88 fade 0 0.7 0.25 trim 0 0.5 ;; 
 	c5) sox -n c5h.wav synth 0.5 tri 523.25 fade 0 0.7 0.25 trim 0 0.5 ;; 
     esac
+    
     # From the half notes make quarters and eighths
     sox "$note"h.wav "$note"q.wav trim 0.25 0.5
     sox "$note"h.wav "$note"e.wav trim 0.375 0.5
+    
     # Make double-eighths
     sox "$note"e.wav "$note"e.wav "$note"de.wav splice 0.125
-    # Quarter followed by double-eighth pattern
+    # Quarter followed by double-eighth
     sox "$note"q.wav "$note"de.wav mm"$note".wav splice 0.25
-    # Make notes into bars
+    
+    # Compose notes into patterns
     sox mm"$note".wav mm"$note".wav mm"$note"-2.wav splice 0.5
-    sox mm"$note"-2.wav mm"$note"-2.wav mm"$note"-4.wav splice 1
-    sox mm"$note"-4.wav mm"$note"-4.wav mm"$note"-8.wav splice 2
+    
+    # Create pattern files
+    sox mm"$note"-2.wav mm"$note"-2.wav pat"$i".wav splice 1
+
+    # Stick them together in order
+    i=$((i+1))
+    sox $(ls pat*.wav | sort -n) song.wav
+    
 done
-# Put together into a progression
-sox mm$1-8.wav mm$2-8.wav pata.wav splice 4
-sox mm$3-8.wav mm$4-8.wav patb.wav splice 4
-sox pata.wav patb.wav songa.wav splice 8
 
-# And play what we've got
-
-play songa.wav
+play song.wav

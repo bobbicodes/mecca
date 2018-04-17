@@ -48,3 +48,10 @@ while true; do
 		]) play -n synth 0.3 tri 392 & ;;
 	esac
 done
+
+# This creates a two octave virtual piano keyboard beginning with the z-row:
+#
+#		 2 3   5 6 7   9 0   =   
+#		q w e r t y u i o p [ ]
+#		 s d   g h j   l ; '
+#		z x c v b n m , . /

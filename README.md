@@ -26,13 +26,7 @@ Install [MinGW](http://www.mingw.org/) and add it to your system PATH according 
     
     $ ./synth.sh
     
-You can jam on your keyboard in 2 full octaves:
-
-     2 3   5 6 7   9 0   =   
-    q w e r t y u i o p [ ]
-     s d   g h j   l ; '
-    z x c v b n m , . /
-
+This brings up an on-screen "virtual piano" that you can play notes on.
 
 ## Building songs
     
@@ -45,7 +39,6 @@ Where a note can be:
      cs2  ds2     fs2 gs2 as2    cs3  ds3     fs3 gs3 as3
     c2  d2  e2  f2  g2  a2  b2  c3  d3  e3  f3  g3  a3  b3  c4
     
-
 You can try the bassline to the boss stage from Megaman 2:
 
     $ ./sequencer.sh cs3 cs3 a2 a2 b2 b2 cs3 cs3
@@ -53,8 +46,6 @@ You can try the bassline to the boss stage from Megaman 2:
 Or maybe House of the Rising Sun:
 
     $ ./sequencer.sh a2 c3 d3 f3 a2 c3 e3 e3
-
-
 
 ## LICENSE
 

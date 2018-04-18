@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Hide cursor
+
+tput civis
+
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="

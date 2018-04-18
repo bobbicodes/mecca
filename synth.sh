@@ -14,7 +14,7 @@ while true; do
 # Map keypresses to notes following the usual convention
 	
 	case $key in
-		z) play -n synth 0.3 tri 65.41 &>/dev/null &
+		z) play -n synth 0.3 square 65.41 &>/dev/null &
 			echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -22,7 +22,7 @@ while true; do
 	echo " s d   g h j   l ; '"
 	echo -e "\e[7mz\e[27m x c v b n m , . /"
 		 ;;
-		s) play -n synth 0.3 tri 69.3 &>/dev/null &
+		s) play -n synth 0.3 square 69.3 &>/dev/null &
 			echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -30,7 +30,7 @@ while true; do
 	echo -e " \e[7ms\e[27m d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 	;;
-		x) play -n synth 0.3 tri 73.42 &>/dev/null &
+		x) play -n synth 0.3 square 73.42 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -38,7 +38,7 @@ echo "Synth ready..."
 	echo " s d   g h j   l ; '"
 	echo -e "z \e[7mx\e[27m c v b n m , . /"
 ;;
-		d) play -n synth 0.3 tri 77.78 &>/dev/null &
+		d) play -n synth 0.3 square 77.78 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -46,7 +46,7 @@ echo "Synth ready..."
 	echo -e " s \e[7md\e[27m   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		c) play -n synth 0.3 tri 82.41 &>/dev/null &
+		c) play -n synth 0.3 square 82.41 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -54,7 +54,7 @@ echo "Synth ready..."
 	echo " s d   g h j   l ; '"
 	echo -e "z x \e[7mc\e[27m v b n m , . /"
  ;;
-		v) play -n synth 0.3 tri 87.31 &>/dev/null &
+		v) play -n synth 0.3 square 87.31 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -62,7 +62,7 @@ echo "Synth ready..."
 	echo " s d   g h j   l ; '"
 	echo -e "z x c \e[7mv\e[27m b n m , . /"
 ;;
-		g) play -n synth 0.3 tri 92.5 &>/dev/null &
+		g) play -n synth 0.3 square 92.5 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -70,7 +70,7 @@ echo "Synth ready..."
 	echo -e " s d   \e[7mg\e[27m h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		b) play -n synth 0.3 tri 98 &>/dev/null &
+		b) play -n synth 0.3 square 98 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -78,7 +78,7 @@ echo "Synth ready..."
 	echo " s d   g h j   l ; '"
 	echo -e "z x c v \e[7mb\e[27m n m , . /"
 ;;
-		h) play -n synth 0.3 tri 103.83 &>/dev/null &
+		h) play -n synth 0.3 square 103.83 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -86,7 +86,7 @@ echo "Synth ready..."
 	echo -e " s d   g \e[7mh\e[27m j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		n) play -n synth 0.3 tri 110 &>/dev/null &
+		n) play -n synth 0.3 square 110 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -94,7 +94,7 @@ echo "Synth ready..."
 	echo " s d   g h j   l ; '"
 	echo -e "z x c v b \e[7mn\e[27m m , . /"
 ;;
-		j) play -n synth 0.3 tri 116.54 &>/dev/null &
+		j) play -n synth 0.3 square 116.54 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -102,7 +102,7 @@ echo "Synth ready..."
 	echo -e " s d   g h \e[7mj\e[27m   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		m) play -n synth 0.3 tri 123.47 &>/dev/null &
+		m) play -n synth 0.3 square 123.47 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -110,7 +110,7 @@ echo "Synth ready..."
 	echo " s d   g h j   l ; '"
 	echo -e "z x c v b n \e[7mm\e[27m , . /"
 ;;
-		,) play -n synth 0.3 tri 130.81 &>/dev/null &
+		,) play -n synth 0.3 square 130.81 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -118,7 +118,7 @@ echo "Synth ready..."
 	echo " s d   g h j   l ; '"
 	echo -e "z x c v b n m \e[7m,\e[27m . /"
 ;;
-		l) play -n synth 0.3 tri 138.59 &>/dev/null &
+		l) play -n synth 0.3 square 138.59 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -126,7 +126,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   \e[7ml\e[27m ; '"
 	echo "z x c v b n m , . /"
 ;;
-		.) play -n synth 0.3 tri 146.83 &>/dev/null &
+		.) play -n synth 0.3 square 146.83 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -134,7 +134,7 @@ echo "Synth ready..."
 	echo " s d   g h j   l ; '"
 	echo -e "z x c v b n m , \e[7m.\e[27m /"
 ;;
-		\;) play -n synth 0.3 tri 155.56 &>/dev/null &
+		\;) play -n synth 0.3 square 155.56 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -142,7 +142,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l \e[7m;\e[27m '"
 	echo "z x c v b n m , . /"
 ;;
-		/) play -n synth 0.3 tri 164.81 &>/dev/null &
+		/) play -n synth 0.3 square 164.81 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -150,7 +150,7 @@ echo "Synth ready..."
 	echo " s d   g h j   l ; '"
 	echo -e "z x c v b n m , . \e[7m/\e[27m"
 ;;
-		\') play -n synth 0.3 tri 174.61 &>/dev/null &
+		\') play -n synth 0.3 square 174.61 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -158,7 +158,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; \e[7m'\e[27m"
 	echo "z x c v b n m , . /"
 ;;
-		q) play -n synth 0.3 tri 130.81 &>/dev/null &
+		q) play -n synth 0.3 square 130.81 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -166,7 +166,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		2) play -n synth 0.3 tri 138.59 &>/dev/null &
+		2) play -n synth 0.3 square 138.59 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo -e " \e[7m2\e[27m 3   5 6 7   9 0   ="
@@ -174,7 +174,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		w) play -n synth 0.3 tri 146.83 &>/dev/null &
+		w) play -n synth 0.3 square 146.83 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -182,7 +182,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		3) play -n synth 0.3 tri 155.56 &>/dev/null &
+		3) play -n synth 0.3 square 155.56 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo -e " 2 \e[7m3\e[27m   5 6 7   9 0   ="
@@ -190,7 +190,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		e) play -n synth 0.3 tri 164.81 &>/dev/null &
+		e) play -n synth 0.3 square 164.81 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -198,7 +198,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		r) play -n synth 0.3 tri 174.61 &>/dev/null &
+		r) play -n synth 0.3 square 174.61 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -206,7 +206,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		5) play -n synth 0.3 tri 185 &>/dev/null &
+		5) play -n synth 0.3 square 185 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo -e " 2 3   \e[7m5\e[27m 6 7   9 0   ="
@@ -214,7 +214,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		t) play -n synth 0.3 tri 196 &>/dev/null &
+		t) play -n synth 0.3 square 196 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -222,7 +222,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		6) play -n synth 0.3 tri 207.65 &>/dev/null &
+		6) play -n synth 0.3 square 207.65 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo -e " 2 3   5 \e[7m6\e[27m 7   9 0   ="
@@ -230,7 +230,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		y) play -n synth 0.3 tri 220 &>/dev/null &
+		y) play -n synth 0.3 square 220 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -238,7 +238,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		7) play -n synth 0.3 tri 233.08 &>/dev/null &
+		7) play -n synth 0.3 square 233.08 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo -e " 2 3   5 6 \e[7m7\e[27m   9 0   ="
@@ -246,7 +246,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		u) play -n synth 0.3 tri 246.94 &>/dev/null &
+		u) play -n synth 0.3 square 246.94 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -254,7 +254,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		i) play -n synth 0.3 tri 261.63 &>/dev/null &
+		i) play -n synth 0.3 square 261.63 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -262,7 +262,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		9) play -n synth 0.3 tri 277.18 &>/dev/null &
+		9) play -n synth 0.3 square 277.18 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo -e " 2 3   5 6 7   \e[7m9\e[27m 0   ="
@@ -270,7 +270,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		o) play -n synth 0.3 tri 293.66 &>/dev/null &
+		o) play -n synth 0.3 square 293.66 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -278,7 +278,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		0) play -n synth 0.3 tri 311.13 &>/dev/null &
+		0) play -n synth 0.3 square 311.13 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo -e " 2 3   5 6 7   9 \e[7m0\e[27m   ="
@@ -286,7 +286,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		p) play -n synth 0.3 tri 329.63 &>/dev/null &
+		p) play -n synth 0.3 square 329.63 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -294,7 +294,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		[) play -n synth 0.3 tri 349.23 &>/dev/null &
+		[) play -n synth 0.3 square 349.23 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="
@@ -302,7 +302,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		=) play -n synth 0.3 tri 369.99 &>/dev/null &
+		=) play -n synth 0.3 square 369.99 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo -e " 2 3   5 6 7   9 0   \e[7m=\e[27m"
@@ -310,7 +310,7 @@ echo "Synth ready..."
 	echo -e " s d   g h j   l ; '"
 	echo "z x c v b n m , . /"
 ;;
-		]) play -n synth 0.3 tri 392 &>/dev/null &
+		]) play -n synth 0.3 square 392 &>/dev/null &
 echo "Synth ready..."
 	echo ""
 	echo " 2 3   5 6 7   9 0   ="

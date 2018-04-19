@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Make hi-hat
 
 sox -n hh.wav synth 0.01 noise fade 0 0.25 0.25

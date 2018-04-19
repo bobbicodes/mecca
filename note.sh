@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Makes a half-note
-
 case "$1" in
 	c2) note=65.41 ;;
 	cs2) note=69.3 ;;
@@ -42,5 +40,6 @@ case "$1" in
 	c5) note=523.25 ;; 
 esac
 
-sox -n "$1"h.wav  synth 0.5 tri $note fade 0 0.7 0.25 trim 0 0.5
+sox -n "$1".wav synth 0.5 tri $note fade 0 0.7 0.25 trim 0 0.5
+sox "$1".wav -b 8 "$1"h.wav rate 8k
 sox "$1"h.wav "$1"q.wav trim 0.25 0.5

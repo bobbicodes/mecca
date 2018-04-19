@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sox -n -c 1 -r 8k -b 8 song.wav trim 0.0 0.0
+
 while true; do
 
 	read -n1 key
@@ -50,7 +52,6 @@ while true; do
 	else
 		./note.sh $note
 		sox song.wav "$note"q.wav song2.wav
-		rm song.wav
 		mv song2.wav song.wav
 		play "$note"q.wav &>/dev/null &
 	fi

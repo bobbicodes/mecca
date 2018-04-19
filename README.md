@@ -11,7 +11,7 @@ Written completely in bash shell using simple scripts to generate waveforms and 
 
 # Installation
 
-    $ chmod +x synth.sh sequencer.sh
+    $ chmod +x *.sh
     
 MECCA uses [sox](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. Your distro might already have it.
 If not:
@@ -46,6 +46,21 @@ You can try the bassline to the boss stage from Megaman 2:
 Or maybe House of the Rising Sun:
 
     $ ./sequencer.sh a2 c3 d3 f3 a2 c3 e3 e3
+    
+### Drums
+
+The hihat/snare synth is now complete. To try it out:
+
+    $ ./drums.sh
+    $ play drums4.wav
+    
+### Putting them together
+
+    $ sox -m [track1] [track2] . . . [out.wav]
+    
+#### To hear the Megaman example:
+
+    $ ./megaman.sh
 
 ## LICENSE
 

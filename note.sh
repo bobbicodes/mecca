@@ -43,4 +43,4 @@ case "$1" in
 esac
 
 sox -n "$1"h.wav  synth 0.5 tri $note fade 0 0.7 0.25 trim 0 0.5
-
+sox "$1"h.wav "$1"q.wav trim 0.25 0.5

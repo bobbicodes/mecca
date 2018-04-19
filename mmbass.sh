@@ -53,7 +53,7 @@ do
     
     # From the half notes make quarters and eighths
     sox "$note"h.wav "$note"q.wav trim 0.25 0.5
-    sox "$note"h.wav "$note"e.wav trim 0.3751111 0.5
+    sox "$note"h.wav "$note"e.wav trim 0.375 0.5
     
     # Make double-eighths
     sox "$note"e.wav "$note"e.wav "$note"de.wav

@@ -55,6 +55,7 @@ if [ "$key" = '' ]; then
 		echo "3 - add quarter-notes"
 		echo "4 - add eighth-notes"
 		echo "5 - play with beat"
+		echo "6 - record lead"
 		echo -n " > "
 
 read -n1 character
@@ -72,20 +73,24 @@ elif [ "$character" = "4" ]; then
 	echo "Inserting eighth-notes..."
 elif [ "$character" = "5" ]; then
 	./seq.sh
+elif [ "$character" = "6" ]; then
+    mv song.wav bass.wav
+	sox -n -c 1 song.wav trim 0.0 0.0	
+	synth=s
 else
     echo "ERROR..."
 fi
 	else
-		
+
 if [ "$note" = "r" ]; then
 echo "rest inserted"    	
 else
-		./note.sh $note
+		./note.sh $note $synth
 fi
 		
-		sox song.wav "$note""$len".wav song2.wav
+		sox song.wav "$note""$synth""$len".wav song2.wav
 		mv song2.wav song.wav
-		play "$note""$len".wav &>/dev/null &
+		play "$note""$synth""$len".wav &>/dev/null &
 	fi
 
 done

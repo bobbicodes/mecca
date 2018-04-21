@@ -40,7 +40,14 @@ case "$1" in
 	c5) note=523.25 ;; 
 esac
 
-sox -n "$1".wav synth 0.5 tri $note fade 0 0.7 0.25 trim 0 0.5
-sox "$1".wav "$1"h.wav
-sox "$1"h.wav "$1"q.wav trim 0.25 0.5
-sox "$1"h.wav "$1"e.wav trim 0.375 0.5
+if [ "$2" = "s" ]; then
+	sox -n "$1"s.wav synth 0.5 square $note fade 0 0.7 0.25 trim 0 0.5 gain -10
+	sox "$1"s.wav "$1"sh.wav
+	sox "$1"sh.wav "$1"sq.wav trim 0.25 0.5
+	sox "$1"sh.wav "$1"se.wav trim 0.375 0.5
+else
+	sox -n "$1".wav synth 0.5 tri $note fade 0 0.7 0.25 trim 0 0.5
+	sox "$1".wav "$1"h.wav
+	sox "$1"h.wav "$1"q.wav trim 0.25 0.5
+	sox "$1"h.wav "$1"e.wav trim 0.375 0.5
+fi

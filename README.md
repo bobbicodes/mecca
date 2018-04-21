@@ -1,6 +1,6 @@
 # MECCA-platform
-The Music Education, Composition, Creation Application.
 
+The Music Education, Composition, Creation Application.
 You are the student.
 You are the composer.
 You are the creator.
@@ -9,7 +9,6 @@ Seeking comprehensive integration of learning, writing and performance. When the
 
 Written completely in bash using simple scripts to generate waveforms and automagically stitch them together into songs.
 When I started this I had no idea what I was doing, but it seems that it is now capable of emitting actual music.
-And if you take a look at how ridiculously simple the code is, you might just laugh your ass off.
 
 # Installation
 

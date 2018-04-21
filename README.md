@@ -33,8 +33,8 @@ If not:
     $ ./stepseq.sh
     
 You will see a "virtual piano" on the screen indicating which keys to press.
-You begin in bass mode. Press the spacebar to select note value and synth type.
-A semicolon (;) enters a rest. Use option 1 at any time to hear what you've got.
+You begin in bass mode. Use the menu to change note length.
+A semicolon (;) enters a rest. Use option 1 at any time to play back what you've got.
 When satisfied with your bassline, pick option 6 to save and move on to the lead.
 Then do number 5 to hear it all together with drums!
 

@@ -8,6 +8,7 @@ You are the creator.
 Seeking comprehensive integration of learning, writing and performance. When these are fully realized as part of a potentially greater activity, life will finally be [a dream](https://www.youtube.com/watch?v=0TgrorCZg80). To subtly encourage musical idioms without limiting expressivity, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
 
 Written completely in bash using simple scripts to generate waveforms and automagically stitch them together into songs.
+When I started this I had no idea what I was doing, but it seems that it is now capable of emitting actual music.
 
 # Installation
 

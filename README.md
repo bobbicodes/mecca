@@ -10,6 +10,11 @@ Seeking comprehensive integration of learning, writing and performance. When the
 Written completely in bash shell using simple scripts to generate waveforms and automagically stitch them together into songs.
 
 # Installation
+
+## Windows:
+
+Install [MinGW](http://www.mingw.org/) and add it to your system PATH according to [these instructions](http://www.computerhope.com/issues/ch000549.htm). Continue with the instructions below as with Mac/Linux:
+
 ## Mac/Linux:
 
 Download the above scripts and set them to be executable:
@@ -22,10 +27,6 @@ MECCA uses [sox](http://sox.sourceforge.net/), the Swiss-Army Knife of audio man
 If not:
 
     $ sudo apt-get install sox
-
-## Windows:
-
-Install [MinGW](http://www.mingw.org/) and add it to your system PATH according to [these instructions](http://www.computerhope.com/issues/ch000549.htm).
 
 # Usage
     

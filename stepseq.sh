@@ -1,7 +1,20 @@
 #!/bin/bash
 
-# Create new song file
-sox -n -c 1 song1.wav trim 0.0 0.0
+echo "Name your song:"
+echo -n "> "
+read song
+
+if [ -w "$song"1.wav ]; then
+    echo "Song exists. Overwrite? y/n"
+	read ans
+	case $ans in
+		[yY]) rm "$song"*.wav ;;
+		*) exit 1 ;;
+	esac
+fi
+
+# Create new song file with given name
+sox -n -c 1 "$song"1.wav trim 0.0 0.0
 
 # Produce silent notes, or "rests" as the music-type-people like to call them
 sox -n -c 1 rh.wav trim 0.0 0.5
@@ -42,7 +55,6 @@ while true; do
 	esac
 
 	# Spacebar (or enter) activates menu options
-
 	if [ "$key" = '' ]; then
 		echo "1 - play"
 		echo "2 - add half-notes"
@@ -54,7 +66,7 @@ while true; do
 		echo -n "> "
 		read -n1 character
 		if [ "$character" = "1" ]; then
-			play song"$i".wav
+			play "$song""$i".wav
 		elif [ "$character" = "2" ]; then
     			len=h
 			echo ""
@@ -68,17 +80,19 @@ while true; do
 			echo ""
 			echo "Inserting eighth-notes..."
 		elif [ "$character" = "5" ]; then
-			cp song"$i".wav song.wav
-			./seq.sh
+			./drums.sh
+			sox -m drums16.wav bass.wav "$song""$i".wav "$song"-mix.wav
+			play "$song"-mix.wav
 		elif [ "$character" = "6" ]; then
-    		mv song"$i".wav bass.wav
-			sox -n -c 1 song"$i".wav trim 0.0 0.0	
+    		mv "$song""$i".wav bass.wav
+			sox -n -c 1 "$song""$i".wav trim 0.0 0.0	
 			synth=s
 			echo ""
 			echo "Bassline saved! Recording lead..."
 		elif [ "$character" = "7" ]; then
 			i=$((i-1))
-			echo "Undo successful."
+			echo "Undo successful!"
+			echo ""
 		else
     			echo "Invalid selection..."
 		fi
@@ -93,7 +107,7 @@ while true; do
 		# Play note and append to song
 		
 		
-		sox song"$i".wav "$note""$synth""$len".wav song"$((i+1))".wav
+		sox "$song""$i".wav "$note""$synth""$len".wav "$song""$((i+1))".wav
 		i=$((i+1))
 		play "$note""$synth""$len".wav &>/dev/null &
 	fi

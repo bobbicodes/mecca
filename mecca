@@ -13,17 +13,8 @@ if [ -w "$song"1.wav ]; then
 	esac
 fi
 
-# Create new song file with given name
+# Create new song file with chosen name
 sox -n -c 1 "$song"1.wav trim 0.0 0.0
-
-# Produce silent notes, or "rests" as the music-type-people like to call them
-sox -n -c 1 rh.wav trim 0.0 0.5
-sox -n -c 1 rq.wav trim 0.0 0.25
-sox -n -c 1 re.wav trim 0.0 0.125
-sox -n -c 1 rs.wav trim 0.0 0.5
-sox -n -c 1 rsq.wav trim 0.0 0.25
-sox -n -c 1 rse.wav trim 0.0 0.125
-sox -n -c 1 rsh.wav trim 0.0 0.5
 
 # Set song undo counter
 i=1
@@ -85,7 +76,17 @@ while true; do
 			echo ""
 			echo "Inserting eighth-notes..."
 		elif [ "$character" = "5" ]; then
-			./drums.sh
+			# Make hi-hat
+			sox -n h.wav synth 0.01 noise fade 0 0.25 0.25
+			sox h.wav hh.wav
+			sox hh.wav hhs.wav trim 0 0.125
+			# Make snare
+			sox -n s.wav synth 0.25 noise fade 0 0.25 0.25
+			sox s.wav sn.wav
+			# Put together into pattern
+			sox hh.wav hhs.wav hhs.wav sn.wav hhs.wav hhs.wav drums.wav
+			sox drums.wav drums.wav drums.wav drums.wav drums4.wav
+			sox drums4.wav drums4.wav drums4.wav drums4.wav drums16.wav
 			sox -m drums16.wav "$song"-bass.wav "$song""$i".wav "$song"-mix.wav
 			play "$song"-mix.wav
 		elif [ "$character" = "6" ]; then
@@ -114,7 +115,8 @@ while true; do
 			ds2) freq=77.78 ;; e2) freq=82.41 ;; f2) freq=87.31 ;;
 			fs2) freq=92.5 ;; g2) freq=98 ;; gs2) freq=103.83 ;;
 			a2) freq=110 ;; as2) freq=116.54 ;; b2) freq=123.47 ;;
-			c3) freq=130.81 ;; cs3) freq=138.59 ;; d3) freq=146.83 ;; 				ds3) freq=155.56 ;; e3) freq=164.81 ;; f3) freq=174.61 ;;
+			c3) freq=130.81 ;; cs3) freq=138.59 ;; d3) freq=146.83 ;;
+			ds3) freq=155.56 ;; e3) freq=164.81 ;; f3) freq=174.61 ;;
 			fs3) freq=185 ;; g3) freq=196 ;; gs3) freq=207.65 ;;
 			a3) freq=220 ;; as3) freq=233.08 ;; b3) freq=246.94 ;;
 			c4) freq=261.63 ;; cs4) freq=277.18 ;; d4) freq=293.66 ;;
@@ -125,7 +127,6 @@ while true; do
 		esac
 
 	# Produce note samples
-
 	if [ "$synth" = "s" ]; then
 		sox -n "$note"s.wav synth 0.5 square $freq fade 0 0.7 0.25 trim 0 0.5 gain -10
 		sox "$note"s.wav "$note"sh.wav
@@ -137,7 +138,16 @@ while true; do
 		sox "$note"h.wav "$note"q.wav trim 0.25 0.5
 		sox "$note"h.wav "$note"e.wav trim 0.375 0.5
 	fi
-		
+	
+	# Produce silent notes (rests)
+	sox -n -c 1 rh.wav trim 0.0 0.5
+	sox -n -c 1 rq.wav trim 0.0 0.25
+	sox -n -c 1 re.wav trim 0.0 0.125
+	sox -n -c 1 rs.wav trim 0.0 0.5
+	sox -n -c 1 rsq.wav trim 0.0 0.25
+	sox -n -c 1 rse.wav trim 0.0 0.125
+	sox -n -c 1 rsh.wav trim 0.0 0.5
+	
 	# Play note and append to song
 				
 	sox "$song""$i".wav "$note""$synth""$len".wav "$song""$((i+1))".wav

@@ -32,12 +32,17 @@ i=1
 while true; do
 
 	# Display "virtual keyboard" and prompt
-	echo " 2 3   5 6 7   9 0   ="
-	echo "q w e r t y u i o p [ ]"
-	echo " s d   g h j   l ; "
-	echo "z x c v b n m , . /"
+	echo "  -------------------------
+	echo "  | 2 | 3 |   | 5 | 6 | 7 |"
+	echo "  -------------------------"
+	echo "| q | w | e | r | t | y | u | i |"
+	echo "---------------------------------"
+	echo "  | s | d |    | g | h | j |"
+	echo "  --------------------------"
+	echo "| z | x | c | v | b | n | m | , |"
+	echo "---------------------------------"
 	echo ""
-	echo "Synth ready. Press <space> for options."
+	echo "Synth ready. Press <spacebar> for options."
 
 	# Grab single keypress from user
 	read -n1 key

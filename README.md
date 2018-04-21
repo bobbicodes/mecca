@@ -15,11 +15,11 @@ Install [MinGW](http://www.mingw.org/) and add it to your system PATH according 
 
 ## Mac/Linux:
 
-Download the above scripts and set them to be executable:
+Download the mecca script and set it to be executable:
 
     $ git clone https://github.com/porkostomus/mecca.git
     $ cd mecca
-    $ chmod +x *
+    $ chmod +x mecca
     
 MECCA uses [SoX](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. It began life in 1991 as a command-line tool for converting audio formats, and was tortured throughout its adolesence and made to do all sorts of things to sounds like bind them, cut them, and apply effects. Most fascinatingly, somewhere along its development it gained the ability to actually synthesize its own waveforms, a most distinguished craft which has seduced us into bringing this long history of abuse to its thrilling climax, and introduce... SoX the Sequencer.
 

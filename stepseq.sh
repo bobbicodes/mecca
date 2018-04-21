@@ -1,14 +1,24 @@
 #!/bin/bash
 
+# Create new song file
+
 sox -n -c 1 song.wav trim 0.0 0.0
+
+# Produce silent notes, or "rests" as the music-type-people call them
+
 sox -n -c 1 rh.wav trim 0.0 0.5
 sox -n -c 1 rq.wav trim 0.0 0.25
 sox -n -c 1 re.wav trim 0.0 0.125
 sox -n -c 1 rs.wav trim 0.0 0.5
 sox -n -c 1 rsq.wav trim 0.0 0.25
 sox -n -c 1 rse.wav trim 0.0 0.125
-sox -n -c 1 rsh.wav trim 0.0 0.5	
+sox -n -c 1 rsh.wav trim 0.0 0.5
+
+# Start main event loop
+
 while true; do
+
+# Display "virtual keyboard" and prompt
 
 echo " 2 3   5 6 7   9 0   ="
 echo "q w e r t y u i o p [ ]"
@@ -18,6 +28,8 @@ echo ""
 echo "Synth ready. Press <space> for options."
 
 	read -n1 key
+
+# Map keys to notes
 
 	case $key in
 		z) note=c2 ;;
@@ -58,6 +70,8 @@ echo "Synth ready. Press <space> for options."
 		=) note=fs4 ;;
 		]) note=g4 ;;
 	esac
+
+# Space-menu options
 
 if [ "$key" = '' ]; then
 		echo "1 - play"

@@ -4,8 +4,18 @@ sox -n -c 1 song.wav trim 0.0 0.0
 sox -n -c 1 rh.wav trim 0.0 0.5
 sox -n -c 1 rq.wav trim 0.0 0.25
 sox -n -c 1 re.wav trim 0.0 0.125
-
+sox -n -c 1 rs.wav trim 0.0 0.5
+sox -n -c 1 rsq.wav trim 0.0 0.25
+sox -n -c 1 rse.wav trim 0.0 0.125
+sox -n -c 1 rsh.wav trim 0.0 0.5	
 while true; do
+
+echo " 2 3   5 6 7   9 0   ="
+echo "q w e r t y u i o p [ ]"
+echo " s d   g h j   l ; "
+echo "z x c v b n m , . /"
+echo ""
+echo "Synth ready. Press <space> for options."
 
 	read -n1 key
 
@@ -56,7 +66,7 @@ if [ "$key" = '' ]; then
 		echo "4 - add eighth-notes"
 		echo "5 - play with beat"
 		echo "6 - record lead"
-		echo -n " > "
+		echo -n "> "
 
 read -n1 character
 
@@ -64,12 +74,15 @@ if [ "$character" = "1" ]; then
     play song.wav
 elif [ "$character" = "2" ]; then
     len=h
+	echo ""
 	echo "Inserting half-notes..."
 elif [ "$character" = "3" ]; then
     len=q
+	echo ""
 	echo "Inserting quarter-notes..."
 elif [ "$character" = "4" ]; then
 	len=e
+	echo ""
 	echo "Inserting eighth-notes..."
 elif [ "$character" = "5" ]; then
 	./seq.sh
@@ -77,8 +90,10 @@ elif [ "$character" = "6" ]; then
     mv song.wav bass.wav
 	sox -n -c 1 song.wav trim 0.0 0.0	
 	synth=s
+	echo ""
+	echo "Bass saved. Recording lead..."
 else
-    echo "ERROR..."
+    echo "Invalid selection..."
 fi
 	else
 

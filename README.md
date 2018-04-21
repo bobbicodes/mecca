@@ -22,7 +22,7 @@ Download the above scripts and set them to be executable:
 
     $ git clone https://github.com/porkostomus/mecca.git
     $ cd mecca
-    $ chmod +x *.sh
+    $ chmod +x *
     
 MECCA uses [sox](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. Your distro might already have it.
 If not:
@@ -31,7 +31,7 @@ If not:
 
 # Usage
     
-    $ ./seq.sh
+    $ ./mecca
     
 You will see a "virtual piano" on the screen indicating which keys to press.
 You begin in bass mode. Use the menu to change note length.

@@ -32,7 +32,7 @@ If not:
 
 # Usage
     
-    $ ./stepseq.sh
+    $ ./seq.sh
     
 You will see a "virtual piano" on the screen indicating which keys to press.
 You begin in bass mode. Use the menu to change note length.

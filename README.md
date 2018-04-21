@@ -7,13 +7,13 @@ You are the creator.
 
 Seeking comprehensive integration of learning, writing and performance. When these are fully realized as part of a potentially greater activity, life will finally be [a dream](https://www.youtube.com/watch?v=0TgrorCZg80). To subtly encourage musical idioms without limiting expressivity, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
 
-Written completely in bash shell using simple scripts to generate waveforms and automagically stitch them together into songs.
+Written completely in bash using simple scripts to generate waveforms and automagically stitch them together into songs.
 
 # Installation
 
 ## Windows:
 
-Install [MinGW](http://www.mingw.org/) and add it to your system PATH according to [these instructions](http://www.computerhope.com/issues/ch000549.htm). Continue with the instructions below as with Mac/Linux:
+Install [MinGW](http://www.mingw.org/) and add it to your system PATH according to [these instructions](http://www.computerhope.com/issues/ch000549.htm). You can now start your bash shell and continue as with Mac/Linux.
 
 ## Mac/Linux:
 

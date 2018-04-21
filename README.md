@@ -37,6 +37,7 @@ You begin in bass mode. Use the menu to change note length.
 A semicolon (;) enters a rest. Use option 1 at any time to play back what you've got.
 When satisfied with your bassline, pick option 6 to save and move on to the lead.
 Then do number 5 to hear it all together with drums!
+Example tracks coming soon...
 
 ## To just jam on the live synth:
 

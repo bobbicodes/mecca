@@ -5,7 +5,7 @@ You are the student.
 You are the composer.
 You are the creator.
 
-Seeking comprehensive integration of learning, writing and performance. When these are fully realized as part of a potentially greater activity, life will at once be [but a dream](https://www.youtube.com/watch?v=0TgrorCZg80). To subtly encourage musical idioms without limiting expressivity, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
+Seeking comprehensive integration of learning, writing and performance. When these are fully realized as part of a potentially greater activity, life will finally be [a dream](https://www.youtube.com/watch?v=0TgrorCZg80). To subtly encourage musical idioms without limiting expressivity, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
 
 Written completely in bash shell using simple scripts to generate waveforms and automagically stitch them together into songs.
 
@@ -24,43 +24,11 @@ Install [MinGW](http://www.mingw.org/) and add it to your system PATH according 
 
 # Usage
     
-    $ ./synth.sh
+    $ ./stepseq.sh
     
-This brings up an on-screen "virtual piano" that you can play notes on.
-
-## Building songs
-    
-Define a chord progression for the bassline using the following syntax:
-
-    $ ./sequencer.sh [note1] [note2] [note3] [note4] . . .
-    
-Where a note can be:
-
-     cs2  ds2     fs2 gs2 as2    cs3  ds3     fs3 gs3 as3
-    c2  d2  e2  f2  g2  a2  b2  c3  d3  e3  f3  g3  a3  b3  c4
-    
-You can try the bassline to the boss stage from Megaman 2:
-
-    $ ./sequencer.sh cs3 cs3 a2 a2 b2 b2 cs3 cs3
-    
-Or maybe House of the Rising Sun:
-
-    $ ./sequencer.sh a2 c3 d3 f3 a2 c3 e3 e3
-    
-### Drums
-
-The hihat/snare synth is now complete. To try it out:
-
-    $ ./drums.sh
-    $ play drums4.wav
-    
-### Putting them together
-
-    $ sox -m [track1] [track2] . . . [out.wav]
-    
-#### To hear the Megaman example:
-
-    $ ./megaman.sh
+You will see a "virtual piano" on the screen indicating which keys to press.
+You begin in bass mode. Press the spacebar to select note value and synth type.
+A semicolon (;) enters a rest.
 
 ## LICENSE
 

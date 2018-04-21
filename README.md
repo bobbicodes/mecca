@@ -24,8 +24,9 @@ Download the above scripts and set them to be executable:
     $ cd mecca
     $ chmod +x *
     
-MECCA uses [sox](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. Your distro might already have it.
-If not:
+MECCA uses [SoX](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. It began life in 1991 as a command-line tool for converting audio formats, and was tortured throughout its adolesence and made to synthesize its own waveforms, mix them, edit them, and apply effects. So now we bring the long history of abuse to its thrilling climax, and introduce... SoX the Sequencer.
+
+Your distro might already have it. Otherwise do something like:
 
     $ sudo apt-get install sox
 

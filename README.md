@@ -7,9 +7,6 @@ You are the creator.
 
 Seeking comprehensive integration of learning, writing and performance. When these are fully realized as part of a potentially greater activity, life will finally be [a dream](https://www.youtube.com/watch?v=0TgrorCZg80). To subtly encourage musical idioms without limiting expressivity, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
 
-Written completely in bash using simple scripts to generate waveforms and automagically stitch them together into songs.
-When I started this I had no idea what I was doing, but it seems that it is now capable of emitting actual music.
-
 # Installation
 
 ## Windows:
@@ -24,7 +21,7 @@ Download the above scripts and set them to be executable:
     $ cd mecca
     $ chmod +x *
     
-MECCA uses [SoX](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. It began life in 1991 as a command-line tool for converting audio formats, and was tortured throughout its adolesence and made to synthesize its own waveforms, mix them, edit them, and apply effects. So now we bring the long history of abuse to its thrilling climax, and introduce... SoX the Sequencer.
+MECCA uses [SoX](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. It began life in 1991 as a command-line tool for converting audio formats, and was tortured throughout its adolesence and made to do all sorts of things to sounds like bind them, cut them, apply effects. Most fascinating is its ability to synthesize its own waveforms, which has seduced us into bringing this long history of abuse to its thrilling climax, and introduce... SoX the Sequencer.
 
 Your distro might already have it. Otherwise do something like:
 
@@ -39,6 +36,16 @@ You begin in bass mode. Use the menu to change note length.
 A semicolon (;) enters a rest. Use option 1 at any time to play back what you've got.
 When satisfied with your bassline, pick option 6 to save and move on to the lead.
 Then do number 5 to hear it all together with a beat!
+
+# TODO
+
+Um... can I get some triplets?
+Can I get a different octave?
+The spacebar-menu thing is cool, but need to make it faster to swith note values.
+Right now it's fast but want to map them to some dedicated keys.
+Any keys for now, because the final version will be written in C anyway, with ncurses for mouse support.
+How about we make it represent the song as DATA?
+
 
 ## LICENSE
 

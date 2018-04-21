@@ -3,13 +3,13 @@
 # Make hi-hat
 
 sox -n h.wav synth 0.01 noise fade 0 0.25 0.25
-sox h.wav -b 8 hh.wav rate 8k
+sox h.wav hh.wav
 sox hh.wav hhs.wav trim 0 0.125
 
 # Make snare
 
 sox -n s.wav synth 0.25 noise fade 0 0.25 0.25
-sox s.wav -b 8 sn.wav rate 8k
+sox s.wav sn.wav
 
 # Put together into pattern
 

@@ -52,7 +52,7 @@ do
     esac
     
     # From the half notes make quarters and eighths
- 	sox "$note".wav -b 8 "$note"h.wav rate 8k   
+ 	sox "$note".wav "$note"h.wav 
 	sox "$note"h.wav "$note"q.wav trim 0.25 0.5
     sox "$note"h.wav "$note"e.wav trim 0.375 0.5
     

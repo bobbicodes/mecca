@@ -133,7 +133,7 @@ while true; do
 		sox "$note"sh.wav "$note"sq.wav trim 0.25 0.5
 		sox "$note"sh.wav "$note"se.wav trim 0.375 0.5
 	else
-		sox -n "$note".wav synth 0.5 tri $note fade 0 0.7 0.25 trim 0 0.5
+		sox -n "$note".wav synth 0.5 tri $freq fade 0 0.7 0.25 trim 0 0.5
 		sox "$note".wav "$note"h.wav
 		sox "$note"h.wav "$note"q.wav trim 0.25 0.5
 		sox "$note"h.wav "$note"e.wav trim 0.375 0.5

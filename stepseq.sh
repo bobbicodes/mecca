@@ -86,6 +86,7 @@ while true; do
 			echo "Inserting eighth-notes..."
 		elif [ "$character" = "5" ]; then
 			./drums.sh
+			sox -n -c 1 "$song"-bass.wav trim 0.0 0.0
 			sox -m drums16.wav "$song"-bass.wav "$song""$i".wav "$song"-mix.wav
 			play "$song"-mix.wav
 		elif [ "$character" = "6" ]; then

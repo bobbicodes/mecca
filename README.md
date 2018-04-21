@@ -10,7 +10,12 @@ Seeking comprehensive integration of learning, writing and performance. When the
 Written completely in bash shell using simple scripts to generate waveforms and automagically stitch them together into songs.
 
 # Installation
+## Mac/Linux:
 
+Download the above scripts and set them to be executable:
+
+    $ git clone https://github.com/porkostomus/mecca.git
+    $ cd mecca
     $ chmod +x *.sh
     
 MECCA uses [sox](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. Your distro might already have it.
@@ -29,6 +34,10 @@ Install [MinGW](http://www.mingw.org/) and add it to your system PATH according 
 You will see a "virtual piano" on the screen indicating which keys to press.
 You begin in bass mode. Press the spacebar to select note value and synth type.
 A semicolon (;) enters a rest.
+
+## To just jam on the live synth:
+
+    $./synth.sh
 
 ## LICENSE
 

@@ -50,10 +50,11 @@ while true; do
 		echo "4 - add eighth-notes"
 		echo "5 - play with beat"
 		echo "6 - record lead"
+		echo "7 - undo last note"
 		echo -n "> "
 		read -n1 character
 		if [ "$character" = "1" ]; then
-			play song"$1".wav
+			play song"$i".wav
 		elif [ "$character" = "2" ]; then
     			len=h
 			echo ""
@@ -67,13 +68,17 @@ while true; do
 			echo ""
 			echo "Inserting eighth-notes..."
 		elif [ "$character" = "5" ]; then
+			cp song"$i".wav song.wav
 			./seq.sh
 		elif [ "$character" = "6" ]; then
-    			mv song"$i".wav bass.wav
+    		mv song"$i".wav bass.wav
 			sox -n -c 1 song"$i".wav trim 0.0 0.0	
 			synth=s
 			echo ""
 			echo "Bassline saved! Recording lead..."
+		elif [ "$character" = "7" ]; then
+			i=$((i-1))
+			echo "Undo successful."
 		else
     			echo "Invalid selection..."
 		fi

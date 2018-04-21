@@ -32,13 +32,13 @@ i=1
 while true; do
 
 	# Display "virtual keyboard" and prompt
-	echo "  -------------------------
-	echo "  | 2 | 3 |   | 5 | 6 | 7 |"
 	echo "  -------------------------"
+	echo "  | 2 | 3 |   | 5 | 6 | 7 |"
+	echo "---------------------------------"
 	echo "| q | w | e | r | t | y | u | i |"
 	echo "---------------------------------"
 	echo "  | s | d |    | g | h | j |"
-	echo "  --------------------------"
+	echo "---------------------------------"
 	echo "| z | x | c | v | b | n | m | , |"
 	echo "---------------------------------"
 	echo ""
@@ -86,10 +86,10 @@ while true; do
 			echo "Inserting eighth-notes..."
 		elif [ "$character" = "5" ]; then
 			./drums.sh
-			sox -m drums16.wav bass.wav "$song""$i".wav "$song"-mix.wav
+			sox -m drums16.wav "$song"-bass.wav "$song""$i".wav "$song"-mix.wav
 			play "$song"-mix.wav
 		elif [ "$character" = "6" ]; then
-    		mv "$song""$i".wav bass.wav
+    		mv "$song""$i".wav "$song"-bass.wav
 			sox -n -c 1 "$song""$i".wav trim 0.0 0.0	
 			synth=s
 			echo ""

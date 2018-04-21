@@ -28,7 +28,7 @@ sox -n -c 1 rsh.wav trim 0.0 0.5
 # Set song undo counter
 i=1
 
-# Start main event loop
+# Start main song loop
 while true; do
 
 	# Display "virtual keyboard" and prompt
@@ -43,7 +43,7 @@ while true; do
 	echo "---------------------------------"
 	echo ""
 	echo "Synth ready. Press <spacebar> for options."
-
+	echo -n "> "
 	# Grab single keypress from user
 	read -n1 key
 
@@ -86,11 +86,11 @@ while true; do
 			echo "Inserting eighth-notes..."
 		elif [ "$character" = "5" ]; then
 			./drums.sh
-			sox -n -c 1 "$song"-bass.wav trim 0.0 0.0
 			sox -m drums16.wav "$song"-bass.wav "$song""$i".wav "$song"-mix.wav
 			play "$song"-mix.wav
 		elif [ "$character" = "6" ]; then
-    			mv "$song""$i".wav "$song"-bass.wav	
+    			cp "$song""$i".wav "$song"-bass.wav
+			sox -n -c 1 "$song""$i".wav trim 0.0 0.0
 			synth=s
 			echo ""
 			echo "Bassline saved! Recording lead..."
@@ -110,8 +110,7 @@ while true; do
 		fi
 		
 		# Play note and append to song
-		
-		
+				
 		sox "$song""$i".wav "$note""$synth""$len".wav "$song""$((i+1))".wav
 		i=$((i+1))
 		play "$note""$synth""$len".wav &>/dev/null &

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Create new song file
-sox -n -c 1 song.wav trim 0.0 0.0
+sox -n -c 1 song1.wav trim 0.0 0.0
 
 # Produce silent notes, or "rests" as the music-type-people like to call them
 sox -n -c 1 rh.wav trim 0.0 0.5
@@ -11,6 +11,9 @@ sox -n -c 1 rs.wav trim 0.0 0.5
 sox -n -c 1 rsq.wav trim 0.0 0.25
 sox -n -c 1 rse.wav trim 0.0 0.125
 sox -n -c 1 rsh.wav trim 0.0 0.5
+
+# Set song undo counter
+i=1
 
 # Start main event loop
 while true; do
@@ -50,7 +53,7 @@ while true; do
 		echo -n "> "
 		read -n1 character
 		if [ "$character" = "1" ]; then
-			play song.wav
+			play song"$1".wav
 		elif [ "$character" = "2" ]; then
     			len=h
 			echo ""
@@ -66,8 +69,8 @@ while true; do
 		elif [ "$character" = "5" ]; then
 			./seq.sh
 		elif [ "$character" = "6" ]; then
-    			mv song.wav bass.wav
-			sox -n -c 1 song.wav trim 0.0 0.0	
+    			mv song"$i".wav bass.wav
+			sox -n -c 1 song"$i".wav trim 0.0 0.0	
 			synth=s
 			echo ""
 			echo "Bassline saved! Recording lead..."
@@ -82,8 +85,11 @@ while true; do
 		./note.sh $note $synth
 		fi
 		
-		sox song.wav "$note""$synth""$len".wav song2.wav
-		mv song2.wav song.wav
+		# Play note and append to song
+		
+		
+		sox song"$i".wav "$note""$synth""$len".wav song"$((i+1))".wav
+		i=$((i+1))
 		play "$note""$synth""$len".wav &>/dev/null &
 	fi
 done

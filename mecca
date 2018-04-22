@@ -59,23 +59,24 @@ while true; do
 		echo "5 - play with beat"
 		echo "6 - record lead"
 		echo "7 - undo last note"
+		echo "8 - load song"
 		echo -n "> "
-		read -n1 character
-		if [ "$character" = "1" ]; then
+		read -n1 menu
+		if [ "$menu" = "1" ]; then
 			play "$song""$i".wav
-		elif [ "$character" = "2" ]; then
+		elif [ "$menu" = "2" ]; then
     			len=h
 			echo ""
 			echo "Inserting half-notes..."
-		elif [ "$character" = "3" ]; then
+		elif [ "$menu" = "3" ]; then
     			len=q
 			echo ""
 			echo "Inserting quarter-notes..."
-		elif [ "$character" = "4" ]; then
+		elif [ "$menu" = "4" ]; then
 			len=e
 			echo ""
 			echo "Inserting eighth-notes..."
-		elif [ "$character" = "5" ]; then
+		elif [ "$menu" = "5" ]; then
 			# Make hi-hat
 			sox -n h.wav synth 0.01 noise fade 0 0.25 0.25
 			sox h.wav hh.wav
@@ -89,16 +90,29 @@ while true; do
 			sox drums4.wav drums4.wav drums4.wav drums4.wav drums16.wav
 			sox -m drums16.wav "$song"-bass.wav "$song""$i".wav "$song"-mix.wav
 			play "$song"-mix.wav
-		elif [ "$character" = "6" ]; then
+		elif [ "$menu" = "6" ]; then
     			cp "$song""$i".wav "$song"-bass.wav
 			sox -n -c 1 "$song""$i".wav trim 0.0 0.0
 			synth=s
 			echo ""
 			echo "Bassline saved! Recording lead..."
-		elif [ "$character" = "7" ]; then
+		elif [ "$menu" = "7" ]; then
 			i=$((i-1))
 			echo "Undo successful!"
 			echo ""
+		elif [ "$menu" = "8" ]; then		
+			echo "Enter song name"
+			echo -n "> "
+			read load
+			i=1
+			song="$load"
+			while read fnote
+			do
+				sox "$song""$i".wav "$fnote""$synth""$len".wav "$song""$((i+1))".wav
+				i=$((i+1))
+			done < "$load".mec	
+
+
 		else
     			echo "Invalid selection..."
 		fi
@@ -150,6 +164,8 @@ while true; do
 	
 	# Play note and append to song
 				
+	echo "$note" >> "$song".mec	
+
 	sox "$song""$i".wav "$note""$synth""$len".wav "$song""$((i+1))".wav
 	i=$((i+1))
 		play "$note""$synth""$len".wav &>/dev/null &

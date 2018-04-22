@@ -5,13 +5,14 @@ echo -n "> "
 read song
 
 if [ -w "$song"1.wav ]; then
-    echo "Song exists. Overwrite? y/n"
-	read ans
-	case $ans in
-		[yY]) rm "$song"*.wav
-			mv "$song".mec "$song".bak ;;
-		*) exit 1 ;;
-	esac
+    echo "Song exists. Overwrite?"
+	read -n1 ans
+	if [ "$ans" = "y" ] || [ "$ans" = "Y" ]; then
+		rm "$song"*.wav
+		mv "$song".mec "$song".bak
+	else
+		exit 1
+	fi
 fi
 
 # Create new song file with chosen name

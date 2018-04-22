@@ -159,17 +159,17 @@ while true; do
 			c5) freq=523.25 ;; r) freq=0 ;;
 		esac
 
-	# Produce note samples
+		# Produce note samples
 		sox -n "$note"-"$synth"-half.wav synth 0.5 "$synth" "$freq" fade 0 0.7 0.25 trim 0 0.5
 		sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim 0.25 0.5
 		sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim 0.375 0.5
 			
-	# Play note and append to song
-				
-	echo "$note"-"$synth"-"$len" >> "$song".mec	
-
-	sox "$song""$i".wav "$note"-"$synth"-"$len".wav "$song""$((i+1))".wav
-	i=$((i+1))
+		# Play note and append to song		
+		echo "$note"-"$synth"-"$len" >> "$song".mec	
+		sox "$song""$i".wav "$note"-"$synth"-"$len".wav "$song""$((i+1))".wav
 		play "$note"-"$synth"-"$len".wav &>/dev/null &
+		
+		# increment note counter
+		i=$((i+1))
 	fi
 done

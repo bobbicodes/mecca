@@ -21,8 +21,9 @@ sox -n -c 1 "$song"1.wav trim 0.0 0.0
 # Set song undo counter
 i=1
 
-# default to quarter notes
-len=q
+# default to quarter-note triangle waves
+len=quarter
+synth=tri
 
 # Start main song loop
 while true; do
@@ -74,17 +75,17 @@ while true; do
 			play "$song""$i".wav
 			;;
 		2)
-   			len=h
+   			len=half
 			echo ""
 			echo "Inserting half-notes..."
 			;;
 		3)
-			len=q
+			len=quarter
 			echo ""
 			echo "Inserting quarter-notes..."
 			;;
 		4)
-			len=e
+			len=eighth
 			echo ""
 			echo "Inserting eighth-notes..."
 			;;
@@ -112,7 +113,7 @@ while true; do
 		6)
 			cp "$song""$i".wav "$song"-bass.wav
 			sox -n -c 1 "$song""$i".wav trim 0.0 0.0
-			synth=s
+			synth=square
 			echo ""
 			echo "Bassline saved! Recording lead..."
 			;;
@@ -155,37 +156,20 @@ while true; do
 			ds4) freq=311.13 ;; e4) freq=329.63 ;; f4) freq=349.23 ;; 
 			fs4) freq=369.99 ;; g4) freq=392 ;; gs4) freq=415.30 ;;
 			a4) freq=440 ;; as4) freq=466.16 ;; b4) freq=493.88 ;;
-			c5) freq=523.25 ;; 
+			c5) freq=523.25 ;; r) freq=0 ;;
 		esac
 
 	# Produce note samples
-	if [ "$synth" = "s" ]; then
-		sox -n "$note"s.wav synth 0.5 square $freq fade 0 0.7 0.25 trim 0 0.5 gain -10
-		sox "$note"s.wav "$note"sh.wav
-		sox "$note"sh.wav "$note"sq.wav trim 0.25 0.5
-		sox "$note"sh.wav "$note"se.wav trim 0.375 0.5
-	else
-		sox -n "$note".wav synth 0.5 tri $freq fade 0 0.7 0.25 trim 0 0.5
-		sox "$note".wav "$note"h.wav
-		sox "$note"h.wav "$note"q.wav trim 0.25 0.5
-		sox "$note"h.wav "$note"e.wav trim 0.375 0.5
-	fi
-	
-	# Produce silent notes (rests)
-	sox -n -c 1 rh.wav trim 0.0 0.5
-	sox -n -c 1 rq.wav trim 0.0 0.25
-	sox -n -c 1 re.wav trim 0.0 0.125
-	sox -n -c 1 rs.wav trim 0.0 0.5
-	sox -n -c 1 rsq.wav trim 0.0 0.25
-	sox -n -c 1 rse.wav trim 0.0 0.125
-	sox -n -c 1 rsh.wav trim 0.0 0.5
-	
+		sox -n "$note"-"$synth"-half.wav synth 0.5 "$synth" "$freq" fade 0 0.7 0.25 trim 0 0.5
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim 0.25 0.5
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim 0.375 0.5
+			
 	# Play note and append to song
 				
-	echo "$note""$synth""$len" >> "$song".mec	
+	echo "$note"-"$synth"-"$len" >> "$song".mec	
 
-	sox "$song""$i".wav "$note""$synth""$len".wav "$song""$((i+1))".wav
+	sox "$song""$i".wav "$note"-"$synth"-"$len".wav "$song""$((i+1))".wav
 	i=$((i+1))
-		play "$note""$synth""$len".wav &>/dev/null &
+		play "$note"-"$synth"-"$len".wav &>/dev/null &
 	fi
 done

@@ -38,12 +38,10 @@ Or however else you install your stuff on your stuff.
 You will see a "virtual piano" on the screen indicating which keys to press.
 You have 2 full octaves, following the usual convention starting with the "z" key at C2 with the black keys starting with "s", and then the second octave along the row beginning with "q" and the black keys on the number row.
 You begin by entering notes to build the bassline, using the menu to change note length.
-A semicolon (;) enters a rest. Use option 1 at any time to play back what you've got.
+A semicolon (;) enters a rest. Use the play option any time to hear what you've got.
 If you mess up just fix it, there's unlimited undo!
-When satisfied with your bassline, pick option 6 to save and move on to the lead.
-Then do number 5 to hear it all together with a beat!
-
-When you save a song, you will then have <song>.mec and <song>-bass.mec, which you can easily hack on in any text editor.
+When satisfied with your bassline, save it and move on to the lead.
+When you save a song, you will then have <song>.mec and <song>-bass.mec, which you can hack on in your text editor.
 
 # TODO
 

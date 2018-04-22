@@ -1,0 +1,184 @@
+#!/bin/bash
+
+echo "Name your song:"
+echo -n "> "
+read song
+
+if [ -w "$song"1.wav ]; then
+    echo "Song exists. Overwrite?"
+	read -n1 ans
+	if [ "$ans" = "y" ] || [ "$ans" = "Y" ]; then
+		rm "$song"*.wav
+		mv "$song".mec "$song".bak
+	else
+		exit 1
+	fi
+fi
+
+# Create new song file with chosen name
+sox -n -c 1 "$song"1.wav trim 0.0 0.0
+
+# Set song undo counter
+i=1
+
+# default to quarter-note triangle waves
+len=quarter
+synth=tri
+
+# Start main song loop
+while true; do
+
+	# Display "virtual keyboard" and prompt
+	echo "  -------------------------"
+	echo "  | 2 | 3 |   | 5 | 6 | 7 |"
+	echo "---------------------------------"
+	echo "| q | w | e | r | t | y | u | i |"
+	echo "---------------------------------"
+	echo "  | s | d |    | g | h | j |"
+	echo "---------------------------------"
+	echo "| z | x | c | v | b | n | m | , |"
+	echo "---------------------------------"
+	echo ""
+	echo "Synth ready. Press <spacebar> for options."
+	echo -n "> "
+	# Grab single keypress from user
+	read -n1 key
+
+	# Map keys to notes
+	case $key in
+		z) note=c2 ;; s) note=cs2 ;; x) note=d2 ;; d) note=ds2 ;; c) note=e2 ;;
+		v) note=f2 ;; g) note=fs2 ;; b) note=g2 ;; h) note=gs2 ;; n) note=a2 ;;
+		j) note=as2 ;; m) note=b2 ;; ,) note=c3 ;; l) note=cs3 ;; .) note=d3 ;;
+		\;) note=r ;; /) note=e3 ;; q) note=c3 ;; 2) note=cs3 ;; w) note=d3 ;;
+		3) note=ds3 ;; e) note=e3 ;; r) note=f3 ;; 5) note=fs3 ;; t) note=g3 ;;
+		6) note=gs3 ;; y) note=a3 ;; 7) note=as3 ;; u) note=b3 ;; i) note=c4 ;;
+		9) note=cs4 ;; o) note=d4 ;; 0) note=ds4 ;; p) note=e4 ;; [) note=f4 ;;
+		=) note=fs4 ;; ]) note=g4 ;;
+	esac
+
+	# Spacebar (or enter) activates menu options
+	if [ "$key" = '' ]; then
+		echo "1 - add half-notes"
+		echo "2 - add quarter-notes"
+		echo "3 - add triplets"
+		echo "4 - add eighth-notes"
+		echo "5 - play bassline"
+		echo "6 - play with beat"
+		echo "7 - undo last note"
+		echo "8 - save bassline"
+		echo "9 - load song"
+		echo -n "> "
+		
+		read -n1 menu
+		
+		case "$menu" in 
+		1)
+			len=half
+			echo ""
+			echo "Inserting half-notes..."
+			;;
+		2)
+   			len=quarter
+			echo ""
+			echo "Inserting quarter-notes..."
+			;;
+		3)
+			len=triplet
+			echo ""
+			echo "Inserting triplets..."
+			;;
+		4)
+			len=eighth
+			echo ""
+			echo "Inserting eighth-notes..."
+			;;
+
+		5)
+			play "$song""$i".wav
+			;;		
+		6)
+			# Our awesome drum synth
+			
+			# hi-hat
+			sox -n h.wav synth 0.01 noise fade 0 0.7 0.25 trim 0.0 0.5
+			sox h.wav hh.wav trim 0.0 0.25
+			sox hh.wav hhs.wav trim 0 0.125
+			
+			# snare
+			sox -n s.wav synth 0.25 noise fade 0 0.25 0.25
+			sox s.wav sn.wav
+			
+			# create pattern and loop it
+			sox h.wav hh.wav hh.wav h.wav hh.wav hh.wav drums.wav
+			sox drums.wav drums.wav drums.wav drums.wav drums4.wav
+			sox drums4.wav drums4.wav drums4.wav drums4.wav drums16.wav
+
+			# create song mix and play it
+			sox -m drums16.wav "$song"-bass.wav "$song""$i".wav "$song"-mix.wav
+			play "$song"-mix.wav
+			;;
+		7)
+			i=$((i-1))
+			echo "Undo successful!"
+			echo ""
+			;;
+		8)
+			cp "$song""$i".wav "$song"-bass.wav
+			sox -n -c 1 "$song""$i".wav trim 0.0 0.0
+			synth=square
+			echo ""
+			echo "Bassline sa"1 - play"ve"1 - play""1 - play"d! Recording lead..."
+	"1 - play""1 - play"		;;
+		
+		9)
+			echo "Enter song name"
+			echo -n "> "
+			read load
+			i=1
+			song="$load"
+			while read fnote
+			do
+				sox "$song""$i".wav "$fnote".wav "$song""$((i+1))".wav
+				i=$((i+1))
+			done < "$load".mec	
+			;;
+		*)
+			echo "Invalid selection..."
+			;;
+		esac
+	
+	else
+
+		# Assign note its proper frequency in Hz
+
+		case "$note" in
+			c2) freq=65.41 ;; cs2) freq=69.3 ;; d2) freq=73.42 ;;
+			ds2) freq=77.78 ;; e2) freq=82.41 ;; f2) freq=87.31 ;;
+			fs2) freq=92.5 ;; g2) freq=98 ;; gs2) freq=103.83 ;;
+			a2) freq=110 ;; as2) freq=116.54 ;; b2) freq=123.47 ;;
+			c3) freq=130.81 ;; cs3) freq=138.59 ;; d3) freq=146.83 ;;
+			ds3) freq=155.56 ;; e3) freq=164.81 ;; f3) freq=174.61 ;;
+			fs3) freq=185 ;; g3) freq=196 ;; gs3) freq=207.65 ;;
+			a3) freq=220 ;; as3) freq=233.08 ;; b3) freq=246.94 ;;
+			c4) freq=261.63 ;; cs4) freq=277.18 ;; d4) freq=293.66 ;;
+			ds4) freq=311.13 ;; e4) freq=329.63 ;; f4) freq=349.23 ;; 
+			fs4) freq=369.99 ;; g4) freq=392 ;; gs4) freq=415.30 ;;
+			a4) freq=440 ;; as4) freq=466.16 ;; b4) freq=493.88 ;;
+			c5) freq=523.25 ;; r) freq=0 ;;
+		esac
+
+		# Produce note samples
+		sox -n "$note"-"$synth"-half.wav synth 0.5 "$synth" "$freq" fade 0 0.7 0.25 trim 0 0.5
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim 0.25 0.5
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-triplet.wav trim 0.333 0.5
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim 0.375 0.5
+			
+		# Play note and append to song		
+		echo "$note"-"$synth"-"$len" >> "$song".mec	
+		sox "$song""$i".wav "$note"-"$synth"-"$len".wav "$song""$((i+1))".wav
+		play "$note"-"$synth"-"$len".wav &>/dev/null &
+		
+		# increment note counter
+		i=$((i+1))
+	fi
+done

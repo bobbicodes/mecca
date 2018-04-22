@@ -21,6 +21,9 @@ sox -n -c 1 "$song"1.wav trim 0.0 0.0
 # Set song undo counter
 i=1
 
+# default to quarter notes
+len=q
+
 # Start main song loop
 while true; do
 
@@ -63,46 +66,62 @@ while true; do
 		echo "7 - undo last note"
 		echo "8 - load song"
 		echo -n "> "
+		
 		read -n1 menu
-		if [ "$menu" = "1" ]; then
+		
+		case "$menu" in 
+		1)
 			play "$song""$i".wav
-		elif [ "$menu" = "2" ]; then
-    			len=h
+			;;
+		2)
+   			len=h
 			echo ""
 			echo "Inserting half-notes..."
-		elif [ "$menu" = "3" ]; then
-    			len=q
+			;;
+		3)
+			len=q
 			echo ""
 			echo "Inserting quarter-notes..."
-		elif [ "$menu" = "4" ]; then
+			;;
+		4)
 			len=e
 			echo ""
 			echo "Inserting eighth-notes..."
-		elif [ "$menu" = "5" ]; then
-			# Make hi-hat
+			;;
+		5)
+			# Our awesome drum synth
+			
+			# hi-hat
 			sox -n h.wav synth 0.01 noise fade 0 0.25 0.25
 			sox h.wav hh.wav
 			sox hh.wav hhs.wav trim 0 0.125
-			# Make snare
+			
+			# snare
 			sox -n s.wav synth 0.25 noise fade 0 0.25 0.25
 			sox s.wav sn.wav
-			# Put together into pattern
+			
+			# create pattern and loop it
 			sox hh.wav hhs.wav hhs.wav sn.wav hhs.wav hhs.wav drums.wav
 			sox drums.wav drums.wav drums.wav drums.wav drums4.wav
 			sox drums4.wav drums4.wav drums4.wav drums4.wav drums16.wav
+
+			# create song mix and play it
 			sox -m drums16.wav "$song"-bass.wav "$song""$i".wav "$song"-mix.wav
 			play "$song"-mix.wav
-		elif [ "$menu" = "6" ]; then
-    			cp "$song""$i".wav "$song"-bass.wav
+			;;		
+		6)
+			cp "$song""$i".wav "$song"-bass.wav
 			sox -n -c 1 "$song""$i".wav trim 0.0 0.0
 			synth=s
 			echo ""
 			echo "Bassline saved! Recording lead..."
-		elif [ "$menu" = "7" ]; then
+			;;
+		7)
 			i=$((i-1))
 			echo "Undo successful!"
 			echo ""
-		elif [ "$menu" = "8" ]; then		
+			;;
+		8)
 			echo "Enter song name"
 			echo -n "> "
 			read load
@@ -113,11 +132,11 @@ while true; do
 				sox "$song""$i".wav "$fnote".wav "$song""$((i+1))".wav
 				i=$((i+1))
 			done < "$load".mec	
-
-
-		else
-    			echo "Invalid selection..."
-		fi
+			;;
+		*)
+			echo "Invalid selection..."
+			;;
+		esac
 	
 	else
 

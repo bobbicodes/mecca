@@ -8,7 +8,8 @@ if [ -w "$song"1.wav ]; then
     echo "Song exists. Overwrite? y/n"
 	read ans
 	case $ans in
-		[yY]) rm "$song"*.wav ;;
+		[yY]) rm "$song"*.wav
+			rm "$song".mec ;;
 		*) exit 1 ;;
 	esac
 fi
@@ -108,7 +109,7 @@ while true; do
 			song="$load"
 			while read fnote
 			do
-				sox "$song""$i".wav "$fnote""$synth""$len".wav "$song""$((i+1))".wav
+				sox "$song""$i".wav "$fnote".wav "$song""$((i+1))".wav
 				i=$((i+1))
 			done < "$load".mec	
 
@@ -117,9 +118,6 @@ while true; do
     			echo "Invalid selection..."
 		fi
 	
-	elif [ "$key" = ";" ]; then
-		echo ""
-		echo "Rest inserted."    	
 	else
 
 		# Assign note its proper frequency in Hz
@@ -164,7 +162,7 @@ while true; do
 	
 	# Play note and append to song
 				
-	echo "$note" >> "$song".mec	
+	echo "$note""$synth""$len" >> "$song".mec	
 
 	sox "$song""$i".wav "$note""$synth""$len".wav "$song""$((i+1))".wav
 	i=$((i+1))

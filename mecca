@@ -9,7 +9,7 @@ if [ -w "$song"1.wav ]; then
 	read ans
 	case $ans in
 		[yY]) rm "$song"*.wav
-			rm "$song".mec ;;
+			mv "$song".mec "$song".bak ;;
 		*) exit 1 ;;
 	esac
 fi

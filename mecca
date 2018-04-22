@@ -58,43 +58,50 @@ while true; do
 
 	# Spacebar (or enter) activates menu options
 	if [ "$key" = '' ]; then
-		echo "1 - play"
-		echo "2 - add half-notes"
-		echo "3 - add quarter-notes"
+		echo "1 - add half-notes"
+		echo "2 - add quarter-notes"
+		echo "3 - add triplets"
 		echo "4 - add eighth-notes"
-		echo "5 - play with beat"
-		echo "6 - record lead"
+		echo "5 - play bassline"
+		echo "6 - play with beat"
 		echo "7 - undo last note"
-		echo "8 - load song"
+		echo "8 - save bassline"
+		echo "9 - load song"
 		echo -n "> "
 		
 		read -n1 menu
 		
 		case "$menu" in 
 		1)
-			play "$song""$i".wav
-			;;
-		2)
-   			len=half
+			len=half
 			echo ""
 			echo "Inserting half-notes..."
 			;;
-		3)
-			len=quarter
+		2)
+   			len=quarter
 			echo ""
 			echo "Inserting quarter-notes..."
+			;;
+		3)
+			len=triplet
+			echo ""
+			echo "Inserting triplets..."
 			;;
 		4)
 			len=eighth
 			echo ""
 			echo "Inserting eighth-notes..."
 			;;
+
 		5)
+			play "$song""$i".wav
+			;;		
+		6)
 			# Our awesome drum synth
 			
 			# hi-hat
-			sox -n h.wav synth 0.01 noise fade 0 0.25 0.25
-			sox h.wav hh.wav
+			sox -n h.wav synth 0.01 noise fade 0 0.7 0.25 trim 0.0 0.5
+			sox h.wav hh.wav trim 0.0 0.25
 			sox hh.wav hhs.wav trim 0 0.125
 			
 			# snare
@@ -102,20 +109,14 @@ while true; do
 			sox s.wav sn.wav
 			
 			# create pattern and loop it
-			sox hh.wav hhs.wav hhs.wav sn.wav hhs.wav hhs.wav drums.wav
+			sox hh.wav hhs.wav hhs.wav hh.wav hhs.wav hhs.wav drums.wav
 			sox drums.wav drums.wav drums.wav drums.wav drums4.wav
 			sox drums4.wav drums4.wav drums4.wav drums4.wav drums16.wav
 
 			# create song mix and play it
-			sox -m drums16.wav "$song"-bass.wav "$song""$i".wav "$song"-mix.wav
+			sox "$song""$i".wav "$song""$i"h.wav pitch +1200 reverb +10
+			sox -m drums16.wav "$song"-bass.wav "$song""$i"h.wav "$song"-mix.wav
 			play "$song"-mix.wav
-			;;		
-		6)
-			cp "$song""$i".wav "$song"-bass.wav
-			sox -n -c 1 "$song""$i".wav trim 0.0 0.0
-			synth=square
-			echo ""
-			echo "Bassline saved! Recording lead..."
 			;;
 		7)
 			i=$((i-1))
@@ -123,6 +124,15 @@ while true; do
 			echo ""
 			;;
 		8)
+			cp "$song""$i".wav "$song"-bass.wav
+			sox -n -c 1 "$song""$i".wav trim 0.0 0.0
+			mv "$song".mec "$song"-bass.mec
+			synth=square
+			echo ""
+			echo "Bassline sa"1 - play"ve"1 - play""1 - play"d! Recording lead..."
+	"1 - play""1 - play"		;;
+		
+		9)
 			echo "Enter song name"
 			echo -n "> "
 			read load
@@ -159,9 +169,11 @@ while true; do
 			c5) freq=523.25 ;; r) freq=0 ;;
 		esac
 
+
 		# Produce note samples
 		sox -n "$note"-"$synth"-half.wav synth 0.5 "$synth" "$freq" fade 0 0.7 0.25 trim 0 0.5
 		sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim 0.25 0.5
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-triplet.wav trim 0.333 0.5
 		sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim 0.375 0.5
 			
 		# Play note and append to song		

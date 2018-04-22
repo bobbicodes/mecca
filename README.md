@@ -43,14 +43,12 @@ If you mess up just fix it, there's unlimited undo!
 When satisfied with your bassline, pick option 6 to save and move on to the lead.
 Then do number 5 to hear it all together with a beat!
 
+When you save a song, you will then have <song>.mec and <song>-bass.mec, which you can easily hack on in any text editor.
+
 # TODO
 
-Um... can I get some triplets?
-Can I get a different octave?
-The spacebar-menu thing is cool, but need to make it faster to swith note values.
-Right now it's fast but want to map them to some dedicated keys.
-Any keys for now, because the final version will be written in C anyway, with ncurses for mouse support.
-How about we make it represent the song as DATA?
+The spacebar-menu thing is cool, but would be twice as fast to switch note values if we give them dedicated keys.
+When we do it with ncurses for mouse support we can use the arrow and/or function keys.
 
 
 ## LICENSE

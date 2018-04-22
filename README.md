@@ -7,7 +7,7 @@ You are the creator.
 
 Seeking comprehensive integration of learning, writing and performance. When these are fully realized as part of a potentially greater activity, life will finally be [a dream](https://www.youtube.com/watch?v=0TgrorCZg80). To subtly encourage musical idioms without limiting expressivity, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
 
-[![asciicast](https://asciinema.org/a/177663.png)](https://asciinema.org/a/177663)
+[![asciicast](https://asciinema.org/a/177671.png)](https://asciinema.org/a/177671)
 
 # Installation
 

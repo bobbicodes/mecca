@@ -64,6 +64,7 @@ As of the current version, in order to play a song that was recorded elsewhere, 
 The spacebar-menu thing is alright, but we can do much better and give dedicated keys to the note-length functions.
 The plan is to move this into C with ncurses and add support for mouse, arrow and function keys.
 
+You might have noticed that the entire concept of tempo has been ignored. This perception would be correct. It's locked at 60 beats per minute, because that way I only had to calculate note lengths for a fixed tempo. While the tempo can be altered to some extent, the output becomes distorted, and the right way to tackle this is of course to create a function that will derive the right note lengths from a given bpm.
 
 ## LICENSE
 

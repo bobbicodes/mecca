@@ -1,22 +1,44 @@
 #!/bin/bash
 
-echo "Name your song:"
+echo "1 - New song"
+echo "2 - Load song"
 echo -n "> "
-read song
-
-if [ -w "$song"1.wav ]; then
-    echo "Song exists. Overwrite?"
-	read -n1 ans
-	if [ "$ans" = "y" ] || [ "$ans" = "Y" ]; then
-		rm "$song"*.wav
-		mv "$song".mec "$song".bak
-	else
-		exit 1
+read -n1 new
+echo ""
+if [ "$new" = "1" ]; then
+	echo "Name your song:"
+	echo -n "> "
+	read song
+	echo ""
+	if [ -w "$song"1.wav ]; then
+    		echo "Song exists. Overwrite?"
+			read -n1 ans
+			echo ""
+			if [ "$ans" = "y" ] || [ "$ans" = "Y" ]; then
+				mv "$song"*.wav "$song".wak
+				mv "$song".mec "$song".mak
+			else
+				exit 1
+			fi
 	fi
-fi
 
-# Create new song file with chosen name
-sox -n -c 1 "$song"1.wav trim 0.0 0.0
+	# Create new song file with chosen name
+	sox -n -c 1 "$song"1.wav trim 0.0 0.0
+elif [ "$new" = "2" ]; then
+	echo "Enter song name"
+	echo -n "> "
+	read load
+	echo ""
+	song="$load"
+	i=1
+	while read fnote
+	do
+		sox "$song""$i".wav "$fnote".wav "$song""$((i+1))".wav
+		i=$((i+1))
+	done < "$load".mec
+else
+	exit 1
+fi
 
 # Set song undo counter
 i=1
@@ -43,6 +65,7 @@ while true; do
 	echo -n "> "
 	# Grab single keypress from user
 	read -n1 key
+	echo ""
 
 	# Map keys to notes
 	case $key in
@@ -65,12 +88,11 @@ while true; do
 		echo "5 - play bassline"
 		echo "6 - play with beat"
 		echo "7 - undo last note"
-		echo "8 - save bassline"
-		echo "9 - load song"
+		echo "8 - record lead"
 		echo -n "> "
 		
 		read -n1 menu
-		
+		echo ""
 		case "$menu" in 
 		1)
 			len=half
@@ -114,8 +136,8 @@ while true; do
 			sox drums4.wav drums4.wav drums4.wav drums4.wav drums16.wav
 
 			# create song mix and play it
-			sox "$song""$i".wav "$song""$i"h.wav pitch +1200 reverb +10
-			sox -m drums16.wav "$song"-bass.wav "$song""$i"h.wav "$song"-mix.wav
+			sox "$song""$i".wav "$song""$i"h.wav pitch +1200 gain -10
+			sox -m drums16.wav "$song"-bass.wav "$song""$i"h.wav "$song"-mix.wav gain -10
 			play "$song"-mix.wav
 			;;
 		7)
@@ -124,26 +146,13 @@ while true; do
 			echo ""
 			;;
 		8)
-			cp "$song""$i".wav "$song"-bass.wav
+			sox "$song""$i".wav "$song"-bass.wav gain -5
 			sox -n -c 1 "$song""$i".wav trim 0.0 0.0
 			mv "$song".mec "$song"-bass.mec
 			synth=square
 			echo ""
 			echo "Bassline sa"1 - play"ve"1 - play""1 - play"d! Recording lead..."
 	"1 - play""1 - play"		;;
-		
-		9)
-			echo "Enter song name"
-			echo -n "> "
-			read load
-			i=1
-			song="$load"
-			while read fnote
-			do
-				sox "$song""$i".wav "$fnote".wav "$song""$((i+1))".wav
-				i=$((i+1))
-			done < "$load".mec	
-			;;
 		*)
 			echo "Invalid selection..."
 			;;

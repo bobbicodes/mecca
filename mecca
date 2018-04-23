@@ -3,9 +3,9 @@
 echo "1 - New song"
 echo "2 - Load song"
 echo -n "> "
-read -n1 new
+read -n1 launch
 echo ""
-if [ "$new" = "1" ]; then
+if [ "$launch" = "1" ]; then
 	echo "Name your song:"
 	echo -n "> "
 	read song
@@ -15,27 +15,17 @@ if [ "$new" = "1" ]; then
 			read -n1 ans
 			echo ""
 			if [ "$ans" = "y" ] || [ "$ans" = "Y" ]; then
-				mv "$song"*.wav "$song".wak
 				mv "$song".mec "$song".mak
 			else
 				exit 1
 			fi
 	fi
 
-	# Create new song file with chosen name
-	sox -n -c 1 "$song"1.wav trim 0.0 0.0
-elif [ "$new" = "2" ]; then
+elif [ "$launch" = "2" ]; then
 	echo "Enter song name"
 	echo -n "> "
-	read load
+	read song
 	echo ""
-	song="$load"
-	i=1
-	while read fnote
-	do
-		sox "$song""$i".wav "$fnote".wav "$song""$((i+1))".wav
-		i=$((i+1))
-	done < "$load".mec
 else
 	exit 1
 fi
@@ -46,6 +36,7 @@ i=1
 # default to quarter-note triangle waves
 len=quarter
 synth=tri
+track=bass
 
 # Start main song loop
 while true; do
@@ -85,10 +76,9 @@ while true; do
 		echo "2 - add quarter-notes"
 		echo "3 - add triplets"
 		echo "4 - add eighth-notes"
-		echo "5 - play bassline"
-		echo "6 - play with beat"
-		echo "7 - undo last note"
-		echo "8 - record lead"
+		echo "5 - play"
+		echo "6 - undo last note"
+		echo "7 - record lead"
 		echo -n "> "
 		
 		read -n1 menu
@@ -116,9 +106,30 @@ while true; do
 			;;
 
 		5)
-			play "$song""$i".wav
-			;;		
-		6)
+			# Assemble bass track
+
+			sox -n -c 1 temp1.wav trim 0.0 0.0
+			j=1
+			while read mec
+			do
+				sox temp"$j".wav "$mec".wav temp"$((j+1))".wav
+				j=$((j+1))
+			done < "$song"-bass.mec
+			sox temp"$j".wav "$song"-bass.wav gain -10
+			rm temp*.wav
+
+			# Assemble lead track
+
+			sox -n -c 1 temp1.wav trim 0.0 0.0
+			j=1
+			while read mec
+			do
+				sox temp"$j".wav "$mec".wav temp"$((j+1))".wav
+				j=$((j+1))
+			done < "$song"-lead.mec
+			sox temp"$j".wav "$song"-lead.wav pitch +1200 gain -30
+			rm temp*.wav
+			
 			# Our awesome drum synth
 			
 			# hi-hat
@@ -128,28 +139,28 @@ while true; do
 			
 			# snare
 			sox -n s.wav synth 0.25 noise fade 0 0.25 0.25
-			sox s.wav sn.wav
 			
 			# create pattern and loop it
-			sox hh.wav hhs.wav hhs.wav hh.wav hhs.wav hhs.wav drums.wav
-			sox drums.wav drums.wav drums.wav drums.wav drums4.wav
-			sox drums4.wav drums4.wav drums4.wav drums4.wav drums16.wav
+			sox hh.wav hhs.wav hhs.wav s.wav hhs.wav hhs.wav beat.wav gain -5
+			sox beat.wav beat.wav beat.wav beat.wav drums.wav gain -5
+			sox drums.wav drums.wav drums.wav drums.wav drums4.wav gain -5
 
 			# create song mix and play it
-			sox "$song""$i".wav "$song""$i"h.wav pitch +1200 gain -10
-			sox -m drums16.wav "$song"-bass.wav "$song""$i"h.wav "$song"-mix.wav gain -10
+
+			sox -m drums4.wav "$song"-bass.wav "$song"-lead.wav "$song"-mix.wav gain -25
 			play "$song"-mix.wav
 			;;
-		7)
+		6)
 			i=$((i-1))
 			echo "Undo successful!"
 			echo ""
 			;;
-		8)
+		7)
 			sox "$song""$i".wav "$song"-bass.wav gain -5
 			sox -n -c 1 "$song""$i".wav trim 0.0 0.0
 			mv "$song".mec "$song"-bass.mec
 			synth=square
+			track=lead
 			echo ""
 			echo "Bassline sa"1 - play"ve"1 - play""1 - play"d! Recording lead..."
 	"1 - play""1 - play"		;;
@@ -185,11 +196,17 @@ while true; do
 		sox "$note"-"$synth"-half.wav "$note"-"$synth"-triplet.wav trim 0.333 0.5
 		sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim 0.375 0.5
 			
-		# Play note and append to song		
-		echo "$note"-"$synth"-"$len" >> "$song".mec	
-		sox "$song""$i".wav "$note"-"$synth"-"$len".wav "$song""$((i+1))".wav
+
+		# Play note and append to song	
+
 		play "$note"-"$synth"-"$len".wav &>/dev/null &
-		
+
+		if [ $track = bass ]; then
+			echo "$note"-"$synth"-"$len" >> "$song"-bass.mec
+		elif [ $track = lead ]; then
+			echo "$note"-"$synth"-"$len" >> "$song"-lead.mec
+		fi
+
 		# increment note counter
 		i=$((i+1))
 	fi

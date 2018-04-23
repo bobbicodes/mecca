@@ -10,8 +10,6 @@ Seeking comprehensive integration of learning, writing and performance. When the
 Here it in action:
 https://www.youtube.com/watch?v=m_t79-4WlE8
 
-[![asciicast](https://asciinema.org/a/177671.png)](https://asciinema.org/a/177671)
-
 # Installation
 
 ## Windows:

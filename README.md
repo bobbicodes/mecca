@@ -40,13 +40,29 @@ You have 2 full octaves, following the usual convention starting with the "z" ke
 You begin by entering notes to build the bassline, using the menu to change note length.
 A semicolon (;) enters a rest. Use the play option any time to hear what you've got.
 If you mess up just fix it, there's unlimited undo!
-When satisfied with your bassline, save it and move on to the lead.
-When you save a song, you will then have <song>.mec and <song>-bass.mec, which you can hack on in your text editor.
+When satisfied with your bassline, move on to the lead.
+
+# About the .mec file format
+
+One of the project's goals is to create music data files that are easy to read, edit and share. For this reason it uses .mec files, which are simply text files that contain a list of notes and their attributes, one note per line, like this:
+
+    as2-square-half
+    f2-square-half
+    r-quarter
+    as2-square-quarter
+    as2-square-eighth
+    c3-square-eighth
+    d3-square-eighth
+    ds3-square-eighth   
+    
+One file is used per instrument. Open it in any text editor and change stuff, copy sections, etc.
 
 # TODO
 
-The spacebar-menu thing is cool, but would be twice as fast to switch note values if we give them dedicated keys.
-When we do it with ncurses for mouse support we can use the arrow and/or function keys.
+As of the current version, in order to play a song that was recorded elsewhere, you need to have the right samples on your machine. That's because it produces the notes dynamically as they are being recorded, the program ships with no sounds at all. To get around this, simply record a scratch track and just mash all of the notes, and then you'll have all the samples!
+
+The spacebar-menu thing is alright, but we can do much better and give dedicated keys to the note-length functions.
+The plan is to move this into C with ncurses and add support for mouse, arrow and function keys.
 
 
 ## LICENSE

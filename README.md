@@ -55,7 +55,7 @@ One of the project's goals is to create music data files that are easy to read, 
     d3-square-eighth
     ds3-square-eighth   
     
-One file is used per instrument. Open it in any text editor and change stuff, copy sections, etc.
+One file is used per instrument. Open it in any text editor and change stuff, copy sections, send them to your friends.
 
 # TODO
 

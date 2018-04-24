@@ -5,9 +5,9 @@ You are the student.
 You are the composer.
 You are the creator.
 
-Seeking comprehensive integration of learning, writing and performance. When these are fully realized as part of a potentially greater activity, life will finally be [a dream](https://www.youtube.com/watch?v=0TgrorCZg80). To subtly encourage musical idioms without limiting expressivity, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
+Seeking comprehensive integration of learning, writing and performance. For when these processes are fully realized as agents of a more complex organism, life will finally be [a dream](https://www.youtube.com/watch?v=0TgrorCZg80). To subtly encourage musical idioms without limiting expressivity, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
 
-Here it in action:
+See and hear it in action:
 https://www.youtube.com/watch?v=m_t79-4WlE8
 
 # Installation

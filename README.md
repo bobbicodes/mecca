@@ -44,7 +44,7 @@ To play a song, just load it and select play from the spacebar-menu.
 ## Creating songs using the built-in sequencer:
     
 You will see a "virtual piano" on the screen indicating which keys to press.
-You have 2 full octaves, following the usual convention starting with the "z" key at C2 with the black keys starting with "s", and then the second octave along the row beginning with "q" and the black keys on the number row.
+You have 2 full octaves, following the usual convention starting with the "z" key at C2 (with the "black keys" on the row above it) and then the second octave beginning with "q" (with black keys on the number row).
 You begin by entering notes to build the bassline, using the menu to change between half, quarter, triplets, and eighth notes.
 A semicolon (;) enters a rest. Use the play option any time to hear what you've got.
 If you mess up just fix it, there's unlimited undo!
@@ -52,7 +52,7 @@ When satisfied with your bassline, move on to the lead.
 
 ## Editing your song's .mec files
 
-One of the project's goals is to create music data files that are easy to read, edit and share. For this reason it uses .mec files, which are simply text files that contain a list of notes and their attributes, one note per line, like this:
+One of the project's goals was to use music data files that are easy to read, edit and share. For this reason it uses .mec files, which are simply text files that contain a list of notes and their attributes, one note per line, like this:
 
     as2 square half
     f2 tri half
@@ -67,8 +67,9 @@ One file is used per instrument. Open it in any text editor and change stuff, co
 
 # TODO
 
-The spacebar-menu thing is alright, but we can do much better and give dedicated keys to the note-length functions.
+Dedicated keys for the note-length functions. We simply ran out of keys with single escape codes.
 The plan is to move this into C with ncurses and add support for mouse, arrow and function keys.
+Represent the song's structure as a grid with notes as squares that can be toggled on and off.
 
 You might have noticed that the entire concept of tempo has been ignored. This perception would be correct. It's locked at 60 beats per minute, because that way I only had to calculate note lengths for a fixed tempo. While the tempo can be altered to some extent, the output becomes distorted, and the right way to tackle this is of course to create a function that will derive the right note lengths from a given bpm.
 

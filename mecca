@@ -11,7 +11,7 @@ if [ "$launch" = "1" ]; then
 	echo -n "> "
 	read song
 	echo ""
-	if [ -w "$song"1.wav ]; then
+	if [ -f "$song"1.wav ]; then
     		echo "Song exists. Overwrite?"
 			read -n1 ans
 			echo ""
@@ -192,21 +192,24 @@ while true; do
 			rm temp*.wav
 
 			# Assemble lead track
-			echo "Creating lead samples"
-			sox -n -c 1 temp1.wav trim 0.0 0.0
-			j=1
-			while read -r note synth len; do
-				create_notes
-				sox temp"$j".wav "$note"-"$synth"-"$len".wav temp"$((j+1))".wav
-				j=$((j+1))
-			done < "$song"-lead.mec
-			sox temp"$j".wav "$song"-lead.wav pitch +1200 gain -15 &>/dev/null
-			rm temp*.wav
+			if [ -f "$song"-lead.mec ]; then
+				echo "Creating lead samples"
+				sox -n -c 1 temp1.wav trim 0.0 0.0
+				j=1
+				while read -r note synth len; do
+					create_notes
+					sox temp"$j".wav "$note"-"$synth"-"$len".wav temp"$((j+1))".wav
+					j=$((j+1))
+					done < "$song"-lead.mec
+					sox temp"$j".wav "$song"-lead.wav pitch +1200 gain -15 &>/dev/null
+					rm temp*.wav
+			fi
 
 			# create song mix and play it
 			create_drum_track
-			sox -m drums8.wav "$song"-bass.wav "$song"-lead.wav "$song"-mix.wav
-			play "$song"-mix.wav
+			sox -m drums8.wav "$song"-bass.wav "$song"-lead.wav "$song"-mix.wav &>/dev/null
+			echo "Playing... (Ctrl+C to stop)"
+			play "$song"-mix.wav &>/dev/null
 			;;
 		esac
 	

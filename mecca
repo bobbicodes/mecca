@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "MECCA Music Platform"
 echo "1 - New song"
 echo "2 - Load song"
 echo -n "> "
@@ -30,13 +31,7 @@ else
 	exit 1
 fi
 
-# Set song undo counter
-i=1
-
-# Initialize synth
-len=quarter
-synth=tri
-track=bass
+# Define Functions
 
 create_drum_track () {
 	echo "Creating drum samples..."
@@ -79,9 +74,14 @@ create_notes () {
 	fi
 }
 
+# Initialize synth
+i=1
+len=quarter
+synth=tri
+track=bass
+
 # Start main song loop
 while true; do
-
 	# Display "virtual keyboard" and prompt
 	echo "  -------------------------"
 	echo "  | 2 | 3 |   | 5 | 6 | 7 |"
@@ -99,60 +99,90 @@ while true; do
 	read -n1 key
 	echo ""
 
-	# Map keys to notes
+	# Map key to its note
 	case $key in
 		z) note=c2 ;; s) note=cs2 ;; x) note=d2 ;; d) note=ds2 ;; c) note=e2 ;;
 		v) note=f2 ;; g) note=fs2 ;; b) note=g2 ;; h) note=gs2 ;; n) note=a2 ;;
-		j) note=as2 ;; m) note=b2 ;; ,) note=c3 ;; l) note=cs3 ;; .) note=d3 ;;
-		\;) note=r ;; /) note=e3 ;; q) note=c3 ;; 2) note=cs3 ;; w) note=d3 ;;
-		3) note=ds3 ;; e) note=e3 ;; r) note=f3 ;; 5) note=fs3 ;; t) note=g3 ;;
-		6) note=gs3 ;; y) note=a3 ;; 7) note=as3 ;; u) note=b3 ;; i) note=c4 ;;
-		9) note=cs4 ;; o) note=d4 ;; 0) note=ds4 ;; p) note=e4 ;; [) note=f4 ;;
-		=) note=fs4 ;; ]) note=g4 ;;
+		j) note=as2 ;; m) note=b2 ;; ,) note=c3 ;; \;) note=r ;;
+		q) note=c3 ;; 2) note=cs3 ;; w) note=d3 ;; 3) note=ds3 ;; e) note=e3 ;;
+		r) note=f3 ;; 5) note=fs3 ;; t) note=g3 ;; 6) note=gs3 ;; y) note=a3 ;;
+		7) note=as3 ;; u) note=b3 ;; i) note=c4 ;;
 	esac
 
-	# Spacebar (or enter) activates menu options
-	if [ "$key" = '' ]; then
-		echo "1 - add half-notes"
-		echo "2 - add quarter-notes"
-		echo "3 - add triplets"
-		echo "4 - add eighth-notes"
-		echo "5 - play"
-		echo "6 - undo last note"
-		echo "7 - record lead"
-		echo -n "> "
-		
-		read -n1 menu
-		echo ""
-		case "$menu" in 
-		1)
-			len=half
-			echo ""
-			echo "Inserting half-notes..."
-			;;
-		2)
-   			len=quarter
-			echo ""
-			echo "Inserting quarter-notes..."
-			;;
-		3)
-			len=triplet
-			echo ""
-			echo "Inserting triplets..."
-			;;
-		4)
+	# Define other keys
+	
+	case $key in
+		8)
 			len=eighth
 			echo ""
 			echo "Inserting eighth-notes..."
 			;;
-
-		5)
+		9)
+			len=triplet
+			echo ""
+			echo "Inserting triplets..."
+			;;
+		0)
+			len=quarter
+			echo ""
+			echo "Inserting quarter-notes..."
+			;;
+		-)
+			len=half
+			echo ""
+			echo "Inserting half-notes..."
+			;;
+			
+	# Spacebar (or enter) activates menu
+	if [ "$key" = '' ]; then
+		echo "[1] Undo last note"
+		echo "[2] Record lead"
+		echo "[8] Add eighth-notes"
+		echo "[9] Add triplets"
+		echo "[0] Add quarter-notes"
+		echo "[-] Add half-notes"
+		echo ""
+		echo -n "Select option (<space> to play) > "
+		read -n1 menu
+		echo ""
+		case "$menu" in 
+		1)
+			i=$((i-1))
+			echo "Undo successful!"
+			echo ""
+			;;
+		2)
+			synth=square
+			track=lead
+			echo ""
+			echo "Bassline saved! Recording lead..."
+			;;
+		8)
+			len=eighth
+			echo ""
+			echo "Inserting eighth-notes..."
+			;;
+		9)
+			len=triplet
+			echo ""
+			echo "Inserting triplets..."
+			;;
+		0)
+			len=quarter
+			echo ""
+			echo "Inserting quarter-notes..."
+			;;
+		-)
+			len=half
+			echo ""
+			echo "Inserting half-notes..."
+			;;
+		*)
 			# Assemble bass track
 			echo "Creating bass samples"
 			sox -n -c 1 temp1.wav trim 0.0 0.0
 			j=1
 			while read -r note synth len; do
-				
 				create_notes
 				sox temp"$j".wav "$note"-"$synth"-"$len".wav temp"$((j+1))".wav
 				j=$((j+1))
@@ -177,33 +207,13 @@ while true; do
 			sox -m drums8.wav "$song"-bass.wav "$song"-lead.wav "$song"-mix.wav
 			play "$song"-mix.wav
 			;;
-		6)
-			i=$((i-1))
-			echo "Undo successful!"
-			echo ""
-			;;
-		7)
-			sox "$song""$i".wav "$song"-bass.wav
-			sox -n -c 1 "$song""$i".wav trim 0.0 0.0
-			mv "$song".mec "$song"-bass.mec
-			synth=square
-			track=lead
-			echo ""
-			echo "Bassline sa"1 - play"ve"1 - play""1 - play"d! Recording lead..."
-	"1 - play""1 - play"		;;
-		*)
-			echo "Invalid selection..."
-			;;
 		esac
 	
 	else
 
+		# Play note and append to song
 		create_notes
-
-		# Play note and append to song	
-
 		play "$note"-"$synth"-"$len".wav &>/dev/null &
-
 		if [ $track = bass ]; then
 			echo "$note" "$synth" "$len" >> "$song"-bass.mec
 		elif [ $track = lead ]; then

@@ -130,15 +130,18 @@ while true; do
 				esac
 				
 				# Produce note samples
-				sox -n "$note"-"$synth"-half.wav synth 0.5 "$synth" "$freq" fade 0 0.7 0.25 trim 0 0.5
-				sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim 0.25 0.5
-				sox "$note"-"$synth"-half.wav "$note"-"$synth"-triplet.wav trim 0.333 0.5
-				sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim 0.375 0.5
+				if [ ! -f "$note"-"$synth"-half.wav ]; then
+					echo "Creating bass sample "$j"..."
+					sox -n "$note"-"$synth"-half.wav synth 0.5 "$synth" "$freq" fade 0 0.7 0.25 trim 0 0.5 &>/dev/null
 
+					sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim 0.25 0.5 &>/dev/null
+					sox "$note"-"$synth"-half.wav "$note"-"$synth"-triplet.wav trim 0.333 0.5 &>/dev/null
+					sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim 0.375 0.5 &>/dev/null
+				fi
 				sox temp"$j".wav "$note"-"$synth"-"$len".wav temp"$((j+1))".wav
 				j=$((j+1))
 			done < "$song"-bass.mec
-			sox temp"$j".wav "$song"-bass.wav
+			mv temp"$j".wav "$song"-bass.wav
 			rm temp*.wav
 
 			# Assemble lead track
@@ -165,10 +168,14 @@ while true; do
 				esac
 				
 				# Produce note samples
-				sox -n "$note"-"$synth"-half.wav synth 0.5 "$synth" "$freq" fade 0 0.7 0.25 trim 0 0.5
-				sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim 0.25 0.5
-				sox "$note"-"$synth"-half.wav "$note"-"$synth"-triplet.wav trim 0.333 0.5
-				sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim 0.375 0.5
+				if [ ! -f "$note"-"$synth"-half.wav ]; then
+					echo "Creating bass sample "$j"..."
+					sox -n "$note"-"$synth"-half.wav synth 0.5 "$synth" "$freq" fade 0 0.7 0.25 trim 0 0.5 &>/dev/null
+
+					sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim 0.25 0.5 &>/dev/null
+					sox "$note"-"$synth"-half.wav "$note"-"$synth"-triplet.wav trim 0.333 0.5 &>/dev/null
+					sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim 0.375 0.5 &>/dev/null
+				fi
 
 				sox temp"$j".wav "$note"-"$synth"-"$len".wav temp"$((j+1))".wav
 				j=$((j+1))
@@ -190,12 +197,12 @@ while true; do
 			sox hh.wav hhs.wav hhs.wav s.wav hhs.wav hhs.wav beat.wav
 			sox beat.wav beat.wav beat.wav beat.wav drums.wav
 			sox drums.wav drums.wav drums.wav drums.wav drums4.wav
-			# sox drums4.wav drums4.wav drums.wav drums.wav drums8.wav
+			sox drums4.wav drums4.wav drums.wav drums.wav drums8.wav
 			# sox drums8.wav drums8.wav drums16.wav
 
 			# create song mix and play it
 
-			sox -m drums4.wav "$song"-bass.wav "$song"-lead.wav "$song"-mix.wav
+			sox -m drums8.wav "$song"-bass.wav "$song"-lead.wav "$song"-mix.wav
 			play "$song"-mix.wav
 			;;
 		6)
@@ -239,10 +246,10 @@ while true; do
 
 
 		# Produce note samples
-		sox -n "$note"-"$synth"-half.wav synth 0.5 "$synth" "$freq" fade 0 0.7 0.25 trim 0 0.5
-		sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim 0.25 0.5
-		sox "$note"-"$synth"-half.wav "$note"-"$synth"-triplet.wav trim 0.333 0.5
-		sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim 0.375 0.5
+		sox -n "$note"-"$synth"-half.wav synth 0.5 "$synth" "$freq" fade 0 0.7 0.25 trim 0 0.5 &>/dev/null
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim 0.25 0.5 &>/dev/null
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-triplet.wav trim 0.333 0.5 &>/dev/null
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim 0.375 0.5 &>/dev/null
 			
 
 		# Play note and append to song	

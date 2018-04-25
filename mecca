@@ -33,27 +33,50 @@ fi
 # Set song undo counter
 i=1
 
-# default to quarter-note triangle waves
+# Initialize synth
 len=quarter
 synth=tri
 track=bass
 
-set_note_frequency () {
-	case "$note" in
-		c2) freq=65.41 ;; cs2) freq=69.3 ;; d2) freq=73.42 ;;
-		ds2) freq=77.78 ;; e2) freq=82.41 ;; f2) freq=87.31 ;;
-		fs2) freq=92.5 ;; g2) freq=98 ;; gs2) freq=103.83 ;;
-		a2) freq=110 ;; as2) freq=116.54 ;; b2) freq=123.47 ;;
-		c3) freq=130.81 ;; cs3) freq=138.59 ;; d3) freq=146.83 ;;
-		ds3) freq=155.56 ;; e3) freq=164.81 ;; f3) freq=174.61 ;;
-		fs3) freq=185 ;; g3) freq=196 ;; gs3) freq=207.65 ;;
-		a3) freq=220 ;; as3) freq=233.08 ;; b3) freq=246.94 ;;
-		c4) freq=261.63 ;; cs4) freq=277.18 ;; d4) freq=293.66 ;;
-		ds4) freq=311.13 ;; e4) freq=329.63 ;; f4) freq=349.23 ;; 
-		fs4) freq=369.99 ;; g4) freq=392 ;; gs4) freq=415.30 ;;
-		a4) freq=440 ;; as4) freq=466.16 ;; b4) freq=493.88 ;;
-		c5) freq=523.25 ;; r) freq=0 ;;
-	esac
+create_drum_track () {
+	echo "Creating drum samples..."
+	# hi-hat
+	sox -n h.wav synth 0.01 noise fade 0 0.7 0.25 trim 0.0 0.5 &>/dev/null
+	sox h.wav hh.wav trim 0.0 0.25
+	sox hh.wav hhs.wav trim 0 0.125	
+	# snare
+	sox -n s.wav synth 0.25 noise fade 0 0.3 0.25 trim 0 0.25 &>/dev/null
+	# create pattern and loop it
+	sox hh.wav hhs.wav hhs.wav s.wav hhs.wav hhs.wav drums.wav
+	sox drums.wav drums.wav drums.wav drums.wav drums2.wav
+	sox drums2.wav drums2.wav drums2.wav drums2.wav drums4.wav
+	sox drums4.wav drums4.wav drums8.wav
+	sox drums8.wav drums8.wav drums16.wav
+}
+
+create_notes () {
+	if [ ! -f "$note"-"$synth"-half.wav ]; then
+		echo "Creating sample "$j"..."
+		case "$note" in
+			c2) freq=65.41 ;; cs2) freq=69.3 ;; d2) freq=73.42 ;;
+			ds2) freq=77.78 ;; e2) freq=82.41 ;; f2) freq=87.31 ;;
+			fs2) freq=92.5 ;; g2) freq=98 ;; gs2) freq=103.83 ;;
+			a2) freq=110 ;; as2) freq=116.54 ;; b2) freq=123.47 ;;
+			c3) freq=130.81 ;; cs3) freq=138.59 ;; d3) freq=146.83 ;;
+			ds3) freq=155.56 ;; e3) freq=164.81 ;; f3) freq=174.61 ;;
+			fs3) freq=185 ;; g3) freq=196 ;; gs3) freq=207.65 ;;
+			a3) freq=220 ;; as3) freq=233.08 ;; b3) freq=246.94 ;;
+			c4) freq=261.63 ;; cs4) freq=277.18 ;; d4) freq=293.66 ;;
+			ds4) freq=311.13 ;; e4) freq=329.63 ;; f4) freq=349.23 ;; 
+			fs4) freq=369.99 ;; g4) freq=392 ;; gs4) freq=415.30 ;;
+			a4) freq=440 ;; as4) freq=466.16 ;; b4) freq=493.88 ;;
+			c5) freq=523.25 ;; r) freq=0 ;;
+		esac
+		sox -n "$note"-"$synth"-half.wav synth 0.5 "$synth" "$freq" fade 0 0.7 0.25 trim 0 0.5 &>/dev/null
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim 0.25 0.5 &>/dev/null
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-triplet.wav trim 0.333 0.5 &>/dev/null
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim 0.375 0.5 &>/dev/null
+	fi
 }
 
 # Start main song loop
@@ -70,7 +93,7 @@ while true; do
 	echo "| z | x | c | v | b | n | m | , |"
 	echo "---------------------------------"
 	echo ""
-	echo "Synth ready. Press <spacebar> for options."
+	echo "Synth ready. Press <spacebar> for options"
 	echo -n "> "
 	# Grab single keypress from user
 	read -n1 key
@@ -125,21 +148,12 @@ while true; do
 
 		5)
 			# Assemble bass track
-
+			echo "Creating bass samples"
 			sox -n -c 1 temp1.wav trim 0.0 0.0
 			j=1
 			while read -r note synth len; do
 				
-				# Produce note samples
-				if [ ! -f "$note"-"$synth"-half.wav ]; then
-					echo "Creating bass sample "$j"..."
-					set_note_frequency
-					sox -n "$note"-"$synth"-half.wav synth 0.5 "$synth" "$freq" fade 0 0.7 0.25 trim 0 0.5 &>/dev/null
-
-					sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim 0.25 0.5 &>/dev/null
-					sox "$note"-"$synth"-half.wav "$note"-"$synth"-triplet.wav trim 0.333 0.5 &>/dev/null
-					sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim 0.375 0.5 &>/dev/null
-				fi
+				create_notes
 				sox temp"$j".wav "$note"-"$synth"-"$len".wav temp"$((j+1))".wav
 				j=$((j+1))
 			done < "$song"-bass.mec
@@ -147,47 +161,19 @@ while true; do
 			rm temp*.wav
 
 			# Assemble lead track
-
+			echo "Creating lead samples"
 			sox -n -c 1 temp1.wav trim 0.0 0.0
 			j=1
 			while read -r note synth len; do
-				
-				# Produce note samples
-				if [ ! -f "$note"-"$synth"-half.wav ]; then
-					echo "Creating lead sample "$j"..."
-					set_note_frequency
-					sox -n "$note"-"$synth"-half.wav synth 0.5 "$synth" "$freq" fade 0 0.7 0.25 trim 0 0.5 &>/dev/null
-
-					sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim 0.25 0.5 &>/dev/null
-					sox "$note"-"$synth"-half.wav "$note"-"$synth"-triplet.wav trim 0.333 0.5 &>/dev/null
-					sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim 0.375 0.5 &>/dev/null
-				fi
-
+				create_notes
 				sox temp"$j".wav "$note"-"$synth"-"$len".wav temp"$((j+1))".wav
 				j=$((j+1))
 			done < "$song"-lead.mec
-			sox temp"$j".wav "$song"-lead.wav pitch +1200 gain -15
+			sox temp"$j".wav "$song"-lead.wav pitch +1200 gain -15 &>/dev/null
 			rm temp*.wav
-			
-			# Our awesome white noise drum synth
-			
-			# hi-hat
-			sox -n h.wav synth 0.01 noise fade 0 0.7 0.25 trim 0.0 0.5
-			sox h.wav hh.wav trim 0.0 0.25
-			sox hh.wav hhs.wav trim 0 0.125
-			
-			# snare
-			sox -n s.wav synth 0.25 noise fade 0 0.3 0.25 trim 0 0.25
-			
-			# create pattern and loop it
-			sox hh.wav hhs.wav hhs.wav s.wav hhs.wav hhs.wav beat.wav
-			sox beat.wav beat.wav beat.wav beat.wav drums.wav
-			sox drums.wav drums.wav drums.wav drums.wav drums4.wav
-			sox drums4.wav drums4.wav drums.wav drums.wav drums8.wav
-			# sox drums8.wav drums8.wav drums16.wav
 
 			# create song mix and play it
-
+			create_drum_track
 			sox -m drums8.wav "$song"-bass.wav "$song"-lead.wav "$song"-mix.wav
 			play "$song"-mix.wav
 			;;
@@ -212,13 +198,7 @@ while true; do
 	
 	else
 
-		# Produce note samples
-		set_note_frequency
-		sox -n "$note"-"$synth"-half.wav synth 0.5 "$synth" "$freq" fade 0 0.7 0.25 trim 0 0.5 &>/dev/null
-		sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim 0.25 0.5 &>/dev/null
-		sox "$note"-"$synth"-half.wav "$note"-"$synth"-triplet.wav trim 0.333 0.5 &>/dev/null
-		sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim 0.375 0.5 &>/dev/null
-			
+		create_notes
 
 		# Play note and append to song	
 

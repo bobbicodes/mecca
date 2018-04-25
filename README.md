@@ -11,7 +11,7 @@ See and hear it in action:
 
 [Zelda theme](https://www.youtube.com/watch?v=m_t79-4WlE8)
 
-[Megaman 2 Dr. Wily ](https://www.youtube.com/watch?v=b2-qQKJRWdo)
+[Megaman 2 - Dr. Wily stage ](https://www.youtube.com/watch?v=b2-qQKJRWdo)
 
 # Installation
 
@@ -41,16 +41,16 @@ Or whatever it is you do to install stuff on your thing.
     
 To play a song, just load it and select play from the spacebar-menu.
 
-To create your own from scratch:
+## Creating songs using the built-in sequencer:
     
 You will see a "virtual piano" on the screen indicating which keys to press.
 You have 2 full octaves, following the usual convention starting with the "z" key at C2 with the black keys starting with "s", and then the second octave along the row beginning with "q" and the black keys on the number row.
-You begin by entering notes to build the bassline, using the menu to change note length.
+You begin by entering notes to build the bassline, using the menu to change between half, quarter, triplets, and eighth notes.
 A semicolon (;) enters a rest. Use the play option any time to hear what you've got.
 If you mess up just fix it, there's unlimited undo!
 When satisfied with your bassline, move on to the lead.
 
-# About the .mec file format
+## Editing your song's .mec files
 
 One of the project's goals is to create music data files that are easy to read, edit and share. For this reason it uses .mec files, which are simply text files that contain a list of notes and their attributes, one note per line, like this:
 

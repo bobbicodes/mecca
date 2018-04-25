@@ -169,7 +169,7 @@ while true; do
 				
 				# Produce note samples
 				if [ ! -f "$note"-"$synth"-half.wav ]; then
-					echo "Creating bass sample "$j"..."
+					echo "Creating lead sample "$j"..."
 					sox -n "$note"-"$synth"-half.wav synth 0.5 "$synth" "$freq" fade 0 0.7 0.25 trim 0 0.5 &>/dev/null
 
 					sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim 0.25 0.5 &>/dev/null

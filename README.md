@@ -8,7 +8,8 @@ You are the creator.
 Seeking comprehensive integration of learning, writing and performance. For when these processes are fully realized as agents of a more complex entity, life will finally be [a dream](https://www.youtube.com/watch?v=0TgrorCZg80). To subtly encourage musical idioms without limiting expressivity, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
 
 See and hear it in action:
-https://www.youtube.com/watch?v=m_t79-4WlE8
+[Zelda theme](https://www.youtube.com/watch?v=m_t79-4WlE8)
+[Megaman 2 Dr. Wily ](https://www.youtube.com/watch?v=b2-qQKJRWdo)
 
 # Installation
 
@@ -36,6 +37,10 @@ Or whatever it is you do to install stuff on your thing.
     
     $ ./mecca
     
+To play a song, just load it and select play from the spacebar-menu.
+
+To create your own from scratch:
+    
 You will see a "virtual piano" on the screen indicating which keys to press.
 You have 2 full octaves, following the usual convention starting with the "z" key at C2 with the black keys starting with "s", and then the second octave along the row beginning with "q" and the black keys on the number row.
 You begin by entering notes to build the bassline, using the menu to change note length.
@@ -47,20 +52,18 @@ When satisfied with your bassline, move on to the lead.
 
 One of the project's goals is to create music data files that are easy to read, edit and share. For this reason it uses .mec files, which are simply text files that contain a list of notes and their attributes, one note per line, like this:
 
-    as2-square-half
-    f2-square-half
-    r-quarter
-    as2-square-quarter
-    as2-square-eighth
-    c3-square-eighth
-    d3-square-eighth
-    ds3-square-eighth   
+    as2 square half
+    f2 tri half
+    r tri quarter
+    as2 square quarter
+    as2 square eighth
+    c3 square eighth
+    d3 square eighth
+    ds3 square eighth   
     
 One file is used per instrument. Open it in any text editor and change stuff, copy sections, send them to your friends.
 
 # TODO
-
-As of the current version, in order to play a song that was recorded elsewhere, you need to have the right samples on your machine. That's because it produces the notes dynamically as they are being recorded, the program ships with no sounds at all. To get around this, simply record a scratch track and just mash all of the notes, and then you'll have all the samples!
 
 The spacebar-menu thing is alright, but we can do much better and give dedicated keys to the note-length functions.
 The plan is to move this into C with ncurses and add support for mouse, arrow and function keys.

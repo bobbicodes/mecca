@@ -35,18 +35,25 @@ Or whatever it is you do to install things on your thing.
     
     $ ./mecca
     
-To play a song, just load it and select play from the spacebar-menu.
+To play a song, just load it and select play from the spacebar-menu:
+
+    MECCA Music Platform
+    1 - New song
+    2 - Load song
+    > 2
+    Enter song name
+    > zelda
 
 ## Creating songs using the built-in sequencer:
     
-You will see a "virtual piano" on the screen indicating which keys to press.
-You have 2 full octaves, following the usual convention starting with the "z" key at C2 (with the "black keys" on the row above it) and then the second octave beginning with "q" (with black keys on the number row).
+The "virtual piano" on the screen indicates which keys play notes.
+You have 2 full octaves, one starting with the "z" key, and one starting with "q", with the sharps/flats located above them like on a piano.
 You begin by entering notes to build the bassline, using the menu to change between half, quarter, triplets, and eighth notes. A semicolon (;) enters a rest. Use the play option any time to hear what you've got.
 If you mess up, use the undo! When satisfied with your bassline, move on to the lead.
 
 ## Editing your song's .mec files
 
-One of the project's goals was to use music data files that are easy to read, edit and share. For this reason it uses .mec files, which are simply text files that contain a list of notes and their attributes like this:
+You might find it more convenient to work in a text editor. One of the project's goals was to use music data files that are easy to read, edit and share. For this reason it uses .mec files, which are simply text files that contain a list of notes and their attributes like this:
 
     as2 square half
     f2 tri half
@@ -57,7 +64,7 @@ One of the project's goals was to use music data files that are easy to read, ed
     d3 square eighth
     ds3 square eighth   
     
-One file is used per instrument. It must end with a single newline. Open it in any text editor and change stuff, copy sections, send them to your friends.
+One file is used per instrument. It must end with a blank line. You'll likely find that by copy/pasting sections it is possible to build songs extremely quickly.
 
 # TODO
 

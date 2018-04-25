@@ -132,7 +132,8 @@ while true; do
 			echo ""
 			echo "Inserting half-notes..."
 			;;
-			
+	esac
+	
 	# Spacebar (or enter) activates menu
 	if [ "$key" = '' ]; then
 		echo "[1] Undo last note"

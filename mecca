@@ -11,15 +11,15 @@ if [ "$launch" = "1" ]; then
 	echo -n "> "
 	read song
 	echo ""
-	if [ -f "$song"*.mec ]; then
+	if [ -f "$song"-bass.mec ] || [ -f "$song"-lead.mec ] ; then
     		echo "Song exists. Overwrite?"
-			read -n1 ans
-			echo ""
-			if [ "$ans" = "y" ] || [ "$ans" = "Y" ]; then
-				rm "$song"*.mec
-			else
-				exit 1
-			fi
+		read -n1 ans
+		echo ""
+		if [ "$ans" = "y" ] || [ "$ans" = "Y" ]; then
+			rm "$song"*.mec
+		else
+			exit 1
+		fi
 	fi
 
 elif [ "$launch" = "2" ]; then
@@ -32,6 +32,60 @@ else
 fi
 
 # Define Functions
+
+menu () {
+	echo "[space] Play song"
+	echo "[1] Undo last note"
+	echo "[2] Record lead"
+	echo "[3] Add eighth-notes"
+	echo "[4] Add triplets"
+	echo "[5] Add quarter-notes"
+	echo "[6] Add half-notes"
+	echo ""
+	echo -n "Enter option> "
+	read -n1 menu
+	echo ""
+	case "$menu" in 
+	1)
+		i=$((i-1))
+		echo "Undo successful!"
+		echo ""
+		;;
+	2)
+		synth=square
+		track=lead
+		echo ""
+		echo "Bassline saved! Recording lead..."
+		;;
+	3)
+		len=eighth
+		echo ""
+		echo "Inserting eighth-notes..."
+		;;
+	4)
+		len=triplet
+		echo ""
+		echo "Inserting triplets..."
+		;;
+	5)
+		len=quarter
+		echo ""
+		echo "Inserting quarter-notes..."
+		;;
+	6)
+		len=half
+		echo ""
+		echo "Inserting half-notes..."
+		;;
+	'')
+		play_song
+		;;
+	*)
+		break
+		;;
+	esac
+	continue
+}
 
 create_drum_track () {
 	echo "Creating drum samples..."
@@ -74,15 +128,44 @@ create_notes () {
 	fi
 }
 
-# Initialize synth
-i=1
-len=quarter
-synth=tri
-track=bass
+play_song () {
+	
+	# Assemble bass track
+	echo "Building bass track..."
+	sox -n -c 1 temp1.wav trim 0.0 0.0
+	j=1
+	while read -r pitch wave value; do
+		create_notes
+		sox temp"$j".wav "$pitch"-"$wave"-"$value".wav temp"$((j+1))".wav
+		j=$((j+1))
+	done < "$song"-bass.mec
+	mv temp"$j".wav "$song"-bass.wav
+	rm temp*.wav
 
-# Start main song loop
-while true; do
-	# Display "virtual keyboard" and prompt
+	if [ -f "$song"-lead.mec ]; then
+		# Assemble lead track
+		echo "Building lead track..."
+		sox -n -c 1 temp1.wav trim 0.0 0.0
+		j=1
+		while read -r pitch wave value; do
+			create_notes
+			sox temp"$j".wav "$pitch"-"$wave"-"$value".wav temp"$((j+1))".wav
+			j=$((j+1))
+		done < "$song"-lead.mec
+		sox temp"$j".wav "$song"-lead.wav pitch +1200 gain -15 &>/dev/null
+		rm temp*.wav
+		create_drum_track
+		sox -m drums8.wav "$song"-bass.wav "$song"-lead.wav "$song"-mix.wav &>/dev/null
+	else
+		create_drum_track
+		sox -m drums8.wav "$song"-bass.wav "$song"-mix.wav &>/dev/null
+	fi
+
+	echo "Playing... (Ctrl+C to stop)"
+	play "$song"-mix.wav &>/dev/null
+}
+
+show_prompt () {
 	echo "  -------------------------"
 	echo "  | 2 | 3 |   | 5 | 6 | 7 |"
 	echo "---------------------------------"
@@ -95,6 +178,17 @@ while true; do
 	echo ""
 	echo "Synth ready. Press <spacebar> for options"
 	echo -n "> "
+}
+
+# Initialize synth
+i=1
+len=quarter
+synth=tri
+track=bass
+
+# Start main song loop
+while true; do
+	show_prompt
 	# Grab single keypress from user
 	read -n1 key
 	echo ""
@@ -106,110 +200,7 @@ while true; do
 		j) note=as2 ;; m) note=b2 ;; ,) note=c3 ;; \;) note=r ;;
 		q) note=c3 ;; 2) note=cs3 ;; w) note=d3 ;; 3) note=ds3 ;; e) note=e3 ;;
 		r) note=f3 ;; 5) note=fs3 ;; t) note=g3 ;; 6) note=gs3 ;; y) note=a3 ;;
-		7) note=as3 ;; u) note=b3 ;; i) note=c4 ;;
-		8)
-			len=eighth
-			echo ""
-			echo "Inserting eighth-notes..."
-			continue
-			;;
-		9)
-			len=triplet
-			echo ""
-			echo "Inserting triplets..."
-			continue
-			;;
-		0)
-			len=quarter
-			echo ""
-			echo "Inserting quarter-notes..."
-			continue
-			;;
-		-)
-			len=half
-			echo ""
-			echo "Inserting half-notes..."
-			continue
-			;;
-		'')
-			echo "[1] Undo last note"
-			echo "[2] Record lead"
-			echo "[8] Add eighth-notes"
-			echo "[9] Add triplets"
-			echo "[0] Add quarter-notes"
-			echo "[-] Add half-notes"
-			echo ""
-			echo -n "Select option (<space> to play) > "
-			read -n1 menu
-			echo ""
-			case "$menu" in 
-			1)
-				i=$((i-1))
-				echo "Undo successful!"
-				echo ""
-				;;
-			2)
-				synth=square
-				track=lead
-				echo ""
-				echo "Bassline saved! Recording lead..."
-				;;
-			8)
-				len=eighth
-				echo ""
-				echo "Inserting eighth-notes..."
-				;;
-			9)
-				len=triplet
-				echo ""
-				echo "Inserting triplets..."
-				;;
-			0)
-				len=quarter
-				echo ""
-				echo "Inserting quarter-notes..."
-				;;
-			-)
-				len=half
-				echo ""
-				echo "Inserting half-notes..."
-				;;
-			*)
-				# Assemble bass track
-				echo "Building bass track..."
-				sox -n -c 1 temp1.wav trim 0.0 0.0
-				j=1
-				while read -r note synth len; do
-					create_notes
-					sox temp"$j".wav "$note"-"$synth"-"$len".wav temp"$((j+1))".wav
-					j=$((j+1))
-				done < "$song"-bass.mec
-				mv temp"$j".wav "$song"-bass.wav
-				rm temp*.wav
-
-				# Assemble lead track
-				if [ -f "$song"-lead.mec ]; then
-					echo "Building lead track..."
-					sox -n -c 1 temp1.wav trim 0.0 0.0
-					j=1
-					while read -r note synth len; do
-						create_notes
-						sox temp"$j".wav "$note"-"$synth"-"$len".wav temp"$((j+1))".wav
-						j=$((j+1))
-					done < "$song"-lead.mec
-					sox temp"$j".wav "$song"-lead.wav pitch +1200 gain -15 &>/dev/null
-					rm temp*.wav
-					create_drum_track
-					sox -m drums8.wav "$song"-bass.wav "$song"-lead.wav "$song"-mix.wav &>/dev/null
-				else
-					create_drum_track
-					sox -m drums8.wav "$song"-bass.wav "$song"-mix.wav &>/dev/null
-				fi
-
-				echo "Playing... (Ctrl+C to stop)"
-				play "$song"-mix.wav &>/dev/null
-				;;
-			esac
+		7) note=as3 ;; u) note=b3 ;; i) note=c4 ;; '') menu ;; *) continue ;;
 	esac
 
 	# Play note and append to song

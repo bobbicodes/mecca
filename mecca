@@ -42,47 +42,18 @@ menu () {
 	echo "[5] Add quarter-notes"
 	echo "[6] Add half-notes"
 	echo ""
-	echo -n "Enter option> "
+	echo -n "Enter option > "
 	read -n1 menu
 	echo ""
 	case "$menu" in 
-	1)
-		i=$((i-1))
-		echo "Undo successful!"
-		echo ""
-		;;
-	2)
-		synth=square
-		track=lead
-		echo ""
-		echo "Bassline saved! Recording lead..."
-		;;
-	3)
-		len=eighth
-		echo ""
-		echo "Inserting eighth-notes..."
-		;;
-	4)
-		len=triplet
-		echo ""
-		echo "Inserting triplets..."
-		;;
-	5)
-		len=quarter
-		echo ""
-		echo "Inserting quarter-notes..."
-		;;
-	6)
-		len=half
-		echo ""
-		echo "Inserting half-notes..."
-		;;
-	'')
-		play_song
-		;;
-	*)
-		break
-		;;
+	1) i=$((i-1)) ;;
+	2) synth=square track=lead ;;
+	3) len=eighth ;;
+	4) len=triplet;;
+	5) len=quarter ;;
+	6) len=half ;;
+	'') play_song ;;
+	*) continue ;;
 	esac
 	continue
 }

@@ -1,0 +1,217 @@
+#!/bin/bash
+
+echo "MECCA Music Platform"
+echo "Ctrl+C to quit"
+echo "1 - New song"
+echo "2 - Load song"
+echo -n "> "
+read -n1 launch
+echo ""
+if [ "$launch" = "1" ]; then
+	echo "Name your song:"
+	echo -n "> "
+	read song
+	echo ""
+	if [ -f "$song"-bass.mec ] || [ -f "$song"-lead.mec ] ; then
+    		echo "Song exists. Overwrite?"
+		read -n1 ans
+		echo ""
+		if [ "$ans" = "y" ] || [ "$ans" = "Y" ]; then
+			rm "$song"*.mec
+		else
+			exit 1
+		fi
+	fi
+
+elif [ "$launch" = "2" ]; then
+	echo "Enter song name"
+	echo -n "> "
+	read song
+	echo ""
+else
+	exit 1
+fi
+
+# Define Functions
+
+menu () {
+	echo "[space] Play song"
+	echo "[1] Undo last note"
+	echo "[2] Record lead"
+	echo "[3] Add eighth-notes"
+	echo "[4] Add triplets"
+	echo "[5] Add quarter-notes"
+	echo "[6] Add half-notes"
+	echo ""
+	echo -n "Enter option > "
+	read -n1 menu
+	echo ""
+	case "$menu" in 
+	1) 	i=$((i-1))
+		head -n -1 "$song"-"$track".mec  > temp.txt ; mv temp.txt "$song"-"$track".mec ;;
+	2) synth=square track=lead i=1 ;;
+	3) len=eighth ;;
+	4) len=triplet;;
+	5) len=quarter ;;
+	6) len=half ;;
+	'') play_song ;;
+	*) continue ;;
+	esac
+	continue
+}
+
+create_drum_track () {
+	echo "Creating drum samples..."
+	# hi-hat
+	sox -n h.wav synth 0.01 noise fade 0 0.7 0.25 trim 0.0 0.5 &>/dev/null
+	sox h.wav hh.wav trim 0.0 0.25
+	sox hh.wav hhs.wav trim 0 0.125
+	# snare
+	sox -n s.wav synth 0.25 noise fade 0 0.3 0.25 trim 0 0.25 &>/dev/null
+	# create pattern and loop it
+	sox hh.wav hhs.wav hhs.wav s.wav hhs.wav hhs.wav drums.wav
+	sox drums.wav drums.wav drums.wav drums.wav drums2.wav
+	sox drums2.wav drums2.wav drums2.wav drums2.wav drums4.wav
+	sox drums4.wav drums4.wav drums8.wav
+	sox drums8.wav drums8.wav drums8.wav drums16.wav
+	# sox drums16.wav drums16.wav drums32.wav
+}
+
+create_notes () {
+	if [ ! -f "$pitch"-"$wave"-half.wav ]; then
+		echo "Creating sample "$pitch"-"$wave"..."
+		case "$pitch" in
+			c2) freq=65.41 ;; cs2) freq=69.3 ;; d2) freq=73.42 ;;
+			ds2) freq=77.78 ;; e2) freq=82.41 ;; f2) freq=87.31 ;;
+			fs2) freq=92.5 ;; g2) freq=98 ;; gs2) freq=103.83 ;;
+			a2) freq=110 ;; as2) freq=116.54 ;; b2) freq=123.47 ;;
+			c3) freq=130.81 ;; cs3) freq=138.59 ;; d3) freq=146.83 ;;
+			ds3) freq=155.56 ;; e3) freq=164.81 ;; f3) freq=174.61 ;;
+			fs3) freq=185 ;; g3) freq=196 ;; gs3) freq=207.65 ;;
+			a3) freq=220 ;; as3) freq=233.08 ;; b3) freq=246.94 ;;
+			c4) freq=261.63 ;; cs4) freq=277.18 ;; d4) freq=293.66 ;;
+			ds4) freq=311.13 ;; e4) freq=329.63 ;; f4) freq=349.23 ;; 
+			fs4) freq=369.99 ;; g4) freq=392 ;; gs4) freq=415.30 ;;
+			a4) freq=440 ;; as4) freq=466.16 ;; b4) freq=493.88 ;;
+			c5) freq=523.25 ;; r) freq=0 ;;
+		esac
+		sox -n "$pitch"-"$wave"-half.wav synth 0.5 "$wave" "$freq" fade 0 0.7 0.25 trim 0 0.5 &>/dev/null
+		sox "$pitch"-"$wave"-half.wav "$pitch"-"$wave"-quarter.wav trim 0.25 0.5 &>/dev/null
+		sox "$pitch"-"$wave"-half.wav "$pitch"-"$wave"-triplet.wav trim 0.333 0.5 &>/dev/null
+		sox "$pitch"-"$wave"-half.wav "$pitch"-"$wave"-eighth.wav trim 0.375 0.5 &>/dev/null
+	fi
+}
+
+create_synth () {
+	if [ ! -f "$note"-"$synth"-half.wav ]; then
+		echo "Creating sample "$note"-"$synth"..."
+		case "$note" in
+			c2) freq=65.41 ;; cs2) freq=69.3 ;; d2) freq=73.42 ;;
+			ds2) freq=77.78 ;; e2) freq=82.41 ;; f2) freq=87.31 ;;
+			fs2) freq=92.5 ;; g2) freq=98 ;; gs2) freq=103.83 ;;
+			a2) freq=110 ;; as2) freq=116.54 ;; b2) freq=123.47 ;;
+			c3) freq=130.81 ;; cs3) freq=138.59 ;; d3) freq=146.83 ;;
+			ds3) freq=155.56 ;; e3) freq=164.81 ;; f3) freq=174.61 ;;
+			fs3) freq=185 ;; g3) freq=196 ;; gs3) freq=207.65 ;;
+			a3) freq=220 ;; as3) freq=233.08 ;; b3) freq=246.94 ;;
+			c4) freq=261.63 ;; cs4) freq=277.18 ;; d4) freq=293.66 ;;
+			ds4) freq=311.13 ;; e4) freq=329.63 ;; f4) freq=349.23 ;; 
+			fs4) freq=369.99 ;; g4) freq=392 ;; gs4) freq=415.30 ;;
+			a4) freq=440 ;; as4) freq=466.16 ;; b4) freq=493.88 ;;
+			c5) freq=523.25 ;; r) freq=0 ;;
+		esac
+		sox -n "$note"-"$synth"-half.wav synth 0.5 "$synth" "$freq" fade 0 0.7 0.25 trim 0 0.5 &>/dev/null
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim 0.25 0.5 &>/dev/null
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-triplet.wav trim 0.333 0.5 &>/dev/null
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim 0.375 0.5 &>/dev/null
+	fi
+}
+
+play_song () {
+	
+	# Assemble bass track
+	echo "Building bass track..."
+	sox -n -c 1 temp1.wav trim 0.0 0.0
+	j=1
+	while read -r pitch wave value; do
+		create_notes
+		sox temp"$j".wav "$pitch"-"$wave"-"$value".wav temp"$((j+1))".wav
+		j=$((j+1))
+	done < "$song"-bass.mec
+	mv temp"$j".wav "$song"-bass.wav
+	rm temp*.wav
+
+	if [ -f "$song"-lead.mec ]; then
+		# Assemble lead track
+		echo "Building lead track..."
+		sox -n -c 1 temp1.wav trim 0.0 0.0
+		j=1
+		while read -r pitch wave value; do
+			create_notes
+			sox temp"$j".wav "$pitch"-"$wave"-"$value".wav temp"$((j+1))".wav
+			j=$((j+1))
+		done < "$song"-lead.mec
+		sox temp"$j".wav "$song"-lead.wav pitch +1200 gain -15 &>/dev/null
+		rm temp*.wav
+		create_drum_track
+		sox -m drums16.wav "$song"-bass.wav "$song"-lead.wav "$song"-mix.wav &>/dev/null
+	else
+		create_drum_track
+		sox -m drums16.wav "$song"-bass.wav "$song"-mix.wav &>/dev/null
+	fi
+
+	echo "Playing... (Ctrl+C to stop)"
+	play "$song"-mix.wav &>/dev/null
+}
+
+show_prompt () {
+	echo "  -------------------------"
+	echo "  | 2 | 3 |   | 5 | 6 | 7 |"
+	echo "---------------------------------"
+	echo "| q | w | e | r | t | y | u | i |"
+	echo "---------------------------------"
+	echo "  | s | d |    | g | h | j |"
+	echo "---------------------------------"
+	echo "| z | x | c | v | b | n | m | , |"
+	echo "---------------------------------"
+	echo ""
+	echo "Synth ready. Press <spacebar> for options"
+	echo -n "> "
+}
+
+# Initialize synth
+i=1
+len=quarter
+synth=tri
+track=bass
+
+# Start main song loop
+while true; do
+	show_prompt
+	# Grab single keypress from user
+	read -n1 key
+	echo ""
+
+	# Define input keys
+	case $key in
+		z) note=c2 ;; s) note=cs2 ;; x) note=d2 ;; d) note=ds2 ;; c) note=e2 ;;
+		v) note=f2 ;; g) note=fs2 ;; b) note=g2 ;; h) note=gs2 ;; n) note=a2 ;;
+		j) note=as2 ;; m) note=b2 ;; ,) note=c3 ;; \;) note=r ;;
+		q) note=c3 ;; 2) note=cs3 ;; w) note=d3 ;; 3) note=ds3 ;; e) note=e3 ;;
+		r) note=f3 ;; 5) note=fs3 ;; t) note=g3 ;; 6) note=gs3 ;; y) note=a3 ;;
+		7) note=as3 ;; u) note=b3 ;; i) note=c4 ;; '') menu ;; *) continue ;;
+	esac
+
+	# Play note and append to song
+	create_synth
+	if [ -f "$note"-"$synth"-"$len".wav ]; then
+		play "$note"-"$synth"-"$len".wav &>/dev/null &
+		if [ $track = bass ]; then
+			echo "$note" "$synth" "$len" >> "$song"-bass.mec
+		elif [ $track = lead ]; then
+			echo "$note" "$synth" "$len" >> "$song"-lead.mec
+		fi
+		# increment note counter
+		i=$((i+1))
+	fi	
+done

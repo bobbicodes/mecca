@@ -33,7 +33,9 @@ Or whatever it is you do to install things on your thing.
 
 # Usage
     
-    $ ./mecca
+    $ ./mecca [tempo]
+    
+Tempo is an integer in beats-per-minute (defaults to 120).
     
 To play a song, just load it and select play from the spacebar-menu:
 

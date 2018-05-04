@@ -60,16 +60,40 @@ menu () {
 	continue
 }
 
+# Define note lengths
+
+if [ "$1" == "" ]; then
+	tempo=120
+else
+	tempo=$1
+fi
+
+whole=$(bc <<< "scale = 10; (240 / $tempo)")
+half=$(bc <<< "scale = 10; (120 / $tempo)")
+quarter=$(bc <<< "scale = 10; (60 / $tempo)")
+qtrip=$(bc <<< "scale = 10; (40 / $tempo)")
+eighth=$(bc <<< "scale = 10; (30 / $tempo)")
+etrip=$(bc <<< "scale = 10; (20 / $tempo)")
+teenth=$(bc <<< "scale = 10; (15 / $tempo)")
+ttrip=$(bc <<< "scale = 10; (10 / $tempo)")
+
+triplet=$(bc <<< "scale = 10; ($half - $qtrip)")
+e_less=$(bc <<< "scale = 10; ($half - $eighth)")
+
 create_drum_track () {
 	echo "Creating drum samples..."
 	# hi-hat
-	sox -n h.wav synth 0.01 noise fade 0 0.7 0.25 trim 0.0 0.4 &>/dev/null
-	sox h.wav hh.wav trim 0.0 0.2
-	sox hh.wav hhs.wav trim 0 0.1	
+	sox -n h-whole.wav synth 0.01 noise fade 0 "$whole" "$whole" trim 0.0 "$whole" &>/dev/null
+	sox h-whole.wav h-half.wav trim 0.0 "$half"
+	sox h-whole.wav h-quarter.wav trim 0 "$quarter"
+	sox h-whole.wav h-eighth.wav trim 0 "$eighth"
 	# snare
-	sox -n s.wav synth 0.25 noise fade 0 0.3 0.25 trim 0 0.2 &>/dev/null
+	sox -n s-whole.wav synth 0.1 noise fade 0 "$whole" "$whole" trim 0 "$whole"
+	sox s-whole.wav s-half.wav trim 0 "$half" &>/dev/null
+	sox s-whole.wav s-quarter.wav trim 0 "$quarter" &>/dev/null
+	sox s-whole.wav s-eighth.wav trim 0 "$eighth" &>/dev/null
 	# create pattern and loop it
-	sox hh.wav hhs.wav hhs.wav s.wav hhs.wav hhs.wav drums.wav
+	sox h-quarter.wav h-eighth.wav h-eighth.wav s-quarter.wav h-eighth.wav h-eighth.wav drums.wav
 	sox drums.wav drums.wav drums.wav drums.wav drums2.wav
 	sox drums2.wav drums2.wav drums2.wav drums2.wav drums4.wav
 	sox drums4.wav drums4.wav drums8.wav
@@ -95,10 +119,13 @@ create_notes () {
 			a4) freq=440 ;; as4) freq=466.16 ;; b4) freq=493.88 ;;
 			c5) freq=523.25 ;; r) freq=0 ;;
 		esac
-		sox -n "$pitch"-"$wave"-half.wav synth 0.4 "$wave" "$freq" fade 0 0.7 0.25 trim 0 0.4 &>/dev/null
-		sox "$pitch"-"$wave"-half.wav "$pitch"-"$wave"-quarter.wav trim 0.2 0.4 &>/dev/null
-		sox "$pitch"-"$wave"-half.wav "$pitch"-"$wave"-triplet.wav trim 0.267 0.4 &>/dev/null
-		sox "$pitch"-"$wave"-half.wav "$pitch"-"$wave"-eighth.wav trim 0.3 0.4 &>/dev/null
+
+
+
+		sox -n "$pitch"-"$wave"-half.wav synth "$half" "$wave" "$freq" fade 0 0.7 0.25 trim 0 "$half" &>/dev/null
+		sox "$pitch"-"$wave"-half.wav "$pitch"-"$wave"-quarter.wav trim "$quarter" "$half" &>/dev/null
+		sox "$pitch"-"$wave"-half.wav "$pitch"-"$wave"-triplet.wav trim "$triplet" "$half" &>/dev/null
+		sox "$pitch"-"$wave"-half.wav "$pitch"-"$wave"-eighth.wav trim "$e_less" "$half" &>/dev/null
 	fi
 }
 
@@ -120,10 +147,11 @@ create_synth () {
 			a4) freq=440 ;; as4) freq=466.16 ;; b4) freq=493.88 ;;
 			c5) freq=523.25 ;; r) freq=0 ;;
 		esac
-		sox -n "$note"-"$synth"-half.wav synth 0.4 "$synth" "$freq" fade 0 0.7 0.25 trim 0 0.4 &>/dev/null
-		sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim 0.2 0.4 &>/dev/null
-		sox "$note"-"$synth"-half.wav "$note"-"$synth"-triplet.wav trim 0.267 0.4 &>/dev/null
-		sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim 0.3 0.4 &>/dev/null
+
+		sox -n "$note"-"$synth"-half.wav synth "$half" "$synth" "$freq" fade 0 0.7 0.25 trim 0 "$half" &>/dev/null
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim "$quarter" "$half" &>/dev/null
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-triplet.wav trim "$triplet" "$half" &>/dev/null
+		sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim "$e_less" "$half" &>/dev/null
 	fi
 }
 

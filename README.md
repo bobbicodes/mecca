@@ -36,6 +36,9 @@ Or whatever it is you do to install things on your thing.
     $ ./mecca [tempo]
     
 Tempo is an integer in beats-per-minute (defaults to 120).
+
+The Zelda sample song sounds right at 240;
+The Megaman sample song sounds right at 350. That's actually double what they should be, because I recorded them at half-speed (because I hadn't figured that part out yet).
     
 To play a song, just load it and select play from the spacebar-menu:
 
@@ -70,10 +73,8 @@ One file is used per instrument. It must end with a blank line. You'll likely fi
 
 # TODO
 
-Derive note lengths for arbitrary tempo.
 Move the UI into C with ncurses and add support for mouse, arrow and function keys.
 Represent the song's structure as a grid with notes as squares that can be toggled on and off.
-
 
 ## LICENSE
 

@@ -83,26 +83,24 @@ e_less=$(bc <<< "scale = 10; ($half - $eighth)")
 create_drum_track () {
 	echo "Creating drum samples..."
 	# hi-hat
-	sox -n h-whole.wav synth 0.01 noise fade 0 "$whole" "$whole" trim 0.0 "$whole" &>/dev/null
-	sox h-whole.wav h-half.wav trim 0.0 "$half"
-	sox h-whole.wav h-quarter.wav trim 0 "$quarter"
-	sox h-whole.wav h-eighth.wav trim 0 "$eighth"
+	sox -n drum-h-whole.wav synth 0.01 noise fade 0 "$whole" "$whole" trim 0.0 "$whole" &>/dev/null
+	sox drum-h-whole.wav drum-h-half.wav trim 0.0 "$half"
+	sox drum-h-whole.wav drum-h-quarter.wav trim 0 "$quarter"
+	sox drum-h-whole.wav drum-h-eighth.wav trim 0 "$eighth"
 	# snare
-	sox -n s-whole.wav synth 0.1 noise fade 0 "$whole" "$whole" trim 0 "$whole"
-	sox s-whole.wav s-half.wav trim 0 "$half" &>/dev/null
-	sox s-whole.wav s-quarter.wav trim 0 "$quarter" &>/dev/null
-	sox s-whole.wav s-eighth.wav trim 0 "$eighth" &>/dev/null
+	sox -n drum-s-whole.wav synth 0.1 noise fade 0 "$whole" "$whole" trim 0 "$whole"
+	sox drum-s-whole.wav drum-s-half.wav trim 0 "$half" &>/dev/null
+	sox drum-s-whole.wav drum-s-quarter.wav trim 0 "$quarter" &>/dev/null
+	sox drum-s-whole.wav drum-s-eighth.wav trim 0 "$eighth" &>/dev/null
 	# create pattern and loop it
-	sox h-quarter.wav h-eighth.wav h-eighth.wav s-quarter.wav h-eighth.wav h-eighth.wav drums.wav
-	sox drums.wav drums.wav drums.wav drums.wav drums2.wav
-	sox drums2.wav drums2.wav drums2.wav drums2.wav drums4.wav
-	sox drums4.wav drums4.wav drums8.wav
-	sox drums8.wav drums8.wav drums8.wav drums16.wav
-	# sox drums16.wav drums16.wav drums32.wav
+	sox drum-h-quarter.wav drum-h-eighth.wav drum-h-eighth.wav drum-s-quarter.wav drum-h-eighth.wav drum-h-eighth.wav "$song"-drums.wav
+	sox "$song"-drums.wav "$song"-drums.wav "$song"-drums.wav "$song"-drums.wav "$song"-drums4.wav
+	sox "$song"-drums4.wav "$song"-drums4.wav "$song"-drums4.wav "$song"-drums4.wav "$song"-drums16.wav
+	sox "$song"-drums16.wav "$song"-drums16.wav "$song"-drums16.wav "$song"-drums16.wav "$song"-drums64.wav
 }
 
 create_notes () {
-	if [ ! -f "$pitch"-"$wave"-half.wav ]; then
+	if [ ! -f note-"$pitch"-"$wave"-half.wav ]; then
 		echo "Creating sample "$pitch"-"$wave"..."
 		case "$pitch" in
 			c2) freq=65.41 ;; cs2) freq=69.3 ;; d2) freq=73.42 ;;
@@ -122,15 +120,15 @@ create_notes () {
 
 
 
-		sox -n "$pitch"-"$wave"-half.wav synth "$half" "$wave" "$freq" fade 0 0.7 0.25 trim 0 "$half" &>/dev/null
-		sox "$pitch"-"$wave"-half.wav "$pitch"-"$wave"-quarter.wav trim "$quarter" "$half" &>/dev/null
-		sox "$pitch"-"$wave"-half.wav "$pitch"-"$wave"-triplet.wav trim "$triplet" "$half" &>/dev/null
-		sox "$pitch"-"$wave"-half.wav "$pitch"-"$wave"-eighth.wav trim "$e_less" "$half" &>/dev/null
+		sox -n note-"$pitch"-"$wave"-half.wav synth "$half" "$wave" "$freq" fade 0 0.7 0.25 trim 0 "$half" &>/dev/null
+		sox note-"$pitch"-"$wave"-half.wav note-"$pitch"-"$wave"-quarter.wav trim "$quarter" "$half" &>/dev/null
+		sox note-"$pitch"-"$wave"-half.wav note-"$pitch"-"$wave"-triplet.wav trim "$triplet" "$half" &>/dev/null
+		sox note-"$pitch"-"$wave"-half.wav note-"$pitch"-"$wave"-eighth.wav trim "$e_less" "$half" &>/dev/null
 	fi
 }
 
 create_synth () {
-	if [ ! -f "$note"-"$synth"-half.wav ]; then
+	if [ ! -f note-"$note"-"$synth"-half.wav ]; then
 		echo "Creating sample "$note"-"$synth"..."
 		case "$note" in
 			c2) freq=65.41 ;; cs2) freq=69.3 ;; d2) freq=73.42 ;;
@@ -148,10 +146,10 @@ create_synth () {
 			c5) freq=523.25 ;; r) freq=0 ;;
 		esac
 
-		sox -n "$note"-"$synth"-half.wav synth "$half" "$synth" "$freq" fade 0 0.7 0.25 trim 0 "$half" &>/dev/null
-		sox "$note"-"$synth"-half.wav "$note"-"$synth"-quarter.wav trim "$quarter" "$half" &>/dev/null
-		sox "$note"-"$synth"-half.wav "$note"-"$synth"-triplet.wav trim "$triplet" "$half" &>/dev/null
-		sox "$note"-"$synth"-half.wav "$note"-"$synth"-eighth.wav trim "$e_less" "$half" &>/dev/null
+		sox -n note-"$note"-"$synth"-half.wav synth "$half" "$synth" "$freq" fade 0 0.7 0.25 trim 0 "$half" &>/dev/null
+		sox note-"$note"-"$synth"-half.wav note-"$note"-"$synth"-quarter.wav trim "$quarter" "$half" &>/dev/null
+		sox note-"$note"-"$synth"-half.wav note-"$note"-"$synth"-triplet.wav trim "$triplet" "$half" &>/dev/null
+		sox note-"$note"-"$synth"-half.wav note-"$note"-"$synth"-eighth.wav trim "$e_less" "$half" &>/dev/null
 	fi
 }
 
@@ -163,10 +161,12 @@ play_song () {
 	j=1
 	while read -r pitch wave value; do
 		create_notes
-		sox temp"$j".wav "$pitch"-"$wave"-"$value".wav temp"$((j+1))".wav
+		sox temp"$j".wav note-"$pitch"-"$wave"-"$value".wav temp"$((j+1))".wav
 		j=$((j+1))
 	done < "$song"-bass.mec
 	mv temp"$j".wav "$song"-bass.wav
+	# Clean up samples
+	rm note-*.wav
 	rm temp*.wav
 
 	if [ -f "$song"-lead.mec ]; then
@@ -176,18 +176,20 @@ play_song () {
 		j=1
 		while read -r pitch wave value; do
 			create_notes
-			sox temp"$j".wav "$pitch"-"$wave"-"$value".wav temp"$((j+1))".wav
+			sox temp"$j".wav note-"$pitch"-"$wave"-"$value".wav temp"$((j+1))".wav
 			j=$((j+1))
 		done < "$song"-lead.mec
 		sox temp"$j".wav "$song"-lead.wav pitch +1200 gain -15 &>/dev/null
+		# Clean up samples
+		rm note-*.wav
 		rm temp*.wav
 		create_drum_track
-		sox -m drums16.wav "$song"-bass.wav "$song"-lead.wav "$song"-mix.wav &>/dev/null
+		sox -m "$song"-drums64.wav "$song"-bass.wav "$song"-lead.wav "$song"-mix.wav &>/dev/null
 	else
 		create_drum_track
-		sox -m drums16.wav "$song"-bass.wav "$song"-mix.wav &>/dev/null
+		sox -m "$song"-drums64.wav "$song"-bass.wav "$song"-mix.wav &>/dev/null
 	fi
-
+	rm drum-*.wav
 	echo "Playing... (Ctrl+C to stop)"
 	play "$song"-mix.wav &>/dev/null
 }
@@ -232,8 +234,8 @@ while true; do
 
 	# Play note and append to song
 	create_synth
-	if [ -f "$note"-"$synth"-"$len".wav ]; then
-		play "$note"-"$synth"-"$len".wav &>/dev/null &
+	if [ -f note-"$note"-"$synth"-"$len".wav ]; then
+		play note-"$note"-"$synth"-"$len".wav &>/dev/null &
 		if [ $track = bass ]; then
 			echo "$note" "$synth" "$len" >> "$song"-bass.mec
 		elif [ $track = lead ]; then

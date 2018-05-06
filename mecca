@@ -51,7 +51,7 @@ menu () {
 		head -n -1 "$song"-"$track".mec  > temp.txt ; mv temp.txt "$song"-"$track".mec ;;
 	2) synth=square track=lead i=1 ;;
 	3) len=eighth ;;
-	4) len=triplet;;
+	4) len=etrip;;
 	5) len=quarter ;;
 	6) len=half ;;
 	'') play_song ;;
@@ -77,8 +77,10 @@ etrip=$(bc <<< "scale = 10; (20 / $tempo)")
 teenth=$(bc <<< "scale = 10; (15 / $tempo)")
 ttrip=$(bc <<< "scale = 10; (10 / $tempo)")
 
-triplet=$(bc <<< "scale = 10; ($half - $qtrip)")
+et_less=$(bc <<< "scale = 10; ($half - $etrip)")
+q_less=$(bc <<< "scale = 10; ($half - $qtrip)")
 e_less=$(bc <<< "scale = 10; ($half - $eighth)")
+t_less=$(bc <<< "scale = 10; ($half - $teenth)")
 
 create_drum_track () {
 	echo "Creating drum samples..."
@@ -118,12 +120,13 @@ create_notes () {
 			c5) freq=523.25 ;; r) freq=0 ;;
 		esac
 
-
-
-		sox -n note-"$pitch"-"$wave"-half.wav synth "$half" "$wave" "$freq" fade 0 0.7 0.25 trim 0 "$half" &>/dev/null
+		sox -n note-"$pitch"-"$wave"-whole.wav synth "$whole" "$wave" "$freq" trim 0 "$whole" &>/dev/null
+		sox note-"$pitch"-"$wave"-whole.wav note-"$pitch"-"$wave"-half.wav trim "$half" "$whole" &>/dev/null
 		sox note-"$pitch"-"$wave"-half.wav note-"$pitch"-"$wave"-quarter.wav trim "$quarter" "$half" &>/dev/null
-		sox note-"$pitch"-"$wave"-half.wav note-"$pitch"-"$wave"-triplet.wav trim "$triplet" "$half" &>/dev/null
+		sox note-"$pitch"-"$wave"-half.wav note-"$pitch"-"$wave"-qtrip.wav trim "$q_less" "$half" &>/dev/null
+		sox note-"$pitch"-"$wave"-half.wav note-"$pitch"-"$wave"-etrip.wav trim "$et_less" "$half" &>/dev/null
 		sox note-"$pitch"-"$wave"-half.wav note-"$pitch"-"$wave"-eighth.wav trim "$e_less" "$half" &>/dev/null
+		sox note-"$pitch"-"$wave"-half.wav note-"$pitch"-"$wave"-teenth.wav trim "$t_less" "$half" &>/dev/null
 	fi
 }
 
@@ -146,10 +149,12 @@ create_synth () {
 			c5) freq=523.25 ;; r) freq=0 ;;
 		esac
 
-		sox -n note-"$note"-"$synth"-half.wav synth "$half" "$synth" "$freq" fade 0 0.7 0.25 trim 0 "$half" &>/dev/null
+		sox -n note-"$note"-"$synth"-whole.wav synth "$whole" "$synth" "$freq" trim 0 "$whole" &>/dev/null
+		sox note-"$note"-"$synth"-whole.wav note-"$note"-"$synth"-half.wav trim "$half" "$whole" &>/dev/null
 		sox note-"$note"-"$synth"-half.wav note-"$note"-"$synth"-quarter.wav trim "$quarter" "$half" &>/dev/null
-		sox note-"$note"-"$synth"-half.wav note-"$note"-"$synth"-triplet.wav trim "$triplet" "$half" &>/dev/null
+		sox note-"$note"-"$synth"-half.wav note-"$note"-"$synth"-etrip.wav trim "$triplet" "$half" &>/dev/null
 		sox note-"$note"-"$synth"-half.wav note-"$note"-"$synth"-eighth.wav trim "$e_less" "$half" &>/dev/null
+		sox note-"$note"-"$synth"-half.wav note-"$note"-"$synth"-teenth.wav trim "$t_less" "$half" &>/dev/null
 	fi
 }
 
@@ -166,7 +171,7 @@ play_song () {
 	done < "$song"-bass.mec
 	mv temp"$j".wav "$song"-bass.wav
 	# Clean up samples
-	rm note-*.wav
+	# rm note-*.wav
 	rm temp*.wav
 
 	if [ -f "$song"-lead.mec ]; then
@@ -181,7 +186,7 @@ play_song () {
 		done < "$song"-lead.mec
 		sox temp"$j".wav "$song"-lead.wav pitch +1200 gain -15 &>/dev/null
 		# Clean up samples
-		rm note-*.wav
+		# rm note-*.wav
 		rm temp*.wav
 		create_drum_track
 		sox -m "$song"-drums64.wav "$song"-bass.wav "$song"-lead.wav "$song"-mix.wav &>/dev/null

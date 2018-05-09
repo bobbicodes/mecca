@@ -91,7 +91,7 @@ create_drum_track () {
 	sox drum-h-whole.wav drum-h-quarter.wav trim 0 "$quarter"
 	sox drum-h-whole.wav drum-h-eighth.wav trim 0 "$eighth"
 	# snare
-	sox -n drum-s-whole.wav synth 0.1 noise fade 0 "$whole" "$whole" trim 0 "$whole"
+	sox -n drum-s-whole.wav synth 0.1 noise fade 0 "$whole" "$whole" trim 0 "$whole" &>/dev/null
 	sox drum-s-whole.wav drum-s-half.wav trim 0 "$half" &>/dev/null
 	sox drum-s-whole.wav drum-s-quarter.wav trim 0 "$quarter" &>/dev/null
 	sox drum-s-whole.wav drum-s-eighth.wav trim 0 "$eighth" &>/dev/null

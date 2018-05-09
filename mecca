@@ -171,7 +171,7 @@ play_song () {
 	done < "$song"-bass.mec
 	mv temp"$j".wav "$song"-bass.wav
 	# Clean up samples
-	# rm note-*.wav
+	rm note-*.wav
 	rm temp*.wav
 
 	if [ -f "$song"-lead.mec ]; then
@@ -186,7 +186,7 @@ play_song () {
 		done < "$song"-lead.mec
 		sox temp"$j".wav "$song"-lead.wav pitch +1200 gain -15 &>/dev/null
 		# Clean up samples
-		# rm note-*.wav
+		rm note-*.wav
 		rm temp*.wav
 		create_drum_track
 		sox -m "$song"-drums64.wav "$song"-bass.wav "$song"-lead.wav "$song"-mix.wav &>/dev/null

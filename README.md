@@ -37,8 +37,8 @@ Or whatever it is you do to install things on your thing.
     
 Tempo is an integer in beats-per-minute (defaults to 120).
 
-The Zelda sample song sounds right at 240;
-The Megaman sample song sounds right at 350. That's actually double what they should be, because I recorded them at half-speed (because I hadn't figured that part out yet).
+The Zelda sample song sounds right at 120,
+The Megaman sample song sounds right at 175.
     
 To play a song, just load it and select play from the spacebar-menu:
 

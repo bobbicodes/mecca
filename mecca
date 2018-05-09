@@ -90,13 +90,15 @@ create_drum_track () {
 	sox drum-h-whole.wav drum-h-half.wav trim 0.0 "$half"
 	sox drum-h-whole.wav drum-h-quarter.wav trim 0 "$quarter"
 	sox drum-h-whole.wav drum-h-eighth.wav trim 0 "$eighth"
+	sox drum-h-whole.wav drum-h-teenth.wav trim 0 "$teenth"
 	# snare
 	sox -n drum-s-whole.wav synth 0.1 noise fade 0 "$whole" "$whole" trim 0 "$whole" &>/dev/null
 	sox drum-s-whole.wav drum-s-half.wav trim 0 "$half" &>/dev/null
 	sox drum-s-whole.wav drum-s-quarter.wav trim 0 "$quarter" &>/dev/null
 	sox drum-s-whole.wav drum-s-eighth.wav trim 0 "$eighth" &>/dev/null
+	sox drum-s-whole.wav drum-s-teenth.wav trim 0 "$teenth" &>/dev/null
 	# create pattern and loop it
-	sox drum-h-quarter.wav drum-h-eighth.wav drum-h-eighth.wav drum-s-quarter.wav drum-h-eighth.wav drum-h-eighth.wav "$song"-drums.wav
+	sox drum-h-eighth.wav drum-h-teenth.wav drum-h-teenth.wav drum-s-eighth.wav drum-h-teenth.wav drum-h-teenth.wav "$song"-drums.wav
 	sox "$song"-drums.wav "$song"-drums.wav "$song"-drums.wav "$song"-drums.wav "$song"-drums4.wav
 	sox "$song"-drums4.wav "$song"-drums4.wav "$song"-drums4.wav "$song"-drums4.wav "$song"-drums16.wav
 	sox "$song"-drums16.wav "$song"-drums16.wav "$song"-drums16.wav "$song"-drums16.wav "$song"-drums64.wav trim 0 "$songlen"

@@ -69,7 +69,7 @@ You might find it more convenient to work in a text editor. One of the project's
     d3 square eighth
     ds3 square eighth   
     
-One file is used per instrument. It must end with a blank line. You'll likely find that by copy/pasting sections it is possible to build songs extremely quickly.
+One file is used per instrument. You'll likely find that by copy/pasting sections it is possible to build songs extremely quickly.
 
 # TODO
 

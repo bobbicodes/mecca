@@ -48,6 +48,27 @@ To play a song, just load it and select play from the spacebar-menu:
     > 2
     Enter song name
     > zelda
+      -------------------------
+      | 2 | 3 |   | 5 | 6 | 7 |
+    ---------------------------------
+    | q | w | e | r | t | y | u | i |
+    ---------------------------------
+      | s | d |    | g | h | j |
+    ---------------------------------
+    | z | x | c | v | b | n | m | , |
+    ---------------------------------
+
+    Synth ready. Press <spacebar> for options
+    > 
+    [space] Play song
+    [1] Undo last note
+    [2] Record lead
+    [3] Add eighth-notes
+    [4] Add triplets
+    [5] Add quarter-notes
+    [6] Add half-notes
+
+    Enter option >
 
 ## Creating songs using the built-in sequencer:
     

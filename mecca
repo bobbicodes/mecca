@@ -83,6 +83,7 @@ e_less=$(bc <<< "scale = 10; ($half - $eighth)")
 t_less=$(bc <<< "scale = 10; ($half - $teenth)")
 
 create_drum_track () {
+	songlen="$(soxi -D "$song"-bass.wav)"
 	echo "Creating drum samples..."
 	# hi-hat
 	sox -n drum-h-whole.wav synth 0.01 noise fade 0 "$whole" "$whole" trim 0.0 "$whole" &>/dev/null
@@ -98,7 +99,7 @@ create_drum_track () {
 	sox drum-h-quarter.wav drum-h-eighth.wav drum-h-eighth.wav drum-s-quarter.wav drum-h-eighth.wav drum-h-eighth.wav "$song"-drums.wav
 	sox "$song"-drums.wav "$song"-drums.wav "$song"-drums.wav "$song"-drums.wav "$song"-drums4.wav
 	sox "$song"-drums4.wav "$song"-drums4.wav "$song"-drums4.wav "$song"-drums4.wav "$song"-drums16.wav
-	sox "$song"-drums16.wav "$song"-drums16.wav "$song"-drums16.wav "$song"-drums16.wav "$song"-drums64.wav
+	sox "$song"-drums16.wav "$song"-drums16.wav "$song"-drums16.wav "$song"-drums16.wav "$song"-drums64.wav trim 0 "$songlen"
 }
 
 create_notes () {

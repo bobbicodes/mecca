@@ -83,8 +83,7 @@ e_less=$(bc <<< "scale = 10; ($half - $eighth)")
 t_less=$(bc <<< "scale = 10; ($half - $teenth)")
 
 create_drum_track () {
-	songlen="$(soxi -D "$song"-bass.wav)"
-	echo "Creating drum samples..."
+	echo "Creating drum track..."
 	# hi-hat
 	sox -n drum-h-whole.wav synth 0.01 noise fade 0 "$whole" "$whole" trim 0.0 "$whole" &>/dev/null
 	sox drum-h-whole.wav drum-h-half.wav trim 0.0 "$half"
@@ -97,7 +96,8 @@ create_drum_track () {
 	sox drum-s-whole.wav drum-s-quarter.wav trim 0 "$quarter" &>/dev/null
 	sox drum-s-whole.wav drum-s-eighth.wav trim 0 "$eighth" &>/dev/null
 	sox drum-s-whole.wav drum-s-teenth.wav trim 0 "$teenth" &>/dev/null
-	# create pattern and loop it
+	# create pattern and loop it for length of song
+	songlen="$(soxi -D "$song"-bass.wav)"
 	sox drum-h-eighth.wav drum-h-teenth.wav drum-h-teenth.wav drum-s-eighth.wav drum-h-teenth.wav drum-h-teenth.wav "$song"-drums.wav
 	sox "$song"-drums.wav "$song"-drums.wav "$song"-drums.wav "$song"-drums.wav "$song"-drums4.wav
 	sox "$song"-drums4.wav "$song"-drums4.wav "$song"-drums4.wav "$song"-drums4.wav "$song"-drums16.wav
@@ -107,7 +107,7 @@ create_drum_track () {
 
 create_notes () {
 	if [ ! -f note-"$pitch"-"$wave"-half.wav ]; then
-		echo "Creating sample "$pitch"-"$wave"..."
+		echo "Generating sample "$pitch"-"$wave"..."
 		case "$pitch" in
 			c2) freq=65.41 ;; cs2) freq=69.3 ;; d2) freq=73.42 ;;
 			ds2) freq=77.78 ;; e2) freq=82.41 ;; f2) freq=87.31 ;;
@@ -136,7 +136,7 @@ create_notes () {
 
 create_synth () {
 	if [ ! -f note-"$note"-"$synth"-half.wav ]; then
-		echo "Creating sample "$note"-"$synth"..."
+		echo "Generating sample "$note"-"$synth"..."
 		case "$note" in
 			c2) freq=65.41 ;; cs2) freq=69.3 ;; d2) freq=73.42 ;;
 			ds2) freq=77.78 ;; e2) freq=82.41 ;; f2) freq=87.31 ;;
@@ -163,7 +163,6 @@ create_synth () {
 }
 
 play_song () {
-	
 	# Assemble bass track
 	echo "Building bass track..."
 	sox -n -c 1 temp1.wav trim 0.0 0.0
@@ -177,7 +176,6 @@ play_song () {
 	# Clean up samples
 	rm note-*.wav
 	rm temp*.wav
-
 	if [ -f "$song"-lead.mec ]; then
 		# Assemble lead track
 		echo "Building lead track..."
@@ -230,7 +228,6 @@ while true; do
 	# Grab single keypress from user
 	read -n1 key
 	echo ""
-
 	# Define input keys
 	case $key in
 		z) note=c2 ;; s) note=cs2 ;; x) note=d2 ;; d) note=ds2 ;; c) note=e2 ;;
@@ -240,7 +237,6 @@ while true; do
 		r) note=f3 ;; 5) note=fs3 ;; t) note=g3 ;; 6) note=gs3 ;; y) note=a3 ;;
 		7) note=as3 ;; u) note=b3 ;; i) note=c4 ;; '') menu ;; *) continue ;;
 	esac
-
 	if [ "$key" = "z" ] || [ "$key" = "s" ] || [ "$key" = "x" ] || [ "$key" = "d" ] || [ "$key" = "c" ] || [ "$key" = "v" ] || [ "$key" = "g" ] || [ "$key" = "b" ] || [ "$key" = "h" ] || [ "$key" = "n" ] || [ "$key" = "j" ] || [ "$key" = "m" ] || [ "$key" = "," ] || [ "$key" = ";" ] || [ "$key" = "q" ] || [ "$key" = "2" ] || [ "$key" = "w" ] || [ "$key" = "3" ] || [ "$key" = "e" ] || [ "$key" = "r" ] || [ "$key" = "5" ] || [ "$key" = "t" ] || [ "$key" = "6" ] || [ "$key" = "y" ] || [ "$key" = "7" ] || [ "$key" = "u" ] || [ "$key" = "i" ] ; then
 		# Play note and append to song
 		create_synth

@@ -9,9 +9,8 @@ Seeking comprehensive integration of learning, writing and performance. For when
 
 See and hear it in action:
 
-[Zelda theme](https://www.youtube.com/watch?v=m_t79-4WlE8)
-
-[Megaman 2 - Dr. Wily stage ](https://www.youtube.com/watch?v=b2-qQKJRWdo)
+[Zelda theme](https://www.youtube.com/watch?v=m_t79-4WlE8)  
+[Megaman 2 - Dr. Wily](https://www.youtube.com/watch?v=b2-qQKJRWdo)
 
 # Installation
 

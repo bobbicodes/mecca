@@ -39,9 +39,10 @@ menu () {
 	echo "[1] Undo last note"
 	echo "[2] Record lead"
 	echo "[3] Add eighth-notes"
-	echo "[4] Add triplets"
+	echo "[4] Add eighth-note triplets"
 	echo "[5] Add quarter-notes"
-	echo "[6] Add half-notes"
+	echo "[6] Add quarter-note triplets"
+	echo "[7] Add half-notes"
 	echo ""
 	echo -n "Enter option > "
 	read -n1 menu
@@ -51,9 +52,10 @@ menu () {
 		head -n -1 "$song"-"$track".mec  > temp.txt ; mv temp.txt "$song"-"$track".mec ;;
 	2) synth=square track=lead i=1 ;;
 	3) len=eighth ;;
-	4) len=etrip;;
+	4) len=etrip ;;
 	5) len=quarter ;;
-	6) len=half ;;
+	6) len=qtrip ;;
+	7) len=half ;;
 	'') play_song ;;
 	*) continue ;;
 	esac
@@ -156,7 +158,8 @@ play_note () {
 		sox -n note-"$note"-"$synth"-whole.wav synth "$whole" "$synth" "$freq" trim 0 "$whole" &>/dev/null
 		sox note-"$note"-"$synth"-whole.wav note-"$note"-"$synth"-half.wav trim "$half" "$whole" &>/dev/null
 		sox note-"$note"-"$synth"-half.wav note-"$note"-"$synth"-quarter.wav trim "$quarter" "$half" &>/dev/null
-		sox note-"$note"-"$synth"-half.wav note-"$note"-"$synth"-etrip.wav trim "$triplet" "$half" &>/dev/null
+		sox note-"$note"-"$synth"-half.wav note-"$note"-"$synth"-qtrip.wav trim "$q_less" "$half" &>/dev/null
+		sox note-"$note"-"$synth"-half.wav note-"$note"-"$synth"-etrip.wav trim "$et_less" "$half" &>/dev/null
 		sox note-"$note"-"$synth"-half.wav note-"$note"-"$synth"-eighth.wav trim "$e_less" "$half" &>/dev/null
 		sox note-"$note"-"$synth"-half.wav note-"$note"-"$synth"-teenth.wav trim "$t_less" "$half" &>/dev/null
 	fi

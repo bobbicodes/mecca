@@ -134,7 +134,7 @@ create_notes () {
 	fi
 }
 
-create_synth () {
+play_note () {
 	if [ ! -f note-"$note"-"$synth"-half.wav ]; then
 		echo "Generating sample "$note"-"$synth"..."
 		case "$note" in
@@ -239,7 +239,7 @@ while true; do
 	esac
 	if [ "$key" = "z" ] || [ "$key" = "s" ] || [ "$key" = "x" ] || [ "$key" = "d" ] || [ "$key" = "c" ] || [ "$key" = "v" ] || [ "$key" = "g" ] || [ "$key" = "b" ] || [ "$key" = "h" ] || [ "$key" = "n" ] || [ "$key" = "j" ] || [ "$key" = "m" ] || [ "$key" = "," ] || [ "$key" = ";" ] || [ "$key" = "q" ] || [ "$key" = "2" ] || [ "$key" = "w" ] || [ "$key" = "3" ] || [ "$key" = "e" ] || [ "$key" = "r" ] || [ "$key" = "5" ] || [ "$key" = "t" ] || [ "$key" = "6" ] || [ "$key" = "y" ] || [ "$key" = "7" ] || [ "$key" = "u" ] || [ "$key" = "i" ] ; then
 		# Play note and append to song
-		create_synth
+		play_note
 		play note-"$note"-"$synth"-"$len".wav &>/dev/null &
 		if [ $track = bass ]; then
 			echo "$note" "$synth" "$len" >> "$song"-bass.mec

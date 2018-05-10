@@ -7,15 +7,11 @@ You are the creator.
 
 Seeking comprehensive integration of learning, writing and performance. For when these processes are fully realized as agents of a more complex entity, life will finally be [a dream](https://www.youtube.com/watch?v=0TgrorCZg80). To subtly encourage musical idioms without limiting expressivity, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
 
-See and hear it in action:
-
+See and hear it in action:  
 [Zelda theme](https://www.youtube.com/watch?v=m_t79-4WlE8)  
 [Megaman 2 - Dr. Wily](https://www.youtube.com/watch?v=b2-qQKJRWdo)
 
 # Installation
-
-If using Windows, install [MinGW](http://www.mingw.org/) and add it to your system PATH according to [these instructions](http://www.computerhope.com/issues/ch000549.htm).
-Or, try [Cygwin](https://www.cygwin.com/)? I don't know, I don't use Windows.
 
 Download the mecca script and set it to be executable:
 

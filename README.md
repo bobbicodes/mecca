@@ -36,10 +36,7 @@ Or whatever it is you do to install things on your thing.
     $ ./mecca [tempo]
     
 Tempo is an integer in beats-per-minute (defaults to 120).
-
-The Zelda sample song sounds right at 120,
-The Megaman sample song sounds right at 175.
-    
+The Zelda sample song sounds right at 120, Megaman is 175.  
 To play a song, just load it and select play from the spacebar-menu:
 
     MECCA Music Platform

@@ -65,9 +65,10 @@ To play a song, just load it and select play from the spacebar-menu:
     [1] Undo last note
     [2] Record lead
     [3] Add eighth-notes
-    [4] Add triplets
+    [4] Add eighth-note triplets
     [5] Add quarter-notes
-    [6] Add half-notes
+    [6] Add quarter-note triplets
+    [7] Add half-notes
 
     Enter option >
 

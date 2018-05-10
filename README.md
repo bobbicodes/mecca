@@ -16,6 +16,7 @@ See and hear it in action:
 # Installation
 
 If using Windows, install [MinGW](http://www.mingw.org/) and add it to your system PATH according to [these instructions](http://www.computerhope.com/issues/ch000549.htm).
+Or, try [Cygwin](https://www.cygwin.com/)? I don't know, I don't use Windows.
 
 Download the mecca script and set it to be executable:
 

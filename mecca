@@ -101,7 +101,8 @@ create_drum_track () {
 	sox drum-h-eighth.wav drum-h-teenth.wav drum-h-teenth.wav drum-s-eighth.wav drum-h-teenth.wav drum-h-teenth.wav "$song"-drums.wav
 	sox "$song"-drums.wav "$song"-drums.wav "$song"-drums.wav "$song"-drums.wav "$song"-drums4.wav
 	sox "$song"-drums4.wav "$song"-drums4.wav "$song"-drums4.wav "$song"-drums4.wav "$song"-drums16.wav
-	sox "$song"-drums16.wav "$song"-drums16.wav "$song"-drums16.wav "$song"-drums16.wav "$song"-drums64.wav trim 0 "$songlen"
+	sox "$song"-drums16.wav "$song"-drums16.wav "$song"-drums16.wav "$song"-drums16.wav "$song"-drums64.wav
+	sox "$song"-drums64.wav "$song"-drums64.wav "$song"-drums128.wav trim 0 "$songlen"
 }
 
 create_notes () {
@@ -192,10 +193,10 @@ play_song () {
 		rm note-*.wav
 		rm temp*.wav
 		create_drum_track
-		sox -m "$song"-drums64.wav "$song"-bass.wav "$song"-lead.wav "$song"-mix.wav &>/dev/null
+		sox -m "$song"-drums128.wav "$song"-bass.wav "$song"-lead.wav "$song"-mix.wav &>/dev/null
 	else
 		create_drum_track
-		sox -m "$song"-drums64.wav "$song"-bass.wav "$song"-mix.wav &>/dev/null
+		sox -m "$song"-drums128.wav "$song"-bass.wav "$song"-mix.wav &>/dev/null
 	fi
 	rm drum-*.wav
 	echo "Playing... (Ctrl+C to stop)"

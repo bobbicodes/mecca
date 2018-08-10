@@ -31,8 +31,8 @@ Or whatever it is you do to install things on your thing.
     
     $ ./mecca [tempo]
     
-Tempo is an integer in beats-per-minute (defaults to 120).
-The Zelda sample song sounds right at 120, Megaman is 175.  
+`tempo` is an integer in beats-per-minute (defaults to `120`).
+The Zelda sample song sounds right at `120`, Megaman is `175`.  
 To play a song, just load it and select play from the spacebar-menu:
 
     MECCA Music Platform
@@ -67,10 +67,10 @@ To play a song, just load it and select play from the spacebar-menu:
 ## Creating songs using the built-in sequencer:
     
 The "virtual piano" on the screen indicates which keys play notes.
-You have 2 full octaves, one starting with the "z" key, and one starting with "q", with the sharps/flats located above them like on a piano.
+You have 2 full octaves, one starting with the `z` key, and one starting with `q`, with the sharps/flats located above them like on a piano.
 1. Enter notes to build the bassline using triangle-waves.
 2. Use the spacebar-menu to change note lengths.
-3. **A semicolon (;) enters a rest.**
+3. **A semicolon (`;`) enters a rest.**
 4. If you mess up, use the undo! Use the play option any time to hear what you've got.
 5. When satisfied with your bassline, move on to the lead.
 
@@ -87,7 +87,7 @@ You might find it more convenient to work in a text editor. One of the project's
     d3 square eighth
     ds3 square eighth   
     
-As you might expect, each line is a note and its octave (**`s` stands for sharp**, `r` for rest) followed by its synth type (`tri`=triangle wave, `square`=square wave), followed by its length (eighth, etrip, quarter, qtrip, half).  One file is used per instrument. You'll likely find that by copy/pasting sections it is possible to build songs extremely quickly.
+As you might expect, each line is a note and its octave (**`s` stands for sharp**, `r` for rest) followed by its synth type (`tri`= triangle wave, `square`= square wave), followed by its length (`eighth`, `etrip`, `quarter`, `qtrip`, `half`).  One file is used per instrument. You'll likely find that by copy/pasting sections it is possible to build songs extremely quickly.
 
 ## To change the drum pattern
 

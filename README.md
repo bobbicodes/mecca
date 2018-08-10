@@ -86,12 +86,7 @@ You might find it more convenient to work in a text editor. One of the project's
     d3 square eighth
     ds3 square eighth   
     
-As you might expect, each line is a note and its octave ("s" stands for sharp, "r" stands for rest) followed by its synth type (tri=triangle wave, square=square wave), followed by its length (eighth, etrip, quarter, qtrip, half).  One file is used per instrument. You'll likely find that by copy/pasting sections it is possible to build songs extremely quickly.
-
-# TODO
-
-Move the UI into C with ncurses and add support for mouse, arrow and function keys.
-Represent the song's structure as a grid with notes as squares that can be toggled on and off.
+As you might expect, each line is a note and its octave (**"s" stands for sharp**, "r" for rest) followed by its synth type (tri=triangle wave, square=square wave), followed by its length (eighth, etrip, quarter, qtrip, half).  One file is used per instrument. You'll likely find that by copy/pasting sections it is possible to build songs extremely quickly.
 
 ## LICENSE
 

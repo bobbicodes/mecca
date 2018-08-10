@@ -13,7 +13,7 @@ See and hear it in action:
 
 # Installation
 
-Download the mecca script and set it to be executable:
+Clone the repository and set the `mecca` script to be executable:
 
     $ git clone https://github.com/porkostomus/mecca.git
     $ cd mecca
@@ -74,7 +74,7 @@ You have 2 full octaves, one starting with the `z` key, and one starting with `q
 4. If you mess up, use the undo! Use the play option any time to hear what you've got.
 5. When satisfied with your bassline, move on to the lead.
 
-## Editing your song's .mec files
+## Editing your song's `.mec` files
 
 You might find it more convenient to work in a text editor. One of the project's goals was to use music data files that are easy to read, edit and share. For this reason it uses .mec files, which are simply text files that contain a list of notes and their attributes like this:
 

@@ -87,13 +87,15 @@ You might find it more convenient to work in a text editor. One of the project's
     d3 square eighth
     ds3 square eighth   
     
-As you might expect, each line is a note and its octave (**"s" stands for sharp**, "r" for rest) followed by its synth type (tri=triangle wave, square=square wave), followed by its length (eighth, etrip, quarter, qtrip, half).  One file is used per instrument. You'll likely find that by copy/pasting sections it is possible to build songs extremely quickly.
+As you might expect, each line is a note and its octave (**`s` stands for sharp**, `r` for rest) followed by its synth type (`tri`=triangle wave, `square`=square wave), followed by its length (eighth, etrip, quarter, qtrip, half).  One file is used per instrument. You'll likely find that by copy/pasting sections it is possible to build songs extremely quickly.
 
 ## To change the drum pattern
 
 Edit line `103` of the `mecca` script:
 
-`sox drum-h-eighth.wav drum-h-teenth.wav drum-h-teenth.wav drum-s-eighth.wav drum-h-teenth.wav drum-h-teenth.wav "$song"-drums.wav`
+```
+sox drum-h-eighth.wav drum-h-teenth.wav drum-h-teenth.wav drum-s-eighth.wav drum-h-teenth.wav drum-h-teenth.wav "$song"-drums.wav
+```
 
 This command creates the sample `<song>-drums.wav` consisting of 3 hi-hats (1/8 note followed by 2 1/16 notes), an 1/8-note snare and 2 more 1/16-note hi-hats. For a different beat, change it to whatever you'd like.
 

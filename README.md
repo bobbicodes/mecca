@@ -68,8 +68,10 @@ To play a song, just load it and select play from the spacebar-menu:
     
 The "virtual piano" on the screen indicates which keys play notes.
 You have 2 full octaves, one starting with the "z" key, and one starting with "q", with the sharps/flats located above them like on a piano.
-You begin by entering notes to build the bassline, using the menu to change note lengths. A semicolon (;) enters a rest. Use the play option any time to hear what you've got.
-If you mess up, use the undo! When satisfied with your bassline, move on to the lead.
+1. Enter notes to build the bassline, using the menu to change note lengths.
+2. **A semicolon (;) enters a rest.**
+3. If you mess up, use the undo! Use the play option any time to hear what you've got.
+4. When satisfied with your bassline, move on to the lead.
 
 ## Editing your song's .mec files
 

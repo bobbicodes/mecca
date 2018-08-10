@@ -68,18 +68,19 @@ To play a song, just load it and select play from the spacebar-menu:
     
 The "virtual piano" on the screen indicates which keys play notes.
 You have 2 full octaves, one starting with the "z" key, and one starting with "q", with the sharps/flats located above them like on a piano.
-1. Enter notes to build the bassline, using the menu to change note lengths.
-2. **A semicolon (;) enters a rest.**
-3. If you mess up, use the undo! Use the play option any time to hear what you've got.
-4. When satisfied with your bassline, move on to the lead.
+1. Enter notes to build the bassline using triangle-waves.
+2. Use the spacebar-menu to change note lengths.
+3. **A semicolon (;) enters a rest.**
+4. If you mess up, use the undo! Use the play option any time to hear what you've got.
+5. When satisfied with your bassline, move on to the lead.
 
 ## Editing your song's .mec files
 
 You might find it more convenient to work in a text editor. One of the project's goals was to use music data files that are easy to read, edit and share. For this reason it uses .mec files, which are simply text files that contain a list of notes and their attributes like this:
 
     as2 square half
-    f2 tri half
-    r tri quarter
+    f2 square half
+    r square quarter
     as2 square quarter
     as2 square eighth
     c3 square eighth

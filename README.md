@@ -28,7 +28,7 @@ Your distro might already include SoX. Otherwise do something like:
 Or whatever it is you do to install things on your thing.
 
 # Usage
-    
+
     $ ./mecca [tempo]
     
 `tempo` is an integer in beats-per-minute (defaults to `120`).
@@ -98,6 +98,10 @@ sox drum-h-eighth.wav drum-h-teenth.wav drum-h-teenth.wav drum-s-eighth.wav drum
 ```
 
 This command creates the sample `<song>-drums.wav` consisting of 3 hi-hats (1/8 note followed by 2 1/16 notes), an 1/8-note snare and 2 more 1/16-note hi-hats. For a different beat, change it to whatever you'd like. (As long as it's some combination of snares and hats.)
+
+## Live synth
+
+If all you want to do is play notes, I have provided another file called `synth` which offers better note response, as well as indicating them on the screen.
 
 ## LICENSE
 

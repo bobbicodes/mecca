@@ -47,7 +47,7 @@ t_less=$(bc <<< "scale = 10; ($half - $teenth)")
 
 Since we can't do floating-point arithmetic in Bash, we export it to `bc` (big calculator). `tempo` is a variable provided as a command-line argument. 
 
-This intimate knowledge of our sonic medium will carry through to inform the next stage: *Composition*.
+This intimate knowledge of our sonic medium will carry through to inform the next stage: **Composition**.
 
 MECCA uses [SoX](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. It began life in 1991 as a command-line tool for converting audio formats, and was tortured throughout its adolesence and made to do all sorts of things to sounds like bind them, cut them, and apply effects all over them. Most fascinatingly, at some point it developed the ability to actually synthesize its own waveforms, a most distinguished craft which has seduced us into bringing this long history of abuse to its thrilling climax, and proudly introduce the one, the only... SoX, the Sequencer.
 

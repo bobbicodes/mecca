@@ -23,7 +23,7 @@ The drum synth simply consists of a snare and a hi-hat produced from pure white 
 
 * The hi-hat's duration is 1/100 of a second.
 * The snare's duration is 1/10 of a second, with a fade applied.
-* The bass uses triangle waves, which combined with the white noise of the hi-hat produce the approximate perceptual effect of a kick drum.
+* The bass uses triangle waves, which combined with the white noise of the hi-hat produce the approximate perceptual effect of a kick drum. Seriously, go ahead and listen to the samples, look me in the eye and tell me you don't hear kick drums.
 
 How do we calculate the note lengths?
 

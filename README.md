@@ -1,4 +1,5 @@
-# MECCA-platform - The Music Education, Composition, Creation Application
+# MECCA-platform
+The Music Education, Composition, Creation Application
 
 You are the student.
 You are the composer.

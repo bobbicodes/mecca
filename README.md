@@ -101,7 +101,7 @@ This command creates the sample `<song>-drums.wav` consisting of 3 hi-hats (1/8 
 
 ## Live synth
 
-If all you want to do is play notes, I have provided another file called `synth` which offers better note response, as well as indicating them on the screen.
+For use as a *virtual instrument*, I have provided another file called `synth` which offers proper response, as well as indicating the notes on the screen.
 
 ## LICENSE
 

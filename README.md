@@ -25,6 +25,8 @@ The drum synth simply consists of a snare and a hi-hat produced from pure white 
 * The snare's duration is 1/10 of a second, with a fade applied.
 * The bass uses triangle waves, which combined with the white noise of the hi-hat produce the approximate perceptual effect of a kick drum. Seriously, go ahead and listen to the samples, look me in the eye and tell me you don't hear kick drums.
 
+## Tempo
+
 How do we calculate the note lengths?
 
 Well for the first version, I didn't! I hard-coded it for 120 beats-per-minute. But once I got tired of that, I came up with this:
@@ -47,7 +49,7 @@ t_less=$(bc <<< "scale = 10; ($half - $teenth)")
 
 Since we can't do floating-point arithmetic in Bash, we export it to `bc` (big calculator). `tempo` is a variable provided as a command-line argument. 
 
-This intimate knowledge of our sonic medium will carry through to inform the next stage: **Composition**.
+The intimate knowledge of our sonic medium acquired by carving out these fundamental building blocks ourselves will carry through to inform the next stage: **Composition**.
 
 MECCA uses [SoX](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. It began life in 1991 as a command-line tool for converting audio formats, and was tortured throughout its adolesence and made to do all sorts of things to sounds like bind them, cut them, and apply effects all over them. Most fascinatingly, at some point it developed the ability to actually synthesize its own waveforms, a most distinguished craft which has seduced us into bringing this long history of abuse to its thrilling climax, and proudly introduce the one, the only... SoX, the Sequencer.
 

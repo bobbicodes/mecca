@@ -5,7 +5,7 @@ echo "Ctrl+C to quit"
 echo "1 - New song"
 echo "2 - Load song"
 echo -n "> "
-read -n1 launch
+read launch
 echo ""
 if [ "$launch" = "1" ]; then
 	echo "Name your song:"
@@ -29,6 +29,7 @@ elif [ "$launch" = "2" ]; then
 	read song
 	echo ""
 else
+	echo "Please enter the number 1 or 2."
 	exit 1
 fi
 

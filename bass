@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Processes a song for deciphering basslines when played on shitty "speakers"
+
+# Convert to wav format
+
+ffmpeg -i $1 "$1".wav
+
+# Double speed to raise song up 1 octave
+
+sox "$1".wav "$1"-f.wav speed 2
+
+# Roll off treble
+
+sox "$1"-f.wav "$1"-fc.wav bass -15

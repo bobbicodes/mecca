@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# create_notes function extracted from mecca script
+
+# pitch will be supplied as first command-line argument
+# second will be the wave, tri or square
+# third will be tempo
+
+# calculate note lengths from tempo
+
+whole=$(bc <<< "scale = 10; (240 / $3)")
+half=$(bc <<< "scale = 10; (120 / $3)")
+quarter=$(bc <<< "scale = 10; (60 / $3)")
+qtrip=$(bc <<< "scale = 10; (40 / $3)")
+eighth=$(bc <<< "scale = 10; (30 / $3)")
+etrip=$(bc <<< "scale = 10; (20 / $3)")
+teenth=$(bc <<< "scale = 10; (15 / $3)")
+ttrip=$(bc <<< "scale = 10; (10 / $3)")
+
+et_less=$(bc <<< "scale = 10; ($half - $etrip)")
+q_less=$(bc <<< "scale = 10; ($half - $qtrip)")
+e_less=$(bc <<< "scale = 10; ($half - $eighth)")
+t_less=$(bc <<< "scale = 10; ($half - $teenth)")
+
+if [ ! -f note-"$1"-"$2"-half.wav ]; then
+	echo "Generating sample "$1"-"$2"..."
+	case "$1" in
+		c2) freq=65.41 ;; cs2) freq=69.3 ;; d2) freq=73.42 ;;
+		ds2) freq=77.78 ;; e2) freq=82.41 ;; f2) freq=87.31 ;;
+		fs2) freq=92.5 ;; g2) freq=98 ;; gs2) freq=103.83 ;;
+		a2) freq=110 ;; as2) freq=116.54 ;; b2) freq=123.47 ;;
+		c3) freq=130.81 ;; cs3) freq=138.59 ;; d3) freq=146.83 ;;
+		ds3) freq=155.56 ;; e3) freq=164.81 ;; f3) freq=174.61 ;;
+		fs3) freq=185 ;; g3) freq=196 ;; gs3) freq=207.65 ;;
+		a3) freq=220 ;; as3) freq=233.08 ;; b3) freq=246.94 ;;
+		c4) freq=261.63 ;; cs4) freq=277.18 ;; d4) freq=293.66 ;;
+		ds4) freq=311.13 ;; e4) freq=329.63 ;; f4) freq=349.23 ;; 
+		fs4) freq=369.99 ;; g4) freq=392 ;; gs4) freq=415.30 ;;
+		a4) freq=440 ;; as4) freq=466.16 ;; b4) freq=493.88 ;;
+		c5) freq=523.25 ;; r) freq=0 ;;
+	esac
+
+	sox -n note-"$1"-"$2"-whole.wav synth "$whole" "$2" "$freq" trim 0 "$whole"
+	sox note-"$1"-"$2"-whole.wav note-"$1"-"$2"-half.wav trim "$half" "$whole"
+	sox note-"$1"-"$2"-half.wav note-"$1"-"$2"-quarter.wav trim "$quarter" "$half"
+	sox note-"$1"-"$2"-half.wav note-"$1"-"$2"-qtrip.wav trim "$q_less" "$half"
+	sox note-"$1"-"$2"-half.wav note-"$1"-"$2"-etrip.wav trim "$et_less" "$half"
+	sox note-"$1"-"$2"-half.wav note-"$1"-"$2"-eighth.wav trim "$e_less" "$half"
+	sox note-"$1"-"$2"-half.wav note-"$1"-"$2"-teenth.wav trim "$t_less" "$half"
+fi

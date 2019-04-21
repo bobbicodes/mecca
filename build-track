@@ -13,3 +13,4 @@ while read -r pitch wave value; do
 	j=$((j+1))
 done < "$1"
 mv temp"$j".wav "$1".wav
+rm note*.wav

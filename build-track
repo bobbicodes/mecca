@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# track builder extracted from mecca script
+# file provided as first command line arg
+# tempo provided as second arg
+
+sox -n -c 1 temp1.wav trim 0.0 0.0
+j=1
+while read -r pitch wave value; do
+	./create-notes "$pitch" "$wave" "$2"
+	sox temp"$j".wav note-"$pitch"-"$wave"-"$value".wav temp"$((j+1))".wav
+	rm temp"$j".wav
+	j=$((j+1))
+done < "$1"
+mv temp"$j".wav "$1".wav

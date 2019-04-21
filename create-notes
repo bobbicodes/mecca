@@ -40,11 +40,11 @@ if [ ! -f note-"$1"-"$2"-half.wav ]; then
 		c5) freq=523.25 ;; r) freq=0 ;;
 	esac
 
-	sox -n note-"$1"-"$2"-whole.wav synth "$whole" "$2" "$freq" trim 0 "$whole"
-	sox note-"$1"-"$2"-whole.wav note-"$1"-"$2"-half.wav trim "$half" "$whole"
-	sox note-"$1"-"$2"-half.wav note-"$1"-"$2"-quarter.wav trim "$quarter" "$half"
-	sox note-"$1"-"$2"-half.wav note-"$1"-"$2"-qtrip.wav trim "$q_less" "$half"
-	sox note-"$1"-"$2"-half.wav note-"$1"-"$2"-etrip.wav trim "$et_less" "$half"
-	sox note-"$1"-"$2"-half.wav note-"$1"-"$2"-eighth.wav trim "$e_less" "$half"
-	sox note-"$1"-"$2"-half.wav note-"$1"-"$2"-teenth.wav trim "$t_less" "$half"
+	sox -n note-"$1"-"$2"-whole.wav synth "$whole" "$2" "$freq" trim 0 "$whole" &>/dev/null
+	sox note-"$1"-"$2"-whole.wav note-"$1"-"$2"-half.wav trim "$half" "$whole" &>/dev/null
+	sox note-"$1"-"$2"-half.wav note-"$1"-"$2"-quarter.wav trim "$quarter" "$half" &>/dev/null
+	sox note-"$1"-"$2"-half.wav note-"$1"-"$2"-qtrip.wav trim "$q_less" "$half" &>/dev/null
+	sox note-"$1"-"$2"-half.wav note-"$1"-"$2"-etrip.wav trim "$et_less" "$half" &>/dev/null
+	sox note-"$1"-"$2"-half.wav note-"$1"-"$2"-eighth.wav trim "$e_less" "$half" &>/dev/null
+	sox note-"$1"-"$2"-half.wav note-"$1"-"$2"-teenth.wav trim "$t_less" "$half" &>/dev/null
 fi

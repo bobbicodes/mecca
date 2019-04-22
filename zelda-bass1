@@ -1,12 +1,12 @@
-as2 tri quarter
-f3 tri quarter
-as3 tri half
-gs2 tri quarter
-ds3 tri quarter
-gs3 tri half
-fs2 tri quarter
-cs3 tri quarter
-fs3 tri half
-f2 tri quarter
-c3 tri quarter
-f3 tri half
+a#2 4
+f3 4
+a#3 2
+g#2 4
+d#3 4
+g#3 2
+f#2 4
+c#3 4
+f#3 2
+f2 4
+c3 4
+f3 2

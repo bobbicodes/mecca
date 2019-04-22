@@ -46,3 +46,32 @@ Make sure to cover:
  110 MUSIC C$+C$+B$
  120 MUSIC C$+D$+E$
 ```
+
+My `.mec` format is superior, because it represents absolute notes. `A2`, for example, represents the `a` note in the second octave. **Which means we don't need to deal with that other octave bullshit.**
+
+But what I want to do is remove the wave information. The instrument assignment should be left to whatever is calling it. And while I'm at it, I'll use `#` instead of `s` to represent sharp as long as that doesn't cause any problems.
+
+I second thought... perhaps it's good that we encode the wave too, since the note does in fact have to be one. The files conform to the spec. However... we don't encode the tempo info! Perhaps I'll give it a shot.
+
+And it works! You can now run:
+
+`$ ./build-track zelda-bass1 tri 120`
+
+The `zelda-bass1` file:
+
+```
+a#2 4
+f3 4
+a#3 2
+g#2 4
+d#3 4
+g#3 2
+f#2 4
+c#3 4
+f#3 2
+f2 4
+c3 4
+f3 2
+```
+
+Quarter-note triplets and eighth-note triplets are `4t` and `8t` respectively. Just tested and it works.

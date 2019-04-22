@@ -9,3 +9,5 @@ I'm breaking the program I wrote into individual components, following the Unix 
 ## 4-22-2019
 
 Took screenshots of Bryan Cantrill's slides. I should make a slideshare and put them on it.
+
+[And here it is.](https://www.slideshare.net/BobbyTowers1/unix-141630706)

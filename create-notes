@@ -46,5 +46,5 @@ if [ ! -f note-"$1"-"$2"-2.wav ]; then
 	sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-4t.wav trim "$q_less" "$half" &>/dev/null
 	sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-8t.wav trim "$et_less" "$half" &>/dev/null
 	sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-8.wav trim "$e_less" "$half" &>/dev/null
-	sox note-"$1"-"$2"-half.wav note-"$1"-"$2"-16.wav trim "$t_less" "$half" &>/dev/null
+	sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-16.wav trim "$t_less" "$half" &>/dev/null
 fi

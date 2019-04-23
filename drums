@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# song name is 1st arg
-# tempo is 2nd arg
+# Usage:
+# drums <song> <tempo>
+
+# Calculate note lengths from tempo
 
 whole=$(bc <<< "scale = 10; (240 / $2)")
 half=$(bc <<< "scale = 10; (120 / $2)")
@@ -18,25 +20,43 @@ e_less=$(bc <<< "scale = 10; ($half - $eighth)")
 t_less=$(bc <<< "scale = 10; ($half - $teenth)")
 
 echo "Creating drum track..."
-# hi-hat
+
+# Generate hi-hat samples
+
 sox -n drum-h-whole.wav synth 0.01 noise fade 0 "$whole" "$whole" trim 0.0 "$whole" &>/dev/null
 sox drum-h-whole.wav drum-h-half.wav trim 0.0 "$half"
 sox drum-h-whole.wav drum-h-quarter.wav trim 0 "$quarter"
 sox drum-h-whole.wav drum-h-eighth.wav trim 0 "$eighth"
 sox drum-h-whole.wav drum-h-teenth.wav trim 0 "$teenth"
+
 # snare
-sox -n drum-s-whole.wav synth 0.1 noise fade 0 "$whole" "$whole" trim 0 "$whole" &>/dev/null
-sox drum-s-whole.wav drum-s-half.wav trim 0 "$half" &>/dev/null
-sox drum-s-whole.wav drum-s-quarter.wav trim 0 "$quarter" &>/dev/null
-sox drum-s-whole.wav drum-s-eighth.wav trim 0 "$eighth" &>/dev/null
-sox drum-s-whole.wav drum-s-teenth.wav trim 0 "$teenth" &>/dev/null
-# create pattern and loop it for length of song
+
+sox -n drum-s-1.wav synth 0.1 noise fade 0 "$whole" "$whole" trim 0 "$whole" &>/dev/null
+sox drum-s-1.wav drum-s-2.wav trim 0 "$half" &>/dev/null
+sox drum-s-1.wav drum-s-4.wav trim 0 "$quarter" &>/dev/null
+sox drum-s-1.wav drum-s-8.wav trim 0 "$eighth" &>/dev/null
+sox drum-s-1.wav drum-s-16.wav trim 0 "$teenth" &>/dev/null
+
+# Make drum track length of bass track
+
 songlen="$(soxi -D "$1"-bass.wav)"
-sox drum-h-eighth.wav drum-h-teenth.wav drum-h-teenth.wav drum-s-eighth.wav drum-h-teenth.wav drum-h-teenth.wav "$1"-drums.wav
+
+# Create drum pattern
+
+sox drum-h-8.wav drum-h-16.wav drum-h-16.wav drum-s-16.wav drum-h-16.wav drum-h-16.wav "$1"-drums.wav
+
+# Copy file repeatedly to loop it
+
 sox "$1"-drums.wav "$1"-drums.wav "$1"-drums.wav "$1"-drums.wav "$1"-drums4.wav
 sox "$1"-drums4.wav "$1"-drums4.wav "$1"-drums4.wav "$1"-drums4.wav "$1"-drums16.wav
 sox "$1"-drums16.wav "$1"-drums16.wav "$1"-drums16.wav "$1"-drums16.wav "$1"-drums64.wav
+
+# Trim to length
+
 sox "$1"-drums64.wav "$1"-drums64.wav "$1"-drums.wav trim 0 "$songlen"
+
+# Clean up samples
+
 rm drum*.wav
 rm "$1"-drums4.wav
 rm "$1"-drums16.wav

@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# create_notes function extracted from mecca script
-
-# pitch will be supplied as first command-line argument
-# second will be the wave, triangle or square
-# third will be tempo
+# Usage:
+# create-notes <pitch> <wave> <tempo>
 
 # calculate note lengths from tempo
 
@@ -22,8 +19,14 @@ q_less=$(bc <<< "scale = 10; ($half - $qtrip)")
 e_less=$(bc <<< "scale = 10; ($half - $eighth)")
 t_less=$(bc <<< "scale = 10; ($half - $teenth)")
 
+# Check if sample already exists
+
 if [ ! -f note-"$1"-"$2"-2.wav ]; then
+
 	echo "Generating "$1" "$2" wave..."
+
+# Translate note letter to frequency
+
 	case "$1" in
 		c2) freq=65.41 ;; c#2) freq=69.3 ;; d2) freq=73.42 ;;
 		d#2) freq=77.78 ;; e2) freq=82.41 ;; f2) freq=87.31 ;;
@@ -38,15 +41,35 @@ if [ ! -f note-"$1"-"$2"-2.wav ]; then
 		f#4) freq=369.99 ;; g4) freq=392 ;; g#4) freq=415.30 ;;
 		a4) freq=440 ;; a#4) freq=466.16 ;; b4) freq=493.88 ;;
 		c5) freq=523.25 ;; c#5) freq=554.37 ;; d5) freq=587.33 ;;
-                d#5) freq=622.25 ;; e5) freq=659.25 ;; f5) freq=698.46 ;;
-                f#5) freq=739.99 ;; g5) freq=783.99 ;; g#5) freq=830.60 ;; r) freq=0 ;;
+        d#5) freq=622.25 ;; e5) freq=659.25 ;; f5) freq=698.46 ;;
+        f#5) freq=739.99 ;; g5) freq=783.99 ;; g#5) freq=830.60 ;; r) freq=0 ;;
 	esac
 
+# Generate whole note
+
 	sox -n note-"$1"-"$2"-1.wav synth "$whole" "$2" "$freq" trim 0 "$whole" &>/dev/null
+
+# Cut half note from whole note
+
 	sox note-"$1"-"$2"-1.wav note-"$1"-"$2"-2.wav trim "$half" "$whole" &>/dev/null
+
+# Cut quarter note from half note
+
 	sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-4.wav trim "$quarter" "$half" &>/dev/null
+
+# Cut quarter note triplet
+
 	sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-4t.wav trim "$q_less" "$half" &>/dev/null
+
+# Cut eighth note triplet
+
 	sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-8t.wav trim "$et_less" "$half" &>/dev/null
+
+# Cut eighth note
+
 	sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-8.wav trim "$e_less" "$half" &>/dev/null
+
+# Cut sixteenth note
+
 	sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-16.wav trim "$t_less" "$half" &>/dev/null
 fi

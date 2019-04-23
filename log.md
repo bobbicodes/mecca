@@ -120,3 +120,7 @@ $ sox -m zelda-drums.wav zelda-bass.wav zelda-lead.wav zelda.wav
 ```
 
 So what I think we want is a script that will do all of this... but it would need to look for all the song files.
+
+End of day:
+
+Finished the `build-song` script, which at this point does exactly what the old `mecca` script did, produces a 3-track mix with drums from a bass and lead file. Not bad!

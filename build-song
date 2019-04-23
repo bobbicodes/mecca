@@ -7,3 +7,4 @@ sox -m "$1"-drums.wav "$1"-bass.wav "$1"-lead.wav "$1".wav
 rm "$1"-drums.wav
 rm "$1"-bass.wav
 rm "$1"-lead.wav
+play "$1".wav

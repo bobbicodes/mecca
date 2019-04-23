@@ -23,53 +23,54 @@ t_less=$(bc <<< "scale = 10; ($half - $teenth)")
 
 if [ ! -f note-"$1"-"$2"-2.wav ]; then
 
-	echo "Generating "$1" "$2" wave..."
+echo "Generating "$1" "$2" wave..."
 
 # Translate note letter to frequency
 
-	case "$1" in
-		c2) freq=65.41 ;; c#2) freq=69.3 ;; d2) freq=73.42 ;;
-		d#2) freq=77.78 ;; e2) freq=82.41 ;; f2) freq=87.31 ;;
-		f#2) freq=92.5 ;; g2) freq=98 ;; g#2) freq=103.83 ;;
-		a2) freq=110 ;; a#2) freq=116.54 ;; b2) freq=123.47 ;;
-		c3) freq=130.81 ;; c#3) freq=138.59 ;; d3) freq=146.83 ;;
-		d#3) freq=155.56 ;; e3) freq=164.81 ;; f3) freq=174.61 ;;
-		f#3) freq=185 ;; g3) freq=196 ;; g#3) freq=207.65 ;;
-		a3) freq=220 ;; a#3) freq=233.08 ;; b3) freq=246.94 ;;
-		c4) freq=261.63 ;; c#4) freq=277.18 ;; d4) freq=293.66 ;;
-		d#4) freq=311.13 ;; e4) freq=329.63 ;; f4) freq=349.23 ;; 
-		f#4) freq=369.99 ;; g4) freq=392 ;; g#4) freq=415.30 ;;
-		a4) freq=440 ;; a#4) freq=466.16 ;; b4) freq=493.88 ;;
-		c5) freq=523.25 ;; c#5) freq=554.37 ;; d5) freq=587.33 ;;
-        d#5) freq=622.25 ;; e5) freq=659.25 ;; f5) freq=698.46 ;;
-        f#5) freq=739.99 ;; g5) freq=783.99 ;; g#5) freq=830.60 ;; r) freq=0 ;;
-	esac
+case "$1" in
+c2) freq=65.41 ;; c#2) freq=69.3 ;; d2) freq=73.42 ;;
+d#2) freq=77.78 ;; e2) freq=82.41 ;; f2) freq=87.31 ;;
+f#2) freq=92.5 ;; g2) freq=98 ;; g#2) freq=103.83 ;;
+a2) freq=110 ;; a#2) freq=116.54 ;; b2) freq=123.47 ;;
+c3) freq=130.81 ;; c#3) freq=138.59 ;; d3) freq=146.83 ;;
+d#3) freq=155.56 ;; e3) freq=164.81 ;; f3) freq=174.61 ;;
+f#3) freq=185 ;; g3) freq=196 ;; g#3) freq=207.65 ;;
+a3) freq=220 ;; a#3) freq=233.08 ;; b3) freq=246.94 ;;
+c4) freq=261.63 ;; c#4) freq=277.18 ;; d4) freq=293.66 ;;
+d#4) freq=311.13 ;; e4) freq=329.63 ;; f4) freq=349.23 ;; 
+f#4) freq=369.99 ;; g4) freq=392 ;; g#4) freq=415.30 ;;
+a4) freq=440 ;; a#4) freq=466.16 ;; b4) freq=493.88 ;;
+c5) freq=523.25 ;; c#5) freq=554.37 ;; d5) freq=587.33 ;;
+d#5) freq=622.25 ;; e5) freq=659.25 ;; f5) freq=698.46 ;;
+f#5) freq=739.99 ;; g5) freq=783.99 ;; g#5) freq=830.60 ;;
+r) freq=0 ;;
+esac
 
 # Generate whole note
 
-	sox -n note-"$1"-"$2"-1.wav synth "$whole" "$2" "$freq" trim 0 "$whole" &>/dev/null
+sox -n note-"$1"-"$2"-1.wav synth "$whole" "$2" "$freq" trim 0 "$whole" &>/dev/null
 
 # Cut half note from whole note
 
-	sox note-"$1"-"$2"-1.wav note-"$1"-"$2"-2.wav trim "$half" "$whole" &>/dev/null
+sox note-"$1"-"$2"-1.wav note-"$1"-"$2"-2.wav trim "$half" "$whole" &>/dev/null
 
 # Cut quarter note from half note
 
-	sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-4.wav trim "$quarter" "$half" &>/dev/null
+sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-4.wav trim "$quarter" "$half" &>/dev/null
 
 # Cut quarter note triplet
 
-	sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-4t.wav trim "$q_less" "$half" &>/dev/null
+sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-4t.wav trim "$q_less" "$half" &>/dev/null
 
 # Cut eighth note triplet
 
-	sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-8t.wav trim "$et_less" "$half" &>/dev/null
+sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-8t.wav trim "$et_less" "$half" &>/dev/null
 
 # Cut eighth note
 
-	sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-8.wav trim "$e_less" "$half" &>/dev/null
+sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-8.wav trim "$e_less" "$half" &>/dev/null
 
 # Cut sixteenth note
 
-	sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-16.wav trim "$t_less" "$half" &>/dev/null
+sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-16.wav trim "$t_less" "$half" &>/dev/null
 fi

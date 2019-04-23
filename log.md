@@ -75,3 +75,46 @@ f3 2
 ```
 
 Quarter-note triplets and eighth-note triplets are `4t` and `8t` respectively. Just tested and it works.
+
+Created a `build-song` script, but it's kinda pointless since it just does `sox -m $* mix.wav`. But it might be expanded to also perform the track creation, including the drum track, so I'll keep it for now.
+
+Here is our `create_drum_track` function:
+
+```
+create_drum_track () {
+	echo "Creating drum track..."
+	# hi-hat
+	sox -n drum-h-whole.wav synth 0.01 noise fade 0 "$whole" "$whole" trim 0.0 "$whole" &>/dev/null
+	sox drum-h-whole.wav drum-h-half.wav trim 0.0 "$half"
+	sox drum-h-whole.wav drum-h-quarter.wav trim 0 "$quarter"
+	sox drum-h-whole.wav drum-h-eighth.wav trim 0 "$eighth"
+	sox drum-h-whole.wav drum-h-teenth.wav trim 0 "$teenth"
+	# snare
+	sox -n drum-s-whole.wav synth 0.1 noise fade 0 "$whole" "$whole" trim 0 "$whole" &>/dev/null
+	sox drum-s-whole.wav drum-s-half.wav trim 0 "$half" &>/dev/null
+	sox drum-s-whole.wav drum-s-quarter.wav trim 0 "$quarter" &>/dev/null
+	sox drum-s-whole.wav drum-s-eighth.wav trim 0 "$eighth" &>/dev/null
+	sox drum-s-whole.wav drum-s-teenth.wav trim 0 "$teenth" &>/dev/null
+	# create pattern and loop it for length of song
+	songlen="$(soxi -D "$song"-bass.wav)"
+	sox drum-h-eighth.wav drum-h-teenth.wav drum-h-teenth.wav drum-s-eighth.wav drum-h-teenth.wav drum-h-teenth.wav "$song"-drums.wav
+	sox "$song"-drums.wav "$song"-drums.wav "$song"-drums.wav "$song"-drums.wav "$song"-drums4.wav
+	sox "$song"-drums4.wav "$song"-drums4.wav "$song"-drums4.wav "$song"-drums4.wav "$song"-drums16.wav
+	sox "$song"-drums16.wav "$song"-drums16.wav "$song"-drums16.wav "$song"-drums16.wav "$song"-drums64.wav
+	sox "$song"-drums64.wav "$song"-drums64.wav "$song"-drums128.wav trim 0 "$songlen"
+}
+```
+
+It needs to be given a song, and a tempo from which to compute note lengths. That means we can either include that in the script, or, make it a separate program.
+
+OK just made the `drum` script and ran it like so (after creating the bass and lead tracks):
+
+```
+$ ./drums zelda 120
+```
+
+Then successfully built the song with:
+
+```
+$ sox -m zelda-drums.wav zelda-bass.wav zelda-lead.wav zelda.wav
+```

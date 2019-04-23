@@ -1,17 +1,43 @@
 #!/bin/bash
 
-# track builder extracted from mecca script
-# file provided as first command line arg
-# wave provided as second arg
-# tempo provided as third arg
+# Usage:
+# build-track <file> <wave> <tempo>
+# wave: triangle or square
+# tempo: beats per minute
+
+# Create blank .wav file to start:
 
 sox -n -c 1 temp1.wav trim 0.0 0.0
+
+# start counter, iterate through notes
+
 j=1
 while read -r pitch value; do
+
+# Generate note samples
+
 	./create-notes "$pitch" "$2" "$3"
+
+# Append note to previous .wav file
+
 	sox temp"$j".wav note-"$pitch"-"$2"-"$value".wav temp"$((j+1))".wav
+
+# Delete previous .wav file
+
 	rm temp"$j".wav
+
+# Increment counter
+
 	j=$((j+1))
+
+# Get input from <file> provided
+
 done < "$1"
+
+# Name our complete track
+
 mv temp"$j".wav "$1".wav
+
+# Clean up samples
+
 rm note*.wav

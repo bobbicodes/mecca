@@ -37,3 +37,7 @@ sox "$1"-drums.wav "$1"-drums.wav "$1"-drums.wav "$1"-drums.wav "$1"-drums4.wav
 sox "$1"-drums4.wav "$1"-drums4.wav "$1"-drums4.wav "$1"-drums4.wav "$1"-drums16.wav
 sox "$1"-drums16.wav "$1"-drums16.wav "$1"-drums16.wav "$1"-drums16.wav "$1"-drums64.wav
 sox "$1"-drums64.wav "$1"-drums64.wav "$1"-drums.wav trim 0 "$songlen"
+rm drum*.wav
+rm "$1"-drums4.wav
+rm "$1"-drums16.wav
+rm "$1"-drums64.wav

@@ -3,7 +3,7 @@
 # create_notes function extracted from mecca script
 
 # pitch will be supplied as first command-line argument
-# second will be the wave, tri or square
+# second will be the wave, triangle or square
 # third will be tempo
 
 # calculate note lengths from tempo
@@ -23,7 +23,7 @@ e_less=$(bc <<< "scale = 10; ($half - $eighth)")
 t_less=$(bc <<< "scale = 10; ($half - $teenth)")
 
 if [ ! -f note-"$1"-"$2"-2.wav ]; then
-	echo "Generating sample "$1"-"$2"..."
+	echo "Generating "$1" "$2" wave..."
 	case "$1" in
 		c2) freq=65.41 ;; c#2) freq=69.3 ;; d2) freq=73.42 ;;
 		d#2) freq=77.78 ;; e2) freq=82.41 ;; f2) freq=87.31 ;;

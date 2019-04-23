@@ -118,3 +118,5 @@ Then successfully built the song with:
 ```
 $ sox -m zelda-drums.wav zelda-bass.wav zelda-lead.wav zelda.wav
 ```
+
+So what I think we want is a script that will do all of this... but it would need to look for all the song files.

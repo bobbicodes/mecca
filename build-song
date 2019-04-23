@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./build-track "$1"-bass tri "$2"
+./build-track "$1"-bass triangle "$2"
 ./build-track "$1"-lead square "$2"
 ./drums "$1" "$2"
 sox -m "$1"-drums.wav "$1"-bass.wav "$1"-lead.wav "$1".wav

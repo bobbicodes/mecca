@@ -5,17 +5,53 @@
 
 # Build bass track
 
+echo "Building bass track..."
+
 ./build-track "$1"-bass triangle "$2"
 
 # Build lead track
 
-./build-track "$1"-lead square "$2"
+# Check if there are 2 lead tracks
+
+if [ -f "$1"-lead2 ] ; then
+
+# Build them both
+	
+	echo "Building lead track 1..."
+
+	./build-track "$1"-lead1 square "$2"
+
+	echo "Building lead track 2"
+
+	./build-track "$1"-lead2 square "$2"
+
+# And mix them together
+
+echo "Mixing..."
+
+	sox -m "$1"-lead1.wav "$1"-lead2.wav "$1"-lead.wav
+
+# Delete individual tracks
+
+	rm "$1"-lead1.wav
+	rm "$1"-lead2.wav
+
+else
+	
+# Otherwise just do the 1 lead
+
+echo "Building lead track..."
+
+	./build-track "$1"-lead square "$2"
+fi
 
 # Build drum track
 
 ./drums "$1" "$2"
 
 # Mix them together
+
+echo "Mixing..."
 
 sox -m "$1"-drums.wav "$1"-bass.wav "$1"-lead.wav "$1".wav
 
@@ -24,6 +60,10 @@ sox -m "$1"-drums.wav "$1"-bass.wav "$1"-lead.wav "$1".wav
 rm "$1"-drums.wav
 rm "$1"-bass.wav
 rm "$1"-lead.wav
+
+# Clean up samples
+
+rm note*.wav
 
 # Play it!
 

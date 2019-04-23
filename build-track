@@ -40,4 +40,4 @@ mv temp"$j".wav "$1".wav
 
 # Clean up samples
 
-rm note*.wav
+# rm note*.wav

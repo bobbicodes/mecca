@@ -38,7 +38,8 @@ if [ ! -f note-"$1"-"$2"-2.wav ]; then
 		f#4) freq=369.99 ;; g4) freq=392 ;; g#4) freq=415.30 ;;
 		a4) freq=440 ;; a#4) freq=466.16 ;; b4) freq=493.88 ;;
 		c5) freq=523.25 ;; c#5) freq=554.37 ;; d5) freq=587.33 ;;
-                d#5) freq=622.25 ;; e5) freq=659.25 ;; r) freq=0 ;;
+                d#5) freq=622.25 ;; e5) freq=659.25 ;; f5) freq=698.46 ;;
+                f#5) freq=739.99 ;; g5) freq=783.99 ;; g#5) freq=830.60 ;; r) freq=0 ;;
 	esac
 
 	sox -n note-"$1"-"$2"-1.wav synth "$whole" "$2" "$freq" trim 0 "$whole" &>/dev/null

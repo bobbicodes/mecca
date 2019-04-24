@@ -35,7 +35,7 @@ Or whatever it is you do to install things on your thing.
 The new version of the program is run with the `build-song` script:
 
 ```
-~/mecca$ ./build-song <song> <tempo>
+$ ./build-song <song> <tempo>
 ```
 
 The format is simply a note (with its octave) followed by its duration in terms of whole `1`, half `2`, quarter `4`, quarter-note triplet `4t`, eighth `8`, eighth-note triplet `8t`, sixteenth `16`, or a rest `r`, one note per line. The last line must be blank:
@@ -64,7 +64,7 @@ h 16
 
 ```
 
-# Old sequencer:
+# Mecca Alpha:
 
 The original mecca interface still works:
 

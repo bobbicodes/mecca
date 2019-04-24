@@ -37,3 +37,28 @@ done < "$1"-drums
 # Name our complete track
 
 mv temp"$j".wav "$1"-drums.wav
+
+# Make drum track length of bass track
+
+songlen="$(soxi -D "$1"-bass.wav)"
+
+# Create drum pattern
+
+sox drum-k-8.wav drum-h-16.wav drum-h-16.wav drum-s-8.wav drum-h-16.wav drum-h-16.wav "$1"-drums.wav
+
+# Copy file repeatedly to loop it
+
+sox "$1"-drums.wav "$1"-drums.wav "$1"-drums.wav "$1"-drums.wav "$1"-drums4.wav
+sox "$1"-drums4.wav "$1"-drums4.wav "$1"-drums4.wav "$1"-drums4.wav "$1"-drums16.wav
+sox "$1"-drums16.wav "$1"-drums16.wav "$1"-drums16.wav "$1"-drums16.wav "$1"-drums64.wav
+
+# Trim to length
+
+sox "$1"-drums64.wav "$1"-drums64.wav "$1"-drums.wav trim 0 "$songlen"
+
+# Clean up samples
+
+rm drum*.wav
+rm "$1"-drums4.wav
+rm "$1"-drums16.wav
+rm "$1"-drums64.wav

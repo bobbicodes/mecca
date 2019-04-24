@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Usage:
-# drums <tempo>
+# create-drums <tempo>
 
 # Calculate note lengths from tempo
 

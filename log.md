@@ -124,3 +124,13 @@ So what I think we want is a script that will do all of this... but it would nee
 End of day:
 
 Finished the `build-song` script, which at this point does exactly what the old `mecca` script did, produces a 3-track mix with drums from a bass and lead file. Not bad!
+
+## 4-23-2019
+
+Made a kick drum, and wrote `create-drums` and `build-drums` scripts to make the drum sequencer work the same as the other instruments.
+
+Still need to make the song builder use the drum sequencer though...
+
+I want a way to more easily create sections and loop them. Since that is what our drum sequencer needs to do, loop itself for the length of the song.
+
+We could make `build-track` take multiple files to build sequentially.

@@ -66,7 +66,7 @@ h 16
 
 # Mecca Alpha:
 
-The original mecca interface still works:
+Build songs interactively with the Mecca Alpha interface:
 
     $ ./mecca [tempo]
     

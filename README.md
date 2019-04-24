@@ -67,6 +67,8 @@ h 16
 
 ```
 
+## Old sequencer:
+
 The original mecca interface still works:
 
     $ ./mecca [tempo]

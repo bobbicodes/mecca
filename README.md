@@ -86,6 +86,8 @@ Then build your song:
 $ ./build-song <song> <tempo>
 ```
 
+Check out the `zelda` and `megaman` examples!
+
 # Mecca Alpha:
 
 Build songs interactively with the Mecca Alpha interface:

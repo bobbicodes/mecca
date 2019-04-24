@@ -50,27 +50,12 @@ esac
 
 sox -n note-"$1"-"$2"-1.wav synth "$whole" "$2" "$freq" trim 0 "$whole" &>/dev/null
 
-# Cut half note from whole note
+# Cut other notes from whole note
 
 sox note-"$1"-"$2"-1.wav note-"$1"-"$2"-2.wav trim "$half" "$whole" &>/dev/null
-
-# Cut quarter note from half note
-
 sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-4.wav trim "$quarter" "$half" &>/dev/null
-
-# Cut quarter note triplet
-
 sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-4t.wav trim "$q_less" "$half" &>/dev/null
-
-# Cut eighth note triplet
-
 sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-8t.wav trim "$et_less" "$half" &>/dev/null
-
-# Cut eighth note
-
 sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-8.wav trim "$e_less" "$half" &>/dev/null
-
-# Cut sixteenth note
-
 sox note-"$1"-"$2"-2.wav note-"$1"-"$2"-16.wav trim "$t_less" "$half" &>/dev/null
 fi

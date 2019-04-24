@@ -17,7 +17,7 @@ MECCA uses [SoX](http://sox.sourceforge.net/), the Swiss-Army Knife of audio man
 
 # Installation
 
-Clone the repository and set the `mecca` script to be executable:
+Clone the repository and set the scripts to be executable:
 
     $ git clone https://github.com/porkostomus/mecca.git
     $ cd mecca

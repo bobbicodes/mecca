@@ -19,7 +19,13 @@ if [ -f "$1"-bass-A ] ; then
 
 # Put them in sequence
 
-sox "$1"-bass-A.wav "$1"-bass-A.wav "$1"-bass-B.wav "$1"-bass-A.wav "$1"-bass-A.wav "$1"-bass.wav
+# For A A B A A
+
+# sox "$1"-bass-A.wav "$1"-bass-A.wav "$1"-bass-B.wav "$1"-bass-A.wav "$1"-bass-A.wav "$1"-bass.wav
+
+# For A B
+
+sox "$1"-bass-A.wav "$1"-bass-B.wav "$1"-bass.wav
 
 else
 

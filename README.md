@@ -39,6 +39,30 @@ The new version of the program is run with the `build-song` script:
 ~/mecca$ ./build-song <song> <tempo>
 ```
 
+The music files look like this:
+
+```
+c3 8
+c#3 16
+d#3 16
+b4 8
+c#3 16
+c#3 16
+```
+
+It is simply a note (with its octave) followed by its duration in terms of whole `1`, half `2`, quarter `4`, quarter-note triplet `4t`, eighth `8`, eighth-note triplet `8t`, sixteenth `16`.
+
+The drum sequencer works similarly, written as kicks `k`, snares `s` and hi-hats `h`:
+
+```
+k 8
+h 16
+h 16
+s 8
+h 16
+h 16
+```
+
 The original mecca interface still works:
 
     $ ./mecca [tempo]

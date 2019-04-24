@@ -19,7 +19,7 @@ Clone the repository and set the `mecca` script to be executable:
 
     $ git clone https://github.com/porkostomus/mecca.git
     $ cd mecca
-    $ chmod +x mecca
+    $ chmod +x *
 
 ## Dependencies
 

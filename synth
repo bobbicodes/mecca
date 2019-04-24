@@ -17,7 +17,7 @@ while true; do
 	
 # Map keypresses to notes following the usual convention
 
-# Here we shift up an octave
+# Play note and indicate on virtual keyboard
 	
 	case $key in
 		z) play -n synth 0.3 square 130.81 &>/dev/null &

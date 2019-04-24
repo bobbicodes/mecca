@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Usage:
+# build-drums <file> <tempo>
+
+# Create blank .wav file to start:
+
+sox -n -c 1 temp1.wav trim 0.0 0.0
+
+# start counter, iterate through lines
+
+j=1
+while read -r drum value; do
+
+# Generate note samples
+
+	./create-drums "$2"
+
+# Append note to previous .wav file
+
+	echo "Adding note "$j" to track..."
+
+	sox temp"$j".wav drum-"$drum"-"$value".wav temp"$((j+1))".wav
+
+# Delete previous .wav file
+
+	rm temp"$j".wav
+
+# Increment counter
+
+	j=$((j+1))
+
+# Get input from <file> provided
+
+done < "$1"-drums
+
+# Name our complete track
+
+mv temp"$j".wav "$1"-drums.wav

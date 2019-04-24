@@ -2,31 +2,35 @@
 
 # Usage:
 # build-song <song> <tempo>
-
+		
 # Check if there are 2 bass tracks
 
 if [ -f "$1"-bass-A ] ; then
 
-# Build them both
+	# Build them both
 	
 	echo "Building bass track A..."
-
 	./build-track "$1"-bass-A triangle "$2"
-
 	echo "Building bass track B"
-
 	./build-track "$1"-bass-B triangle "$2"
 
-# Put them in sequence
+	# Put them in sequence
+	# Look for bass control file
 
-# For A A B A A
-
-sox "$1"-bass-A.wav "$1"-bass-A.wav "$1"-bass-B.wav "$1"-bass-A.wav "$1"-bass-A.wav "$1"-bass.wav
-
-# For A B
-
-# sox "$1"-bass-A.wav "$1"-bass-B.wav "$1"-bass.wav
-
+	if [ -f "$1"-bass.mec ] ; then
+		# Create blank .wav file
+		sox -n -c 1 temp1.wav trim 0.0 0.0
+		j=1
+		while read -r track; do
+			sox temp"$j".wav "$1"-bass-"$track".wav temp"$((j+1))".wav
+			rm temp"$j".wav
+			j=$((j+1))
+		done < "$1"-bass.mec
+		mv temp"$j".wav "$1"-bass.wav
+	else
+	# By default they are concatenated (A B)
+	sox "$1"-bass-A.wav "$1"-bass-B.wav "$1"-bass.wav
+	fi
 else
 
 # Build the one track

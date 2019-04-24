@@ -136,3 +136,19 @@ I want a way to more easily create sections and loop them. Since that is what ou
 We could make `build-track` take multiple files to build sequentially.
 
 I'll start by breaking the files apart by section.
+
+## 4-24-2019
+
+I think the thing to do is to use an optional *control file* for each track that will include the arrangement and any other info. By default it will just find each of the source files and append them in order, but first it will look and see if there's a control file. Let's call it `<song>-<instrument>.mec` and it will look like this:
+
+```
+A
+A
+B
+A
+A
+``` 
+
+That's the arrangement for the megaman bassline.
+
+I do think this should happen in the `build-song` script rather than `build-track`, that way `build-track` is left as nothing more than the program that reads a text file and spits out a `.wav`.

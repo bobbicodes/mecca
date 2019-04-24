@@ -32,13 +32,29 @@ Or whatever it is you do to install things on your thing.
 
 ## Usage
 
-The new version of the program is run with the `build-song` script:
+### Live synth
+
+If you just want to jam on the keyboard:
 
 ```
-$ ./build-song <song> <tempo>
+$ ./synth
 ```
 
-The format is simply a note (with its octave) followed by its duration in terms of whole `1`, half `2`, quarter `4`, quarter-note triplet `4t`, eighth `8`, eighth-note triplet `8t`, sixteenth `16`, or a rest `r`, one note per line. The last line must be blank:
+```
+ -------------------------
+  | 2 | 3 |   | 5 | 6 | 7 |
+---------------------------------
+| q | w | e | r | t | y | u | i |
+---------------------------------
+  | s | d |    | g | h | j |
+---------------------------------
+| z | x | c | v | b | n | m | , |
+---------------------------------
+```
+
+### Sequencer
+
+The music format is simply a text file consisting of a list of notes (with their octave) and their duration in terms of whole `1`, half `2`, quarter `4`, quarter-note triplet `4t`, eighth `8`, eighth-note triplet `8t`, sixteenth `16`, or a rest `r`, one note per line. The last line must be blank:
 
 ```
 c3 8
@@ -62,6 +78,12 @@ s 8
 h 16
 h 16
 
+```
+
+Then build your song:
+
+```
+$ ./build-song <song> <tempo>
 ```
 
 # Mecca Alpha:
@@ -137,10 +159,6 @@ sox drum-h-eighth.wav drum-h-teenth.wav drum-h-teenth.wav drum-s-eighth.wav drum
 ```
 
 This command creates the sample `<song>-drums.wav` consisting of 3 hi-hats (1/8 note followed by 2 1/16 notes), an 1/8-note snare and 2 more 1/16-note hi-hats. For a different beat, change it to whatever you'd like. (As long as it's some combination of snares and hats.)
-
-## Live synth
-
-For use as a *virtual instrument*, I have provided another file called `synth` which offers better key-response for live performance, as well as the nice touch of indicating the notes on the screen as you play.
 
 ## LICENSE
 

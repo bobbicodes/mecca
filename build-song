@@ -3,11 +3,33 @@
 # Usage:
 # build-song <song> <tempo>
 
-# Build bass track
+# Check if there are 2 bass tracks
+
+if [ -f "$1"-bass-A ] ; then
+
+# Build them both
+	
+	echo "Building bass track A..."
+
+	./build-track "$1"-bass-A triangle "$2"
+
+	echo "Building bass track B"
+
+	./build-track "$1"-bass-B triangle "$2"
+
+# Put them in sequence
+
+sox "$1"-bass-A.wav "$1"-bass-A.wav "$1"-bass-B.wav "$1"-bass-A.wav "$1"-bass-A.wav "$1"-bass.wav
+
+else
+
+# Build the one track
 
 echo "Building bass track..."
 
 ./build-track "$1"-bass triangle "$2"
+
+fi
 
 # Build lead track
 

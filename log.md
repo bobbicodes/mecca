@@ -134,3 +134,5 @@ Still need to make the song builder use the drum sequencer though... done!
 I want a way to more easily create sections and loop them. Since that is what our drum sequencer needs to do, loop itself for the length of the song.
 
 We could make `build-track` take multiple files to build sequentially.
+
+I'll start by breaking the files apart by section.

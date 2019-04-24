@@ -10,12 +10,11 @@ See and hear it in action:
 
 [Megaman 2 - Dr. Wily](https://www.youtube.com/watch?v=2EVTeP9KlmM)  
 
-
 The MECCA Platform was born out of the inspiration that we should develop a music software suite to provide comprehensive integration of learning, writing and performance. For when these forms of understanding and expression are fully realized as components of a higher-order activity, life will finally be [a dream](https://www.youtube.com/watch?v=0TgrorCZg80). The goal is to subtly encourage musical idioms without limiting expressivity, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
 
 MECCA uses [SoX](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. It began life in 1991 as a command-line tool for converting audio formats, and was tortured throughout its adolesence and made to do all sorts of things to sounds like bind them, cut them, and apply effects all over them. Most fascinatingly, at some point it developed the ability to actually synthesize its own waveforms, a most distinguished craft which has seduced us into bringing this long history of abuse to its thrilling climax, and proudly introduce the one, the only... SoX, the Sequencer.
 
-# Installation
+## Installation
 
 Clone the repository and set the scripts to be executable:
 
@@ -31,7 +30,7 @@ If your distro doesn't already include `SoX`, do this:
 
 Or whatever it is you do to install things on your thing.
 
-# Usage
+## Usage
 
 The new version of the program is run with the `build-song` script:
 
@@ -39,7 +38,7 @@ The new version of the program is run with the `build-song` script:
 ~/mecca$ ./build-song <song> <tempo>
 ```
 
-The music files look like this:
+The format is simply a note (with its octave) followed by its duration in terms of whole `1`, half `2`, quarter `4`, quarter-note triplet `4t`, eighth `8`, eighth-note triplet `8t`, sixteenth `16`, or a rest `r`, one note per line. The last line must be blank:
 
 ```
 c3 8
@@ -50,8 +49,6 @@ c#3 16
 c#3 16
 
 ```
-
-The format is simply a note (with its octave) followed by its duration in terms of whole `1`, half `2`, quarter `4`, quarter-note triplet `4t`, eighth `8`, eighth-note triplet `8t`, or sixteenth `16`, one note per line. The last line must be blank.
 
 The program looks for music files named `<song>-drums`, `<song>-bass`, and `<song>-lead`. If you create 2 lead tracks they must be named `<song>-lead1` and `<song>-lead2`.
 
@@ -67,7 +64,7 @@ h 16
 
 ```
 
-## Old sequencer:
+# Old sequencer:
 
 The original mecca interface still works:
 

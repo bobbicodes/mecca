@@ -57,7 +57,7 @@ sox -m "$1"-drums.wav "$1"-bass.wav "$1"-lead.wav "$1".wav
 
 # Delete track files
 
-rm "$1"-drums.wav
+# rm "$1"-drums.wav
 rm "$1"-bass.wav
 rm "$1"-lead.wav
 

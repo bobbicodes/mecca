@@ -23,7 +23,7 @@ echo "Creating drum track..."
 
 # Generate hi-hat samples
 
-sox -n drum-h-1.wav synth 0.01 noise fade 0 "$whole" "$whole" trim 0.0 "$whole" &>/dev/null
+sox -n drum-h-1.wav synth 0.01 noise bass -5 fade 0 "$whole" "$whole" trim 0.0 "$whole" &>/dev/null
 sox drum-h-1.wav drum-h-2.wav trim 0.0 "$half"
 sox drum-h-1.wav drum-h-4.wav trim 0 "$quarter"
 sox drum-h-1.wav drum-h-8.wav trim 0 "$eighth"
@@ -37,13 +37,23 @@ sox drum-s-1.wav drum-s-4.wav trim 0 "$quarter" &>/dev/null
 sox drum-s-1.wav drum-s-8.wav trim 0 "$eighth" &>/dev/null
 sox drum-s-1.wav drum-s-16.wav trim 0 "$teenth" &>/dev/null
 
+# kick
+
+sox -n drum-k-sine.wav synth 0.1 sine 50 trim 0 "$whole" &>/dev/null
+sox -n drum-k-noise.wav synth 0.03 noise treble -15 fade 0 "$whole" "$whole" trim 0 "$whole" &>/dev/null
+sox -m drum-k-sine.wav drum-k-noise.wav drum-k-1.wav gain 5 treble -15
+sox drum-k-1.wav drum-k-2.wav trim 0 "$half" &>/dev/null
+sox drum-k-1.wav drum-k-4.wav trim 0 "$quarter" &>/dev/null
+sox drum-k-1.wav drum-k-8.wav trim 0 "$eighth" &>/dev/null
+sox drum-k-1.wav drum-k-16.wav trim 0 "$teenth" &>/dev/null
+
 # Make drum track length of bass track
 
 songlen="$(soxi -D "$1"-bass.wav)"
 
 # Create drum pattern
 
-sox drum-h-8.wav drum-h-16.wav drum-h-16.wav drum-s-8.wav drum-h-16.wav drum-h-16.wav "$1"-drums.wav
+sox drum-k-8.wav drum-h-16.wav drum-h-16.wav drum-s-8.wav drum-h-16.wav drum-h-16.wav "$1"-drums.wav
 
 # Copy file repeatedly to loop it
 

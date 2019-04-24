@@ -3,6 +3,8 @@
 # Usage:
 # build-drums <file> <tempo>
 
+echo "Building drums..."
+
 # Create blank .wav file to start:
 
 sox -n -c 1 temp1.wav trim 0.0 0.0
@@ -18,9 +20,7 @@ while read -r drum value; do
 
 # Append note to previous .wav file
 
-	echo "Adding note "$j" to track..."
-
-	sox temp"$j".wav drum-"$drum"-"$value".wav temp"$((j+1))".wav
+	sox temp"$j".wav drum-"$drum"-"$value".wav temp"$((j+1))".wav &>/dev/null
 
 # Delete previous .wav file
 
@@ -44,17 +44,17 @@ songlen="$(soxi -D "$1"-bass.wav)"
 
 # Create drum pattern
 
-sox drum-k-8.wav drum-h-16.wav drum-h-16.wav drum-s-8.wav drum-h-16.wav drum-h-16.wav "$1"-drums.wav
+sox drum-k-8.wav drum-h-16.wav drum-h-16.wav drum-s-8.wav drum-h-16.wav drum-h-16.wav "$1"-drums.wav &>/dev/null
 
 # Copy file repeatedly to loop it
 
-sox "$1"-drums.wav "$1"-drums.wav "$1"-drums.wav "$1"-drums.wav "$1"-drums4.wav
-sox "$1"-drums4.wav "$1"-drums4.wav "$1"-drums4.wav "$1"-drums4.wav "$1"-drums16.wav
-sox "$1"-drums16.wav "$1"-drums16.wav "$1"-drums16.wav "$1"-drums16.wav "$1"-drums64.wav
+sox "$1"-drums.wav "$1"-drums.wav "$1"-drums.wav "$1"-drums.wav "$1"-drums4.wav &>/dev/null
+sox "$1"-drums4.wav "$1"-drums4.wav "$1"-drums4.wav "$1"-drums4.wav "$1"-drums16.wav &>/dev/null
+sox "$1"-drums16.wav "$1"-drums16.wav "$1"-drums16.wav "$1"-drums16.wav "$1"-drums64.wav &>/dev/null
 
 # Trim to length
 
-sox "$1"-drums64.wav "$1"-drums64.wav "$1"-drums.wav trim 0 "$songlen"
+sox "$1"-drums64.wav "$1"-drums64.wav "$1"-drums.wav trim 0 "$songlen" &>/dev/null
 
 # Clean up samples
 

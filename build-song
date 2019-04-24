@@ -21,11 +21,11 @@ if [ -f "$1"-bass-A ] ; then
 
 # For A A B A A
 
-# sox "$1"-bass-A.wav "$1"-bass-A.wav "$1"-bass-B.wav "$1"-bass-A.wav "$1"-bass-A.wav "$1"-bass.wav
+sox "$1"-bass-A.wav "$1"-bass-A.wav "$1"-bass-B.wav "$1"-bass-A.wav "$1"-bass-A.wav "$1"-bass.wav
 
 # For A B
 
-sox "$1"-bass-A.wav "$1"-bass-B.wav "$1"-bass.wav
+# sox "$1"-bass-A.wav "$1"-bass-B.wav "$1"-bass.wav
 
 else
 
@@ -57,7 +57,7 @@ if [ -f "$1"-lead2 ] ; then
 
 echo "Mixing..."
 
-	sox -m "$1"-lead1.wav "$1"-lead2.wav "$1"-lead.wav
+	sox -m "$1"-lead1.wav "$1"-lead2.wav "$1"-lead.wav &>/dev/null
 
 # Delete individual tracks
 
@@ -81,7 +81,7 @@ fi
 
 echo "Mixing..."
 
-sox -m "$1"-drums.wav "$1"-bass.wav "$1"-lead.wav "$1".wav
+sox -m "$1"-drums.wav "$1"-bass.wav "$1"-lead.wav "$1".wav &>/dev/null
 
 # Delete track files
 
@@ -95,4 +95,6 @@ rm note*.wav
 
 # Play it!
 
-play "$1".wav
+echo "Playing..."
+
+play "$1".wav &>/dev/null

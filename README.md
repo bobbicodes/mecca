@@ -1,13 +1,15 @@
-# MECCA-platform
+# MECCA Music Platform
+
 The Music Education, Composition, Creation Application
 
 You are the student.
 You are the composer.
 You are the creator.
 
-See and hear it in action:  
-[Zelda theme](https://www.youtube.com/watch?v=DO0MNkvrhI4)  
-[Megaman 2 - Dr. Wily](https://www.youtube.com/watch?v=zQRW3vwydeU)
+See and hear it in action:
+
+[Megaman 2 - Dr. Wily](https://www.youtube.com/watch?v=2EVTeP9KlmM)  
+
 
 The MECCA Platform was born out of the inspiration that we should develop a music software suite to provide comprehensive integration of learning, writing and performance. For when these forms of understanding and expression are fully realized as components of a higher-order activity, life will finally be [a dream](https://www.youtube.com/watch?v=0TgrorCZg80). The goal is to subtly encourage musical idioms without limiting expressivity, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
 

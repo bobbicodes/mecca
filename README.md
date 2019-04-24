@@ -88,6 +88,25 @@ $ ./build-song <song> <tempo>
 
 Check out the `zelda` and `megaman` examples!
 
+## Splitting tracks into multiple source files
+
+The bass track for the `megaman` song was originally 480 lines long. Besides becoming unweildy to work with, this greatly slowed the music compilation down, since it works by appending each individual note in the file.
+
+So it is best to use a separate file for each section. It turns out that the megaman bass track of 480 notes was actually just 2 parts of 96 notes each, arranged in the pattern `AABAA`.
+
+The program will by default look for files named `<song>-bass-A` and `<song>-bass-B`. If they exist, it will concatenate them one after the other (AB). For a more complex arrangement, use a *control file* named `<song>-<instrument>.mec`. Here's `megaman-bass.mec`:
+
+```
+A
+A
+B
+A
+A
+
+```
+
+Again, make sure to leave a blank line at the end.
+
 # Mecca Alpha:
 
 Build songs interactively with the Mecca Alpha interface:

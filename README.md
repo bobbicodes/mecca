@@ -53,7 +53,7 @@ c#3 16
 
 The format is simply a note (with its octave) followed by its duration in terms of whole `1`, half `2`, quarter `4`, quarter-note triplet `4t`, eighth `8`, eighth-note triplet `8t`, or sixteenth `16`, one note per line. The last line must be blank.
 
-The program looks for music files named `<song>-drums`, `<song>-bass`, and <song>-lead`. If you create 2 lead tracks they must be named `<song>-lead1` and `<song>-lead2`.
+The program looks for music files named `<song>-drums`, `<song>-bass`, and `<song>-lead`. If you create 2 lead tracks they must be named `<song>-lead1` and `<song>-lead2`.
 
 The drum sequencer works similarly, written as kicks `k`, snares `s` and hi-hats `h`:
 

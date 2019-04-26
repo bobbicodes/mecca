@@ -20,7 +20,7 @@ while read -r pitch value; do
 
 # Append note to previous .wav file
 
-	echo "Adding note "$j" to track..."
+#	echo "Adding note "$j" to track..."
 
 	sox temp"$j".wav note-"$pitch"-"$2"-"$value".wav temp"$((j+1))".wav
 

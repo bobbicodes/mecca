@@ -3,6 +3,9 @@
 # Usage:
 # build-song <song> <tempo>
 
+# Clean up any old samples
+rm note*.wav &>/dev/null
+
 # Check if there are 2 bass tracks
 if [ -f "$1"-bass-A ] ; then
 	# Build them both
@@ -31,24 +34,90 @@ else
 	echo "Building bass track..."
 	./build-track "$1"-bass triangle "$2"
 fi
-# Build lead track
-# Check if there are 2 lead tracks
-if [ -f "$1"-lead2 ] ; then
-	# Build them both
-	echo "Building lead track 1..."
-	./build-track "$1"-lead1 square "$2"
-	echo "Building lead track 2"
-	./build-track "$1"-lead2 square "$2"
-	# And mix them together
-	echo "Mixing..."
-	sox -m "$1"-lead1.wav "$1"-lead2.wav "$1"-lead.wav &>/dev/null
+# Check if there are 2 lead (AB) tracks
+if [ -f "$1"-lead-A ] || [ -f "$1"-lead1-A ] ; then
+	# Build lead A and B
+	# Check if there are 2 lead (harmony) tracks
+	if [ -f "$1"-lead1-A ] ; then
+		# Build leads 1-A, 1-B, 2-A and 2-B
+		echo "Building lead1-A..."
+		./build-track "$1"-lead1-A square "$2"
+		echo "Building lead1-B..."
+		./build-track "$1"-lead1-B square "$2"
+		echo "Building lead2-A"
+		./build-track "$1"-lead2-A square "$2"
+		echo "Building lead2-B"
+		./build-track "$1"-lead2-B square "$2"
+		# And mix them together
+		echo "Mixing..."
+		sox -m "$1"-lead1-A.wav "$1"-lead2-A.wav "$1"-lead-A.wav &>/dev/null
+		sox -m "$1"-lead1-B.wav "$1"-lead2-B.wav "$1"-lead-B.wav &>/dev/null
+		# Put them in sequence
+		# Look for lead control file
+		if [ -f "$1"-lead.mec ] ; then
+			# Create blank .wav file
+			sox -n -c 1 temp1.wav trim 0.0 0.0
+			j=1
+			while read -r track; do
+				sox temp"$j".wav "$1"-lead-"$track".wav temp"$((j+1))".wav
+				rm temp"$j".wav
+				j=$((j+1))
+			done < "$1"-lead.mec
+			mv temp"$j".wav "$1"-lead.wav
+		else
+			# By default they are concatenated (A B)
+			sox "$1"-lead-A.wav "$1"-lead-B.wav "$1"-lead.wav
+		fi
 	# Delete individual tracks
-	rm "$1"-lead1.wav
-	rm "$1"-lead2.wav
+	rm "$1"-lead1-A.wav
+	rm "$1"-lead2-A.wav
+	rm "$1"-lead1-B.wav
+	rm "$1"-lead2-B.wav
+	else
+		# Otherwise just do leads A and B
+		echo "Building lead track A..."
+		./build-track "$1"-lead-A square "$2"
+		echo "Building lead track B..."
+		./build-track "$1"-lead-B square "$2"
+		# Put them in sequence
+		# Look for lead control file
+		if [ -f "$1"-lead.mec ] ; then
+			# Create blank .wav file
+			sox -n -c 1 temp1.wav trim 0.0 0.0
+			j=1
+			while read -r track; do
+				sox temp"$j".wav "$1"-lead-"$track".wav temp"$((j+1))".wav
+				rm temp"$j".wav
+				j=$((j+1))
+			done < "$1"-lead.mec
+			mv temp"$j".wav "$1"-lead.wav
+		else
+			# By default they are concatenated (A B)
+			sox "$1"-lead-A.wav "$1"-lead-B.wav "$1"-lead.wav
+		fi
+	# Delete individual tracks
+	rm "$1"-lead-A.wav
+	rm "$1"-lead-B.wav
+fi
 else
-	# Otherwise just do the 1 lead
-	echo "Building lead track..."
-	./build-track "$1"-lead square "$2"
+	# Check if there are 2 lead (harmony) tracks
+	if [ -f "$1"-lead1 ] ; then
+		# Build lead1 and lead2
+		echo "Building lead1..."
+		./build-track "$1"-lead1 square "$2"
+		echo "Building lead2"
+		./build-track "$1"-lead2 square "$2"
+		# And mix them together
+		echo "Mixing..."
+		sox -m "$1"-lead1.wav "$1"-lead2.wav "$1"-lead.wav &>/dev/null
+		# Delete individual tracks
+		rm "$1"-lead1.wav
+		rm "$1"-lead2.wav
+	else
+		# Otherwise just do the 1 lead
+		echo "Building lead track..."
+		./build-track "$1"-lead square "$2"
+	fi
 fi
 # Build drum track
 ./build-drums "$1" "$2"

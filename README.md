@@ -52,9 +52,13 @@ $ ./synth
 ---------------------------------
 ```
 
-### Sequencer
+The "virtual piano" on the screen indicates which keys play notes. You have 2 full octaves, one starting with the `z` key, and one starting with `q`, with the sharps/flats located above them like on a piano.
 
-The music format is simply a text file consisting of a list of notes (with their octave) and their duration in terms of whole `1`, half `2`, quarter `4`, quarter-note triplet `4t`, eighth `8`, eighth-note triplet `8t`, sixteenth `16`, or a rest `r`, one note per line. The last line must be blank:
+### Multitrack sequencer
+
+#### Note/Drum files
+
+The MECCA music encoding format consists of *note files*, text files made up of a list of notes (with their octave) and their duration in terms of whole `1`, half `2`, quarter `4`, quarter-note triplet `4t`, eighth `8`, eighth-note triplet `8t`, sixteenth `16`, or a rest `r`, one note per line:
 
 ```
 c3 8
@@ -66,7 +70,7 @@ c#3 16
 
 ```
 
-The program looks for music files named `<song>-drums`, `<song>-bass`, and `<song>-lead`. If you create 2 lead tracks they must be named `<song>-lead1` and `<song>-lead2`.
+**Notice the blank line at the end.** Without it, your last note will get cut off.
 
 The drum sequencer works similarly, written as kicks `k`, snares `s` and hi-hats `h`:
 
@@ -80,21 +84,11 @@ h 16
 
 ```
 
-Then build your song:
+The program looks for music files named `<song>-drums`, `<song>-bass`, and `<song>-lead`, or 2 lead tracks named `<song>-lead1` and `<song>-lead2`.
 
-```
-$ ./build-song <song> <tempo>
-```
+#### Song (`.mec`) files
 
-Check out the `zelda` and `megaman` examples!
-
-## Splitting tracks into multiple source files
-
-The bass track for the `megaman` song was originally 480 lines long. Besides becoming unweildy to work with, this greatly slowed the music compilation down, since it works by appending each individual note in the file.
-
-So it is best to use a separate file for each section. It turns out that the megaman bass track of 480 notes was actually just 2 parts of 96 notes each, arranged in the pattern `AABAA`.
-
-The program will by default look for files named `<song>-bass-A` and `<song>-bass-B`. If they exist, it will concatenate them one after the other (AB). For a more complex arrangement, use a *control file* named `<song>-<instrument>.mec`. Here's `megaman-bass.mec`:
+The drum and note files can be looked at as musical patterns that can be looped and composed into a more complex arrangement. This is done using song files:
 
 ```
 A
@@ -105,11 +99,19 @@ A
 
 ```
 
-Again, make sure to leave a blank line at the end.
+This example will create a song in the form AABAA using the note patterns contained in the files `<song>-<instrument>-A` and `<song>-<instrument>-B`.
+
+### **Build your song!**
+
+```
+$ ./build-song <song> <tempo>
+```
+
+Check out the `zelda` and `megaman` examples!
 
 # Mecca Alpha:
 
-Build songs interactively with the Mecca Alpha interface:
+Allright, now forget about all those text files! The *Mecca Alpha* interface handles it all for you and lets you build songs interactively:
 
     $ ./mecca [tempo]
     
@@ -148,38 +150,11 @@ To play a song, just load it and select play from the spacebar-menu:
 
 ## Creating songs using the built-in sequencer:
     
-The "virtual piano" on the screen indicates which keys play notes.
-You have 2 full octaves, one starting with the `z` key, and one starting with `q`, with the sharps/flats located above them like on a piano.
 1. Enter notes to build the bassline using triangle-waves.
 2. Use the spacebar-menu to change note lengths.
 3. **A semicolon (`;`) enters a rest.**
 4. If you mess up, use the undo! Use the play option any time to hear what you've got.
 5. When satisfied with your bassline, move on to the lead.
-
-## Editing your song's `.mec` files
-
-You might find it more convenient to work in a text editor. One of the project's goals was to use music data files that are easy to read, edit and share. For this reason it uses .mec files, which are simply text files that contain a list of notes and their attributes like this:
-
-    as2 square half
-    f2 square half
-    r square quarter
-    as2 square quarter
-    as2 square eighth
-    c3 square eighth
-    d3 square eighth
-    ds3 square eighth   
-    
-As you might expect, each line is a note and its octave (**`s` stands for sharp**, `r` for rest) followed by its synth type (`tri`= triangle wave, `square`= square wave), followed by its length (`teenth`, `eighth`, `etrip`, `quarter`, `qtrip`, `half`).  One file is used per instrument. You'll likely find that by copy/pasting sections it is possible to build songs extremely quickly.
-
-## To change the drum pattern
-
-Edit line `103` of the `mecca` script:
-
-```
-sox drum-h-eighth.wav drum-h-teenth.wav drum-h-teenth.wav drum-s-eighth.wav drum-h-teenth.wav drum-h-teenth.wav "$song"-drums.wav
-```
-
-This command creates the sample `<song>-drums.wav` consisting of 3 hi-hats (1/8 note followed by 2 1/16 notes), an 1/8-note snare and 2 more 1/16-note hi-hats. For a different beat, change it to whatever you'd like. (As long as it's some combination of snares and hats.)
 
 ## LICENSE
 

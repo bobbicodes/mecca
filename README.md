@@ -2,9 +2,7 @@
 
 The Music Education, Composition, Creation Application
 
-* You are the student.
-* You are the composer.
-* You are the creator.
+You are the student. You are the composer. You are the creator.
 
 See and hear it in action:
 
@@ -14,7 +12,7 @@ The MECCA Platform was born out of the inspiration that we should develop a musi
 
 MECCA uses [SoX](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. It began life in 1991 as a command-line tool for converting audio formats, and was tortured throughout its adolesence and made to do all sorts of things to sounds like bind them, cut them, and apply effects all over them. Most fascinatingly, at some point it developed the ability to actually synthesize its own waveforms, a most distinguished craft which has seduced us into bringing this long history of abuse to its thrilling climax, and proudly introduce the one, the only... SoX, the Sequencer.
 
-## Installation
+# Installation
 
 Clone the repository and set the scripts to be executable:
 
@@ -29,9 +27,9 @@ $ sudo apt install sox
 $ sudo apt install bc
 ```
 
-## Usage
+# Usage
 
-### Live synth
+## Live synth
 
 If you just want to jam on the keyboard:
 
@@ -53,7 +51,7 @@ $ ./synth
 
 The "virtual piano" on the screen indicates which keys play notes. You have 2 full octaves, one starting with the `z` key, and one starting with `q`, with the sharps/flats located above them like on a piano.
 
-### Multitrack text-based sequencer
+## Multitrack text-based sequencer
 
 #### Note/drum files
 
@@ -108,7 +106,7 @@ $ ./build-song <song> <tempo>
 
 Check out the `zelda` and `megaman` examples!
 
-# Interactive sequencer:
+## Interactive sequencer:
 
 Allright, now forget about all those text files! The *Mecca Alpha* interface handles it all for you and lets you build songs interactively:
 
@@ -147,7 +145,6 @@ To play a song, just load it and select play from the spacebar-menu:
 
     Enter option >
 
-## Creating songs using the built-in sequencer:
     
 1. Enter notes to build the bassline using triangle-waves.
 2. Use the spacebar-menu to change note lengths.

@@ -2,9 +2,9 @@
 
 The Music Education, Composition, Creation Application
 
-You are the student.
-You are the composer.
-You are the creator.
+* You are the student.
+* You are the composer.
+* You are the creator.
 
 See and hear it in action:
 
@@ -24,11 +24,10 @@ Clone the repository and set the scripts to be executable:
 
 ## Dependencies
 
-If your distro doesn't already include `SoX`, do this:
-
-    $ sudo apt-get install sox
-
-Or whatever it is you do to install things on your thing.
+```
+$ sudo apt install sox
+$ sudo apt install bc
+```
 
 ## Usage
 
@@ -54,9 +53,9 @@ $ ./synth
 
 The "virtual piano" on the screen indicates which keys play notes. You have 2 full octaves, one starting with the `z` key, and one starting with `q`, with the sharps/flats located above them like on a piano.
 
-### Multitrack sequencer
+### Multitrack text-based sequencer
 
-#### Note/Drum files
+#### Note/drum files
 
 The MECCA music encoding format consists of *note files*, text files made up of a list of notes (with their octave) and their duration in terms of whole `1`, half `2`, quarter `4`, quarter-note triplet `4t`, eighth `8`, eighth-note triplet `8t`, sixteenth `16`, or a rest `r`, one note per line:
 
@@ -109,7 +108,7 @@ $ ./build-song <song> <tempo>
 
 Check out the `zelda` and `megaman` examples!
 
-# Mecca Alpha:
+# Interactive sequencer:
 
 Allright, now forget about all those text files! The *Mecca Alpha* interface handles it all for you and lets you build songs interactively:
 

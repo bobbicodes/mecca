@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Hide cursor
+
+tput civis
+
+./create-drums 120
+echo "A = Kick"
+echo "S = Snare"
+echo "D = Hihat"
+	
+while true; do
+	read -n1 key
+	case $key in
+		a) play drum-k-8.wav & ;;
+		s) play drum-s-8.wav & ;;
+		d) play drum-h-8.wav & ;;
+	esac
+done

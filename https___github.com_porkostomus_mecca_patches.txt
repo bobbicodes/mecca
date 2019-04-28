@@ -1,0 +1,106 @@
+From 495549ee71a3a5bb1d202d20f6122af581c67992 Mon Sep 17 00:00:00 2001
+From: Milkey Mouse <milkeymouse@meme.institute>
+Date: Sat, 27 Apr 2019 10:19:42 -0700
+Subject: [PATCH 1/3] Ignore generated notes
+
+Add a .gitignore to ignore note files. Perhaps they should be created
+in ${XDG_CACHE_HOME:-$HOME/.cache}.
+---
+ .gitignore | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+index 0000000..a8fae61
+--- /dev/null
++++ b/.gitignore
+@@ -0,0 +1 @@
++mecca-alpha/*.wav
+-- 
+2.17.1
+
+
+From e1811ba136a0bfd859abfd00d0b9ee24734bef64 Mon Sep 17 00:00:00 2001
+From: Milkey Mouse <milkeymouse@meme.institute>
+Date: Sat, 27 Apr 2019 10:22:51 -0700
+Subject: [PATCH 2/3] Streamline dependency installation
+
+apt can take multiple packages as arguments, so condense both
+dependencies into one command.
+
+To be more consistent, use indents for every single-line command.
+---
+ README.md | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
+
+diff --git a/README.md b/README.md
+index 155a94d..0427108 100755
+--- a/README.md
++++ b/README.md
+@@ -22,10 +22,7 @@ Clone the repository and set the scripts to be executable:
+ 
+ ## Dependencies
+ 
+-```
+-$ sudo apt install sox
+-$ sudo apt install bc
+-```
++    $ sudo apt install sox bc
+ 
+ # Usage
+ 
+@@ -33,9 +30,7 @@ $ sudo apt install bc
+ 
+ If you just want to jam on the keyboard:
+ 
+-```
+-$ ./synth
+-```
++    $ ./synth
+ 
+ ```
+  -------------------------
+-- 
+2.17.1
+
+
+From 198c3b9d4c200b4e6f141352794cfe1e6ca61d22 Mon Sep 17 00:00:00 2001
+From: Milkey Mouse <milkeymouse@meme.institute>
+Date: Sat, 27 Apr 2019 10:44:59 -0700
+Subject: [PATCH 3/3] [WIP] Add parametric note-to-freq command
+
+There is a pretty simple formula for MIDI note number to frequency:
+https://github.com/milkey-mouse/swood/blob/6e691c2e9c4a42845b13c83d216022897aca97c5/swood/midiparse.py#L14-L19
+Also see http://www.inspiredacoustics.com/en/MIDI_note_numbers_and_center_frequencies
+By using this formula and parsing note names like c#4 it can work for any note.
+Then we can replace the lookup tables in the mecca script with calls to this.
+---
+ note-to-freq | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+ create mode 100755 note-to-freq
+
+diff --git a/note-to-freq b/note-to-freq
+new file mode 100755
+index 0000000..de50a12
+--- /dev/null
++++ b/note-to-freq
+@@ -0,0 +1,16 @@
++#!/bin/sh
++
++case "$1" in
++  [0-9]*)
++    note_num="$1"
++  ;;
++  [a-g][sf#b]?[0-9])
++    case "$1" in
++      gs)
++      g#)
++        note_num=
++  ;;
++  *)
++    echo "usage: note-to-freq <MIDI note number or name>"
++    exit 1
++  ;;
+-- 
+2.17.1

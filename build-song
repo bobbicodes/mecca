@@ -120,7 +120,91 @@ else
 	fi
 fi
 # Build drum track
-./build-drums "$1" "$2"
+# Check if there are 2 drum (AB) tracks
+if [ -f "$1"-drums-A ] || [ -f "$1"-drums1-A ] ; then
+	# Build drums A and B
+	# Check if there are 2 drum (simultaneous) tracks
+	if [ -f "$1"-drums1-A ] ; then
+		# Build drums 1-A, 1-B, 2-A and 2-B
+		echo "Building drums1-A..."
+		./build-drums "$1"-drums1-A "$2"
+		echo "Building drums1-B..."
+		./build-drums "$1"-drums1-B "$2"
+		echo "Building drums2-A"
+		./build-drums "$1"-drums2-A "$2"
+		echo "Building drums2-B"
+		./build-drums "$1"-drums2-B "$2"
+		# And mix them together
+		echo "Mixing..."
+		sox -m "$1"-drums1-A.wav "$1"-drums2-A.wav "$1"-drums-A.wav &>/dev/null
+		sox -m "$1"-drums1-B.wav "$1"-drums2-B.wav "$1"-drums-B.wav &>/dev/null
+		# Put them in sequence
+		# Look for drum control file
+		if [ -f "$1"-drums.mec ] ; then
+			# Create blank .wav file
+			sox -n -c 1 temp1.wav trim 0.0 0.0
+			j=1
+			while read -r track; do
+				sox temp"$j".wav "$1"-drums-"$track".wav temp"$((j+1))".wav
+				rm temp"$j".wav
+				j=$((j+1))
+			done < "$1"-drums.mec
+			mv temp"$j".wav "$1"-drums.wav
+		else
+			# By default they are concatenated (A B)
+			sox "$1"-drums-A.wav "$1"-drums-B.wav "$1"-drums.wav
+		fi
+	# Delete individual tracks
+	rm "$1"-drums1-A.wav
+	rm "$1"-drums2-A.wav
+	rm "$1"-drums1-B.wav
+	rm "$1"-drums2-B.wav
+	else
+		# Otherwise just do drums A and B
+		echo "Building drum track A..."
+		./build-drums "$1"-drums-A "$2"
+		echo "Building drum track B..."
+		./build-drums "$1"-drums-B "$2"
+		# Put them in sequence
+		# Look for drum control file
+		if [ -f "$1"-drums.mec ] ; then
+			# Create blank .wav file
+			sox -n -c 1 temp1.wav trim 0.0 0.0
+			j=1
+			while read -r track; do
+				sox temp"$j".wav "$1"-drums-"$track".wav temp"$((j+1))".wav
+				rm temp"$j".wav
+				j=$((j+1))
+			done < "$1"-drums.mec
+			mv temp"$j".wav "$1"-drums.wav
+		else
+			# By default they are concatenated (A B)
+			sox "$1"-drums-A.wav "$1"-drums-B.wav "$1"-drums.wav
+		fi
+	# Delete individual tracks
+	rm "$1"-drums-A.wav
+	rm "$1"-drums-B.wav
+fi
+else
+	# Check if there are 2 drum (simultaneous) tracks
+	if [ -f "$1"-drums1 ] ; then
+		# Build drums1 and drums2
+		echo "Building drums1..."
+		./build-drums "$1"-drums1 "$2"
+		echo "Building drums2"
+		./build-drums "$1"-drums2 "$2"
+		# And mix them together
+		echo "Mixing..."
+		sox -m "$1"-drums1.wav "$1"-drums2.wav "$1"-drums.wav &>/dev/null
+		# Delete individual tracks
+		rm "$1"-drums1.wav
+		rm "$1"-drums2.wav
+	else
+		# Otherwise just do the 1 drum track
+		echo "Building drum track..."
+		./build-drums "$1"-drums "$2"
+	fi
+fi
 # Mix final tracks together
 echo "Mixing..."
 sox -m "$1"-drums.wav "$1"-bass.wav "$1"-lead.wav "$1".wav &>/dev/null

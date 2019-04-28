@@ -40,21 +40,21 @@ mv temp"$j".wav "$1"-drums.wav
 
 # Make drum track length of bass track
 
-songlen="$(soxi -D "$1"-bass.wav)"
+# songlen="$(soxi -D "$1"-bass.wav)"
 
 # Copy file repeatedly to loop it
 
-sox "$1"-drums.wav "$1"-drums.wav "$1"-drums.wav "$1"-drums.wav "$1"-drums4.wav &>/dev/null
-sox "$1"-drums4.wav "$1"-drums4.wav "$1"-drums4.wav "$1"-drums4.wav "$1"-drums16.wav &>/dev/null
-sox "$1"-drums16.wav "$1"-drums16.wav "$1"-drums16.wav "$1"-drums16.wav "$1"-drums64.wav &>/dev/null
+# sox "$1"-drums.wav "$1"-drums.wav "$1"-drums.wav "$1"-drums.wav "$1"-drums4.wav &>/dev/null
+# sox "$1"-drums4.wav "$1"-drums4.wav "$1"-drums4.wav "$1"-drums4.wav "$1"-drums16.wav &>/dev/null
+# sox "$1"-drums16.wav "$1"-drums16.wav "$1"-drums16.wav "$1"-drums16.wav "$1"-drums64.wav &>/dev/null
 
 # Trim to length
 
-sox "$1"-drums64.wav "$1"-drums64.wav "$1"-drums.wav trim 0 "$songlen" &>/dev/null
+# sox "$1"-drums64.wav "$1"-drums64.wav "$1"-drums.wav trim 0 "$songlen" &>/dev/null
 
 # Clean up samples
 
-rm drum*.wav
-rm "$1"-drums4.wav
-rm "$1"-drums16.wav
-rm "$1"-drums64.wav
+# rm drum*.wav
+# rm "$1"-drums4.wav
+# rm "$1"-drums16.wav
+# rm "$1"-drums64.wav

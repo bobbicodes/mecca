@@ -51,6 +51,14 @@ $ ./synth
 
 The "virtual piano" on the screen indicates which keys play notes. You have 2 full octaves, one starting with the `z` key, and one starting with `q`, with the sharps/flats located above them like on a piano.
 
+## Live drum synth
+
+```
+./drum-machine
+```
+
+Play the drums using the `a` `s` `d` keys.
+
 ## Multitrack text-based sequencer
 
 #### Note/drum files

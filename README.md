@@ -17,7 +17,7 @@ Clone the repository and set the scripts to be executable:
 ```
 $ git clone https://github.com/porkostomus/mecca.git
 $ cd mecca
-$ chmod +x *
+/mecca$ chmod +x *
 ```
 
 ## Dependencies
@@ -33,7 +33,7 @@ $ sudo apt install sox bc
 If you just want to jam on the keyboard:
 
 ```
-$ ./synth
+/mecca$ ./synth
 ```
 
 ```
@@ -53,7 +53,7 @@ The "virtual piano" on the screen indicates which keys play notes. You have 2 fu
 ## Live drum synth
 
 ```
-./drum-machine
+/mecca$ ./drum-machine
 ```
 
 Play the drums using the `a` `s` `d` keys.
@@ -108,7 +108,7 @@ This example will create a song in the form AABAA using the note patterns contai
 ### **Build your song!**
 
 ```
-$ ./build-song <song> <tempo>
+/mecca$ ./build-song <song> <tempo>
 ```
 
 Check out the `zelda` and `megaman` examples!
@@ -117,7 +117,8 @@ Check out the `zelda` and `megaman` examples!
 
 Allright, now forget about all those text files! The *Mecca Alpha* interface handles it all for you and lets you build songs interactively:
 
-    $ ./mecca [tempo]
+```
+/mecca/mecca-alpha$ ./mecca [tempo]
     
 `tempo` is an integer in beats-per-minute (defaults to `120`).
 The Zelda sample song sounds right at `120`, Megaman is `175`.  

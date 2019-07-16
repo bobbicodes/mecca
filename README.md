@@ -4,13 +4,11 @@ The Music Education, Composition, Creation Application
 
 You are the student. You are the composer. You are the creator.
 
-MECCA consists of a set of Bash scripts for creating instruments out of raw sound waves and composing them into songs in the style of the [NES](http://famitracker.com/wiki/index.php?title=Sound_hardware#Nintendo_MMC5) or [C64](https://en.wikipedia.org/wiki/MOS_Technology_6581) sound chips.
+MECCA consists of a set of Bash scripts for creating instruments out of raw sound waves and composing them into songs in a style based on the [NES](http://famitracker.com/wiki/index.php?title=Sound_hardware#Nintendo_MMC5) and [C64](https://en.wikipedia.org/wiki/MOS_Technology_6581) sound chips.
 
 See and hear it in action:
 
 [Megaman 2 - Dr. Wily](https://www.youtube.com/watch?v=2EVTeP9KlmM)  
-
-The MECCA Platform was born out of the inspiration that we should develop a music software suite to provide comprehensive integration of learning, writing and performance. For when these forms of understanding and expression are fully realized as components of a higher-order activity, life will finally be [a dream](https://www.youtube.com/watch?v=0TgrorCZg80). The goal is to subtly encourage musical idioms without limiting expressivity, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
 
 MECCA uses [SoX](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. It began life in 1991 as a command-line tool for converting audio formats, and was tortured throughout its adolesence and made to do all sorts of things to sounds like bind them, cut them, and apply effects all over them. Most fascinatingly, at some point it developed the ability to actually synthesize its own waveforms, a most distinguished craft which has seduced us into bringing this long history of abuse to its thrilling climax, and proudly introduce the one, the only... SoX, the Sequencer.
 
@@ -18,15 +16,16 @@ MECCA uses [SoX](http://sox.sourceforge.net/), the Swiss-Army Knife of audio man
 
 Clone the repository and set the scripts to be executable:
 
-    $ git clone https://github.com/porkostomus/mecca.git
-    $ cd mecca
-    $ chmod +x *
+```
+$ git clone https://github.com/porkostomus/mecca.git
+$ cd mecca
+$ chmod +x *
+```
 
 ## Dependencies
 
 ```
-$ sudo apt install sox
-$ sudo apt install bc
+$ sudo apt install sox bc
 ```
 
 # Usage
@@ -161,6 +160,10 @@ To play a song, just load it and select play from the spacebar-menu:
 3. **A semicolon (`;`) enters a rest.**
 4. If you mess up, use the undo! Use the play option any time to hear what you've got.
 5. When satisfied with your bassline, move on to the lead.
+
+## Motivation
+
+The MECCA Platform was born out of the inspiration that we should develop a music software suite to provide comprehensive integration of learning, writing and performance. For when these forms of understanding and expression are fully realized as components of a higher-order activity, life will finally be [a dream](https://www.youtube.com/watch?v=0TgrorCZg80). The goal is to subtly encourage musical idioms without limiting expressivity, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
 
 ## LICENSE
 

@@ -12,8 +12,8 @@ echo "D = Hihat"
 while true; do
 	read -n1 key
 	case $key in
-		a) play drum-k-8.wav & ;;
-		s) play drum-s-8.wav & ;;
-		d) play drum-h-8.wav & ;;
+		a) play drum-k-8.wav &>/dev/null & ;;
+		s) play drum-s-8.wav &>/dev/null & ;;
+		d) play drum-h-8.wav &>/dev/null & ;;
 	esac
 done

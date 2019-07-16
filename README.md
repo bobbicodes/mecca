@@ -4,7 +4,7 @@ The Music Education, Composition, Creation Application
 
 You are the student. You are the composer. You are the creator.
 
-MECCA consists of a set of Bash scripts for creating instruments out of raw sound waves and composing them into songs in the style of NES or C64 sound chips.
+MECCA consists of a set of Bash scripts for creating instruments out of raw sound waves and composing them into songs in the style of the [NES](http://famitracker.com/wiki/index.php?title=Sound_hardware#Nintendo_MMC5) or [C64](https://en.wikipedia.org/wiki/MOS_Technology_6581) sound chips.
 
 See and hear it in action:
 

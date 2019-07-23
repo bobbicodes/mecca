@@ -152,7 +152,7 @@ To play a song, just load it and select play from the spacebar-menu:
     [7] Add half-notes
 
     Enter option >
-
+```
     
 1. Enter notes to build the bassline using triangle-waves.
 2. Use the spacebar-menu to change note lengths.

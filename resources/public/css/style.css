@@ -1,0 +1,58 @@
+body {
+    background-color: lightblue;
+  }
+
+  h1 {
+    font-size: 2em;
+    color: purple;
+    /* 2x body copy size = 32px */
+    line-height: 1;
+    padding : 3px;
+    margin : 0;
+    /* 45px / 36px */
+  }
+
+  p {
+    font-size : 16px;
+    padding : 8px;
+    color: crimson;
+    margin : 0;
+    line-height : 8px;
+}
+
+.mario{
+  position: absolute;
+  width: 71px;
+  height: 72px;
+  background: url('https://raw.githubusercontent.com/LantareCode/random-this-and-thats/master/CSS/SuperMario-Animation/images/mariowalking/result.png') left center;    
+  top: 70px;
+  left:0px;
+  
+  -webkit-animation: play 0.8s steps(4) infinite,
+              run 7s both infinite linear;
+  
+          animation: play 0.8s steps(4) infinite,
+              run 7s both infinite linear;
+}
+@-webkit-keyframes play{
+  100%{background-position: -284px;}
+}
+@keyframes play{
+  100%{background-position: -284px;}
+}
+@-webkit-keyframes run{
+  from{left: -200px;}
+  to{left: 100%;}
+}
+@keyframes run{
+  from{left: -200px;}
+  to{left: 100%;}
+}
+@-webkit-keyframes wind{
+  from{left: -300px;}
+  to{left: 100%;}
+}
+@keyframes wind{
+  from{left: -300px;}
+  to{left: 100%;}
+}

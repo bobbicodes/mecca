@@ -1,0 +1,21 @@
+{
+  "name": "mecca",
+  "version": "1.0.0",
+  "description": "FIXME: Write a one-line description of your library/project.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "npx": "^10.2.0",
+    "vexflow": "^1.2.89",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
+  }
+}

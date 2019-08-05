@@ -7,7 +7,6 @@
  ;; Change the target directory from the "target" to "resources"
  ;; https://figwheel.org/config-options#target-dir
  :target-dir "resources"
- :npm {:bundles {"dist/index.bundle.js" "src/webpack/index.js"}}
  ;; Server Ring Handler (optional) https://figwheel.org/docs/ring-handler.html
  ;; If you want to embed a ring handler into the figwheel server, this
  ;; is for simple ring servers

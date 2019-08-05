@@ -4,7 +4,7 @@ The Music Education, Composition, Creation Application
 
 You are the student. You are the composer. You are the creator.
 
-This project has gone through multiple incarnations, each with the goal of doing just one thing - easily composing songs in a style based on the [NES](http://famitracker.com/wiki/index.php?title=Sound_hardware#Nintendo_MMC5) and [C64](https://en.wikipedia.org/wiki/MOS_Technology_6581) sound chips. All instruments and drum sounds are synthesized from 
+This project has gone through multiple incarnations, each with the goal of doing just one thing - easily composing songs in a style based on the [NES](http://famitracker.com/wiki/index.php?title=Sound_hardware#Nintendo_MMC5) and [C64](https://en.wikipedia.org/wiki/MOS_Technology_6581) sound chips. All instruments and drum sounds are synthesized from the most basic soundwaves - a celebration of sonic simplicity. The idea is to narrow down the options as much as possible in order to focus on composing cool parts that work together, rather than getting bogged down in the complexity of sound design.
 
 The MECCA-Alpha interface is a menu-driven interactive sequencer operated from the command-line. It uses plain text files to store the note data, which can also be edited manually for efficient copy-paste composition.
 

@@ -4,13 +4,25 @@ The Music Education, Composition, Creation Application
 
 You are the student. You are the composer. You are the creator.
 
-MECCA consists of a set of Bash scripts for creating instruments and drums out of raw sound waves and composing them into songs in a style based on the [NES](http://famitracker.com/wiki/index.php?title=Sound_hardware#Nintendo_MMC5) and [C64](https://en.wikipedia.org/wiki/MOS_Technology_6581) sound chips.
+The initial version of MECCA consists of a set of Bash scripts for creating instruments and drums out of raw sound waves and composing them into songs in a style based on the [NES](http://famitracker.com/wiki/index.php?title=Sound_hardware#Nintendo_MMC5) and [C64](https://en.wikipedia.org/wiki/MOS_Technology_6581) sound chips.
 
 See and hear it in action:
 
 [Megaman 2 - Dr. Wily](https://www.youtube.com/watch?v=2EVTeP9KlmM)  
 
-# Installation
+The version currently in development is built for the web using the Reagent React library for Clojurescript, and aims to be an authentic emulator of the NES APU. A multitude of advanced UI features are underway, including:
+
+* Switchable piano roll and "tracker" style editors - the former is better for editing individual tracks because the note grid offers an intuitive visualization of the change in pitch over time. On the other hand, the horizontally-scrolling "tracker" style compact interface excels at editing the full arrangement.
+
+* Music staff notation editor - with eventual support for MIDI, MusicXML and Lilypond formats.
+
+* Keyboard, electric and acoustic guitar, bass, cello, violin and ukulele interfaces with automatic chord progressions and rhythm patterns.
+
+* Some time in the future it would be cool to add basic multitrack audio and video recording, to produce "chiptunified karaoke" tracks... super fun!
+
+* All this will be finished in about 10 years.
+
+# Installation - Original command-line sequencer:
 
 Clone the repository and set the scripts to be executable:
 

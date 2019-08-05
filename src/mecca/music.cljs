@@ -3,7 +3,9 @@
             [cljs-bach.synthesis :as synthesis]
             [leipzig.melody :as melody]))
 
-(def app-state
+(defonce context (synthesis/audio-context))
+
+(defonce app-state
   (r/atom
    {:tempo 80
     :scale "Pentatonic"
@@ -26,8 +28,6 @@
    "Minor" [0 2 3 5 7 8 10 12]
    "Harmonic Minor" [0 2 3 5 7 8 11 12]
    "Double Harmonic Minor" [0 1 4 5 7 8 11 12]})
-
-(defonce context (synthesis/audio-context))
 
 (defn note->midi-num [note]
   (+ (* 12 (dec (:octave @app-state)))

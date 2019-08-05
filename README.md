@@ -10,9 +10,17 @@ See and hear it in action:
 
 [Megaman 2 - Dr. Wily](https://www.youtube.com/watch?v=2EVTeP9KlmM)  
 
-The version currently in development is built for the web using the Reagent React library for Clojurescript, and aims to be an authentic emulator of the NES APU. A multitude of advanced UI features are underway, including:
+The version currently in development is built for the web using the Reagent React library for Clojurescript, and aims to be an authentic emulator of the NES APU. The sonic pallet could not be more simple:
 
-* Switchable piano roll and "tracker" style editors - the former is better for editing individual tracks because the note grid offers an intuitive visualization of the change in pitch over time. On the other hand, the horizontally-scrolling "tracker" style compact interface excels at editing the full arrangement.
+* Band-limited (anti-aliased) quantized "pseudo-triangle" generator for basslines. 
+
+* 2 variable duty-cycle pulse waves for leads, with adjustable volume, vibrato, pitch-bend, and the classic chip arpeggiator.
+
+* White noise generator for drums, with variable randomness patterns to create the sense of multiple pitches.
+
+A multitude of advanced UI features are underway, including:
+
+* Switchable piano roll and "tracker" style editors - the former is better for editing individual tracks because the note grid offers an intuitive visualization of the change in pitch over time. On the other hand, the vertically-scrolling "tracker" style compact interface excels at editing the full arrangement.
 
 * Music staff notation editor - with eventual support for MIDI, MusicXML and Lilypond formats.
 

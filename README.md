@@ -4,7 +4,11 @@ The Music Education, Composition, Creation Application
 
 You are the student. You are the composer. You are the creator.
 
-The initial version of MECCA consists of a set of Bash scripts for creating instruments and drums out of raw sound waves and composing them into songs in a style based on the [NES](http://famitracker.com/wiki/index.php?title=Sound_hardware#Nintendo_MMC5) and [C64](https://en.wikipedia.org/wiki/MOS_Technology_6581) sound chips.
+This project has gone through multiple incarnations, each with the goal of doing just one thing - easily composing songs in a style based on the [NES](http://famitracker.com/wiki/index.php?title=Sound_hardware#Nintendo_MMC5) and [C64](https://en.wikipedia.org/wiki/MOS_Technology_6581) sound chips. All instruments and drum sounds are synthesized from 
+
+The MECCA-Alpha interface is a menu-driven interactive sequencer operated from the command-line. It uses plain text files to store the note data, which can also be edited manually for efficient copy-paste composition.
+
+MECCA-Beta focused on creating an improved text-based music encoding format and breaking the program up into individual scripts, following the *Unix Philosophy* of creating composable software by writing programs that each do just one thing, and can be chained together using plain text as a universal interface.
 
 See and hear it in action:
 
@@ -24,7 +28,9 @@ A multitude of advanced UI features are underway, including:
 
 * Music staff notation editor - with eventual support for MIDI, MusicXML and Lilypond formats.
 
-* Keyboard, electric and acoustic guitar, bass, cello, violin and ukulele interfaces with automatic chord progressions and rhythm patterns.
+* Keyboard, electric and acoustic guitar, bass, cello, violin and ukulele interfaces with automatic chord progressions and rhythm patterns. These will use sampled sounds, and be more focused on live performance.
+
+* Filling out the "E" in MECCA (Education) will be a set of music theory training tools for learning common rhythms, harmonic intervals, scales and modes from around the world, composition techniques and drum/instrument sound design labs.
 
 * Some time in the future it would be cool to add basic multitrack audio and video recording, to produce "chiptunified karaoke" tracks... super fun!
 

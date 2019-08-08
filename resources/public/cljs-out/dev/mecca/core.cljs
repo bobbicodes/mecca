@@ -13,7 +13,6 @@
   (gdom/getElement "app"))
 
 (defn mount [el]
-  (rf/clear-subscription-cache!)
   (r/render-component [components/mecca] el))
 
 (defn mount-app-element []
@@ -26,6 +25,7 @@
 
 ;; specify reload hook with ^;after-load metadata
 (defn ^:after-load on-reload []
+  (rf/clear-subscription-cache!)
   (mount-app-element)
   ;; optionally touch your app-state to force rerendering depending on
   ;; your application

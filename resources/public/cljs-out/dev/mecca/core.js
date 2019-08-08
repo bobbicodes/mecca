@@ -7,6 +7,7 @@ goog.require('re_frame.core');
 goog.require('mecca.events');
 goog.require('mecca.subs');
 goog.require('mecca.components');
+re_frame.core.dispatch_sync.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"initialize-db","initialize-db",230998432)], null));
 mecca.core.get_app_element = (function mecca$core$get_app_element(){
 return goog.dom.getElement("app");
 });
@@ -29,8 +30,6 @@ mecca.core.on_reload = (function mecca$core$on_reload(){
 return mecca.core.mount_app_element.call(null);
 });
 mecca.core.init = (function mecca$core$init(){
-re_frame.core.dispatch_sync.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"initialize-db","initialize-db",230998432)], null));
-
 return mecca.core.mount_app_element.call(null);
 });
 goog.exportSymbol('mecca.core.init', mecca.core.init);

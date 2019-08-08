@@ -15,10 +15,10 @@
      (fn [e]
        (.preventDefault e)
        (dispatch [:set-scale (-> e .-target .-value)]))}
-    (doall 
-      (for [scale (keys music/scales)]
-        ^{:key scale}
-        [:option scale]))]])
+    (doall
+     (for [scale (keys music/scales)]
+       ^{:key scale}
+       [:option scale]))]])
 
 (defn key-picker []
   [:label " Key: "
@@ -129,8 +129,9 @@
                       [:line {:x1 1 :y1 -1 :x2 -1 :y2 1}]])])))
 
 (defn note-grid []
-  (let [scale-name @(subscribe [:scale])
-        scale-notes (get music/scales (str scale-name))]
+  (let [scale-name (subscribe [:scale])
+        scale-notes (get music/scales @scale-name)
+        bassline (subscribe [:bassline])]
     (fn []
       [:svg
        {:view-box (str "0 0 17 " (* 0.75 (dec (* 2 (count scale-notes)))))}
@@ -145,7 +146,7 @@
            ^{:key [x y]}
            [grid-lines [x y]]))
        (doall (for [x (range 16)
-                    :let [y @(subscribe [:bassline])]
+                    :let [y @bassline]
                     :when (number? y)]
                 ^{:key x}
                 [note [x y]]))

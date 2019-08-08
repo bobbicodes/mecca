@@ -7,6 +7,8 @@
    [mecca.subs]
    [mecca.components :as components]))
 
+(rf/dispatch-sync [:initialize-db])
+
 (defn get-app-element []
   (gdom/getElement "app"))
 
@@ -31,5 +33,5 @@
 )
 
 (defn ^:export init []
-  (rf/dispatch-sync [:initialize-db])
+  
   (mount-app-element))

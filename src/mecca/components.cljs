@@ -52,7 +52,7 @@
                                    (-> e .-target .-value)]))}]])
 
 (defn blank [[x y]]
-  (let [focused? (atom false)]
+  (let [focused? (r/atom false)]
     (fn [[x y]]
       [:rect
        {:width 1 :height 0.75
@@ -83,7 +83,7 @@
 
 (defn grid-lines [[x y]]
   (let [line-focused? (atom false)
-        notes (subscribe [:bassline])
+        notes @(subscribe [:bassline])
         note-endings (doall (for [{:keys [time duration pitch]} notes]
                               [(inc (+ time duration)) pitch]))]
     (fn [[x y]]
@@ -105,7 +105,7 @@
     (fn [[x y]]
       [:g
        [:rect
-        {:width (- (* 4 (bassline x)) 0.05) :height 0.75
+        {:width (- (* 4 (count bassline) x) 0.05) :height 0.75
          :x (+ 1 x) :y (+ (* 0.75 y))
          :stroke (if (= @selected [x y])
                    "red")
@@ -113,7 +113,7 @@
          :fill "blue"
          :on-mouse-over (fn [e] (reset! focused? true))
          :on-click
-         #(dispatch [:bassline [x nil]])
+         #(dispatch [:set-bassline [x nil]])
          :on-mouse-out (fn [e] (reset! focused? false))}]
        (if @focused? [:g {:stroke "red"
                           :stroke-width 0.4
@@ -123,12 +123,12 @@
                                "scale(0.15)")
                           :on-mouse-over (fn [e] (reset! focused? true))
                           :on-click
-                          #(dispatch [:bassline [x nil]])
+                          #(dispatch [:set-bassline [x nil]])
                           :on-mouse-out (fn [e] (reset! focused? false))}
                       [:line {:x1 -1 :y1 -1 :x2 1 :y2 1}]
                       [:line {:x1 1 :y1 -1 :x2 -1 :y2 1}]])])))
 
-#_(defn note-grid []
+(defn note-grid []
   (let [scale-name @(subscribe [:scale])
         scale-notes (get music/scales (str scale-name))]
     (fn []
@@ -139,17 +139,17 @@
                y (range (dec (* 2 (count scale-notes))))]
            ^{:key [x y]}
            [blank [x y]]))
-       #_(doall
+       (doall
          (for [x (range 1 (* 4 16) 0.25)
                y (range (dec (* 2 (count scale-notes))))]
            ^{:key [x y]}
            [grid-lines [x y]]))
-       #_(doall (for [x (range 16)
+       (doall (for [x (range 16)
                     :let [y @(subscribe [:bassline])]
                     :when (number? y)]
                 ^{:key x}
                 [note [x y]]))
-       #_(doall
+       (doall
          (for [y (range (dec (* 2 (count scale-notes))))]
            ^{:key y}
            [note-label y]))])))
@@ -187,14 +187,14 @@
    (doall
     (for [y (range 5)]
       ^{:key y}
-      [:line {:x1 0 :y1 (+ 0.25 (* 2 y)) :x2 100 :y2 (+ 0.25 (* 2 y)) :stroke "black" :stroke-width 0.4}]))
+      [:line {:x1 0 :x2 100 :y1 (+ 0.25 (* 2 y)) :y2 (+ 0.25 (* 2 y)) :stroke "black" :stroke-width 0.4}]))
    (doall (for [x (range 16)
-                :let [y (subscribe [:bassline])]
+                :let [y @(subscribe [:bassline])]
                 :when (number? y)]
             ^{:key x}
             [note-head [x y]]))
    (doall (for [x (range 16)
-                :let [y (subscribe [:bassline])]
+                :let [y @(subscribe [:bassline])]
                 :when (number? y)]
             ^{:key x}
             [note-stem [x y]]))])
@@ -221,7 +221,7 @@
             (music/play-bassline!))}
          "Play Bassline"]
         [:p]
-        ;[note-grid]
+        [note-grid]
         ;[:p (str "Mouse-pos: " @mouse-pos)]
         [:p]
         [:div

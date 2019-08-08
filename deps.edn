@@ -2,6 +2,7 @@
         org.clojure/clojurescript {:mvn/version "1.10.339"}
         com.bhauman/figwheel-main {:mvn/version "0.2.3"}
         reagent {:mvn/version "0.8.1"}
+        re-frame {:mvn/version "0.10.8"}
         cljs-bach {:mvn/version "0.3.0"}
         leipzig {:mvn/version "0.10.0"}
         com.bhauman/rebel-readline {:mvn/version "0.1.4"}

@@ -240,7 +240,7 @@
   (let [active (r/atom "Alberti bass")]
     (fn []
       [:div
-       [:label "Patterns: "
+       [:p "Try some well-known musical patterns: "]
         (doall (for [{:keys [name notes scales]} (seq music/basslines)]
                  ^{:key name}
                  [:button
@@ -251,7 +251,7 @@
                      (reset! active name))
                    :style {:background-color (if (= name @active)
                                                "lightgreen" "violet")}}
-                  name]))]])))
+                  name]))])))
 
 (defn mecca []
       [:center
@@ -267,6 +267,7 @@
         [:p]
         [:div.mario]
         [staff]
+        [basslines]
         [:button
          {:on-click
           (fn [e]
@@ -275,8 +276,6 @@
         [:p]
         [note-grid]
         ;[:p (str "Mouse-pos: " @mouse-pos)]
-        [:p]
-        [basslines]
         [:p]
         [:p (str "Intervals: " @(subscribe [:bassline]))]
         [:p (str @(subscribe [:scale])

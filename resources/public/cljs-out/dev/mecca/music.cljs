@@ -27,7 +27,7 @@
 
 (def basslines
   [{:name "Alberti bass" :notes [1 5 3 5] :scales ["Minor" "Major"]}
-   {:name "Walking bass" :notes [1 3 5 6 7 6 5 3] :scales ["Minor" "Major"]}
+   {:name "Walking bass" :notes [1 3 4 5 7 5 4 3] :scales ["Minor" "Major"]}
    {:name "Lament" :notes [8 8 7 7 6 6 5 5] :scales ["Chromatic"]}
    {:name "Pachelbel's Canon" :notes [8 8 5 5 6 6 3 3 4 4 8 8 4 4 5 5] :scales ["Major"]}
    {:name "Doo-wop" :notes [8 8 6 6 4 4 5 5] :scales ["Major"]}
@@ -48,8 +48,8 @@
   (dec (quot midi-num 12)))
 
 (defn interval->midi [n]
-  (let [scale-name @(subscribe [:scale])
-        scale-notes (get scales scale-name)
+  (let [scale-name (subscribe [:scale])
+        scale-notes (get scales @scale-name)
         key @(subscribe [:key])
         base-pitch (get (zipmap (into notes notes) (range 24 36)) key)
         octave @(subscribe [:octave])]
@@ -57,7 +57,7 @@
       (+ n base-pitch))))
 
 (defn bassline->midi-nums [v]
-  (map #(interval->midi %) @(subscribe [:bassline])))
+  (map #(interval->midi %) v))
 
 (defn midi-num->note [midi-num]
   (str (base-pitch midi-num) (octave midi-num)))
@@ -68,7 +68,7 @@
 (defn bass [note]
   (synthesis/connect->
    (synthesis/oscillator "triangle" (:pitch note))
-   (synthesis/adsr 0.0 0.0 0.25 0.4)
+   (synthesis/adsr 0.0 0.0 0.25 0.1)
    (synthesis/gain 1)))
 
 (defn play-bassline! []

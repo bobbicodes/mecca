@@ -12,6 +12,8 @@ mecca.core.get_app_element = (function mecca$core$get_app_element(){
 return goog.dom.getElement("app");
 });
 mecca.core.mount = (function mecca$core$mount(el){
+re_frame.core.clear_subscription_cache_BANG_.call(null);
+
 return reagent.core.render_component.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.mecca], null),el);
 });
 mecca.core.mount_app_element = (function mecca$core$mount_app_element(){
@@ -25,8 +27,6 @@ return null;
 });
 mecca.core.mount_app_element.call(null);
 mecca.core.on_reload = (function mecca$core$on_reload(){
-re_frame.core.clear_subscription_cache_BANG_.call(null);
-
 return mecca.core.mount_app_element.call(null);
 });
 mecca.core.init = (function mecca$core$init(){

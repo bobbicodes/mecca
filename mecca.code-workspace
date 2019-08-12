@@ -9,7 +9,6 @@
 	],
 	"settings": {
 		"editor.hover.sticky": false,
-		"editor.wordWrap": "on",
 		"workbench.editor.openSideBySideDirection": "down"
 	}
 }

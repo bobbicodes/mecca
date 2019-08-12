@@ -8,16 +8,16 @@
 (rf/reg-event-db
  :initialize-db
  (fn [_ _]
-   {:scale "Pentatonic"
+   {:scale "Minor"
     :octave 3
     :key "C"
     :tempo 100
-    :bassline (vec (repeat 16 nil))}))
+    :bassline [48 55 51 55 48 55 51 55 48 55 51 55 48 55 51 55]}))
 
 (rf/reg-event-db
  :set-bassline
  (fn [db [_ bassline]]
-   (assoc db :bassline bassline)))
+   (assoc db :bassline (take 16 (cycle bassline)))))
 
 (rf/reg-event-db
  :set-scale

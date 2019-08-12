@@ -4,7 +4,8 @@
             [reagent.core :as r]
             [re-frame.core :as rf :refer [subscribe dispatch]]
             [mecca.events :as events :refer [mouse-pos mouse-down-handler selected]]
-            [leipzig.melody :as melody]))
+            [mecca.music.melody :as melody]
+            [mecca.music.scale :as scale]))
 
 (defn scale-picker []
   [:label
@@ -38,8 +39,9 @@
              :background-color "lightgray"}
      :type "number"
      :value @(subscribe [:octave])
-     :on-change (fn [e] (dispatch [:set-octave
-                                   (-> e .-target .-value)]))}]])
+     :on-change (fn [e]
+                  (.preventDefault e)
+                  (dispatch [:set-octave (-> e .-target .-value)]))}]])
 
 (defn tempo-input []
   [:label " Tempo: "
@@ -48,11 +50,14 @@
              :background-color "lightgray"}
      :type "number"
      :value @(subscribe [:tempo])
-     :on-change (fn [e] (dispatch [:set-tempo
-                                   (-> e .-target .-value)]))}]])
+     :on-change (fn [e]
+                  (.preventDefault e)
+                  (dispatch [:set-tempo
+                             (-> e .-target .-value)]))}]])
 
-(defn blank [[x y]]
-  (let [focused? (r/atom false)]
+(defn cell [[x y]]
+  (let [focused? (r/atom false)
+        bassline (subscribe [:bassline])]
     (fn [[x y]]
       [:rect
        {:width 1 :height 0.75
@@ -70,8 +75,7 @@
         #(reset! focused? true)
         :on-mouse-out
         #(reset! focused? false)
-        :on-click
-        #(dispatch [:bassline [x y]])}])))
+        :on-click #(dispatch [:set-bassline (assoc @bassline x y)])}])))
 
 (defn note-label [y]
   [:text
@@ -139,7 +143,7 @@
          (for [x (range 16)
                y (range (dec (* 2 (count scale-notes))))]
            ^{:key [x y]}
-           [blank [x y]]))
+           [cell [x y]]))
        (doall
          (for [x (range 1 (* 4 16) 0.25)
                y (range (dec (* 2 (count scale-notes))))]
@@ -150,59 +154,106 @@
                     :when (number? y)]
                 ^{:key x}
                 [note [x y]]))
-       (doall
-         (for [y (range (dec (* 2 (count scale-notes))))]
-           ^{:key y}
-           [note-label y]))])))
+       #_(doall
+        (let [midi-num (get (zipmap (into music/notes music/notes) (range 24 36)) @(subscribe [:key]))
+              scale-intervals (get music/scales @(subscribe [:scale]))
+              first-octave (map #(+ midi-num %) scale-intervals)]
+          (for [y (into (map #(+ midi-num 12 %)
+                             (rest scale-intervals))
+                        (reverse first-octave))]
+            ^{:key y}
+            [note-label y])))])))
 
 (defn note-stem [[x y]]
-  [:g
-   [:line
-    {:stroke "black" :stroke-width 0.35
-     :x1 (if (> 10 y)
-           (+ 9.1 (* 5.25 x))
-           (+ 10.9 (* 5.25 x)))
-     :x2 (if (> 10 y)
-           (+ 9.1 (* 5.25 x))
-           (+ 10.9 (* 5.25 x)))
-     :y1 (if (> 10 y)
-           (- y 4.25) (- (- y 5) 4.25))
-     :y2 (if (> 10 y)
-           (- (+ 5 y) 4.25) (- y 4.25))}]])
+  (let [stem-down? #(> % 1)]
+    [:g [:line
+       (if (stem-down? y)
+         {:stroke "black" :stroke-width 0.25
+          :stroke-linecap "round"
+          :stroke-linejoin "bevel"
+          :x1 (+ 7 (* 6.5 x))
+          :x2 (+ 7 (* 6.5 x))
+          :y1 (- 13.5 (* 0.57 y))
+          :y2 (- 19.1 (* 0.57 y))}
+         {:stroke "black" :stroke-width 0.25
+          :stroke-linecap "round" :stroke-linejoin "bevel"
+          :x1 (+ 10 (* 6.5 x))
+          :x2 (+ 10 (* 6.5 x))
+          :y1 (- 6.1 (* 0.57 y))
+          :y2 (- 12.5 (* 0.57 y))})]]))
 
 (defn note-head [[x y]]
   [:g
    [:ellipse
-    {:cx (+ 10 (* 5.25 x)) :cy (- (* 0.74 y) 2.1)
-     :rx 1.15 :ry 0.8}]])
+    {:transform (str "rotate(-28, " (+ 9 (* 6.5 x)) "," (- 14.2 (* 0.5 y)) ")")
+     :cx (+ 9 (* 6.5 x)) :cy (- 13.1 (* 0.57 y))
+     :rx 1.6 :ry 1}]])
+
+(defn bass-clef []
+  [:g {:transform "scale(0.36,0.36) translate(-4.5,22)"}
+   [:path {:d "M18.3 9C18.4 11.9 17.1 14.6 15.1 16.6 12.6 19.1 9.4 20.6 6.1 21.7 5.6 21.9 5 21.6 5.7 21.3 7 20.7 8.4 20.2 9.6 19.3 12.3 17.7 14.6 15 15.2 11.8 15.5 9.8 15.4 7.8 14.9 5.8 14.6 4.4 13.6 3 12 2.8 10.6 2.5 9.1 3 8.1 4 7.8 4.3 7.3 5.1 7.4 5.9 8 5.4 8 5.5 8.5 5.3 9.6 4.8 11.1 5.5 11.4 6.7 11.7 7.9 11.5 9.4 10.3 10 9.1 10.6 7.4 10.3 6.7 9.1 5.6 7.1 6.2 4.4 8 3.1 9.8 1.6 12.4 1.5 14.6 2.3 16.8 3.1 18.1 5.4 18.3 7.6 18.3 8.1 18.3 8.6 18.3 9z"}]
+   [:circle {:cx 20 :cy 5.5 :r 1.25}] [:circle {:cx 20 :cy 9.5 :r 1.25}]])
 
 (defn staff []
-  [:svg {:view-box "0 0 100 10"}
-   [:g {:transform "scale(0.028,0.028)"}
-    [:path {:d "M95,0C46.286,0,20,35.035,20,68c0,16.393,5.134,30.499,14.848,40.794C44.851,119.396,58.736,125,75,125
-		c16.569,0,30-13.431,30-30S91.569,65,75,65c-9.828,0-18.551,4.726-24.023,12.028C50.234,73.834,50,70.676,50,68
-		c0-18.884,15.457-38,45-38c37.664,0,65,35.748,65,85c0,47.058-20.573,76.48-37.831,92.875C100.995,227.991,72.146,240,45,240v30
-		c35.164,0,70.822-14.716,97.831-40.375C173.248,200.729,190,160.02,190,115c0-31.97-9.544-61.113-26.874-82.062
-		C145.554,11.698,121.36,0,95,0z"}]
-    [:circle {:cx 235 :cy 54 :r 15}] [:circle {:cx 235 :cy 114 :r 15}]]
-   (doall
-    (for [y (range 5)]
-      ^{:key y}
-      [:line {:x1 0 :x2 100 :y1 (+ 0.25 (* 2 y)) :y2 (+ 0.25 (* 2 y)) :stroke "black" :stroke-width 0.4}]))
-   (doall (for [x (range 16)
-                :let [y @(subscribe [:bassline])]
-                :when (number? y)]
-            ^{:key x}
-            [note-head [x y]]))
-   (doall (for [x (range 16)
-                :let [y @(subscribe [:bassline])]
-                :when (number? y)]
-            ^{:key x}
-            [note-stem [x y]]))])
+  (let [bassline (subscribe [:bassline])
+        mouse-over (r/atom [nil nil])]
+    (fn []
+      [:svg {:view-box "0 0 110 25"}
+       [bass-clef]
+       (doall
+         (for [y (range 8 17)]
+           ^{:key y}
+           [:line {:x1 0 :x2 110 :y1 (+ 0.5 y) :y2 (+ 0.5 y)
+                   :stroke "black"
+                   :stroke-width (if (or (= y @mouse-over)
+                                         (even? y)) 0.1 1.8)
+                   :stroke-dasharray (if (odd? y) 0.5)
+                   :visibility (if (or (= y @mouse-over)
+                                       (even? y)) "visible" "hidden")
+                   :pointer-events "all"
+                   :stroke-linecap "butt" :stroke-linejoin "bevel"
+                   :on-mouse-over #(reset! mouse-over y)
+                   :on-mouse-out #(reset! mouse-over [nil nil])}]))
+       (doall (for [x (range 16) y (range 24)]
+          ^{:key [x y]}
+          [:rect {:height 0.2 :width 3 :ry 0.1 :x (+ 7 (* 6.5 x)) :y (+ 0.5 (* 2 y))
+                  :visibility (cond
+                                (and (not= [x y] @mouse-over)
+                                     (< 7 y 17)) "hidden"
+                                (= [x y] @mouse-over) "visible"
+                                :else "hidden")
+                  :pointer-events "all"
+                  :on-mouse-over #(reset! mouse-over [x y])
+                  :on-mouse-out #(reset! mouse-over [nil nil])}]))
+       (doall (for [x (range 16)
+                    :let [y (get @bassline x)]
+                    :when (number? y)]
+                ^{:key x}
+                [note-head [x (- y 48)]]))
+       (doall (for [x (range 16)
+                    :let [y (get @bassline x)]
+                    :when (number? y)]
+                ^{:key x}
+                [note-stem [x (- y 48)]]))])))
+
+(defn basslines []
+  (let [active (r/atom "Alberti bass")]
+    (fn []
+      [:div
+       [:label "Patterns: "
+        (doall (for [{:keys [name notes scales]} (seq music/basslines)]
+                 ^{:key name}
+                 [:button
+                  {:on-click
+                   (fn [e]
+                     (dispatch [:set-bassline (vec (take 16 (cycle notes)))])
+                     (dispatch [:set-scale (first scales)])
+                     (reset! active name))
+                   :style {:background-color (if (= name @active)
+                                               "lightgreen" "violet")}}
+                  name]))]])))
 
 (defn mecca []
-  (let [active (r/atom nil)]
-    (fn []
       [:center
        [:div
         [:h1 "MECCA Music Platform"]
@@ -225,21 +276,18 @@
         [note-grid]
         ;[:p (str "Mouse-pos: " @mouse-pos)]
         [:p]
-        [:div
-         [:label "Patterns: "
-          (doall (for [[x pattern] (seq music/basslines)]
-                   ^{:key x}
-                   [:button
-                    {:on-click
-                     (fn [e]
-                       (dispatch [:set-bassline (vec (take 16 (cycle pattern)))])
-                       (reset! active x))
-                     :style {:background-color (if (= x @active)
-                                                 "lightgreen" "violet")}}
-                    x]))]]
+        [basslines]
         [:p]
-        [:p (str "Bassline: " @(subscribe [:bassline]))]
-        [:p (str "Scale: " @(subscribe [:scale]))]
-        [:p (str "Key: " @(subscribe [:key]))]
-        [:p (str "Octave: " @(subscribe [:octave]))]
-        [:p (str "Tempo: " @(subscribe [:tempo]))]]])))
+        [:p (str "Intervals: " @(subscribe [:bassline]))]
+        [:p (str @(subscribe [:scale])
+             " scale from MIDI number "
+             (music/root-note-midi-num) " ("
+                 @(subscribe [:key]) @(subscribe [:octave]) "):")]
+        [:p #_(let [scale (subscribe [:scale])
+                  key (subscribe [:key])
+                  octave (subscribe [:octave])
+                  root (music/root-note-midi-num)
+                  intervals (subscribe [:bassline])
+                  scale-region (take 16 (scale/scale (get music/scales @scale) root))]
+              (str (map #(nth scale-region (dec %)) @intervals)))]
+        [:p (str "Tempo: " @(subscribe [:tempo]))]]])

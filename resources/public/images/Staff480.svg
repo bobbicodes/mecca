@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="480" height="25">
+	<line id="rl" x2="480" y2="0.5" x1="0" y1="0.5" style="stroke:#000000"/>
+
+	<use y="6" xlink:href="#rl" />
+	<use y="12" xlink:href="#rl" />
+	<use y="18" xlink:href="#rl" />
+	<use y="24" xlink:href="#rl" />
+</svg>

@@ -22,6 +22,11 @@
    (:key db)))
 
 (rf/reg-sub
+ :current-position
+ (fn [db _]
+   (:current-position db)))
+
+(rf/reg-sub
  :bassline
  (fn [db _]
    (:bassline db)))

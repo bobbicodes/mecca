@@ -86,7 +86,7 @@
    (music/midi-num->note y)])
 
 (defn grid-lines [[x y]]
-  (let [line-focused? (atom false)
+  (let [line-focused? (r/atom false)
         notes @(subscribe [:bassline])
         note-endings (doall (for [{:keys [time duration pitch]} notes]
                               [(inc (+ time duration)) pitch]))]
@@ -166,28 +166,31 @@
 
 (defn note-stem [[x y]]
   (let [stem-down? #(> % 1)]
-    [:g [:line
-       (if (stem-down? y)
-         {:stroke "black" :stroke-width 0.25
-          :stroke-linecap "round"
-          :stroke-linejoin "bevel"
-          :x1 (+ 7 (* 6.5 x))
-          :x2 (+ 7 (* 6.5 x))
-          :y1 (- 13.5 (* 0.57 y))
-          :y2 (- 19.1 (* 0.57 y))}
-         {:stroke "black" :stroke-width 0.25
-          :stroke-linecap "round" :stroke-linejoin "bevel"
-          :x1 (+ 10 (* 6.5 x))
-          :x2 (+ 10 (* 6.5 x))
-          :y1 (- 6.1 (* 0.57 y))
-          :y2 (- 12.5 (* 0.57 y))})]]))
+    (fn [[x y]]
+      [:g [:line
+           (if (stem-down? y)
+             {:stroke "black" :stroke-width 0.25
+              :stroke-linecap "round"
+              :stroke-linejoin "bevel"
+              :x1 (+ 7.1 (* 6.5 x))
+              :x2 (+ 7.1 (* 6.5 x))
+              :y1 (- 13.5 (* 0.57 y))
+              :y2 (- 19.2 (* 0.57 y))}
+             {:stroke "black" :stroke-width 0.25
+              :stroke-linecap "round" :stroke-linejoin "bevel"
+              :x1 (+ 10 (* 6.5 x))
+              :x2 (+ 10 (* 6.5 x))
+              :y1 (- 6.1 (* 0.57 y))
+              :y2 (- 12.5 (* 0.57 y))})]])))
 
-(defn note-head [[x y]]
-  [:g
-   [:ellipse
-    {:transform (str "rotate(-28, " (+ 9 (* 6.5 x)) "," (- 14.2 (* 0.5 y)) ")")
-     :cx (+ 9 (* 6.5 x)) :cy (- 13.1 (* 0.57 y))
-     :rx 1.6 :ry 1}]])
+(defn note-head [color [x y]]
+      [:g
+       [:ellipse
+        {:transform (str "rotate(-28, " (+ 9 (* 6.5 x)) "," (- 14.2 (* 0.5 y)) ")")
+         :cx (+ 9.1 (* 6.5 x)) :cy (- 13.1 (* 0.57 y))
+         :rx 1.5 :ry 1
+         :fill color}]
+       [note-stem [x y]]])
 
 (defn bass-clef []
   [:g {:transform "scale(0.36,0.36) translate(-4.5,22)"}
@@ -196,7 +199,8 @@
 
 (defn staff []
   (let [bassline (subscribe [:bassline])
-        mouse-over (r/atom [nil nil])]
+        mouse-over (r/atom [nil nil])
+        current-position (subscribe [:current-position])]
     (fn []
       [:svg {:view-box "0 0 110 25"}
        [bass-clef]
@@ -213,7 +217,8 @@
                    :pointer-events "all"
                    :stroke-linecap "butt" :stroke-linejoin "bevel"
                    :on-mouse-over #(reset! mouse-over y)
-                   :on-mouse-out #(reset! mouse-over [nil nil])}]))
+                   :on-mouse-out #(reset! mouse-over [nil nil])
+                   :on-click #(dispatch [:set-bassline])}]))
        (doall (for [x (range 16) y (range 24)]
           ^{:key [x y]}
           [:rect {:height 0.2 :width 3 :ry 0.1 :x (+ 7 (* 6.5 x)) :y (+ 0.5 (* 2 y))
@@ -229,12 +234,7 @@
                     :let [y (get @bassline x)]
                     :when (number? y)]
                 ^{:key x}
-                [note-head [x (- y 48)]]))
-       (doall (for [x (range 16)
-                    :let [y (get @bassline x)]
-                    :when (number? y)]
-                ^{:key x}
-                [note-stem [x (- y 48)]]))])))
+                [note-head (if (= @current-position (inc x)) "red" "black") [x (- y 48)]]))])))
 
 (defn basslines []
   (let [active (r/atom "Alberti bass")]
@@ -246,8 +246,8 @@
                  [:button
                   {:on-click
                    (fn [e]
-                     (dispatch [:set-bassline (vec (take 16 (cycle notes)))])
                      (dispatch [:set-scale (first scales)])
+                     (dispatch [:set-bassline (vec (take 16 (cycle notes)))])
                      (reset! active name))
                    :style {:background-color (if (= name @active)
                                                "lightgreen" "violet")}}

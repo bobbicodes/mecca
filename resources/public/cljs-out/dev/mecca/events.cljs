@@ -10,9 +10,10 @@
  :initialize-db
  (fn [_ _]
    {:scale "Minor"
+    :current-position 0
     :octave 3
     :key "C"
-    :tempo 100
+    :tempo 80
     :bassline [48 55 51 55 48 55 51 55 48 55 51 55 48 55 51 55]}))
 
 (reg-event-db
@@ -24,9 +25,22 @@
                                    (dec interval)))))))
 
 (reg-event-db
+ :move-note
+ (fn [db [_ bassline]]
+   (assoc db :bassline (vec (for [interval bassline]
+                              (nth (take 16 (scale/scale (get music/scales @(subscribe [:scale]))
+                                                         (music/root-note-midi-num)))
+                                   (dec interval)))))))
+
+(reg-event-db
  :set-scale
  (fn [db [_ scale]]
    (assoc db :scale scale)))
+
+(reg-event-db
+ :advance-position
+ (fn [db [_ scale]]
+   (update db :current-position inc)))
 
 (reg-event-db
  :set-tempo
@@ -43,7 +57,7 @@
  (fn [db [_ key]]
    (assoc db :key key)))
 
-(def mouse-pos (atom {:x 100 :y 100}))
+(def mouse-pos (atom {:x 0 :y 0}))
 (def selected (atom [nil nil]))
 
 (defn get-client-rect [evt]
@@ -56,7 +70,6 @@
           y (- (.-clientY evt) (:y offset))]
       (reset! mouse-pos {:x      x
                          :y      y}))))
-
 
 (defn mouse-up-handler [on-move]
   (fn me [evt]

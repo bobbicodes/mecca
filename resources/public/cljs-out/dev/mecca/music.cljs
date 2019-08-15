@@ -71,9 +71,25 @@
    (synthesis/adsr 0.0 0.0 0.25 0.1)
    (synthesis/gain 1)))
 
+(defn ^:export current-time
+  "Return the current time as recorded by the audio context."
+  [context]
+  (.-currentTime context))
+
+(defn play-note! [midi-num start duration]
+  (let [context (:audiocontext @state-atom)
+        osc (.createOscillator context)
+        now (current-time context)
+        freq (midi->freq midi-num)]
+    (set! (.-type osc) "triangle")
+    (set! (.. osc -frequency -value) freq)
+    (.connect osc (.-destination (:audiocontext @state-atom)))
+    (.start osc (+ now start))
+    (.stop osc (+ now start duration))))
+
 (defn play-bassline! []
-  (synthesis/play! (:audiocontext @state-atom)
-                   (->> (melody/phrase (vec (repeat 16 0.25))
-                                       (take 16 (cycle @(subscribe [:bassline]))))
-              (melody/tempo (melody/bpm @(subscribe [:tempo])))
-                             (melody/all :instrument bass))))
+  (let [context (:audiocontext @state-atom)
+        bassline (subscribe [:bassline])
+        now (current-time context)]
+    (doall (for [x (range (count @bassline))]
+             (play-note! (get @bassline x) (* x 0.25) 0.25)))))

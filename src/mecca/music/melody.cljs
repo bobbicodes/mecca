@@ -1,4 +1,24 @@
-(ns ^:figwheel-hooks mecca.music.melody)
+(ns ^:figwheel-hooks mecca.music.melody
+  (:require 
+   [re-frame.core :as rf :refer [subscribe dispatch]]
+   [mecca.music.scale :as scale]))
+
+(def scales
+  {"Pentatonic" scale/pentatonic
+   "Chromatic" scale/chromatic
+   "Major" scale/major
+   "Minor" scale/minor
+   "Harmonic Minor" scale/harmonic-minor
+   "Double Harmonic Minor" scale/double-harmonic-minor})
+
+(defn scale-degrees [scale]
+  (zipmap (reductions + 0 (take 24 (get scales scale)))
+          (range 24)))
+
+(defn chromatic->diatonic [interval]
+  (let [degrees (scale-degrees @(subscribe [:scale]))]
+    (get degrees interval)))
+
 
 (defn bpm
   "Returns a function that translates a beat number into seconds.

@@ -55,7 +55,6 @@ goog.addDependency("../mecca/music/synthesis.js", ['mecca.music.synthesis'], ['c
 goog.addDependency("../mecca/music/framework.js", ['mecca.music.framework'], ['cljs.core']);
 goog.addDependency("../mecca/music/processing.js", ['mecca.music.processing'], ['mecca.music.actions', 'cljs.core', 'leipzig.melody', 'mecca.music.synthesis', 'mecca.music.framework']);
 goog.addDependency("../mecca/music/scale.js", ['mecca.music.scale'], ['cljs.core']);
-goog.addDependency("../mecca/music/melody.js", ['mecca.music.melody'], ['cljs.core']);
 goog.addDependency("../re_frame/interop.js", ['re_frame.interop'], ['reagent.ratom', 'reagent.core', 'cljs.core', 'goog.async.nextTick']);
 goog.addDependency("../re_frame/loggers.js", ['re_frame.loggers'], ['cljs.core', 'clojure.set']);
 goog.addDependency("../re_frame/trace.js", ['re_frame.trace'], ['re_frame.interop', 'goog.functions', 'cljs.core', 're_frame.loggers']);
@@ -70,6 +69,7 @@ goog.addDependency("../re_frame/cofx.js", ['re_frame.cofx'], ['re_frame.intercep
 goog.addDependency("../re_frame/std_interceptors.js", ['re_frame.std_interceptors'], ['re_frame.interceptor', 're_frame.trace', 're_frame.registrar', 'cljs.core', 're_frame.utils', 're_frame.loggers', 're_frame.cofx', 'clojure.data', 're_frame.db']);
 goog.addDependency("../re_frame/subs.js", ['re_frame.subs'], ['re_frame.interop', 're_frame.trace', 're_frame.registrar', 'cljs.core', 're_frame.utils', 're_frame.loggers', 're_frame.db']);
 goog.addDependency("../re_frame/core.js", ['re_frame.core'], ['re_frame.interop', 're_frame.interceptor', 're_frame.events', 're_frame.fx', 're_frame.registrar', 'cljs.core', 're_frame.router', 'clojure.set', 're_frame.std_interceptors', 're_frame.loggers', 're_frame.subs', 're_frame.cofx', 're_frame.db']);
+goog.addDependency("../mecca/music/melody.js", ['mecca.music.melody'], ['cljs.core', 'mecca.music.scale', 're_frame.core']);
 goog.addDependency("../mecca/music.js", ['mecca.music'], ['mecca.music.actions', 'reagent.core', 'mecca.music.processing', 'cljs.core', 'mecca.music.scale', 'mecca.music.synthesis', 'mecca.music.melody', 're_frame.core', 'mecca.music.framework']);
 goog.addDependency("../mecca/events.js", ['mecca.events'], ['mecca.music', 'cljs.core', 'goog.events.EventType', 'mecca.music.scale', 'goog.events', 're_frame.core']);
 goog.addDependency("../mecca/subs.js", ['mecca.subs'], ['cljs.core', 're_frame.core']);

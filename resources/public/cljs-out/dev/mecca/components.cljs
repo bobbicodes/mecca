@@ -164,6 +164,9 @@
             ^{:key y}
             [note-label y])))])))
 
+(defn eighth-note-flag []
+  [:path {:transform "scale(0.007,-0.007)" :d "M179 -646c15 29 28.5449 55.0752 46 102c18.3213 49.2549 30 108.298 30 138c0 105 -80 173 -168 200c-18 5 -47 9 -87 16v190h22c8 0 33 -61 71 -95c4 -3 -2 3 61 -56c62 -58 122 -137 122 -241c0 -37.5245 -12.6807 -106.071 -35 -163 c-19.9111 -50.7861 -43 -99 -66 -132c-6 -5 -10 -7 -13 -7s-5 2 -5 5l4 10c1.17241 2.93103 13.7644 24.8111 18 33z"}])
+
 (defn note-stem [[x y]]
   (let [stem-down? #(> % 1)]
     (fn [[x y]]
@@ -181,13 +184,14 @@
               :x1 (+ 10 (* 6.5 x))
               :x2 (+ 10 (* 6.5 x))
               :y1 (- 6.1 (* 0.57 y))
-              :y2 (- 12.5 (* 0.57 y))})]])))
+              :y2 (- 12.5 (* 0.57 y))})]
+       [eighth-note-flag]])))
 
 (defn note-head [color [x y]]
       [:g
        [:ellipse
-        {:transform (str "rotate(-28, " (+ 9 (* 6.5 x)) "," (- 14.2 (* 0.5 y)) ")")
-         :cx (+ 9.1 (* 6.5 x)) :cy (- 13.1 (* 0.57 y))
+        {:transform (str "rotate(-28, " (+ 9 (* 6.5 x)) "," (- 13.5 (* 0.5 y)) ")")
+         :cx (+ 9 (* 6.5 x)) :cy (- 13.5 (* 0.5 y))
          :rx 1.5 :ry 1
          :fill color}]
        [note-stem [x y]]])
@@ -231,10 +235,12 @@
                   :on-mouse-over #(reset! mouse-over [x y])
                   :on-mouse-out #(reset! mouse-over [nil nil])}]))
        (doall (for [x (range 16)
-                    :let [y (get @bassline x)]
+                    :let [y (melody/chromatic->diatonic
+                              (- (get @bassline x)
+                                 (music/root-note-midi-num)))]
                     :when (number? y)]
                 ^{:key x}
-                [note-head (if (= @current-position (inc x)) "red" "black") [x (- y 48)]]))])))
+                [note-head (if (= @current-position (inc x)) "red" "black") [x (* 2 y)]]))])))
 
 (defn basslines []
   (let [active (r/atom "Alberti bass")]
@@ -265,7 +271,11 @@
          [octave-input]
          [tempo-input]]
         [:p]
-        [:div.mario]
+        [:img
+         {:src "/images/mariodance72.gif"}]
+        ;[:img
+        ; {:src "/images/mariowalk72.gif"}]
+        ;[:div.mario]
         [staff]
         [basslines]
         [:button
@@ -277,7 +287,7 @@
         [note-grid]
         ;[:p (str "Mouse-pos: " @mouse-pos)]
         [:p]
-        [:p (str "Intervals: " @(subscribe [:bassline]))]
+        [:p (str "Bassline: " @(subscribe [:bassline]))]
         [:p (str @(subscribe [:scale])
              " scale from MIDI number "
              (music/root-note-midi-num) " ("

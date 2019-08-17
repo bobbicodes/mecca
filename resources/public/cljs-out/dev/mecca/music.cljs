@@ -90,6 +90,9 @@
 (defn play-bassline! []
   (let [context (:audiocontext @state-atom)
         bassline (subscribe [:bassline])
-        now (current-time context)]
+        now (current-time context)
+        current-position (subscribe [:current-position])]
     (doall (for [x (range (count @bassline))]
-             (play-note! (get @bassline x) (* x 0.25) 0.25)))))
+             (do (dispatch [:advance-position])
+               (play-note! (get @bassline x) (* x 0.25) 0.25)
+                 (dispatch [:reset-position]))))))

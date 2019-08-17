@@ -30,9 +30,9 @@ label {
 
 .mario{
   position: absolute;
-  width: 71px;
+  width: 41px;
   height: 72px;
-  background: url('https://raw.githubusercontent.com/LantareCode/random-this-and-thats/master/CSS/SuperMario-Animation/images/mariowalking/result.png') left center;    
+  background: url('/images/mariodance72.gif') left center;    
   top: 70px;
   left:0px;
   
@@ -43,10 +43,10 @@ label {
               run 7s both infinite linear;
 }
 @-webkit-keyframes play{
-  100%{background-position: -284px;}
+  100%{background-position: 72px;}
 }
 @keyframes play{
-  100%{background-position: -284px;}
+  100%{background-position: 72px;}
 }
 @-webkit-keyframes run{
   from{left: -200px;}
@@ -54,13 +54,5 @@ label {
 }
 @keyframes run{
   from{left: -200px;}
-  to{left: 100%;}
-}
-@-webkit-keyframes wind{
-  from{left: -300px;}
-  to{left: 100%;}
-}
-@keyframes wind{
-  from{left: -300px;}
   to{left: 100%;}
 }

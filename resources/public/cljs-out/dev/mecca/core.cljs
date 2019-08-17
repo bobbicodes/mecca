@@ -2,7 +2,7 @@
   (:require
    [goog.dom :as gdom]
    [reagent.core :as r]
-   [re-frame.core :as rf]
+   [re-frame.core :as rf :refer [subscribe dispatch]]
    [mecca.events]
    [mecca.subs]
    [mecca.components :as components]))

@@ -39,8 +39,13 @@
 
 (reg-event-db
  :advance-position
- (fn [db [_ scale]]
+ (fn [db [_ _]]
    (update db :current-position inc)))
+
+(reg-event-db
+ :reset-position
+ (fn [db [_ _]]
+   (assoc db :current-position 0)))
 
 (reg-event-db
  :set-tempo

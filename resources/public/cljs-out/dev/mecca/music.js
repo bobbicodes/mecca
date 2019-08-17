@@ -45,8 +45,8 @@ return (n + base_pitch);
 }
 });
 mecca.music.bassline__GT_midi_nums = (function mecca$music$bassline__GT_midi_nums(v){
-return cljs.core.map.call(null,(function (p1__14684_SHARP_){
-return mecca.music.interval__GT_midi.call(null,p1__14684_SHARP_);
+return cljs.core.map.call(null,(function (p1__16052_SHARP_){
+return mecca.music.interval__GT_midi.call(null,p1__16052_SHARP_);
 }),v);
 });
 mecca.music.midi_num__GT_note = (function mecca$music$midi_num__GT_note(midi_num){
@@ -54,9 +54,6 @@ return [cljs.core.str.cljs$core$IFn$_invoke$arity$1(mecca.music.base_pitch.call(
 });
 mecca.music.midi__GT_freq = (function mecca$music$midi__GT_freq(m){
 return ((440) * Math.pow((2),((m - (69)) / (12))));
-});
-mecca.music.bass = (function mecca$music$bass(note){
-return mecca.music.synthesis.connect__GT_.call(null,mecca.music.synthesis.oscillator.call(null,"triangle",new cljs.core.Keyword(null,"pitch","pitch",1495126700).cljs$core$IFn$_invoke$arity$1(note)),mecca.music.synthesis.adsr.call(null,0.0,0.0,0.25,0.1),mecca.music.synthesis.gain.call(null,(1)));
 });
 /**
  * Return the current time as recorded by the audio context.
@@ -85,34 +82,36 @@ var context = new cljs.core.Keyword(null,"audiocontext","audiocontext",160017901
 var bassline = re_frame.core.subscribe.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"bassline","bassline",325787412)], null));
 var now = mecca.music.current_time.call(null,context);
 var current_position = re_frame.core.subscribe.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"current-position","current-position",2031348254)], null));
-return cljs.core.doall.call(null,(function (){var iter__4324__auto__ = ((function (context,bassline,now,current_position){
-return (function mecca$music$play_bassline_BANG__$_iter__14685(s__14686){
-return (new cljs.core.LazySeq(null,((function (context,bassline,now,current_position){
+var tempo = re_frame.core.subscribe.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tempo","tempo",-1555208453)], null));
+var beat_length = ((60) / cljs.core.deref.call(null,tempo));
+return cljs.core.doall.call(null,(function (){var iter__4324__auto__ = ((function (context,bassline,now,current_position,tempo,beat_length){
+return (function mecca$music$play_bassline_BANG__$_iter__16053(s__16054){
+return (new cljs.core.LazySeq(null,((function (context,bassline,now,current_position,tempo,beat_length){
 return (function (){
-var s__14686__$1 = s__14686;
+var s__16054__$1 = s__16054;
 while(true){
-var temp__5457__auto__ = cljs.core.seq.call(null,s__14686__$1);
+var temp__5457__auto__ = cljs.core.seq.call(null,s__16054__$1);
 if(temp__5457__auto__){
-var s__14686__$2 = temp__5457__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__14686__$2)){
-var c__4322__auto__ = cljs.core.chunk_first.call(null,s__14686__$2);
+var s__16054__$2 = temp__5457__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__16054__$2)){
+var c__4322__auto__ = cljs.core.chunk_first.call(null,s__16054__$2);
 var size__4323__auto__ = cljs.core.count.call(null,c__4322__auto__);
-var b__14688 = cljs.core.chunk_buffer.call(null,size__4323__auto__);
-if((function (){var i__14687 = (0);
+var b__16056 = cljs.core.chunk_buffer.call(null,size__4323__auto__);
+if((function (){var i__16055 = (0);
 while(true){
-if((i__14687 < size__4323__auto__)){
-var x = cljs.core._nth.call(null,c__4322__auto__,i__14687);
-cljs.core.chunk_append.call(null,b__14688,(function (){
+if((i__16055 < size__4323__auto__)){
+var x = cljs.core._nth.call(null,c__4322__auto__,i__16055);
+cljs.core.chunk_append.call(null,b__16056,(function (){
 re_frame.core.dispatch.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"advance-position","advance-position",-23796893)], null));
 
-mecca.music.play_note_BANG_.call(null,cljs.core.get.call(null,cljs.core.deref.call(null,bassline),x),(x * 0.25),0.25);
+mecca.music.play_note_BANG_.call(null,cljs.core.get.call(null,cljs.core.deref.call(null,bassline),x),(x * beat_length),beat_length);
 
 return re_frame.core.dispatch.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"reset-position","reset-position",-804750860)], null));
 })()
 );
 
-var G__14689 = (i__14687 + (1));
-i__14687 = G__14689;
+var G__16057 = (i__16055 + (1));
+i__16055 = G__16057;
 continue;
 } else {
 return true;
@@ -120,29 +119,29 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__14688),mecca$music$play_bassline_BANG__$_iter__14685.call(null,cljs.core.chunk_rest.call(null,s__14686__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__16056),mecca$music$play_bassline_BANG__$_iter__16053.call(null,cljs.core.chunk_rest.call(null,s__16054__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__14688),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__16056),null);
 }
 } else {
-var x = cljs.core.first.call(null,s__14686__$2);
+var x = cljs.core.first.call(null,s__16054__$2);
 return cljs.core.cons.call(null,(function (){
 re_frame.core.dispatch.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"advance-position","advance-position",-23796893)], null));
 
-mecca.music.play_note_BANG_.call(null,cljs.core.get.call(null,cljs.core.deref.call(null,bassline),x),(x * 0.25),0.25);
+mecca.music.play_note_BANG_.call(null,cljs.core.get.call(null,cljs.core.deref.call(null,bassline),x),(x * beat_length),beat_length);
 
 return re_frame.core.dispatch.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"reset-position","reset-position",-804750860)], null));
 })()
-,mecca$music$play_bassline_BANG__$_iter__14685.call(null,cljs.core.rest.call(null,s__14686__$2)));
+,mecca$music$play_bassline_BANG__$_iter__16053.call(null,cljs.core.rest.call(null,s__16054__$2)));
 }
 } else {
 return null;
 }
 break;
 }
-});})(context,bassline,now,current_position))
+});})(context,bassline,now,current_position,tempo,beat_length))
 ,null,null));
-});})(context,bassline,now,current_position))
+});})(context,bassline,now,current_position,tempo,beat_length))
 ;
 return iter__4324__auto__.call(null,cljs.core.range.call(null,cljs.core.count.call(null,cljs.core.deref.call(null,bassline))));
 })());

@@ -19,7 +19,6 @@
   (let [degrees (scale-degrees @(subscribe [:scale]))]
     (get degrees interval)))
 
-
 (defn bpm
   "Returns a function that translates a beat number into seconds.
   e.g. ((bpm 90) 5)" 

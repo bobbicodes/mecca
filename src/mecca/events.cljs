@@ -13,7 +13,7 @@
     :current-position 0
     :octave 3
     :key "C"
-    :tempo 80
+    :tempo 180
     :bassline [48 55 51 55 48 55 51 55 48 55 51 55 48 55 51 55]}))
 
 (reg-event-db

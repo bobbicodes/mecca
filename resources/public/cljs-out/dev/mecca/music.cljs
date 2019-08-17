@@ -65,12 +65,6 @@
 (defn midi->freq [m]
   (* 440 (.pow js/Math 2 (/ (- m 69) 12))))
 
-(defn bass [note]
-  (synthesis/connect->
-   (synthesis/oscillator "triangle" (:pitch note))
-   (synthesis/adsr 0.0 0.0 0.25 0.1)
-   (synthesis/gain 1)))
-
 (defn ^:export current-time
   "Return the current time as recorded by the audio context."
   [context]
@@ -91,8 +85,10 @@
   (let [context (:audiocontext @state-atom)
         bassline (subscribe [:bassline])
         now (current-time context)
-        current-position (subscribe [:current-position])]
+        current-position (subscribe [:current-position])
+        tempo (subscribe [:tempo])
+        beat-length (/ 60 @tempo)]
     (doall (for [x (range (count @bassline))]
              (do (dispatch [:advance-position])
-               (play-note! (get @bassline x) (* x 0.25) 0.25)
+               (play-note! (get @bassline x) (* x beat-length) beat-length)
                  (dispatch [:reset-position]))))))

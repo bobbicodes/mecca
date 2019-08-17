@@ -25,8 +25,8 @@ return ((beat / beats) * (60));
  *   e.g. (->> (rhythm [1 1/2]) (having :drum [:kick :snare]))
  */
 mecca.music.melody.having = (function mecca$music$melody$having(k,values,notes){
-return cljs.core.map.call(null,(function (p1__14637_SHARP_,p2__14638_SHARP_){
-return cljs.core.assoc.call(null,p1__14637_SHARP_,k,p2__14638_SHARP_);
+return cljs.core.map.call(null,(function (p1__16005_SHARP_,p2__16006_SHARP_){
+return cljs.core.assoc.call(null,p1__16005_SHARP_,k,p2__16006_SHARP_);
 }),notes,values);
 });
 mecca.music.melody.utter = (function mecca$music$melody$utter(object,time,duration,velocity){
@@ -34,8 +34,8 @@ if(typeof object === 'number'){
 return new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"pitch","pitch",1495126700),object,new cljs.core.Keyword(null,"time","time",1385887882),time,new cljs.core.Keyword(null,"duration","duration",1444101068),duration,new cljs.core.Keyword(null,"velocity","velocity",-581524355),velocity], null)], null);
 } else {
 if(cljs.core.sequential_QMARK_.call(null,object)){
-return cljs.core.mapcat.call(null,(function (p1__14639_SHARP_){
-return mecca.music.melody.utter.call(null,p1__14639_SHARP_,time,duration,velocity);
+return cljs.core.mapcat.call(null,(function (p1__16007_SHARP_){
+return mecca.music.melody.utter.call(null,p1__16007_SHARP_,time,duration,velocity);
 }),object);
 } else {
 if(cljs.core.map_QMARK_.call(null,object)){
@@ -60,8 +60,8 @@ return null;
  *   (phrase (repeat 4) (map #(-> triad (root %))) [0 3 4 3])
  */
 mecca.music.melody.phrase = (function mecca$music$melody$phrase(var_args){
-var G__14642 = arguments.length;
-switch (G__14642) {
+var G__16010 = arguments.length;
+switch (G__16010) {
 case 3:
 return mecca.music.melody.phrase.cljs$core$IFn$_invoke$arity$3((arguments[(0)]),(arguments[(1)]),(arguments[(2)]));
 
@@ -92,8 +92,8 @@ return cljs.core.mapcat.call(null,mecca.music.melody.utter,normalised_pitches,ti
 });
 
 mecca.music.melody.phrase.cljs$core$IFn$_invoke$arity$2 = (function (durations,pitches){
-return cljs.core.map.call(null,(function (p1__14640_SHARP_){
-return cljs.core.dissoc.call(null,p1__14640_SHARP_,new cljs.core.Keyword(null,"velocity","velocity",-581524355));
+return cljs.core.map.call(null,(function (p1__16008_SHARP_){
+return cljs.core.dissoc.call(null,p1__16008_SHARP_,new cljs.core.Keyword(null,"velocity","velocity",-581524355));
 }),mecca.music.melody.phrase.call(null,durations,pitches,cljs.core.repeat.call(null,null)));
 });
 
@@ -125,8 +125,8 @@ return x;
  *   e.g. (->> notes (wherever (comp not :part), :part (is :piano))
  */
 mecca.music.melody.wherever = (function mecca$music$melody$wherever(applies_QMARK_,k,f,notes){
-return cljs.core.map.call(null,mecca.music.melody.if_applicable.call(null,applies_QMARK_,(function (p1__14644_SHARP_){
-return cljs.core.update_in.call(null,p1__14644_SHARP_,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [k], null),f);
+return cljs.core.map.call(null,mecca.music.melody.if_applicable.call(null,applies_QMARK_,(function (p1__16012_SHARP_){
+return cljs.core.update_in.call(null,p1__16012_SHARP_,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [k], null),f);
 })),notes);
 });
 /**
@@ -134,8 +134,8 @@ return cljs.core.update_in.call(null,p1__14644_SHARP_,new cljs.core.PersistentVe
  *   e.g. (->> notes (where :time (bpm 90)))
  */
 mecca.music.melody.where = (function mecca$music$melody$where(k,f,notes){
-return mecca.music.melody.wherever.call(null,(function (p1__14645_SHARP_){
-return cljs.core.contains_QMARK_.call(null,p1__14645_SHARP_,k);
+return mecca.music.melody.wherever.call(null,(function (p1__16013_SHARP_){
+return cljs.core.contains_QMARK_.call(null,p1__16013_SHARP_,k);
 }),k,f,notes);
 });
 /**
@@ -160,22 +160,22 @@ return (new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invo
  *   e.g. (->> melody (with bass drums))
  */
 mecca.music.melody.with$ = (function mecca$music$melody$with(var_args){
-var G__14650 = arguments.length;
-switch (G__14650) {
+var G__16018 = arguments.length;
+switch (G__16018) {
 case 2:
 return mecca.music.melody.with$.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
 break;
 default:
 var args_arr__4546__auto__ = [];
-var len__4531__auto___14660 = arguments.length;
-var i__4532__auto___14661 = (0);
+var len__4531__auto___16028 = arguments.length;
+var i__4532__auto___16029 = (0);
 while(true){
-if((i__4532__auto___14661 < len__4531__auto___14660)){
-args_arr__4546__auto__.push((arguments[i__4532__auto___14661]));
+if((i__4532__auto___16029 < len__4531__auto___16028)){
+args_arr__4546__auto__.push((arguments[i__4532__auto___16029]));
 
-var G__14662 = (i__4532__auto___14661 + (1));
-i__4532__auto___14661 = G__14662;
+var G__16030 = (i__4532__auto___16029 + (1));
+i__4532__auto___16029 = G__16030;
 continue;
 } else {
 }
@@ -188,21 +188,21 @@ return mecca.music.melody.with$.cljs$core$IFn$_invoke$arity$variadic((arguments[
 }
 });
 
-mecca.music.melody.with$.cljs$core$IFn$_invoke$arity$2 = (function (p__14651,p__14652){
-var vec__14653 = p__14651;
-var seq__14654 = cljs.core.seq.call(null,vec__14653);
-var first__14655 = cljs.core.first.call(null,seq__14654);
-var seq__14654__$1 = cljs.core.next.call(null,seq__14654);
-var a = first__14655;
-var other_as = seq__14654__$1;
-var as = vec__14653;
-var vec__14656 = p__14652;
-var seq__14657 = cljs.core.seq.call(null,vec__14656);
-var first__14658 = cljs.core.first.call(null,seq__14657);
-var seq__14657__$1 = cljs.core.next.call(null,seq__14657);
-var b = first__14658;
-var other_bs = seq__14657__$1;
-var bs = vec__14656;
+mecca.music.melody.with$.cljs$core$IFn$_invoke$arity$2 = (function (p__16019,p__16020){
+var vec__16021 = p__16019;
+var seq__16022 = cljs.core.seq.call(null,vec__16021);
+var first__16023 = cljs.core.first.call(null,seq__16022);
+var seq__16022__$1 = cljs.core.next.call(null,seq__16022);
+var a = first__16023;
+var other_as = seq__16022__$1;
+var as = vec__16021;
+var vec__16024 = p__16020;
+var seq__16025 = cljs.core.seq.call(null,vec__16024);
+var first__16026 = cljs.core.first.call(null,seq__16025);
+var seq__16025__$1 = cljs.core.next.call(null,seq__16025);
+var b = first__16026;
+var other_bs = seq__16025__$1;
+var bs = vec__16024;
 if(cljs.core.empty_QMARK_.call(null,as)){
 return bs;
 } else {
@@ -210,16 +210,16 @@ if(cljs.core.empty_QMARK_.call(null,bs)){
 return as;
 } else {
 if(cljs.core.truth_(mecca.music.melody.before_QMARK_.call(null,a,b))){
-return cljs.core.cons.call(null,a,(new cljs.core.LazySeq(null,((function (vec__14653,seq__14654,first__14655,seq__14654__$1,a,other_as,as,vec__14656,seq__14657,first__14658,seq__14657__$1,b,other_bs,bs){
+return cljs.core.cons.call(null,a,(new cljs.core.LazySeq(null,((function (vec__16021,seq__16022,first__16023,seq__16022__$1,a,other_as,as,vec__16024,seq__16025,first__16026,seq__16025__$1,b,other_bs,bs){
 return (function (){
 return mecca.music.melody.with$.call(null,other_as,bs);
-});})(vec__14653,seq__14654,first__14655,seq__14654__$1,a,other_as,as,vec__14656,seq__14657,first__14658,seq__14657__$1,b,other_bs,bs))
+});})(vec__16021,seq__16022,first__16023,seq__16022__$1,a,other_as,as,vec__16024,seq__16025,first__16026,seq__16025__$1,b,other_bs,bs))
 ,null,null)));
 } else {
-return cljs.core.cons.call(null,b,(new cljs.core.LazySeq(null,((function (vec__14653,seq__14654,first__14655,seq__14654__$1,a,other_as,as,vec__14656,seq__14657,first__14658,seq__14657__$1,b,other_bs,bs){
+return cljs.core.cons.call(null,b,(new cljs.core.LazySeq(null,((function (vec__16021,seq__16022,first__16023,seq__16022__$1,a,other_as,as,vec__16024,seq__16025,first__16026,seq__16025__$1,b,other_bs,bs){
 return (function (){
 return mecca.music.melody.with$.call(null,as,other_bs);
-});})(vec__14653,seq__14654,first__14655,seq__14654__$1,a,other_as,as,vec__14656,seq__14657,first__14658,seq__14657__$1,b,other_bs,bs))
+});})(vec__16021,seq__16022,first__16023,seq__16022__$1,a,other_as,as,vec__16024,seq__16025,first__16026,seq__16025__$1,b,other_bs,bs))
 ,null,null)));
 
 }
@@ -232,13 +232,13 @@ return cljs.core.reduce.call(null,mecca.music.melody.with$,cljs.core.cons.call(n
 });
 
 /** @this {Function} */
-mecca.music.melody.with$.cljs$lang$applyTo = (function (seq14647){
-var G__14648 = cljs.core.first.call(null,seq14647);
-var seq14647__$1 = cljs.core.next.call(null,seq14647);
-var G__14649 = cljs.core.first.call(null,seq14647__$1);
-var seq14647__$2 = cljs.core.next.call(null,seq14647__$1);
+mecca.music.melody.with$.cljs$lang$applyTo = (function (seq16015){
+var G__16016 = cljs.core.first.call(null,seq16015);
+var seq16015__$1 = cljs.core.next.call(null,seq16015);
+var G__16017 = cljs.core.first.call(null,seq16015__$1);
+var seq16015__$2 = cljs.core.next.call(null,seq16015__$1);
 var self__4518__auto__ = this;
-return self__4518__auto__.cljs$core$IFn$_invoke$arity$variadic(G__14648,G__14649,seq14647__$2);
+return self__4518__auto__.cljs$core$IFn$_invoke$arity$variadic(G__16016,G__16017,seq16015__$2);
 });
 
 mecca.music.melody.with$.cljs$lang$maxFixedArity = (2);
@@ -248,19 +248,19 @@ mecca.music.melody.with$.cljs$lang$maxFixedArity = (2);
  *   e.g. (->> notes (but 2 4 variation))
  */
 mecca.music.melody.but = (function mecca$music$melody$but(start,end,variation,notes){
-var starts_in_QMARK_ = (function (p__14663){
-var map__14664 = p__14663;
-var map__14664__$1 = ((((!((map__14664 == null)))?(((((map__14664.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__14664.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__14664):map__14664);
-var time = cljs.core.get.call(null,map__14664__$1,new cljs.core.Keyword(null,"time","time",1385887882));
+var starts_in_QMARK_ = (function (p__16031){
+var map__16032 = p__16031;
+var map__16032__$1 = ((((!((map__16032 == null)))?(((((map__16032.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__16032.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__16032):map__16032);
+var time = cljs.core.get.call(null,map__16032__$1,new cljs.core.Keyword(null,"time","time",1385887882));
 return (((start <= time)) && ((time < end)));
 });
 var clip = ((function (starts_in_QMARK_){
-return (function (p__14666){
-var map__14667 = p__14666;
-var map__14667__$1 = ((((!((map__14667 == null)))?(((((map__14667.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__14667.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__14667):map__14667);
-var note = map__14667__$1;
-var time = cljs.core.get.call(null,map__14667__$1,new cljs.core.Keyword(null,"time","time",1385887882));
-var duration = cljs.core.get.call(null,map__14667__$1,new cljs.core.Keyword(null,"duration","duration",1444101068));
+return (function (p__16034){
+var map__16035 = p__16034;
+var map__16035__$1 = ((((!((map__16035 == null)))?(((((map__16035.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__16035.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__16035):map__16035);
+var note = map__16035__$1;
+var time = cljs.core.get.call(null,map__16035__$1,new cljs.core.Keyword(null,"time","time",1385887882));
+var duration = cljs.core.get.call(null,map__16035__$1,new cljs.core.Keyword(null,"duration","duration",1444101068));
 if((((time < start)) && ((start <= (time + duration))))){
 return cljs.core.assoc.call(null,note,new cljs.core.Keyword(null,"duration","duration",1444101068),(start - time));
 } else {
@@ -275,11 +275,11 @@ return mecca.music.melody.with$.call(null,mecca.music.melody.after.call(null,sta
  *   e.g. (->> melody duration)
  */
 mecca.music.melody.duration = (function mecca$music$melody$duration(notes){
-var length = (function (p__14669){
-var map__14670 = p__14669;
-var map__14670__$1 = ((((!((map__14670 == null)))?(((((map__14670.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__14670.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__14670):map__14670);
-var time = cljs.core.get.call(null,map__14670__$1,new cljs.core.Keyword(null,"time","time",1385887882));
-var duration = cljs.core.get.call(null,map__14670__$1,new cljs.core.Keyword(null,"duration","duration",1444101068));
+var length = (function (p__16037){
+var map__16038 = p__16037;
+var map__16038__$1 = ((((!((map__16038 == null)))?(((((map__16038.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__16038.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__16038):map__16038);
+var time = cljs.core.get.call(null,map__16038__$1,new cljs.core.Keyword(null,"time","time",1385887882));
+var duration = cljs.core.get.call(null,map__16038__$1,new cljs.core.Keyword(null,"duration","duration",1444101068));
 return (time + duration);
 });
 return cljs.core.reduce.call(null,cljs.core.max,(0),cljs.core.map.call(null,length,notes));
@@ -293,14 +293,14 @@ return mecca.music.melody.with$.call(null,earlier,mecca.music.melody.after.call(
 });
 mecca.music.melody.mapthen = (function mecca$music$melody$mapthen(var_args){
 var args__4534__auto__ = [];
-var len__4531__auto___14676 = arguments.length;
-var i__4532__auto___14677 = (0);
+var len__4531__auto___16044 = arguments.length;
+var i__4532__auto___16045 = (0);
 while(true){
-if((i__4532__auto___14677 < len__4531__auto___14676)){
-args__4534__auto__.push((arguments[i__4532__auto___14677]));
+if((i__4532__auto___16045 < len__4531__auto___16044)){
+args__4534__auto__.push((arguments[i__4532__auto___16045]));
 
-var G__14678 = (i__4532__auto___14677 + (1));
-i__4532__auto___14677 = G__14678;
+var G__16046 = (i__4532__auto___16045 + (1));
+i__4532__auto___16045 = G__16046;
 continue;
 } else {
 }
@@ -313,19 +313,19 @@ return mecca.music.melody.mapthen.cljs$core$IFn$_invoke$arity$variadic((argument
 
 mecca.music.melody.mapthen.cljs$core$IFn$_invoke$arity$variadic = (function (f,melodies){
 
-return cljs.core.reduce.call(null,(function (p1__14673_SHARP_,p2__14672_SHARP_){
-return mecca.music.melody.then.call(null,p2__14672_SHARP_,p1__14673_SHARP_);
+return cljs.core.reduce.call(null,(function (p1__16041_SHARP_,p2__16040_SHARP_){
+return mecca.music.melody.then.call(null,p2__16040_SHARP_,p1__16041_SHARP_);
 }),cljs.core.apply.call(null,cljs.core.map,f,melodies));
 });
 
 mecca.music.melody.mapthen.cljs$lang$maxFixedArity = (1);
 
 /** @this {Function} */
-mecca.music.melody.mapthen.cljs$lang$applyTo = (function (seq14674){
-var G__14675 = cljs.core.first.call(null,seq14674);
-var seq14674__$1 = cljs.core.next.call(null,seq14674);
+mecca.music.melody.mapthen.cljs$lang$applyTo = (function (seq16042){
+var G__16043 = cljs.core.first.call(null,seq16042);
+var seq16042__$1 = cljs.core.next.call(null,seq16042);
 var self__4518__auto__ = this;
-return self__4518__auto__.cljs$core$IFn$_invoke$arity$variadic(G__14675,seq14674__$1);
+return self__4518__auto__.cljs$core$IFn$_invoke$arity$variadic(G__16043,seq16042__$1);
 });
 
 /**
@@ -340,12 +340,12 @@ return mecca.music.melody.mapthen.call(null,cljs.core.identity,cljs.core.repeat.
  *   e.g. (->> notes (tempo (bpm 120)))
  */
 mecca.music.melody.tempo = (function mecca$music$melody$tempo(timing,notes){
-return mecca.music.melody.where.call(null,new cljs.core.Keyword(null,"time","time",1385887882),timing,cljs.core.map.call(null,(function (p__14679){
-var map__14680 = p__14679;
-var map__14680__$1 = ((((!((map__14680 == null)))?(((((map__14680.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__14680.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__14680):map__14680);
-var note = map__14680__$1;
-var start = cljs.core.get.call(null,map__14680__$1,new cljs.core.Keyword(null,"time","time",1385887882));
-var duration = cljs.core.get.call(null,map__14680__$1,new cljs.core.Keyword(null,"duration","duration",1444101068));
+return mecca.music.melody.where.call(null,new cljs.core.Keyword(null,"time","time",1385887882),timing,cljs.core.map.call(null,(function (p__16047){
+var map__16048 = p__16047;
+var map__16048__$1 = ((((!((map__16048 == null)))?(((((map__16048.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__16048.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__16048):map__16048);
+var note = map__16048__$1;
+var start = cljs.core.get.call(null,map__16048__$1,new cljs.core.Keyword(null,"time","time",1385887882));
+var duration = cljs.core.get.call(null,map__16048__$1,new cljs.core.Keyword(null,"duration","duration",1444101068));
 return cljs.core.assoc.call(null,note,new cljs.core.Keyword(null,"duration","duration",1444101068),(timing.call(null,(start + duration)) - timing.call(null,start)));
 }),notes));
 });

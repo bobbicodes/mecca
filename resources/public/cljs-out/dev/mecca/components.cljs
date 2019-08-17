@@ -175,16 +175,16 @@
              {:stroke "black" :stroke-width 0.25
               :stroke-linecap "round"
               :stroke-linejoin "bevel"
-              :x1 (+ 7.1 (* 6.5 x))
-              :x2 (+ 7.1 (* 6.5 x))
-              :y1 (- 13.5 (* 0.57 y))
-              :y2 (- 19.2 (* 0.57 y))}
+              :x1 (+ 7.75 (* 6.5 x))
+              :x2 (+ 7.75 (* 6.5 x))
+              :y1 (- 13.5 (* 0.5 y))
+              :y2 (- 19.2 (* 0.5 y))}
              {:stroke "black" :stroke-width 0.25
               :stroke-linecap "round" :stroke-linejoin "bevel"
-              :x1 (+ 10 (* 6.5 x))
-              :x2 (+ 10 (* 6.5 x))
-              :y1 (- 6.1 (* 0.57 y))
-              :y2 (- 12.5 (* 0.57 y))})]
+              :x1 (+ 10.25 (* 6.5 x))
+              :x2 (+ 10.25 (* 6.5 x))
+              :y1 (- 6.5 (* 0.5 y))
+              :y2 (- 13.5 (* 0.5 y))})]
        [eighth-note-flag]])))
 
 (defn note-head [color [x y]]

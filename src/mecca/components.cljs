@@ -167,6 +167,19 @@
 (defn eighth-note-flag []
   [:path {:transform "scale(0.007,-0.007)" :d "M179 -646c15 29 28.5449 55.0752 46 102c18.3213 49.2549 30 108.298 30 138c0 105 -80 173 -168 200c-18 5 -47 9 -87 16v190h22c8 0 33 -61 71 -95c4 -3 -2 3 61 -56c62 -58 122 -137 122 -241c0 -37.5245 -12.6807 -106.071 -35 -163 c-19.9111 -50.7861 -43 -99 -66 -132c-6 -5 -10 -7 -13 -7s-5 2 -5 5l4 10c1.17241 2.93103 13.7644 24.8111 18 33z"}])
 
+(defn beam []
+  [:polygon {:points "2981,475 3499,424 3499,484 2981,535"}])
+
+(defn quarter-note []
+    (fn [color [x y]]
+      [:g {:transform (str "translate(" (+ 7.75 (* 6.5 x)) "," (- -12 y) ") ")}
+       [:path {:d "M0 25.325c0-.567.608-1.433 1.667-1.433.55 0 .95.308 .95.792 0 .7-.883 1.425-1.817 1.425-.533 0-.8-.25-.8-.783Z"}]
+       [:rect {:x (if (< y 1)
+                    2.4 0) :y (if (< y 1)
+                         (- (- 25 (* y 0.1433)) 6.794)
+                         (- 25.588 (* y 0.1433)))
+                         :height 6.794 :width 0.2}]]))
+
 (defn note-stem [[x y]]
   (let [stem-down? #(> % 1)]
     (fn [[x y]]
@@ -186,16 +199,6 @@
               :y1 (- 6.5 (* 0.5 y))
               :y2 (- 13.5 (* 0.5 y))})]
        [eighth-note-flag]])))
-
-(defn note-head [color [x y]]
-      [:g
-       [:ellipse
-        {:transform (str "rotate(-28, " (+ 9 (* 6.5 x)) "," (- 13.5 (* 0.5 y)) ")")
-         :cx (+ 9 (* 6.5 x)) :cy (- 13.5 (* 0.5 y))
-         :rx 1.5 :ry 1
-         :fill color}]
-       [note-stem [x y]]])
-
 (defn bass-clef []
   [:g {:transform "scale(0.36,0.36) translate(-4.5,22)"}
    [:path {:d "M18.3 9C18.4 11.9 17.1 14.6 15.1 16.6 12.6 19.1 9.4 20.6 6.1 21.7 5.6 21.9 5 21.6 5.7 21.3 7 20.7 8.4 20.2 9.6 19.3 12.3 17.7 14.6 15 15.2 11.8 15.5 9.8 15.4 7.8 14.9 5.8 14.6 4.4 13.6 3 12 2.8 10.6 2.5 9.1 3 8.1 4 7.8 4.3 7.3 5.1 7.4 5.9 8 5.4 8 5.5 8.5 5.3 9.6 4.8 11.1 5.5 11.4 6.7 11.7 7.9 11.5 9.4 10.3 10 9.1 10.6 7.4 10.3 6.7 9.1 5.6 7.1 6.2 4.4 8 3.1 9.8 1.6 12.4 1.5 14.6 2.3 16.8 3.1 18.1 5.4 18.3 7.6 18.3 8.1 18.3 8.6 18.3 9z"}]
@@ -207,11 +210,11 @@
         current-position (subscribe [:current-position])]
     (fn []
       [:svg {:view-box "0 0 110 25"}
-       [bass-clef]
+       ;[bass-clef]
        (doall
          (for [y (range 8 17)]
            ^{:key y}
-           [:line {:x1 0 :x2 110 :y1 (+ 0.5 y) :y2 (+ 0.5 y)
+           [:line {:x1 0 :x2 110 :y1 y :y2 y
                    :stroke "black"
                    :stroke-width (if (or (= y @mouse-over)
                                          (even? y)) 0.1 1.8)
@@ -223,24 +226,13 @@
                    :on-mouse-over #(reset! mouse-over y)
                    :on-mouse-out #(reset! mouse-over [nil nil])
                    :on-click #(dispatch [:set-bassline])}]))
-       (doall (for [x (range 16) y (range 24)]
-          ^{:key [x y]}
-          [:rect {:height 0.2 :width 3 :ry 0.1 :x (+ 7 (* 6.5 x)) :y (+ 0.5 (* 2 y))
-                  :visibility (cond
-                                (and (not= [x y] @mouse-over)
-                                     (< 7 y 17)) "hidden"
-                                (= [x y] @mouse-over) "visible"
-                                :else "hidden")
-                  :pointer-events "all"
-                  :on-mouse-over #(reset! mouse-over [x y])
-                  :on-mouse-out #(reset! mouse-over [nil nil])}]))
        (doall (for [x (range 16)
                     :let [y (melody/chromatic->diatonic
                               (- (get @bassline x)
                                  (music/root-note-midi-num)))]
                     :when (number? y)]
                 ^{:key x}
-                [note-head (if (= @current-position (inc x)) "red" "black") [x (* 2 y)]]))])))
+                [quarter-note (if (= @current-position (inc x)) "red" "black") [x y]]))])))
 
 (defn basslines []
   (let [active (r/atom "Alberti bass")]

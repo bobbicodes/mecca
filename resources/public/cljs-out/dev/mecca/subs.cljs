@@ -7,6 +7,11 @@
    (:scale db)))
 
 (rf/reg-sub
+ :playing?
+ (fn [db _]
+   (:playing? db)))
+
+(rf/reg-sub
  :tempo
  (fn [db _]
    (:tempo db)))

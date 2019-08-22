@@ -11,10 +11,6 @@
 
 (defonce state-atom (r/atom {:audiocontext (synthesis/audio-context)}))
 
-(def handle!
-  "An handler that components can use to raise events."
-  (framework/handler-for state-atom))
-
 (def notes ["C" "C#" "D" "D#" "E" "F" "F#" "G" "G#" "A" "A#" "B"])
 
 (def scales
@@ -84,11 +80,11 @@
 (defn play-bassline! []
   (let [context (:audiocontext @state-atom)
         bassline (subscribe [:bassline])
-        now (current-time context)
-        current-position (subscribe [:current-position])
+        play-start (current-time context)
         tempo (subscribe [:tempo])
-        beat-length (/ 60 @tempo)]
+        beat-length (/ 60 @tempo)
+        total-duration (* beat-length (count @bassline))]
+    (dispatch [:play-on])
     (doall (for [x (range (count @bassline))]
-             (do (dispatch [:advance-position])
-               (play-note! (get @bassline x) (* x beat-length) beat-length)
-                 (dispatch [:reset-position]))))))
+             (do (play-note! (get @bassline x) (* x beat-length) beat-length)
+               (dispatch [:advance-position]))))))

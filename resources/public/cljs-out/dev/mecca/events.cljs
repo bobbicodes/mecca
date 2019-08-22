@@ -10,6 +10,7 @@
  :initialize-db
  (fn [_ _]
    {:scale "Minor"
+    :playing? false
     :current-position 0
     :octave 3
     :key "C"
@@ -31,6 +32,16 @@
                               (nth (take 16 (scale/scale (get music/scales @(subscribe [:scale]))
                                                          (music/root-note-midi-num)))
                                    (dec interval)))))))
+
+(reg-event-db
+ :play-on
+ (fn [db [_ scale]]
+   (assoc db :playing? true)))
+
+(reg-event-db
+ :play-off
+ (fn [db [_ scale]]
+   (assoc db :playing? false)))
 
 (reg-event-db
  :set-scale

@@ -171,6 +171,12 @@
           :stroke-width 0.1
           :stroke-dasharray 0.15}])
 
+(defn ending-bar []
+  [:g {:transform "scale (2.5,2.5) translate(3,0.2)"}
+   [:rect {:x 22.25 :y 3 :width 0.24 :height 11.25 :ry 0 :fill "black"}]
+   [:line {:x1 22.125 :x2 22.125 :y1 3 :y2 14.25 :stroke "black"
+           :stroke-width 0.1}]])
+
 (defn beat-line [x]
   [:line {:transform "scale (2.5,2.5) translate(3,-2.8)"
           :x1 x :x2 x :y1 5.5 :y2 18 :stroke "black"
@@ -294,7 +300,8 @@
         [beat-line 13.75]
         [beat-line 16.5]
         [beat-line 19.25]
-        [bar-line 22]]
+        [bar-line 22]
+        [ending-bar]]
         (doall (for [x (range 16)
                      :let [y (melody/chromatic->diatonic
                               (- (get @bassline x)

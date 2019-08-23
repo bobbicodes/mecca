@@ -165,8 +165,13 @@
             ^{:key y}
             [note-label y])))])))
 
+(defn bar-line-solid []
+  [:line {:transform "scale (2.5,2.5) translate(2,-2.8)"
+          :x1 11.625 :x2 11.625 :y1 6 :y2 17.2 :stroke "black"
+          :stroke-width 0.1}])
+
 (defn bar-line [x]
-  [:line {:transform "scale (2.5,2.5) translate(3,-2.8)"
+  [:line {:transform "scale (2.5,2.5) translate(4,-2.8)"
           :x1 x :x2 x :y1 5.5 :y2 18 :stroke "orange"
           :stroke-width 0.1
           :stroke-dasharray 0.15}])
@@ -177,8 +182,20 @@
    [:line {:x1 22.125 :x2 22.125 :y1 3 :y2 14.25 :stroke "black"
            :stroke-width 0.1}]])
 
+(defn ending-bar-repeat []
+  [:g {:transform "scale (2.5,2.5) translate(3,0.2)"}
+   [:rect {:x 22.25 :y 3 :width 0.24 :height 11.25 :ry 0 :fill "black"}]
+   [:line {:x1 22.125 :x2 22.125 :y1 3 :y2 14.25 :stroke "black"
+           :stroke-width 0.1}]
+   [:circle {:cx 21.8 :cy 4.3 :r 0.14}]
+   [:circle {:cx 21.8 :cy 4.9 :r 0.14}]
+   [:circle {:cx 21.8 :cy 9.1 :r 0.14}]
+   [:circle {:cx 21.8 :cy 9.7 :r 0.14}]
+   [:circle {:cx 21.8 :cy 13.1 :r 0.14}]
+   [:circle {:cx 21.8 :cy 13.7 :r 0.14}]])
+
 (defn beat-line [x]
-  [:line {:transform "scale (2.5,2.5) translate(3,-2.8)"
+  [:line {:transform "scale (2.5,2.5) translate(4,-2.8)"
           :x1 x :x2 x :y1 5.5 :y2 18 :stroke "black"
           :stroke-width 0.03
           :stroke-dasharray 0.15}])
@@ -191,13 +208,14 @@
 
 (defn quarter-note []
     (fn [color [x y]]
-      [:g {:transform (str "scale (7,7) translate(" (+ 7.75 (* 6.5 x)) "," (- y) ") ")}
-       [:path {:d "M0 25.325c0-.567.608-1.433 1.667-1.433.55 0 .95.308 .95.792 0 .7-.883 1.425-1.817 1.425-.533 0-.8-.25-.8-.783Z"}]
+      [:g {:transform (str "scale (1,1) translate(" (+ 8.875 (* 6.9 x)) "," (- 25.0375 y) ") ")}
+       [:path {:d "m1.53-1c.39 0 .76.2 .76.63 0 .5-.39.84-.72 1.03-.25.15-.53.25-.81.25-.39 0-.76-.2-.76-.63 0-.5.39-.84.72-1.03.25-.15.53-.25.81-.25z"}]
        [:rect {:x (if (< y 1)
-                    2.4 0) :y (if (< y 1)
-                         (- (- 25 (* y 0.1433)) 6.794)
-                         (- 25.588 (* y 0.1433)))
-                         :height 6.794 :width 0.2}]]))
+                    2.0625 0.025)
+               :y (if (< y 1)
+                    (- y 6.794)
+                    (- 1 (* 0.25 y)))
+               :height 6.794 :width 0.25}]]))
 
 (defn drum-clef []
   [:path {:transform "translate(2,33.3) scale(0.009, 0.009)" :d "M281-143h-80c-5 0-9 3-9 9v415c0 5 3 9 9 9h80c5 0 9-3 9-9v-415c0-5-3-9-9-9zM91-143h-80c-5 0-9 3-9 9v415c0 5 3 9 9 9h80c5 0 9-3 9-9v-415c0-5-3-9-9-9z" :fill "black"}])
@@ -278,16 +296,15 @@
            ^{:key y}
            [:line {:x1 0 :x2 69.5 :y1 y :y2 y
                    :stroke "black"
-                   :stroke-width (if (or (= y 30) (= y 18)) 0.05 0.1)
-                   :stroke-dasharray (if (or (= y 30) (= y 18)) 0.5)
+                   :stroke-width (if (or (= y 30) (= y 18)) 0.06 0.15)
+                   :stroke-dasharray (if (or (= y 30) (= y 18)) 0.25)
                    :visibility (if (and (> y 7)
                                         (even? y)
                                         (< y 42)) "visible" "hidden")
                    :pointer-events "all"
                    :stroke-linecap "butt" :stroke-linejoin "bevel"
                    :on-mouse-over #(reset! mouse-over y)
-                   :on-mouse-out #(reset! mouse-over [nil nil])
-                   :on-click #(dispatch [:set-bassline])}]))]
+                   :on-mouse-out #(reset! mouse-over [nil nil])}]))]
        [:g#clefs
         [bass-clef]
         [treble-clef]
@@ -296,13 +313,14 @@
         [beat-line 2.75]
         [beat-line 5.5]
         [beat-line 8.25]
+        [bar-line-solid]
         [bar-line 11]
         [beat-line 13.75]
         [beat-line 16.5]
         [beat-line 19.25]
         [bar-line 22]
-        [ending-bar]]
-        (doall (for [x (range 16)
+        [ending-bar-repeat]]
+        (doall (for [x (range 8)
                      :let [y (melody/chromatic->diatonic
                               (- (get @bassline x)
                                  (music/root-note-midi-num)))]

@@ -56,115 +56,6 @@
                   (dispatch [:set-tempo
                              (-> e .-target .-value)]))}]])
 
-(defn cell [[x y]]
-  (let [focused? (r/atom false)
-        bassline (subscribe [:bassline])]
-    (fn [[x y]]
-      [:rect
-       {:width 1 :height 0.75
-        :x (+ 1 x) :y (+ (* y 0.75))
-        :stroke-width 0.05
-        :stroke "black"
-        :fill (cond
-                @focused?
-                "violet"
-                (clojure.string/includes? (music/midi-num->note y) "#")
-                "pink"
-                :else
-                "white")
-        :on-mouse-over
-        #(reset! focused? true)
-        :on-mouse-out
-        #(reset! focused? false)
-        :on-click #(dispatch [:set-bassline (assoc @bassline x y)])}])))
-
-(defn note-label [y]
-  [:text
-   {:x 0 :width 1
-    :y (+ 0.5 (* y 0.75)) :height 0.75
-    :text-anchor "left"
-    :font-size 0.5}
-   (music/midi-num->note y)])
-
-(defn grid-lines [[x y]]
-  (let [line-focused? (r/atom false)
-        notes @(subscribe [:bassline])
-        note-endings (doall (for [{:keys [time duration pitch]} notes]
-                              [(inc (+ time duration)) pitch]))]
-    (fn [[x y]]
-      [:line
-       {:x1 x :y1 (- y) :x2 x :y2 (- y 1)
-        :style {:cursor (if @line-focused? "ew-resize")}
-        :stroke-width (if (= 1 (mod x 4)) 0.075 0.04)
-        :on-mouse-over (fn [e] (swap! line-focused? not))
-        :on-mouse-down mouse-down-handler
-        :on-mouse-out (fn [e] (swap! line-focused? not))
-        :stroke (cond
-                  (contains? (set note-endings) [x y]) "red"
-                  (= 1 (mod x 4)) "black"
-                  :else "lightgrey")}])))
-
-(defn note [[x y]]
-  (let [focused? (atom false)
-        bassline @(subscribe [:bassline])]
-    (fn [[x y]]
-      [:g
-       [:rect
-        {:width (- (* 4 (count bassline) x) 0.05) :height 0.75
-         :x (+ 1 x) :y (+ (* 0.75 y))
-         :stroke (if (= @selected [x y])
-                   "red")
-         :stroke-width 0.1
-         :fill "blue"
-         :on-mouse-over (fn [e] (reset! focused? true))
-         :on-click
-         #(dispatch [:set-bassline [x nil]])
-         :on-mouse-out (fn [e] (reset! focused? false))}]
-       (if @focused? [:g {:stroke "red"
-                          :stroke-width 0.4
-                          :stroke-linecap "round"
-                          :transform
-                          (str "translate(" (+ 1.5 x) "," (+ 0.375 (* 0.75 y)) ") "
-                               "scale(0.15)")
-                          :on-mouse-over (fn [e] (reset! focused? true))
-                          :on-click
-                          #(dispatch [:set-bassline [x nil]])
-                          :on-mouse-out (fn [e] (reset! focused? false))}
-                      [:line {:x1 -1 :y1 -1 :x2 1 :y2 1}]
-                      [:line {:x1 1 :y1 -1 :x2 -1 :y2 1}]])])))
-
-(defn note-grid []
-  (let [scale-name (subscribe [:scale])
-        scale-notes (get music/scales @scale-name)
-        bassline (subscribe [:bassline])]
-    (fn []
-      [:svg
-       {:view-box (str "0 0 17 " (* 0.75 (dec (* 2 (count scale-notes)))))}
-       (doall
-         (for [x (range 16)
-               y (range (dec (* 2 (count scale-notes))))]
-           ^{:key [x y]}
-           [cell [x y]]))
-       (doall
-         (for [x (range 1 (* 4 16) 0.25)
-               y (range (dec (* 2 (count scale-notes))))]
-           ^{:key [x y]}
-           [grid-lines [x y]]))
-       (doall (for [x (range 16)
-                    :let [y @bassline]
-                    :when (number? y)]
-                ^{:key x}
-                [note [x y]]))
-       #_(doall
-        (let [midi-num (get (zipmap (into music/notes music/notes) (range 24 36)) @(subscribe [:key]))
-              scale-intervals (get music/scales @(subscribe [:scale]))
-              first-octave (map #(+ midi-num %) scale-intervals)]
-          (for [y (into (map #(+ midi-num 12 %)
-                             (rest scale-intervals))
-                        (reverse first-octave))]
-            ^{:key y}
-            [note-label y])))])))
-
 (defn bar-line-solid []
   [:line {:transform "scale (2.5,2.5) translate(2,-2.8)"
           :x1 11.625 :x2 11.625 :y1 6 :y2 17.2 :stroke "black"
@@ -206,19 +97,51 @@
 (defn beam []
   [:polygon {:points "2981,475 3499,424 3499,484 2981,535"}])
 
-(defn quarter-note []
-    (fn [color [x y]]
-      [:g {:transform (str "scale (1,1) translate(" (+ 8.875 (* 6.9 x)) "," (- 25.0375 y) ") ")}
-       [:path {:d "m1.53-1c.39 0 .76.2 .76.63 0 .5-.39.84-.72 1.03-.25.15-.53.25-.81.25-.39 0-.76-.2-.76-.63 0-.5.39-.84.72-1.03.25-.15.53-.25.81-.25z"}]
-       [:rect {:x (if (< y 1)
-                    2.0625 0.025)
-               :y (if (< y 1)
-                    (- y 6.794)
-                    (- 1 (* 0.25 y)))
-               :height 6.794 :width 0.25}]]))
+(defn drum-hit [color [x y]]
+  (let [mouseover? (r/atom false)]
+    (fn []
+      [:g {:transform (str "translate(" (+ 8.75 (* 6.88 x)) "," (- 25.0375 y) ") ")
+           :visibility (if @mouseover?
+                         "visible"
+                         "hidden")
+           :pointer-events "all"
+           :on-mouse-over #(reset! mouseover? true)
+           :on-mouse-out #(reset! mouseover? false)}
+       [:path {:d "m1.24.27 .9.74c.02.01 .04.03 .07.03 .02 0 .05-.01.08-.03l.15-.12c.02-.02.04-.06.04-.09 0-.03-.02-.06-.04-.08L1.56 0 2.43-.71c.02-.02.04-.05.04-.08 0-.03-.02-.07-.04-.09l-.15-.12c-.02-.01-.05-.03-.08-.03-.02 0-.04.01-.07.03L1.24-.27.33-1.01c-.02-.01-.04-.03-.07-.03-.02 0-.05.01-.08.03l-.15.12c-.02.02-.04.06-.04.09 0 .03.02 .06.04 .08L.91 0 .04.71c-.02.02-.04.05-.04.08 0 .03.02 .07.04 .09l.15.12c.02.01 .05.03 .08.03 .02 0 .04-.01.07-.03z"
+               :fill color}]
+       [:rect {:x (if (< y -8)
+                    2.2 0)
+               :y (if (< y -8)
+                    -6.3
+                    0.8)
+               :height 5.5 :width 0.25
+               :fill color}]])))
+
+(defn quarter-note [color [x y]]
+  (let [mouseover? (r/atom false)]
+    (fn []
+      [:g {:visibility (if @mouseover?
+                         "visible"
+                         "hidden")
+           :pointer-events "all"
+           :on-mouse-over #(reset! mouseover? true)
+           :on-mouse-out #(reset! mouseover? false)
+           :transform (str "scale (1,1) translate(" (+ 8.875 (* 6.9 x)) "," (- 25.0375 y) ") ")}
+       [:path {:d "m1.62-1.06c.41 0 .8.21 .8.67 0 .53-.41.89-.76 1.1-.27.16-.56.27-.86.27-.41 0-.8-.21-.8-.67 0-.53.41-.89.76-1.1.27-.16.56-.27.86-.27z"
+               :fill color}]
+       [:rect {:x (if (or (< y 1)
+                          (< 7 y 12))
+                    2.15 0.02)
+               :y (if (or (< y 1)
+                          (< 7 y 12))
+                    -7.1
+                    0)
+               :height 6.794 :width 0.25
+               :fill color}]])))
 
 (defn drum-clef []
-  [:path {:transform "translate(2,33.3) scale(0.009, 0.009)" :d "M281-143h-80c-5 0-9 3-9 9v415c0 5 3 9 9 9h80c5 0 9-3 9-9v-415c0-5-3-9-9-9zM91-143h-80c-5 0-9 3-9 9v415c0 5 3 9 9 9h80c5 0 9-3 9-9v-415c0-5-3-9-9-9z" :fill "black"}])
+  [:path {:transform "translate(2,33.3) scale(0.009, 0.009)"
+          :d "M281-143h-80c-5 0-9 3-9 9v415c0 5 3 9 9 9h80c5 0 9-3 9-9v-415c0-5-3-9-9-9zM91-143h-80c-5 0-9 3-9 9v415c0 5 3 9 9 9h80c5 0 9-3 9-9v-415c0-5-3-9-9-9z" :fill "black"}])
 
 (defn bass-clef []
   (fn []
@@ -296,7 +219,7 @@
            ^{:key y}
            [:line {:x1 0 :x2 69.5 :y1 y :y2 y
                    :stroke "black"
-                   :stroke-width (if (or (= y 30) (= y 18)) 0.06 0.15)
+                   :stroke-width (if (or (= y 30) (= y 18)) 0.06 0.2)
                    :stroke-dasharray (if (or (= y 30) (= y 18)) 0.25)
                    :visibility (if (and (> y 7)
                                         (even? y)
@@ -320,13 +243,20 @@
         [beat-line 19.25]
         [bar-line 22]
         [ending-bar-repeat]]
-        (doall (for [x (range 8)
+       (doall (for [x (range 8)
+                    y (range -6 19)]
+                [quarter-note "#666666" [x y]]))
+       (doall (for [x (range 8)
+                    y (range -11 -6 2)]
+                  [drum-hit "#666666" [x y]]))
+        #_(doall (for [x (range 8)
                      :let [y (melody/chromatic->diatonic
                               (- (get @bassline x)
                                  (music/root-note-midi-num)))]
                      :when (number? y)]
                  ^{:key x}
-                 [quarter-note (if (= @current-position (inc x)) "red" "black") [x y]]))])))
+                 [quarter-note (if (= @current-position (inc x)) "red" "black") [x y]]))
+        ])))
 
 (defn editor []
   (let [current-position (subscribe [:current-position])

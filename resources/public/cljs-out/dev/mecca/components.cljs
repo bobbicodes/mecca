@@ -120,20 +120,24 @@
 (defn quarter-note [color [x y]]
   (let [mouseover? (r/atom false)]
     (fn []
-      [:g {:visibility (if @mouseover?
+      [:g {:visibility (if (or @mouseover?
+                            (= color "black"))
                          "visible"
                          "hidden")
            :pointer-events "all"
            :on-mouse-over #(reset! mouseover? true)
            :on-mouse-out #(reset! mouseover? false)
+           :on-click
+           (fn [e]
+             (dispatch [:add-bass-note x y]))
            :transform (str "scale (1,1) translate(" (+ 8.875 (* 6.9 x)) "," (- 25.0375 y) ") ")}
        [:path {:d "m1.62-1.06c.41 0 .8.21 .8.67 0 .53-.41.89-.76 1.1-.27.16-.56.27-.86.27-.41 0-.8-.21-.8-.67 0-.53.41-.89.76-1.1.27-.16.56-.27.86-.27z"
                :fill color}]
        [:rect {:x (if (or (< y 1)
-                          (< 7 y 12))
+                          (< 7 y 13))
                     2.15 0.02)
                :y (if (or (< y 1)
-                          (< 7 y 12))
+                          (< 7 y 13))
                     -7.1
                     0)
                :height 6.794 :width 0.25
@@ -217,7 +221,7 @@
         (doall
          (for [y (range 38)]
            ^{:key y}
-           [:line {:x1 0 :x2 69.5 :y1 y :y2 y
+           [:line {:x1 0 :x2 63.7 :y1 y :y2 y
                    :stroke "black"
                    :stroke-width (if (or (= y 30) (= y 18)) 0.06 0.2)
                    :stroke-dasharray (if (or (= y 30) (= y 18)) 0.25)
@@ -241,14 +245,21 @@
         [beat-line 13.75]
         [beat-line 16.5]
         [beat-line 19.25]
-        [bar-line 22]
         [ending-bar-repeat]]
-       (doall (for [x (range 8)
-                    y (range -6 19)]
-                [quarter-note "#666666" [x y]]))
+       (let [notes (set (for [x (range 8)
+                              y (range -6 19)]
+                          [x y]))]
+         (doall (for [[x y] (clojure.set/difference notes (set (for [{:keys [time pitch]} @bassline]
+                                                                [time (- pitch 48)])))]
+                  ^{:key [x y]}
+                  [quarter-note "gray" [x y]])))
        (doall (for [x (range 8)
                     y (range -11 -6 2)]
-                  [drum-hit "#666666" [x y]]))
+                ^{:key [x y]}
+                  [drum-hit "gray" [x y]]))
+       (doall (for [{:keys [time pitch]} @bassline]
+                ^{:key [time pitch]}
+                [quarter-note "black" [time (- pitch 48)]]))
         #_(doall (for [x (range 8)
                      :let [y (melody/chromatic->diatonic
                               (- (get @bassline x)

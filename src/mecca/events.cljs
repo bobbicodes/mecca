@@ -15,7 +15,7 @@
     :octave 3
     :key "C"
     :tempo 180
-    :bassline [48 55 51 55 48 55 51 55 48 55 51 55 48 55 51 55]}))
+    :bassline []}))
 
 (reg-event-db
  :set-bassline
@@ -24,6 +24,13 @@
                               (nth (take 16 (scale/scale (get music/scales @(subscribe [:scale]))
                                                          (music/root-note-midi-num)))
                                    (dec interval)))))))
+
+(reg-event-db
+ :add-bass-note
+ (fn [db [_ x y]]
+   (update-in db [:bassline] conj {:time x
+                                   :duration 1
+                                   :pitch (+ 48 y)})))
 
 (reg-event-db
  :move-note

@@ -85,6 +85,5 @@
         beat-length (/ 60 @tempo)
         total-duration (* beat-length (count @bassline))]
     (dispatch [:play-on])
-    (doall (for [x (range (count @bassline))]
-             (do (play-note! (get @bassline x) (* x beat-length) beat-length)
-               (dispatch [:advance-position]))))))
+    (doall (for [{:keys [time pitch]} @bassline]
+             (play-note! pitch (* time beat-length) beat-length)))))

@@ -66,14 +66,61 @@
   [context]
   (.-currentTime context))
 
+(defn subgraph
+  ([input output] {:input input :output output})
+  ([singleton] (subgraph singleton singleton)))
+
+(defn source
+  "A graph of synthesis nodes without an input,
+  so another graph can't connect to it."
+  [node]
+  (subgraph nil node))
+
+(defn raw-buffer
+  [generate-bit! context duration]
+  (let [sample-rate 44100
+        frame-count (* sample-rate duration)
+        buffer (.createBuffer context 1 frame-count sample-rate)
+        data (.getChannelData buffer 0)]
+    (doseq [i (range frame-count)]
+      (aset data i (generate-bit! i)))
+    buffer))
+
+(def buffer (memoize raw-buffer))
+
+(defn dispatch-timer-event
+  []
+  (let [context (:audiocontext @state-atom)
+        now (current-time context)]
+    (dispatch [:timer now])))
+
+(defonce do-timer (js/setInterval dispatch-timer-event 1000))
+
+(defn play-noise! [start duration]
+  (let [context (:audiocontext @state-atom)
+        sample-rate 44100
+        frame-count (* sample-rate duration)
+        buffer (.createBuffer context 1 frame-count sample-rate)
+        data (.getChannelData buffer 0)
+        noise (.createBufferSource context)
+        now (current-time context)]
+    (doseq [i (range frame-count)]
+      (aset data i (-> (js/Math.random) (* 2.0) (- 1.0))))
+    (set! (.-buffer noise) buffer)
+    (.connect noise (.-destination context))
+    (.start noise (+ now start))
+    (.stop noise (+ now start duration))))
+
 (defn play-note! [midi-num start duration]
   (let [context (:audiocontext @state-atom)
         osc (.createOscillator context)
         now (current-time context)
-        freq (midi->freq midi-num)]
+        freq (midi->freq midi-num)
+        gain (.createGain context)]
     (set! (.-type osc) "triangle")
     (set! (.. osc -frequency -value) freq)
-    (.connect osc (.-destination (:audiocontext @state-atom)))
+    (.connect osc gain)
+    (.connect gain (.-destination context))
     (.start osc (+ now start))
     (.stop osc (+ now start duration))))
 

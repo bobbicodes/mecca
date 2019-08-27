@@ -30,29 +30,28 @@ label {
 
 .mario{
   position: absolute;
-  width: 41px;
-  height: 72px;
-  background: url('/images/mariodance72.gif') left center;    
-  top: 70px;
+  width: 24px;
+  height: 41px;
+  top: 41px;
   left:0px;
   
-  -webkit-animation: play 0.8s steps(4) infinite,
+  -webkit-animation: play 0.8s steps(2) infinite,
               run 7s both infinite linear;
   
-          animation: play 0.8s steps(4) infinite,
+          animation: play 0.8s steps(2) infinite,
               run 7s both infinite linear;
 }
 @-webkit-keyframes play{
-  100%{background-position: 72px;}
+  100%{background-position: 24px;}
 }
 @keyframes play{
-  100%{background-position: 72px;}
+  100%{background-position: 24px;}
 }
 @-webkit-keyframes run{
-  from{left: -200px;}
+  from{left: -72px;}
   to{left: 100%;}
 }
 @keyframes run{
-  from{left: -200px;}
+  from{left: -72px;}
   to{left: 100%;}
 }

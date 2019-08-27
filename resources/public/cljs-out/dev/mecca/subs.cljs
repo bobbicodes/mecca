@@ -17,6 +17,11 @@
    (:tempo db)))
 
 (rf/reg-sub
+ :time
+ (fn [db _]     ;; db is current app state. 2nd unused param is query vector
+   (:time db)))
+
+(rf/reg-sub
  :octave
  (fn [db _]
    (:octave db)))
@@ -35,3 +40,8 @@
  :bassline
  (fn [db _]
    (:bassline db)))
+
+(rf/reg-sub
+ :drums
+ (fn [db _]
+   (:drums db)))

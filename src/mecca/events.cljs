@@ -14,8 +14,10 @@
     :current-position 0
     :octave 3
     :key "C"
+    :time 0
     :tempo 180
-    :bassline []}))
+    :bassline []
+    :drums []}))
 
 (reg-event-db
  :set-bassline
@@ -33,12 +35,24 @@
                                    :pitch (+ 48 y)})))
 
 (reg-event-db
+ :add-drum-hit
+ (fn [db [_ x y]]
+   (update-in db [:drums] conj {:time x
+                                   :duration 1
+                                   :pitch (+ 48 y)})))
+
+(reg-event-db
  :move-note
  (fn [db [_ bassline]]
    (assoc db :bassline (vec (for [interval bassline]
                               (nth (take 16 (scale/scale (get music/scales @(subscribe [:scale]))
                                                          (music/root-note-midi-num)))
                                    (dec interval)))))))
+
+(reg-event-db                 ;; usage:  (dispatch [:timer a-js-Date])
+ :timer                         ;; every second an event of this kind will be dispatched
+ (fn [db [_ new-time]]          ;; note how the 2nd parameter is destructured to obtain the data value
+   (assoc db :time new-time)))
 
 (reg-event-db
  :play-on

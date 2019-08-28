@@ -37,6 +37,11 @@
    (:current-position db)))
 
 (rf/reg-sub
+ :lead
+ (fn [db _]
+   (:lead db)))
+
+(rf/reg-sub
  :bassline
  (fn [db _]
    (:bassline db)))
@@ -45,3 +50,18 @@
  :drums
  (fn [db _]
    (:drums db)))
+
+(rf/reg-sub
+ :audiocontext
+ (fn [db _]
+   (:audiocontext db)))
+
+(rf/reg-sub
+ :mario-sprite
+ (fn [db _]
+   (:mario-sprite db)))
+
+(rf/reg-sub
+ :mario-jump
+ (fn [db _]
+   (:mario-jump db)))

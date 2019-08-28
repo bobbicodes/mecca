@@ -1,11 +1,5 @@
 (ns ^:figwheel-hooks mecca.music.synthesis)
 
-(defn ^:export audio-context
-  "Construct an audio context in a way that works even if it's prefixed."
-  []
-  (if js/window.AudioContext. ; Some browsers e.g. Safari don't use the
-    (js/window.AudioContext.) ; unprefixed version yet.
-    (js/window.webkitAudioContext.)))
 
 (defn ^:export current-time
   "Return the current time as recorded by the audio context."

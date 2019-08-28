@@ -6,7 +6,7 @@
             [mecca.events :as events :refer [mouse-pos mouse-down-handler selected]]
             [mecca.music.melody :as melody]
             [mecca.music.scale :as scale]
-            [mecca.music.mario :refer [editor-bg mario mario1 mario2 mario3]]))
+            [mecca.mario :refer [editor-bg mario]]))
 
 (defn scale-picker []
   [:label
@@ -101,17 +101,30 @@
 (defn beam []
   [:polygon {:points "2981,475 3499,424 3499,484 2981,535"}])
 
+(defn kill-note []
+  [:path {:d "M 0.75,0.3 L 1.75,-0.7 M 1.75,0.3 L 0.75,-0.7"
+          :stroke "red"
+          :stroke-linecap "round"
+          :stroke-width 0.35}])
+
 (defn drum-hit [color [x y]]
-[:g {:transform (str "translate(" (+ 12.78 (* 6 x)) "," (inc y) ") ")}
- [:path {:d "m1.24.27 .9.74c.02.01 .04.03 .07.03 .02 0 .05-.01.08-.03l.15-.12c.02-.02.04-.06.04-.09 0-.03-.02-.06-.04-.08L1.56 0 2.43-.71c.02-.02.04-.05.04-.08 0-.03-.02-.07-.04-.09l-.15-.12c-.02-.01-.05-.03-.08-.03-.02 0-.04.01-.07.03L1.24-.27.33-1.01c-.02-.01-.04-.03-.07-.03-.02 0-.05.01-.08.03l-.15.12c-.02.02-.04.06-.04.09 0 .03.02 .06.04 .08L.91 0 .04.71c-.02.02-.04.05-.04.08 0 .03.02 .07.04 .09l.15.12c.02.01 .05.03 .08.03 .02 0 .04-.01.07-.03z"
-         :fill color}]
- [:rect {:x (if (< 31 y)
-              2.2 0)
-         :y (if (< 31 y)
-              -6.3
-              0.8)
-         :height 5.5 :width 0.25
-         :fill color}]])
+    (let [mouseover? (r/atom false)]
+      (fn [color [x y]]
+        [:g {:on-mouse-over #(reset! mouseover? true)
+             :on-mouse-out #(reset! mouseover? false)
+             :on-click #(dispatch [:remove-note x y])
+             :transform (str "translate(" (+ 12.78 (* 6 x)) "," (inc y) ") ")}
+         [:path {:d "m1.24.27 .9.74c.02.01 .04.03 .07.03 .02 0 .05-.01.08-.03l.15-.12c.02-.02.04-.06.04-.09 0-.03-.02-.06-.04-.08L1.56 0 2.43-.71c.02-.02.04-.05.04-.08 0-.03-.02-.07-.04-.09l-.15-.12c-.02-.01-.05-.03-.08-.03-.02 0-.04.01-.07.03L1.24-.27.33-1.01c-.02-.01-.04-.03-.07-.03-.02 0-.05.01-.08.03l-.15.12c-.02.02-.04.06-.04.09 0 .03.02 .06.04 .08L.91 0 .04.71c-.02.02-.04.05-.04.08 0 .03.02 .07.04 .09l.15.12c.02.01 .05.03 .08.03 .02 0 .04-.01.07-.03z"
+                 :fill color}]
+         [:rect {:x (if (< 31 y)
+                      2.2 0)
+                 :y (if (< 31 y)
+                      -6.3
+                      0.8)
+                 :height 5.5 :width 0.25
+                 :fill color}]
+         (if @mouseover?
+           [kill-note])])))
 
 (defn ledger-line [[x y]]
   [:rect {:transform (str "scale (1,1) translate(" (+ 8.875 (* 6.9 x)) "," (- 25.0375 y) ") ")
@@ -121,9 +134,11 @@
           :x x :y y}])
 
 (defn quarter-note [color [x y]]
-      [:g {:on-click
-           (fn [e]
-             (dispatch [:add-bass-note x y]))
+  (let [mouseover? (r/atom false)]
+    (fn [color [x y]]
+      [:g {:on-mouse-over #(reset! mouseover? true)
+           :on-mouse-out #(reset! mouseover? false)
+           :on-click #(dispatch [:remove-note x y])
            :transform (str "translate(" (+ 13 (* 6 x)) "," (inc y) ") ")}
        [:path {:d "m1.62-1.06c.41 0 .8.21 .8.67 0 .53-.41.89-.76 1.1-.27.16-.56.27-.86.27-.41 0-.8-.21-.8-.67 0-.53.41-.89.76-1.1.27-.16.56-.27.86-.27z"
                :fill color}]
@@ -140,7 +155,9 @@
                  :height 0.2
                  :width 2.085
                  :ry 0.1
-                 :x -0.334 :y -0.1}])])
+                 :x -0.334 :y -0.1}])
+       (if @mouseover?
+        [kill-note])])))
 
 (defn drum-clef []
   [:path {:transform "translate(4,33.334)"
@@ -158,6 +175,9 @@
 
 (defn sharp [x y]
   [:path {:transform (str "translate(" x "," (+ 0.5 y) ")") :d "M.18.04V-.91l.4-.11v.95zM.98-.19.7-.11V-1.05l.28-.08v-.39l-.28.08V-2.42h-.11v1l-.4.12V-2.24h-.11v.98l-.28.08v.39l.28-.08v.95l-.28.08V.55L.08.47v.96h.11V.43l.4-.11v.94h.11V.29L.98.21Z"}])
+
+(defn flat [x y]
+  [:path {:d "m .94 1.62s-.06-1.2-.06-2c0-.32.02-.56.04-.64.08-.24.6-.68.88-.84.18-.1.36-.14.52-.14.2 0 .38.08.5.22.2.22.32.56.32.94 0 .36-.1.78-.34 1.2-.26.48-.84 1.12-1.44 1.5-.08.04-.14.06-.2.06-.18 0-.22-.2-.22-.3m-.7 1.78c.06.08.12.1.18.1s.12-.04.12-.04c.6-.34 1.08-.88 1.58-1.22 1.78-1.24 2.4-2.46 2.4-3.38 0-1.14-.88-1.86-1.8-1.92-.14 0-.28.02-.42.06-.22.06-.46.14-.68.28-.12.1-.34.28-.44.28-.04 0-.06 0-.1-.02-.14-.06-.22-.2-.22-.34.02-.44.14-5.24.14-5.64 0-.22-.18-.34-.38-.34-.28 0-.6.2-.62.56 0 0 .08 11.42.24 11.62"}])
 
 (defn c-sharp-minor []
   [:g [sharp 6.6 8]
@@ -221,6 +241,7 @@
 
 (defn staff []
   (let [focused (r/atom [nil nil])
+        lead (subscribe [:lead])
         bassline (subscribe [:bassline])
         drums (subscribe [:drums])
         current-position (subscribe [:current-position])]
@@ -257,7 +278,7 @@
         [ending-bar-repeat]]
        (doall (for [x (range 8)
                     y (conj (range 31) 31 33 35)]
-                  ^{:key [x y]}
+                ^{:key [x y]}
                 [:g {:transform "translate(12.5,0)"}
                  [:rect {:x (* 6 x)
                          :y (+ 0.5 y)
@@ -268,11 +289,7 @@
                          :on-mouse-over (fn [e]
                                           (reset! focused [x y]))
                          :on-mouse-out #(reset! focused [nil nil])
-                         :on-click (if (< 30 y)
-                                     (fn [e]
-                                       (dispatch [:add-drum-hit x y]))
-                                     (fn [e]
-                                       (dispatch [:add-bass-note x y])))}]
+                         :on-click #(dispatch [:add-note x y])}]
                  (if (= @focused [x y])
                    (if (< 30 y)
                      [:g {:transform (str "translate(" (+ 0.35 (* 6 x)) "," (inc y) ") ")
@@ -296,37 +313,38 @@
                                    -7.1 0)
                               :height 6.794 :width 0.25
                               :fill "gray"}]]))]))
+       (doall (for [{:keys [time pitch]} @lead]
+                ^{:key [time pitch]}
+                [quarter-note "black" [time (- 77 pitch)]]))
        (doall (for [{:keys [time pitch]} @bassline]
                 ^{:key [time pitch]}
-                [quarter-note "black" [time (- pitch 48)]]))
+                [quarter-note "black" [time (- 77 pitch)]]))
        (doall (for [{:keys [time pitch]} @drums]
                 ^{:key [time pitch]}
-                [drum-hit "black" [time (- pitch 48)]]))
-        #_(doall (for [x (range 8)
-                     :let [y (melody/chromatic->diatonic
-                              (- (get @bassline x)
-                                 (music/root-note-midi-num)))]
-                     :when (number? y)]
-                 ^{:key x}
-                 [quarter-note (if (= @current-position (inc x)) "red" "black") [x y]]))
-        ])))
-
-(def mario-run (r/atom [mario1]))
-
-(defn tick! []
-  (if (= @mario-run [mario1])
-    (reset! mario-run [mario2])
-    (reset! mario-run [mario1])))
-
-(js/setInterval tick! 200)
+                [drum-hit "black" [time (- 77 pitch)]]))
+       #_(doall (for [x (range 8)
+                      :let [y (melody/chromatic->diatonic
+                               (- (get @bassline x)
+                                  (music/root-note-midi-num)))]
+                      :when (number? y)]
+                  ^{:key x}
+                  [quarter-note (if (= @current-position (inc x)) "red" "black") [x y]]))])))
 
 (defn editor []
   (let [current-position (subscribe [:current-position])
-        playing? (subscribe [:playing?])]
+        playing? (subscribe [:playing?])
+        mario-sprite (subscribe [:mario-sprite])
+        jump (subscribe [:mario-jump])]
       (fn []
         [:svg {:width "100%"
                :view-box "0 0 64 38"}
-         @mario-run
+         (if (even? @mario-sprite)
+           [mario :run1 (nth (into (reverse (range 32))
+                                           (reverse (range 32)))
+                                     (mod @mario-sprite 64))]
+           [mario :run2 (nth (into (reverse (range 32))
+                                      (reverse (range 32)))
+                                (mod @mario-sprite 64))])
          [editor-bg]
          [staff]
          #_(if @playing?
@@ -359,8 +377,10 @@
    ;[:p (str "Mouse-pos: " @mouse-pos)]
    [:p]
    [:p (str "Absolute time: " @(subscribe [:time]))]
+   [:p (str "Lead: " @(subscribe [:lead]))]
    [:p (str "Bassline: " @(subscribe [:bassline]))]
    [:p (str "Drums: " @(subscribe [:drums]))]
+   [:p (str "Mario Sprite: " @(subscribe [:mario-sprite]))]
    [:p (str @(subscribe [:scale])
             " scale from MIDI number "
             (music/root-note-midi-num) " ("

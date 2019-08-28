@@ -23,11 +23,23 @@ return new cljs.core.Keyword(null,"key","key",-1516042587).cljs$core$IFn$_invoke
 re_frame.core.reg_sub.call(null,new cljs.core.Keyword(null,"current-position","current-position",2031348254),(function (db,_){
 return new cljs.core.Keyword(null,"current-position","current-position",2031348254).cljs$core$IFn$_invoke$arity$1(db);
 }));
+re_frame.core.reg_sub.call(null,new cljs.core.Keyword(null,"lead","lead",1214038903),(function (db,_){
+return new cljs.core.Keyword(null,"lead","lead",1214038903).cljs$core$IFn$_invoke$arity$1(db);
+}));
 re_frame.core.reg_sub.call(null,new cljs.core.Keyword(null,"bassline","bassline",325787412),(function (db,_){
 return new cljs.core.Keyword(null,"bassline","bassline",325787412).cljs$core$IFn$_invoke$arity$1(db);
 }));
 re_frame.core.reg_sub.call(null,new cljs.core.Keyword(null,"drums","drums",641393692),(function (db,_){
 return new cljs.core.Keyword(null,"drums","drums",641393692).cljs$core$IFn$_invoke$arity$1(db);
+}));
+re_frame.core.reg_sub.call(null,new cljs.core.Keyword(null,"audiocontext","audiocontext",1600179014),(function (db,_){
+return new cljs.core.Keyword(null,"audiocontext","audiocontext",1600179014).cljs$core$IFn$_invoke$arity$1(db);
+}));
+re_frame.core.reg_sub.call(null,new cljs.core.Keyword(null,"mario-sprite","mario-sprite",-1325469738),(function (db,_){
+return new cljs.core.Keyword(null,"mario-sprite","mario-sprite",-1325469738).cljs$core$IFn$_invoke$arity$1(db);
+}));
+re_frame.core.reg_sub.call(null,new cljs.core.Keyword(null,"mario-jump","mario-jump",253829289),(function (db,_){
+return new cljs.core.Keyword(null,"mario-jump","mario-jump",253829289).cljs$core$IFn$_invoke$arity$1(db);
 }));
 
 //# sourceMappingURL=subs.js.map

@@ -9,8 +9,6 @@
    [mecca.music.synthesis :as synthesis]
    [mecca.music.melody :as melody]))
 
-(defonce state-atom (r/atom {:audiocontext (synthesis/audio-context)}))
-
 (def notes ["C" "C#" "D" "D#" "E" "F" "F#" "G" "G#" "A" "A#" "B"])
 
 (def scales
@@ -88,46 +86,46 @@
 
 (def buffer (memoize raw-buffer))
 
-(defn dispatch-timer-event
-  []
-  (let [context (:audiocontext @state-atom)
-        now (current-time context)]
-    (dispatch [:timer now])))
+(defn dispatch-timer-event []
+  (let [context (subscribe [:audiocontext])
+        now (current-time @context)]
+    (dispatch [:timer now])
+    (dispatch [:tick!])))
 
-(defonce do-timer (js/setInterval dispatch-timer-event 1000))
+(defonce do-timer (js/setInterval dispatch-timer-event 200))
 
 (defn play-noise! [start duration]
-  (let [context (:audiocontext @state-atom)
+  (let [context (subscribe [:audiocontext])
         sample-rate 44100
         frame-count (* sample-rate duration)
         buffer (.createBuffer context 1 frame-count sample-rate)
         data (.getChannelData buffer 0)
-        noise (.createBufferSource context)
-        now (current-time context)]
+        noise (.createBufferSource @context)
+        now (current-time @context)]
     (doseq [i (range frame-count)]
       (aset data i (-> (js/Math.random) (* 2.0) (- 1.0))))
     (set! (.-buffer noise) buffer)
-    (.connect noise (.-destination context))
+    (.connect noise (.-destination @context))
     (.start noise (+ now start))
     (.stop noise (+ now start duration))))
 
 (defn play-note! [midi-num start duration]
-  (let [context (:audiocontext @state-atom)
-        osc (.createOscillator context)
-        now (current-time context)
+  (let [context (subscribe [:audiocontext])
+        osc (.createOscillator @context)
+        now (current-time @context)
         freq (midi->freq midi-num)
-        gain (.createGain context)]
+        gain (.createGain @context)]
     (set! (.-type osc) "triangle")
     (set! (.. osc -frequency -value) freq)
     (.connect osc gain)
-    (.connect gain (.-destination context))
+    (.connect gain (.-destination @context))
     (.start osc (+ now start))
     (.stop osc (+ now start duration))))
 
 (defn play-bassline! []
-  (let [context (:audiocontext @state-atom)
+  (let [context (subscribe [:audiocontext])
         bassline (subscribe [:bassline])
-        play-start (current-time context)
+        play-start (current-time @context)
         tempo (subscribe [:tempo])
         beat-length (/ 60 @tempo)
         total-duration (* beat-length (count @bassline))]

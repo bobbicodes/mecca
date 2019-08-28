@@ -1,23 +1,40 @@
 (ns ^:figwheel-hooks mecca.events
   (:require
    [re-frame.core :refer [reg-event-db dispatch subscribe]]
+   [mecca.mario :refer [mario]]
    [mecca.music :as music]
    [mecca.music.scale :as scale]
    [goog.events :refer [listen unlisten]])
   (:import [goog.events EventType]))
 
+(defn ^:export audio-context
+  "Construct an audio context in a way that works even if it's prefixed."
+  []
+  (if js/window.AudioContext. ; Some browsers e.g. Safari don't use the
+    (js/window.AudioContext.) ; unprefixed version yet.
+    (js/window.webkitAudioContext.)))
+
+(defn ^:export current-time
+  "Return the current time as recorded by the audio context."
+  [context]
+  (.-currentTime context))
+
 (reg-event-db
  :initialize-db
  (fn [_ _]
-   {:scale "Minor"
+   {:audiocontext (audio-context)
+    :scale "Minor"
     :playing? false
     :current-position 0
     :octave 3
     :key "C"
     :time 0
     :tempo 180
+    :lead []
     :bassline []
-    :drums []}))
+    :drums []
+    :mario-jump 0
+    :mario-sprite 0}))
 
 (reg-event-db
  :set-bassline
@@ -28,18 +45,34 @@
                                    (dec interval)))))))
 
 (reg-event-db
- :add-bass-note
+ :add-note
  (fn [db [_ x y]]
-   (update-in db [:bassline] conj {:time x
-                                   :duration 1
-                                   :pitch (+ 48 y)})))
+   (update-in db (cond
+                   (< y 18) [:lead]
+                   (< 18 y 31) [:bassline]
+                   (< 30 y) [:drums])
+              conj {:time x
+                    :duration 1
+                    :pitch (- 77 y)})))
+
+(reg-event-db
+ :remove-note
+ (fn [db [_ x y]]
+   (update-in db (cond
+                   (< y 18) [:lead]
+                   (< 18 y 31) [:bassline]
+                   (< 30 y) [:drums])
+              (fn [notes]
+                (remove #(and (= x (:time %))
+                              (= (- 77 y) (:pitch %)))
+                        notes)))))
 
 (reg-event-db
  :add-drum-hit
  (fn [db [_ x y]]
    (update-in db [:drums] conj {:time x
                                    :duration 1
-                                   :pitch (+ 48 y)})))
+                                   :pitch (- 77 y)})))
 
 (reg-event-db
  :move-note
@@ -93,6 +126,11 @@
  :set-key
  (fn [db [_ key]]
    (assoc db :key key)))
+
+(reg-event-db
+ :tick!
+ (fn [db [_ _]]
+   (update db :mario-sprite inc)))
 
 (def mouse-pos (atom {:x 0 :y 0}))
 (def selected (atom [nil nil]))

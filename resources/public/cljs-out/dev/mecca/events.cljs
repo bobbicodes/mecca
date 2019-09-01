@@ -26,6 +26,8 @@
     :scale "Minor"
     :playing? false
     :current-position 0
+    :editor-beat-start 1
+    :selected-note-value "quarter"
     :octave 3
     :key "C"
     :time 0

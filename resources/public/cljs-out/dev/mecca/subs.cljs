@@ -37,6 +37,11 @@
    (:current-position db)))
 
 (rf/reg-sub
+ :selected-note-value
+ (fn [db _]
+   (:selected-note-value db)))
+
+(rf/reg-sub
  :lead
  (fn [db _]
    (:lead db)))

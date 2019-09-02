@@ -478,7 +478,7 @@
            [mario :run2 (nth (into (reverse (range 32))
                                    (reverse (range 32)))
                              (mod @mario-sprite 64))])
-         [:g#notes {:transform "scale(0.2) translate(46,0)"}
+         [:g#notes {:transform "scale(0.2) translate(8,0)"}
           [note-button "whole" "white" 80]
           [note-button "dotted-half" "white" 96]
           [note-button "half" "white" 112]
@@ -491,7 +491,7 @@
           [note-button "e-triplets" "white" 224]
           [note-button "sixteenth" "white" 240]
           ]
-         [:g#rests {:transform "scale(0.2) translate(46,16)"}
+         [:g#rests {:transform "scale(0.2) translate(8,16)"}
           [note-button "whole-rest" "white" 80]
           [note-button "half-rest" "white" 112]
           [note-button "quarter-rest" "pink" 144]

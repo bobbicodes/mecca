@@ -3,7 +3,8 @@
 (defn mario [sprite x]
   (let [jump [0 2 4 6 8 10 12 13 14 15 16 17 18 18 19 19 19 19 19
               18 18 17 16 15 14 13 12 10 8 6 4 2 0]]
-    [:g {:transform (str "scale(1.5,1.5)translate(" x ",6.6)")}
+    [:g 
+     {:transform (str "scale(1.5,1.5)translate(" x ",6.6)")}
      (cond (= sprite :jump)
        [:g#jump {:transform (str "translate(" x "," (get jump (mod (js/Math.round x) 32)) ")")}
         [:path {:d "M.889 1.968H.762V1.8h.254v.169zm-.206-.254h-.09v-.096l.106-.107.107-.107.104.035.105.035-.12.12-.12.12zm.778-.176l-.149-.007-.105-.042-.106-.043v-.24h.169v.265l.17-.053.169-.054v.18zM.339 1.46H.254v-.254h.169v.254z" :style {:fill "#fecfbf"}}]

@@ -76,6 +76,7 @@ cljs.core.cst$sym$buffer = new cljs.core.Symbol(null,"buffer","buffer",-20371405
 cljs.core.cst$kw$else = new cljs.core.Keyword(null,"else","else",-1508377146);
 cljs.core.cst$kw$audiocontext = new cljs.core.Keyword(null,"audiocontext","audiocontext",1600179014);
 cljs.core.cst$kw$_LT__DASH_ = new cljs.core.Keyword(null,"<-","<-",760412998);
+cljs.core.cst$kw$g_SHARP_colorwheel = new cljs.core.Keyword(null,"g#colorwheel","g#colorwheel",561293158);
 cljs.core.cst$sym$left = new cljs.core.Symbol(null,"left","left",1241415590,null);
 cljs.core.cst$kw$path_SHARP_path38 = new cljs.core.Keyword(null,"path#path38","path#path38",-137147321);
 cljs.core.cst$sym$ns_STAR_ = new cljs.core.Symbol(null,"ns*","ns*",1840949383,null);

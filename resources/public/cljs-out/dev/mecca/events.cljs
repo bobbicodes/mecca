@@ -110,6 +110,16 @@
    (update db :current-position inc)))
 
 (reg-event-db
+ :advance-editor
+ (fn [db [_ _]]
+   (update db :editor-beat-start inc)))
+
+(reg-event-db
+ :retract-editor
+ (fn [db [_ _]]
+   (update db :editor-beat-start dec)))
+
+(reg-event-db
  :reset-position
  (fn [db [_ _]]
    (assoc db :current-position 0)))
@@ -132,7 +142,7 @@
 (reg-event-db
  :tick!
  (fn [db [_ _]]
-   (update db :mario-sprite inc)))
+   (update db :mario-sprite #(if (= % 64) 0 (inc %)))))
 
 (def mouse-pos (atom {:x 0 :y 0}))
 (def selected (atom [nil nil]))

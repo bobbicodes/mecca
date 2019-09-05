@@ -37,6 +37,11 @@
    (:current-position db)))
 
 (rf/reg-sub
+ :editor-beat-start
+ (fn [db _]
+   (:editor-beat-start db)))
+
+(rf/reg-sub
  :selected-note-value
  (fn [db _]
    (:selected-note-value db)))

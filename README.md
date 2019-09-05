@@ -14,7 +14,7 @@ See and hear it in action:
 
 [Megaman 2 - Dr. Wily](https://www.youtube.com/watch?v=2EVTeP9KlmM)  
 
-The version currently in development is built for the web using the Reagent React library for Clojurescript, and aims to be an authentic emulator of the NES APU. The sonic pallet could not be more simple:
+The version currently in development is built for the web using the Re-frame React library for Clojurescript, and aims to be an authentic emulator of the NES APU. The sonic pallet could not be more simple:
 
 * Band-limited (anti-aliased) quantized "pseudo-triangle" generator for basslines. 
 
@@ -26,7 +26,7 @@ A multitude of advanced UI features are underway, including:
 
 * Switchable piano roll and "tracker" style editors - the former is better for editing individual tracks because the note grid offers an intuitive visualization of the change in pitch over time. On the other hand, the vertically-scrolling "tracker" style compact interface excels at editing the full arrangement.
 
-* Music staff notation editor - with eventual support for MIDI, MusicXML and Lilypond formats.
+* Music staff notation editor - with eventual support for MIDI, MusicXML, ABC and Lilypond formats.
 
 * Keyboard, electric and acoustic guitar, bass, cello, violin and ukulele interfaces with automatic chord progressions and rhythm patterns. These will use sampled sounds, and be more focused on live performance.
 
@@ -36,20 +36,29 @@ A multitude of advanced UI features are underway, including:
 
 * All this will be finished in about 10 years.
 
-# Installation - Original command-line sequencer:
+# Live web version (in development)
+
+Although I said this is an audio project, I decided that I want the web version to have a really kickass UI. This turned out to be a really hard problem due to the complexity of music notation and level of precision required to produce a score of acceptable quality.
+
+For this reason I've been spending loads of time ~~yelling at my screen and ripping my hair out~~ focusing on the graphical elements, and at a certain point I realized that I'm building a complete SVG music staff animation library. As a long time user of digital audio editors my interface is extremely important to me, so I'm taking the time to do it well. I'll get to the music stuff eventually.
+
+[Live app in its current state](https://porkostomus.github.io/mecca/)
+
+
+# Original command-line sequencer:
 
 Clone the repository and set the scripts to be executable:
 
 ```
 $ git clone https://github.com/porkostomus/mecca.git
-$ cd mecca
-/mecca$ chmod +x *
+$ cd mecca-beta
+/mecca-beta$ chmod +x *
 ```
 
 ## Dependencies
 
 ```
-$ sudo apt install sox bc
+/mecca-beta$ sudo apt install sox bc
 ```
 
 # Usage
@@ -59,7 +68,7 @@ $ sudo apt install sox bc
 If you just want to jam on the keyboard:
 
 ```
-/mecca$ ./synth
+/mecca-beta$ ./synth
 ```
 
 ```
@@ -79,7 +88,7 @@ The "virtual piano" on the screen indicates which keys play notes. You have 2 fu
 ## Live drum synth
 
 ```
-/mecca$ ./drum-machine
+/mecca-beta$ ./drum-machine
 ```
 
 Play the drums using the `a` `s` `d` keys.
@@ -134,7 +143,7 @@ This example will create a song in the form AABAA using the note patterns contai
 ### **Build your song!**
 
 ```
-/mecca$ ./build-song <song> <tempo>
+/mecca-beta$ ./build-song <song> <tempo>
 ```
 
 Check out the `zelda` and `megaman` examples!

@@ -27,7 +27,7 @@
     :playing? false
     :current-position 0
     :editor-beat-start 1
-    :selected-note-value "quarter"
+    :selected-note-value 1
     :octave 3
     :key "C"
     :time 0
@@ -36,7 +36,8 @@
     :bassline []
     :drums []
     :mario-jump 0
-    :mario-sprite 0}))
+    :jumping? false
+    :mario-run 0}))
 
 (reg-event-db
  :set-bassline
@@ -54,7 +55,7 @@
                    (< 18 y 31) [:bassline]
                    (< 30 y) [:drums])
               conj {:time x
-                    :duration 1
+                    :duration @(subscribe [:selected-note-value])
                     :pitch (- 77 y)})))
 
 (reg-event-db
@@ -84,15 +85,15 @@
                                                          (music/root-note-midi-num)))
                                    (dec interval)))))))
 
-(reg-event-db                 ;; usage:  (dispatch [:timer a-js-Date])
- :timer                         ;; every second an event of this kind will be dispatched
- (fn [db [_ new-time]]          ;; note how the 2nd parameter is destructured to obtain the data value
-   (assoc db :time new-time)))
-
 (reg-event-db
  :play-on
  (fn [db [_ scale]]
    (assoc db :playing? true)))
+
+(reg-event-db
+ :select-note-value
+ (fn [db [_ value]]
+   (assoc db :selected-note-value value)))
 
 (reg-event-db
  :play-off
@@ -142,7 +143,18 @@
 (reg-event-db
  :tick!
  (fn [db [_ _]]
-   (update db :mario-sprite #(if (= % 64) 0 (inc %)))))
+   (update (update db :mario-run #(if (= % 56) 0 (inc %)))
+           :mario-jump inc)))
+
+(reg-event-db
+ :jump-advance
+ (fn [db [_ _]]
+   (update db :mario-jump inc)))
+
+(reg-event-db
+ :jump-reset
+ (fn [db [_ _]]
+   (assoc db :mario-jump 0)))
 
 (def mouse-pos (atom {:x 0 :y 0}))
 (def selected (atom [nil nil]))

@@ -22,25 +22,8 @@ The version currently in development is built for the web using the Re-frame Rea
 
 * White noise generator for drums, with variable randomness patterns to create the sense of multiple pitches.
 
-A multitude of advanced UI features are underway, including:
-
-* Switchable piano roll and "tracker" style editors - the former is better for editing individual tracks because the note grid offers an intuitive visualization of the change in pitch over time. On the other hand, the vertically-scrolling "tracker" style compact interface excels at editing the full arrangement.
-
-* Music staff notation editor - with eventual support for MIDI, MusicXML, ABC and Lilypond formats.
-
-* Keyboard, electric and acoustic guitar, bass, cello, violin and ukulele interfaces with automatic chord progressions and rhythm patterns. These will use sampled sounds, and be more focused on live performance.
-
-* Filling out the "E" in MECCA (Education) will be a set of music theory training tools for learning common rhythms, harmonic intervals, scales and modes from around the world, composition techniques and drum/instrument sound design labs.
-
-* Some time in the future it would be cool to add basic multitrack audio and video recording, to produce "chiptunified karaoke" tracks... super fun!
-
-* All this will be finished in about 10 years.
-
-# Live web version (in development)
-
-Although I said this is an audio project, I decided that I want the web version to have a really kickass UI. This turned out to be a really hard problem due to the complexity of music notation and level of precision required to produce a score of acceptable quality.
-
-For this reason I've been spending loads of time ~~yelling at my screen and ripping my hair out~~ focusing on the graphical elements, and at a certain point I realized that I'm building a complete SVG music staff animation library. As a long time user of digital audio editors my interface is extremely important to me, so I'm taking the time to do it well. I'll get to the music stuff eventually.
+The interface is heavily inspired by Mario Paint. Check out the paper [Mario Paint: An Accessible Environment of Musical Creativity
+and Sound Exploration](Mario_Paint_An_Accessible_Environment_of.pdf) for an excellent summary.
 
 [Live app in its current state](https://porkostomus.github.io/mecca/)
 

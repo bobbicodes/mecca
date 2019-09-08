@@ -67,9 +67,9 @@
    (:audiocontext db)))
 
 (rf/reg-sub
- :mario-sprite
+ :mario-run
  (fn [db _]
-   (:mario-sprite db)))
+   (:mario-run db)))
 
 (rf/reg-sub
  :mario-jump

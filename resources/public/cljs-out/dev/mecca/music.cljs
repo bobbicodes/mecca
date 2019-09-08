@@ -87,12 +87,9 @@
 (def buffer (memoize raw-buffer))
 
 (defn dispatch-timer-event []
-  (let [context (subscribe [:audiocontext])
-        now (current-time @context)]
-    (dispatch [:timer now])
-    (dispatch [:tick!])))
+    (dispatch [:tick!]))
 
-(defonce do-timer (js/setInterval dispatch-timer-event 80))
+(defonce do-timer (js/setInterval dispatch-timer-event 40))
 
 (defn play-noise! [start duration]
   (let [context (subscribe [:audiocontext])

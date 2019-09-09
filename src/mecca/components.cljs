@@ -659,19 +659,19 @@ M34.667 4.571H35.048V4.381 4.191H34.667 34.286V4.381 4.571Z"}])
         mario-jump (subscribe [:mario-jump])
         selected-note-value (subscribe [:selected-note-value])]
       (fn []
-        (if (> 34 @mario-run)
-          (dispatch [:jump-reset]))
         [:svg {:width "100%"
                :view-box "0 0 64 46"}
          [brick-face 16 0 6]
          [brick-face 0 32 10]
          (cond
-           (< 34 @mario-run 48)
-             [mario :jump @mario-run @mario-jump]
+           (< 22 @mario-run 33)
+             [mario :jump1]
+           (< 32 @mario-run 43)
+           [mario :jump2]
            (odd? (js/Math.round (/ @mario-run 2)))
-           [mario :run1 @mario-run 0]
+           [mario :run1]
            :else
-           [mario :run2 @mario-run 0])
+           [mario :run2])
          [:g#notes {:transform "scale(0.2) translate(8,0)"}
           [note-button "whole" 80]
           [note-button "dotted-half" 96]

@@ -27,7 +27,7 @@ return context.currentTime;
 });
 goog.exportSymbol('mecca.events.current_time', mecca.events.current_time);
 re_frame.core.reg_event_db.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$initialize_DASH_db,(function (_,___$1){
-return cljs.core.PersistentHashMap.fromArrays([cljs.core.cst$kw$editor_DASH_beat_DASH_start,cljs.core.cst$kw$octave,cljs.core.cst$kw$selected_DASH_note_DASH_value,cljs.core.cst$kw$key,cljs.core.cst$kw$audiocontext,cljs.core.cst$kw$scale,cljs.core.cst$kw$mario_DASH_jump,cljs.core.cst$kw$time,cljs.core.cst$kw$mario_DASH_run,cljs.core.cst$kw$jumping_QMARK_,cljs.core.cst$kw$playing_QMARK_,cljs.core.cst$kw$bassline,cljs.core.cst$kw$lead,cljs.core.cst$kw$tempo,cljs.core.cst$kw$drums,cljs.core.cst$kw$current_DASH_position],[(1),(3),(1),"C",mecca.events.audio_context(),"Minor",(0),(0),(0),false,false,cljs.core.PersistentVector.EMPTY,cljs.core.PersistentVector.EMPTY,(180),cljs.core.PersistentVector.EMPTY,(0)]);
+return cljs.core.PersistentHashMap.fromArrays([cljs.core.cst$kw$editor_DASH_beat_DASH_start,cljs.core.cst$kw$octave,cljs.core.cst$kw$selected_DASH_note_DASH_value,cljs.core.cst$kw$key,cljs.core.cst$kw$audiocontext,cljs.core.cst$kw$scale,cljs.core.cst$kw$mario_DASH_jump,cljs.core.cst$kw$time,cljs.core.cst$kw$mario_DASH_run,cljs.core.cst$kw$playing_QMARK_,cljs.core.cst$kw$bassline,cljs.core.cst$kw$lead,cljs.core.cst$kw$tempo,cljs.core.cst$kw$drums,cljs.core.cst$kw$current_DASH_position],[(1),(3),(1),"C",mecca.events.audio_context(),"Minor",(0),(0),(0),false,cljs.core.PersistentVector.EMPTY,cljs.core.PersistentVector.EMPTY,(180),cljs.core.PersistentVector.EMPTY,(0)]);
 }));
 re_frame.core.reg_event_db.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$set_DASH_bassline,(function (db,p__13041){
 var vec__13042 = p__13041;
@@ -244,7 +244,7 @@ var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13123,(0),null);
 var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13123,(1),null);
 return cljs.core.update.cljs$core$IFn$_invoke$arity$3(cljs.core.update.cljs$core$IFn$_invoke$arity$3(db,cljs.core.cst$kw$mario_DASH_run,((function (vec__13123,_,___$1){
 return (function (p1__13121_SHARP_){
-if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(p1__13121_SHARP_,(56))){
+if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(p1__13121_SHARP_,(42))){
 return (0);
 } else {
 return (p1__13121_SHARP_ + (1));
@@ -252,16 +252,10 @@ return (p1__13121_SHARP_ + (1));
 });})(vec__13123,_,___$1))
 ),cljs.core.cst$kw$mario_DASH_jump,cljs.core.inc);
 }));
-re_frame.core.reg_event_db.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$jump_DASH_advance,(function (db,p__13126){
+re_frame.core.reg_event_db.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$jump_DASH_reset,(function (db,p__13126){
 var vec__13127 = p__13126;
 var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13127,(0),null);
 var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13127,(1),null);
-return cljs.core.update.cljs$core$IFn$_invoke$arity$3(db,cljs.core.cst$kw$mario_DASH_jump,cljs.core.inc);
-}));
-re_frame.core.reg_event_db.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$jump_DASH_reset,(function (db,p__13130){
-var vec__13131 = p__13130;
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13131,(0),null);
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13131,(1),null);
 return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(db,cljs.core.cst$kw$mario_DASH_jump,(0));
 }));
 mecca.events.mouse_pos = cljs.core.atom.cljs$core$IFn$_invoke$arity$1(new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$x,(0),cljs.core.cst$kw$y,(0)], null));
@@ -283,16 +277,16 @@ return goog.events.unlisten(window,goog.events.EventType.MOUSEMOVE,on_move);
 });
 });
 mecca.events.mouse_down_handler = (function mecca$events$mouse_down_handler(e){
-var map__13134 = mecca.events.get_client_rect(e);
-var map__13134__$1 = ((((!((map__13134 == null)))?(((((map__13134.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__13134.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__13134):map__13134);
-var left = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__13134__$1,cljs.core.cst$kw$left);
-var top = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__13134__$1,cljs.core.cst$kw$top);
+var map__13130 = mecca.events.get_client_rect(e);
+var map__13130__$1 = ((((!((map__13130 == null)))?(((((map__13130.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__13130.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__13130):map__13130);
+var left = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__13130__$1,cljs.core.cst$kw$left);
+var top = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__13130__$1,cljs.core.cst$kw$top);
 var offset = new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$x,(e.clientX - left),cljs.core.cst$kw$y,(e.clientY - top)], null);
 var on_move = mecca.events.mouse_move_handler(offset);
 goog.events.listen(window,goog.events.EventType.MOUSEMOVE,on_move);
 
-var G__13136 = window;
-var G__13137 = goog.events.EventType.MOUSEUP;
-var G__13138 = mecca.events.mouse_up_handler(on_move);
-return goog.events.listen(G__13136,G__13137,G__13138);
+var G__13132 = window;
+var G__13133 = goog.events.EventType.MOUSEUP;
+var G__13134 = mecca.events.mouse_up_handler(on_move);
+return goog.events.listen(G__13132,G__13133,G__13134);
 });

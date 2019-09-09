@@ -5,7 +5,7 @@
    [re-frame.core :as rf :refer [subscribe dispatch]]
    [mecca.events]
    [mecca.subs]
-   [mecca.components :as components]))
+   [mecca.view :as view]))
 
 (rf/dispatch-sync [:initialize-db])
 
@@ -14,7 +14,7 @@
 
 (defn mount [el]
   (rf/clear-subscription-cache!)
-  (r/render-component [components/mecca] el))
+  (r/render-component [view/mecca] el))
 
 (defn mount-app-element []
   (when-let [el (get-app-element)]

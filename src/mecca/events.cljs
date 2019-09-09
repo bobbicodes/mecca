@@ -36,7 +36,6 @@
     :bassline []
     :drums []
     :mario-jump 0
-    :jumping? false
     :mario-run 0}))
 
 (reg-event-db
@@ -143,13 +142,8 @@
 (reg-event-db
  :tick!
  (fn [db [_ _]]
-   (update (update db :mario-run #(if (= % 56) 0 (inc %)))
+   (update (update db :mario-run #(if (= % 42) 0 (inc %)))
            :mario-jump inc)))
-
-(reg-event-db
- :jump-advance
- (fn [db [_ _]]
-   (update db :mario-jump inc)))
 
 (reg-event-db
  :jump-reset

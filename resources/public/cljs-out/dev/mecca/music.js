@@ -168,7 +168,7 @@ return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dis
 });
 if((typeof mecca !== 'undefined') && (typeof mecca.music !== 'undefined') && (typeof mecca.music.do_timer !== 'undefined')){
 } else {
-mecca.music.do_timer = setInterval(mecca.music.dispatch_timer_event,(40));
+mecca.music.do_timer = setInterval(mecca.music.dispatch_timer_event,(100));
 }
 mecca.music.play_noise_BANG_ = (function mecca$music$play_noise_BANG_(start,duration){
 var context = (function (){var G__12996 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$audiocontext], null);

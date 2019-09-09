@@ -28,6 +28,46 @@ label {
   line-height : 8px;
 }
 
+.jump1 {
+  transform: translateY(-70px);
+  animation: jumpup 0.4s 0s ease infinite;
+}
+
+.jump2 {
+  transform: translateY(-70px);
+  animation: jumpdown 0.5s 0s ease infinite;
+}
+
+@keyframes jumpup {
+  0% {
+    transform: translateY(0px);
+  }
+  64% {
+    transform: translateY(-50px);
+  }
+  80% {
+    transform: translateY(-65px);
+  }
+  100% {
+    transform: translateY(-70px);
+  }
+}
+
+@keyframes jumpdown {
+  0% {
+    transform: translateY(-70px);
+  }
+  20% {
+    transform: translateY(-65px);
+  }
+  60% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 .mario{
   position: absolute;
   width: 24px;

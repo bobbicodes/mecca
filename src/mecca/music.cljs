@@ -89,7 +89,7 @@
 (defn dispatch-timer-event []
     (dispatch [:tick!]))
 
-(defonce do-timer (js/setInterval dispatch-timer-event 40))
+(defonce do-timer (js/setInterval dispatch-timer-event 100))
 
 (defn play-noise! [start duration]
   (let [context (subscribe [:audiocontext])

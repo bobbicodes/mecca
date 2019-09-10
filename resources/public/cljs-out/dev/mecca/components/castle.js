@@ -15,27 +15,27 @@ mecca.components.castle.brick_row_pair = (function mecca$components$castle$brick
 return new cljs.core.PersistentVector(null, 7, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.castle.brick_row,x,y,width,(0)], null),new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.castle.mortar_columns,x,y,width,(1)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.castle.mortar_row,x,y,width], null),new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.castle.brick_row,x,(y + (4)),width,(4)], null),new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.castle.mortar_columns,x,(y + (4)),width,(5)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.castle.mortar_row,x,(y + (4)),width], null)], null);
 });
 mecca.components.castle.castle_arch = (function mecca$components$castle$castle_arch(y){
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,(function (){var iter__4324__auto__ = (function mecca$components$castle$castle_arch_$_iter__13199(s__13200){
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,(function (){var iter__4324__auto__ = (function mecca$components$castle$castle_arch_$_iter__13200(s__13201){
 return (new cljs.core.LazySeq(null,(function (){
-var s__13200__$1 = s__13200;
+var s__13201__$1 = s__13201;
 while(true){
-var temp__5457__auto__ = cljs.core.seq(s__13200__$1);
+var temp__5457__auto__ = cljs.core.seq(s__13201__$1);
 if(temp__5457__auto__){
-var s__13200__$2 = temp__5457__auto__;
-if(cljs.core.chunked_seq_QMARK_(s__13200__$2)){
-var c__4322__auto__ = cljs.core.chunk_first(s__13200__$2);
+var s__13201__$2 = temp__5457__auto__;
+if(cljs.core.chunked_seq_QMARK_(s__13201__$2)){
+var c__4322__auto__ = cljs.core.chunk_first(s__13201__$2);
 var size__4323__auto__ = cljs.core.count(c__4322__auto__);
-var b__13202 = cljs.core.chunk_buffer(size__4323__auto__);
-if((function (){var i__13201 = (0);
+var b__13203 = cljs.core.chunk_buffer(size__4323__auto__);
+if((function (){var i__13202 = (0);
 while(true){
-if((i__13201 < size__4323__auto__)){
-var vec__13203 = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4322__auto__,i__13201);
-var dy = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13203,(0),null);
-var dx = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13203,(1),null);
-cljs.core.chunk_append(b__13202,cljs.core.with_meta(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$line,new cljs.core.PersistentArrayMap(null, 5, [cljs.core.cst$kw$x1,((40) - dx),cljs.core.cst$kw$x2,((40) + dx),cljs.core.cst$kw$y1,((32) + dy),cljs.core.cst$kw$y2,((32) + dy),cljs.core.cst$kw$stroke,"black"], null)], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$key,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [dy,dx], null)], null)));
+if((i__13202 < size__4323__auto__)){
+var vec__13204 = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4322__auto__,i__13202);
+var dy = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13204,(0),null);
+var dx = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13204,(1),null);
+cljs.core.chunk_append(b__13203,cljs.core.with_meta(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$line,new cljs.core.PersistentArrayMap(null, 5, [cljs.core.cst$kw$x1,((40) - dx),cljs.core.cst$kw$x2,((40) + dx),cljs.core.cst$kw$y1,((32) + dy),cljs.core.cst$kw$y2,((32) + dy),cljs.core.cst$kw$stroke,"black"], null)], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$key,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [dy,dx], null)], null)));
 
-var G__13209 = (i__13201 + (1));
-i__13201 = G__13209;
+var G__13210 = (i__13202 + (1));
+i__13202 = G__13210;
 continue;
 } else {
 return true;
@@ -43,15 +43,15 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons(cljs.core.chunk(b__13202),mecca$components$castle$castle_arch_$_iter__13199(cljs.core.chunk_rest(s__13200__$2)));
+return cljs.core.chunk_cons(cljs.core.chunk(b__13203),mecca$components$castle$castle_arch_$_iter__13200(cljs.core.chunk_rest(s__13201__$2)));
 } else {
-return cljs.core.chunk_cons(cljs.core.chunk(b__13202),null);
+return cljs.core.chunk_cons(cljs.core.chunk(b__13203),null);
 }
 } else {
-var vec__13206 = cljs.core.first(s__13200__$2);
-var dy = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13206,(0),null);
-var dx = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13206,(1),null);
-return cljs.core.cons(cljs.core.with_meta(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$line,new cljs.core.PersistentArrayMap(null, 5, [cljs.core.cst$kw$x1,((40) - dx),cljs.core.cst$kw$x2,((40) + dx),cljs.core.cst$kw$y1,((32) + dy),cljs.core.cst$kw$y2,((32) + dy),cljs.core.cst$kw$stroke,"black"], null)], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$key,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [dy,dx], null)], null)),mecca$components$castle$castle_arch_$_iter__13199(cljs.core.rest(s__13200__$2)));
+var vec__13207 = cljs.core.first(s__13201__$2);
+var dy = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13207,(0),null);
+var dx = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13207,(1),null);
+return cljs.core.cons(cljs.core.with_meta(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$line,new cljs.core.PersistentArrayMap(null, 5, [cljs.core.cst$kw$x1,((40) - dx),cljs.core.cst$kw$x2,((40) + dx),cljs.core.cst$kw$y1,((32) + dy),cljs.core.cst$kw$y2,((32) + dy),cljs.core.cst$kw$stroke,"black"], null)], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$key,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [dy,dx], null)], null)),mecca$components$castle$castle_arch_$_iter__13200(cljs.core.rest(s__13201__$2)));
 }
 } else {
 return null;

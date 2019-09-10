@@ -2,28 +2,15 @@
   (:require
    [re-frame.core :refer [reg-event-db dispatch subscribe]]
    [mecca.mario :refer [mario]]
-   [mecca.music :as music]
+   [mecca.music :as music :refer [audiocontext]]
    [mecca.music.scale :as scale]
    [goog.events :refer [listen unlisten]])
   (:import [goog.events EventType]))
 
-(defn ^:export audio-context
-  "Construct an audio context in a way that works even if it's prefixed."
-  []
-  (if js/window.AudioContext. ; Some browsers e.g. Safari don't use the
-    (js/window.AudioContext.) ; unprefixed version yet.
-    (js/window.webkitAudioContext.)))
-
-(defn ^:export current-time
-  "Return the current time as recorded by the audio context."
-  [context]
-  (.-currentTime context))
-
 (reg-event-db
  :initialize-db
  (fn [_ _]
-   {:audiocontext (audio-context)
-    :scale "Minor"
+   {:scale "Minor"
     :playing? false
     :current-position 0
     :editor-beat-start 1
@@ -84,6 +71,11 @@
                                                          (music/root-note-midi-num)))
                                    (dec interval)))))))
 
+(reg-event-db                 ;; usage:  (dispatch [:timer a-js-Date])
+ :timer                         ;; every second an event of this kind will be dispatched
+ (fn [db [_ new-time]]          ;; note how the 2nd parameter is destructured to obtain the data value
+   (assoc db :time new-time)))
+
 (reg-event-db
  :play-on
  (fn [db [_ scale]]
@@ -142,8 +134,10 @@
 (reg-event-db
  :tick!
  (fn [db [_ _]]
-   (update (update db :mario-run #(if (= % 42) 0 (inc %)))
-           :mario-jump inc)))
+   (assoc (update
+           (update db :mario-run #(if (= % 42) 0 (inc %)))
+           :mario-jump inc)
+          :time (music/current-time @audiocontext))))
 
 (reg-event-db
  :jump-reset

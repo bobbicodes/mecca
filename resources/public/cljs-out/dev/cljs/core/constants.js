@@ -71,6 +71,7 @@ cljs.core.cst$kw$selected_DASH_note_DASH_value = new cljs.core.Keyword(null,"sel
 cljs.core.cst$kw$key = new cljs.core.Keyword(null,"key","key",-1516042587);
 cljs.core.cst$kw$fsm_DASH_state = new cljs.core.Keyword(null,"fsm-state","fsm-state",1656310533);
 cljs.core.cst$sym$comp = new cljs.core.Symbol(null,"comp","comp",-1462482139,null);
+cljs.core.cst$kw$timer = new cljs.core.Keyword(null,"timer","timer",-1266967739);
 cljs.core.cst$sym$dispatch_DASH_fn = new cljs.core.Symbol(null,"dispatch-fn","dispatch-fn",-1401088155,null);
 cljs.core.cst$sym$buffer = new cljs.core.Symbol(null,"buffer","buffer",-2037140571,null);
 cljs.core.cst$kw$else = new cljs.core.Keyword(null,"else","else",-1508377146);

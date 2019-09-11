@@ -1,5 +1,29 @@
 (ns mecca.mario)
 
+(defn smb-small-hat []
+  [:path {:fill "#f83800"
+          :d "M.5 0H3.5V.5H5V1H0V.5H.5V0"}])
+
+(defn smb-small-face []
+  [:path {:fill "#ffa044"
+          :d "M.5 1.5V.5H0V1.5H1.5V1H1V.5H1.5V0H2.5V1H3V0H4V.5H5V1H5.5V1.5H3.5V1H3V1.5H2.5V2H4.5V2.5H.5V1.5"}])
+
+(defn smb-small-hair []
+  [:path {:fill "#ac7c00"
+          :d "M.5.5H0V2 2 1.5H.5V0H2V.5H1.5V1H2V1.5H1V.5H.5"}])
+
+(defn smb-small-eye []
+  [:path {:fill "#E52521"
+          :d "M4.5 2H5V3H4.5V2"}])
+
+(defn smb-small-moustache []
+  [:path {:fill "#E52521"
+          :d "M.5 0H1V.5H2.5V1H0V1 .5.5 0"}])
+
+(defn smb-small-shirt []
+  [:path {:fill "#E52521"
+          :d "M2.5 2H4.5V2.5H6V3H6.5V3.5H5V4H4.5V3.5H4V2.5H3.5V3H2.5V2H1V2.5H.5V3H0V3.5H1V4H1.5V3.5H2V2"}])
+
 (defn mario [sprite]
   (let [jump [-12 -24 -36 -46 -55 -65 -68 -70 -70 -68 -65 -55 -46 -36 -24 -12]]
     [:g 

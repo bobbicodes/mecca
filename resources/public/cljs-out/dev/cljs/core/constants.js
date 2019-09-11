@@ -40,6 +40,7 @@ cljs.core.cst$kw$remove_DASH_note = new cljs.core.Keyword(null,"remove-note","re
 cljs.core.cst$kw$r = new cljs.core.Keyword(null,"r","r",-471384190);
 cljs.core.cst$sym$hierarchy = new cljs.core.Symbol(null,"hierarchy","hierarchy",587061186,null);
 cljs.core.cst$sym$iter = new cljs.core.Symbol(null,"iter","iter",-1346195486,null);
+cljs.core.cst$kw$g$fade = new cljs.core.Keyword(null,"g.fade","g.fade",-429688797);
 cljs.core.cst$sym$watching = new cljs.core.Symbol(null,"watching","watching",1947648227,null);
 cljs.core.cst$kw$cljsLegacyRender = new cljs.core.Keyword(null,"cljsLegacyRender","cljsLegacyRender",-1527295613);
 cljs.core.cst$sym$step = new cljs.core.Symbol(null,"step","step",-1365547645,null);

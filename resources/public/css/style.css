@@ -37,6 +37,20 @@ label {
   transform: translateY(-70px);
   animation: jumpdown 0.5s 0s ease infinite;
 }
+ 
+.fade {
+  animation: fade 1s 0s ease infinite;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  
+  100% {
+    opacity: 1;
+  }
+}
 
 @keyframes jumpup {
   0% {

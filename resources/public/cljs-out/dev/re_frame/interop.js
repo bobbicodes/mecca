@@ -70,18 +70,18 @@ return Date.now();
  */
 re_frame.interop.reagent_id = (function re_frame$interop$reagent_id(reactive_val){
 if(((!((reactive_val == null)))?((((false) || ((cljs.core.PROTOCOL_SENTINEL === reactive_val.reagent$ratom$IReactiveAtom$))))?true:false):false)){
-return [cljs.core.str.cljs$core$IFn$_invoke$arity$1((function (){var pred__11236 = cljs.core.instance_QMARK_;
-var expr__11237 = reactive_val;
-if(cljs.core.truth_((pred__11236.cljs$core$IFn$_invoke$arity$2 ? pred__11236.cljs$core$IFn$_invoke$arity$2(reagent.ratom.RAtom,expr__11237) : pred__11236.call(null,reagent.ratom.RAtom,expr__11237)))){
+return [cljs.core.str.cljs$core$IFn$_invoke$arity$1((function (){var pred__10870 = cljs.core.instance_QMARK_;
+var expr__10871 = reactive_val;
+if(cljs.core.truth_((pred__10870.cljs$core$IFn$_invoke$arity$2 ? pred__10870.cljs$core$IFn$_invoke$arity$2(reagent.ratom.RAtom,expr__10871) : pred__10870.call(null,reagent.ratom.RAtom,expr__10871)))){
 return "ra";
 } else {
-if(cljs.core.truth_((pred__11236.cljs$core$IFn$_invoke$arity$2 ? pred__11236.cljs$core$IFn$_invoke$arity$2(reagent.ratom.RCursor,expr__11237) : pred__11236.call(null,reagent.ratom.RCursor,expr__11237)))){
+if(cljs.core.truth_((pred__10870.cljs$core$IFn$_invoke$arity$2 ? pred__10870.cljs$core$IFn$_invoke$arity$2(reagent.ratom.RCursor,expr__10871) : pred__10870.call(null,reagent.ratom.RCursor,expr__10871)))){
 return "rc";
 } else {
-if(cljs.core.truth_((pred__11236.cljs$core$IFn$_invoke$arity$2 ? pred__11236.cljs$core$IFn$_invoke$arity$2(reagent.ratom.Reaction,expr__11237) : pred__11236.call(null,reagent.ratom.Reaction,expr__11237)))){
+if(cljs.core.truth_((pred__10870.cljs$core$IFn$_invoke$arity$2 ? pred__10870.cljs$core$IFn$_invoke$arity$2(reagent.ratom.Reaction,expr__10871) : pred__10870.call(null,reagent.ratom.Reaction,expr__10871)))){
 return "rx";
 } else {
-if(cljs.core.truth_((pred__11236.cljs$core$IFn$_invoke$arity$2 ? pred__11236.cljs$core$IFn$_invoke$arity$2(reagent.ratom.Track,expr__11237) : pred__11236.call(null,reagent.ratom.Track,expr__11237)))){
+if(cljs.core.truth_((pred__10870.cljs$core$IFn$_invoke$arity$2 ? pred__10870.cljs$core$IFn$_invoke$arity$2(reagent.ratom.Track,expr__10871) : pred__10870.call(null,reagent.ratom.Track,expr__10871)))){
 return "tr";
 } else {
 return "other";

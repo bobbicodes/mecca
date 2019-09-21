@@ -14,12 +14,16 @@
   (-js-ajax-request
     [this
      {:keys [uri method body headers timeout with-credentials
-             response-format]
+             response-format progress-handler]
       :or {with-credentials false
            timeout 0}}
      handler]
     (when-let [response-type (:type response-format)]
       (.setResponseType this (name response-type)))
+    (when (fn? progress-handler)
+      (doto this
+        (.setProgressEventsEnabled true)
+        (events/listen goog.net.EventType.UPLOAD_PROGRESS progress-handler)))
     (doto this
       (events/listen goog.net.EventType/COMPLETE
                      #(handler (.-target %)))
@@ -32,6 +36,8 @@
   (-body [this] (.getResponse this))
   (-status [this] (.getStatus this))
   (-status-text [this] (.getStatusText this))
+  (-get-all-headers [this]
+    (js->clj (.getResponseHeaders this)))
   (-get-response-header [this header]
     (.getResponseHeader this header))
   (-was-aborted [this]

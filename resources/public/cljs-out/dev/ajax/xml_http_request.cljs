@@ -1,6 +1,8 @@
 (ns ajax.xml-http-request
   (:require [ajax.protocols :refer [AjaxImpl AjaxRequest
-                                    AjaxResponse Interceptor]]))
+                                    AjaxResponse Interceptor]]
+            goog.string))
+
 (defn ready-state [e]
   ({0 :not-initialized
     1 :connection-established
@@ -8,7 +10,30 @@
     3 :processing-request
     4 :response-ready} (.-readyState (.-target e))))
 
-(extend-type js/XMLHttpRequest
+(defn append [current next]
+  (if current
+    (str current ", " next)
+    next))
+
+(defn process-headers [header-str]
+  (if header-str
+    (reduce (fn [headers header-line]
+              (if (goog.string/isEmptyOrWhitespace header-line)
+                headers
+                (let [key-value (goog.string/splitLimit header-line ": " 2)]
+                  (update headers (aget key-value 0) append (aget key-value 1)))))
+            {}
+            (.split header-str "\r\n"))
+    {}))
+
+(def xmlhttprequest
+  (if (= cljs.core/*target* "nodejs")
+    (let [xmlhttprequest (.-XMLHttpRequest (js/require "xmlhttprequest"))]
+      (goog.object/set js/global "XMLHttpRequest" xmlhttprequest)
+      xmlhttprequest)
+    js/XMLHttpRequest))
+
+(extend-type xmlhttprequest
   AjaxImpl
   (-js-ajax-request
     [this
@@ -37,6 +62,8 @@
   (-body [this] (.-response this))
   (-status [this] (.-status this))
   (-status-text [this] (.-statusText this))
+  (-get-all-headers [this]
+    (process-headers (.getAllResponseHeaders this)))
   (-get-response-header [this header]
     (.getResponseHeader this header))
   (-was-aborted [this] (= 0 (.-readyState this))))

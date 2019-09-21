@@ -1,7 +1,7 @@
 (ns ^:figwheel-hooks mecca.music.melody
   (:require 
    [re-frame.core :as rf :refer [subscribe dispatch]]
-   [mecca.music.scale :as scale]))
+   [mecca.audio.scale :as scale]))
 
 (def scales
   {"Pentatonic" scale/pentatonic

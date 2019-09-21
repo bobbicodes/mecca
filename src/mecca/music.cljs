@@ -2,12 +2,12 @@
   (:require
    [reagent.core :as r]
    [re-frame.core :as rf :refer [subscribe dispatch]]
-   [mecca.music.processing] ; Import action defs.
-   [mecca.music.actions :as action]
-   [mecca.music.framework :as framework]
-   [mecca.music.scale :as scale]
-   [mecca.music.synthesis :as synthesis]
-   [mecca.music.melody :as melody]))
+   [mecca.audio.processing] ; Import action defs.
+   [mecca.audio.actions :as action]
+   [mecca.audio.framework :as framework]
+   [mecca.audio.scale :as scale]
+   [mecca.audio.synthesis :as synthesis]
+   [mecca.audio.melody :as melody]))
 
 (defn ^:export audio-context
   "Construct an audio context in a way that works even if it's prefixed."
@@ -98,7 +98,7 @@
 (defn dispatch-timer-event []
     (dispatch [:tick!]))
 
-(defonce do-timer (js/setInterval dispatch-timer-event 100))
+(defonce do-timer (js/setInterval dispatch-timer-event 200))
 
 (defn play-noise! [start duration]
   (let [context @audiocontext

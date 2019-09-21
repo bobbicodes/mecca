@@ -113,6 +113,28 @@ throw cljs.core.missing_protocol.call(null,"AjaxResponse.-status-text",this$);
 });
 
 /**
+ * Returns all headers as a map.
+ */
+ajax.protocols._get_all_headers = (function ajax$protocols$_get_all_headers(this$){
+if(((!((this$ == null))) && (!((this$.ajax$protocols$AjaxResponse$_get_all_headers$arity$1 == null))))){
+return this$.ajax$protocols$AjaxResponse$_get_all_headers$arity$1(this$);
+} else {
+var x__4243__auto__ = (((this$ == null))?null:this$);
+var m__4244__auto__ = (ajax.protocols._get_all_headers[goog.typeOf(x__4243__auto__)]);
+if(!((m__4244__auto__ == null))){
+return m__4244__auto__.call(null,this$);
+} else {
+var m__4244__auto____$1 = (ajax.protocols._get_all_headers["_"]);
+if(!((m__4244__auto____$1 == null))){
+return m__4244__auto____$1.call(null,this$);
+} else {
+throw cljs.core.missing_protocol.call(null,"AjaxResponse.-get-all-headers",this$);
+}
+}
+}
+});
+
+/**
  * Returns the response body as a string or as type specified in response-format such as a blob or arraybuffer.
  */
 ajax.protocols._body = (function ajax$protocols$_body(this$){
@@ -375,6 +397,12 @@ ajax.protocols.Response.prototype.ajax$protocols$AjaxResponse$_status_text$arity
 var self__ = this;
 var this$__$1 = this;
 return new cljs.core.Keyword(null,"status-text","status-text",-1834235478).cljs$core$IFn$_invoke$arity$1(this$__$1);
+});
+
+ajax.protocols.Response.prototype.ajax$protocols$AjaxResponse$_get_all_headers$arity$1 = (function (this$){
+var self__ = this;
+var this$__$1 = this;
+return new cljs.core.Keyword(null,"headers","headers",-835030129).cljs$core$IFn$_invoke$arity$1(this$__$1);
 });
 
 ajax.protocols.Response.prototype.ajax$protocols$AjaxResponse$_get_response_header$arity$2 = (function (this$,header){

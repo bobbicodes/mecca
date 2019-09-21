@@ -3,7 +3,7 @@
    [re-frame.core :refer [reg-event-db dispatch subscribe]]
    [mecca.mario :refer [mario]]
    [mecca.music :as music :refer [audiocontext]]
-   [mecca.music.scale :as scale]
+   [mecca.audio.scale :as scale]
    [goog.events :refer [listen unlisten]])
   (:import [goog.events EventType]))
 
@@ -22,8 +22,10 @@
     :lead []
     :bassline []
     :drums []
+    :mario-x 54
+    :mario-y 41.5
     :mario-jump 0
-    :mario-run 0}))
+    :mario-run 1}))
 
 (reg-event-db
  :set-bassline
@@ -135,7 +137,7 @@
  :tick!
  (fn [db [_ _]]
    (assoc (update
-           (update db :mario-run #(if (= % 42) 0 (inc %)))
+           (update db :mario-run #(if (= % 3) 1 (inc %)))
            :mario-jump inc)
           :time (music/current-time @audiocontext))))
 

@@ -9,6 +9,7 @@
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [org.clojure/clojurescript "1.10.339"]
                  [reagent "0.8.1"]
+                 [cljs-ajax "0.8.0"]
                  [cljs-bach "0.3.0"]
                  [leipzig "0.10.0"]]
 

@@ -30,20 +30,21 @@
    [mortar-columns x (+ y 4) width 5]
    [mortar-row x (+ y 4) width]])
 
-(defn castle-arch [y]
+(defn castle-arch [x y]
   [:g (for [[dy dx] [[16.5 3] [17.5 5] [18.5 6] [20.5 7] [21.5 7] [22.5 8]]]
         ^{:key [dy dx]}
-        [:line {:x1 (- 40 dx) :x2 (+ 40 dx)
-                :y1 (+ 32 dy) :y2 (+ 32 dy)
-                :stroke "black"}])])
+        [:line {:x1 (+ x (- 40 dx)) :x2 (+ x 40 dx)
+                :y1 (+ 48.5 dy) :y2 (+ 48.5 dy)
+                :stroke "black"
+                :stroke-width 2.1}])])
 
 (defn castle-door [x y]
   [:g
-   [castle-arch y]
    [:rect {:x x :y y
            :width 16
            :height 24
-           :fill "black"}]])
+           :fill "black"}]
+   [castle-arch (- x 32) y]])
 
 (defn castle-roof [x y width]
   [:g
@@ -79,7 +80,7 @@
            :stroke "#fbbbaf"}]])
 
 (defn brick-face [x y width]
-  [:g {:transform "scale (0.18)"
+  [:g {:transform "scale (0.15)"
        :opacity 1}
    [castle-roof x y (* 8 width)]
    [brick-row-pair x (+ y 8) width]
@@ -88,4 +89,4 @@
    [brick-row-pair x (+ y 32) width]
    [brick-row-pair x (+ y 40) width]
    (if (= width 10)
-     [castle-door 32 (+ y 24)])])
+     [castle-door (+ 32 x) (+ y 24)])])

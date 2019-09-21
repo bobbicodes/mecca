@@ -4,8 +4,9 @@
             [reagent.core :as r]
             [re-frame.core :as rf :refer [subscribe dispatch]]
             [mecca.events :as events :refer [mouse-pos mouse-down-handler selected]]
-            [mecca.music.melody :as melody]
-            [mecca.music.scale :as scale]
+            [mecca.audio.melody :as melody]
+            [mecca.audio.sequencer :as sequencer]
+            [mecca.audio.scale :as scale]
             [mecca.components.notation :as notation]
             [mecca.components.castle :as castle]
             [mecca.components.key :as key]
@@ -28,25 +29,18 @@
         (dispatch [:jump-reset]))
       [:svg {:width "100%"
              :view-box "0 0 64 46"}
-       [castle/brick-face 16 0 6]
-       [castle/brick-face 0 32 10]
-       (cond
-         (< @mario-jump 4)
-         [mario :jump1]
-         (< 3 @mario-jump 8)
-         [mario :jump2]
-         (odd? @mario-run)
-         [mario :run1]
-         :else
-         [mario :run2])
+       [mario/hill 40]
+       [castle/brick-face 363 18 6]
+       [castle/brick-face 348 48 10]
+       [mario]
        [editor/note-blocks]
        [editor/rest-blocks]
        [mario/floor-tile 16]
        #_[:rect#editorframe
-        {:stroke "black"
-         :stroke-width 0.5
-         :fill "none"
-         :height 29 :width 63.5 :x 0.25 :y 14.5}]
+          {:stroke "black"
+           :stroke-width 0.5
+           :fill "none"
+           :height 29 :width 63.5 :x 0.25 :y 14.5}]
        [:g.staff {:transform "translate(0,10.5) scale(1)"}
         [notation/staff-lines]
         (if (= 1 @editor-beat-start)
@@ -159,4 +153,6 @@
      (fn [e]
        (music/play-bassline!))}
     "Play"]
+   [:p]
+   ;[sequencer/sequencer]
    [debug-info]])

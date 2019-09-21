@@ -67,6 +67,16 @@
    (:audiocontext db)))
 
 (rf/reg-sub
+ :mario-x
+ (fn [db _]
+   (:mario-x db)))
+
+(rf/reg-sub
+ :mario-y
+ (fn [db _]
+   (:mario-y db)))
+
+(rf/reg-sub
  :mario-run
  (fn [db _]
    (:mario-run db)))

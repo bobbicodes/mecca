@@ -29,6 +29,7 @@
         (dispatch [:jump-reset]))
       [:svg {:width "100%"
              :view-box "0 0 64 46"}
+       [mario/cloud 1 1]
        [mario/hill 40]
        [castle/brick-face 363 18 6]
        [castle/brick-face 348 48 10]
@@ -36,11 +37,11 @@
        [editor/note-blocks]
        [editor/rest-blocks]
        [mario/floor-tile 16]
-       #_[:rect#editorframe
+       [:rect#editorframe
           {:stroke "black"
            :stroke-width 0.5
            :fill "none"
-           :height 29 :width 63.5 :x 0.25 :y 14.5}]
+           :height 31 :width 63.5 :x 0.25 :y 14.5}]
        [:g.staff {:transform "translate(0,10.5) scale(1)"}
         [notation/staff-lines]
         (if (= 1 @editor-beat-start)

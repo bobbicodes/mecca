@@ -80,7 +80,7 @@ goog.addDependency("../mecca/events.js", ['mecca.events'], ['mecca.music', 'cljs
 goog.addDependency("../mecca/subs.js", ['mecca.subs'], ['cljs.core', 're_frame.core']);
 goog.addDependency("../mecca/components/key.js", ['mecca.components.key'], ['cljs.core']);
 goog.addDependency("../mecca/components/notation.js", ['mecca.components.notation'], ['reagent.core', 'cljs.core', 're_frame.core']);
-goog.addDependency("../mecca/components/editor.js", ['mecca.components.editor'], ['mecca.components.key', 'mecca.components.notation', 'reagent.core', 'cljs.core', 're_frame.core']);
+goog.addDependency("../mecca/components/editor.js", ['mecca.components.editor'], ['mecca.components.key', 'mecca.components.notation', 'reagent.core', 'cljs.core', 'mecca.mario', 're_frame.core']);
 goog.addDependency("../mecca/audio/sequencer.js", ['mecca.audio.sequencer'], ['cljs.core']);
 goog.addDependency("../mecca/components/castle.js", ['mecca.components.castle'], ['cljs.core']);
 goog.addDependency("../mecca/view.js", ['mecca.view'], ['mecca.components.editor', 'mecca.components.key', 'mecca.events', 'mecca.subs', 'mecca.music', 'mecca.components.notation', 'mecca.audio.sequencer', 'reagent.core', 'cljs.core', 'mecca.audio.melody', 'mecca.audio.scale', 'mecca.mario', 'mecca.components.castle', 're_frame.core']);

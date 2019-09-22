@@ -33,11 +33,11 @@ return null;
 }
 });
 mecca.audio.processing.well_formed_QMARK_ = (function mecca$audio$processing$well_formed_QMARK_(value){
-var ok_QMARK_ = (function mecca$audio$processing$well_formed_QMARK__$_ok_QMARK_(p__12851){
-var map__12852 = p__12851;
-var map__12852__$1 = ((((!((map__12852 == null)))?(((((map__12852.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12852.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12852):map__12852);
-var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12852__$1,cljs.core.cst$kw$time);
-var duration = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12852__$1,cljs.core.cst$kw$duration);
+var ok_QMARK_ = (function mecca$audio$processing$well_formed_QMARK__$_ok_QMARK_(p__12919){
+var map__12920 = p__12919;
+var map__12920__$1 = ((((!((map__12920 == null)))?(((((map__12920.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12920.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12920):map__12920);
+var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12920__$1,cljs.core.cst$kw$time);
+var duration = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12920__$1,cljs.core.cst$kw$duration);
 var and__3938__auto__ = time;
 if(cljs.core.truth_(and__3938__auto__)){
 return duration;
@@ -51,12 +51,12 @@ return "All notes must have a time and a duration.";
 return null;
 }
 });
-mecca.audio.processing.check = (function mecca$audio$processing$check(p__12854,ok_QMARK_){
-var map__12855 = p__12854;
-var map__12855__$1 = ((((!((map__12855 == null)))?(((((map__12855.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12855.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12855):map__12855);
-var return$ = map__12855__$1;
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12855__$1,cljs.core.cst$kw$value);
-var error = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12855__$1,cljs.core.cst$kw$error);
+mecca.audio.processing.check = (function mecca$audio$processing$check(p__12922,ok_QMARK_){
+var map__12923 = p__12922;
+var map__12923__$1 = ((((!((map__12923 == null)))?(((((map__12923.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12923.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12923):map__12923);
+var return$ = map__12923__$1;
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12923__$1,cljs.core.cst$kw$value);
+var error = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12923__$1,cljs.core.cst$kw$error);
 if(cljs.core.truth_(error)){
 return return$;
 } else {
@@ -65,27 +65,27 @@ return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(return$,cljs.core.cst$kw$er
 });
 mecca.audio.actions.Stop.prototype.mecca$audio$framework$Action$ = cljs.core.PROTOCOL_SENTINEL;
 
-mecca.audio.actions.Stop.prototype.mecca$audio$framework$Action$process$arity$3 = (function (p__12857,handle_BANG_,state){
-var map__12858 = p__12857;
-var map__12858__$1 = ((((!((map__12858 == null)))?(((((map__12858.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12858.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12858):map__12858);
-var pane = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12858__$1,cljs.core.cst$kw$target);
-var map__12860 = this;
-var map__12860__$1 = ((((!((map__12860 == null)))?(((((map__12860.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12860.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12860):map__12860);
-var pane__$1 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12860__$1,cljs.core.cst$kw$target);
+mecca.audio.actions.Stop.prototype.mecca$audio$framework$Action$process$arity$3 = (function (p__12925,handle_BANG_,state){
+var map__12926 = p__12925;
+var map__12926__$1 = ((((!((map__12926 == null)))?(((((map__12926.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12926.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12926):map__12926);
+var pane = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12926__$1,cljs.core.cst$kw$target);
+var map__12928 = this;
+var map__12928__$1 = ((((!((map__12928 == null)))?(((((map__12928.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12928.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12928):map__12928);
+var pane__$1 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12928__$1,cljs.core.cst$kw$target);
 return cljs.core.assoc_in(state,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [pane__$1,cljs.core.cst$kw$looping_QMARK_], null),false);
 });
 
 mecca.audio.actions.Play.prototype.mecca$audio$framework$Action$ = cljs.core.PROTOCOL_SENTINEL;
 
-mecca.audio.actions.Play.prototype.mecca$audio$framework$Action$process$arity$3 = (function (p__12862,handle_BANG_,state){
-var map__12863 = p__12862;
-var map__12863__$1 = ((((!((map__12863 == null)))?(((((map__12863.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12863.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12863):map__12863);
-var this$ = map__12863__$1;
-var pane = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12863__$1,cljs.core.cst$kw$target);
-var map__12865 = this;
-var map__12865__$1 = ((((!((map__12865 == null)))?(((((map__12865.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12865.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12865):map__12865);
-var this$__$1 = map__12865__$1;
-var pane__$1 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12865__$1,cljs.core.cst$kw$target);
+mecca.audio.actions.Play.prototype.mecca$audio$framework$Action$process$arity$3 = (function (p__12930,handle_BANG_,state){
+var map__12931 = p__12930;
+var map__12931__$1 = ((((!((map__12931 == null)))?(((((map__12931.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12931.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12931):map__12931);
+var this$ = map__12931__$1;
+var pane = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12931__$1,cljs.core.cst$kw$target);
+var map__12933 = this;
+var map__12933__$1 = ((((!((map__12933 == null)))?(((((map__12933.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12933.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12933):map__12933);
+var this$__$1 = map__12933__$1;
+var pane__$1 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12933__$1,cljs.core.cst$kw$target);
 if(!((Date.now() < cljs.core.get_in.cljs$core$IFn$_invoke$arity$2(state,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [pane__$1,cljs.core.cst$kw$sync], null))))){
 return mecca.audio.framework.process(mecca.audio.actions.__GT_Loop(pane__$1),handle_BANG_,cljs.core.assoc_in(state,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [pane__$1,cljs.core.cst$kw$looping_QMARK_], null),true));
 } else {
@@ -95,22 +95,22 @@ return state;
 
 mecca.audio.actions.PlayOnce.prototype.mecca$audio$framework$Action$ = cljs.core.PROTOCOL_SENTINEL;
 
-mecca.audio.actions.PlayOnce.prototype.mecca$audio$framework$Action$process$arity$3 = (function (p__12867,handle_BANG_,p__12868){
-var map__12869 = p__12867;
-var map__12869__$1 = ((((!((map__12869 == null)))?(((((map__12869.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12869.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12869):map__12869);
-var this$ = map__12869__$1;
-var pane = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12869__$1,cljs.core.cst$kw$target);
-var map__12870 = p__12868;
-var map__12870__$1 = ((((!((map__12870 == null)))?(((((map__12870.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12870.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12870):map__12870);
-var state = map__12870__$1;
-var audiocontext = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12870__$1,cljs.core.cst$kw$audiocontext);
-var map__12873 = this;
-var map__12873__$1 = ((((!((map__12873 == null)))?(((((map__12873.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12873.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12873):map__12873);
-var this$__$1 = map__12873__$1;
-var pane__$1 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12873__$1,cljs.core.cst$kw$target);
-var map__12875 = (pane__$1.cljs$core$IFn$_invoke$arity$1 ? pane__$1.cljs$core$IFn$_invoke$arity$1(state) : pane__$1.call(null,state));
-var map__12875__$1 = ((((!((map__12875 == null)))?(((((map__12875.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12875.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12875):map__12875);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12875__$1,cljs.core.cst$kw$value);
+mecca.audio.actions.PlayOnce.prototype.mecca$audio$framework$Action$process$arity$3 = (function (p__12935,handle_BANG_,p__12936){
+var map__12937 = p__12935;
+var map__12937__$1 = ((((!((map__12937 == null)))?(((((map__12937.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12937.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12937):map__12937);
+var this$ = map__12937__$1;
+var pane = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12937__$1,cljs.core.cst$kw$target);
+var map__12938 = p__12936;
+var map__12938__$1 = ((((!((map__12938 == null)))?(((((map__12938.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12938.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12938):map__12938);
+var state = map__12938__$1;
+var audiocontext = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12938__$1,cljs.core.cst$kw$audiocontext);
+var map__12941 = this;
+var map__12941__$1 = ((((!((map__12941 == null)))?(((((map__12941.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12941.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12941):map__12941);
+var this$__$1 = map__12941__$1;
+var pane__$1 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12941__$1,cljs.core.cst$kw$target);
+var map__12943 = (pane__$1.cljs$core$IFn$_invoke$arity$1 ? pane__$1.cljs$core$IFn$_invoke$arity$1(state) : pane__$1.call(null,state));
+var map__12943__$1 = ((((!((map__12943 == null)))?(((((map__12943.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12943.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12943):map__12943);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12943__$1,cljs.core.cst$kw$value);
 mecca.audio.synthesis.play_BANG_(audiocontext,value);
 
 return state;
@@ -118,32 +118,32 @@ return state;
 
 mecca.audio.actions.Loop.prototype.mecca$audio$framework$Action$ = cljs.core.PROTOCOL_SENTINEL;
 
-mecca.audio.actions.Loop.prototype.mecca$audio$framework$Action$process$arity$3 = (function (p__12877,handle_BANG_,p__12878){
-var map__12879 = p__12877;
-var map__12879__$1 = ((((!((map__12879 == null)))?(((((map__12879.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12879.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12879):map__12879);
-var this$ = map__12879__$1;
-var pane = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12879__$1,cljs.core.cst$kw$target);
-var map__12880 = p__12878;
-var map__12880__$1 = ((((!((map__12880 == null)))?(((((map__12880.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12880.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12880):map__12880);
-var state = map__12880__$1;
-var audiocontext = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12880__$1,cljs.core.cst$kw$audiocontext);
-var map__12883 = this;
-var map__12883__$1 = ((((!((map__12883 == null)))?(((((map__12883.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12883.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12883):map__12883);
-var this$__$1 = map__12883__$1;
-var pane__$1 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12883__$1,cljs.core.cst$kw$target);
-var map__12885 = (pane__$1.cljs$core$IFn$_invoke$arity$1 ? pane__$1.cljs$core$IFn$_invoke$arity$1(state) : pane__$1.call(null,state));
-var map__12885__$1 = ((((!((map__12885 == null)))?(((((map__12885.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12885.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12885):map__12885);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12885__$1,cljs.core.cst$kw$value);
-var looping_QMARK_ = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12885__$1,cljs.core.cst$kw$looping_QMARK_);
-var audio_sync = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__12885__$1,cljs.core.cst$kw$audio_DASH_sync,audiocontext.currentTime);
+mecca.audio.actions.Loop.prototype.mecca$audio$framework$Action$process$arity$3 = (function (p__12945,handle_BANG_,p__12946){
+var map__12947 = p__12945;
+var map__12947__$1 = ((((!((map__12947 == null)))?(((((map__12947.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12947.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12947):map__12947);
+var this$ = map__12947__$1;
+var pane = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12947__$1,cljs.core.cst$kw$target);
+var map__12948 = p__12946;
+var map__12948__$1 = ((((!((map__12948 == null)))?(((((map__12948.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12948.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12948):map__12948);
+var state = map__12948__$1;
+var audiocontext = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12948__$1,cljs.core.cst$kw$audiocontext);
+var map__12951 = this;
+var map__12951__$1 = ((((!((map__12951 == null)))?(((((map__12951.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12951.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12951):map__12951);
+var this$__$1 = map__12951__$1;
+var pane__$1 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12951__$1,cljs.core.cst$kw$target);
+var map__12953 = (pane__$1.cljs$core$IFn$_invoke$arity$1 ? pane__$1.cljs$core$IFn$_invoke$arity$1(state) : pane__$1.call(null,state));
+var map__12953__$1 = ((((!((map__12953 == null)))?(((((map__12953.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__12953.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12953):map__12953);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12953__$1,cljs.core.cst$kw$value);
+var looping_QMARK_ = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__12953__$1,cljs.core.cst$kw$looping_QMARK_);
+var audio_sync = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__12953__$1,cljs.core.cst$kw$audio_DASH_sync,audiocontext.currentTime);
 var duration = mecca.audio.melody.duration(value);
 if(cljs.core.truth_(looping_QMARK_)){
 mecca.audio.synthesis.play_from_BANG_(audiocontext,audio_sync,value);
 
-mecca.audio.processing.schedule_BANG_(((function (map__12885,map__12885__$1,value,looping_QMARK_,audio_sync,duration,map__12883,map__12883__$1,this$__$1,pane__$1,map__12879,map__12879__$1,this$,pane,map__12880,map__12880__$1,state,audiocontext){
+mecca.audio.processing.schedule_BANG_(((function (map__12953,map__12953__$1,value,looping_QMARK_,audio_sync,duration,map__12951,map__12951__$1,this$__$1,pane__$1,map__12947,map__12947__$1,this$,pane,map__12948,map__12948__$1,state,audiocontext){
 return (function (){
 return (handle_BANG_.cljs$core$IFn$_invoke$arity$1 ? handle_BANG_.cljs$core$IFn$_invoke$arity$1(this$__$1) : handle_BANG_.call(null,this$__$1));
-});})(map__12885,map__12885__$1,value,looping_QMARK_,audio_sync,duration,map__12883,map__12883__$1,this$__$1,pane__$1,map__12879,map__12879__$1,this$,pane,map__12880,map__12880__$1,state,audiocontext))
+});})(map__12953,map__12953__$1,value,looping_QMARK_,audio_sync,duration,map__12951,map__12951__$1,this$__$1,pane__$1,map__12947,map__12947__$1,this$,pane,map__12948,map__12948__$1,state,audiocontext))
 ,duration);
 
 return mecca.audio.processing.update_syncs(state,pane__$1,audio_sync,duration);

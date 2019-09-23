@@ -13,6 +13,24 @@
             [mecca.components.editor :as editor]
             [mecca.mario :as mario :refer [editor-bg mario]]))
 
+(defn note-targets []
+  (into [:g] (for [x (range 16)
+               y (range 34)]
+           ^{:key [x y]}
+            [:rect {:transform "translate(12.5,0)"
+                    :x (* 3 x)
+                    :y (+ 0.5 y)
+                    :height 1 :width 3
+                    :stroke "black"
+                    :stroke-width 0.2
+                    :fill "gray"
+                    :visibility "visible"
+                    :opacity 0.2
+                    :pointer-events "all"
+                    :on-mouse-over #(dispatch [:update-focus-note [x y]])
+                    :on-mouse-out #(dispatch [:update-focus-note [nil nil]])
+                    :on-click #(dispatch [:add-note x y])}])))
+
 (defn editor []
   (let [focused (r/atom [nil nil])
         lead (subscribe [:lead])
@@ -39,10 +57,11 @@
        [mario/floor-tile 16]
        [:rect#editorframe
           {:stroke "black"
-           :stroke-width 0.5
+           :stroke-width 0.25
            :fill "none"
            :height 31 :width 63.5 :x 0.25 :y 14.5}]
-       [:g.staff {:transform "translate(0,10.5) scale(1)"}
+       [:g.staff {:transform "translate(0,10.5) scale(1)"
+                  :style {:cursor "url(images/hand.png),crosshair"}}
         [notation/staff-lines]
         (if (= 1 @editor-beat-start)
           [:g [notation/brace]
@@ -54,7 +73,7 @@
            [editor/note-guides]
            [editor/retract-editor 8]
            [editor/note-guides]
-           [notation/bar-line 31.5]
+           [notation/bar-line 32.7]
            [editor/note-guides]]
           [:g
            [editor/retract-editor 2]
@@ -63,54 +82,7 @@
            [editor/note-guides]])
         [editor/advance-editor]
         [notation/bar-line 59]
-        (doall (for [x (range 8)
-                     y (conj (range 34))]
-                 ^{:key [x y]}
-                 [:g {:transform "translate(12.5,0)"}
-                  [:rect {:x (* 6 x)
-                          :y (+ 0.5 y)
-                          :height 1 :width 3
-                          :fill "gray"
-                          :visibility "hidden"
-                          :pointer-events "all"
-                          :on-mouse-over (fn [e]
-                                           (reset! focused [x y]))
-                          :on-mouse-out #(reset! focused [nil nil])
-                          :on-click #(dispatch [:add-note x y])}]
-                  (if (= @focused [x y])
-                    (if (< 30 y)
-                      [:g {:transform (str "translate(" (+ 0.35 (* 6 x)) "," (inc y) ") ")
-                           :pointer-events "none"}
-                       [:path {:d "m1.24.27 .9.74c.02.01 .04.03 .07.03 .02 0 .05-.01.08-.03l.15-.12c.02-.02.04-.06.04-.09 0-.03-.02-.06-.04-.08L1.56 0 2.43-.71c.02-.02.04-.05.04-.08 0-.03-.02-.07-.04-.09l-.15-.12c-.02-.01-.05-.03-.08-.03-.02 0-.04.01-.07.03L1.24-.27.33-1.01c-.02-.01-.04-.03-.07-.03-.02 0-.05.01-.08.03l-.15.12c-.02.02-.04.06-.04.09 0 .03.02 .06.04 .08L.91 0 .04.71c-.02.02-.04.05-.04.08 0 .03.02 .07.04 .09l.15.12c.02.01 .05.03 .08.03 .02 0 .04-.01.07-.03z"
-                               :fill "gray"}]
-                       [:rect {:x (if (< 31 y)
-                                    2.2 0)
-                               :y (if (< 31 y)
-                                    -6.3
-                                    0.8)
-                               :height 5.5 :width 0.25
-                               :fill "gray"}]]
-                      [:g {:transform (str "translate(" (+ 0.5 (* 6 x)) "," (inc y) ")")
-                           :pointer-events "none"}
-                       [:path {:d "m1.62-1.06c.41 0 .8.21 .8.67 0 .53-.41.89-.76 1.1-.27.16-.56.27-.86.27-.41 0-.8-.21-.8-.67 0-.53.41-.89.76-1.1.27-.16.56-.27.86-.27z"
-                               :fill "gray"}]
-                       [:rect {:x (if (or (< 11 y 18) (< 23 y))
-                                    2.15 0.02)
-                               :y (if (or (< 11 y 18) (< 23 y))
-                                    -7.1 0)
-                               :height 6.794 :width 0.25
-                               :fill "gray"}]
-                       (if (or (= y 1)
-                               (= y 3)
-                               (= y 5)
-                               (= y 17)
-                               (= y 29))
-                         [:rect {:transform "scale (1.75)"
-                                 :height 0.2
-                                 :width 2.085
-                                 :ry 0.1
-                                 :x -0.334 :y -0.1
-                                 :fill "gray"}])]))]))
+        [note-targets]
         (doall (for [{:keys [time duration pitch]} @lead]
                  ^{:key [time duration pitch]}
                  [notation/note duration [time (- 77 pitch)]]))
@@ -129,6 +101,8 @@
    [:p (str "Drums: " @(subscribe [:drums]))]
    [:p (str "Mario run: " @(subscribe [:mario-run]))]
    [:p (str "Mario jump: " @(subscribe [:mario-jump]))]
+   [:p (str "Selected note value: " @(subscribe [:selected-note-value]))]
+   [:p (str "Focused note pos: " @(subscribe [:focused-note-pos]))]
    [:p (str @(subscribe [:scale])
             " scale from MIDI number "
             (music/root-note-midi-num) " ("
@@ -148,7 +122,6 @@
   [:div
    [editor]
    [editor/controls]
-    [editor/tempo-input]
    [:button
     {:on-click
      (fn [e]

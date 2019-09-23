@@ -34,18 +34,18 @@ var this__4203__auto____$1 = this;
 return this__4203__auto____$1.cljs$core$ILookup$_lookup$arity$3(null,k__4204__auto__,null);
 });
 
-mecca.audio.actions.Play.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4205__auto__,k12857,else__4206__auto__){
+mecca.audio.actions.Play.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4205__auto__,k12852,else__4206__auto__){
 var self__ = this;
 var this__4205__auto____$1 = this;
-var G__12861 = k12857;
-var G__12861__$1 = (((G__12861 instanceof cljs.core.Keyword))?G__12861.fqn:null);
-switch (G__12861__$1) {
+var G__12856 = k12852;
+var G__12856__$1 = (((G__12856 instanceof cljs.core.Keyword))?G__12856.fqn:null);
+switch (G__12856__$1) {
 case "target":
 return self__.target;
 
 break;
 default:
-return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k12857,else__4206__auto__);
+return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k12852,else__4206__auto__);
 
 }
 });
@@ -61,10 +61,10 @@ return cljs.core.pr_sequential_writer(writer__4218__auto__,cljs.core.pr_writer,"
 return cljs.core.pr_sequential_writer(writer__4218__auto__,pr_pair__4220__auto__,"#mecca.audio.actions.Play{",", ","}",opts__4219__auto__,cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[cljs.core.cst$kw$target,self__.target],null))], null),self__.__extmap));
 });
 
-mecca.audio.actions.Play.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__12856){
+mecca.audio.actions.Play.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__12851){
 var self__ = this;
-var G__12856__$1 = this;
-return (new cljs.core.RecordIter((0),G__12856__$1,1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$target], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator(self__.__extmap):cljs.core.nil_iter())));
+var G__12851__$1 = this;
+return (new cljs.core.RecordIter((0),G__12851__$1,1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$target], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator(self__.__extmap):cljs.core.nil_iter())));
 });
 
 mecca.audio.actions.Play.prototype.cljs$core$IMeta$_meta$arity$1 = (function (this__4201__auto__){
@@ -92,12 +92,12 @@ var h__4061__auto__ = self__.__hash;
 if(!((h__4061__auto__ == null))){
 return h__4061__auto__;
 } else {
-var h__4061__auto____$1 = (function (){var fexpr__12862 = ((function (h__4061__auto__,this__4199__auto____$1){
+var h__4061__auto____$1 = (function (){var fexpr__12857 = ((function (h__4061__auto__,this__4199__auto____$1){
 return (function (coll__4200__auto__){
 return (-1016465899 ^ cljs.core.hash_unordered_coll(coll__4200__auto__));
 });})(h__4061__auto__,this__4199__auto____$1))
 ;
-return fexpr__12862(this__4199__auto____$1);
+return fexpr__12857(this__4199__auto____$1);
 })();
 self__.__hash = h__4061__auto____$1;
 
@@ -105,10 +105,10 @@ return h__4061__auto____$1;
 }
 });
 
-mecca.audio.actions.Play.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this12858,other12859){
+mecca.audio.actions.Play.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this12853,other12854){
 var self__ = this;
-var this12858__$1 = this;
-return ((!((other12859 == null))) && ((this12858__$1.constructor === other12859.constructor)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this12858__$1.target,other12859.target)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this12858__$1.__extmap,other12859.__extmap)));
+var this12853__$1 = this;
+return ((!((other12854 == null))) && ((this12853__$1.constructor === other12854.constructor)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this12853__$1.target,other12854.target)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this12853__$1.__extmap,other12854.__extmap)));
 });
 
 mecca.audio.actions.Play.prototype.cljs$core$IMap$_dissoc$arity$2 = (function (this__4212__auto__,k__4213__auto__){
@@ -121,18 +121,18 @@ return (new mecca.audio.actions.Play(self__.target,self__.__meta,cljs.core.not_e
 }
 });
 
-mecca.audio.actions.Play.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4210__auto__,k__4211__auto__,G__12856){
+mecca.audio.actions.Play.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4210__auto__,k__4211__auto__,G__12851){
 var self__ = this;
 var this__4210__auto____$1 = this;
-var pred__12863 = cljs.core.keyword_identical_QMARK_;
-var expr__12864 = k__4211__auto__;
-if(cljs.core.truth_((function (){var G__12866 = cljs.core.cst$kw$target;
-var G__12867 = expr__12864;
-return (pred__12863.cljs$core$IFn$_invoke$arity$2 ? pred__12863.cljs$core$IFn$_invoke$arity$2(G__12866,G__12867) : pred__12863.call(null,G__12866,G__12867));
+var pred__12858 = cljs.core.keyword_identical_QMARK_;
+var expr__12859 = k__4211__auto__;
+if(cljs.core.truth_((function (){var G__12861 = cljs.core.cst$kw$target;
+var G__12862 = expr__12859;
+return (pred__12858.cljs$core$IFn$_invoke$arity$2 ? pred__12858.cljs$core$IFn$_invoke$arity$2(G__12861,G__12862) : pred__12858.call(null,G__12861,G__12862));
 })())){
-return (new mecca.audio.actions.Play(G__12856,self__.__meta,self__.__extmap,null));
+return (new mecca.audio.actions.Play(G__12851,self__.__meta,self__.__extmap,null));
 } else {
-return (new mecca.audio.actions.Play(self__.target,self__.__meta,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k__4211__auto__,G__12856),null));
+return (new mecca.audio.actions.Play(self__.target,self__.__meta,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k__4211__auto__,G__12851),null));
 }
 });
 
@@ -142,10 +142,10 @@ var this__4215__auto____$1 = this;
 return cljs.core.seq(cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.MapEntry(cljs.core.cst$kw$target,self__.target,null))], null),self__.__extmap));
 });
 
-mecca.audio.actions.Play.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4202__auto__,G__12856){
+mecca.audio.actions.Play.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4202__auto__,G__12851){
 var self__ = this;
 var this__4202__auto____$1 = this;
-return (new mecca.audio.actions.Play(self__.target,G__12856,self__.__extmap,self__.__hash));
+return (new mecca.audio.actions.Play(self__.target,G__12851,self__.__extmap,self__.__hash));
 });
 
 mecca.audio.actions.Play.prototype.cljs$core$ICollection$_conj$arity$2 = (function (this__4208__auto__,entry__4209__auto__){
@@ -182,15 +182,15 @@ return (new mecca.audio.actions.Play(target,null,null,null));
 /**
  * Factory function for mecca.audio.actions/Play, taking a map of keywords to field values.
  */
-mecca.audio.actions.map__GT_Play = (function mecca$audio$actions$map__GT_Play(G__12860){
-var extmap__4236__auto__ = (function (){var G__12868 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$2(G__12860,cljs.core.cst$kw$target);
-if(cljs.core.record_QMARK_(G__12860)){
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,G__12868);
+mecca.audio.actions.map__GT_Play = (function mecca$audio$actions$map__GT_Play(G__12855){
+var extmap__4236__auto__ = (function (){var G__12863 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$2(G__12855,cljs.core.cst$kw$target);
+if(cljs.core.record_QMARK_(G__12855)){
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,G__12863);
 } else {
-return G__12868;
+return G__12863;
 }
 })();
-return (new mecca.audio.actions.Play(cljs.core.cst$kw$target.cljs$core$IFn$_invoke$arity$1(G__12860),null,cljs.core.not_empty(extmap__4236__auto__),null));
+return (new mecca.audio.actions.Play(cljs.core.cst$kw$target.cljs$core$IFn$_invoke$arity$1(G__12855),null,cljs.core.not_empty(extmap__4236__auto__),null));
 });
 
 
@@ -225,18 +225,18 @@ var this__4203__auto____$1 = this;
 return this__4203__auto____$1.cljs$core$ILookup$_lookup$arity$3(null,k__4204__auto__,null);
 });
 
-mecca.audio.actions.PlayOnce.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4205__auto__,k12871,else__4206__auto__){
+mecca.audio.actions.PlayOnce.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4205__auto__,k12866,else__4206__auto__){
 var self__ = this;
 var this__4205__auto____$1 = this;
-var G__12875 = k12871;
-var G__12875__$1 = (((G__12875 instanceof cljs.core.Keyword))?G__12875.fqn:null);
-switch (G__12875__$1) {
+var G__12870 = k12866;
+var G__12870__$1 = (((G__12870 instanceof cljs.core.Keyword))?G__12870.fqn:null);
+switch (G__12870__$1) {
 case "target":
 return self__.target;
 
 break;
 default:
-return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k12871,else__4206__auto__);
+return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k12866,else__4206__auto__);
 
 }
 });
@@ -252,10 +252,10 @@ return cljs.core.pr_sequential_writer(writer__4218__auto__,cljs.core.pr_writer,"
 return cljs.core.pr_sequential_writer(writer__4218__auto__,pr_pair__4220__auto__,"#mecca.audio.actions.PlayOnce{",", ","}",opts__4219__auto__,cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[cljs.core.cst$kw$target,self__.target],null))], null),self__.__extmap));
 });
 
-mecca.audio.actions.PlayOnce.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__12870){
+mecca.audio.actions.PlayOnce.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__12865){
 var self__ = this;
-var G__12870__$1 = this;
-return (new cljs.core.RecordIter((0),G__12870__$1,1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$target], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator(self__.__extmap):cljs.core.nil_iter())));
+var G__12865__$1 = this;
+return (new cljs.core.RecordIter((0),G__12865__$1,1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$target], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator(self__.__extmap):cljs.core.nil_iter())));
 });
 
 mecca.audio.actions.PlayOnce.prototype.cljs$core$IMeta$_meta$arity$1 = (function (this__4201__auto__){
@@ -283,12 +283,12 @@ var h__4061__auto__ = self__.__hash;
 if(!((h__4061__auto__ == null))){
 return h__4061__auto__;
 } else {
-var h__4061__auto____$1 = (function (){var fexpr__12876 = ((function (h__4061__auto__,this__4199__auto____$1){
+var h__4061__auto____$1 = (function (){var fexpr__12871 = ((function (h__4061__auto__,this__4199__auto____$1){
 return (function (coll__4200__auto__){
 return (904884220 ^ cljs.core.hash_unordered_coll(coll__4200__auto__));
 });})(h__4061__auto__,this__4199__auto____$1))
 ;
-return fexpr__12876(this__4199__auto____$1);
+return fexpr__12871(this__4199__auto____$1);
 })();
 self__.__hash = h__4061__auto____$1;
 
@@ -296,10 +296,10 @@ return h__4061__auto____$1;
 }
 });
 
-mecca.audio.actions.PlayOnce.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this12872,other12873){
+mecca.audio.actions.PlayOnce.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this12867,other12868){
 var self__ = this;
-var this12872__$1 = this;
-return ((!((other12873 == null))) && ((this12872__$1.constructor === other12873.constructor)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this12872__$1.target,other12873.target)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this12872__$1.__extmap,other12873.__extmap)));
+var this12867__$1 = this;
+return ((!((other12868 == null))) && ((this12867__$1.constructor === other12868.constructor)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this12867__$1.target,other12868.target)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this12867__$1.__extmap,other12868.__extmap)));
 });
 
 mecca.audio.actions.PlayOnce.prototype.cljs$core$IMap$_dissoc$arity$2 = (function (this__4212__auto__,k__4213__auto__){
@@ -312,18 +312,18 @@ return (new mecca.audio.actions.PlayOnce(self__.target,self__.__meta,cljs.core.n
 }
 });
 
-mecca.audio.actions.PlayOnce.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4210__auto__,k__4211__auto__,G__12870){
+mecca.audio.actions.PlayOnce.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4210__auto__,k__4211__auto__,G__12865){
 var self__ = this;
 var this__4210__auto____$1 = this;
-var pred__12877 = cljs.core.keyword_identical_QMARK_;
-var expr__12878 = k__4211__auto__;
-if(cljs.core.truth_((function (){var G__12880 = cljs.core.cst$kw$target;
-var G__12881 = expr__12878;
-return (pred__12877.cljs$core$IFn$_invoke$arity$2 ? pred__12877.cljs$core$IFn$_invoke$arity$2(G__12880,G__12881) : pred__12877.call(null,G__12880,G__12881));
+var pred__12872 = cljs.core.keyword_identical_QMARK_;
+var expr__12873 = k__4211__auto__;
+if(cljs.core.truth_((function (){var G__12875 = cljs.core.cst$kw$target;
+var G__12876 = expr__12873;
+return (pred__12872.cljs$core$IFn$_invoke$arity$2 ? pred__12872.cljs$core$IFn$_invoke$arity$2(G__12875,G__12876) : pred__12872.call(null,G__12875,G__12876));
 })())){
-return (new mecca.audio.actions.PlayOnce(G__12870,self__.__meta,self__.__extmap,null));
+return (new mecca.audio.actions.PlayOnce(G__12865,self__.__meta,self__.__extmap,null));
 } else {
-return (new mecca.audio.actions.PlayOnce(self__.target,self__.__meta,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k__4211__auto__,G__12870),null));
+return (new mecca.audio.actions.PlayOnce(self__.target,self__.__meta,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k__4211__auto__,G__12865),null));
 }
 });
 
@@ -333,10 +333,10 @@ var this__4215__auto____$1 = this;
 return cljs.core.seq(cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.MapEntry(cljs.core.cst$kw$target,self__.target,null))], null),self__.__extmap));
 });
 
-mecca.audio.actions.PlayOnce.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4202__auto__,G__12870){
+mecca.audio.actions.PlayOnce.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4202__auto__,G__12865){
 var self__ = this;
 var this__4202__auto____$1 = this;
-return (new mecca.audio.actions.PlayOnce(self__.target,G__12870,self__.__extmap,self__.__hash));
+return (new mecca.audio.actions.PlayOnce(self__.target,G__12865,self__.__extmap,self__.__hash));
 });
 
 mecca.audio.actions.PlayOnce.prototype.cljs$core$ICollection$_conj$arity$2 = (function (this__4208__auto__,entry__4209__auto__){
@@ -373,15 +373,15 @@ return (new mecca.audio.actions.PlayOnce(target,null,null,null));
 /**
  * Factory function for mecca.audio.actions/PlayOnce, taking a map of keywords to field values.
  */
-mecca.audio.actions.map__GT_PlayOnce = (function mecca$audio$actions$map__GT_PlayOnce(G__12874){
-var extmap__4236__auto__ = (function (){var G__12882 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$2(G__12874,cljs.core.cst$kw$target);
-if(cljs.core.record_QMARK_(G__12874)){
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,G__12882);
+mecca.audio.actions.map__GT_PlayOnce = (function mecca$audio$actions$map__GT_PlayOnce(G__12869){
+var extmap__4236__auto__ = (function (){var G__12877 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$2(G__12869,cljs.core.cst$kw$target);
+if(cljs.core.record_QMARK_(G__12869)){
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,G__12877);
 } else {
-return G__12882;
+return G__12877;
 }
 })();
-return (new mecca.audio.actions.PlayOnce(cljs.core.cst$kw$target.cljs$core$IFn$_invoke$arity$1(G__12874),null,cljs.core.not_empty(extmap__4236__auto__),null));
+return (new mecca.audio.actions.PlayOnce(cljs.core.cst$kw$target.cljs$core$IFn$_invoke$arity$1(G__12869),null,cljs.core.not_empty(extmap__4236__auto__),null));
 });
 
 
@@ -416,18 +416,18 @@ var this__4203__auto____$1 = this;
 return this__4203__auto____$1.cljs$core$ILookup$_lookup$arity$3(null,k__4204__auto__,null);
 });
 
-mecca.audio.actions.Loop.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4205__auto__,k12885,else__4206__auto__){
+mecca.audio.actions.Loop.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4205__auto__,k12880,else__4206__auto__){
 var self__ = this;
 var this__4205__auto____$1 = this;
-var G__12889 = k12885;
-var G__12889__$1 = (((G__12889 instanceof cljs.core.Keyword))?G__12889.fqn:null);
-switch (G__12889__$1) {
+var G__12884 = k12880;
+var G__12884__$1 = (((G__12884 instanceof cljs.core.Keyword))?G__12884.fqn:null);
+switch (G__12884__$1) {
 case "target":
 return self__.target;
 
 break;
 default:
-return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k12885,else__4206__auto__);
+return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k12880,else__4206__auto__);
 
 }
 });
@@ -443,10 +443,10 @@ return cljs.core.pr_sequential_writer(writer__4218__auto__,cljs.core.pr_writer,"
 return cljs.core.pr_sequential_writer(writer__4218__auto__,pr_pair__4220__auto__,"#mecca.audio.actions.Loop{",", ","}",opts__4219__auto__,cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[cljs.core.cst$kw$target,self__.target],null))], null),self__.__extmap));
 });
 
-mecca.audio.actions.Loop.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__12884){
+mecca.audio.actions.Loop.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__12879){
 var self__ = this;
-var G__12884__$1 = this;
-return (new cljs.core.RecordIter((0),G__12884__$1,1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$target], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator(self__.__extmap):cljs.core.nil_iter())));
+var G__12879__$1 = this;
+return (new cljs.core.RecordIter((0),G__12879__$1,1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$target], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator(self__.__extmap):cljs.core.nil_iter())));
 });
 
 mecca.audio.actions.Loop.prototype.cljs$core$IMeta$_meta$arity$1 = (function (this__4201__auto__){
@@ -474,12 +474,12 @@ var h__4061__auto__ = self__.__hash;
 if(!((h__4061__auto__ == null))){
 return h__4061__auto__;
 } else {
-var h__4061__auto____$1 = (function (){var fexpr__12890 = ((function (h__4061__auto__,this__4199__auto____$1){
+var h__4061__auto____$1 = (function (){var fexpr__12885 = ((function (h__4061__auto__,this__4199__auto____$1){
 return (function (coll__4200__auto__){
 return (1500233508 ^ cljs.core.hash_unordered_coll(coll__4200__auto__));
 });})(h__4061__auto__,this__4199__auto____$1))
 ;
-return fexpr__12890(this__4199__auto____$1);
+return fexpr__12885(this__4199__auto____$1);
 })();
 self__.__hash = h__4061__auto____$1;
 
@@ -487,10 +487,10 @@ return h__4061__auto____$1;
 }
 });
 
-mecca.audio.actions.Loop.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this12886,other12887){
+mecca.audio.actions.Loop.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this12881,other12882){
 var self__ = this;
-var this12886__$1 = this;
-return ((!((other12887 == null))) && ((this12886__$1.constructor === other12887.constructor)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this12886__$1.target,other12887.target)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this12886__$1.__extmap,other12887.__extmap)));
+var this12881__$1 = this;
+return ((!((other12882 == null))) && ((this12881__$1.constructor === other12882.constructor)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this12881__$1.target,other12882.target)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this12881__$1.__extmap,other12882.__extmap)));
 });
 
 mecca.audio.actions.Loop.prototype.cljs$core$IMap$_dissoc$arity$2 = (function (this__4212__auto__,k__4213__auto__){
@@ -503,18 +503,18 @@ return (new mecca.audio.actions.Loop(self__.target,self__.__meta,cljs.core.not_e
 }
 });
 
-mecca.audio.actions.Loop.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4210__auto__,k__4211__auto__,G__12884){
+mecca.audio.actions.Loop.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4210__auto__,k__4211__auto__,G__12879){
 var self__ = this;
 var this__4210__auto____$1 = this;
-var pred__12891 = cljs.core.keyword_identical_QMARK_;
-var expr__12892 = k__4211__auto__;
-if(cljs.core.truth_((function (){var G__12894 = cljs.core.cst$kw$target;
-var G__12895 = expr__12892;
-return (pred__12891.cljs$core$IFn$_invoke$arity$2 ? pred__12891.cljs$core$IFn$_invoke$arity$2(G__12894,G__12895) : pred__12891.call(null,G__12894,G__12895));
+var pred__12886 = cljs.core.keyword_identical_QMARK_;
+var expr__12887 = k__4211__auto__;
+if(cljs.core.truth_((function (){var G__12889 = cljs.core.cst$kw$target;
+var G__12890 = expr__12887;
+return (pred__12886.cljs$core$IFn$_invoke$arity$2 ? pred__12886.cljs$core$IFn$_invoke$arity$2(G__12889,G__12890) : pred__12886.call(null,G__12889,G__12890));
 })())){
-return (new mecca.audio.actions.Loop(G__12884,self__.__meta,self__.__extmap,null));
+return (new mecca.audio.actions.Loop(G__12879,self__.__meta,self__.__extmap,null));
 } else {
-return (new mecca.audio.actions.Loop(self__.target,self__.__meta,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k__4211__auto__,G__12884),null));
+return (new mecca.audio.actions.Loop(self__.target,self__.__meta,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k__4211__auto__,G__12879),null));
 }
 });
 
@@ -524,10 +524,10 @@ var this__4215__auto____$1 = this;
 return cljs.core.seq(cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.MapEntry(cljs.core.cst$kw$target,self__.target,null))], null),self__.__extmap));
 });
 
-mecca.audio.actions.Loop.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4202__auto__,G__12884){
+mecca.audio.actions.Loop.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4202__auto__,G__12879){
 var self__ = this;
 var this__4202__auto____$1 = this;
-return (new mecca.audio.actions.Loop(self__.target,G__12884,self__.__extmap,self__.__hash));
+return (new mecca.audio.actions.Loop(self__.target,G__12879,self__.__extmap,self__.__hash));
 });
 
 mecca.audio.actions.Loop.prototype.cljs$core$ICollection$_conj$arity$2 = (function (this__4208__auto__,entry__4209__auto__){
@@ -564,15 +564,15 @@ return (new mecca.audio.actions.Loop(target,null,null,null));
 /**
  * Factory function for mecca.audio.actions/Loop, taking a map of keywords to field values.
  */
-mecca.audio.actions.map__GT_Loop = (function mecca$audio$actions$map__GT_Loop(G__12888){
-var extmap__4236__auto__ = (function (){var G__12896 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$2(G__12888,cljs.core.cst$kw$target);
-if(cljs.core.record_QMARK_(G__12888)){
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,G__12896);
+mecca.audio.actions.map__GT_Loop = (function mecca$audio$actions$map__GT_Loop(G__12883){
+var extmap__4236__auto__ = (function (){var G__12891 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$2(G__12883,cljs.core.cst$kw$target);
+if(cljs.core.record_QMARK_(G__12883)){
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,G__12891);
 } else {
-return G__12896;
+return G__12891;
 }
 })();
-return (new mecca.audio.actions.Loop(cljs.core.cst$kw$target.cljs$core$IFn$_invoke$arity$1(G__12888),null,cljs.core.not_empty(extmap__4236__auto__),null));
+return (new mecca.audio.actions.Loop(cljs.core.cst$kw$target.cljs$core$IFn$_invoke$arity$1(G__12883),null,cljs.core.not_empty(extmap__4236__auto__),null));
 });
 
 
@@ -607,18 +607,18 @@ var this__4203__auto____$1 = this;
 return this__4203__auto____$1.cljs$core$ILookup$_lookup$arity$3(null,k__4204__auto__,null);
 });
 
-mecca.audio.actions.Stop.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4205__auto__,k12899,else__4206__auto__){
+mecca.audio.actions.Stop.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4205__auto__,k12894,else__4206__auto__){
 var self__ = this;
 var this__4205__auto____$1 = this;
-var G__12903 = k12899;
-var G__12903__$1 = (((G__12903 instanceof cljs.core.Keyword))?G__12903.fqn:null);
-switch (G__12903__$1) {
+var G__12898 = k12894;
+var G__12898__$1 = (((G__12898 instanceof cljs.core.Keyword))?G__12898.fqn:null);
+switch (G__12898__$1) {
 case "target":
 return self__.target;
 
 break;
 default:
-return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k12899,else__4206__auto__);
+return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k12894,else__4206__auto__);
 
 }
 });
@@ -634,10 +634,10 @@ return cljs.core.pr_sequential_writer(writer__4218__auto__,cljs.core.pr_writer,"
 return cljs.core.pr_sequential_writer(writer__4218__auto__,pr_pair__4220__auto__,"#mecca.audio.actions.Stop{",", ","}",opts__4219__auto__,cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[cljs.core.cst$kw$target,self__.target],null))], null),self__.__extmap));
 });
 
-mecca.audio.actions.Stop.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__12898){
+mecca.audio.actions.Stop.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__12893){
 var self__ = this;
-var G__12898__$1 = this;
-return (new cljs.core.RecordIter((0),G__12898__$1,1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$target], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator(self__.__extmap):cljs.core.nil_iter())));
+var G__12893__$1 = this;
+return (new cljs.core.RecordIter((0),G__12893__$1,1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$target], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator(self__.__extmap):cljs.core.nil_iter())));
 });
 
 mecca.audio.actions.Stop.prototype.cljs$core$IMeta$_meta$arity$1 = (function (this__4201__auto__){
@@ -665,12 +665,12 @@ var h__4061__auto__ = self__.__hash;
 if(!((h__4061__auto__ == null))){
 return h__4061__auto__;
 } else {
-var h__4061__auto____$1 = (function (){var fexpr__12904 = ((function (h__4061__auto__,this__4199__auto____$1){
+var h__4061__auto____$1 = (function (){var fexpr__12899 = ((function (h__4061__auto__,this__4199__auto____$1){
 return (function (coll__4200__auto__){
 return (-1066667590 ^ cljs.core.hash_unordered_coll(coll__4200__auto__));
 });})(h__4061__auto__,this__4199__auto____$1))
 ;
-return fexpr__12904(this__4199__auto____$1);
+return fexpr__12899(this__4199__auto____$1);
 })();
 self__.__hash = h__4061__auto____$1;
 
@@ -678,10 +678,10 @@ return h__4061__auto____$1;
 }
 });
 
-mecca.audio.actions.Stop.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this12900,other12901){
+mecca.audio.actions.Stop.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this12895,other12896){
 var self__ = this;
-var this12900__$1 = this;
-return ((!((other12901 == null))) && ((this12900__$1.constructor === other12901.constructor)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this12900__$1.target,other12901.target)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this12900__$1.__extmap,other12901.__extmap)));
+var this12895__$1 = this;
+return ((!((other12896 == null))) && ((this12895__$1.constructor === other12896.constructor)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this12895__$1.target,other12896.target)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this12895__$1.__extmap,other12896.__extmap)));
 });
 
 mecca.audio.actions.Stop.prototype.cljs$core$IMap$_dissoc$arity$2 = (function (this__4212__auto__,k__4213__auto__){
@@ -694,18 +694,18 @@ return (new mecca.audio.actions.Stop(self__.target,self__.__meta,cljs.core.not_e
 }
 });
 
-mecca.audio.actions.Stop.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4210__auto__,k__4211__auto__,G__12898){
+mecca.audio.actions.Stop.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4210__auto__,k__4211__auto__,G__12893){
 var self__ = this;
 var this__4210__auto____$1 = this;
-var pred__12905 = cljs.core.keyword_identical_QMARK_;
-var expr__12906 = k__4211__auto__;
-if(cljs.core.truth_((function (){var G__12908 = cljs.core.cst$kw$target;
-var G__12909 = expr__12906;
-return (pred__12905.cljs$core$IFn$_invoke$arity$2 ? pred__12905.cljs$core$IFn$_invoke$arity$2(G__12908,G__12909) : pred__12905.call(null,G__12908,G__12909));
+var pred__12900 = cljs.core.keyword_identical_QMARK_;
+var expr__12901 = k__4211__auto__;
+if(cljs.core.truth_((function (){var G__12903 = cljs.core.cst$kw$target;
+var G__12904 = expr__12901;
+return (pred__12900.cljs$core$IFn$_invoke$arity$2 ? pred__12900.cljs$core$IFn$_invoke$arity$2(G__12903,G__12904) : pred__12900.call(null,G__12903,G__12904));
 })())){
-return (new mecca.audio.actions.Stop(G__12898,self__.__meta,self__.__extmap,null));
+return (new mecca.audio.actions.Stop(G__12893,self__.__meta,self__.__extmap,null));
 } else {
-return (new mecca.audio.actions.Stop(self__.target,self__.__meta,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k__4211__auto__,G__12898),null));
+return (new mecca.audio.actions.Stop(self__.target,self__.__meta,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k__4211__auto__,G__12893),null));
 }
 });
 
@@ -715,10 +715,10 @@ var this__4215__auto____$1 = this;
 return cljs.core.seq(cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.MapEntry(cljs.core.cst$kw$target,self__.target,null))], null),self__.__extmap));
 });
 
-mecca.audio.actions.Stop.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4202__auto__,G__12898){
+mecca.audio.actions.Stop.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4202__auto__,G__12893){
 var self__ = this;
 var this__4202__auto____$1 = this;
-return (new mecca.audio.actions.Stop(self__.target,G__12898,self__.__extmap,self__.__hash));
+return (new mecca.audio.actions.Stop(self__.target,G__12893,self__.__extmap,self__.__hash));
 });
 
 mecca.audio.actions.Stop.prototype.cljs$core$ICollection$_conj$arity$2 = (function (this__4208__auto__,entry__4209__auto__){
@@ -755,14 +755,14 @@ return (new mecca.audio.actions.Stop(target,null,null,null));
 /**
  * Factory function for mecca.audio.actions/Stop, taking a map of keywords to field values.
  */
-mecca.audio.actions.map__GT_Stop = (function mecca$audio$actions$map__GT_Stop(G__12902){
-var extmap__4236__auto__ = (function (){var G__12910 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$2(G__12902,cljs.core.cst$kw$target);
-if(cljs.core.record_QMARK_(G__12902)){
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,G__12910);
+mecca.audio.actions.map__GT_Stop = (function mecca$audio$actions$map__GT_Stop(G__12897){
+var extmap__4236__auto__ = (function (){var G__12905 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$2(G__12897,cljs.core.cst$kw$target);
+if(cljs.core.record_QMARK_(G__12897)){
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,G__12905);
 } else {
-return G__12910;
+return G__12905;
 }
 })();
-return (new mecca.audio.actions.Stop(cljs.core.cst$kw$target.cljs$core$IFn$_invoke$arity$1(G__12902),null,cljs.core.not_empty(extmap__4236__auto__),null));
+return (new mecca.audio.actions.Stop(cljs.core.cst$kw$target.cljs$core$IFn$_invoke$arity$1(G__12897),null,cljs.core.not_empty(extmap__4236__auto__),null));
 });
 

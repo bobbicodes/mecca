@@ -1,6 +1,7 @@
 (ns ^:figwheel-hooks mecca.events
   (:require
    [re-frame.core :refer [reg-event-db dispatch subscribe]]
+   [day8.re-frame.undo :as undo :refer [undoable]]
    [mecca.mario :refer [mario]]
    [mecca.music :as music :refer [audiocontext]]
    [mecca.audio.scale :as scale]
@@ -10,12 +11,11 @@
 (reg-event-db
  :initialize-db
  (fn [_ _]
-   {:scale "Minor"
+   {:focused-note-pos [nil nil]
     :playing? false
     :current-position 0
     :editor-beat-start 1
-    :selected-note-value 1
-    :octave 3
+    :selected-note-value "mario"
     :key "C"
     :time 0
     :tempo 180
@@ -37,6 +37,7 @@
 
 (reg-event-db
  :add-note
+ (undoable "add note")
  (fn [db [_ x y]]
    (update-in db (cond
                    (< y 18) [:lead]
@@ -48,6 +49,7 @@
 
 (reg-event-db
  :remove-note
+ (undoable "remove note")
  (fn [db [_ x y]]
    (update-in db (cond
                    (< y 18) [:lead]
@@ -82,6 +84,16 @@
  :play-on
  (fn [db [_ scale]]
    (assoc db :playing? true)))
+
+(reg-event-db
+ :play-toggle
+ (fn [db [_ scale]]
+   (update db :playing? not)))
+
+(reg-event-db
+ :update-focus-note
+ (fn [db [_ pos]]
+   (assoc db :focused-note-pos pos)))
 
 (reg-event-db
  :select-note-value

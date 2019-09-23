@@ -23,7 +23,7 @@ The version currently in development is built for the web using the Re-frame Rea
 * White noise generator for drums, with variable randomness patterns to create the sense of multiple pitches.
 
 The interface is heavily inspired by Mario Paint. Check out the paper [Mario Paint: An Accessible Environment of Musical Creativity
-and Sound Exploration](Mario_Paint_An_Accessible_Environment_of.pdf) for an excellent summary.
+and Sound Exploration](docs/Mario_Paint_An_Accessible_Environment_of.pdf) for an excellent summary.
 
 [Live app in its current state](https://porkostomus.github.io/mecca/)
 

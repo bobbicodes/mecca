@@ -71,12 +71,13 @@ goog.addDependency("../cljs_test_display/favicon.js", ['cljs_test_display.favico
 goog.addDependency("../cljs_test_display/notify.js", ['cljs_test_display.notify'], ['cljs.core', 'goog.object', 'cljs_test_display.favicon']);
 goog.addDependency("../cljs_test_display/core.js", ['cljs_test_display.core'], ['goog.dom', 'goog.dom.classlist', 'cljs_test_display.notify', 'cljs.core', 'cljs.test', 'goog.events.EventType', 'cljs_test_display.favicon', 'clojure.string', 'goog.events.KeyCodes', 'goog.events']);
 goog.addDependency("../mecca/audio/melody.js", ['mecca.audio.melody'], ['cljs.core', 'mecca.audio.scale', 're_frame.core']);
+goog.addDependency("../day8/re_frame/undo.js", ['day8.re_frame.undo'], ['reagent.core', 'cljs.core', 're_frame.db', 're_frame.core']);
 goog.addDependency("../mecca/audio/synthesis.js", ['mecca.audio.synthesis'], ['cljs.core']);
 goog.addDependency("../mecca/audio/actions.js", ['mecca.audio.actions'], ['cljs.core']);
 goog.addDependency("../mecca/audio/framework.js", ['mecca.audio.framework'], ['cljs.core']);
 goog.addDependency("../mecca/audio/processing.js", ['mecca.audio.processing'], ['cljs.core', 'mecca.audio.synthesis', 'mecca.audio.melody', 'mecca.audio.actions', 'mecca.audio.framework']);
 goog.addDependency("../mecca/music.js", ['mecca.music'], ['reagent.core', 'mecca.audio.processing', 'cljs.core', 'mecca.audio.synthesis', 'mecca.audio.melody', 'mecca.audio.scale', 'mecca.audio.actions', 'mecca.audio.framework', 're_frame.core']);
-goog.addDependency("../mecca/events.js", ['mecca.events'], ['mecca.music', 'cljs.core', 'goog.events.EventType', 'mecca.audio.scale', 'mecca.mario', 'goog.events', 're_frame.core']);
+goog.addDependency("../mecca/events.js", ['mecca.events'], ['day8.re_frame.undo', 'mecca.music', 'cljs.core', 'goog.events.EventType', 'mecca.audio.scale', 'mecca.mario', 'goog.events', 're_frame.core']);
 goog.addDependency("../mecca/subs.js", ['mecca.subs'], ['cljs.core', 're_frame.core']);
 goog.addDependency("../mecca/components/key.js", ['mecca.components.key'], ['cljs.core']);
 goog.addDependency("../mecca/components/notation.js", ['mecca.components.notation'], ['reagent.core', 'cljs.core', 're_frame.core']);

@@ -1,6 +1,6 @@
 (ns ^:figwheel-hooks mecca.audio.sequencer)
 
-#_(defn tracks []
+(defn tracks []
   [:div#tracks
    [:section.track-one
     [:h2 "Sweep"]
@@ -65,7 +65,7 @@
      [:button {:role "switch" :aria-checked false}
       [:span "Voice 4, Note 4"]]]]])
 
-#_(defn sequencer []
+(defn sequencer []
   [:div#sequencer
    [:section.controls-main
     [:h1 "ModemDN"]

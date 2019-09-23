@@ -47,6 +47,11 @@
    (:selected-note-value db)))
 
 (rf/reg-sub
+ :focused-note-pos
+ (fn [db _]
+   (:focused-note-pos db)))
+
+(rf/reg-sub
  :lead
  (fn [db _]
    (:lead db)))

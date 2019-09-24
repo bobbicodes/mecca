@@ -213,8 +213,8 @@
    [:path {:stroke "#fefefe" :d "M14 1h4M13 2h6M11 3h8M11 4h9M21 4h1M11 5h6M18 5h5M10 6h3M15 6h3M19 6h4M9 7h3M13 7h10M8 8h16M5 9h19M27 9h1M4 10h21M26 10h2M3 11h25M3 12h26M30 12h1M1 13h30M1 14h30M2 15h28M3 16h2M6 16h11M18 16h11M4 17h2M7 17h2M10 17h6M17 17h13M5 18h2M11 18h3M18 18h4M23 18h8M5 19h5M16 19h1M22 19h9M8 20h4M14 20h4M21 20h8M9 21h6M16 21h8M25 21h2M11 22h3M18 22h4"}]
    [:path {:stroke "#39bdff" :d "M17 5h1M13 6h2M18 6h1M12 7h1M5 16h1M17 16h1M6 17h1M9 17h1M16 17h1M7 18h4M14 18h4M22 18h1M10 19h6M17 19h5M12 20h2M18 20h3"}]])
 
-(defn mario-icon [x]
-  (into [:g {:transform (str "scale(0.82) translate(" (+ x 30.5) ",3)")}]
+(defn mario-icon [x y scale]
+  (into [:g {:transform (str "scale(" scale ") translate(" (+ x 30.5) "," (+ 3 y) ")")}]
         (for [[color path]
               [["#c04020" "M3 0h5M2 1h1M8 1h2M2 2h1M10 2h1M11 3h1M12 4h1M13 5h1M13 6h1M1 8h1M13 8h1M1 9h1M13 9h1M1 10h1M6 10h1M1 13h3M10 13h1M3 14h8"]
                ["#f80000" "M3 1h2M6 1h2M8 2h2M10 3h1M11 4h1"]
@@ -226,6 +226,25 @@
                ["#f8c080" "M5 7h1M12 7h1M2 8h1M5 8h1M8 8h1M12 8h1M2 9h3M7 9h2M8 10h2M7 12h2"]]]
           [:path {:stroke color
                   :d path}])))
+
+(defn color-paths
+  ([paths x y scale]
+   (color-paths nil paths x y scale))
+  ([attrs paths x y scale]
+   (into
+    [:g
+     (merge attrs
+            {:transform (str "scale(" scale ") translate(" x "," y ")")})]
+    (for [[color path] paths]
+      [:path {:stroke color
+              :d path}]))))
+
+(defn shroom [x y scale]
+  (color-paths [["#000000" "M5 0h6M3 1h2M11 1h2M2 2h1M13 2h1M1 3h1M14 3h1M1 4h1M14 4h1M0 5h1M15 5h1M0 6h1M15 6h1M0 7h1M15 7h1M0 8h1M15 8h1M0 9h1M15 9h1M0 10h1M4 10h8M15 10h1M1 11h3M6 11h1M9 11h1M12 11h3M2 12h1M6 12h1M9 12h1M13 12h1M2 13h1M13 13h1M3 14h1M12 14h1M4 15h8"]
+                ["#f8f8f8" "M5 1h2M3 2h4M11 2h2M2 3h4M12 3h2M2 4h3M7 4h4M13 4h1M6 5h6M2 6h2M6 6h6M1 7h4M6 7h6M14 7h1M1 8h4M7 8h4M13 8h2M2 9h2M13 9h2M14 10h1M4 11h2M7 11h2M10 11h2M3 12h3M7 12h2M10 12h3M3 13h10M4 14h8"]
+                ["#c000c0" "M7 1h4M1 5h1M14 5h1M1 6h1M14 6h1M1 9h1M4 9h9M1 10h3M12 10h2"]
+                ["#f80000" "M7 2h4M6 3h6M5 4h2M11 4h2M2 5h4M12 5h2M4 6h2M12 6h2M5 7h1M12 7h2M5 8h2M11 8h2"]]
+               x y scale))
 
 (defn floor-tile [length]
   [:g {:transform (str "scale(" 0.125 ") translate (0," 115 ")")}

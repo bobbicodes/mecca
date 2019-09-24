@@ -11,7 +11,7 @@
             [mecca.components.castle :as castle]
             [mecca.components.key :as key]
             [mecca.components.editor :as editor]
-            [mecca.mario :as mario :refer [editor-bg mario]]))
+            [mecca.mario :as mario :refer [mario]]))
 
 (defn note-targets []
   (into [:g] (for [x (range 16)
@@ -24,7 +24,7 @@
                     :stroke "black"
                     :stroke-width 0.2
                     :fill "gray"
-                    :visibility "visible"
+                    :visibility "hidden"
                     :opacity 0.2
                     :pointer-events "all"
                     :on-mouse-over #(dispatch [:update-focus-note [x y]])
@@ -32,7 +32,7 @@
                     :on-click #(dispatch [:add-note x y])}])))
 
 (defn editor []
-  (let [focused (r/atom [nil nil])
+  (let [focused (subscribe [:focused-note-pos])
         lead (subscribe [:lead])
         bassline (subscribe [:bassline])
         drums (subscribe [:drums])
@@ -52,6 +52,7 @@
        [castle/brick-face 363 18 6]
        [castle/brick-face 348 48 10]
        [mario]
+       [editor/current-note-display 59 0 0.22]
        [editor/note-blocks]
        [editor/rest-blocks]
        [mario/floor-tile 16]
@@ -61,7 +62,7 @@
            :fill "none"
            :height 31 :width 63.5 :x 0.25 :y 14.5}]
        [:g.staff {:transform "translate(0,10.5) scale(1)"
-                  :style {:cursor "url(images/hand.png),crosshair"}}
+                  :style {:cursor "url(./images/hand.png),crosshair"}}
         [notation/staff-lines]
         (if (= 1 @editor-beat-start)
           [:g [notation/brace]
@@ -83,6 +84,10 @@
         [editor/advance-editor]
         [notation/bar-line 59]
         [note-targets]
+        (when-not (= @focused [nil nil])
+          (let [[x y] @focused]
+            (case @selected-note-value
+              "mario" [mario/mario-icon (+ 32 (* 15 x)) (* 5 y) 0.2])))
         (doall (for [{:keys [time duration pitch]} @lead]
                  ^{:key [time duration pitch]}
                  [notation/note duration [time (- 77 pitch)]]))

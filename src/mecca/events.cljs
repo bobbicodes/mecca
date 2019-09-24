@@ -2,7 +2,7 @@
   (:require
    [re-frame.core :refer [reg-event-db dispatch subscribe]]
    [day8.re-frame.undo :as undo :refer [undoable]]
-   [mecca.mario :refer [mario]]
+   [mecca.mario :as mario :refer [mario]]
    [mecca.music :as music :refer [audiocontext]]
    [mecca.audio.scale :as scale]
    [goog.events :refer [listen unlisten]])

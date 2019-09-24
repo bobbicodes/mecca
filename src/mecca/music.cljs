@@ -2,6 +2,8 @@
   (:require
    [reagent.core :as r]
    [re-frame.core :as rf :refer [subscribe dispatch]]
+   [ajax.core :as ajax]
+   [ajax.protocols :as protocol]
    [mecca.audio.processing] ; Import action defs.
    [mecca.audio.actions :as action]
    [mecca.audio.framework :as framework]
@@ -82,6 +84,34 @@
   so another graph can't connect to it."
   [node]
   (subgraph nil node))
+
+(defn get-mp3 [uri callback]
+  (ajax/GET uri {:response-format {:type :arraybuffer
+                                   :read protocol/-body
+                                   :description "audio"
+                                   :content-type "audio/mpeg"}
+                 :handler callback}))
+
+(defn raw-sample
+  "Play a sample addressed via a URI. Until fetching and decoding is complete, it will play silence."
+  [uri]
+  (let [psuedo-promise (js-obj)] ; A mutable object to close over and share between calls.
+    (get-mp3 uri #(set! (.-data psuedo-promise) %)) ; GET, then deliver the data by updating the mutable object.
+    (fn [context at duration]
+      (source
+       (let [node (doto (.createBufferSource context)
+                    (.start at)
+                    (.stop (+ at duration)))
+             set-buffer (fn [buffer]
+                          (set! (.-buffer psuedo-promise) buffer) ; Save it for later.
+                          (-> node .-buffer (set! buffer)))] ; Set it on the audio node.
+         (when-let [data (.-data psuedo-promise)] ; Has the ajax call returned?
+           (if-let [buffer (.-buffer psuedo-promise)] ; Has the buffer been decoded?
+             (set-buffer buffer) ; Already decoded, so set it.
+             (.decodeAudioData context data set-buffer))) ; Decode it and then set it.
+         node)))))
+
+(def ^:export sample (memoize raw-sample))
 
 (defn raw-buffer
   [generate-bit! context duration]

@@ -51,8 +51,6 @@
                     ["#f8f8f8" "M5 5h1M8 5h1"]]
                     (* x 5) (* y 5) scale))))
 
-
-
 (defn advance-editor []
   (let [mouseover? (r/atom false)]
     (fn []
@@ -98,7 +96,6 @@
    [notation/beat-line 1 1]
    [notation/beat-line 2 2]
    [notation/beat-line 3 3]])
-
 
 (defn robot []
   [:g {:transform "scale(0.3) translate(-24,-1.3)"}
@@ -174,6 +171,17 @@
    [key/circle-of-fifths]
    [toolbar 30 8.8]])
 
+(defn current-note-display [x y scale]
+  (let [current-note (subscribe [:selected-note-value])]
+    (fn [x y scale]
+      [:g 
+       (color-paths [["#000000" "M0 0h22M0 1h1M2 1h1M19 1h1M21 1h1M0 2h3M19 2h3M0 3h3M19 3h3M0 4h1M2 4h1M19 4h1M21 4h1M0 5h3M19 5h3M0 6h3M19 6h3M0 7h1M2 7h1M19 7h1M21 7h1M0 8h3M19 8h3M0 9h3M19 9h3M0 10h1M2 10h1M19 10h1M21 10h1M0 11h3M19 11h3M0 12h3M19 12h3M0 13h1M2 13h1M19 13h1M21 13h1M0 14h3M19 14h3M0 15h22"]
+                     ["#f8f8f8" "M1 1h1M3 1h16M20 1h1M3 2h16M3 3h16M1 4h1M3 4h16M20 4h1M3 5h16M3 6h16M1 7h1M3 7h16M20 7h1M3 8h16M3 9h16M1 10h1M3 10h16M20 10h1M3 11h16M3 12h16M1 13h1M3 13h16M20 13h1M3 14h16"]]
+                    x y scale)
+       (case @current-note
+         "mario"
+         (mario/mario-icon 48 -1 0.18))])))
+
 (defn block [x]
   (into [:g {:transform (str "translate(" x "," 1 ")")}]
         (for [[color path]
@@ -184,11 +192,12 @@
 
 (defn note-blocks []
   [:g#notes {:transform "scale(0.2) translate(-36,0)"}
-   
    [:g 
     [block 128]
-    [mario/mario-icon 128]]
-   [notation/note-button "dotted-half" 144]
+    [mario/mario-icon 133 0 0.8]]
+   [:g
+    [block 144]
+    [mario/shroom 182 3 0.8]]
    [notation/note-button "half" 160]
    [notation/note-button "dotted-quarter" 176]
    [notation/note-button 1 192]

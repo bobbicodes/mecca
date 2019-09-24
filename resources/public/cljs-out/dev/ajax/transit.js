@@ -1,32 +1,33 @@
-// Compiled by ClojureScript 1.10.339 {}
+// Compiled by ClojureScript 1.10.339 {:static-fns true, :optimize-constants true}
 goog.provide('ajax.transit');
 goog.require('cljs.core');
+goog.require('cljs.core.constants');
 goog.require('cognitect.transit');
 goog.require('ajax.interceptors');
 goog.require('ajax.protocols');
 goog.require('ajax.util');
-ajax.transit.transit_type = (function ajax$transit$transit_type(p__9245){
-var map__9246 = p__9245;
-var map__9246__$1 = ((((!((map__9246 == null)))?(((((map__9246.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__9246.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__9246):map__9246);
-var type = cljs.core.get.call(null,map__9246__$1,new cljs.core.Keyword(null,"type","type",1174270348));
+ajax.transit.transit_type = (function ajax$transit$transit_type(p__13561){
+var map__13562 = p__13561;
+var map__13562__$1 = ((((!((map__13562 == null)))?(((((map__13562.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__13562.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__13562):map__13562);
+var type = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__13562__$1,cljs.core.cst$kw$type);
 var or__3949__auto__ = type;
 if(cljs.core.truth_(or__3949__auto__)){
 return or__3949__auto__;
 } else {
-return new cljs.core.Keyword(null,"json","json",1279968570);
+return cljs.core.cst$kw$json;
 }
 });
 ajax.transit.transit_write_fn = (function ajax$transit$transit_write_fn(type,opts){
-var writer = (function (){var or__3949__auto__ = new cljs.core.Keyword(null,"writer","writer",-277568236).cljs$core$IFn$_invoke$arity$1(opts);
+var writer = (function (){var or__3949__auto__ = cljs.core.cst$kw$writer.cljs$core$IFn$_invoke$arity$1(opts);
 if(cljs.core.truth_(or__3949__auto__)){
 return or__3949__auto__;
 } else {
-return cognitect.transit.writer.call(null,type,opts);
+return cognitect.transit.writer.cljs$core$IFn$_invoke$arity$2(type,opts);
 }
 })();
 return ((function (writer){
 return (function ajax$transit$transit_write_fn_$_transit_write_params(params){
-return cognitect.transit.write.call(null,writer,params);
+return cognitect.transit.write(writer,params);
 });
 ;})(writer))
 });
@@ -40,8 +41,8 @@ return cognitect.transit.write.call(null,writer,params);
  * :handlers Custom Transit handlers (refer to Transit documentation)
  */
 ajax.transit.transit_request_format = (function ajax$transit$transit_request_format(var_args){
-var G__9249 = arguments.length;
-switch (G__9249) {
+var G__13565 = arguments.length;
+switch (G__13565) {
 case 0:
 return ajax.transit.transit_request_format.cljs$core$IFn$_invoke$arity$0();
 
@@ -57,28 +58,28 @@ throw (new Error(["Invalid arity: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(
 });
 
 ajax.transit.transit_request_format.cljs$core$IFn$_invoke$arity$0 = (function (){
-return ajax.transit.transit_request_format.call(null,cljs.core.PersistentArrayMap.EMPTY);
+return ajax.transit.transit_request_format.cljs$core$IFn$_invoke$arity$1(cljs.core.PersistentArrayMap.EMPTY);
 });
 
 ajax.transit.transit_request_format.cljs$core$IFn$_invoke$arity$1 = (function (opts){
-var type = ajax.transit.transit_type.call(null,opts);
-var mime_type = ((((cljs.core._EQ_.call(null,type,new cljs.core.Keyword(null,"json","json",1279968570))) || (cljs.core._EQ_.call(null,type,new cljs.core.Keyword(null,"json-verbose","json-verbose",-542533531)))))?"json":"msgpack");
-return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"write","write",-1857649168),ajax.transit.transit_write_fn.call(null,type,opts),new cljs.core.Keyword(null,"content-type","content-type",-508222634),["application/transit+",cljs.core.str.cljs$core$IFn$_invoke$arity$1(mime_type)].join('')], null);
+var type = ajax.transit.transit_type(opts);
+var mime_type = ((((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(type,cljs.core.cst$kw$json)) || (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(type,cljs.core.cst$kw$json_DASH_verbose))))?"json":"msgpack");
+return new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$write,ajax.transit.transit_write_fn(type,opts),cljs.core.cst$kw$content_DASH_type,["application/transit+",cljs.core.str.cljs$core$IFn$_invoke$arity$1(mime_type)].join('')], null);
 });
 
 ajax.transit.transit_request_format.cljs$lang$maxFixedArity = 1;
 
 ajax.transit.transit_read_fn = (function ajax$transit$transit_read_fn(opts){
-var reader = (function (){var or__3949__auto__ = new cljs.core.Keyword(null,"reader","reader",169660853).cljs$core$IFn$_invoke$arity$1(opts);
+var reader = (function (){var or__3949__auto__ = cljs.core.cst$kw$reader.cljs$core$IFn$_invoke$arity$1(opts);
 if(cljs.core.truth_(or__3949__auto__)){
 return or__3949__auto__;
 } else {
-return cognitect.transit.reader.call(null,new cljs.core.Keyword(null,"json","json",1279968570),opts);
+return cognitect.transit.reader.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$json,opts);
 }
 })();
 return ((function (reader){
 return (function ajax$transit$transit_read_fn_$_transit_read_response(response){
-return cognitect.transit.read.call(null,reader,ajax.protocols._body.call(null,response));
+return cognitect.transit.read(reader,ajax.protocols._body(response));
 });
 ;})(reader))
 });
@@ -90,8 +91,8 @@ return cognitect.transit.read.call(null,reader,ajax.protocols._body.call(null,re
  * :handlers Custom Transit handlers (refer to Transit documentation)
  */
 ajax.transit.transit_response_format = (function ajax$transit$transit_response_format(var_args){
-var G__9252 = arguments.length;
-switch (G__9252) {
+var G__13568 = arguments.length;
+switch (G__13568) {
 case 0:
 return ajax.transit.transit_response_format.cljs$core$IFn$_invoke$arity$0();
 
@@ -111,18 +112,16 @@ throw (new Error(["Invalid arity: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(
 });
 
 ajax.transit.transit_response_format.cljs$core$IFn$_invoke$arity$0 = (function (){
-return ajax.transit.transit_response_format.call(null,cljs.core.PersistentArrayMap.EMPTY);
+return ajax.transit.transit_response_format.cljs$core$IFn$_invoke$arity$1(cljs.core.PersistentArrayMap.EMPTY);
 });
 
 ajax.transit.transit_response_format.cljs$core$IFn$_invoke$arity$1 = (function (opts){
-return ajax.transit.transit_response_format.call(null,ajax.transit.transit_type.call(null,opts),opts);
+return ajax.transit.transit_response_format.cljs$core$IFn$_invoke$arity$2(ajax.transit.transit_type(opts),opts);
 });
 
 ajax.transit.transit_response_format.cljs$core$IFn$_invoke$arity$2 = (function (type,opts){
-return ajax.interceptors.map__GT_ResponseFormat.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"read","read",1140058661),ajax.transit.transit_read_fn.call(null,opts),new cljs.core.Keyword(null,"description","description",-1428560544),"Transit",new cljs.core.Keyword(null,"content-type","content-type",-508222634),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["application/transit+json"], null)], null));
+return ajax.interceptors.map__GT_ResponseFormat(new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$read,ajax.transit.transit_read_fn(opts),cljs.core.cst$kw$description,"Transit",cljs.core.cst$kw$content_DASH_type,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["application/transit+json"], null)], null));
 });
 
 ajax.transit.transit_response_format.cljs$lang$maxFixedArity = 2;
 
-
-//# sourceMappingURL=transit.js.map

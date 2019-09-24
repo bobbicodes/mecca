@@ -61,7 +61,7 @@
            :fill "none"
            :height 31 :width 63.5 :x 0.25 :y 14.5}]
        [:g.staff {:transform "translate(0,10.5) scale(1)"
-                  :style {:cursor "url(images/hand.png),crosshair"}}
+                  :style {:cursor "url(resources/public/images/hand.png),crosshair"}}
         [notation/staff-lines]
         (if (= 1 @editor-beat-start)
           [:g [notation/brace]

@@ -4,185 +4,26 @@ The Music Education, Composition, Creation Application
 
 You are the student. You are the composer. You are the creator.
 
-This project has gone through multiple incarnations, each with the goal of doing just one thing - easily composing songs in a style based on the [NES](http://famitracker.com/wiki/index.php?title=Sound_hardware#Nintendo_MMC5) and [C64](https://en.wikipedia.org/wiki/MOS_Technology_6581) sound chips. All instruments and drum sounds are synthesized from the most basic soundwaves - a celebration of sonic simplicity. The idea is to narrow down the options as much as possible in order to focus on composing cool parts that work together, rather than getting bogged down in the complexity of sound design.
+This project was born out of the idea that we should make tools that treat learning and creating as complimentary activities. By designing a music software suite that is equally a digital audio workstation and a theory trainer, we can provide a more effective platform for creative exploration.
 
-The MECCA-Alpha interface is a menu-driven interactive sequencer operated from the command-line. It uses plain text files to store the note data, which can also be edited manually for efficient copy-paste composition.
+The first part I made is an interactive chiptune step-sequencer that you run from the command-line:
 
-MECCA-Beta focused on creating an improved text-based music encoding format and breaking the program up into individual scripts, following the *Unix Philosophy* of creating composable software by writing programs that each do just one thing, and can be chained together using plain text as a universal interface.
+[Megaman 2 - Dr. Wily](https://www.youtube.com/watch?v=2EVTeP9KlmM)
 
-See and hear it in action:
+It uses SoX to generate soundwaves, and offers a super simple text-based music encoding format optimized for building songs very quickly by copy-pasting sections.
 
-[Megaman 2 - Dr. Wily](https://www.youtube.com/watch?v=2EVTeP9KlmM)  
+The version of the MECCA Platform currently in development uses the Web Audio API, and makes extensive use of animated SVGs to produce a highly interactive experience modeled after Mario Paint, with several important enhancements:
 
-The version currently in development is built for the web using the Re-frame React library for Clojurescript, and aims to be an authentic emulator of the NES APU. The sonic pallet could not be more simple:
+* High quality, dynamically rendered SVG music notation on traditional bass, treble, and drum clefs, in addition to the simpler mario paint system of single duration notes made of cute and fun sounding character heads, with no need to worry about note values, stems, beams and rests.
 
-* Band-limited (anti-aliased) quantized "pseudo-triangle" generator for basslines. 
+* In addition to the sampled instruments, we will be running an emulation of the NES APU. That is, a live in browser implementation of the 4 synthesized channels output by the audio processing unit of the Nintendo Entertainment System.
 
-* 2 variable duty-cycle pulse waves for leads, with adjustable volume, vibrato, pitch-bend, and the classic chip arpeggiator.
+As an introduction to the principles of sound design, elements of harmony and art of composition, this is a wonderful place to start - basslines played with triangle waves, drums carved out of white noise and variable pulse waves for melodies.
 
-* White noise generator for drums, with variable randomness patterns to create the sense of multiple pitches.
-
-The interface is heavily inspired by Mario Paint. Check out the paper [Mario Paint: An Accessible Environment of Musical Creativity
-and Sound Exploration](docs/Mario_Paint_An_Accessible_Environment_of.pdf) for an excellent summary.
+Check out the paper [Mario Paint: An Accessible Environment of Musical Creativity
+and Sound Exploration](docs/Mario_Paint_An_Accessible_Environment_of.pdf).
 
 [Live app in its current state](https://porkostomus.github.io/mecca/)
-
-
-# Original command-line sequencer:
-
-Clone the repository and set the scripts to be executable:
-
-```
-$ git clone https://github.com/porkostomus/mecca.git
-$ cd mecca-beta
-/mecca-beta$ chmod +x *
-```
-
-## Dependencies
-
-```
-/mecca-beta$ sudo apt install sox bc
-```
-
-# Usage
-
-## Live synth
-
-If you just want to jam on the keyboard:
-
-```
-/mecca-beta$ ./synth
-```
-
-```
- -------------------------
-  | 2 | 3 |   | 5 | 6 | 7 |
----------------------------------
-| q | w | e | r | t | y | u | i |
----------------------------------
-  | s | d |    | g | h | j |
----------------------------------
-| z | x | c | v | b | n | m | , |
----------------------------------
-```
-
-The "virtual piano" on the screen indicates which keys play notes. You have 2 full octaves, one starting with the `z` key, and one starting with `q`, with the sharps/flats located above them like on a piano.
-
-## Live drum synth
-
-```
-/mecca-beta$ ./drum-machine
-```
-
-Play the drums using the `a` `s` `d` keys.
-
-## Multitrack text-based sequencer
-
-#### Note/drum files
-
-The MECCA music encoding format consists of *note files*, text files made up of a list of notes (with their octave) and their duration in terms of whole `1`, half `2`, quarter `4`, quarter-note triplet `4t`, eighth `8`, eighth-note triplet `8t`, sixteenth `16`, or a rest `r`, one note per line:
-
-```
-c3 8
-c#3 16
-d#3 16
-b4 8
-c#3 16
-c#3 16
-
-```
-
-**Notice the blank line at the end.** Without it, your last note will get cut off.
-
-The drum sequencer works similarly, written as kicks `k`, snares `s` and hi-hats `h`:
-
-```
-k 8
-h 16
-h 16
-s 8
-h 16
-h 16
-
-```
-
-The program looks for music files named `<song>-drums`, `<song>-bass`, and `<song>-lead`, or 2 lead tracks named `<song>-lead1` and `<song>-lead2`.
-
-#### Song (`.mec`) files
-
-The drum and note files can be looked at as musical patterns that can be looped and composed into a more complex arrangement. This is done using song files:
-
-```
-A
-A
-B
-A
-A
-
-```
-
-This example will create a song in the form AABAA using the note patterns contained in the files `<song>-<instrument>-A` and `<song>-<instrument>-B`.
-
-### **Build your song!**
-
-```
-/mecca-beta$ ./build-song <song> <tempo>
-```
-
-Check out the `zelda` and `megaman` examples!
-
-## Interactive sequencer:
-
-Allright, now forget about all those text files! The *Mecca Alpha* interface handles it all for you and lets you build songs interactively:
-
-```
-/mecca/mecca-alpha$ ./mecca [tempo]
-    
-`tempo` is an integer in beats-per-minute (defaults to `120`).
-The Zelda sample song sounds right at `120`, Megaman is `175`.  
-To play a song, just load it and select play from the spacebar-menu:
-
-    MECCA Music Platform
-    1 - New song
-    2 - Load song
-    > 2
-    Enter song name
-    > zelda
-      -------------------------
-      | 2 | 3 |   | 5 | 6 | 7 |
-    ---------------------------------
-    | q | w | e | r | t | y | u | i |
-    ---------------------------------
-      | s | d |    | g | h | j |
-    ---------------------------------
-    | z | x | c | v | b | n | m | , |
-    ---------------------------------
-
-    Synth ready. Press <spacebar> for options
-    > 
-    [space] Play song
-    [1] Undo last note
-    [2] Record lead
-    [3] Add eighth-notes
-    [4] Add eighth-note triplets
-    [5] Add quarter-notes
-    [6] Add quarter-note triplets
-    [7] Add half-notes
-
-    Enter option >
-```
-    
-1. Enter notes to build the bassline using triangle-waves.
-2. Use the spacebar-menu to change note lengths.
-3. **A semicolon (`;`) enters a rest.**
-4. If you mess up, use the undo! Use the play option any time to hear what you've got.
-5. When satisfied with your bassline, move on to the lead.
-
-## Motivation
-
-The MECCA Platform was born out of the inspiration that we should develop a music software suite to provide comprehensive integration of learning, writing and performance. For when these forms of understanding and expression are fully realized as components of a higher-order activity, life will finally be [a dream](https://www.youtube.com/watch?v=0TgrorCZg80). The goal is to subtly encourage musical idioms without limiting expressivity, like the ultimate teacher who inspires and empowers you, the student, the composer, the creator.
-
-MECCA uses [SoX](http://sox.sourceforge.net/), the Swiss-Army Knife of audio manipulation. It began life in 1991 as a command-line tool for converting audio formats, and was tortured throughout its adolesence and made to do all sorts of things to sounds like bind them, cut them, and apply effects all over them. Most fascinatingly, at some point it developed the ability to actually synthesize its own waveforms, a most distinguished craft which has seduced us into bringing this long history of abuse to its thrilling climax, and proudly introduce the one, the only... SoX, the Sequencer.
 
 ## LICENSE
 

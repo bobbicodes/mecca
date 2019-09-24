@@ -6,11 +6,17 @@
    [mecca.components.key :as key]
    [mecca.mario :as mario]))
 
-(defn color-paths [paths x y scale]
-  (into [:g {:transform (str "scale(" scale ") translate(" x "," y ")")}]
-        (for [[color path] paths]
-          [:path {:stroke color
-                  :d path}])))
+(defn color-paths
+  ([paths x y scale]
+   (color-paths nil paths x y scale))
+   ([attrs paths x y scale]
+    (into
+     [:g
+      (merge attrs
+             {:transform (str "scale(" scale ") translate(" x "," y ")")})]
+     (for [[color path] paths]
+       [:path {:stroke color
+               :d path}]))))
 
 (defn tempo-slider [x y scale]
   (color-paths [["#686850" "M1 0h3M0 1h1M4 1h1M0 2h1M4 2h1M0 3h1M4 3h1M0 4h1M4 4h1M0 5h1M4 5h1M0 6h1M4 6h1M1 7h3"]
@@ -33,7 +39,7 @@
                  ["#f8f800" "M3 2h1M0 3h5M0 4h6M0 5h5M3 6h1"]]
                 x y scale)])
 
-(defn undo-dog [x y]
+(defn undo-dog [x y scale]
   (let [undos? (subscribe [:undos?])]     
     (fn []
       (color-paths [["#000001" "M0 0h14M0 1h1M4 1h6M13 1h1M0 2h2M5 2h4M12 2h2M0 3h2M3 3h1M10 3h1M12 3h2M0 4h2M12 4h2M0 5h3M11 5h3M0 6h3M5 6h1M8 6h1M11 6h3M0 7h3M11 7h3M0 8h3M11 8h3M0 9h3M6 9h2M11 9h3M0 10h3M6 10h2M11 10h3M0 11h3M5 11h4M11 11h3M0 12h4M10 12h4M0 13h5M9 13h5M0 14h14"]
@@ -43,7 +49,7 @@
                     ["#a0a0b0" "M11 2h1M2 3h1M4 3h1M9 3h1M11 3h1M3 4h1M9 4h1M3 5h1M9 5h1M3 6h1M7 6h1M9 6h1M3 7h1M7 7h3M3 8h1M7 8h3M3 9h1M8 9h2M3 10h1M8 10h2M4 12h1M6 12h2M6 13h1"]
                     ["#c850c0" "M14 2h2M14 3h2M14 4h2M14 5h2M14 6h2M14 7h2M14 8h2M14 9h2M14 10h2M14 11h2M14 12h2M14 13h2M14 14h2M2 15h14M2 16h14"]
                     ["#f8f8f8" "M5 5h1M8 5h1"]]
-                    (* x 5) (* y 5) 0.2))))
+                    (* x 5) (* y 5) scale))))
 
 
 
@@ -123,12 +129,12 @@
 
 (defn toolbar [x y]
   [:g [:rect {:x x :y y :width 32 :height 4 :stroke "black" :stroke-width 0.2 :fill "#f8b0f8"}]
-   [undo-dog (+ 0.5 x) (+ 0.5 y)]])
+   [undo-dog 15 (+ 0.5 y) 0.4]])
 
 (defn controls []
   [:svg {:width "100%" :view-box "0 0 64 32"}
    [robot]
-   (into [:g {:transform "scale(0.21) translate(135,0)"}]
+   (into [:g#transport {:transform "scale(0.21) translate(135,0)"}]
          (for [[color path]
                [["#ff80ff" "M0 0h2M166 0h2M0 1h1M167 1h1M0 38h1M167 38h1M0 39h2M166 39h2"]
                 ["#000" "M2 0h164M1 1h2M165 1h2M0 2h2M166 2h2M0 3h1M167 3h1M0 4h1M167 4h1M0 5h1M6 5h156M167 5h1M0 6h1M5 6h2M161 6h2M167 6h1M0 7h1M5 7h1M162 7h1M167 7h1M0 8h1M5 8h1M162 8h1M167 8h1M0 9h1M5 9h1M162 9h1M167 9h1M0 10h1M5 10h1M10 10h4M15 10h5M21 10h4M26 10h4M42 10h4M47 10h1M53 10h2M57 10h1M61 10h1M74 10h1M79 10h4M84 10h4M89 10h4M115 10h5M121 10h4M126 10h1M130 10h1M132 10h4M137 10h4M162 10h1M167 10h1M0 11h1M5 11h1M10 11h1M17 11h1M21 11h1M24 11h1M26 11h1M29 11h1M42 11h1M45 11h1M47 11h1M52 11h1M55 11h1M58 11h1M60 11h1M74 11h1M79 11h1M82 11h1M84 11h1M87 11h1M89 11h1M92 11h1M117 11h1M121 11h1M126 11h2M129 11h2M132 11h1M135 11h1M137 11h1M140 11h1M162 11h1M167 11h1M0 12h1M5 12h1M10 12h4M17 12h1M21 12h1M24 12h1M26 12h4M42 12h4M47 12h1M52 12h4M59 12h1M74 12h1M79 12h1M82 12h1M84 12h1M87 12h1M89 12h4M117 12h1M121 12h4M126 12h1M128 12h1M130 12h1M132 12h4M137 12h1M140 12h1M162 12h1M167 12h1M0 13h1M5 13h1M13 13h1M17 13h1M21 13h1M24 13h1M26 13h1M42 13h1M47 13h1M52 13h1M55 13h1M59 13h1M74 13h1M79 13h1M82 13h1M84 13h1M87 13h1M89 13h1M117 13h1M121 13h1M126 13h1M130 13h1M132 13h1M137 13h1M140 13h1M162 13h1M167 13h1M0 14h1M5 14h1M10 14h4M17 14h1M21 14h4M26 14h1M42 14h1M47 14h4M52 14h1M55 14h1M59 14h1M74 14h4M79 14h4M84 14h4M89 14h1M117 14h1M121 14h4M126 14h1M130 14h1M132 14h1M137 14h4M162 14h1M167 14h1M0 15h1M5 15h1M162 15h1M167 15h1M0 16h1M5 16h1M162 16h1M167 16h1M0 17h1M5 17h1M162 17h1M167 17h1M0 18h1M5 18h1M25 18h1M89 18h1M162 18h1M167 18h1M0 19h1M5 19h1M26 19h1M90 19h1M162 19h1M167 19h1M0 20h1M5 20h1M26 20h1M80 20h1M82 20h4M90 20h1M162 20h1M167 20h1M0 21h1M5 21h1M26 21h1M85 21h1M90 21h1M98 21h3M155 21h3M162 21h1M167 21h1M0 22h1M5 22h1M26 22h1M84 22h3M90 22h1M97 22h1M101 22h1M154 22h1M158 22h1M162 22h1M167 22h1M0 23h1M5 23h1M26 23h1M80 23h1M85 23h1M90 23h1M96 23h1M102 23h1M153 23h1M156 23h1M159 23h1M162 23h1M167 23h1M0 24h1M5 24h1M26 24h1M79 24h3M90 24h1M96 24h1M98 24h3M102 24h1M108 24h40M153 24h1M155 24h3M159 24h1M162 24h1M167 24h1M0 25h1M5 25h1M26 25h1M80 25h1M90 25h1M96 25h1M102 25h1M108 25h40M153 25h1M156 25h1M159 25h1M162 25h1M167 25h1M0 26h1M5 26h1M26 26h1M80 26h4M85 26h1M90 26h1M97 26h1M101 26h1M154 26h1M158 26h1M162 26h1M167 26h1M0 27h1M5 27h1M26 27h1M90 27h1M98 27h3M155 27h3M162 27h1M167 27h1M0 28h1M5 28h1M26 28h1M90 28h1M162 28h1M167 28h1M0 29h1M5 29h1M14 29h1M25 29h2M78 29h1M89 29h2M162 29h1M167 29h1M0 30h1M5 30h1M15 30h11M79 30h11M162 30h1M167 30h1M0 31h1M5 31h1M162 31h1M167 31h1M0 32h1M5 32h1M162 32h1M167 32h1M0 33h1M5 33h2M161 33h2M167 33h1M0 34h1M6 34h156M167 34h1M0 35h1M167 35h1M0 36h1M167 36h1M0 37h2M166 37h2M1 38h2M165 38h2M2 39h164"]
@@ -141,7 +147,7 @@
            [:path {:stroke color
                    :d path}]))
    (if @(subscribe [:playing?])
-    (into [:g {:transform "scale(0.21) translate(182.2,18.5)"
+    (into [:g#play-active {:transform "scale(0.21) translate(182.2,18.5)"
                :on-click #(dispatch [:play-toggle])}]
           (for [[color path]
                 [["#000000" "M0 0h2M0 1h1M2 1h2M0 2h1M4 2h2M0 3h1M6 3h2M0 4h1M8 4h1M0 5h1M9 5h1M0 6h1M8 6h1M0 7h1M6 7h2M0 8h1M4 8h2M0 9h1M2 9h2M0 10h2"]
@@ -152,7 +158,7 @@
                  ]]
             [:path {:stroke color
                     :d path}]))
-     (into [:g {:transform "scale(0.21) translate(182,17.6)"
+     (into [:g#play-inactive {:transform "scale(0.21) translate(182,17.6)"
                 :on-click #(dispatch [:play-toggle])}]
            (for [[color path]
                  [["#707070" "M0 0h2M0 1h1M2 1h2M0 2h1M4 2h2M0 3h1M2 3h2M6 3h2M0 4h1M2 4h1M4 4h2M8 4h1M0 5h1M2 5h1M6 5h1M9 5h1M0 6h1M2 6h1M4 6h2M8 6h1M0 7h1M2 7h2M6 7h2M10 7h1M0 8h1M4 8h2M9 8h2M0 9h1M2 9h2M8 9h2M0 10h2M6 10h3M0 11h1M4 11h3M2 12h3M1 13h2"]

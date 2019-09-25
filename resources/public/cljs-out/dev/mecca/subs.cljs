@@ -42,14 +42,19 @@
    (:editor-beat-start db)))
 
 (rf/reg-sub
- :selected-note-value
+ :selected-note
  (fn [db _]
-   (:selected-note-value db)))
+   (:selected-note db)))
 
 (rf/reg-sub
  :focused-note-pos
  (fn [db _]
    (:focused-note-pos db)))
+
+(rf/reg-sub
+ :mario
+ (fn [db _]
+   (:mario db)))
 
 (rf/reg-sub
  :lead

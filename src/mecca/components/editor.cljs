@@ -42,7 +42,8 @@
 (defn undo-dog [x y scale]
   (let [undos? (subscribe [:undos?])]     
     (fn []
-      (color-paths [["#000001" "M0 0h14M0 1h1M4 1h6M13 1h1M0 2h2M5 2h4M12 2h2M0 3h2M3 3h1M10 3h1M12 3h2M0 4h2M12 4h2M0 5h3M11 5h3M0 6h3M5 6h1M8 6h1M11 6h3M0 7h3M11 7h3M0 8h3M11 8h3M0 9h3M6 9h2M11 9h3M0 10h3M6 10h2M11 10h3M0 11h3M5 11h4M11 11h3M0 12h4M10 12h4M0 13h5M9 13h5M0 14h14"]
+      (color-paths {:on-click #(dispatch [:undo])}
+                   [["#000001" "M0 0h14M0 1h1M4 1h6M13 1h1M0 2h2M5 2h4M12 2h2M0 3h2M3 3h1M10 3h1M12 3h2M0 4h2M12 4h2M0 5h3M11 5h3M0 6h3M5 6h1M8 6h1M11 6h3M0 7h3M11 7h3M0 8h3M11 8h3M0 9h3M6 9h2M11 9h3M0 10h3M6 10h2M11 10h3M0 11h3M5 11h4M11 11h3M0 12h4M10 12h4M0 13h5M9 13h5M0 14h14"]
                     ["#f8b0f8" "M14 0h2M14 1h2M0 15h2M0 16h2"]
                     ["#c0c0c1" "M1 1h3M10 1h3M2 2h1M4 2h1M9 2h1M5 3h4M4 4h5M4 5h1M6 5h2M4 6h1M6 6h1M4 7h3M4 8h3M4 9h2M4 10h2M4 11h1M5 12h1"]
                     ["#808081" "M3 2h1M10 2h1M2 4h1M10 4h2M10 5h1M10 6h1M10 7h1M10 8h1M10 9h1M10 10h1M3 11h1M9 11h2M8 12h2M5 13h1M7 13h2"]
@@ -172,7 +173,7 @@
    [toolbar 30 8.8]])
 
 (defn current-note-display [x y scale]
-  (let [current-note (subscribe [:selected-note-value])]
+  (let [current-note (subscribe [:selected-note])]
     (fn [x y scale]
       [:g 
        (color-paths [["#000000" "M0 0h22M0 1h1M2 1h1M19 1h1M21 1h1M0 2h3M19 2h3M0 3h3M19 3h3M0 4h1M2 4h1M19 4h1M21 4h1M0 5h3M19 5h3M0 6h3M19 6h3M0 7h1M2 7h1M19 7h1M21 7h1M0 8h3M19 8h3M0 9h3M19 9h3M0 10h1M2 10h1M19 10h1M21 10h1M0 11h3M19 11h3M0 12h3M19 12h3M0 13h1M2 13h1M19 13h1M21 13h1M0 14h3M19 14h3M0 15h22"]

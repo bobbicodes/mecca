@@ -4,9 +4,6 @@
    [re-frame.core :as rf :refer [subscribe dispatch]]
    [ajax.core :as ajax]
    [ajax.protocols :as protocol]
-   [mecca.audio.processing] ; Import action defs.
-   [mecca.audio.actions :as action]
-   [mecca.audio.framework :as framework]
    [mecca.audio.scale :as scale]
    [mecca.audio.synthesis :as synthesis]
    [mecca.audio.melody :as melody]))

@@ -14,25 +14,28 @@
             [mecca.mario :as mario :refer [mario]]))
 
 (defn note-targets []
-  (into [:g] (for [x (range 16)
-               y (range 34)]
-           ^{:key [x y]}
-            [:rect {:transform "translate(12.5,0)"
-                    :x (* 3 x)
-                    :y (+ 0.5 y)
-                    :height 1 :width 3
-                    :stroke "black"
-                    :stroke-width 0.2
-                    :fill "gray"
-                    :visibility "hidden"
-                    :opacity 0.2
-                    :pointer-events "all"
-                    :on-mouse-over #(dispatch [:update-focus-note [x y]])
-                    :on-mouse-out #(dispatch [:update-focus-note [nil nil]])
-                    :on-click #(dispatch [:add-note x y])}])))
+  (let [note (subscribe [:selected-note])]
+    (fn []
+      (into [:g]
+            (for [x (range 0 8 0.5) y (range 34)]
+              ^{:key [x y]}
+              [:rect {:transform "translate(12.5,0)"
+                      :x (* 6 x)
+                      :y (+ 0.5 y)
+                      :height 1 :width 3
+                      :stroke "black"
+                      :stroke-width 0.2
+                      :fill "gray"
+                      :visibility "hidden"
+                      :opacity 0.2
+                      :pointer-events "all"
+                      :on-mouse-over #(dispatch [:update-focus-note [x y]])
+                      :on-mouse-out #(dispatch [:update-focus-note [nil nil]])
+                      :on-click #(dispatch [:add-note [(keyword @note)] x y])}])))))
 
 (defn editor []
   (let [focused (subscribe [:focused-note-pos])
+        mario-note (subscribe [:mario])
         lead (subscribe [:lead])
         bassline (subscribe [:bassline])
         drums (subscribe [:drums])
@@ -41,7 +44,7 @@
         playing? (subscribe [:playing?])
         mario-run (subscribe [:mario-run])
         mario-jump (subscribe [:mario-jump])
-        selected-note-value (subscribe [:selected-note-value])]
+        selected-note (subscribe [:selected-note])]
     (fn []
       (if (= 20 @mario-run)
         (dispatch [:jump-reset]))
@@ -86,8 +89,11 @@
         [note-targets]
         (when-not (= @focused [nil nil])
           (let [[x y] @focused]
-            (case @selected-note-value
-              "mario" [mario/mario-icon (+ 32 (* 15 x)) (* 5 y) 0.2])))
+            (case @selected-note
+              "mario" [mario/mario-icon (+ 32 (* 30 x)) (- (* 5 y) 5) 0.2])))
+        (doall (for [{:keys [time _ pitch]} @mario-note]
+                 ^{:key [time pitch]}
+                 [mario/mario-note (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]))
         (doall (for [{:keys [time duration pitch]} @lead]
                  ^{:key [time duration pitch]}
                  [notation/note duration [time (- 77 pitch)]]))
@@ -101,12 +107,10 @@
 (defn debug-info []
   [:div
    [:p (str "Absolute time: " @(subscribe [:time]))]
-   [:p (str "Lead: " @(subscribe [:lead]))]
-   [:p (str "Bassline: " @(subscribe [:bassline]))]
-   [:p (str "Drums: " @(subscribe [:drums]))]
+   [:p (str "Mario notes: " @(subscribe [:mario]))]
    [:p (str "Mario run: " @(subscribe [:mario-run]))]
    [:p (str "Mario jump: " @(subscribe [:mario-jump]))]
-   [:p (str "Selected note value: " @(subscribe [:selected-note-value]))]
+   [:p (str "Selected note: " @(subscribe [:selected-note]))]
    [:p (str "Focused note pos: " @(subscribe [:focused-note-pos]))]
    [:p (str @(subscribe [:scale])
             " scale from MIDI number "

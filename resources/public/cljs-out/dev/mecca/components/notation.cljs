@@ -163,13 +163,13 @@
 
 (defn note-button [value x]
   (let [mario-run (subscribe [:mario-run])
-        selected (subscribe [:selected-note-value])]
+        selected (subscribe [:selected-note])]
     (fn [value x]
       [:g {:transform (str "translate(" x "," (if (and (< 38 @mario-run 42)
                                                        (or (= value 1)
                                                            (= value "quarter-rest")))
                                                 -2.5 0) ")")
-           :on-click #(dispatch [:select-note-value value])}
+           :on-click #(dispatch [:select-note value])}
        [:path {:fill (if (and (< 38 @mario-run)
                               (or
                                (= value (str @selected "-rest"))

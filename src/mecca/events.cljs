@@ -15,10 +15,11 @@
     :playing? false
     :current-position 0
     :editor-beat-start 1
-    :selected-note-value "mario"
+    :selected-note "mario"
     :key "C"
     :time 0
     :tempo 180
+    :mario []
     :lead []
     :bassline []
     :drums []
@@ -38,13 +39,10 @@
 (reg-event-db
  :add-note
  (undoable "add note")
- (fn [db [_ x y]]
-   (update-in db (cond
-                   (< y 18) [:lead]
-                   (< 18 y 31) [:bassline]
-                   (< 30 y) [:drums])
+ (fn [db [_ instrument x y]]
+   (update-in db instrument
               conj {:time x
-                    :duration @(subscribe [:selected-note-value])
+                    :duration 0.5
                     :pitch (- 77 y)})))
 
 (reg-event-db
@@ -96,9 +94,9 @@
    (assoc db :focused-note-pos pos)))
 
 (reg-event-db
- :select-note-value
- (fn [db [_ value]]
-   (assoc db :selected-note-value value)))
+ :select-note
+ (fn [db [_ note]]
+   (assoc db :selected-note :remove-note)))
 
 (reg-event-db
  :play-off

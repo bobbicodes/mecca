@@ -97,10 +97,7 @@ goog.addDependency("../ajax/core.js", ['ajax.core'], ['ajax.formats', 'ajax.xml_
 goog.addDependency("../mecca/audio/melody.js", ['mecca.audio.melody'], ['cljs.core', 'mecca.audio.scale', 're_frame.core']);
 goog.addDependency("../day8/re_frame/undo.js", ['day8.re_frame.undo'], ['reagent.core', 'cljs.core', 're_frame.db', 're_frame.core']);
 goog.addDependency("../mecca/audio/synthesis.js", ['mecca.audio.synthesis'], ['cljs.core']);
-goog.addDependency("../mecca/audio/actions.js", ['mecca.audio.actions'], ['cljs.core']);
-goog.addDependency("../mecca/audio/framework.js", ['mecca.audio.framework'], ['cljs.core']);
-goog.addDependency("../mecca/audio/processing.js", ['mecca.audio.processing'], ['cljs.core', 'mecca.audio.synthesis', 'mecca.audio.melody', 'mecca.audio.actions', 'mecca.audio.framework']);
-goog.addDependency("../mecca/music.js", ['mecca.music'], ['ajax.core', 'reagent.core', 'mecca.audio.processing', 'cljs.core', 'mecca.audio.synthesis', 'mecca.audio.melody', 'mecca.audio.scale', 'mecca.audio.actions', 'ajax.protocols', 'mecca.audio.framework', 're_frame.core']);
+goog.addDependency("../mecca/music.js", ['mecca.music'], ['ajax.core', 'reagent.core', 'cljs.core', 'mecca.audio.synthesis', 'mecca.audio.melody', 'mecca.audio.scale', 'ajax.protocols', 're_frame.core']);
 goog.addDependency("../mecca/events.js", ['mecca.events'], ['day8.re_frame.undo', 'mecca.music', 'cljs.core', 'goog.events.EventType', 'mecca.audio.scale', 'mecca.mario', 'goog.events', 're_frame.core']);
 goog.addDependency("../mecca/subs.js", ['mecca.subs'], ['cljs.core', 're_frame.core']);
 goog.addDependency("../mecca/components/key.js", ['mecca.components.key'], ['cljs.core']);
@@ -110,7 +107,10 @@ goog.addDependency("../mecca/audio/sequencer.js", ['mecca.audio.sequencer'], ['c
 goog.addDependency("../mecca/components/castle.js", ['mecca.components.castle'], ['cljs.core']);
 goog.addDependency("../mecca/view.js", ['mecca.view'], ['mecca.components.editor', 'mecca.components.key', 'mecca.events', 'mecca.subs', 'mecca.music', 'mecca.components.notation', 'mecca.audio.sequencer', 'reagent.core', 'cljs.core', 'mecca.audio.melody', 'mecca.audio.scale', 'mecca.mario', 'mecca.components.castle', 're_frame.core']);
 goog.addDependency("../mecca/core.js", ['mecca.core'], ['goog.dom', 'mecca.events', 'mecca.subs', 'reagent.core', 'cljs.core', 'mecca.view', 're_frame.core']);
+goog.addDependency("../mecca/audio/actions.js", ['mecca.audio.actions'], ['cljs.core']);
 goog.addDependency("../mecca/core_test.js", ['mecca.core_test'], ['cljs.core', 'cljs.test', 'mecca.core']);
 goog.addDependency("../mecca/test_runner.js", ['mecca.test_runner'], ['cljs.core', 'mecca.core_test', 'figwheel.main.testing']);
+goog.addDependency("../mecca/audio/framework.js", ['mecca.audio.framework'], ['cljs.core']);
 goog.addDependency("../mecca/audio/time.js", ['mecca.audio.time'], ['cljs.core']);
 goog.addDependency("../figwheel/main/generated/dev_auto_test_runner.js", ['figwheel.main.generated.dev_auto_test_runner'], ['cljs.core', 'cljs.test', 'mecca.core_test', 'cljs_test_display.core']);
+goog.addDependency("../mecca/audio/processing.js", ['mecca.audio.processing'], ['cljs.core', 'mecca.audio.synthesis', 'mecca.audio.melody', 'mecca.audio.actions', 'mecca.audio.framework']);

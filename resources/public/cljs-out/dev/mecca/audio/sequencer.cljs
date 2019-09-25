@@ -75,3 +75,4 @@
     [:span#bpmval 120]
     [:button {:data-playing false} "Play"]]
    [tracks]])
+

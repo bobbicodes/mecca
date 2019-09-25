@@ -82,6 +82,61 @@
   [node]
   (subgraph nil node))
 
+(defn sink
+  "A graph of synthesis nodes without an output,
+  so it can't connect to another graph."
+  [node]
+  (subgraph node nil))
+
+(defn ^:export run-with
+  "Convert a synth (actually a reader fn) into a concrete
+  subgraph by supplying context and timing."
+  [synth context at duration]
+  (synth context at duration))
+
+(defn ^:export destination
+  "The destination of the audio context i.e. the speakers."
+  [context at duration]
+  (sink (.-destination context)))
+
+(defn plug [param input context at duration]
+  "Plug an input into an audio parameter, accepting both
+  numbers and synths."
+  (if (number? input)
+    (.setValueAtTime param input at)
+    (-> input (run-with context at duration) :output (.connect param))))
+
+(defn ^:export gain
+  "Multiply the signal by level."
+  [level]
+  (fn [context at duration]
+    (subgraph
+     (doto (.createGain context)
+       (-> .-gain (plug level context at duration))))))
+
+(defn apply-to-graph
+  "Like apply, but for the node graphs synths produce."
+  [f & synths]
+  (fn [context at duration]
+    (->> synths
+         (map #(run-with % context at duration))
+         (apply f))))
+
+(defn join-in-series
+  [graph1 graph2]
+  (.connect (:output graph1) (:input graph2))
+  (subgraph (:input graph1) (:output graph2)))
+
+(defn ^:export connect
+  "Use the output of one synth as the input to another."
+  [upstream-synth downstream-synth]
+  (apply-to-graph join-in-series upstream-synth downstream-synth))
+
+(defn connect->
+  "Connect synths in series."
+  [& nodes]
+  (reduce connect nodes))
+
 (defn get-mp3 [uri callback]
   (ajax/GET uri {:response-format {:type :arraybuffer
                                    :read protocol/-body
@@ -109,6 +164,15 @@
          node)))))
 
 (def ^:export sample (memoize raw-sample))
+
+(defn playback-mp3 [url]
+  (let [mp3 (connect-> (sample url)  ; read file using js ajax, including caching
+                       (gain 0.5)    ; you can chain optional effects here
+                       destination)]
+    (run-with mp3
+                @audiocontext
+                (current-time @audiocontext)
+                3.0)))
 
 (defn raw-buffer
   [generate-bit! context duration]

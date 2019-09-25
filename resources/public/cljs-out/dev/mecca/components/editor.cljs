@@ -42,15 +42,38 @@
 (defn undo-dog [x y scale]
   (let [undos? (subscribe [:undos?])]     
     (fn []
-      (color-paths {:on-click #(dispatch [:undo])}
-                   [["#000001" "M0 0h14M0 1h1M4 1h6M13 1h1M0 2h2M5 2h4M12 2h2M0 3h2M3 3h1M10 3h1M12 3h2M0 4h2M12 4h2M0 5h3M11 5h3M0 6h3M5 6h1M8 6h1M11 6h3M0 7h3M11 7h3M0 8h3M11 8h3M0 9h3M6 9h2M11 9h3M0 10h3M6 10h2M11 10h3M0 11h3M5 11h4M11 11h3M0 12h4M10 12h4M0 13h5M9 13h5M0 14h14"]
-                    ["#f8b0f8" "M14 0h2M14 1h2M0 15h2M0 16h2"]
-                    ["#c0c0c1" "M1 1h3M10 1h3M2 2h1M4 2h1M9 2h1M5 3h4M4 4h5M4 5h1M6 5h2M4 6h1M6 6h1M4 7h3M4 8h3M4 9h2M4 10h2M4 11h1M5 12h1"]
-                    ["#808081" "M3 2h1M10 2h1M2 4h1M10 4h2M10 5h1M10 6h1M10 7h1M10 8h1M10 9h1M10 10h1M3 11h1M9 11h2M8 12h2M5 13h1M7 13h2"]
-                    ["#a0a0b0" "M11 2h1M2 3h1M4 3h1M9 3h1M11 3h1M3 4h1M9 4h1M3 5h1M9 5h1M3 6h1M7 6h1M9 6h1M3 7h1M7 7h3M3 8h1M7 8h3M3 9h1M8 9h2M3 10h1M8 10h2M4 12h1M6 12h2M6 13h1"]
-                    ["#c850c0" "M14 2h2M14 3h2M14 4h2M14 5h2M14 6h2M14 7h2M14 8h2M14 9h2M14 10h2M14 11h2M14 12h2M14 13h2M14 14h2M2 15h14M2 16h14"]
-                    ["#f8f8f8" "M5 5h1M8 5h1"]]
-                    (* x 5) (* y 5) scale))))
+      (color-paths {:on-click (if @undos? #(dispatch [:undo]))}
+                   (if @undos?
+                    [["#000000" "M0 0h1M3 0h8M13 0h1M0 1h1M4 1h6M13 1h1M0 2h2M4 2h6M12 2h2M0 3h2M12 3h2M0 4h2M12 4h2M0 5h3M5 5h1M8 5h1M11 5h3M0 6h3M11 6h3M0 7h3M6 7h2M11 7h3M0 8h3M6 8h2M11 8h3M0 9h3M4 9h2M8 9h2M11 9h3M0 10h3M4 10h1M9 10h1M11 10h3M0 11h3M5 11h1M8 11h1M11 11h3M0 12h4M6 12h2M10 12h4M0 13h5M9 13h5M0 14h14"]
+                     ["#ffc694" "M1 0h1M12 0h1M1 1h1M3 1h1M11 1h2M11 2h1M3 3h2M2 4h2M9 4h1M11 4h1M3 5h1M9 5h1M3 6h1M9 6h1M3 7h1M8 7h2M3 8h1M8 8h2M3 9h1M3 10h1M4 12h1M6 13h1"]
+                     ["#ffefbd" "M2 0h1M11 0h1M2 1h1M10 1h1M2 2h1M10 2h1M2 3h1M5 3h6M4 4h5M4 5h1M6 5h2M4 6h1M6 6h2M4 7h2M4 8h2M4 11h1M5 12h1"]
+                     ["#d6944a" "M3 2h1M11 3h1M10 4h1M10 5h1M10 6h1M10 7h1M10 8h1M10 9h1M10 10h1M3 11h1M9 11h2M8 12h2M5 13h1M7 13h2"]
+                     ["#ffffff" "M5 6h1M8 6h1"]
+                     ["#b54a00" "M6 9h2M5 10h4M6 11h2"]]
+                     [["#000000" "M0 0h14M0 1h1M4 1h6M13 1h1M0 2h2M5 2h4M12 2h2M0 3h2M3 3h1M10 3h1M12 3h2M0 4h2M12 4h2M0 5h3M11 5h3M0 6h3M5 6h1M8 6h1M11 6h3M0 7h3M11 7h3M0 8h3M11 8h3M0 9h3M6 9h2M11 9h3M0 10h3M6 10h2M11 10h3M0 11h3M5 11h4M11 11h3M0 12h4M10 12h4M0 13h5M9 13h5M0 14h14"]
+                      ["#c6c6c6" "M1 1h3M10 1h3M2 2h1M4 2h1M9 2h1M5 3h4M4 4h1M6 4h1M8 4h1M4 5h1M6 5h2M6 6h1M4 7h2M4 8h3M5 9h1M4 10h2M4 11h1M5 12h1"]
+                      ["#737373" "M3 2h1M10 2h1M10 4h1M10 6h1M10 8h1M10 10h1M8 12h1M7 13h1"]
+                      ["#a5a5b5" "M11 2h1M2 3h1M4 3h1M9 3h1M11 3h1M3 4h1M9 4h1M3 5h1M9 5h1M3 6h1M7 6h1M9 6h1M3 7h1M7 7h3M3 8h1M7 8h3M3 9h1M8 9h2M3 10h1M8 10h2M4 12h1M6 12h2M6 13h1"]
+                      ["#848484" "M2 4h1M11 4h1M10 5h1M10 7h1M10 9h1M3 11h1M9 11h2M9 12h1M5 13h1M8 13h1"]
+                      ["#adadad" "M5 4h1M7 4h1M4 6h1M6 7h1M4 9h1"]
+                      ["#ffffff" "M5 5h1M8 5h1"]])
+                     (* x 5) (* y 5) scale))))
+
+(defn redo-rabbit [x y scale]
+  (let [redos? (subscribe [:redos?])]
+    (fn []
+      (color-paths {:on-click (if @redos? #(dispatch [:redo]))}
+                   (if @redos? 
+                     [["#ffffff" "M0 0h3M5 0h5M12 0h3M0 1h2M6 1h2M13 1h2M0 2h1M2 2h1M5 2h1M7 2h1M9 2h1M12 2h1M14 2h1M0 3h1M2 3h1M5 3h1M9 3h1M12 3h1M14 3h1M0 4h1M2 4h1M5 4h1M9 4h1M12 4h1M14 4h1M0 5h1M3 5h2M10 5h2M14 5h1M0 6h2M13 6h2M0 7h1M14 7h1M0 12h1M14 12h1M0 13h2M13 13h2M0 14h4M11 14h4M0 15h2M3 15h3M9 15h4M14 15h1M0 16h11M12 16h3"]
+                      ["#000000" "M3 0h2M10 0h2M2 1h1M5 1h1M9 1h1M12 1h1M1 2h1M3 2h2M6 2h1M8 2h1M10 2h2M13 2h1M1 3h1M3 3h2M6 3h3M10 3h2M13 3h1M1 4h1M3 4h2M6 4h1M8 4h1M10 4h2M13 4h1M1 5h1M5 5h1M9 5h1M13 5h1M2 6h1M12 6h1M1 7h1M6 7h1M8 7h1M13 7h1M0 8h1M14 8h1M0 9h1M14 9h1M0 10h1M14 10h1M0 11h1M4 11h1M10 11h1M14 11h1M1 12h1M5 12h1M9 12h1M13 12h1M2 13h2M6 13h3M11 13h2M4 14h2M9 14h2M6 15h3"]
+                      ["#00ff00" "M3 1h2M10 1h2M7 4h1M2 5h1M6 5h3M12 5h1M3 6h9M2 7h4M7 7h1M9 7h4M1 8h13M1 9h13M1 10h13M1 11h3M5 11h5M11 11h3M2 12h3M6 12h3M10 12h3M4 13h2M9 13h2M6 14h3"]
+                      ["#ceefe7" "M8 1h1M2 15h1M13 15h1M11 16h1"]]
+                     [["#848484" "M0 0h15M0 1h1M2 1h1M5 1h1M7 1h1M9 1h1M12 1h1M14 1h1M0 2h2M6 2h3M13 2h2M0 3h1M7 3h1M14 3h1M0 4h1M14 4h1M0 5h1M14 5h1M0 6h1M14 6h1M0 7h2M13 7h2M0 8h1M14 8h1M0 13h1M14 13h1M0 14h2M13 14h2M0 15h1M2 15h2M11 15h2M14 15h1M0 16h3M4 16h2M9 16h2M12 16h3"]
+                     ["#737373" "M1 1h1M6 1h1M8 1h1M13 1h1M1 15h1M13 15h1M3 16h1M11 16h1"]
+                     ["#000000" "M3 1h2M10 1h2M2 2h1M5 2h1M9 2h1M12 2h1M1 3h2M6 3h1M8 3h1M12 3h2M1 4h1M3 4h1M6 4h3M11 4h1M13 4h1M1 5h1M4 5h1M6 5h1M8 5h1M10 5h1M13 5h1M1 6h1M5 6h1M9 6h1M13 6h1M2 7h1M12 7h1M1 8h1M6 8h1M8 8h1M13 8h1M0 9h1M14 9h1M0 10h1M14 10h1M0 11h1M14 11h1M0 12h1M14 12h1M1 13h1M6 13h3M13 13h1M2 14h2M11 14h2M4 15h2M9 15h2M6 16h3"]
+                     ["#c6c6c6" "M3 2h2M10 2h2M3 3h3M9 3h2M2 4h1M4 4h1M9 4h2M12 4h1M2 5h2M5 5h1M7 5h1M9 5h1M11 5h2M2 6h1M4 6h1M6 6h3M10 6h2M3 7h3M7 7h3M11 7h1M2 8h2M5 8h1M7 8h1M9 8h4M1 9h6M8 9h2M11 9h3M1 10h1M3 10h2M6 10h6M13 10h1M1 11h3M5 11h3M9 11h2M12 11h2M1 12h2M4 12h3M8 12h6M2 13h3M9 13h1M11 13h2M4 14h7M6 15h1M8 15h1"]
+                     ["#adadad" "M11 3h1M5 4h1M3 6h1M12 6h1M6 7h1M10 7h1M4 8h1M7 9h1M10 9h1M2 10h1M5 10h1M12 10h1M4 11h1M8 11h1M11 11h1M3 12h1M7 12h1M5 13h1M10 13h1M7 15h1"]])
+                   (* x 5) (* y 5) scale))))
 
 (defn advance-editor []
   (let [mouseover? (r/atom false)]
@@ -127,7 +150,8 @@
 
 (defn toolbar [x y]
   [:g [:rect {:x x :y y :width 32 :height 4 :stroke "black" :stroke-width 0.2 :fill "#f8b0f8"}]
-   [undo-dog 15 (+ 0.5 y) 0.4]])
+   [undo-dog 27.7 (- y 0.35) 0.22]
+   [redo-rabbit 34 (+ 0.4 y) 0.2]])
 
 (defn controls []
   [:svg {:width "100%" :view-box "0 0 64 32"}

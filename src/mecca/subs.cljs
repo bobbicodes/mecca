@@ -47,6 +47,11 @@
    (:selected-note db)))
 
 (rf/reg-sub
+ :sample-buffer
+ (fn [db instrument]
+   ((keyword instrument (:samples db)))))
+
+(rf/reg-sub
  :focused-note-pos
  (fn [db _]
    (:focused-note-pos db)))

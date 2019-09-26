@@ -8,17 +8,17 @@ goog.require('re_frame.core');
 goog.require('mecca.events');
 goog.require('mecca.subs');
 goog.require('mecca.view');
-var G__14412_14413 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$initialize_DASH_db], null);
-(re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1(G__14412_14413) : re_frame.core.dispatch_sync.call(null,G__14412_14413));
+var G__14418_14419 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$initialize_DASH_db], null);
+(re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1(G__14418_14419) : re_frame.core.dispatch_sync.call(null,G__14418_14419));
 mecca.core.get_app_element = (function mecca$core$get_app_element(){
 return goog.dom.getElement("app");
 });
 mecca.core.mount = (function mecca$core$mount(el){
 (re_frame.core.clear_subscription_cache_BANG_.cljs$core$IFn$_invoke$arity$0 ? re_frame.core.clear_subscription_cache_BANG_.cljs$core$IFn$_invoke$arity$0() : re_frame.core.clear_subscription_cache_BANG_.call(null));
 
-var G__14414 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.view.mecca], null);
-var G__14415 = el;
-return (reagent.core.render_component.cljs$core$IFn$_invoke$arity$2 ? reagent.core.render_component.cljs$core$IFn$_invoke$arity$2(G__14414,G__14415) : reagent.core.render_component.call(null,G__14414,G__14415));
+var G__14420 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.view.mecca], null);
+var G__14421 = el;
+return (reagent.core.render_component.cljs$core$IFn$_invoke$arity$2 ? reagent.core.render_component.cljs$core$IFn$_invoke$arity$2(G__14420,G__14421) : reagent.core.render_component.call(null,G__14420,G__14421));
 });
 mecca.core.mount_app_element = (function mecca$core$mount_app_element(){
 var temp__5457__auto__ = mecca.core.get_app_element();

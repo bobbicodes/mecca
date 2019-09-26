@@ -2,28 +2,30 @@
 
 The Music Education, Composition, Creation Application
 
-You are the student. You are the composer. You are the creator.
+MECCA is a browser-based music editor inspired by Mario Paint, written in Clojurescript and re-frame, utilizing the Web Audio API and an interface built entirely of hand-coded SVG.
 
-This project was born out of the idea that we should make tools that treat learning and creating as complimentary activities. By designing a music software suite that is equally a digital audio workstation and a theory trainer, we can provide a more effective platform for creative exploration.
+[Live app in its current state](https://porkostomus.github.io/mecca/)
 
-The first part I made is an interactive chiptune step-sequencer that you run from the command-line:
+## Start local development server:
 
-[Megaman 2 - Dr. Wily](https://www.youtube.com/watch?v=2EVTeP9KlmM)
+```
+clojure -A:fig -b dev -r
+```
 
-It uses SoX to generate soundwaves, and offers a super simple text-based music encoding format optimized for building songs very quickly by copy-pasting sections.
+## Compile with advanced optimizations:
 
-The version of the MECCA Platform currently in development uses the Web Audio API, and makes extensive use of animated SVGs to produce a highly interactive experience modeled after Mario Paint, with several important enhancements:
+```
+clj -m figwheel.main -O advanced -bo dev
+```
 
-* High quality, dynamically rendered SVG music notation on traditional bass, treble, and drum clefs, in addition to the simpler mario paint system of single duration notes made of cute and fun sounding character heads, with no need to worry about note values, stems, beams and rests.
+The vastly simplified system of music notation used in the Mario Paint music maker requires no use or knowledge of sharps/flats, note durations, stems, beams and rests. Furthermore, the use of styled note heads indicating their voices allows us to put them all on the same staff. This set of functionality, while limited, provides a delightful scope of creative possibilities while remaining very uncluttered and accessible to all ages and experience levels.
 
-* In addition to the sampled instruments, we will be running an emulation of the NES APU. That is, a live in browser implementation of the 4 synthesized channels output by the audio processing unit of the Nintendo Entertainment System.
+This model will be used as a starting point for the MECCA platform, with the primary areas of expansion being interactive sound design, and a selection of methods of note entry including piano roll, vertically-scrolling tracker style, and purely text-based.
 
-As an introduction to the principles of sound design, elements of harmony and art of composition, this is a wonderful place to start - basslines played with triangle waves, drums carved out of white noise and variable pulse waves for melodies.
+The live synthesis engine will consist of an emulation of the 4 channels of the audio processing unit of the Nintendo Entertainment System, in which basslines are typically played with triangle waves, drum sounds are carved out of white noise and 2 variable pulse wave channels are provided for melodies. 
 
 Check out the paper [Mario Paint: An Accessible Environment of Musical Creativity
 and Sound Exploration](docs/Mario_Paint_An_Accessible_Environment_of.pdf).
-
-[Live app in its current state](https://porkostomus.github.io/mecca/)
 
 ## LICENSE
 

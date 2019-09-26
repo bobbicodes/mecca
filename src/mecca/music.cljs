@@ -165,15 +165,6 @@
 
 (def ^:export sample (memoize raw-sample))
 
-(defn playback-mp3 [url]
-  (let [mp3 (connect-> (sample url)  ; read file using js ajax, including caching
-                       (gain 0.5)    ; you can chain optional effects here
-                       destination)]
-    (run-with mp3
-                @audiocontext
-                (current-time @audiocontext)
-                3.0)))
-
 (defn raw-buffer
   [generate-bit! context duration]
   (let [sample-rate 44100
@@ -192,19 +183,30 @@
 (defonce do-timer (js/setInterval dispatch-timer-event 200))
 
 (defn play-noise! [start duration]
-  (let [context @audiocontext
+  (let [context audiocontext
         sample-rate 44100
         frame-count (* sample-rate duration)
-        buffer (.createBuffer context 1 frame-count sample-rate)
+        buffer (.createBuffer @context 1 frame-count sample-rate)
         data (.getChannelData buffer 0)
-        noise (.createBufferSource @audiocontext)
-        now (current-time @audiocontext)]
+        noise (.createBufferSource @context)
+        now (current-time @context)]
     (doseq [i (range frame-count)]
       (aset data i (-> (js/Math.random) (* 2.0) (- 1.0))))
     (set! (.-buffer noise) buffer)
-    (.connect noise (.-destination @audiocontext))
+    (.connect noise (.-destination context))
     (.start noise (+ now start))
     (.stop noise (+ now start duration))))
+
+(defn play-sample! [instrument pitch]
+  (let [context audiocontext
+        now (current-time @context)
+        buffer (subscribe [:sample-buffer instrument])
+        sample-source (.createBufferSource @context)
+        playback-rate (/ pitch 2)]
+    (set! (.-buffer sample-source) @buffer)
+    (.setValueAtTime (.-playbackRate sample-source) playback-rate now)
+     (.connect sample-source (.-destination @context))
+             (.start sample-source)))
 
 (defn play-note! [midi-num start duration]
   (let [context @audiocontext

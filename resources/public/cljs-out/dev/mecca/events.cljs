@@ -3,7 +3,7 @@
    [re-frame.core :refer [reg-event-db dispatch subscribe]]
    [day8.re-frame.undo :as undo :refer [undoable]]
    [mecca.mario :as mario :refer [mario]]
-   [mecca.music :as music :refer [audiocontext]]
+   [mecca.music :as music :refer [sample audiocontext]]
    [mecca.audio.scale :as scale]
    [goog.events :refer [listen unlisten]])
   (:import [goog.events EventType]))
@@ -16,6 +16,7 @@
     :current-position 0
     :editor-beat-start 1
     :selected-note "mario"
+    :samples []
     :key "C"
     :time 0
     :tempo 180
@@ -39,23 +40,23 @@
 (reg-event-db
  :add-note
  (undoable "add note")
- (fn [db [_ instrument x y]]
-   (update-in db instrument
-              conj {:time x
+ (fn [db [_ instrument time pitch]]
+   (if (= (.-state @audiocontext) "suspended")
+     (.resume @audiocontext))
+   (music/play-sample! instrument (- 77 pitch))
+   (update db instrument
+              conj {:time time
                     :duration 0.5
-                    :pitch (- 77 y)})))
+                    :pitch (- 77 pitch)})))
 
 (reg-event-db
  :remove-note
  (undoable "remove note")
- (fn [db [_ x y]]
-   (update-in db (cond
-                   (< y 18) [:lead]
-                   (< 18 y 31) [:bassline]
-                   (< 30 y) [:drums])
+ (fn [db [_ instrument time pitch]]
+   (update db (keyword instrument)
               (fn [notes]
-                (remove #(and (= x (:time %))
-                              (= (- 77 y) (:pitch %)))
+                (remove #(and (= time (:time %))
+                              (= (- 77 pitch) (:pitch %)))
                         notes)))))
 
 (reg-event-db
@@ -86,6 +87,8 @@
 (reg-event-db
  :play-toggle
  (fn [db [_ scale]]
+   (if (= (.-state @audiocontext) "suspended")
+     (.resume @audiocontext))
    (update db :playing? not)))
 
 (reg-event-db
@@ -96,7 +99,7 @@
 (reg-event-db
  :select-note
  (fn [db [_ note]]
-   (assoc db :selected-note :remove-note)))
+   (assoc db :selected-note note)))
 
 (reg-event-db
  :play-off

@@ -17,11 +17,11 @@
   (let [note (subscribe [:selected-note])]
     (fn []
       (into [:g]
-            (for [x (range 0 8 0.5) y (range 34)]
-              ^{:key [x y]}
+            (for [time (range 0 8 0.5) pitch (range 34)]
+              ^{:key [time pitch]}
               [:rect {:transform "translate(12.5,0)"
-                      :x (* 6 x)
-                      :y (+ 0.5 y)
+                      :x (* 6 time)
+                      :y (+ 0.5 pitch)
                       :height 1 :width 3
                       :stroke "black"
                       :stroke-width 0.2
@@ -29,9 +29,9 @@
                       :visibility "hidden"
                       :opacity 0.2
                       :pointer-events "all"
-                      :on-mouse-over #(dispatch [:update-focus-note [x y]])
+                      :on-mouse-over #(dispatch [:update-focus-note [time pitch]])
                       :on-mouse-out #(dispatch [:update-focus-note [nil nil]])
-                      :on-click #(dispatch [:add-note [(keyword @note)] x y])}])))))
+                      :on-click #(dispatch [:add-note (keyword @note) time pitch])}])))))
 
 (defn editor []
   (let [focused (subscribe [:focused-note-pos])

@@ -3,7 +3,7 @@
             [mecca.subs :as subs]
             [reagent.core :as r]
             [re-frame.core :as rf :refer [subscribe dispatch]]
-            [mecca.events :as events :refer [mouse-pos mouse-down-handler selected]]
+            [mecca.events :as events]
             [mecca.audio.melody :as melody]
             [mecca.audio.sequencer :as sequencer]
             [mecca.audio.scale :as scale]
@@ -14,7 +14,7 @@
             [mecca.mario :as mario :refer [mario]]))
 
 (defn note-targets []
-  (let [note (subscribe [:selected-note])]
+  (let [instrument (subscribe [:instrument])]
     (fn []
       (into [:g]
             (for [time (range 0 8 0.5) pitch (range 34)]
@@ -31,7 +31,7 @@
                       :pointer-events "all"
                       :on-mouse-over #(dispatch [:update-focus-note [time pitch]])
                       :on-mouse-out #(dispatch [:update-focus-note [nil nil]])
-                      :on-click #(dispatch [:add-note (keyword @note) time pitch])}])))))
+                      :on-click #(dispatch [:add-note @instrument time pitch])}])))))
 
 (defn editor []
   (let [focused (subscribe [:focused-note-pos])
@@ -44,7 +44,7 @@
         playing? (subscribe [:playing?])
         mario-run (subscribe [:mario-run])
         mario-jump (subscribe [:mario-jump])
-        selected-note (subscribe [:selected-note])]
+        instrument (subscribe [:instrument])]
     (fn []
       (if (= 20 @mario-run)
         (dispatch [:jump-reset]))
@@ -89,8 +89,8 @@
         [note-targets]
         (when-not (= @focused [nil nil])
           (let [[x y] @focused]
-            (case @selected-note
-              "mario" [mario/mario-icon (+ 32 (* 30 x)) (- (* 5 y) 5) 0.2])))
+            (case @instrument
+              :mario [mario/mario-icon (+ 32 (* 30 x)) (- (* 5 y) 5) 0.2])))
         (doall (for [{:keys [time _ pitch]} @mario-note]
                  ^{:key [time pitch]}
                  [mario/mario-note (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]))
@@ -110,7 +110,7 @@
    [:p (str "Mario notes: " @(subscribe [:mario]))]
    [:p (str "Mario run: " @(subscribe [:mario-run]))]
    [:p (str "Mario jump: " @(subscribe [:mario-jump]))]
-   [:p (str "Selected note: " @(subscribe [:selected-note]))]
+   [:p (str "Instrument: " @(subscribe [:instrument]))]
    [:p (str "Focused note pos: " @(subscribe [:focused-note-pos]))]
    [:p (str @(subscribe [:scale])
             " scale from MIDI number "

@@ -98,7 +98,7 @@ goog.addDependency("../mecca/audio/melody.js", ['mecca.audio.melody'], ['cljs.co
 goog.addDependency("../day8/re_frame/undo.js", ['day8.re_frame.undo'], ['reagent.core', 'cljs.core', 're_frame.db', 're_frame.core']);
 goog.addDependency("../mecca/audio/synthesis.js", ['mecca.audio.synthesis'], ['cljs.core']);
 goog.addDependency("../mecca/music.js", ['mecca.music'], ['ajax.core', 'reagent.core', 'cljs.core', 'mecca.audio.synthesis', 'mecca.audio.melody', 'mecca.audio.scale', 'ajax.protocols', 're_frame.core']);
-goog.addDependency("../mecca/events.js", ['mecca.events'], ['day8.re_frame.undo', 'mecca.music', 'cljs.core', 'goog.events.EventType', 'mecca.audio.scale', 'mecca.mario', 'goog.events', 're_frame.core']);
+goog.addDependency("../mecca/events.js", ['mecca.events'], ['day8.re_frame.undo', 'ajax.core', 'mecca.music', 'cljs.core', 'goog.events.EventType', 'mecca.audio.scale', 'ajax.protocols', 'mecca.mario', 'goog.events', 're_frame.core']);
 goog.addDependency("../mecca/subs.js", ['mecca.subs'], ['cljs.core', 're_frame.core']);
 goog.addDependency("../mecca/components/key.js", ['mecca.components.key'], ['cljs.core']);
 goog.addDependency("../mecca/components/notation.js", ['mecca.components.notation'], ['reagent.core', 'cljs.core', 're_frame.core']);
@@ -106,7 +106,8 @@ goog.addDependency("../mecca/components/editor.js", ['mecca.components.editor'],
 goog.addDependency("../mecca/audio/sequencer.js", ['mecca.audio.sequencer'], ['cljs.core']);
 goog.addDependency("../mecca/components/castle.js", ['mecca.components.castle'], ['cljs.core']);
 goog.addDependency("../mecca/view.js", ['mecca.view'], ['mecca.components.editor', 'mecca.components.key', 'mecca.events', 'mecca.subs', 'mecca.music', 'mecca.components.notation', 'mecca.audio.sequencer', 'reagent.core', 'cljs.core', 'mecca.audio.melody', 'mecca.audio.scale', 'mecca.mario', 'mecca.components.castle', 're_frame.core']);
-goog.addDependency("../mecca/core.js", ['mecca.core'], ['goog.dom', 'mecca.events', 'mecca.subs', 'reagent.core', 'cljs.core', 'mecca.view', 're_frame.core']);
+goog.addDependency("../day8/re_frame/http_fx.js", ['day8.re_frame.http_fx'], ['ajax.core', 'cljs.core', 'goog.net.ErrorCode', 're_frame.core']);
+goog.addDependency("../mecca/core.js", ['mecca.core'], ['goog.dom', 'mecca.events', 'mecca.subs', 'reagent.core', 'cljs.core', 'mecca.view', 're_frame.core', 'day8.re_frame.http_fx']);
 goog.addDependency("../mecca/audio/actions.js", ['mecca.audio.actions'], ['cljs.core']);
 goog.addDependency("../mecca/core_test.js", ['mecca.core_test'], ['cljs.core', 'cljs.test', 'mecca.core']);
 goog.addDependency("../mecca/test_runner.js", ['mecca.test_runner'], ['cljs.core', 'mecca.core_test', 'figwheel.main.testing']);

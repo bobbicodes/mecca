@@ -42,14 +42,14 @@
    (:editor-beat-start db)))
 
 (rf/reg-sub
- :selected-note
+ :instrument
  (fn [db _]
-   (:selected-note db)))
+   (:instrument db)))
 
 (rf/reg-sub
- :sample-buffer
- (fn [db instrument]
-   ((keyword instrument (:samples db)))))
+ :array-buffer
+ (fn [db _]
+   (:array-buffer db)))
 
 (rf/reg-sub
  :focused-note-pos
@@ -75,11 +75,6 @@
  :drums
  (fn [db _]
    (:drums db)))
-
-(rf/reg-sub
- :audiocontext
- (fn [db _]
-   (:audiocontext db)))
 
 (rf/reg-sub
  :mario-x

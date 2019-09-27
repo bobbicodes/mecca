@@ -1,6 +1,8 @@
 (ns ^:figwheel-hooks mecca.events
   (:require
-   [re-frame.core :refer [reg-event-db dispatch subscribe]]
+   [re-frame.core :refer [reg-event-db reg-event-fx dispatch subscribe]]
+   [ajax.core :as ajax]
+   [ajax.protocols :as protocol]
    [day8.re-frame.undo :as undo :refer [undoable]]
    [mecca.mario :as mario :refer [mario]]
    [mecca.music :as music :refer [sample audiocontext]]
@@ -15,8 +17,8 @@
     :playing? false
     :current-position 0
     :editor-beat-start 1
-    :selected-note "mario"
-    :samples []
+    :instrument :mario
+    :array-buffer nil
     :key "C"
     :time 0
     :tempo 180
@@ -28,6 +30,30 @@
     :mario-y 41.5
     :mario-jump 0
     :mario-run 1}))
+
+(reg-event-fx                             ;; note the trailing -fx
+ :get-sample                   ;; usage:  (dispatch [:handler-with-http])
+ (fn [{:keys [db]} _]                    ;; the first param will be "world"
+   {:db   (assoc db :show-twirly true)   ;; causes the twirly-waiting-dialog to show??
+    :http-xhrio {:method          :get
+                 :uri             "/audio/sound01.mp3"                                      ;; optional see API docs
+                 :response-format {:type :arraybuffer
+                                   :read protocol/-body
+                                   :description "audio"
+                                   :content-type "audio/mpeg"}
+                 :on-success      [:load-audio]
+                 :on-failure      [:log-info]}}))
+
+(reg-event-db
+ :load-audio
+ (fn [db [_ result]]
+   (assoc db :array-buffer result)))
+
+(reg-event-db
+ :log-info
+ (fn [db [_ result]]
+    ;; result is a map containing details of the failure
+   (assoc db :error-log result)))
 
 (reg-event-db
  :set-bassline
@@ -43,7 +69,7 @@
  (fn [db [_ instrument time pitch]]
    (if (= (.-state @audiocontext) "suspended")
      (.resume @audiocontext))
-   (music/play-sample! instrument (- 77 pitch))
+   (music/play-mp3!)
    (update db instrument
               conj {:time time
                     :duration 0.5
@@ -97,9 +123,9 @@
    (assoc db :focused-note-pos pos)))
 
 (reg-event-db
- :select-note
- (fn [db [_ note]]
-   (assoc db :selected-note note)))
+ :select-instrument
+ (fn [db [_ instrument]]
+   (assoc db :instrument instrument)))
 
 (reg-event-db
  :play-off
@@ -158,33 +184,3 @@
  :jump-reset
  (fn [db [_ _]]
    (assoc db :mario-jump 0)))
-
-(def mouse-pos (atom {:x 0 :y 0}))
-(def selected (atom [nil nil]))
-
-(defn get-client-rect [evt]
-  (let [r (.getBoundingClientRect (.-target evt))]
-    {:left (.-left r), :top (.-top r)}))
-
-(defn mouse-move-handler [offset]
-  (fn [evt]
-    (let [x (- (.-clientX evt) (:x offset))
-          y (- (.-clientY evt) (:y offset))]
-      (reset! mouse-pos {:x      x
-                         :y      y}))))
-
-(defn mouse-up-handler [on-move]
-  (fn me [evt]
-    (unlisten js/window EventType.MOUSEMOVE
-              on-move)))
-
-
-(defn mouse-down-handler [e]
-  (let [{:keys [left top]} (get-client-rect e)
-        offset             {:x (- (.-clientX e) left)
-                            :y (- (.-clientY e) top)}
-        on-move            (mouse-move-handler offset)]
-    (listen js/window EventType.MOUSEMOVE
-            on-move)
-    (listen js/window EventType.MOUSEUP
-            (mouse-up-handler on-move))))

@@ -208,6 +208,14 @@
      (.connect sample-source (.-destination @context))
              (.start sample-source)))
 
+(defn play-mp3! []
+  (let [context audiocontext
+        now (current-time @context)
+        mp3 (connect-> (sample "/audio/sound01.mp3")  ; read file using js ajax, including caching
+                       (gain 0.5)    ; you can chain optional effects here
+                       destination)]
+    (run-with mp3 @context now 0.5)))
+
 (defn play-note! [midi-num start duration]
   (let [context @audiocontext
         osc (.createOscillator @audiocontext)

@@ -3,11 +3,14 @@
    [goog.dom :as gdom]
    [reagent.core :as r]
    [re-frame.core :as rf]
+   [day8.re-frame.http-fx]
    [mecca.events]
    [mecca.subs]
    [mecca.view :as view]))
 
 (rf/dispatch-sync [:initialize-db])
+
+(rf/dispatch [:get-sample])
 
 (defn get-app-element []
   (gdom/getElement "app"))

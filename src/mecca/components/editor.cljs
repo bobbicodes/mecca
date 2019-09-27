@@ -197,14 +197,14 @@
    [toolbar 30 8.8]])
 
 (defn current-note-display [x y scale]
-  (let [current-note (subscribe [:selected-note])]
+  (let [current-note (subscribe [:instrument])]
     (fn [x y scale]
       [:g 
        (color-paths [["#000000" "M0 0h22M0 1h1M2 1h1M19 1h1M21 1h1M0 2h3M19 2h3M0 3h3M19 3h3M0 4h1M2 4h1M19 4h1M21 4h1M0 5h3M19 5h3M0 6h3M19 6h3M0 7h1M2 7h1M19 7h1M21 7h1M0 8h3M19 8h3M0 9h3M19 9h3M0 10h1M2 10h1M19 10h1M21 10h1M0 11h3M19 11h3M0 12h3M19 12h3M0 13h1M2 13h1M19 13h1M21 13h1M0 14h3M19 14h3M0 15h22"]
                      ["#f8f8f8" "M1 1h1M3 1h16M20 1h1M3 2h16M3 3h16M1 4h1M3 4h16M20 4h1M3 5h16M3 6h16M1 7h1M3 7h16M20 7h1M3 8h16M3 9h16M1 10h1M3 10h16M20 10h1M3 11h16M3 12h16M1 13h1M3 13h16M20 13h1M3 14h16"]]
                     x y scale)
        (case @current-note
-         "mario"
+         :mario
          (mario/mario-icon 48 -1 0.18))])))
 
 (defn block [x]
@@ -222,21 +222,8 @@
     [mario/mario-icon 133 0 0.8]]
    [:g
     [block 144]
-    [mario/shroom 182 3 0.8]]
-   [notation/note-button "half" 160]
-   [notation/note-button "dotted-quarter" 176]
-   [notation/note-button 1 192]
-   [notation/note-button "dotted-eighth" 208]
-   [notation/note-button "q-triplets" 224]
-   [notation/note-button 0.5 240]
-   [notation/note-button "dotted-sixteenth" 256]
-   [notation/note-button "e-triplets" 272]
-   [notation/note-button "sixteenth" 288]])
+    [mario/shroom 182 3 0.8]]])
 
 (defn rest-blocks []
   [:g#rests {:transform "scale(0.2) translate(-36,16)"}
-   [block 128]
-   [notation/note-button "half-rest" 160]
-   [notation/note-button "quarter-rest" 208]
-   [notation/note-button "eighth-rest" 240]
-   [notation/note-button "sixteenth-rest" 288]])
+   [block 128]])

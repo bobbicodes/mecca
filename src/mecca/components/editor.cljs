@@ -204,11 +204,25 @@
                      ["#f8f8f8" "M1 1h1M3 1h16M20 1h1M3 2h16M3 3h16M1 4h1M3 4h16M20 4h1M3 5h16M3 6h16M1 7h1M3 7h16M20 7h1M3 8h16M3 9h16M1 10h1M3 10h16M20 10h1M3 11h16M3 12h16M1 13h1M3 13h16M20 13h1M3 14h16"]]
                     x y scale)
        (case @current-note
-         1 (mario/mario-icon 48 -1 0.18)
-         2 (mario/shroom 48 -1 0.18))])))
+         1 [mario/mario-icon (- x 15) -1 0.18]
+         2 [mario/shroom (+ x 15) 1 0.18]
+         3 [mario/yoshi (+ x 15) -1 0.18]
+         4 [mario/star x -1 0.18]
+         5 [mario/flower x 3 0.8]
+         6 [mario/gb x -1 0.18]
+         7 [mario/dog x -1 0.18]
+         8 [mario/kitty x -1 0.18]
+         9 [mario/pig x -1 0.18]
+         10 [mario/swan x -1 0.18]
+         11 [mario/face x -1 0.18]
+         12 [mario/plane x 0 0.18]
+         13 [mario/boat x -1 0.18]
+         14 [mario/car x -1 0.18]
+         15 [mario/heart x -1 0.18])])))
 
-(defn block [x]
-  (into [:g {:transform (str "translate(" x "," 1 ")")}]
+(defn block [instrument x]
+  (into [:g {:transform (str "translate(" x "," 1 ")")
+             :on-click #(dispatch [:select-instrument instrument])}]
         (for [[color path]
               [["#000000" "M1 0h14M0 1h2M14 1h2M0 2h1M15 2h1M0 3h1M15 3h1M0 4h1M15 4h1M0 5h1M15 5h1M0 6h1M15 6h1M0 7h1M15 7h1M0 8h1M15 8h1M0 9h1M15 9h1M0 10h1M15 10h1M0 11h1M15 11h1M0 12h1M15 12h1M0 13h1M15 13h1M0 14h2M14 14h2M1 15h14"]
                ["#ffffff" "M2 1h12M1 2h14M1 3h14M1 4h14M1 5h14M1 6h14M1 7h14M1 8h14M1 9h14M1 10h14M1 11h14M1 12h14M1 13h14M2 14h12"]]]
@@ -216,13 +230,49 @@
                   :d path}])))
 
 (defn note-blocks []
-  [:g#notes {:transform "scale(0.2) translate(-36,0)"}
+  [:g#notes {:transform "scale(0.2) translate(-50,0)"}
    [:g 
-    [block 128]
+    [block 1 128]
     [mario/mario-icon 133 0 0.8]]
    [:g
-    [block 144]
+    [block 2 144]
     [mario/shroom 182 3 0.8]]
    [:g
-    [block 160]
-    [mario/yoshi 202 3 0.8]]])
+    [block 3 160]
+    [mario/yoshi 202 3 0.8]]
+   [:g
+    [block 4 176]
+    [mario/star 222 3 0.8]]
+   [:g
+    [block 5 192]
+    [mario/flower 242 3 0.8]]
+   [:g
+    [block 6 208]
+    [mario/gb 264 3 0.8]]
+   [:g
+    [block 7 224]
+    [mario/dog 282 4 0.8]]
+   [:g
+    [block 8 240]
+    [mario/kitty 302 3 0.8]]
+   [:g
+    [block 9 256]
+    [mario/pig 322 3 0.8]]
+   [:g
+    [block 10 272]
+    [mario/swan 342 3 0.8]]
+   [:g
+    [block 11 288]
+    [mario/face 372 3 0.78]]
+   [:g
+    [block 12 304]
+    [mario/plane 382 6 0.8]]
+   [:g
+    [block 13 320]
+    [mario/boat 402 4 0.8]]
+   [:g
+    [block 14 336]
+    [mario/car 422 5 0.8]]
+   [:g
+    [block 15 352]
+    [mario/heart 442 4 0.8]]])

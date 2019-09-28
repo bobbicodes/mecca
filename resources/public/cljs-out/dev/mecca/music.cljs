@@ -154,7 +154,7 @@
                  0.7
                  now)
         mp3 (connect
-            (sample "/audio/1.mp3")
+            (sample "/resources/public/audio/1.mp3")
              destination)]
     (run-with mp3 @context now 0.5)))
 

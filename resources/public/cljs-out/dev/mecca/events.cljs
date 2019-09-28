@@ -22,7 +22,7 @@
     :key "C"
     :time 0
     :tempo 180
-    :instruments {}
+    :instruments []
     :lead []
     :bassline []
     :drums []
@@ -62,10 +62,10 @@
    (if (= (.-state @audiocontext) "suspended")
      (.resume @audiocontext))
    (music/play-sample instrument pitch)
-   (update-in db [:instruments instrument]
+   (update db :instruments
            conj 
            {:time time
-            :duration 0.5
+            :instrument instrument
             :pitch (- 77 pitch)})))
 
 (reg-event-db

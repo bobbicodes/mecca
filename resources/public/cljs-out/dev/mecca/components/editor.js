@@ -328,11 +328,63 @@ return (function (x__$1,y__$1,scale__$1){
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,mecca.components.editor.color_paths.cljs$core$IFn$_invoke$arity$4(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["#000000","M0 0h22M0 1h1M2 1h1M19 1h1M21 1h1M0 2h3M19 2h3M0 3h3M19 3h3M0 4h1M2 4h1M19 4h1M21 4h1M0 5h3M19 5h3M0 6h3M19 6h3M0 7h1M2 7h1M19 7h1M21 7h1M0 8h3M19 8h3M0 9h3M19 9h3M0 10h1M2 10h1M19 10h1M21 10h1M0 11h3M19 11h3M0 12h3M19 12h3M0 13h1M2 13h1M19 13h1M21 13h1M0 14h3M19 14h3M0 15h22"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["#f8f8f8","M1 1h1M3 1h16M20 1h1M3 2h16M3 3h16M1 4h1M3 4h16M20 4h1M3 5h16M3 6h16M1 7h1M3 7h16M20 7h1M3 8h16M3 9h16M1 10h1M3 10h16M20 10h1M3 11h16M3 12h16M1 13h1M3 13h16M20 13h1M3 14h16"], null)], null),x__$1,y__$1,scale__$1),(function (){var G__13137 = cljs.core.deref(current_note);
 switch (G__13137) {
 case (1):
-return mecca.mario.mario_icon((48),(-1),0.18);
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.mario_icon,(x__$1 - (15)),(-1),0.18], null);
 
 break;
 case (2):
-return mecca.mario.shroom((48),(-1),0.18);
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.shroom,(x__$1 + (15)),(1),0.18], null);
+
+break;
+case (3):
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.yoshi,(x__$1 + (15)),(-1),0.18], null);
+
+break;
+case (4):
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.star,x__$1,(-1),0.18], null);
+
+break;
+case (5):
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.flower,x__$1,(3),0.8], null);
+
+break;
+case (6):
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.gb,x__$1,(-1),0.18], null);
+
+break;
+case (7):
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.dog,x__$1,(-1),0.18], null);
+
+break;
+case (8):
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.kitty,x__$1,(-1),0.18], null);
+
+break;
+case (9):
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.pig,x__$1,(-1),0.18], null);
+
+break;
+case (10):
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.swan,x__$1,(-1),0.18], null);
+
+break;
+case (11):
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.face,x__$1,(-1),0.18], null);
+
+break;
+case (12):
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.plane,x__$1,(0),0.18], null);
+
+break;
+case (13):
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.boat,x__$1,(-1),0.18], null);
+
+break;
+case (14):
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.car,x__$1,(-1),0.18], null);
+
+break;
+case (15):
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.heart,x__$1,(-1),0.18], null);
 
 break;
 default:
@@ -343,28 +395,31 @@ throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$ari
 });
 ;})(current_note))
 });
-mecca.components.editor.block = (function mecca$components$editor$block(x){
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$transform,["translate(",cljs.core.str.cljs$core$IFn$_invoke$arity$1(x),",",cljs.core.str.cljs$core$IFn$_invoke$arity$1((1)),")"].join('')], null)], null),(function (){var iter__4324__auto__ = (function mecca$components$editor$block_$_iter__13139(s__13140){
+mecca.components.editor.block = (function mecca$components$editor$block(instrument,x){
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$transform,["translate(",cljs.core.str.cljs$core$IFn$_invoke$arity$1(x),",",cljs.core.str.cljs$core$IFn$_invoke$arity$1((1)),")"].join(''),cljs.core.cst$kw$on_DASH_click,(function (){
+var G__13139 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$select_DASH_instrument,instrument], null);
+return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__13139) : re_frame.core.dispatch.call(null,G__13139));
+})], null)], null),(function (){var iter__4324__auto__ = (function mecca$components$editor$block_$_iter__13140(s__13141){
 return (new cljs.core.LazySeq(null,(function (){
-var s__13140__$1 = s__13140;
+var s__13141__$1 = s__13141;
 while(true){
-var temp__5457__auto__ = cljs.core.seq(s__13140__$1);
+var temp__5457__auto__ = cljs.core.seq(s__13141__$1);
 if(temp__5457__auto__){
-var s__13140__$2 = temp__5457__auto__;
-if(cljs.core.chunked_seq_QMARK_(s__13140__$2)){
-var c__4322__auto__ = cljs.core.chunk_first(s__13140__$2);
+var s__13141__$2 = temp__5457__auto__;
+if(cljs.core.chunked_seq_QMARK_(s__13141__$2)){
+var c__4322__auto__ = cljs.core.chunk_first(s__13141__$2);
 var size__4323__auto__ = cljs.core.count(c__4322__auto__);
-var b__13142 = cljs.core.chunk_buffer(size__4323__auto__);
-if((function (){var i__13141 = (0);
+var b__13143 = cljs.core.chunk_buffer(size__4323__auto__);
+if((function (){var i__13142 = (0);
 while(true){
-if((i__13141 < size__4323__auto__)){
-var vec__13143 = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4322__auto__,i__13141);
-var color = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13143,(0),null);
-var path = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13143,(1),null);
-cljs.core.chunk_append(b__13142,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$path,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$stroke,color,cljs.core.cst$kw$d,path], null)], null));
+if((i__13142 < size__4323__auto__)){
+var vec__13144 = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4322__auto__,i__13142);
+var color = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13144,(0),null);
+var path = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13144,(1),null);
+cljs.core.chunk_append(b__13143,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$path,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$stroke,color,cljs.core.cst$kw$d,path], null)], null));
 
-var G__13149 = (i__13141 + (1));
-i__13141 = G__13149;
+var G__13150 = (i__13142 + (1));
+i__13142 = G__13150;
 continue;
 } else {
 return true;
@@ -372,15 +427,15 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons(cljs.core.chunk(b__13142),mecca$components$editor$block_$_iter__13139(cljs.core.chunk_rest(s__13140__$2)));
+return cljs.core.chunk_cons(cljs.core.chunk(b__13143),mecca$components$editor$block_$_iter__13140(cljs.core.chunk_rest(s__13141__$2)));
 } else {
-return cljs.core.chunk_cons(cljs.core.chunk(b__13142),null);
+return cljs.core.chunk_cons(cljs.core.chunk(b__13143),null);
 }
 } else {
-var vec__13146 = cljs.core.first(s__13140__$2);
-var color = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13146,(0),null);
-var path = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13146,(1),null);
-return cljs.core.cons(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$path,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$stroke,color,cljs.core.cst$kw$d,path], null)], null),mecca$components$editor$block_$_iter__13139(cljs.core.rest(s__13140__$2)));
+var vec__13147 = cljs.core.first(s__13141__$2);
+var color = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13147,(0),null);
+var path = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__13147,(1),null);
+return cljs.core.cons(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$path,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$stroke,color,cljs.core.cst$kw$d,path], null)], null),mecca$components$editor$block_$_iter__13140(cljs.core.rest(s__13141__$2)));
 }
 } else {
 return null;
@@ -393,5 +448,5 @@ return iter__4324__auto__(new cljs.core.PersistentVector(null, 2, 5, cljs.core.P
 })());
 });
 mecca.components.editor.note_blocks = (function mecca$components$editor$note_blocks(){
-return new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g_SHARP_notes,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$transform,"scale(0.2) translate(-36,0)"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(128)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.mario_icon,(133),(0),0.8], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(144)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.shroom,(182),(3),0.8], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(160)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.yoshi,(202),(3),0.8], null)], null)], null);
+return new cljs.core.PersistentVector(null, 17, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g_SHARP_notes,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$transform,"scale(0.2) translate(-50,0)"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(1),(128)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.mario_icon,(133),(0),0.8], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(2),(144)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.shroom,(182),(3),0.8], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(3),(160)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.yoshi,(202),(3),0.8], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(4),(176)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.star,(222),(3),0.8], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(5),(192)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.flower,(242),(3),0.8], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(6),(208)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.gb,(264),(3),0.8], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(7),(224)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.dog,(282),(4),0.8], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(8),(240)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.kitty,(302),(3),0.8], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(9),(256)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.pig,(322),(3),0.8], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(10),(272)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.swan,(342),(3),0.8], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(11),(288)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.face,(372),(3),0.78], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(12),(304)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.plane,(382),(6),0.8], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(13),(320)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.boat,(402),(4),0.8], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(14),(336)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.car,(422),(5),0.8], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$g,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.components.editor.block,(15),(352)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.mario.heart,(442),(4),0.8], null)], null)], null);
 });

@@ -52,7 +52,7 @@
        [castle/brick-face 363 18 6]
        [castle/brick-face 348 48 10]
        [mario]
-       [editor/current-note-display 59 0 0.22]
+       [editor/current-note-display 47 0 0.22]
        [editor/note-blocks]
        [mario/floor-tile 16]
        [:rect#editorframe
@@ -68,8 +68,7 @@
            [notation/bar-line -1.68]
            [:g#clefs
             [notation/bass-clef]
-            [notation/treble-clef]
-            [notation/drum-clef]]
+            [notation/treble-clef]]
            [editor/note-guides]
            [editor/retract-editor 8]
            [editor/note-guides]
@@ -87,15 +86,43 @@
           (let [[x y] @focused]
             (case @instrument
               1 [mario/mario-icon (+ 32 (* 30 x)) (- (* 5 y) 5) 0.2]
-              2 [mario/shroom (+ 32 (* 30 x)) (- (* 5 y) 5) 0.2])))
-        (doall (for [{:keys [time _ pitch]} (get @instruments @instrument)]
-                 ^{:key [time pitch]}
-                 [mario/mario-note (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]))]])))
+              2 [mario/shroom (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
+              3 [mario/yoshi (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
+              4 [mario/star (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
+              5 [mario/flower (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
+              6 [mario/gb (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
+              7 [mario/dog (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
+              8 [mario/kitty (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
+              9 [mario/pig (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
+              10 [mario/swan (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
+              11 [mario/face (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
+              12 [mario/plane (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
+              13 [mario/boat (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
+              14 [mario/car (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
+              15 [mario/heart (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2])))
+        (doall (for [{:keys [time instrument pitch]} @instruments]
+                   ^{:key [instrument time pitch]}
+                   (case instrument
+                     1 [mario/mario-note (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     2 [mario/shroom (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     3 [mario/yoshi (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     4 [mario/star (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     5 [mario/flower (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     6 [mario/gb (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     7 [mario/dog (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     8 [mario/kitty (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     9 [mario/pig (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     10 [mario/swan (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     11 [mario/face (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     12 [mario/plane (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     13 [mario/boat (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     14 [mario/car (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     15 [mario/heart (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2])))]])))
 
 (defn debug-info []
   [:div
    [:p (str "Absolute time: " @(subscribe [:time]))]
-   [:p (str "Mario notes: " @(subscribe [:instruments]))]
+   [:p (str "Notes: " @(subscribe [:instruments]))]
    [:p (str "Mario run: " @(subscribe [:mario-run]))]
    [:p (str "Mario jump: " @(subscribe [:mario-jump]))]
    [:p (str "Instrument: " @(subscribe [:instrument]))]

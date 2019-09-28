@@ -10,7 +10,7 @@
 (defn hat [x y]
   [limb x y "#f83800" "M1 0H6V1H9V2H0V1H1V0"])
 
-(defn face [x y]
+(defn mario-face [x y]
   [limb x y "#ffa044" "M3 0H7V1H9V2H10V3H7V2H6V3H5V4H8V5H1V3H0V1H1V3H3V2H2V1H3V0H5V2H6V0"])
 
 (defn hair [x y]
@@ -78,7 +78,7 @@
         y (subscribe [:mario-y])]
     [:g {:transform (str "scale(0.25) translate(" @x ","  @y ")")}
      [hat 0 0]
-     [face 0 2]
+     [mario-face 0 2]
      [eye 5 2]
      [hair -1 2]
      [moustache 5 4]
@@ -255,14 +255,16 @@
               :d path}]))))
 
 (defn shroom [x y scale]
-  (color-paths [["#000000" "M5 0h6M3 1h2M11 1h2M2 2h1M13 2h1M1 3h1M14 3h1M1 4h1M14 4h1M0 5h1M15 5h1M0 6h1M15 6h1M0 7h1M15 7h1M0 8h1M15 8h1M0 9h1M15 9h1M0 10h1M4 10h8M15 10h1M1 11h3M6 11h1M9 11h1M12 11h3M2 12h1M6 12h1M9 12h1M13 12h1M2 13h1M13 13h1M3 14h1M12 14h1M4 15h8"]
+  (color-paths {:pointer-events "none"}
+               [["#000000" "M5 0h6M3 1h2M11 1h2M2 2h1M13 2h1M1 3h1M14 3h1M1 4h1M14 4h1M0 5h1M15 5h1M0 6h1M15 6h1M0 7h1M15 7h1M0 8h1M15 8h1M0 9h1M15 9h1M0 10h1M4 10h8M15 10h1M1 11h3M6 11h1M9 11h1M12 11h3M2 12h1M6 12h1M9 12h1M13 12h1M2 13h1M13 13h1M3 14h1M12 14h1M4 15h8"]
                 ["#f8f8f8" "M5 1h2M3 2h4M11 2h2M2 3h4M12 3h2M2 4h3M7 4h4M13 4h1M6 5h6M2 6h2M6 6h6M1 7h4M6 7h6M14 7h1M1 8h4M7 8h4M13 8h2M2 9h2M13 9h2M14 10h1M4 11h2M7 11h2M10 11h2M3 12h3M7 12h2M10 12h3M3 13h10M4 14h8"]
                 ["#c000c0" "M7 1h4M1 5h1M14 5h1M1 6h1M14 6h1M1 9h1M4 9h9M1 10h3M12 10h2"]
                 ["#f80000" "M7 2h4M6 3h6M5 4h2M11 4h2M2 5h4M12 5h2M4 6h2M12 6h2M5 7h1M12 7h2M5 8h2M11 8h2"]]
                x y scale))
 
 (defn yoshi [x y scale]
-  (color-paths [["#000000" "M6 0h3M5 1h1M9 1h1M10 2h1M3 3h2M6 3h1M10 3h2M1 4h2M6 4h1M12 4h1M0 5h1M9 5h1M12 5h1M0 6h1M7 6h2M12 6h1M0 7h1M3 7h4M11 7h1M1 8h3M11 8h1M4 9h1M12 9h2M15 9h1M4 10h1M14 10h2M3 11h1M15 11h1M3 12h1M8 12h6M15 12h1M3 13h1M7 13h2M13 13h1M15 13h1M4 14h1M7 14h1M13 14h2M5 15h9"]
+  (color-paths {:pointer-events "none"}
+               [["#000000" "M6 0h3M5 1h1M9 1h1M10 2h1M3 3h2M6 3h1M10 3h2M1 4h2M6 4h1M12 4h1M0 5h1M9 5h1M12 5h1M0 6h1M7 6h2M12 6h1M0 7h1M3 7h4M11 7h1M1 8h3M11 8h1M4 9h1M12 9h2M15 9h1M4 10h1M14 10h2M3 11h1M15 11h1M3 12h1M8 12h6M15 12h1M3 13h1M7 13h2M13 13h1M15 13h1M4 14h1M7 14h1M13 14h2M5 15h9"]
                 ["#008040" "M6 1h3M8 2h2M9 3h1M3 4h1M11 4h1M1 5h1M11 5h1M11 6h1M10 7h1M10 8h1M11 9h1M12 10h2M14 11h1"]
                 ["#f8f8f8" "M5 2h3M5 3h1M7 3h2M5 4h1M7 4h3M2 5h1M6 5h3M7 7h1M4 8h4M5 9h4M5 10h5M4 11h7M4 12h4M4 13h3M14 13h1M5 14h2M8 14h1"]
                 ["#00f800" "M4 4h1M10 4h1M3 5h2M10 5h1M1 6h2M10 6h1M9 7h1M9 8h1M10 9h1M11 10h1M12 11h2M14 12h1"]
@@ -271,6 +273,107 @@
                 ["#c04020" "M11 13h2M10 14h3"]]
                x y scale))
 
+(defn star [x y scale]
+  (color-paths {:pointer-events "none"}
+               [["#000000" "M7 0h1M6 1h1M8 1h1M6 2h1M8 2h1M5 3h1M9 3h1M5 4h1M9 4h1M0 5h5M10 5h5M0 6h1M6 6h1M8 6h1M14 6h1M1 7h1M6 7h1M8 7h1M13 7h1M2 8h1M6 8h1M8 8h1M12 8h1M3 9h1M11 9h1M2 10h1M12 10h1M2 11h1M12 11h1M1 12h1M7 12h1M13 12h1M1 13h1M5 13h2M8 13h2M13 13h1M0 14h1M3 14h2M10 14h2M14 14h1M0 15h3M12 15h3"]
+                ["#f8f800" "M7 1h1M7 2h1M6 3h3M6 4h3M5 5h5M1 6h5M7 6h1M9 6h5M2 7h4M7 7h1M9 7h4M3 8h3M7 8h1M9 8h3M4 9h7M3 10h9M3 11h9M2 12h5M8 12h5M2 13h3M10 13h3M1 14h2M12 14h2"]]
+               x y scale))
+
+(defn flower [x y scale]
+  (color-paths {:pointer-events "none"}
+               [["#000000" "M7 0h2M2 1h1M6 1h1M9 1h1M13 1h1M1 2h1M3 2h1M5 2h1M10 2h1M12 2h1M14 2h1M1 3h1M4 3h1M11 3h1M14 3h1M0 4h1M15 4h1M0 5h1M4 5h2M9 5h2M15 5h1M0 6h1M3 6h1M6 6h1M8 6h1M11 6h1M15 6h1M0 7h1M15 7h1M1 8h1M14 8h1M2 9h1M13 9h1M3 10h2M11 10h2M5 11h6M2 12h3M6 12h1M9 12h4M1 13h1M5 13h2M9 13h1M13 13h1M0 14h1M6 14h1M8 14h1M14 14h1M0 15h1M6 15h3M14 15h1"]
+                ["#f88000" "M7 1h2M2 2h1M6 2h4M2 3h2M5 3h6M12 3h2M1 4h13M1 5h3M6 5h3M11 5h3M1 6h2M4 6h2M7 6h1M9 6h2M12 6h2M1 7h12M2 8h11M4 9h6"]
+                ["#c04020" "M13 2h1M14 4h1M14 5h1M14 6h1M13 7h2M13 8h1M3 9h1M10 9h3M5 10h6"]
+                ["#008040" "M7 12h1M2 13h2M7 13h1M10 13h2M1 14h4M7 14h1M9 14h4"]
+                ["#00f800" "M8 12h1M4 13h1M8 13h1M12 13h1M5 14h1M13 14h1M1 15h5M9 15h5"]]
+               x y scale))
+
+(defn gb [x y scale]
+  (color-paths {:pointer-events "none"}
+               [["#808080" "M1 0h10M0 1h1M11 1h1M0 2h1M2 2h8M11 2h1M0 3h1M2 3h2M8 3h2M11 3h1M0 4h1M2 4h2M8 4h2M11 4h1M0 5h1M2 5h2M8 5h2M11 5h1M0 6h1M2 6h2M8 6h2M11 6h1M0 7h1M2 7h7M11 7h1M0 8h1M11 8h1M0 9h1M11 9h1M0 10h1M11 10h1M0 11h1M11 11h1M0 12h1M11 12h1M0 13h1M11 13h1M0 14h1M10 14h2M1 15h10"]
+                ["#f8f8f8" "M1 1h1M4 3h1M4 4h1M4 5h1M4 6h1"]
+                ["#c0c0c0" "M2 1h9M1 2h1M10 2h1M1 3h1M10 3h1M1 4h1M10 4h1M1 5h1M10 5h1M1 6h1M10 6h1M1 7h1M9 7h2M1 8h10M1 9h10M1 10h2M4 10h5M10 10h1M1 11h1M5 11h6M1 12h2M4 12h3M8 12h3M1 13h10M1 14h9"]
+                ["#f8f800" "M5 3h3M5 4h3M5 5h3M5 6h3"]
+                ["#000000" "M3 10h1M2 11h3M3 12h1"]
+                ["#c000c0" "M9 10h1M7 12h1"]]
+               x y scale))
+
+(defn dog [x y scale]
+  (color-paths {:pointer-events "none"}
+               [["#000000" "M0 0h2M5 0h2M0 1h1M2 1h3M6 1h1M14 1h1M0 2h1M6 2h8M0 3h2M4 3h1M13 3h1M0 4h1M13 4h1M0 5h1M2 5h1M5 5h1M13 5h1M0 6h1M5 6h1M13 6h1M0 7h5M13 7h1M1 8h1M3 8h1M5 8h7M13 8h1M1 9h1M3 9h1M5 9h1M9 9h1M11 9h1M13 9h1M1 10h1M3 10h1M5 10h1M9 10h1M11 10h1M13 10h1M1 11h1M3 11h1M5 11h1M9 11h1M11 11h1M13 11h1M1 12h5M9 12h5"]
+                ["#f8f8f8" "M1 1h1M5 1h1M1 2h5M2 3h2M5 3h8M1 4h12M1 5h1M3 5h2M6 5h7M1 6h4M6 6h7M5 7h8M2 8h1M4 8h1M12 8h1M2 9h1M4 9h1M10 9h1M12 9h1M2 10h1M4 10h1M10 10h1M12 10h1M2 11h1M4 11h1M10 11h1M12 11h1"]]
+               x y scale))
+
+(defn kitty [x y scale]
+  (color-paths {:pointer-events "none"}
+               [["#000000" "M13 0h1M1 1h1M5 1h1M12 1h1M0 2h1M2 2h3M6 2h1M13 2h1M0 3h1M6 3h1M12 3h1M0 4h1M2 4h1M4 4h1M6 4h1M13 4h1M0 5h1M7 5h6M1 6h1M3 6h1M13 6h1M1 7h1M13 7h1M1 8h1M13 8h1M1 9h1M3 9h1M5 9h7M13 9h1M1 10h1M3 10h1M5 10h1M9 10h1M11 10h1M13 10h1M1 11h1M3 11h1M5 11h1M9 11h1M11 11h1M13 11h1M2 12h1M4 12h1M10 12h1M12 12h1"]
+                ["#f8c080" "M1 2h1M5 2h1M2 3h3M1 4h1M3 4h1M5 4h1M1 5h2M4 5h3M5 6h2M8 6h1M10 6h1M12 6h1M2 7h5M8 7h1M10 7h1M12 7h1M2 8h5M8 8h1M10 8h1M12 8h1M2 9h1M4 9h1M12 9h1M2 10h1M4 10h1M10 10h1M12 10h1M2 11h1M4 11h1M10 11h1M12 11h1"]
+                ["#c04020" "M1 3h1M5 3h1M3 5h1M2 6h1M4 6h1M7 6h1M9 6h1M11 6h1"]
+                ["#806000" "M7 7h1M9 7h1M11 7h1"]
+                ["#f88000" "M7 8h1M9 8h1M11 8h1"]]
+               x y scale))
+
+(defn pig [x y scale]
+  (color-paths {:pointer-events "none"}
+               [["#000000" "M3 0h1M7 0h1M2 1h1M4 1h3M8 1h1M1 2h1M9 2h1M15 2h1M0 3h1M3 3h1M7 3h1M10 3h1M14 3h1M0 4h1M10 4h1M15 4h1M0 5h1M3 5h5M10 5h5M0 6h1M2 6h1M8 6h1M10 6h1M14 6h1M0 7h1M2 7h1M4 7h1M6 7h1M8 7h1M10 7h1M14 7h1M0 8h1M2 8h1M8 8h1M10 8h1M14 8h1M0 9h1M2 9h7M10 9h1M14 9h1M1 10h1M3 10h1M7 10h1M9 10h1M14 10h1M2 11h7M14 11h1M2 12h1M14 12h1M2 13h1M4 13h1M6 13h7M14 13h1M2 14h1M4 14h1M6 14h1M10 14h1M12 14h1M14 14h1M3 15h1M5 15h1M11 15h1M13 15h1"]
+                ["#f8c080" "M3 1h1M7 1h1M2 2h7M1 3h1M4 3h3M9 3h1M1 4h9M1 5h2M8 5h2M1 6h1M3 6h5M9 6h1M11 6h3M1 7h1M3 7h1M5 7h1M7 7h1M9 7h1M11 7h3M1 8h1M3 8h5M9 8h1M11 8h3M1 9h1M9 9h1M11 9h3M2 10h1M8 10h1M10 10h4M9 11h5M3 12h11M3 13h1M5 13h1M13 13h1M3 14h1M5 14h1M11 14h1M13 14h1"]
+                ["#f8f8f8" "M2 3h1M8 3h1"]
+                ["#f80000" "M4 10h3"]]
+               x y scale))
+
+(defn swan [x y scale]
+  (color-paths {:pointer-events "none"}
+               [["#c0c0c0" "M3 1h3M5 2h2M6 3h2M5 4h1M7 4h1M4 7h1M15 7h1M3 8h1M9 8h2M14 8h2M2 9h1M5 9h3M11 9h3M15 9h1M1 10h1M3 10h3M14 10h1M1 11h1M4 11h3M11 11h3M1 12h3M8 12h4M2 13h1M4 13h4"]
+                ["#806000" "M2 2h1M3 4h1M1 5h2M7 14h3M8 15h1"]
+                ["#f8f8f8" "M3 2h2M4 3h2M6 4h1M6 5h1M6 6h1M5 7h1M4 8h1M3 9h1M8 9h3M14 9h1M2 10h1M6 10h8M2 11h2M7 11h4M4 12h3"]
+                ["#f88000" "M1 3h2M0 4h1M0 5h1M6 16h4"]
+                ["#f8f800" "M3 3h1M1 4h2M5 16h1"]
+                ["#808080" "M4 4h1M5 5h1M7 5h1M5 6h1M7 6h1M6 7h1M5 8h4M4 9h1M14 11h1M7 12h1M12 12h3M3 13h1M8 13h6M4 14h3M10 14h2"]]
+               x y scale))
+
+(defn face [x y scale]
+  (color-paths {:pointer-events "none"}
+               [["#000000" "M5 1h6M3 2h2M11 2h2M2 3h1M13 3h1M1 4h1M14 4h1M1 5h1M3 5h3M10 5h3M14 5h1M0 6h1M2 6h1M4 6h1M6 6h1M9 6h1M11 6h1M13 6h1M15 6h1M0 7h1M3 7h3M10 7h3M15 7h1M0 8h1M15 8h1M0 9h1M7 9h2M15 9h1M0 10h1M6 10h1M9 10h1M15 10h1M0 11h1M3 11h1M12 11h1M15 11h1M1 12h1M4 12h8M14 12h1M1 13h1M5 13h1M10 13h1M14 13h1M2 14h1M6 14h4M13 14h1M3 15h2M11 15h2M5 16h6"]
+                ["#f8c080" "M5 2h6M3 3h10M2 4h12M2 5h1M6 5h4M13 5h1M1 6h1M7 6h2M14 6h1M1 7h2M6 7h4M13 7h2M1 8h14M1 9h6M9 9h6M1 10h5M7 10h2M10 10h5M1 11h2M4 11h8M13 11h2M2 12h2M12 12h2M2 13h3M11 13h3M3 14h3M10 14h3M5 15h6"]
+                ["#f8f8f8" "M3 6h1M5 6h1M10 6h1M12 6h1"]
+                ["#f80000" "M6 13h4"]]
+               x y scale))
+
+(defn plane [x y scale]
+  (color-paths {:pointer-events "none"}
+               [["#000000" "M3 0h3M13 0h2M2 1h1M6 1h1M12 1h1M15 1h1M2 2h2M7 2h5M15 2h1M1 3h1M15 3h1M0 4h1M15 4h1M0 5h1M15 5h1M0 6h1M5 6h1M10 6h1M13 6h2M1 7h1M6 7h1M10 7h3M2 8h6M10 8h1M8 9h3"]
+                ["#f8f8f8" "M3 1h2M13 1h2M4 2h2M12 2h3M2 3h13M1 5h14M6 6h4M7 7h3M8 8h2"]
+                ["#c0c0c0" "M5 1h1M6 2h1M1 6h4M11 6h2M2 7h4"]
+                ["#f80000" "M1 4h14"]]
+               x y scale))
+
+(defn boat [x y scale]
+  (color-paths {:pointer-events "none"}
+               [["#000000" "M6 0h1M11 0h3M6 1h1M11 1h1M13 1h1M6 2h1M11 2h1M13 2h1M6 3h1M8 3h7M6 4h1M8 4h1M14 4h1M0 5h5M6 5h1M8 5h1M10 5h1M12 5h1M14 5h1M0 6h1M4 6h12M1 7h1M15 7h1M1 8h15M1 9h1M15 9h1M2 10h1M14 10h1M2 11h13"]
+                ["#f8f800" "M12 1h1M12 2h1"]
+                ["#f8f8f8" "M9 4h5M9 5h1M11 5h1M13 5h1M1 6h3M2 7h13"]
+                ["#f88000" "M2 9h1M3 10h1"]
+                ["#f80000" "M3 9h12M4 10h10"]]
+               x y scale))
+
+(defn car [x y scale]
+  (color-paths {:pointer-events "none"}
+               [["#0000f8" "M6 0h1M5 1h1M4 2h1"]
+                ["#000000" "M7 0h5M7 1h1M10 1h1M12 1h1M6 2h1M11 2h1M13 2h1M1 3h11M14 3h1M0 4h1M15 4h1M0 5h1M15 5h1M0 6h1M3 6h2M11 6h2M15 6h1M0 7h1M2 7h1M5 7h1M10 7h1M13 7h1M15 7h1M1 8h2M5 8h6M13 8h2M3 9h2M11 9h2"]
+                ["#f8f8f8" "M6 1h1M8 1h1M5 2h1M7 2h1M4 7h1M12 7h1"]
+                ["#00f8f8" "M9 1h1M8 2h3"]
+                ["#f88000" "M11 1h1M12 2h1M12 3h2M14 4h1M1 5h14M1 6h2M5 6h6M13 6h2"]
+                ["#f8f800" "M1 4h13"]
+                ["#f80000" "M1 7h1M6 7h4M14 7h1"]
+                ["#808080" "M3 7h1M11 7h1"]
+                ["#c0c0c0" "M3 8h2M11 8h2"]]
+               x y scale))
+
+(defn heart [x y scale]
+  (color-paths {:pointer-events "none"}
+               [["#f80000" "M2 0h4M9 0h4M1 1h2M5 1h2M8 1h1M12 1h2M1 2h1M3 2h5M9 2h5M0 3h1M2 3h13M0 4h1M2 4h13M0 5h1M2 5h13M1 6h1M3 6h11M1 7h2M4 7h10M2 8h2M5 8h8M3 9h9M4 10h2M7 10h4M5 11h5M6 12h3M7 13h1"]
+                ["#f8f8f8" "M3 1h2M9 1h3M2 2h1M8 2h1M1 3h1M1 4h1M1 5h1M2 6h1M3 7h1M4 8h1M6 10h1"]]
+               x y scale))
 
 (defn floor-tile [length]
   [:g {:transform (str "scale(" 0.125 ") translate (0," 115 ")")}

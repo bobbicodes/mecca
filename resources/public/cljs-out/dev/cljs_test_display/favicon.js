@@ -8,8 +8,8 @@ goog.require('goog.dom');
 /** @define {string} */
 goog.define("cljs_test_display.favicon.link_id","cljs-test-favicon");
 cljs_test_display.favicon.html_collection__GT_seq = (function cljs_test_display$favicon$html_collection__GT_seq(html_coll){
-return cljs.core.map.call(null,(function (p1__15392_SHARP_){
-return html_coll.item(p1__15392_SHARP_);
+return cljs.core.map.call(null,(function (p1__21120_SHARP_){
+return html_coll.item(p1__21120_SHARP_);
 }),cljs.core.range.call(null,html_coll.length));
 });
 cljs_test_display.favicon.find_existing_link = (function cljs_test_display$favicon$find_existing_link(){
@@ -18,8 +18,8 @@ var temp__5457__auto__ = l.rel;
 if(cljs.core.truth_(temp__5457__auto__)){
 var rel = temp__5457__auto__;
 return cljs.core.some.call(null,((function (rel,temp__5457__auto__){
-return (function (p1__15393_SHARP_){
-return cljs.core._EQ_.call(null,"icon",p1__15393_SHARP_);
+return (function (p1__21121_SHARP_){
+return cljs.core._EQ_.call(null,"icon",p1__21121_SHARP_);
 });})(rel,temp__5457__auto__))
 ,clojure.string.split.call(null,rel,/\s/));
 } else {
@@ -60,10 +60,10 @@ return favicon;
 });
 cljs_test_display.favicon.color_data_url = (function cljs_test_display$favicon$color_data_url(color,size){
 var cvs = goog.dom.createDom("canvas",({"width": size, "height": size}));
-var ctx_15394 = cvs.getContext("2d");
-ctx_15394.fillStyle = color;
+var ctx_21122 = cvs.getContext("2d");
+ctx_21122.fillStyle = color;
 
-ctx_15394.fillRect((0),(0),size,size);
+ctx_21122.fillRect((0),(0),size,size);
 
 return cvs.toDataURL();
 });

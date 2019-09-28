@@ -34,11 +34,8 @@
                       :on-click #(dispatch [:add-note @instrument time pitch])}])))))
 
 (defn editor []
-  (let [focused (subscribe [:focused-note-pos])
-        mario-note (subscribe [:mario])
-        lead (subscribe [:lead])
-        bassline (subscribe [:bassline])
-        drums (subscribe [:drums])
+  (let [instruments (subscribe [:instruments])
+        focused (subscribe [:focused-note-pos])
         current-position (subscribe [:current-position])
         editor-beat-start (subscribe [:editor-beat-start])
         playing? (subscribe [:playing?])
@@ -57,7 +54,6 @@
        [mario]
        [editor/current-note-display 59 0 0.22]
        [editor/note-blocks]
-       [editor/rest-blocks]
        [mario/floor-tile 16]
        [:rect#editorframe
           {:stroke "black"
@@ -90,39 +86,20 @@
         (when-not (= @focused [nil nil])
           (let [[x y] @focused]
             (case @instrument
-              :mario [mario/mario-icon (+ 32 (* 30 x)) (- (* 5 y) 5) 0.2])))
-        (doall (for [{:keys [time _ pitch]} @mario-note]
+              1 [mario/mario-icon (+ 32 (* 30 x)) (- (* 5 y) 5) 0.2]
+              2 [mario/shroom (+ 32 (* 30 x)) (- (* 5 y) 5) 0.2])))
+        (doall (for [{:keys [time _ pitch]} (get @instruments @instrument)]
                  ^{:key [time pitch]}
-                 [mario/mario-note (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]))
-        (doall (for [{:keys [time duration pitch]} @lead]
-                 ^{:key [time duration pitch]}
-                 [notation/note duration [time (- 77 pitch)]]))
-        (doall (for [{:keys [time duration pitch]} @bassline]
-                 ^{:key [time duration pitch]}
-                 [notation/note duration [time (- 77 pitch)]]))
-        (doall (for [{:keys [time duration pitch]} @drums]
-                 ^{:key [time duration pitch]}
-                 [notation/drum-hit duration [time (- 77 pitch)]]))]])))
+                 [mario/mario-note (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]))]])))
 
 (defn debug-info []
   [:div
    [:p (str "Absolute time: " @(subscribe [:time]))]
-   [:p (str "Mario notes: " @(subscribe [:mario]))]
+   [:p (str "Mario notes: " @(subscribe [:instruments]))]
    [:p (str "Mario run: " @(subscribe [:mario-run]))]
    [:p (str "Mario jump: " @(subscribe [:mario-jump]))]
    [:p (str "Instrument: " @(subscribe [:instrument]))]
    [:p (str "Focused note pos: " @(subscribe [:focused-note-pos]))]
-   [:p (str @(subscribe [:scale])
-            " scale from MIDI number "
-            (music/root-note-midi-num) " ("
-            @(subscribe [:key]) @(subscribe [:octave]) "):")]
-   [:p #_(let [scale (subscribe [:scale])
-               key (subscribe [:key])
-               octave (subscribe [:octave])
-               root (music/root-note-midi-num)
-               intervals (subscribe [:bassline])
-               scale-region (take 16 (scale/scale (get music/scales @scale) root))]
-           (str (map #(nth scale-region (dec %)) @intervals)))]
    [:p (str "Tempo: " @(subscribe [:tempo]))]
    [:p (str "Current position: " @(subscribe [:current-position]))]
    [:p (str "Editor beat start: " @(subscribe [:editor-beat-start]))]])
@@ -131,11 +108,4 @@
   [:div
    [editor]
    [editor/controls]
-   [:button
-    {:on-click
-     (fn [e]
-       (music/play-bassline!))}
-    "Play"]
-   [:p]
-   ;[sequencer/sequencer]
    [debug-info]])

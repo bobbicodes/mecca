@@ -1,12 +1,15 @@
 (ns ^:figwheel-hooks mecca.core
   (:require
+   [cljs.core.async :refer [<! timeout chan put! close!]]
    [goog.dom :as gdom]
    [reagent.core :as r]
    [re-frame.core :as rf]
    [day8.re-frame.http-fx]
    [mecca.events]
    [mecca.subs]
-   [mecca.view :as view]))
+   [mecca.view :as view])
+  (:require-macros
+   [cljs.core.async.macros :refer [go go-loop]]))
 
 (rf/dispatch-sync [:initialize-db])
 

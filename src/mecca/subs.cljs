@@ -57,24 +57,9 @@
    (:focused-note-pos db)))
 
 (rf/reg-sub
- :mario
+ :instruments
  (fn [db _]
-   (:mario db)))
-
-(rf/reg-sub
- :lead
- (fn [db _]
-   (:lead db)))
-
-(rf/reg-sub
- :bassline
- (fn [db _]
-   (:bassline db)))
-
-(rf/reg-sub
- :drums
- (fn [db _]
-   (:drums db)))
+   (:instruments db)))
 
 (rf/reg-sub
  :mario-x

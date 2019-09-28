@@ -204,8 +204,8 @@
                      ["#f8f8f8" "M1 1h1M3 1h16M20 1h1M3 2h16M3 3h16M1 4h1M3 4h16M20 4h1M3 5h16M3 6h16M1 7h1M3 7h16M20 7h1M3 8h16M3 9h16M1 10h1M3 10h16M20 10h1M3 11h16M3 12h16M1 13h1M3 13h16M20 13h1M3 14h16"]]
                     x y scale)
        (case @current-note
-         :mario
-         (mario/mario-icon 48 -1 0.18))])))
+         1 (mario/mario-icon 48 -1 0.18)
+         2 (mario/shroom 48 -1 0.18))])))
 
 (defn block [x]
   (into [:g {:transform (str "translate(" x "," 1 ")")}]
@@ -222,8 +222,7 @@
     [mario/mario-icon 133 0 0.8]]
    [:g
     [block 144]
-    [mario/shroom 182 3 0.8]]])
-
-(defn rest-blocks []
-  [:g#rests {:transform "scale(0.2) translate(-36,16)"}
-   [block 128]])
+    [mario/shroom 182 3 0.8]]
+   [:g
+    [block 160]
+    [mario/yoshi 202 3 0.8]]])

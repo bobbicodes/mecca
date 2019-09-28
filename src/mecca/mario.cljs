@@ -261,6 +261,17 @@
                 ["#f80000" "M7 2h4M6 3h6M5 4h2M11 4h2M2 5h4M12 5h2M4 6h2M12 6h2M5 7h1M12 7h2M5 8h2M11 8h2"]]
                x y scale))
 
+(defn yoshi [x y scale]
+  (color-paths [["#000000" "M6 0h3M5 1h1M9 1h1M10 2h1M3 3h2M6 3h1M10 3h2M1 4h2M6 4h1M12 4h1M0 5h1M9 5h1M12 5h1M0 6h1M7 6h2M12 6h1M0 7h1M3 7h4M11 7h1M1 8h3M11 8h1M4 9h1M12 9h2M15 9h1M4 10h1M14 10h2M3 11h1M15 11h1M3 12h1M8 12h6M15 12h1M3 13h1M7 13h2M13 13h1M15 13h1M4 14h1M7 14h1M13 14h2M5 15h9"]
+                ["#008040" "M6 1h3M8 2h2M9 3h1M3 4h1M11 4h1M1 5h1M11 5h1M11 6h1M10 7h1M10 8h1M11 9h1M12 10h2M14 11h1"]
+                ["#f8f8f8" "M5 2h3M5 3h1M7 3h2M5 4h1M7 4h3M2 5h1M6 5h3M7 7h1M4 8h4M5 9h4M5 10h5M4 11h7M4 12h4M4 13h3M14 13h1M5 14h2M8 14h1"]
+                ["#00f800" "M4 4h1M10 4h1M3 5h2M10 5h1M1 6h2M10 6h1M9 7h1M9 8h1M10 9h1M11 10h1M12 11h2M14 12h1"]
+                ["#f8f800" "M5 5h1M3 6h4M9 6h1M1 7h2M8 7h1M8 8h1M9 9h1M10 10h1M11 11h1"]
+                ["#f88000" "M9 13h2M9 14h1"]
+                ["#c04020" "M11 13h2M10 14h3"]]
+               x y scale))
+
+
 (defn floor-tile [length]
   [:g {:transform (str "scale(" 0.125 ") translate (0," 115 ")")}
    [tile "#e45e10" 0  (* 32 length) 1 1 "2 9 1 4"]

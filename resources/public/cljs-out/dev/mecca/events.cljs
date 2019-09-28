@@ -17,12 +17,12 @@
     :playing? false
     :current-position 0
     :editor-beat-start 1
-    :instrument :mario
+    :instrument 1
     :array-buffer nil
     :key "C"
     :time 0
     :tempo 180
-    :mario []
+    :instruments {}
     :lead []
     :bassline []
     :drums []
@@ -32,11 +32,11 @@
     :mario-run 1}))
 
 (reg-event-fx                             ;; note the trailing -fx
- :get-sample                   ;; usage:  (dispatch [:handler-with-http])
+ :get-sample                ;; usage:  (dispatch [:handler-with-http])
  (fn [{:keys [db]} _]                    ;; the first param will be "world"
    {:db   (assoc db :show-twirly true)   ;; causes the twirly-waiting-dialog to show??
     :http-xhrio {:method          :get
-                 :uri             "/audio/sound01.mp3"                                      ;; optional see API docs
+                 :uri             "/audio/1.mp3"                                      ;; optional see API docs
                  :response-format {:type :arraybuffer
                                    :read protocol/-body
                                    :description "audio"
@@ -56,24 +56,17 @@
    (assoc db :error-log result)))
 
 (reg-event-db
- :set-bassline
- (fn [db [_ bassline]]
-   (assoc db :bassline (vec (for [interval bassline]
-                              (nth (take 16 (scale/scale (get music/scales @(subscribe [:scale]))
-                                                         (music/root-note-midi-num)))
-                                   (dec interval)))))))
-
-(reg-event-db
  :add-note
  (undoable "add note")
  (fn [db [_ instrument time pitch]]
    (if (= (.-state @audiocontext) "suspended")
      (.resume @audiocontext))
-   (music/play-mp3!)
-   (update db instrument
-              conj {:time time
-                    :duration 0.5
-                    :pitch (- 77 pitch)})))
+   (music/play-sample instrument pitch)
+   (update-in db [:instruments instrument]
+           conj 
+           {:time time
+            :duration 0.5
+            :pitch (- 77 pitch)})))
 
 (reg-event-db
  :remove-note
@@ -91,14 +84,6 @@
    (update-in db [:drums] conj {:time x
                                    :duration 1
                                    :pitch (- 77 y)})))
-
-(reg-event-db
- :move-note
- (fn [db [_ bassline]]
-   (assoc db :bassline (vec (for [interval bassline]
-                              (nth (take 16 (scale/scale (get music/scales @(subscribe [:scale]))
-                                                         (music/root-note-midi-num)))
-                                   (dec interval)))))))
 
 (reg-event-db                 ;; usage:  (dispatch [:timer a-js-Date])
  :timer                         ;; every second an event of this kind will be dispatched

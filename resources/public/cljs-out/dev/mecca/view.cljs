@@ -4,20 +4,20 @@
             [reagent.core :as r]
             [re-frame.core :as rf :refer [subscribe dispatch]]
             [mecca.events :as events]
-            [mecca.audio.melody :as melody]
-            [mecca.audio.sequencer :as sequencer]
-            [mecca.audio.scale :as scale]
             [mecca.components.notation :as notation]
             [mecca.components.castle :as castle]
             [mecca.components.key :as key]
             [mecca.components.editor :as editor]
             [mecca.mario :as mario :refer [mario]]))
 
+; TODO: Make note-guides part of note-targets
+
 (defn note-targets []
-  (let [instrument (subscribe [:instrument])]
+  (let [instrument (subscribe [:instrument])
+        editor-x (subscribe [:editor-beat-start])]
     (fn []
       (into [:g]
-            (for [time (range 0 8 0.5) pitch (range 34)]
+            (for [time (range 0 8 0.5) pitch (range 28)]
               ^{:key [time pitch]}
               [:rect {:transform "translate(12.5,0)"
                       :x (* 6 time)
@@ -31,13 +31,13 @@
                       :pointer-events "all"
                       :on-mouse-over #(dispatch [:update-focus-note [time pitch]])
                       :on-mouse-out #(dispatch [:update-focus-note [nil nil]])
-                      :on-click #(dispatch [:add-note @instrument time pitch])}])))))
+                      :on-click #(dispatch [:add-note @instrument (+ time (dec @editor-x)) pitch])}])))))
 
 (defn editor []
   (let [instruments (subscribe [:instruments])
         focused (subscribe [:focused-note-pos])
         current-position (subscribe [:current-position])
-        editor-beat-start (subscribe [:editor-beat-start])
+        editor-x (subscribe [:editor-beat-start])
         playing? (subscribe [:playing?])
         mario-run (subscribe [:mario-run])
         mario-jump (subscribe [:mario-jump])
@@ -57,28 +57,30 @@
        [mario/floor-tile 16]
        [:rect#editorframe
           {:stroke "black"
-           :stroke-width 0.25
+           :stroke-width 0.2
            :fill "none"
            :height 31 :width 63.5 :x 0.25 :y 14.5}]
-       [:g.staff {:transform "translate(0,10.5) scale(1)"
+       [:g.staff {:transform "translate(0,15.5) scale(1)"
                   :style {:cursor "url(./images/hand.png),crosshair"}}
         [notation/staff-lines]
-        (if (= 1 @editor-beat-start)
+        [editor/note-guides]
+        (if (= 1 @editor-x)
           [:g [notation/brace]
            [notation/bar-line -1.68]
            [:g#clefs
             [notation/bass-clef]
             [notation/treble-clef]]
-           [editor/note-guides]
            [editor/retract-editor 8]
-           [editor/note-guides]
+           ;[editor/note-guides]
            [notation/bar-line 32.7]
-           [editor/note-guides]]
+           ;[editor/note-guides]
+           ]
           [:g
            [editor/retract-editor 2]
-           [editor/note-guides]
+           ;[editor/note-guides]
            [notation/bar-line 31.5]
-           [editor/note-guides]])
+           ;[editor/note-guides]
+           ])
         [editor/advance-editor]
         [notation/bar-line 59]
         [note-targets]
@@ -86,38 +88,39 @@
           (let [[x y] @focused]
             (case @instrument
               1 [mario/mario-icon (+ 32 (* 30 x)) (- (* 5 y) 5) 0.2]
-              2 [mario/shroom (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
-              3 [mario/yoshi (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
-              4 [mario/star (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
-              5 [mario/flower (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
-              6 [mario/gb (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
-              7 [mario/dog (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
-              8 [mario/kitty (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
-              9 [mario/pig (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
-              10 [mario/swan (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
-              11 [mario/face (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
-              12 [mario/plane (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
-              13 [mario/boat (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
-              14 [mario/car (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2]
-              15 [mario/heart (+ 62 (* 30 x)) (- (* 5 y) 5) 0.2])))
-        (doall (for [{:keys [time instrument pitch]} @instruments]
+              2 [mario/shroom (+ 64 (* 30 x)) (- (* 5 y) 5) 0.2]
+              3 [mario/yoshi (+ 64 (* 30 x)) (- (* 5 y) 5) 0.2]
+              4 [mario/star (+ 64 (* 30 x)) (- (* 5 y) 5) 0.2]
+              5 [mario/flower (+ 64 (* 30 x)) (- (* 5 y) 5) 0.2]
+              6 [mario/gb (+ 64 (* 30 x)) (- (* 5 y) 5) 0.2]
+              7 [mario/dog (+ 64 (* 30 x)) (- (* 5 y) 5) 0.2]
+              8 [mario/kitty (+ 64 (* 30 x)) (- (* 5 y) 5) 0.2]
+              9 [mario/pig (+ 64 (* 30 x)) (- (* 5 y) 5) 0.2]
+              10 [mario/swan (+ 64 (* 30 x)) (- (* 5 y) 5) 0.2]
+              11 [mario/face (+ 64 (* 30 x)) (- (* 5 y) 5) 0.2]
+              12 [mario/plane (+ 64 (* 30 x)) (- (* 5 y) 5) 0.2]
+              13 [mario/boat (+ 64 (* 30 x)) (- (* 5 y) 5) 0.2]
+              14 [mario/car (+ 64 (* 30 x)) (- (* 5 y) 5) 0.2]
+              15 [mario/heart (+ 64 (* 30 x)) (- (* 5 y) 5) 0.2])))
+          (doall (for [{:keys [time instrument pitch]} @instruments
+                   :when (<= @editor-x time (+ 16 @editor-x))]
                    ^{:key [instrument time pitch]}
                    (case instrument
                      1 [mario/mario-note (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
-                     2 [mario/shroom (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
-                     3 [mario/yoshi (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
-                     4 [mario/star (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
-                     5 [mario/flower (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
-                     6 [mario/gb (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
-                     7 [mario/dog (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
-                     8 [mario/kitty (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
-                     9 [mario/pig (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
-                     10 [mario/swan (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
-                     11 [mario/face (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
-                     12 [mario/plane (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
-                     13 [mario/boat (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
-                     14 [mario/car (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
-                     15 [mario/heart (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2])))]])))
+                     2 [mario/shroom (+ 64 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     3 [mario/yoshi (+ 64 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     4 [mario/star (+ 64 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     5 [mario/flower (+ 64 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     6 [mario/gb (+ 64 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     7 [mario/dog (+ 64 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     8 [mario/kitty (+ 64 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     9 [mario/pig (+ 64 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     10 [mario/swan (+ 64 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     11 [mario/face (+ 64 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     12 [mario/plane (+ 64 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     13 [mario/boat (+ 64 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     14 [mario/car (+ 64 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2]
+                     15 [mario/heart (+ 64 (* 30 time)) (- (* 5 (- 77 pitch)) 5) 0.2])))]])))
 
 (defn debug-info []
   [:div

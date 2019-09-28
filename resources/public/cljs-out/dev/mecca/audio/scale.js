@@ -3,8 +3,8 @@ goog.provide('mecca.audio.scale');
 goog.require('cljs.core');
 goog.require('cljs.core.constants');
 mecca.audio.scale.scale = (function mecca$audio$scale$scale(var_args){
-var G__19705 = arguments.length;
-switch (G__19705) {
+var G__19713 = arguments.length;
+switch (G__19713) {
 case 1:
 return mecca.audio.scale.scale.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 

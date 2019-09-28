@@ -6,6 +6,8 @@ MECCA is a browser-based music editor inspired by Mario Paint, written in Clojur
 
 [Live app in its current state](https://porkostomus.github.io/mecca/)
 
+![Screenshot](mecca.png)
+
 ## Start local development server:
 
 ```

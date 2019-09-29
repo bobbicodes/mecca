@@ -1,4 +1,4 @@
-(ns ^:figwheel-hooks mecca.components.key)
+(ns ^:figwheel-hooks mecca.key)
 
 (defn dodecagon []
   (into 

@@ -21,6 +21,7 @@
     :array-buffer nil
     :key "C"
     :time 0
+    :time-signature 4
     :tempo 180
     :instruments []
     :lead []
@@ -79,11 +80,9 @@
                         notes)))))
 
 (reg-event-db
- :add-drum-hit
- (fn [db [_ x y]]
-   (update-in db [:drums] conj {:time x
-                                   :duration 1
-                                   :pitch (- 77 y)})))
+ :set-time-signature
+ (fn [db [_ beats-per-measure]]
+   (update db :time-signature beats-per-measure)))
 
 (reg-event-db                 ;; usage:  (dispatch [:timer a-js-Date])
  :timer                         ;; every second an event of this kind will be dispatched

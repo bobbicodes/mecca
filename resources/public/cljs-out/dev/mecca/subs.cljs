@@ -42,6 +42,11 @@
    (:editor-beat-start db)))
 
 (rf/reg-sub
+ :time-signature
+ (fn [db _]
+   (:time-signature db)))
+
+(rf/reg-sub
  :instrument
  (fn [db _]
    (:instrument db)))

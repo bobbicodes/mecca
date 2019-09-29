@@ -134,14 +134,14 @@
   (let [editor-x (subscribe [:editor-beat-start])]
     (fn []
       (into [:g]
-            (for [beat (range @editor-x (+ 15 @editor-x) 0.5)]
+            (for [beat (range @editor-x (+ 7 @editor-x) 0.5)]
               (if (= 0 (mod beat 4))
                 [:g 
                  [bar-number (/ beat 4)]
-                 [:line {:x1 (+ 6 (* 6 (mod beat 16))) :x2 (+ 6 (* 6 (mod beat 16))) :y1 2 :y2 30 :stroke "orange"
+                 [:line {:x1 (+ 6 (* 6 (mod beat 8))) :x2 (+ 6 (* 6 (mod beat 8))) :y1 2 :y2 30 :stroke "orange"
                          :stroke-width 0.25
                          :stroke-dasharray 0.5}]]
-                [:line {:x1 (+ 6 (* 6 (mod beat 16))) :x2 (+ 6 (* 6 (mod beat 16))) :y1 2 :y2 30 :stroke "black"
+                [:line {:x1 (+ 6 (* 6 (mod beat 8))) :x2 (+ 6 (* 6 (mod beat 8))) :y1 2 :y2 30 :stroke "black"
                         :stroke-width 0.075
                         :stroke-dasharray 0.5}]))))))
  

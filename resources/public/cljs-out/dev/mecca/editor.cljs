@@ -207,7 +207,7 @@
             [:path {:stroke color
                     :d path}]))
      (into [:g#play-inactive {:transform "scale(0.21) translate(182,17.6)"
-                :on-click #(dispatch [:play-toggle])}]
+                :on-click #(dispatch [:play-on])}]
            (for [[color path]
                  [["#707070" "M0 0h2M0 1h1M2 1h2M0 2h1M4 2h2M0 3h1M2 3h2M6 3h2M0 4h1M2 4h1M4 4h2M8 4h1M0 5h1M2 5h1M6 5h1M9 5h1M0 6h1M2 6h1M4 6h2M8 6h1M0 7h1M2 7h2M6 7h2M10 7h1M0 8h1M4 8h2M9 8h2M0 9h1M2 9h2M8 9h2M0 10h2M6 10h3M0 11h1M4 11h3M2 12h3M1 13h2"]
                   ["#a0c0b0" "M2 0h10M4 1h8M6 2h6M8 3h4M9 4h3M10 5h2M10 6h2M11 9h1M10 10h2M9 11h3M0 12h1M7 12h5M0 13h1M5 13h7M0 14h1M3 14h9"]

@@ -114,3 +114,22 @@
     (.connect sample-source (.-destination @context))
     (.start sample-source)
     sample-source))
+
+(defn play-at [instrument pitch time]
+  (let [context audiocontext
+        audio-buffer (:decoded-buffer (get samples instrument))
+        sample-source (.createBufferSource @context)]
+    (set! (.-buffer sample-source) audio-buffer)
+    (.setValueAtTime
+     (.-playbackRate sample-source)
+     (pitch->rate pitch)
+     time)
+    (.connect sample-source (.-destination @context))
+    (.start sample-source time)
+    sample-source))
+
+(defn play-song! []
+  (let [notes (subscribe [:instruments])
+        now (.-currentTime @audiocontext)]
+    (doall (for [{:keys [time instrument pitch]} @notes]
+             (play-at instrument pitch (+ now time))))))

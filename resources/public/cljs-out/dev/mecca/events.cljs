@@ -67,6 +67,7 @@
 (reg-event-db
  :play-on
  (fn [db [_ _e]]
+   (music/play-song!)
    (assoc db :playing? true)))
 
 (reg-event-db

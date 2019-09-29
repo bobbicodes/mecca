@@ -10,9 +10,7 @@
             [mecca.editor :as editor]
             [mecca.mario :as mario :refer [mario]]))
 
-; TODO: Make note-guides part of note-targets
-
-(defn bar-number [n x y scale]
+#_(defn bar-number [n x y scale]
   [:path {:transform (str "scale(" scale ") translate(" x "," y ")")
           :stroke "#000000"
           :d (case n
@@ -31,23 +29,40 @@
   (let [editor-x (subscribe [:editor-beat-start])]
     (fn []
       (into [:g]
-            (for [beat (range @editor-x (+ 8 @editor-x) 0.5)]
-              (if (= 0 (mod beat 4))
+            (for [beat 
+                  (case @editor-x
+                    1 (range 1 9 0.5)
+                    1.5 (range 0.5 9 0.5)
+                     (range 0 9 0.5))]
+              (if (= (case @editor-x
+                      1 1
+                       1.5 0.5
+                        0)
+                     (mod beat 4))
                 [:g
-                 [bar-number (/ beat 4) (+ 296 (* 120 (mod beat 8))) 64 0.05]
-                 [:line {:x1 (+ 14 (* 6 (mod beat 8))) :x2 (+ 14 (* 6 (mod beat 8))) :y1 4 :y2 21 :stroke "orange"
+                 ;[bar-number (/ beat 4) (+ 296 (* 120 (mod beat 8))) 64 0.05]
+                 [:line {:x1 (+ 8 (* 6 beat)) :x2 (+ 8 (* 6 beat))
+                         :y1 4 :y2 21 :stroke "orange"
                          :stroke-width 0.25
                          :stroke-dasharray 0.5}]]
-                [:line {:x1 (+ 14 (* 6 (mod beat 8))) :x2 (+ 14 (* 6 (mod beat 8))) :y1 4 :y2 21 :stroke "black"
+                [:line {:x1 (+ 8 (* 6 beat)) :x2 (+ 8 (* 6 beat))
+                        :y1 4 :y2 21 :stroke "black"
                         :stroke-width 0.075
                         :stroke-dasharray 0.5}]))))))
+
 
 (defn note-targets []
   (let [instrument (subscribe [:instrument])
         editor-x (subscribe [:editor-beat-start])]
     (fn []
       (into [:g]
-            (for [time (range @editor-x (+ 8 @editor-x) 0.5) pitch (range 15)]
+            (for [time
+                  (case @editor-x
+                    1 (range 1 9 0.5)
+                    1.5 (range 0.5 9 0.5)
+                    (range 0 9 0.5)
+                    )
+                  pitch (range 15)]
               ^{:key [time pitch]}
               [:rect {:transform "translate(6.5,4)"
                       :x (* 6 time)
@@ -61,7 +76,9 @@
                       :pointer-events "all"
                       :on-mouse-over #(dispatch [:update-focus-note [time pitch]])
                       :on-mouse-out #(dispatch [:update-focus-note [nil nil]])
-                      :on-click #(dispatch [:add-note @instrument (+ time (dec @editor-x)) (+ pitch 7)])}])))))
+                      :on-click #(dispatch [:add-note @instrument
+                                            (+ time (dec @editor-x))
+                                            (+ pitch 7)])}])))))
 
 (defn editor []
   (let [instruments (subscribe [:instruments])
@@ -91,8 +108,7 @@
            :fill "none"
            :height 20 :width 63.5 :x 0.25 :y 14.5}]
        [:g.staff {:transform "translate(0,13.5) scale(1)"
-                  :style {:cursor (if (= @focused [nil nil])
-                                    "url(./images/hand.png),crosshair" "none")}}
+                  :style {:cursor "url(./images/hand.png),crosshair"}}
         [notation/staff-lines]
         (if (= 1 @editor-x)
           [:g 
@@ -106,13 +122,16 @@
           [:g
            [editor/retract-editor 2]
            ;[editor/note-guides]
-           [notation/bar-line 31.5]
+           [notation/bar-line (- 31.5 (* 6 (dec @editor-x)))]
            ;[editor/note-guides]
            ])
         [:g#clefs
-         [notation/treble-clef 2.65 6.3]]
+         [notation/treble-clef
+          (- 2.65 (* 2 (dec @editor-x)))
+          6.3]]
         [editor/advance-editor]
-        [notation/bar-line 59]
+        [notation/bar-line 
+         (- 59 (* 6 (dec @editor-x)))]
         [note-targets]
         [note-guides]
         (when-not (= @focused [nil nil])
@@ -134,24 +153,32 @@
               14 [mario/car (+ 32 (* 30 x)) (+ (* 5 y) 19) 0.2]
               15 [mario/heart (+ 32 (* 30 x)) (+ (* 5 y) 19) 0.2])))
           (doall (for [{:keys [time instrument pitch]} @instruments
-                   :when (<= @editor-x time (+ 16 @editor-x))]
+                   :when (case @editor-x
+                          1 (<= 1 time 16)
+                           1.5 (<= 1 time 16.5)
+                           2 (<= 1 time 17)
+                           2.5 (<= 1 time 17.5)
+                           3 (<= 1 time 18)
+                           3.5 (<= 1.5 time 18.5)
+                           (<= (- @editor-x 2) time (+ 16 (dec @editor-x))))]
                    ^{:key [instrument time pitch]}
-                   (case instrument
-                     1 [mario/mario-note (+ 2 (* 30 time)) (- (* 5 (- 77 pitch)) 21) 0.2]
-                     2 [mario/shroom (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 17) 0.2]
-                     3 [mario/yoshi (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 19) 0.2]
-                     4 [mario/star (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 18) 0.2]
-                     5 [mario/flower (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 19) 0.2]
-                     6 [mario/gb (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 17) 0.2]
-                     7 [mario/dog (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 17) 0.2]
-                     8 [mario/kitty (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 17) 0.2]
-                     9 [mario/pig (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 17) 0.2]
-                     10 [mario/swan (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 19) 0.2]
-                     11 [mario/face (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 18) 0.2]
-                     12 [mario/plane (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 15) 0.2]
-                     13 [mario/boat (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 17) 0.2]
-                     14 [mario/car (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 16) 0.2]
-                     15 [mario/heart (+ 32 (* 30 time)) (- (* 5 (- 77 pitch)) 16) 0.2])))]])))
+                   (let [x (- time (dec @editor-x))]
+                     (case instrument
+                       1 [mario/mario-note (+ 2 (* 30 x)) (- (* 5 (- 77 pitch)) 21) 0.2]
+                       2 [mario/shroom (+ 32 (* 30 x)) (- (* 5 (- 77 pitch)) 17) 0.2]
+                       3 [mario/yoshi (+ 32 (* 30 x)) (- (* 5 (- 77 pitch)) 19) 0.2]
+                       4 [mario/star (+ 32 (* 30 x)) (- (* 5 (- 77 pitch)) 18) 0.2]
+                       5 [mario/flower (+ 32 (* 30 x)) (- (* 5 (- 77 pitch)) 19) 0.2]
+                       6 [mario/gb (+ 32 (* 30 x)) (- (* 5 (- 77 pitch)) 17) 0.2]
+                       7 [mario/dog (+ 32 (* 30 x)) (- (* 5 (- 77 pitch)) 17) 0.2]
+                       8 [mario/kitty (+ 32 (* 30 x)) (- (* 5 (- 77 pitch)) 17) 0.2]
+                       9 [mario/pig (+ 32 (* 30 x)) (- (* 5 (- 77 pitch)) 17) 0.2]
+                       10 [mario/swan (+ 32 (* 30 x)) (- (* 5 (- 77 pitch)) 19) 0.2]
+                       11 [mario/face (+ 32 (* 30 x)) (- (* 5 (- 77 pitch)) 18) 0.2]
+                       12 [mario/plane (+ 32 (* 30 x)) (- (* 5 (- 77 pitch)) 15) 0.2]
+                       13 [mario/boat (+ 32 (* 30 x)) (- (* 5 (- 77 pitch)) 17) 0.2]
+                       14 [mario/car (+ 32 (* 30 x)) (- (* 5 (- 77 pitch)) 16) 0.2]
+                       15 [mario/heart (+ 32 (* 30 x)) (- (* 5 (- 77 pitch)) 16) 0.2]))))]])))
 
 (defn debug-info []
   [:div

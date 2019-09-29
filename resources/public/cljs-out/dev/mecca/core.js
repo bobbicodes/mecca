@@ -10,17 +10,17 @@ goog.require('day8.re_frame.http_fx');
 goog.require('mecca.events');
 goog.require('mecca.subs');
 goog.require('mecca.view');
-var G__19975_19976 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$initialize_DASH_db], null);
-(re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1(G__19975_19976) : re_frame.core.dispatch_sync.call(null,G__19975_19976));
+var G__19995_19996 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$initialize_DASH_db], null);
+(re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch_sync.cljs$core$IFn$_invoke$arity$1(G__19995_19996) : re_frame.core.dispatch_sync.call(null,G__19995_19996));
 mecca.core.get_app_element = (function mecca$core$get_app_element(){
 return goog.dom.getElement("app");
 });
 mecca.core.mount = (function mecca$core$mount(el){
 (re_frame.core.clear_subscription_cache_BANG_.cljs$core$IFn$_invoke$arity$0 ? re_frame.core.clear_subscription_cache_BANG_.cljs$core$IFn$_invoke$arity$0() : re_frame.core.clear_subscription_cache_BANG_.call(null));
 
-var G__19977 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.view.mecca], null);
-var G__19978 = el;
-return (reagent.core.render_component.cljs$core$IFn$_invoke$arity$2 ? reagent.core.render_component.cljs$core$IFn$_invoke$arity$2(G__19977,G__19978) : reagent.core.render_component.call(null,G__19977,G__19978));
+var G__19997 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [mecca.view.mecca], null);
+var G__19998 = el;
+return (reagent.core.render_component.cljs$core$IFn$_invoke$arity$2 ? reagent.core.render_component.cljs$core$IFn$_invoke$arity$2(G__19997,G__19998) : reagent.core.render_component.call(null,G__19997,G__19998));
 });
 mecca.core.mount_app_element = (function mecca$core$mount_app_element(){
 var temp__5457__auto__ = mecca.core.get_app_element();

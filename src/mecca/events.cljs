@@ -5,8 +5,7 @@
    [ajax.protocols :as protocol]
    [day8.re-frame.undo :as undo :refer [undoable]]
    [mecca.mario :as mario :refer [mario]]
-   [mecca.music :as music :refer [sample audiocontext]]
-   [mecca.audio.scale :as scale]
+   [mecca.music :as music :refer [audiocontext]]
    [goog.events :refer [listen unlisten]])
   (:import [goog.events EventType]))
 
@@ -31,30 +30,6 @@
     :mario-y 41.5
     :mario-jump 0
     :mario-run 1}))
-
-(reg-event-fx                             ;; note the trailing -fx
- :get-sample                ;; usage:  (dispatch [:handler-with-http])
- (fn [{:keys [db]} _]                    ;; the first param will be "world"
-   {:db   (assoc db :show-twirly true)   ;; causes the twirly-waiting-dialog to show??
-    :http-xhrio {:method          :get
-                 :uri             "/audio/1.mp3"                                      ;; optional see API docs
-                 :response-format {:type :arraybuffer
-                                   :read protocol/-body
-                                   :description "audio"
-                                   :content-type "audio/mpeg"}
-                 :on-success      [:load-audio]
-                 :on-failure      [:log-info]}}))
-
-(reg-event-db
- :load-audio
- (fn [db [_ result]]
-   (assoc db :array-buffer result)))
-
-(reg-event-db
- :log-info
- (fn [db [_ result]]
-    ;; result is a map containing details of the failure
-   (assoc db :error-log result)))
 
 (reg-event-db
  :add-note
@@ -91,12 +66,12 @@
 
 (reg-event-db
  :play-on
- (fn [db [_ scale]]
+ (fn [db [_ _e]]
    (assoc db :playing? true)))
 
 (reg-event-db
  :play-toggle
- (fn [db [_ scale]]
+ (fn [db [_ _]]
    (if (= (.-state @audiocontext) "suspended")
      (.resume @audiocontext))
    (update db :playing? not)))
@@ -113,13 +88,8 @@
 
 (reg-event-db
  :play-off
- (fn [db [_ scale]]
+ (fn [db [_ _]]
    (assoc db :playing? false)))
-
-(reg-event-db
- :set-scale
- (fn [db [_ scale]]
-   (assoc db :scale scale)))
 
 (reg-event-db
  :advance-position
@@ -129,12 +99,12 @@
 (reg-event-db
  :advance-editor
  (fn [db [_ _]]
-   (update db :editor-beat-start inc)))
+   (update db :editor-beat-start #(+ 0.5 %))))
 
 (reg-event-db
  :retract-editor
  (fn [db [_ _]]
-   (update db :editor-beat-start dec)))
+   (update db :editor-beat-start #(- % 0.5))))
 
 (reg-event-db
  :reset-position
@@ -145,11 +115,6 @@
  :set-tempo
  (fn [db [_ tempo]]
    (assoc db :tempo tempo)))
-
-(reg-event-db
- :set-octave
- (fn [db [_ octave]]
-   (assoc db :octave octave)))
 
 (reg-event-db
  :set-key

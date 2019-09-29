@@ -91,7 +91,8 @@
            :fill "none"
            :height 20 :width 63.5 :x 0.25 :y 14.5}]
        [:g.staff {:transform "translate(0,13.5) scale(1)"
-                  :style {:cursor "url(./images/hand.png),crosshair"}}
+                  :style {:cursor (if (= @focused [nil nil])
+                                    "url(./images/hand.png),crosshair" "none")}}
         [notation/staff-lines]
         (if (= 1 @editor-x)
           [:g 

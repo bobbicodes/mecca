@@ -113,41 +113,37 @@
   (let [mouseover? (r/atom false)]
     (fn []
       [:g
-       [:rect {:x 58 :y 5
+       [:rect {:x 58 :y 2
                :height 32
                :width 6
                :pointer-events "all"
-               :visibility "hidden"
+               :visibility "visible"
+               :opacity 0.2
                :on-mouse-over #(reset! mouseover? true)
                :on-mouse-out #(reset! mouseover? false)
                :on-click #(dispatch [:advance-editor])}]
        (if @mouseover?
          [:g
           [scroll-cue-right (* 4 60.8) (* 4 8) 0.25]
-          [scroll-cue-right (* 4 60.8) (* 4 14) 0.25]
-          [scroll-cue-right (* 4 60.8) (* 4 20) 0.25]
-          [scroll-cue-right (* 4 60.8) (* 4 26) 0.25]
-          [scroll-cue-right (* 4 60.8) (* 4 32) 0.25]])])))
+          [scroll-cue-right (* 4 60.8) (* 4 14) 0.25]])])))
 
 (defn retract-editor [x]
   (let [mouseover? (r/atom false)]
     (fn []
       [:g
-       [:rect {:x x :y 5
+       [:rect {:x x :y 2
                :height 32
                :width 6
                :pointer-events "all"
-               :visibility "hidden"
+               :visibility "visible"
+               :opacity 0.2
                :on-mouse-over #(reset! mouseover? true)
                :on-mouse-out #(reset! mouseover? false)
                :on-click #(dispatch [:retract-editor])}]
        (if @mouseover?
          [:g
           [scroll-cue-left (* 4 (+ 3 x)) (* 4 8)  0.25]
-          [scroll-cue-left (* 4 (+ 3 x)) (* 4 14) 0.25]
-          [scroll-cue-left (* 4 (+ 3 x)) (* 4 20) 0.25]
-          [scroll-cue-left (* 4 (+ 3 x)) (* 4 26) 0.25]
-          [scroll-cue-left (* 4 (+ 3 x)) (* 4 32) 0.25]])])))
+          [scroll-cue-left (* 4 (+ 3 x)) (* 4 14) 0.25]])])))
  
 (defn robot []
   [:g {:transform "scale(0.3) translate(-24,-1.3)"}

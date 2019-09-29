@@ -2,161 +2,24 @@
   (:require
    [cljs.core.async :refer [<! timeout chan put! close!]]
    [reagent.core :as r]
-   [re-frame.core :as rf :refer [subscribe dispatch]]
-   [ajax.core :as ajax]
-   [ajax.protocols :as protocol]
-   [mecca.audio.scale :as scale]
-   [mecca.audio.synthesis :as synthesis]
-   [mecca.audio.melody :as melody])
+   [re-frame.core :as rf :refer [subscribe dispatch]])
   (:require-macros
    [cljs.core.async.macros :refer [go go-loop]]))
 
-(defn ^:export audio-context
-  "Construct an audio context in a way that works even if it's prefixed."
-  []
+(defn ^:export audio-context []
   (if js/window.AudioContext. ; Some browsers e.g. Safari don't use the
     (js/window.AudioContext.) ; unprefixed version yet.
     (js/window.webkitAudioContext.)))
 
 (defonce audiocontext (r/atom (audio-context)))
 
-(defn ^:export current-time
-  "Return the current time as recorded by the audio context."
-  [context]
+(defn ^:export current-time [context]
   (.-currentTime context))
-
-(defn ^:export run-with
-  "Convert a synth (actually a reader fn) into a concrete
-  subgraph by supplying context and timing."
-  [synth context at duration]
-  (synth context at duration))
-
-(defn plug [param input context at duration]
-  "Plug an input into an audio parameter, accepting both
-  numbers and synths."
-  (if (number? input)
-    (.setValueAtTime param input at)
-    (-> input (run-with context at duration) :output (.connect param))))
 
 (defn dispatch-timer-event []
     (dispatch [:tick!]))
 
 (defonce do-timer (js/setInterval dispatch-timer-event 200))
-
-(defn play-noise! [start duration]
-  (let [context audiocontext
-        sample-rate 44100
-        frame-count (* sample-rate duration)
-        buffer (.createBuffer @context 1 frame-count sample-rate)
-        data (.getChannelData buffer 0)
-        noise (.createBufferSource @context)
-        now (current-time @context)]
-    (doseq [i (range frame-count)]
-      (aset data i (-> (js/Math.random) (* 2.0) (- 1.0))))
-    (set! (.-buffer noise) buffer)
-    (.connect noise (.-destination context))
-    (.start noise (+ now start))
-    (.stop noise (+ now start duration))))
-
-(defn play-sample! [instrument pitch]
-  (let [context audiocontext
-        now (current-time @context)
-        buffer (subscribe [:sample-buffer instrument])
-        sample-source (.createBufferSource @context)
-        playback-rate (/ pitch 2)]
-    (set! (.-buffer sample-source) @buffer)
-    (.setValueAtTime (.-playbackRate sample-source) playback-rate now)
-     (.connect sample-source (.-destination @context))
-             (.start sample-source)))
-
-(defn subgraph
-  ([input output] {:input input :output output})
-  ([singleton] (subgraph singleton singleton)))
-
-(defn ^:export gain
-  "Multiply the signal by level."
-  [level]
-  (fn [context at duration]
-    (subgraph
-     (doto (.createGain context)
-       (-> .-gain (plug level context at duration))))))
-
-(defn source
-  "A graph of synthesis nodes without an input,
-  so another graph can't connect to it."
-  [node]
-  (subgraph nil node))
-
-(defn sink
-  "A graph of synthesis nodes without an output,
-  so it can't connect to another graph."
-  [node]
-  (subgraph node nil))
-
-(defn ^:export destination
-  "The destination of the audio context i.e. the speakers."
-  [context at duration]
-  (sink (.-destination context)))
-
-(defn apply-to-graph
-  "Like apply, but for the node graphs synths produce."
-  [f & synths]
-  (fn [context at duration]
-    (->> synths
-         (map #(run-with % context at duration))
-         (apply f))))
-
-(defn join-in-series
-  [graph1 graph2]
-  (.connect (:output graph1) (:input graph2))
-  (subgraph (:input graph1) (:output graph2)))
-
-(defn ^:export connect
-  "Use the output of one synth as the input to another."
-  [upstream-synth downstream-synth]
-  (apply-to-graph join-in-series upstream-synth downstream-synth))
-
-(defn get-mp3 [uri callback]
-  (ajax/GET uri {:response-format {:type :arraybuffer
-                                   :read protocol/-body
-                                   :description "audio"
-                                   :content-type "audio/mpeg"}
-                 :handler callback}))
-
-(defn raw-sample
-  "Play a sample addressed via a URI. Until fetching and decoding is complete, it will play silence."
-  [uri]
-  (let [psuedo-promise (js-obj)] ; A mutable object to close over and share between calls.
-    (get-mp3 uri #(set! (.-data psuedo-promise) %)) ; GET, then deliver the data by updating the mutable object.
-    (fn [context at duration]
-      (source
-       (let [node (doto (.createBufferSource context)
-                    (.start at)
-                    (.stop (+ at duration)))
-             set-buffer (fn [buffer]
-                          (set! (.-buffer psuedo-promise) buffer) ; Save it for later.
-                          (-> node .-buffer (set! buffer)))] ; Set it on the audio node.
-         (when-let [data (.-data psuedo-promise)] ; Has the ajax call returned?
-           (if-let [buffer (.-buffer psuedo-promise)] ; Has the buffer been decoded?
-             (set-buffer buffer) ; Already decoded, so set it.
-             (.decodeAudioData context data set-buffer))) ; Decode it and then set it.
-         node)))))
-
-(def ^:export sample (memoize raw-sample))
-
-(defn play-mp3! []
-  (let [context audiocontext
-        now (current-time @context)
-        sample-source (.createBufferSource @context)
-        set-buffer (set! (.-buffer sample-source))
-        pitched (.setValueAtTime
-                 (.-playbackRate sample-source)
-                 0.7
-                 now)
-        mp3 (connect
-            (sample "/resources/public/audio/1.mp3")
-             destination)]
-    (run-with mp3 @context now 0.5)))
 
 (defn load-sound [named-url]
   (let [out (chan)

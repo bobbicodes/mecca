@@ -13,8 +13,6 @@
 
 (rf/dispatch-sync [:initialize-db])
 
-(rf/dispatch [:get-sample])
-
 (defn get-app-element []
   (gdom/getElement "app"))
 

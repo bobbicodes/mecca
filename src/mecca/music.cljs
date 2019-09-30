@@ -16,10 +16,33 @@
 (defn ^:export current-time [context]
   (.-currentTime context))
 
-(defn dispatch-timer-event []
-    (dispatch [:tick!]))
+(defn mario-jump? []
+  (let [beat @(subscribe [:current-position])]
+    (when (< 0 @(subscribe [:play-start]))
+      (if (int? beat)
+        (dispatch [:down!])
+        (dispatch [:jump!])
+        ))))
 
-(defonce do-timer (js/setInterval dispatch-timer-event 200))
+(defn song-done? []
+  (let [notes (subscribe [:instruments])
+        now (.-currentTime @audiocontext)
+        length (apply max (map #(:time %) @notes))
+        started @(subscribe [:play-start])
+        elapsed (- (current-time @audiocontext) started)
+        beat-length (/ 60 @(subscribe [:tempo]))
+        current-beat (/ elapsed beat-length)]
+      (if (< length current-beat)
+        (dispatch [:play-off])
+        (if (< (+ started beat-length) now)
+          (dispatch [:advance-position])))
+    (mario-jump?)))
+
+(defn dispatch-timer-event []
+  (dispatch [:tick!])
+      (song-done?))
+
+(defonce do-timer (js/setInterval dispatch-timer-event 150))
 
 (defn load-sound [named-url]
   (let [out (chan)
@@ -63,7 +86,7 @@
   (go-loop [result {}
             sounds (range 1 27)]
     (if-not (nil? (first sounds))
-      (let [sound (first sounds)
+      (let [sound (first sounds)                   ; /mecca/resources/public
             decoded-buffer (<! (get-and-decode {:url (str "/mecca/resources/public/audio/" sound ".mp3")
                                                 :sound sound}))]
         (prn sound)
@@ -79,27 +102,20 @@
 
 (defn pitch->rate [midi-num]
   (case midi-num
-    49 0.25
-    50 0.28
-    51 0.31
-    52 0.35
-    53 0.375
-    54 0.41
-    55 0.46
-    56 0.5
+    56 0.525
     57 0.55
     58 0.63
     59 0.7
     60 0.75
     61 0.85
     62 0.96
-    63 1
+    63 1.06
     64 1.135
     65 1.28
     66 1.43
     67 1.5
     68 1.714285714285714
-    69 1.8571428571428568 
+    69 1.89
     70 2))
 
 (defn play-sample [instrument pitch]
@@ -128,8 +144,14 @@
     (.start sample-source time)
     sample-source))
 
+(def lookahead 25.0)
+
+(def schedule-ahead-time 0.1)
+
 (defn play-song! []
   (let [notes (subscribe [:instruments])
-        now (.-currentTime @audiocontext)]
+        now (.-currentTime @audiocontext)
+        tempo (subscribe [:tempo])]
+    (dispatch [:reset-position])
     (doall (for [{:keys [time instrument pitch]} @notes]
-             (play-at instrument pitch (+ now time))))))
+             (play-at instrument pitch (+ now (* (/ 60 @tempo) time)))))))

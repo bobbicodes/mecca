@@ -7,9 +7,14 @@
    (:scale db)))
 
 (rf/reg-sub
- :playing?
+ :play-start
  (fn [db _]
-   (:playing? db)))
+   (:play-start db)))
+
+(rf/reg-sub
+ :jumping?
+ (fn [db _]
+   (:jumping? db)))
 
 (rf/reg-sub
  :tempo
@@ -40,6 +45,11 @@
  :editor-beat-start
  (fn [db _]
    (:editor-beat-start db)))
+
+(rf/reg-sub
+ :next-note-time
+ (fn [db _]
+   (:next-note-time db)))
 
 (rf/reg-sub
  :time-signature

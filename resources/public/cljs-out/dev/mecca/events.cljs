@@ -13,21 +13,24 @@
  :initialize-db
  (fn [_ _]
    {:focused-note-pos [nil nil]
-    :playing? false
+    :play-start 0
+    :jumping? false
     :current-position 0
+    :next-note-time 0.0
+    :notes-in-queue []
     :editor-beat-start 1
     :instrument 1
     :array-buffer nil
     :key "C"
     :time 0
     :time-signature 4
-    :tempo 180
+    :tempo 120
     :instruments []
     :lead []
     :bassline []
     :drums []
     :mario-x 54
-    :mario-y 41.5
+    :mario-y 59
     :mario-jump 0
     :mario-run 1}))
 
@@ -43,6 +46,17 @@
            {:time time
             :instrument instrument
             :pitch (- 77 pitch)})))
+
+(reg-event-db
+ :next-note
+ (fn [db [_ _]]
+   (update (update db :next-note-time #(+ (/ 60 @(subscribe [:tempo])) %))
+           :current-position #(+ 0.5 %))))
+
+(reg-event-db
+ :schedule-note
+ (fn [db [_ beat time]]
+   (update db :notes-in-queue conj {:note beat :time time})))
 
 (reg-event-db
  :remove-note
@@ -66,16 +80,9 @@
 
 (reg-event-db
  :play-on
- (fn [db [_ _e]]
-   (music/play-song!)
-   (assoc db :playing? true)))
-
-(reg-event-db
- :play-toggle
  (fn [db [_ _]]
-   (if (= (.-state @audiocontext) "suspended")
-     (.resume @audiocontext))
-   (update db :playing? not)))
+   (music/play-song!)
+   (assoc db :play-start (.-currentTime @audiocontext))))
 
 (reg-event-db
  :update-focus-note
@@ -90,17 +97,26 @@
 (reg-event-db
  :play-off
  (fn [db [_ _]]
-   (assoc db :playing? false)))
+   (dispatch [:reset-editor])
+   (assoc db :play-start 0)))
 
 (reg-event-db
  :advance-position
  (fn [db [_ _]]
-   (update db :current-position inc)))
+   (if (< 1 @(subscribe [:play-start]))
+     (dispatch [:advance-editor])
+     (dispatch [:reset-editor]))
+   (update db :current-position #(+ 0.5 %))))
 
 (reg-event-db
  :advance-editor
  (fn [db [_ _]]
    (update db :editor-beat-start #(+ 0.5 %))))
+
+(reg-event-db
+ :reset-editor
+ (fn [db [_ _]]
+   (assoc db :editor-beat-start 1)))
 
 (reg-event-db
  :retract-editor
@@ -116,6 +132,16 @@
  :set-tempo
  (fn [db [_ tempo]]
    (assoc db :tempo tempo)))
+
+(reg-event-db
+ :inc-tempo
+ (fn [db [_ tempo]]
+   (update db :tempo #(+ 8 %))))
+
+(reg-event-db
+ :dec-tempo
+ (fn [db [_ tempo]]
+   (update db :tempo #(- % 8))))
 
 (reg-event-db
  :set-key
@@ -134,3 +160,13 @@
  :jump-reset
  (fn [db [_ _]]
    (assoc db :mario-jump 0)))
+
+(reg-event-db
+ :jump!
+ (fn [db [_ _]]
+   (assoc db :mario-y 50)))
+
+(reg-event-db
+ :down!
+ (fn [db [_ _]]
+   (assoc db :mario-y 59)))

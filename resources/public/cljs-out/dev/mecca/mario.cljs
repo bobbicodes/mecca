@@ -2,6 +2,69 @@
   (:require
    [re-frame.core :as rf :refer [subscribe dispatch]]))
 
+(defn svg-paths
+  ([paths x y scale]
+   (svg-paths nil paths x y scale))
+  ([attrs paths x y scale]
+   (into
+    [:g
+     (merge attrs
+            {:transform (str "scale(" scale ") translate(" x "," y ")")})]
+    (for [[color path] paths]
+      [:path {:stroke color
+              :d path}]))))
+
+(defn mario-sm []
+  (let [x (subscribe [:mario-x])
+        y (subscribe [:mario-y])
+        run (subscribe [:mario-run])
+        jumping? (subscribe [:jumping?])
+        play-start (subscribe [:play-start])]
+    [:g
+       (cond @jumping?
+             (svg-paths [["#846300" "M12 0h2M11 1h1M14 1h1M10 2h1M15 2h1M7 3h5M15 3h1M5 4h2M12 4h1M14 4h1M4 5h1M12 5h2M3 6h1M2 7h1M2 8h1M3 9h1M12 9h2M3 10h1M14 10h1M14 11h1M1 13h3M5 13h1M0 14h2M4 14h1M6 14h4M0 15h1M5 15h1M0 16h1M5 16h1M1 17h1M4 17h1M2 18h2M13 18h1M2 19h1M12 19h1M2 20h1M12 20h1"]
+                         ["#ffffff" "M12 1h2M11 2h4M12 3h3M13 4h1M11 5h1M2 14h2M1 15h4M1 16h4M8 16h2M11 16h1M2 17h2M8 17h2M11 17h1"]
+                         ["#ff0000" "M7 4h3M11 4h1M5 5h2M5 6h1M6 15h1"]
+                         ["#ffff00" "M10 4h1M10 5h1"]
+                         ["#c600c6" "M7 5h2M4 6h1M6 6h2M3 7h3M12 8h1M4 13h1M5 14h1"]
+                         ["#ff8400" "M9 5h1M7 8h1M9 8h1M11 8h1M6 9h1M2 10h1M3 11h1M9 11h5M4 12h2M6 13h3"]
+                         ["#c64221" "M14 5h1M13 8h1M1 9h1M1 10h1M1 11h1"]
+                         ["#000000" "M8 6h6M6 7h9M4 8h3M8 8h1M10 8h1M5 9h1M8 9h1M10 9h1M5 10h2M2 11h1M5 11h1M8 11h1M2 12h2M7 12h7M9 13h4M13 16h2M12 17h1M14 17h2M1 18h1M12 18h1M14 18h2M1 19h1M11 19h1M13 19h2M1 20h1M4 20h1M11 20h1M13 20h2M2 21h2M12 21h2"]
+                         ["#ffc684" "M3 8h1M2 9h1M4 9h1M7 9h1M9 9h1M11 9h1M4 10h1M7 10h7M4 11h1M6 11h2M6 12h1M13 17h1"]
+                         ["#0000ff" "M10 14h1M11 15h1M12 16h1M11 18h1M3 19h3M10 19h1M6 20h4"]
+                         ["#008442" "M7 15h2M6 16h2M5 17h3M4 18h6M6 19h4M3 20h1"]
+                         ["#00ffff" "M9 15h2M10 16h1M10 17h1M10 18h1"]]
+                        (min 180 @x) @y 0.18)
+             (and (< 0 @(subscribe [:play-start]))
+                  (even? @run))
+             (svg-paths [["#c64221" "M7 1h5M5 2h2M12 2h1M4 3h1M12 3h1M3 4h1M2 5h1M2 6h1M1 7h1M1 8h1M1 9h1"]
+                         ["#ff0000" "M7 2h3M11 2h1M5 3h2M5 4h1M5 13h2"]
+                         ["#ffff00" "M10 2h1M10 3h1"]
+                         ["#c600c6" "M7 3h2M4 4h1M6 4h2M3 5h3M4 12h1M4 13h1"]
+                         ["#ff8400" "M9 3h1M7 6h1M9 6h1M11 6h1M6 7h1M2 8h1M3 9h1M9 9h5M4 10h2M5 11h4"]
+                         ["#ffffff" "M11 3h1M4 14h3M8 14h2M11 14h1M4 15h2M8 15h2M11 15h1M4 16h2"]
+                         ["#000000" "M8 4h6M6 5h9M4 6h3M8 6h1M10 6h1M5 7h1M8 7h1M10 7h1M5 8h2M2 9h1M5 9h1M8 9h1M2 10h2M7 10h7M3 11h1M9 11h4M2 14h1M13 14h2M1 15h1M12 15h1M14 15h2M1 16h1M12 16h1M14 16h2M1 17h1M11 17h1M13 17h2M1 18h1M4 18h1M11 18h1M13 18h2M2 19h2M12 19h2"]
+                         ["#ffc684" "M3 6h1M2 7h1M4 7h1M7 7h1M9 7h1M11 7h1M4 8h1M7 8h7M4 9h1M6 9h2M6 10h1M13 15h1M3 18h1"]
+                         ["#846300" "M3 7h1M12 7h2M3 8h1M14 8h1M14 9h1M4 11h1M3 12h1M5 12h5M3 13h1M7 13h1M3 14h1M7 14h1M2 15h2M6 15h1M2 16h2M6 16h1M13 16h1M2 17h1M4 17h2M12 17h1M2 18h1M12 18h1"]
+                         ["#0000ff" "M10 12h1M11 13h1M12 14h1M11 16h1M3 17h1M10 17h1M6 18h4"]
+                         ["#008442" "M8 13h1M7 15h1M7 16h3M6 17h4"]
+                         ["#00ffff" "M9 13h2M10 14h1M10 15h1M10 16h1"]]
+                        (min 180 @x) @y 0.18)
+             :else
+             (svg-paths [["#c64221" "M7 2h5M5 3h2M12 3h1M4 4h1M12 4h1M3 5h1M2 6h1M2 7h1M1 8h1M1 9h1M1 10h1M4 13h1M3 14h1M3 15h1"]
+                         ["#ff0000" "M7 3h3M11 3h1M5 4h2M5 5h1M5 14h2"]
+                         ["#ffff00" "M10 3h1M10 4h1"]
+                         ["#c600c6" "M7 4h2M4 5h1M6 5h2M3 6h3M5 13h1M4 14h1"]
+                         ["#ff8400" "M9 4h1M7 7h1M9 7h1M11 7h1M6 8h1M2 9h1M3 10h1M9 10h5M4 11h2M6 12h3"]
+                         ["#ffffff" "M11 4h1M8 15h2M11 15h1M4 16h3M8 16h2M11 16h1M4 17h2M4 18h2"]
+                         ["#000000" "M8 5h6M6 6h9M4 7h3M8 7h1M10 7h1M5 8h1M8 8h1M10 8h1M5 9h2M2 10h1M5 10h1M8 10h1M2 11h2M7 11h7M3 12h1M9 12h4M8 19h1M10 19h1M4 20h1M9 20h1M11 20h1M4 21h8"]
+                         ["#ffc684" "M3 7h1M2 8h1M4 8h1M7 8h1M9 8h1M11 8h1M4 9h1M7 9h7M4 10h1M6 10h2M6 11h1M8 20h1M10 20h1"]
+                         ["#846300" "M3 8h1M12 8h2M3 9h1M14 9h1M14 10h1M4 12h2M6 13h4M4 15h3M3 16h1M7 16h1M3 17h1M6 17h1M3 18h1M6 18h1M4 19h4M9 191M5 20h3"]
+                         ["#0000ff" "M10 13h1M11 14h1M12 15h1M12 16h1M12 17h1M9 18h1M11 18h1"]
+                         ["#008442" "M7 14h2M7 15h1M7 17h3M7 18h2M10 18h1"]
+                         ["#00ffff" "M9 14h2M10 15h1M10 16h1M10 17h2"]]
+                        (min 180 @x) @y 0.18))]))
+
 (defn limb [x y color path]
   [:path {:transform (str "translate(" x "," y ")")
           :fill color

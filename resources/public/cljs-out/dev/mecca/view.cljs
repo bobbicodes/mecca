@@ -71,7 +71,7 @@
                       :stroke "black"
                       :stroke-width 0.2
                       :fill "gray"
-                      :visibility "visible"
+                      :visibility "hidden"
                       :opacity 0.2
                       :pointer-events "all"
                       :on-mouse-over #(dispatch [:update-focus-note [time pitch]])
@@ -85,7 +85,7 @@
         focused (subscribe [:focused-note-pos])
         current-position (subscribe [:current-position])
         editor-x (subscribe [:editor-beat-start])
-        playing? (subscribe [:playing?])
+        play-start (subscribe [:play-start])
         mario-run (subscribe [:mario-run])
         mario-jump (subscribe [:mario-jump])
         instrument (subscribe [:instrument])]
@@ -98,7 +98,7 @@
        [mario/hill 40]
        [castle/brick-face 363 18 6]
        [castle/brick-face 348 48 10]
-       [mario]
+       [mario/mario-sm]
        [editor/current-note-display 47 0 0.22]
        [editor/note-blocks]
        [mario/floor-tile 16]
@@ -111,20 +111,11 @@
                   :style {:cursor "url(./images/hand.png),crosshair"}}
         [notation/staff-lines]
         (if (= 1 @editor-x)
-          [:g 
-
-           [notation/bar-line -1.68]
-           [editor/retract-editor 8]
-           ;[editor/note-guides]
-           [notation/bar-line 32.7]
-           ;[editor/note-guides]
-           ]
           [:g
-           [editor/retract-editor 2]
-           ;[editor/note-guides]
-           [notation/bar-line (- 31.5 (* 6 (dec @editor-x)))]
-           ;[editor/note-guides]
-           ])
+           [notation/bar-line -1.68]
+           [notation/bar-line 32.7]]
+          [:g
+           [editor/retract-editor 2]])
         [:g#clefs
          [notation/treble-clef
           (- 2.65 (* 2 (dec @editor-x)))

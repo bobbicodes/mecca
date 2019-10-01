@@ -191,6 +191,37 @@
 :pointer-events "all"
           :on-click #(dispatch [:dec-tempo])}])
 
+
+(defn stop-button []
+  (let [playing? @(subscribe [:playing?])]
+    (if playing?
+       (into 
+        [:g#stop-inactive {:transform "scale(0.21) translate(149,18)"
+                            :on-click #(dispatch [:stop])}]
+     (for [[color path]
+             [["#737373" "M0 0h12M0 1h1M11 1h1M0 2h1M11 2h1M0 3h1M3 3h6M11 3h1M0 4h1M3 4h1M11 4h1M0 5h1M3 5h2M6 5h1M8 5h1M11 5h1M0 6h1M3 6h1M11 6h1M0 7h1M3 7h2M6 7h1M8 7h1M11 7h1M0 8h1M3 8h1M11 8h1M0 9h1M11 9h1M0 10h1M11 10h1M0 11h12"]
+              ["#ffffff" "M1 1h1"]
+              ["#ceefe7" "M2 1h1M4 1h3M8 1h3M1 2h1M1 3h1M1 4h1M1 5h1M1 6h1M1 7h1M1 8h1M1 9h1M1 10h1"]
+              ["#d6d6d6" "M3 1h1M7 1h1M3 2h1M7 2h1M9 3h2M10 4h1M10 5h1M10 6h1M10 7h1M10 8h1M3 9h1M8 9h2M3 10h4M8 10h1M10 10h1"]
+              ["#000000" "M12 1h1M13 2h1M13 3h1M13 4h1M13 5h1M13 6h1M13 7h1M13 8h1M13 9h1M13 10h1M13 11h1M1 12h1M12 12h2M2 13h11"]
+              ["#c6c6c6" "M2 2h1M4 2h3M8 2h3M2 3h1M2 4h1M9 4h1M2 5h1M9 5h1M2 6h1M9 6h1M2 7h1M9 7h1M2 8h1M9 8h1M2 9h1M4 9h4M10 9h1M2 10h1M7 10h1M9 10h1"]
+              ["#adadad" "M12 2h1M12 3h1M4 4h2M7 4h2M5 5h1M7 5h1M12 5h1M4 6h3M8 6h1M12 6h1M7 7h1M4 8h5M12 8h1M12 9h1M12 10h1M12 11h1M2 12h2M5 12h3M9 12h3"]
+              ["#a5a5b5" "M6 4h1M12 4h1M7 6h1M5 7h1M12 7h1M4 12h1M8 12h1"]]]
+         [:path {:stroke color
+                 :d path}]))
+      (into
+      [:g#stop-active {:transform "scale(0.21) translate(149,18)"
+                            :on-click #(dispatch [:stop])}]
+    (for [[color path]
+          [["#000000" "M0 0h12M0 1h1M11 1h1M0 2h1M11 2h1M0 3h1M11 3h1M0 4h1M11 4h1M0 5h1M11 5h1M0 6h1M11 6h1M0 7h1M11 7h1M0 8h1M11 8h1M0 9h1M11 9h1M0 10h1M11 10h1M0 11h1"]
+           ["#ffffff" "M1 1h9M1 2h1M1 3h1M1 4h1M1 5h1M1 6h1M1 7h1M1 8h1M1 9h"]
+           ["#ff29ff" "M10 1h1M2 2h8M2 3h8M2 4h8M2 5h8M2 6h8M2 7h8M2 8h8M2 9h8M1 10h"]
+           ["#ad73d6" "M10 2h1M10 3h1M10 4h1M10 5h1M10 6h1M10 7h1M10 8h1M10 9h1M2 10h9"]]]
+      [:path {:stroke color
+              :d path}])))))
+
+    
+
 (defn controls []
   (let [tempo (subscribe [:tempo])]
     (fn []
@@ -208,9 +239,9 @@
                   ["#c8e8e0" "M11 11h6M18 11h3M22 11h2M25 11h1M27 11h2M30 11h1M43 11h2M46 11h1M48 11h4M53 11h2M56 11h2M59 11h1M61 11h2M75 11h4M80 11h2M83 11h1M85 11h2M88 11h1M90 11h2M93 11h1M115 11h2M118 11h3M122 11h4M128 11h1M131 11h1M133 11h2M136 11h1M138 11h2M141 11h1M10 13h3M14 13h3M18 13h3M22 13h2M25 13h1M27 13h4M43 13h4M48 13h4M53 13h2M56 13h3M60 13h3M75 13h4M80 13h2M83 13h1M85 13h2M88 13h1M90 13h4M115 13h2M118 13h3M122 13h4M127 13h3M131 13h1M133 13h4M138 13h2M141 13h1M14 14h3M18 14h3M25 14h1M27 14h4M43 14h4M51 14h1M53 14h2M56 14h3M60 14h3M78 14h1M83 14h1M88 14h1M90 14h4M115 14h2M118 14h3M125 14h1M127 14h3M131 14h1M133 14h4M141 14h1M10 15h21M42 15h21M74 15h20M115 15h27M15 18h9M79 18h9M14 19h1M78 19h1M14 20h1M78 20h1M14 21h1M78 21h1M14 22h1M78 22h1M14 23h1M78 23h1M14 24h1M78 24h1M14 25h1M78 25h1M14 26h1M78 26h1M14 27h1M78 27h1"]]]
              [:path {:stroke color
                      :d path}]))
-       (if (< 0 @(subscribe [:play-start]))
+       (if @(subscribe [:playing?])
          (into [:g#play-active {:transform "scale(0.21) translate(182.2,18.5)"
-                              :on-click #(dispatch [:play-toggle])}]
+                              :on-click #(dispatch [:pause])}]
              (for [[color path]
                    [["#000000" "M0 0h2M0 1h1M2 1h2M0 2h1M4 2h2M0 3h1M6 3h2M0 4h1M8 4h1M0 5h1M9 5h1M0 6h1M8 6h1M0 7h1M6 7h2M0 8h1M4 8h2M0 9h1M2 9h2M0 10h2"]
                     ["#f8f8f8" "M1 1h1M1 2h3M1 3h1M4 3h2M1 4h1M6 4h2M1 5h1M8 5h1M1 6h1M1 7h1M1 8h1"]
@@ -232,9 +263,10 @@
                     ["#000000" "M9 6h1M9 7h1M8 8h1M6 9h2M4 10h2M2 11h2M1 12h1"]]]
                [:path {:stroke color
                        :d path}])))
+     [stop-button]
      [tempo-up 59.7 4]
      [tempo-down 48.7 4]
-     [tempo-slider (+ 150 @tempo) 22 0.2]
+       [tempo-slider (+ 250 (* 0.2 @tempo)) 22 0.2]
      [key/circle-of-fifths]
      [toolbar 30 8.8]])))
 

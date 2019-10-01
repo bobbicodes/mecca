@@ -13,6 +13,7 @@
  :initialize-db
  (fn [_ _]
    {:focused-note-pos [nil nil]
+    :playing? false
     :play-start 0
     :jumping? false
     :current-position 0
@@ -45,18 +46,7 @@
            conj 
            {:time time
             :instrument instrument
-            :pitch (- 77 pitch)})))
-
-(reg-event-db
- :next-note
- (fn [db [_ _]]
-   (update (update db :next-note-time #(+ (/ 60 @(subscribe [:tempo])) %))
-           :current-position #(+ 0.5 %))))
-
-(reg-event-db
- :schedule-note
- (fn [db [_ beat time]]
-   (update db :notes-in-queue conj {:note beat :time time})))
+            :pitch pitch})))
 
 (reg-event-db
  :remove-note
@@ -81,8 +71,21 @@
 (reg-event-db
  :play-on
  (fn [db [_ _]]
-   (music/play-song!)
-   (assoc db :play-start (.-currentTime @audiocontext))))
+   (assoc 
+    (assoc db :play-start (.-currentTime @audiocontext))
+    :playing? true)))
+
+(reg-event-db
+ :pause
+ (fn [db [_ _]]
+    (assoc db :playing? false)))
+
+(reg-event-db
+ :stop
+ (fn [db [_ _]]
+   (assoc 
+    (assoc db :playing? false)
+    :current-position 0)))
 
 (reg-event-db
  :update-focus-note
@@ -97,21 +100,27 @@
 (reg-event-db
  :play-off
  (fn [db [_ _]]
-   (dispatch [:reset-editor])
-   (assoc db :play-start 0)))
+   (assoc db :playing? false)))
 
 (reg-event-db
  :advance-position
  (fn [db [_ _]]
-   (if (< 1 @(subscribe [:play-start]))
-     (dispatch [:advance-editor])
-     (dispatch [:reset-editor]))
-   (update db :current-position #(+ 0.5 %))))
+   (let [notes @(subscribe [:instruments])
+         beat @(subscribe [:current-position])
+         to-play (filter #(= (+ 1 beat) (:time %)) notes)]
+     (doall (for [{:keys [instrument pitch]} to-play]
+              (music/play-sample instrument pitch)))
+     (update db :current-position #(+ 0.5 %)))))
 
 (reg-event-db
  :advance-editor
  (fn [db [_ _]]
    (update db :editor-beat-start #(+ 0.5 %))))
+
+(reg-event-db
+ :move-mario
+ (fn [db [_ x]]
+   (assoc db :mario-x x)))
 
 (reg-event-db
  :reset-editor

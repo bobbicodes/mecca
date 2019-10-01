@@ -1,5 +1,5 @@
 (ns ^:figwheel-hooks mecca.view
-  (:require [mecca.music :as music]
+  (:require [mecca.music :as music :refer [audiocontext]]
             [mecca.subs :as subs]
             [reagent.core :as r]
             [re-frame.core :as rf :refer [subscribe dispatch]]
@@ -78,7 +78,7 @@
                       :on-mouse-out #(dispatch [:update-focus-note [nil nil]])
                       :on-click #(dispatch [:add-note @instrument
                                             (+ time (dec @editor-x))
-                                            (+ pitch 7)])}])))))
+                                            (- 70 pitch)])}])))))
 
 (defn editor []
   (let [instruments (subscribe [:instruments])
@@ -173,10 +173,11 @@
 
 (defn debug-info []
   [:div
-   [:p (str "Absolute time: " @(subscribe [:time]))]
+    [:p (str "Play start: " @(subscribe [:play-start]))]
+   [:p (str "Song time: " 
+ (- (.-currentTime @audiocontext) @(subscribe [:play-start])))]
    [:p (str "Notes: " @(subscribe [:instruments]))]
    [:p (str "Mario run: " @(subscribe [:mario-run]))]
-   [:p (str "Mario jump: " @(subscribe [:mario-jump]))]
    [:p (str "Instrument: " @(subscribe [:instrument]))]
    [:p 
     (let [mouse-pos (subscribe [:focused-note-pos])]

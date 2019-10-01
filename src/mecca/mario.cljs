@@ -19,7 +19,7 @@
         y (subscribe [:mario-y])
         run (subscribe [:mario-run])
         jumping? (subscribe [:jumping?])
-        play-start (subscribe [:play-start])]
+        playing? @(subscribe [:playing?])]
     [:g
        (cond @jumping?
              (svg-paths [["#846300" "M12 0h2M11 1h1M14 1h1M10 2h1M15 2h1M7 3h5M15 3h1M5 4h2M12 4h1M14 4h1M4 5h1M12 5h2M3 6h1M2 7h1M2 8h1M3 9h1M12 9h2M3 10h1M14 10h1M14 11h1M1 13h3M5 13h1M0 14h2M4 14h1M6 14h4M0 15h1M5 15h1M0 16h1M5 16h1M1 17h1M4 17h1M2 18h2M13 18h1M2 19h1M12 19h1M2 20h1M12 20h1"]
@@ -35,7 +35,7 @@
                          ["#008442" "M7 15h2M6 16h2M5 17h3M4 18h6M6 19h4M3 20h1"]
                          ["#00ffff" "M9 15h2M10 16h1M10 17h1M10 18h1"]]
                         (min 180 @x) @y 0.18)
-             (and (< 0 @(subscribe [:play-start]))
+             (and playing?
                   (even? @run))
              (svg-paths [["#c64221" "M7 1h5M5 2h2M12 2h1M4 3h1M12 3h1M3 4h1M2 5h1M2 6h1M1 7h1M1 8h1M1 9h1"]
                          ["#ff0000" "M7 2h3M11 2h1M5 3h2M5 4h1M5 13h2"]

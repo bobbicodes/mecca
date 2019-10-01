@@ -21,21 +21,29 @@
     (when (< 0 @(subscribe [:play-start]))
       (if (int? beat)
         (dispatch [:down!])
-        (dispatch [:jump!])
-        ))))
+        (dispatch [:jump!])))))
+
+(defn mario-move []
+  (let [playing? @(subscribe [:playing?])
+        beat @(subscribe [:current-position])]
+    (when playing?
+      (dispatch [:move-mario (* 10 beat)]))))
 
 (defn song-done? []
   (let [notes (subscribe [:instruments])
+        playing? @(subscribe [:playing?])
         now (.-currentTime @audiocontext)
         length (apply max (map #(:time %) @notes))
         started @(subscribe [:play-start])
         elapsed (- (current-time @audiocontext) started)
         beat-length (/ 60 @(subscribe [:tempo]))
         current-beat (/ elapsed beat-length)]
+    (when playing?
       (if (< length current-beat)
         (dispatch [:play-off])
         (if (< (+ started beat-length) now)
-          (dispatch [:advance-position])))
+          (dispatch [:advance-position]))))
+    (mario-move)
     (mario-jump?)))
 
 (defn dispatch-timer-event []
@@ -125,7 +133,7 @@
     (set! (.-buffer sample-source) audio-buffer)
     (.setValueAtTime
      (.-playbackRate sample-source)
-     (pitch->rate (- 77 pitch))
+     (pitch->rate pitch)
      (.-currentTime @context))
     (.connect sample-source (.-destination @context))
     (.start sample-source)
@@ -143,10 +151,6 @@
     (.connect sample-source (.-destination @context))
     (.start sample-source time)
     sample-source))
-
-(def lookahead 25.0)
-
-(def schedule-ahead-time 0.1)
 
 (defn play-song! []
   (let [notes (subscribe [:instruments])

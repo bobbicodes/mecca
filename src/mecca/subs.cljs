@@ -1,10 +1,15 @@
 (ns ^:figwheel-hooks mecca.subs
-  (:require [re-frame.core :as rf]))
+  (:require [re-frame.core :as rf :refer [reg-sub]]))
 
 (rf/reg-sub
  :scale
  (fn [db _]
    (:scale db)))
+
+(rf/reg-sub
+ :playing?
+ (fn [db _]
+   (:playing? db)))
 
 (rf/reg-sub
  :play-start

@@ -12,6 +12,11 @@
    (:playing? db)))
 
 (rf/reg-sub
+ :sharp?
+ (fn [db _]
+   (:sharp? db)))
+
+(rf/reg-sub
  :play-start
  (fn [db _]
    (:play-start db)))

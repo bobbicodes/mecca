@@ -16,6 +16,7 @@
     :playing? false
     :play-start 0
     :jumping? false
+    :sharp? false
     :current-position 0
     :next-note-time 0.0
     :notes-in-queue []
@@ -41,12 +42,18 @@
  (fn [db [_ instrument time pitch]]
    (if (= (.-state @audiocontext) "suspended")
      (.resume @audiocontext))
-   (music/play-sample instrument pitch)
+   (music/play-sample instrument (if @(subscribe [:sharp?]) (+ 0.5 pitch) pitch))
    (update db :instruments
            conj 
            {:time time
             :instrument instrument
-            :pitch pitch})))
+            :pitch (if @(subscribe [:sharp?]) (+ 0.5 pitch) pitch)
+            :sharp? @(subscribe [:sharp?])})))
+
+(reg-event-db
+ :load-song
+ (fn [db [_ notes]]
+   (assoc db :instruments notes)))
 
 (reg-event-db
  :remove-note
@@ -71,9 +78,25 @@
 (reg-event-db
  :play-on
  (fn [db [_ _]]
+   (music/play-song!)
    (assoc 
     (assoc db :play-start (.-currentTime @audiocontext))
     :playing? true)))
+
+(reg-event-db
+ :sharp-on
+ (fn [db [_ _]]
+    (assoc db :sharp? true)))
+
+(reg-event-db
+ :sharp-toggle
+ (fn [db [_ _]]
+   (update db :sharp? not)))
+
+(reg-event-db
+ :sharp-off
+ (fn [db [_ _]]
+   (assoc db :sharp? false)))
 
 (reg-event-db
  :pause
@@ -83,6 +106,7 @@
 (reg-event-db
  :stop
  (fn [db [_ _]]
+   (dispatch [:reset-editor])
    (assoc 
     (assoc db :playing? false)
     :current-position 0)))
@@ -108,14 +132,16 @@
    (let [notes @(subscribe [:instruments])
          beat @(subscribe [:current-position])
          to-play (filter #(= (+ 1 beat) (:time %)) notes)]
-     (doall (for [{:keys [instrument pitch]} to-play]
-              (music/play-sample instrument pitch)))
+     (if (< 4 beat )
+       (dispatch [:advance-editor]))
+     #_(doall (for [{:keys [instrument pitch]} to-play]
+              (music/play-sample instrument (if @(subscribe [:sharp?]) (+ 0.5 pitch) pitch))))
      (update db :current-position #(+ 0.5 %)))))
 
 (reg-event-db
  :advance-editor
  (fn [db [_ _]]
-   (update db :editor-beat-start #(+ 0.5 %))))
+   (update db :editor-beat-start #(+ 1 %))))
 
 (reg-event-db
  :move-mario
@@ -173,7 +199,7 @@
 (reg-event-db
  :jump!
  (fn [db [_ _]]
-   (assoc db :mario-y 50)))
+   (assoc db :mario-y 30)))
 
 (reg-event-db
  :down!

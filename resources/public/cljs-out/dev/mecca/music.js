@@ -47,7 +47,7 @@ var beat = cljs.core.deref((function (){var G__19400 = new cljs.core.PersistentV
 return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__19400) : re_frame.core.subscribe.call(null,G__19400));
 })());
 if(cljs.core.truth_(playing_QMARK_)){
-var G__19401 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$move_DASH_mario,((10) * beat)], null);
+var G__19401 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$move_DASH_mario,((40) * beat)], null);
 return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__19401) : re_frame.core.dispatch.call(null,G__19401));
 } else {
 return null;
@@ -607,60 +607,120 @@ case (56):
 return 0.525;
 
 break;
+case 56.5:
+return 0.535;
+
+break;
 case (57):
-return 0.55;
+return 0.56;
+
+break;
+case 57.5:
+return 0.58;
 
 break;
 case (58):
 return 0.63;
 
 break;
+case 58.5:
+return 0.68;
+
+break;
 case (59):
-return 0.7;
+return 0.71;
+
+break;
+case 59.5:
+return 0.73;
 
 break;
 case (60):
 return 0.75;
 
 break;
+case 60.5:
+return 0.8;
+
+break;
 case (61):
 return 0.85;
+
+break;
+case 61.5:
+return 0.89;
 
 break;
 case (62):
 return 0.96;
 
 break;
+case 62.5:
+return 0.99;
+
+break;
 case (63):
 return 1.06;
+
+break;
+case 63.5:
+return 1.09;
 
 break;
 case (64):
 return 1.135;
 
 break;
+case 64.5:
+return 1.2;
+
+break;
 case (65):
 return 1.28;
+
+break;
+case 65.5:
+return 1.35;
 
 break;
 case (66):
 return 1.43;
 
 break;
+case 66.5:
+return 1.47;
+
+break;
 case (67):
 return 1.5;
+
+break;
+case 67.5:
+return 1.6;
 
 break;
 case (68):
 return 1.714285714285714;
 
 break;
+case 68.5:
+return 1.8;
+
+break;
 case (69):
 return 1.89;
 
 break;
+case 69.5:
+return 1.95;
+
+break;
 case (70):
-return (2);
+return 2.13;
+
+break;
+case 70.5:
+return 2.22;
 
 break;
 default:

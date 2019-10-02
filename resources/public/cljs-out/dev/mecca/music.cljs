@@ -27,7 +27,7 @@
   (let [playing? @(subscribe [:playing?])
         beat @(subscribe [:current-position])]
     (when playing?
-      (dispatch [:move-mario (* 10 beat)]))))
+      (dispatch [:move-mario (* 40 beat)]))))
 
 (defn song-done? []
   (let [notes (subscribe [:instruments])
@@ -111,20 +111,35 @@
 (defn pitch->rate [midi-num]
   (case midi-num
     56 0.525
-    57 0.55
+    56.5 0.535
+    57 0.56
+    57.5 0.58
     58 0.63
-    59 0.7
+    58.5 0.68
+    59 0.71
+    59.5 0.73
     60 0.75
+    60.5 0.8
     61 0.85
+    61.5 0.89
     62 0.96
+    62.5 0.99
     63 1.06
+    63.5 1.09
     64 1.135
+    64.5 1.2
     65 1.28
+    65.5 1.35
     66 1.43
+    66.5 1.47
     67 1.5
+    67.5 1.6
     68 1.714285714285714
+    68.5 1.8
     69 1.89
-    70 2))
+    69.5 1.95
+    70 2.13
+    70.5 2.22))
 
 (defn play-sample [instrument pitch]
   (let [context audiocontext

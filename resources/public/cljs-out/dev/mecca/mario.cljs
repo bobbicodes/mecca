@@ -292,7 +292,8 @@
                   :d path}])))
 
 (defn mario-note [x y scale]
-  (into [:g {:transform (str "scale(" scale ") translate(" (+ x 30.5) "," (+ 3 y) ")")}]
+  (into [:g {:transform (str "scale(" scale ") translate(" (+ x 30.5) "," (+ 3 y) ")")
+             :pointer-events "none"}]
         (for [[color path]
               [["#c04020" "M3 0h5M2 1h1M8 1h2M2 2h1M10 2h1M11 3h1M12 4h1M13 5h1M13 6h1M1 8h1M13 8h1M1 9h1M13 9h1M1 10h1M6 10h1M1 13h3M10 13h1M3 14h8"]
                ["#f80000" "M3 1h2M6 1h2M8 2h2M10 3h1M11 4h1"]

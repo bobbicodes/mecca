@@ -76,9 +76,13 @@
                       :pointer-events "all"
                       :on-mouse-over #(dispatch [:update-focus-note [time pitch]])
                       :on-mouse-out #(dispatch [:update-focus-note [nil nil]])
-                      :on-click #(dispatch [:add-note @instrument
-                                            (+ time (dec @editor-x))
-                                            (- 70 pitch)])}])))))
+                      :on-click (if @(subscribe [:eraser?])
+                                  #(do (music/play-sample 18 63)
+                                     (dispatch [:remove-note (+ time (dec @editor-x))
+                                                (- 70 pitch)]))
+                                  #(dispatch [:add-note @instrument
+                                              (+ time (dec @editor-x))
+                                              (- 70 pitch)]))}])))))
 
 (defn editor []
   (let [instruments (subscribe [:instruments])
@@ -130,22 +134,24 @@
             [:g
              (if @(subscribe [:sharp?])
               [editor/sharp-symbol (+ 1000 (* 1200 x)) (+ 1000 (* 200 y))])
-             (case @instrument
-               1 [mario/mario-icon (+ 2 (* 30 x)) (+ (* 5 y) 14) 0.2]
-               2 [mario/shroom (+ 32 (* 30 x)) (+ (* 5 y) 18) 0.2]
-               3 [mario/yoshi (+ 32 (* 30 x)) (+ (* 5 y) 16) 0.2]
-               4 [mario/star (+ 32 (* 30 x)) (+ (* 5 y) 17) 0.2]
-               5 [mario/flower (+ 32 (* 30 x)) (+ (* 5 y) 16) 0.2]
-               6 [mario/gb (+ 32 (* 30 x)) (+ (* 5 y) 18) 0.2]
-               7 [mario/dog (+ 32 (* 30 x)) (+ (* 5 y) 18) 0.2]
-               8 [mario/kitty (+ 32 (* 30 x)) (+ (* 5 y) 18) 0.2]
-               9 [mario/pig (+ 32 (* 30 x)) (+ (* 5 y) 18) 0.2]
-               10 [mario/swan (+ 32 (* 30 x)) (+ (* 5 y) 16) 0.2]
-               11 [mario/face (+ 32 (* 30 x)) (+ (* 5 y) 17) 0.2]
-               12 [mario/plane (+ 32 (* 30 x)) (+ (* 5 y) 20) 0.2]
-               13 [mario/boat (+ 32  (* 30 x)) (+ (* 5 y) 18) 0.2]
-               14 [mario/car (+ 32 (* 30 x)) (+ (* 5 y) 19) 0.2]
-               15 [mario/heart (+ 32 (* 30 x)) (+ (* 5 y) 19) 0.2])]))
+             (if @(subscribe [:eraser?])
+                             [editor/eraser-cursor (+ 36 (* 30 x)) (+ (* 5 y) 20) 0.2]
+               (case @instrument
+                 1 [mario/mario-icon (+ 2 (* 30 x)) (+ (* 5 y) 14) 0.2]
+                 2 [mario/shroom (+ 32 (* 30 x)) (+ (* 5 y) 18) 0.2]
+                 3 [mario/yoshi (+ 32 (* 30 x)) (+ (* 5 y) 16) 0.2]
+                 4 [mario/star (+ 32 (* 30 x)) (+ (* 5 y) 17) 0.2]
+                 5 [mario/flower (+ 32 (* 30 x)) (+ (* 5 y) 16) 0.2]
+                 6 [mario/gb (+ 32 (* 30 x)) (+ (* 5 y) 18) 0.2]
+                 7 [mario/dog (+ 32 (* 30 x)) (+ (* 5 y) 18) 0.2]
+                 8 [mario/kitty (+ 32 (* 30 x)) (+ (* 5 y) 18) 0.2]
+                 9 [mario/pig (+ 32 (* 30 x)) (+ (* 5 y) 18) 0.2]
+                 10 [mario/swan (+ 32 (* 30 x)) (+ (* 5 y) 16) 0.2]
+                 11 [mario/face (+ 32 (* 30 x)) (+ (* 5 y) 17) 0.2]
+                 12 [mario/plane (+ 32 (* 30 x)) (+ (* 5 y) 20) 0.2]
+                 13 [mario/boat (+ 32  (* 30 x)) (+ (* 5 y) 18) 0.2]
+                 14 [mario/car (+ 32 (* 30 x)) (+ (* 5 y) 19) 0.2]
+                 15 [mario/heart (+ 32 (* 30 x)) (+ (* 5 y) 19) 0.2]))]))
           (doall (for [{:keys [time instrument pitch sharp?]} @instruments
                    :when (case @editor-x
                           1 (<= 1 time 16)

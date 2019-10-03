@@ -13,6 +13,7 @@
  :initialize-db
  (fn [_ _]
    {:focused-note-pos [nil nil]
+    :eraser? false
     :playing? false
     :play-start 0
     :jumping? false
@@ -53,17 +54,21 @@
 (reg-event-db
  :load-song
  (fn [db [_ notes]]
-   (assoc db :instruments notes)))
+   (assoc db :instruments 
+           [{:time 1, :instrument 14, :pitch 66, :sharp? false}
+            {:time 3, :instrument 14, :pitch 66, :sharp? false}
+            {:time 4, :instrument 14, :pitch 62, :sharp? false}
+            {:time 5, :instrument 14, :pitch 66, :sharp? false} {:time 7, :instrument 14, :pitch 66, :sharp? false} {:time 8, :instrument 14, :pitch 62, :sharp? false} {:time 9, :instrument 14, :pitch 66, :sharp? false} {:time 11, :instrument 14, :pitch 66, :sharp? false} {:time 12, :instrument 14, :pitch 62, :sharp? false} {:time 13, :instrument 14, :pitch 66, :sharp? false} {:time 14, :instrument 14, :pitch 62, :sharp? false} {:time 15, :instrument 14, :pitch 66, :sharp? false} {:time 16, :instrument 14, :pitch 62, :sharp? false} {:time 17, :instrument 14, :pitch 65, :sharp? false} {:time 19, :instrument 14, :pitch 66, :sharp? false} {:time 21, :instrument 14, :pitch 66, :sharp? false} {:time 22, :instrument 14, :pitch 67.5, :sharp? true} {:time 23, :instrument 14, :pitch 68.5, :sharp? true} {:time 24, :instrument 14, :pitch 69, :sharp? false} {:time 25, :instrument 14, :pitch 70, :sharp? false} {:time 27, :instrument 14, :pitch 65, :sharp? false} {:time 28, :instrument 14, :pitch 61, :sharp? false} {:time 29, :instrument 14, :pitch 65, :sharp? false} {:time 30, :instrument 14, :pitch 61, :sharp? false} {:time 31, :instrument 14, :pitch 65, :sharp? false} {:time 32, :instrument 14, :pitch 61, :sharp? false} {:time 33, :instrument 14, :pitch 64, :sharp? false} {:time 35, :instrument 14, :pitch 64, :sharp? false} {:time 36, :instrument 14, :pitch 60, :sharp? false} {:time 37, :instrument 14, :pitch 64, :sharp? false} {:time 39, :instrument 14, :pitch 64, :sharp? false} {:time 40, :instrument 14, :pitch 60, :sharp? false} {:time 41, :instrument 14, :pitch 64, :sharp? false} {:time 43, :instrument 14, :pitch 64, :sharp? false} {:time 44, :instrument 14, :pitch 60, :sharp? false} {:time 45, :instrument 14, :pitch 64, :sharp? false} {:time 46, :instrument 14, :pitch 60, :sharp? false} {:time 47, :instrument 14, :pitch 64, :sharp? false} {:time 48, :instrument 14, :pitch 60, :sharp? false} {:time 49, :instrument 14, :pitch 63, :sharp? false} {:time 51, :instrument 14, :pitch 66, :sharp? false} {:time 53, :instrument 14, :pitch 66, :sharp? false} {:time 54, :instrument 14, :pitch 67.5, :sharp? true} {:time 55, :instrument 14, :pitch 68.5, :sharp? true} {:time 56, :instrument 14, :pitch 69, :sharp? false} {:time 57, :instrument 14, :pitch 70, :sharp? false} {:time 59, :instrument 14, :pitch 63, :sharp? false} {:time 60, :instrument 14, :pitch 59, :sharp? false} {:time 61, :instrument 14, :pitch 63, :sharp? false} {:time 62, :instrument 14, :pitch 59, :sharp? false} {:time 63, :instrument 14, :pitch 63, :sharp? false} {:time 64, :instrument 14, :pitch 59, :sharp? false} {:time 65, :instrument 14, :pitch 57.5, :sharp? true} {:time 69, :instrument 14, :pitch 57.5, :sharp? true} {:time 70.5, :instrument 14, :pitch 57.5, :sharp? true} {:time 72, :instrument 14, :pitch 56.5, :sharp? true} {:time 73.5, :instrument 14, :pitch 57.5, :sharp? true} {:time 76, :instrument 14, :pitch 57.5, :sharp? true} {:time 77, :instrument 14, :pitch 57.5, :sharp? true} {:time 78, :instrument 14, :pitch 58, :sharp? false} {:time 79, :instrument 14, :pitch 59, :sharp? false} {:time 80, :instrument 14, :pitch 60.5, :sharp? true} {:time 81, :instrument 14, :pitch 61, :sharp? false} {:time 84, :instrument 14, :pitch 62, :sharp? false} {:time 85, :instrument 14, :pitch 62, :sharp? false} {:time 86, :instrument 14, :pitch 63, :sharp? false} {:time 87, :instrument 14, :pitch 64.5, :sharp? true} {:time 88, :instrument 14, :pitch 65, :sharp? false} {:time 89, :instrument 14, :pitch 66, :sharp? false} {:time 93, :instrument 14, :pitch 61, :sharp? false} {:time 94.5, :instrument 14, :pitch 62, :sharp? false} {:time 96, :instrument 14, :pitch 63, :sharp? false} {:time 97, :instrument 14, :pitch 60, :sharp? false} {:time 100, :instrument 14, :pitch 60, :sharp? false} {:time 101, :instrument 14, :pitch 60, :sharp? false} {:time 102, :instrument 14, :pitch 61, :sharp? false} {:time 103, :instrument 14, :pitch 62, :sharp? false} {:time 104, :instrument 14, :pitch 63.5, :sharp? true} {:time 105, :instrument 14, :pitch 64, :sharp? false} {:time 107.5, :instrument 14, :pitch 64, :sharp? false} {:time 109, :instrument 14, :pitch 64, :sharp? false} {:time 110.5, :instrument 14, :pitch 63, :sharp? false} {:time 112, :instrument 14, :pitch 62, :sharp? false} {:time 113, :instrument 14, :pitch 64, :sharp? false} {:time 115.5, :instrument 14, :pitch 62, :sharp? false} {:time 117, :instrument 14, :pitch 61, :sharp? false} {:time 119.5, :instrument 14, :pitch 60, :sharp? false} {:time 121, :instrument 14, :pitch 61, :sharp? false} {:time 129, :instrument 14, :pitch 60, :sharp? false} {:time 128, :instrument 14, :pitch 61, :sharp? false} {:time 126.5, :instrument 14, :pitch 60, :sharp? false} {:time 131, :instrument 14, :pitch 60, :sharp? false} {:time 132, :instrument 14, :pitch 59, :sharp? false} {:time 133, :instrument 14, :pitch 60, :sharp? false} {:time 135, :instrument 14, :pitch 60, :sharp? false} {:time 136, :instrument 14, :pitch 61, :sharp? false} {:time 137, :instrument 14, :pitch 62, :sharp? false} {:time 141, :instrument 14, :pitch 61, :sharp? false} {:time 143, :instrument 14, :pitch 60, :sharp? false} {:time 145, :instrument 14, :pitch 59, :sharp? false} {:time 147, :instrument 14, :pitch 59, :sharp? false} {:time 148, :instrument 14, :pitch 58, :sharp? false} {:time 149, :instrument 14, :pitch 59, :sharp? false} {:time 151, :instrument 14, :pitch 59, :sharp? false} {:time 152, :instrument 14, :pitch 60, :sharp? false} {:time 153, :instrument 14, :pitch 61, :sharp? false} {:time 157, :instrument 14, :pitch 60, :sharp? false} {:time 159, :instrument 14, :pitch 59, :sharp? false} {:time 161, :instrument 14, :pitch 58.5, :sharp? true} {:time 165, :instrument 14, :pitch 58.5, :sharp? true} {:time 168, :instrument 14, :pitch 59, :sharp? false} {:time 169, :instrument 14, :pitch 60.5, :sharp? true} {:time 172, :instrument 14, :pitch 61.5, :sharp? true} {:time 173, :instrument 14, :pitch 62, :sharp? false} {:time 175, :instrument 14, :pitch 63, :sharp? false} {:time 177, :instrument 14, :pitch 61.5, :sharp? true} {:time 181, :instrument 14, :pitch 61, :sharp? false} {:time 183, :instrument 14, :pitch 61, :sharp? false} {:time 184, :instrument 14, :pitch 61, :sharp? false} {:time 185, :instrument 14, :pitch 60.5, :sharp? true} {:time 187, :instrument 14, :pitch 60.5, :sharp? true} {:time 188, :instrument 14, :pitch 60.5, :sharp? true} {:time 189, :instrument 14, :pitch 60, :sharp? false} {:time 191, :instrument 14, :pitch 60, :sharp? false} {:time 192, :instrument 14, :pitch 60, :sharp? false} {:time 193, :instrument 14, :pitch 59, :sharp? false} {:time 193, :instrument 14, :pitch 57.5, :sharp? true} {:time 197, :instrument 14, :pitch 57.5, :sharp? true} {:time 198.5, :instrument 14, :pitch 57.5, :sharp? true} {:time 200, :instrument 14, :pitch 56.5, :sharp? true} {:time 201.5, :instrument 14, :pitch 57.5, :sharp? true} {:time 204, :instrument 14, :pitch 57.5, :sharp? true} {:time 205, :instrument 14, :pitch 57.5, :sharp? true} {:time 206, :instrument 14, :pitch 58, :sharp? false} {:time 207, :instrument 14, :pitch 59, :sharp? false} {:time 208, :instrument 14, :pitch 60.5, :sharp? true} {:time 209, :instrument 14, :pitch 61, :sharp? false} {:time 212, :instrument 14, :pitch 62, :sharp? false} {:time 213, :instrument 14, :pitch 62, :sharp? false} {:time 214, :instrument 14, :pitch 63, :sharp? false} {:time 215, :instrument 14, :pitch 64.5, :sharp? true} {:time 216, :instrument 14, :pitch 65, :sharp? false} {:time 217, :instrument 14, :pitch 66, :sharp? false} {:time 221, :instrument 14, :pitch 61, :sharp? false} {:time 222.5, :instrument 14, :pitch 62, :sharp? false} {:time 224, :instrument 14, :pitch 63.5, :sharp? true} {:time 225, :instrument 14, :pitch 64, :sharp? false} {:time 237, :instrument 14, :pitch 66, :sharp? false} {:time 241, :instrument 14, :pitch 65.5, :sharp? true} {:time 245, :instrument 14, :pitch 63.5, :sharp? true}])))
 
 (reg-event-db
  :remove-note
  (undoable "remove note")
- (fn [db [_ instrument time pitch]]
-   (update db (keyword instrument)
-              (fn [notes]
+ (fn [db [_ time pitch]]
+   (update db :instruments
+              (fn [note]
                 (remove #(and (= time (:time %))
-                              (= (- 77 pitch) (:pitch %)))
-                        notes)))))
+                              (= pitch (:pitch %)))
+                        note)))))
 
 (reg-event-db
  :set-time-signature
@@ -92,6 +97,11 @@
  :sharp-toggle
  (fn [db [_ _]]
    (update db :sharp? not)))
+
+(reg-event-db
+ :eraser-toggle
+ (fn [db [_ _]]
+   (update db :eraser? not)))
 
 (reg-event-db
  :sharp-off
@@ -126,13 +136,14 @@
  (fn [db [_ _]]
    (assoc db :playing? false)))
 
+ 
 (reg-event-db
  :advance-position
  (fn [db [_ _]]
    (let [notes @(subscribe [:instruments])
          beat @(subscribe [:current-position])
          to-play (filter #(= (+ 1 beat) (:time %)) notes)]
-     (if (< 4 beat )
+     (if (< 8 beat )
        (dispatch [:advance-editor]))
      #_(doall (for [{:keys [instrument pitch]} to-play]
               (music/play-sample instrument (if @(subscribe [:sharp?]) (+ 0.5 pitch) pitch))))

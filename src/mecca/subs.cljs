@@ -17,6 +17,11 @@
    (:sharp? db)))
 
 (rf/reg-sub
+ :eraser?
+ (fn [db _]
+   (:eraser? db)))
+
+(rf/reg-sub
  :play-start
  (fn [db _]
    (:play-start db)))

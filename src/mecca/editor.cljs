@@ -4,6 +4,7 @@
    [re-frame.core :as rf :refer [subscribe dispatch]]
    [mecca.notation :as notation]
    [mecca.key :as key]
+   [mecca.music :as music]
    [mecca.mario :as mario]))
 
 (defn svg-paths
@@ -73,10 +74,40 @@
                  ["#f8f800" "M3 2h1M0 3h5M0 4h6M0 5h5M3 6h1"]]
                 x y scale)])
 
+(defn eraser-cursor [x y scale]
+   (svg-paths {:pointer-events "none"}
+    [["#000001" "M0 0h8M0 1h1M8 1h1M0 2h2M7 2h1M9 2h1M0 3h1M2 3h1M6 3h1M10 3h1M1 4h1M3 4h1M5 4h1M11 4h1M1 5h1M4 5h1M12 5h1M2 6h1M4 6h2M11 6h2M2 7h1M4 7h1M6 7h1M10 7h1M12 7h1M3 8h2M7 8h1M9 8h1M12 8h1M4 9h1M8 9h1M12 9h1M5 10h1M8 10h1M11 10h1M6 11h1M8 11h1M10 11h1M7 12h3M8 13h1"]
+     ["#f8f8f8" "M1 1h7M2 2h5M3 3h3M8 3h1M4 4h1M7 4h1M9 4h1M6 5h1M8 5h1M10 5h1M7 6h1M9 6h1M8 7h1"]
+     ["#00f8f8" "M8 2h1M7 3h1M9 3h1M6 4h1M8 4h1M10 4h1M5 5h1M7 5h1M9 5h1M11 5h1M6 6h1M8 6h1M10 6h1M5 7h1M7 7h1M9 7h1M5 8h2M8 8h1M5 9h3M6 10h2M7 11h1"]
+     ["#c0c0c1" "M1 3h1M2 4h1M2 5h2M3 6h1M3 7h1"]
+     ["#0000f8" "M11 7h1M10 8h2M9 9h3M9 10h2M9 11h1"]]
+    x y scale))
+
+(defn eraser [x y scale]
+  (let [active? (subscribe [:eraser?])]
+    (fn [x y scale]
+      (svg-paths {:on-click #(do (dispatch [:eraser-toggle])
+                                (if-not @active? (music/play-sample 18 63)))}
+                   (if @active?
+                     [["#ffffff" "M0 0h15M0 1h2M12 1h3M0 2h3M4 2h7M12 2h1M14 2h1M0 3h3M4 3h2M7 3h4M12 3h3M0 4h2M4 4h5M10 4h1M12 4h3M0 5h2M4 5h3M8 5h3M13 5h2M0 6h2M13 6h2M0 7h2M13 7h2M0 8h2M13 8h2M0 9h2M13 9h2M0 10h2M13 10h2M0 11h2M13 11h2M0 12h2M13 12h2M0 13h2M13 13h2M0 14h2M13 14h2M0 15h2M13 15h2M0 16h14"]
+                      ["#ceefe7" "M2 1h1M13 2h1M6 3h1M2 4h1M9 4h1M7 5h1M14 16h1"]
+                      ["#000000" "M3 1h9M3 2h1M11 2h1M3 3h1M11 3h1M3 4h1M11 4h1M2 5h2M11 5h2M2 6h1M12 6h1M2 7h1M12 7h1M2 8h1M12 8h1M2 9h1M12 9h1M2 10h1M12 10h1M2 11h1M12 11h1M2 12h1M12 12h1M2 13h1M12 13h1M2 14h1M12 14h1M2 15h11"]
+                      ["#84ef94" "M3 6h9M3 7h2M10 7h2M3 8h2M6 8h6M3 9h2M6 9h6M3 10h2M9 10h3M3 11h2M6 11h6M3 12h2M6 12h6M3 13h2M10 13h2M3 14h9"]
+                      ["#089c31" "M5 7h5M5 8h1M5 9h1M5 10h4M5 11h1M5 12h1M5 13h5"]]
+                     [["#000000" "M0 0h15M0 1h15M0 2h4M11 2h4M0 3h4M11 3h4M0 4h4M11 4h4M0 5h4M11 5h4M0 6h3M12 6h3M0 7h3M12 7h3M0 8h3M12 8h3M0 9h3M12 9h3M0 10h3M12 10h3M0 11h3M12 11h3M0 12h3M12 12h3M0 13h3M12 13h3M0 14h3M12 14h3M0 15h15M0 16h15"]
+                      ["#ffffff" "M4 2h7M4 3h2M7 3h4M4 4h5M10 4h1M4 5h3M8 5h3"]
+                      ["#ceefe7" "M6 3h1M9 4h1M7 5h1"]
+                      ["#c6c6c6" "M3 6h1M5 6h1M7 6h2M10 6h2M3 7h2M10 7h1M3 8h2M6 8h2M9 8h3M3 9h1M6 9h4M11 9h1M3 10h2M9 10h3M3 11h2M6 11h4M11 11h1M3 12h1M6 12h2M9 12h3M3 13h2M10 13h1M3 14h6M10 14h2"]
+                      ["#adadad" "M4 6h1M6 6h1M9 6h1M11 7h1M8 8h1M4 9h1M10 9h1M10 11h1M4 12h1M8 12h1M11 13h1M9 14h1"]
+                      ["#848484" "M5 7h5M5 9h1M5 10h1M7 10h1M5 12h1M5 13h1M7 13h3"]
+                      ["#737373" "M5 8h1M6 10h1M8 10h1M5 11h1M6 13h1"]])
+                   x y scale))))
+
 (defn undo-dog [x y scale]
   (let [undos? (subscribe [:undos?])]     
-    (fn []
-      (svg-paths {:on-click (if @undos? #(dispatch [:undo]))}
+    (fn [x y scale]
+      (svg-paths {:on-click (if @undos? #(do (dispatch [:undo])
+                                             (music/play-sample 16 63)))}
                    (if @undos?
                     [["#000000" "M0 0h1M3 0h8M13 0h1M0 1h1M4 1h6M13 1h1M0 2h2M4 2h6M12 2h2M0 3h2M12 3h2M0 4h2M12 4h2M0 5h3M5 5h1M8 5h1M11 5h3M0 6h3M11 6h3M0 7h3M6 7h2M11 7h3M0 8h3M6 8h2M11 8h3M0 9h3M4 9h2M8 9h2M11 9h3M0 10h3M4 10h1M9 10h1M11 10h3M0 11h3M5 11h1M8 11h1M11 11h3M0 12h4M6 12h2M10 12h4M0 13h5M9 13h5M0 14h14"]
                      ["#ffc694" "M1 0h1M12 0h1M1 1h1M3 1h1M11 1h2M11 2h1M3 3h2M2 4h2M9 4h1M11 4h1M3 5h1M9 5h1M3 6h1M9 6h1M3 7h1M8 7h2M3 8h1M8 8h2M3 9h1M3 10h1M4 12h1M6 13h1"]
@@ -95,7 +126,7 @@
 
 (defn redo-rabbit [x y scale]
   (let [redos? (subscribe [:redos?])]
-    (fn []
+    (fn [x y scale]
       (svg-paths {:on-click (if @redos? #(dispatch [:redo]))}
                    (if @redos? 
                      [["#ffffff" "M0 0h3M5 0h5M12 0h3M0 1h2M6 1h2M13 1h2M0 2h1M2 2h1M5 2h1M7 2h1M9 2h1M12 2h1M14 2h1M0 3h1M2 3h1M5 3h1M9 3h1M12 3h1M14 3h1M0 4h1M2 4h1M5 4h1M9 4h1M12 4h1M14 4h1M0 5h1M3 5h2M10 5h2M14 5h1M0 6h2M13 6h2M0 7h1M14 7h1M0 12h1M14 12h1M0 13h2M13 13h2M0 14h4M11 14h4M0 15h2M3 15h3M9 15h4M14 15h1M0 16h11M12 16h3"]
@@ -181,6 +212,7 @@
   [:g [:rect {:x x :y y :width 32 :height 4 :stroke "black" :stroke-width 0.2 :fill "#f8b0f8"}]
    [undo-dog 27.7 (- y 0.35) 0.22]
    [redo-rabbit 34 (+ 0.4 y) 0.2]
+   [eraser 200 (+ 37 y) 0.2]
    [sharp-symbol 7500 2150]
    ])
 
@@ -271,7 +303,7 @@
      [stop-button]
      [tempo-up 59.7 4]
      [tempo-down 48.7 4]
-       [tempo-slider (+ 250 (* 0.2 @tempo)) 22 0.2]
+       [tempo-slider (+ 250 (* 0.16 @tempo)) 22 0.2]
      [key/circle-of-fifths]
      [toolbar 30 8.8]])))
 

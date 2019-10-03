@@ -87,9 +87,9 @@
    (:focused-note-pos db)))
 
 (rf/reg-sub
- :instruments
+ :notes
  (fn [db _]
-   (:instruments db)))
+   (:notes db)))
 
 (rf/reg-sub
  :mario-x

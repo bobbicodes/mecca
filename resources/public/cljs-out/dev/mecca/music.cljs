@@ -17,11 +17,13 @@
   (.-currentTime context))
 
 (defn mario-jump? []
-  (let [beat @(subscribe [:current-position])]
-    (when (< 0 @(subscribe [:play-start]))
-      (if (int? beat)
-        (dispatch [:down!])
-        (dispatch [:jump!])))))
+  (let [beat @(subscribe [:current-position])
+        notes @(subscribe [:notes])]
+    (when @(subscribe [:playing?])
+      (if (< 0 (count (filter #(= (:time %) beat)
+                              @(subscribe [:notes]))))
+      (dispatch [:jump!])
+        (dispatch [:down!])))))
 
 (defn mario-move []
   (let [playing? @(subscribe [:playing?])
@@ -30,7 +32,7 @@
       (dispatch [:move-mario (* 40 beat)]))))
 
 (defn song-done? []
-  (let [notes (subscribe [:instruments])
+  (let [notes (subscribe [:notes])
         playing? @(subscribe [:playing?])
         now (.-currentTime @audiocontext)
         length (apply max (map #(:time %) @notes))
@@ -95,7 +97,7 @@
             sounds (range 1 27)]
     (if-not (nil? (first sounds))
       (let [sound (first sounds)                   ; /mecca/resources/public
-            decoded-buffer (<! (get-and-decode {:url (str "/mecca/resources/public/audio/" sound ".mp3")
+            decoded-buffer (<! (get-and-decode {:url (str "/audio/" sound ".mp3")
                                                 :sound sound}))]
         (prn sound)
         (prn decoded-buffer)
@@ -168,7 +170,7 @@
     sample-source))
 
 (defn play-song! []
-  (let [notes (subscribe [:instruments])
+  (let [notes (subscribe [:notes])
         now (.-currentTime @audiocontext)
         tempo (subscribe [:tempo])]
     (dispatch [:reset-position])

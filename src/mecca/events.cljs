@@ -28,7 +28,7 @@
     :time 0
     :time-signature 4
     :tempo 120
-    :instruments []
+    :notes []
     :lead []
     :bassline []
     :drums []
@@ -44,7 +44,7 @@
    (if (= (.-state @audiocontext) "suspended")
      (.resume @audiocontext))
    (music/play-sample instrument (if @(subscribe [:sharp?]) (+ 0.5 pitch) pitch))
-   (update db :instruments
+   (update db :notes
            conj 
            {:time time
             :instrument instrument
@@ -54,7 +54,7 @@
 (reg-event-db
  :load-song
  (fn [db [_ notes]]
-   (assoc db :instruments 
+   (assoc db :notes
            [{:time 1, :instrument 14, :pitch 66, :sharp? false}
             {:time 3, :instrument 14, :pitch 66, :sharp? false}
             {:time 4, :instrument 14, :pitch 62, :sharp? false}
@@ -64,7 +64,7 @@
  :remove-note
  (undoable "remove note")
  (fn [db [_ time pitch]]
-   (update db :instruments
+   (update db :notes
               (fn [note]
                 (remove #(and (= time (:time %))
                               (= pitch (:pitch %)))
@@ -140,7 +140,7 @@
 (reg-event-db
  :advance-position
  (fn [db [_ _]]
-   (let [notes @(subscribe [:instruments])
+   (let [notes @(subscribe [:notes])
          beat @(subscribe [:current-position])
          to-play (filter #(= (+ 1 beat) (:time %)) notes)]
      (if (< 8 beat )
@@ -152,7 +152,7 @@
 (reg-event-db
  :advance-editor
  (fn [db [_ _]]
-   (update db :editor-beat-start #(+ 1 %))))
+   (update db :editor-beat-start #(+ 0.5 %))))
 
 (reg-event-db
  :move-mario

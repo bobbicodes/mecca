@@ -36,9 +36,9 @@
                      (range 0 9 0.5))]
               (if (= (case @editor-x
                       1 1
-                       1.5 0.5
-                        0)
-                     (mod beat 4))
+                       1.5 1
+                        1)
+                     (mod (+ (dec @editor-x) beat) 4))
                 [:g
                  ;[bar-number (/ beat 4) (+ 296 (* 120 (mod beat 8))) 64 0.05]
                  [:line {:x1 (+ 8 (* 6 beat)) :x2 (+ 8 (* 6 beat))
@@ -85,7 +85,7 @@
                                               (- 70 pitch)]))}])))))
 
 (defn editor []
-  (let [instruments (subscribe [:instruments])
+  (let [notes (subscribe [:notes])
         focused (subscribe [:focused-note-pos])
         current-position (subscribe [:current-position])
         editor-x (subscribe [:editor-beat-start])
@@ -114,19 +114,12 @@
        [:g.staff {:transform "translate(0,13.5) scale(1)"
                   :style {:cursor "url(./images/hand.png),crosshair"}}
         [notation/staff-lines]
-        (if (= 1 @editor-x)
-          [:g
-           [notation/bar-line -1.68]
-           [notation/bar-line 32.7]]
-          [:g
-           [editor/retract-editor 2]])
+           [editor/retract-editor 2]
         [:g#clefs
          [notation/treble-clef
           (- 2.65 (* 2 (dec @editor-x)))
           6.3]]
         [editor/advance-editor]
-        [notation/bar-line 
-         (- 59 (* 6 (dec @editor-x)))]
         [note-targets]
         [note-guides]
         (when-not (= @focused [nil nil])
@@ -152,7 +145,7 @@
                  13 [mario/boat (+ 32  (* 30 x)) (+ (* 5 y) 18) 0.2]
                  14 [mario/car (+ 32 (* 30 x)) (+ (* 5 y) 19) 0.2]
                  15 [mario/heart (+ 32 (* 30 x)) (+ (* 5 y) 19) 0.2]))]))
-          (doall (for [{:keys [time instrument pitch sharp?]} @instruments
+          (doall (for [{:keys [time instrument pitch sharp?]} @notes
                    :when (case @editor-x
                           1 (<= 1 time 16)
                            1.5 (<= 1 time 16.5)
@@ -188,7 +181,7 @@
     [:p (str "Play start: " @(subscribe [:play-start]))]
    [:p (str "Song time: " 
  (- (.-currentTime @audiocontext) @(subscribe [:play-start])))]
-   [:p (str "Notes: " @(subscribe [:instruments]))]
+   [:p (str "Notes: " @(subscribe [:notes]))]
    [:p (str "Mario run: " @(subscribe [:mario-run]))]
    [:p (str "Instrument: " @(subscribe [:instrument]))]
    [:p 

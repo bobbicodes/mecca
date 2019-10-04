@@ -613,123 +613,123 @@ mecca.music.pitch__GT_rate = (function mecca$music$pitch__GT_rate(midi_num){
 var G__19510 = midi_num;
 switch (G__19510) {
 case (56):
-return 0.525;
+return 0.5297315471796479;
 
 break;
 case 56.5:
-return 0.535;
+return 0.5297315471796479;
 
 break;
 case (57):
-return 0.56;
+return 0.5612310241546867;
 
 break;
 case 57.5:
-return 0.58;
+return 0.5946035575013607;
 
 break;
 case (58):
-return 0.63;
+return 0.6299605249474368;
 
 break;
 case 58.5:
-return 0.68;
+return 0.6674199270850174;
 
 break;
 case (59):
-return 0.71;
+return 0.7071067811865477;
 
 break;
 case 59.5:
-return 0.73;
+return 0.7071067811865477;
 
 break;
 case (60):
-return 0.75;
+return 0.7491535384383409;
 
 break;
 case 60.5:
-return 0.8;
+return 0.7937005259840998;
 
 break;
 case (61):
-return 0.85;
+return 0.8408964152537146;
 
 break;
 case 61.5:
-return 0.89;
+return 0.8908987181403394;
 
 break;
 case (62):
-return 0.96;
+return 0.9438743126816935;
 
 break;
 case 62.5:
-return 0.99;
+return (1);
 
 break;
 case (63):
-return 1.06;
+return 1.0594630943592953;
 
 break;
 case 63.5:
-return 1.09;
+return 1.122462048309373;
 
 break;
 case (64):
-return 1.135;
+return 1.122462048309373;
 
 break;
 case 64.5:
-return 1.2;
+return 1.1892071150027212;
 
 break;
 case (65):
-return 1.28;
+return 1.2599210498948734;
 
 break;
 case 65.5:
-return 1.35;
+return 1.3348398541700346;
 
 break;
 case (66):
-return 1.43;
+return 1.4142135623730954;
 
 break;
 case 66.5:
-return 1.47;
+return 1.498307076876682;
 
 break;
 case (67):
-return 1.5;
+return 1.498307076876682;
 
 break;
 case 67.5:
-return 1.6;
+return 1.5874010519682;
 
 break;
 case (68):
-return 1.714285714285714;
+return 1.6817928305074297;
 
 break;
 case 68.5:
-return 1.8;
+return 1.7817974362806792;
 
 break;
 case (69):
-return 1.89;
+return 1.8877486253633877;
 
 break;
 case 69.5:
-return 1.95;
+return (2);
 
 break;
 case (70):
-return 2.13;
+return 2.1189261887185906;
 
 break;
 case 70.5:
-return 2.22;
+return 2.244924096618746;
 
 break;
 default:

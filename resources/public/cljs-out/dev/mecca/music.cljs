@@ -146,13 +146,15 @@
 (defn play-sample [instrument pitch]
   (let [context audiocontext
         audio-buffer (:decoded-buffer (get samples instrument))
-        sample-source (.createBufferSource @context)]
+        sample-source (.createBufferSource @context)
+        compressor (.createDynamicsCompressor @context)]
     (set! (.-buffer sample-source) audio-buffer)
     (.setValueAtTime
      (.-playbackRate sample-source)
      (pitch->rate pitch)
      (.-currentTime @context))
-    (.connect sample-source (.-destination @context))
+    (.connect sample-source compressor)
+    (.connect compressor (.-destination @context))
     (.start sample-source)
     sample-source))
 

@@ -631,11 +631,11 @@ return c__15583__auto__;
 mecca.music.pitch__GT_rate = (function mecca$music$pitch__GT_rate(midi_num){
 var G__19514 = midi_num;
 switch (G__19514) {
-case (56):
-return 0.5297315471796479;
+case (55):
+return 0.5;
 
 break;
-case 56.5:
+case (56):
 return 0.5297315471796479;
 
 break;
@@ -643,112 +643,108 @@ case (57):
 return 0.5612310241546867;
 
 break;
-case 57.5:
+case (58):
 return 0.5946035575013607;
 
 break;
-case (58):
+case (59):
 return 0.6299605249474368;
 
 break;
-case 58.5:
+case (60):
 return 0.6674199270850174;
 
 break;
-case (59):
-return 0.7071067811865477;
-
-break;
-case 59.5:
-return 0.7071067811865477;
-
-break;
-case (60):
-return 0.7491535384383409;
-
-break;
-case 60.5:
-return 0.7937005259840998;
-
-break;
 case (61):
-return 0.8408964152537146;
-
-break;
-case 61.5:
-return 0.8908987181403394;
+return 0.7071067811865477;
 
 break;
 case (62):
-return 0.9438743126816935;
-
-break;
-case 62.5:
-return (1);
+return 0.7491535384383409;
 
 break;
 case (63):
-return 1.0594630943592953;
-
-break;
-case 63.5:
-return 1.122462048309373;
+return 0.7937005259840998;
 
 break;
 case (64):
-return 1.122462048309373;
-
-break;
-case 64.5:
-return 1.1892071150027212;
+return 0.8408964152537146;
 
 break;
 case (65):
-return 1.2599210498948734;
-
-break;
-case 65.5:
-return 1.3348398541700346;
+return 0.8908987181403394;
 
 break;
 case (66):
-return 1.4142135623730954;
-
-break;
-case 66.5:
-return 1.498307076876682;
+return 0.9438743126816935;
 
 break;
 case (67):
-return 1.498307076876682;
-
-break;
-case 67.5:
-return 1.5874010519682;
+return (1);
 
 break;
 case (68):
-return 1.6817928305074297;
-
-break;
-case 68.5:
-return 1.7817974362806792;
+return 1.0594630943592953;
 
 break;
 case (69):
-return 1.8877486253633877;
-
-break;
-case 69.5:
-return (2);
+return 1.122462048309373;
 
 break;
 case (70):
+return 1.1892071150027212;
+
+break;
+case (71):
+return 1.2599210498948734;
+
+break;
+case (72):
+return 1.3348398541700346;
+
+break;
+case (73):
+return 1.4142135623730954;
+
+break;
+case (74):
+return 1.498307076876682;
+
+break;
+case (75):
+return 1.5874010519682;
+
+break;
+case (76):
+return 1.6817928305074297;
+
+break;
+case (77):
+return 1.7817974362806792;
+
+break;
+case (78):
+return 1.8877486253633877;
+
+break;
+case (79):
+return (2);
+
+break;
+case (80):
 return 2.1189261887185906;
 
 break;
-case 70.5:
+case (81):
 return 2.244924096618746;
+
+break;
+case (82):
+return 2.3784142300054425;
+
+break;
+case (83):
+return 2.519842099789747;
 
 break;
 default:

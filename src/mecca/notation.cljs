@@ -167,7 +167,7 @@
    (doall
      (for [y (range 18)]
        ^{:key y}
-       [:line {:x1 2.25 :x2 63 :y1 y :y2 y
+       [:line {:x1 1 :x2 63 :y1 y :y2 y
                :stroke "black"
                :stroke-width (if (or (= y 30) (= y 18)) 0.06 0.15)
                :stroke-dasharray (if (or (= y 30) (= y 18)) 0.25)

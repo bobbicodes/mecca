@@ -16522,10 +16522,3 @@
   </score-partwise>")
 
 (def zelda-parsed (xml->clj zelda))
-
-(def measures 
-  (:content (nth (:content zelda-parsed) 7)))
-
-(defn extract-notes [measure]
-  (filter #(= :note (get % :tag))  (get measure :content)))
-

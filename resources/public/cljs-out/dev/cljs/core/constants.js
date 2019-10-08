@@ -345,7 +345,6 @@ cljs.core.cst$kw$sharp_DASH_off = new cljs.core.Keyword(null,"sharp-off","sharp-
 cljs.core.cst$kw$down_BANG_ = new cljs.core.Keyword(null,"down!","down!",872870035);
 cljs.core.cst$sym$strobj = new cljs.core.Symbol(null,"strobj","strobj",1088091283,null);
 cljs.core.cst$sym$catch_DASH_block = new cljs.core.Symbol(null,"catch-block","catch-block",-1479223021,null);
-cljs.core.cst$kw$svg_SHARP_colorwheel = new cljs.core.Keyword(null,"svg#colorwheel","svg#colorwheel",-70057677);
 cljs.core.cst$kw$line = new cljs.core.Keyword(null,"line","line",212345235);
 cljs.core.cst$kw$priority = new cljs.core.Keyword(null,"priority","priority",1431093715);
 cljs.core.cst$kw$solos = new cljs.core.Keyword(null,"solos","solos",1441458643);

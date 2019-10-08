@@ -3,7 +3,6 @@
    [reagent.core :as r]
    [re-frame.core :as rf :refer [subscribe dispatch]]
    [mecca.notation :as notation]
-   [mecca.key :as key]
    [mecca.music :as music]
    [mecca.mario :as mario]))
 

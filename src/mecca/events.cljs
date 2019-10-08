@@ -67,7 +67,7 @@
            conj 
            {:time time
             :instrument instrument
-            :pitch (if @(subscribe [:sharp?]) (+ 0.5 pitch) pitch)
+            :pitch (if @(subscribe [:sharp?]) (inc pitch) pitch)
             :sharp? @(subscribe [:sharp?])})))
 
 (reg-event-db
@@ -188,7 +188,7 @@
 (reg-event-db
  :advance-editor
  (fn [db [_ _]]
-   (update db :editor-beat-start #(+ 1 %))))
+   (update db :editor-beat-start #(+ 0.5 %))))
 
 (reg-event-db
  :move-mario

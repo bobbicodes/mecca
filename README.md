@@ -28,6 +28,8 @@ Currently working on MusicXML import feature. That means I had to actually use p
 
 It would be cool to be able to record, link or upload your own samples. However, Koji Kondo said that composing for the SNES is 1000 times harder than composing for the NES, and the difference is the SNES being sample based can sound like anything, but the NES only plays one set of built-in sounds.
 
+As Rich Hickey said, "No one wants to compose music for the choosaphone".
+
 One idea is to make an 8-bit / 16-bit switch that will transform the whole UI respectively from synth oscillator to sample mode.
 
 For the synths, I believe that by using the very efficient algorithms from Blargg's blip-buf library, a full emulation can be done in the browser quite easily. Since the NES produces sound via a sample/hold circuit, it is only necessary to generate the ends of the waveforms (the transitions) since the middle part is the same regardless of frequency, differing only in length.

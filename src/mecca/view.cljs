@@ -6,7 +6,7 @@
             [mecca.events :as events]
             [mecca.notation :as notation]
             [mecca.castle :as castle]
-            [mecca.key :as key]
+            [mecca.sequencer :as sequencer]
             [mecca.editor :as editor]
             [mecca.mario :as mario :refer [mario]]))
 
@@ -195,4 +195,5 @@
   [:div
    [editor]
    [editor/controls]
+   [sequencer/sequencer]
    [debug-info]])

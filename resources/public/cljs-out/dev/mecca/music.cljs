@@ -7,14 +7,27 @@
    [cljs.core.async.macros :refer [go go-loop]]))
 
 (defn ^:export audio-context []
-  (if js/window.AudioContext. ; Some browsers e.g. Safari don't use the
-    (js/window.AudioContext.) ; unprefixed version yet.
+  (if js/window.AudioContext.
+    (js/window.AudioContext.)
     (js/window.webkitAudioContext.)))
 
 (defonce audiocontext (r/atom (audio-context)))
 
 (defn ^:export current-time [context]
   (.-currentTime context))
+
+(def lookahead 25.0)
+
+(def scheduleAheadTime 0.1)
+
+(defn scheduler []
+  (let [next-note-time (subscribe [:next-note-time])
+        current-note (subscribe [:current-note])]
+    (if (< @next-note-time
+         (+ scheduleAheadTime
+            (current-time @audiocontext)))
+      (dispatch [:schedule-note @current-note @next-note-time])
+      (dispatch [:next-note]))))
 
 (defn mario-jump? []
   (let [beat @(subscribe [:current-position])
@@ -50,7 +63,8 @@
 
 (defn dispatch-timer-event []
   (dispatch [:tick!])
-      (song-done?))
+      (song-done?)
+  (scheduler))
 
 (defonce do-timer (js/setInterval dispatch-timer-event 150))
 
@@ -97,7 +111,7 @@
             sounds (range 1 27)]
     (if-not (nil? (first sounds))
       (let [sound (first sounds)                   ; /mecca/resources/public
-            decoded-buffer (<! (get-and-decode {:url (str "/audio/" sound ".mp3")
+            decoded-buffer (<! (get-and-decode {:url (str "/mecca/resources/public/audio/" sound ".mp3")
                                                 :sound sound}))]
         (prn sound)
         (prn decoded-buffer)

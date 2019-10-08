@@ -19,6 +19,7 @@
     :jumping? false
     :sharp? false
     :current-position 0
+    :current-note 0
     :next-note-time 0.0
     :notes-in-queue []
     :editor-beat-start 1
@@ -36,6 +37,24 @@
     :mario-y 59
     :mario-jump 0
     :mario-run 1}))
+
+(reg-event-db
+ :next-note
+ (fn [db [_ _]]
+   (let [tempo (subscribe [:tempo])
+         seconds-per-beat (/ 60.0 @tempo)]
+     (update 
+      (update db :current-note inc)
+      :next-note-time #(+ % seconds-per-beat)))))
+
+(reg-event-db
+ :schedule-note
+ (fn [db [_ _]]
+   (let [notes (subscribe [:notes])
+         beat (subscribe [:current-note])
+         to-play (filter #(= (+ 1 @beat) (:time %)) @notes)]
+     (update db :notes-in-queue
+             into to-play))))
 
 (reg-event-db
  :add-note
@@ -157,10 +176,10 @@
 (reg-event-db
  :advance-position
  (fn [db [_ _]]
-   (let [notes @(subscribe [:notes])
-         beat @(subscribe [:current-position])
-         to-play (filter #(= (+ 1 beat) (:time %)) notes)]
-     (if (< 8 beat )
+   (let [notes (subscribe [:notes])
+         beat (subscribe [:current-position])
+         to-play (filter #(= (+ 1 @beat) (:time %)) @notes)]
+     (if (< 8 @beat)
        (dispatch [:advance-editor]))
      #_(doall (for [{:keys [instrument pitch]} to-play]
               (music/play-sample instrument (if @(subscribe [:sharp?]) (+ 0.5 pitch) pitch))))
@@ -214,10 +233,7 @@
 (reg-event-db
  :tick!
  (fn [db [_ _]]
-   (assoc (update
-           (update db :mario-run #(if (= % 3) 1 (inc %)))
-           :mario-jump inc)
-          :time (music/current-time @audiocontext))))
+   (update db :mario-run #(if (= % 3) 1 (inc %)))))
 
 (reg-event-db
  :jump-reset

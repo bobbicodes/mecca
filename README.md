@@ -25,19 +25,19 @@ Added a sharp button, expanding it to all 12 chromatic tones. Editor scrolls mos
 
 Currently working on MusicXML import feature. That means I had to actually use proper midi-numbers which broke the Mario Ghost House theme and Zelda Overworld sample songs. Which will be fine once I'm done because then we'll be able to import any number of songs.
 
-I'm able to parse a score into proper note data, the current challenge is to provide effective import options for instrument selection for the various parts,or some sort of reliable strategy for assigning voices. This is very exciting because I can already sense the hilarity that is to ensue from the ability to hear a piece of music with such ridiculous sounds. Random animal noises, anyone? And it's going to be a long, fun-filled path of finding endless edge cases.
+I'm able to parse a score into proper note data, the current challenge is to provide effective import options for instrument selection for the various parts, or some sort of reliable strategy for assigning voices. This is very exciting because I can already sense the hilarity that is to ensue from the ability to hear a piece of music with such ridiculous sounds. Random animal noises, anyone? And it's going to be a long, fun-filled path of finding endless edge cases.
 
 ## Future ideas
 
 It would be cool to be able to record, link or upload your own samples. However, when [Koji Kondo](https://en.wikipedia.org/wiki/Koji_Kondo) said that composing for the SNES is 1000 times harder than composing for the NES, he was warning us about the *choose-a-phone* problem. Being sample based, the SNES can play any sound you throw at it, while the NES only plays one set of built-in sounds. See, once you have no idea what instrument you are composing for, all bets are off. The nature of art is defined at least in part by the limitations of the medium. 
 
-As Rich Hickey [said](https://github.com/matthiasn/talk-transcripts/blob/master/Hickey_Rich/DesignCompositionPerformance.md), "no one wants to compose for a choose-a-phone ensemble".
+As [Rich Hickey said](https://github.com/matthiasn/talk-transcripts/blob/master/Hickey_Rich/DesignCompositionPerformance.md), "no one wants to compose for a choose-a-phone ensemble".
 
 See the paper, [Game Scoring: Towards a Broader Theory](/docs/game-scoring.pdf) for a fantastic treatment of the specific musical inventions that came about through creatively overcoming the technological limitations historically involved in the development of game music.
 
 So how can we expand the sonic pallet without turning it into a choose-a-phone?
 
-This question goes right to the heart of a creative platform's design philosophy, and mine is something like (to put it into one line): "to subtly encourage the use of effective idioms while maintaining maximal expressivity."
+This question goes right to the heart of a creative platform's design philosophy, and mine is something like (to put it in one line): "to subtly encourage the use of effective idioms while maintaining maximal expressivity."
 
 One idea is to make an 8-bit / 16-bit switch that will transform the whole UI respectively from synth oscillator to sample mode.
 
@@ -47,7 +47,7 @@ For the synths, I believe that by using the very efficient algorithms from Blarg
 
 * The triangle channel (for bass and kick drums) is actually a 16 step quantized triangle-ish wave with a slight shark fin shape that also has tiny sawteeth on it. Gotta get this stuff right. That's what gives the Nintendo basslines those really sweet whirling harmonic overtones.
 
-* The 2 pulse-wave channels offer a variable duty cycle, so the standard Web Audio square wave will also not do here. However, we do have the option of using a wavetable, which can produce an arbitrary periodic waveform defined by a list of sin/cosine terms for the Fourier coefficients, which can be easily derived for any sound by playing through the FFT provided by the analyzer node.
+* The 2 pulse-wave channels offer a variable duty cycle, so the standard Web Audio square wave will also not do here. However, we do have the option of using a wavetable, which can produce an arbitrary periodic waveform defined by a list of sin/cosine terms for the Fourier coefficients, which can be easily derived for any sound by playing it through the FFT provided by the analyzer node.
 
 * Linear-interpolated bandlimiting will be good enough, since we have the ability to use the hardware clock exposed by the Web Audio API to oversample at an extremely high rate, supressing aliasing far below perceptible limits.
 
@@ -67,9 +67,9 @@ Then again, if I were to refine the editor scrolling experience by, for example,
 
 ## Start local development server:
 
-I use [Figwheel Main](https://github.com/bhauman/figwheel-main) with the [Clojure CLI tools](https://clojure.org/reference/deps_and_cli). It uses [core.async](https://github.com/clojure/core.async) to grab the audio samples, and generally follows the [re-frame](https://github.com/Day8/re-frame) pattern, but still does lots of yucky stuff like perform logic in views, side-effecting event handlers, etc. 
+I use [Figwheel Main](https://github.com/bhauman/figwheel-main) with the [Clojure CLI tools](https://clojure.org/reference/deps_and_cli). Audio samples are fetched with [core.async](https://github.com/clojure/core.async), and while the app generally follows the [re-frame](https://github.com/Day8/re-frame) pattern, it still does lots of yucky stuff like perform logic in views, side-effecting event handlers, etc. 
 
-Oh and I'm still working on a proper note scheduling system. It currently just plays the entire song and there's no way to stop or adjust it.
+Oh and I'm still working on a proper note scheduling system. It currently just plays the entire song and there's no way to stop or adjust it once you press play...
 
 ```
 clojure -A:fig -b dev -r
@@ -98,4 +98,4 @@ You'll need to change the line in `music.cljs` to point to the directory with th
 clj -m figwheel.main -O advanced -bo dev
 ```
 
-Thanks to [Bruce Hauman](https://github.com/bhauman), [Chris Ford](https://github.com/ctford) and [Dave Yarwood](https://github.com/daveyarwood) for blazing the CLJS Web Audio trail. No way I could have figured this all out.
+Thanks to [Bruce Hauman](https://github.com/bhauman), [Chris Ford](https://github.com/ctford) and [Dave Yarwood](https://github.com/daveyarwood) for blazing the CLJS Web Audio trail. No way could I have figured this all out myself.

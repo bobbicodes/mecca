@@ -4,31 +4,35 @@
 (defn get-measures [score]
   (:content (nth (:content score) 7)))
 
+(defn get-tag [tag content]
+  (filter #(= tag (get % :tag))
+          (:content content)))
+
 (defn extract-notes [measure]
-  (filter #(= :note (get % :tag))
-          (get measure :content)))
+  (get-tag :note measure))
 
 (defn get-pitch [note]
-  (first (filter #(= :pitch (get % :tag))
-                 (get note :content))))
+  (first (get-tag :pitch note)))
+
+(defn get-attr [attr note]
+  (first (:content (first (get-tag attr note)))))
 
 (defn get-duration [note]
-  (js/parseInt (first (:content (first (filter #(= :duration (get % :tag))
-                                               (get note :content)))))))
+  (js/parseInt (get-attr :duration note)))
+
+(defn get-voice [note]
+  (js/parseInt (get-attr :voice note)))
 
 (defn get-step [pitch]
-  (first (:content (first (filter #(= :step (get % :tag))
-                                  (get pitch :content))))))
+  (get-attr :step pitch))
 
 (defn get-octave [pitch]
   (js/parseInt 
-   (first (:content (first (filter #(= :octave (get % :tag))
-                                   (get pitch :content)))))))
+   (get-attr :octave pitch)))
 
 (defn get-alter [pitch]
   (js/parseInt 
-   (first (:content (first (filter #(= :alter (get % :tag))
-                                   (get pitch :content)))))))
+   (get-attr :alter pitch)))
 
 (defn pitch->midi [pitch]
   (let [base-pitch (* 12 (get-octave pitch))
@@ -45,7 +49,7 @@
 (defn parse-note [note time]
   {:time time
    :pitch (pitch->midi (get-pitch note))
-   :duration (/ (get-duration note) 6)})
+   :instrument (get-voice note)})
 
 (defn parse-measure [measure]
   (loop [time 1

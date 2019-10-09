@@ -6,9 +6,9 @@ MECCA is a sample-based music editor inspired by Mario Paint written in Clojures
 
 It was originally meant to be a chiptune tracker that would simply emulate the 4 channels of the NES. But then I started playing around with alternative interfaces and while working on an SVG music notation rendering engine I realized that my priorities were definitely out of whack, and what my program really needed was a jumping Mario.
 
-I found that the specific subset of musical features used in the Mario Paint music maker provides a delightful scope of creative possibilities while remaining very approachable. And by using styled note samples of equal duration a whole set of elements to implement goes away, like rests, stems, beams, and the need for multiple staves for each voice.
+I found that the specific subset of musical features used in the Mario Paint music maker provides a delightful scope of creative possibilities while remaining very approachable. And by using distinctively styled note heads that play samples of a common length, a whole set of elements to implement goes away, like rests, stems, beams, and the need for multiple staves for each voice.
 
-Check out the paper [Mario Paint: An Accessible Environment of Musical Creativity
+Check out the inspiring paper [Mario Paint: An Accessible Environment of Musical Creativity
 and Sound Exploration](docs/Mario_Paint_An_Accessible_Environment_of.pdf).
 
 [Live app in its current state](https://porkostomus.github.io/mecca/)
@@ -19,23 +19,37 @@ The text representing your music data is accessible down below Data-Robot. It's 
 
 ## Progress
 
-Implemented [Undodog](https://www.mariowiki.com/Undodog) and Redorabbit. The second one I made up. Actually I think it's supposed to be a frog but whatevs.
+Implemented [Undodog](https://www.mariowiki.com/Undodog) and Redorabbit. The second one I made up. Actually I think it's supposed to be a frog but that's neither a pun nor alliterative so whatevs.
 
-Added a sharp button, expanding it to all 12 chromatic tones. Editor scrolls mostly right. Animation... not so much.
+Added a sharp button, expanding it to all 12 chromatic tones. Editor scrolls mostly right. Animation... not so much. While it might be reasonable to place visual elements at a lower priority than the app's audio scheduling system, they are closely related since both deal with coordination of time and reaction to events.
 
 Currently working on MusicXML import feature. That means I had to actually use proper midi-numbers which broke the Mario Ghost House theme and Zelda Overworld sample songs. Which will be fine once I'm done because then we'll be able to import any number of songs.
 
-I'm able to parse a score into proper note data, the current challenge is to provide effective import options for instrument selection for the various parts. This is very exciting because I can already sense the hilarity that is to ensue from this feature.
+I'm able to parse a score into proper note data, the current challenge is to provide effective import options for instrument selection for the various parts,or some sort of reliable strategy for assigning voices. This is very exciting because I can already sense the hilarity that is to ensue from the ability to hear a piece of music with such ridiculous sounds. Random animal noises, anyone? And it's going to be a long, fun-filled path of finding endless edge cases.
 
 ## Future ideas
 
-It would be cool to be able to record, link or upload your own samples. However, when [Koji Kondo](https://en.wikipedia.org/wiki/Koji_Kondo) said that composing for the SNES is 1000 times harder than composing for the NES, he was warning us about the problem of the choose-a-phone. The SNES being sample based can sound like anything, but the NES only plays one set of built-in sounds.
+When I'm personally building a song with this, the biggest feature that I wish I could reach for would be a pattern looping system which would facilitate and encourage working with smaller sections to be composed via a "song" track, which could be as simple as `A B A B` or something.
 
-As Rich Hickey [said](https://github.com/matthiasn/talk-transcripts/blob/master/Hickey_Rich/DesignCompositionPerformance.md), "no one, I bet, wants to compose for a choose-a-phone ensemble".
+This is the perfect job for Data-Robot, who is currently just sitting there waiting to be put to use. His job is to be concerned with the loading and saving of song data, which can be further divided into:
+
+* *Pattern data* - content to be looped, whether at the "beat" level i.e. drum/bass patterns, or the "song" level (verse/chorus).
+
+* *Song data* - A "conductor" track listing the order of repetitions of the various loops, and
+
+* *File data* - The entire current song.
+
+Then again, if I were to refine the editor scrolling experience by, for example, adding buttons to "page forward/back", or notational constructs for creating inline loops, working with the entire score at once might not feel so cumbersome.
+
+It would be cool to be able to record, link or upload your own samples. However, when [Koji Kondo](https://en.wikipedia.org/wiki/Koji_Kondo) said that composing for the SNES is 1000 times harder than composing for the NES, he was warning us about the choose-a-phone problem. Being sample based, the SNES can play any sound you throw at it, while the NES only plays one set of built-in sounds. And once you have no idea what instrument you are composing for, all bets are off. The nature of art is defined at least in part by the limitations of the medium. 
+
+As Rich Hickey [said](https://github.com/matthiasn/talk-transcripts/blob/master/Hickey_Rich/DesignCompositionPerformance.md), "no one wants to compose for a choose-a-phone ensemble".
+
+See the paper, [Game Scoring: Towards a Broader Theory](/docs/game-scoring.pdf) for a fantastic treatment of the specific musical inventions that came about through creatively overcoming the technicological limitations in the development of game music.
 
 So how can we expand the sonic pallet without turning it into a choose-a-phone?
 
-This question goes right to the heart of a creative platform's design philosophy, and the idea is to subtly encourage the use of musical idioms while maintaining maximal expressivity.
+This question goes right to the heart of a creative platform's design philosophy, and the idea is to subtly encourage the use of effective idioms while maintaining maximal expressivity.
 
 One idea is to make an 8-bit / 16-bit switch that will transform the whole UI respectively from synth oscillator to sample mode.
 
@@ -51,11 +65,15 @@ Also very exciting is the possibility of an SVG pixel art / animation studio. Li
 
 ## Start local development server:
 
+I use [Figwheel Main](https://github.com/bhauman/figwheel-main) with the [Clojure CLI tools](https://clojure.org/reference/deps_and_cli). It uses [core.async](https://github.com/clojure/core.async) to grab the audio samples, and generally follows the [re-frame](https://github.com/Day8/re-frame) pattern, but still does lots of yucky stuff like perform logic in views, side-effecting event handlers, etc. 
+
+Oh and I'm still working on a proper note scheduling system. It currently just plays the entire song and there's no way to stop or adjust it.
+
 ```
 clojure -A:fig -b dev -r
 ```
 
-You'll probably need to change the line in `music.cljs` to point to the directory with the samples:
+You'll need to change the line in `music.cljs` to point to the directory with the samples:
 
 ```
 (defn load-samples []

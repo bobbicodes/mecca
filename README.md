@@ -15,7 +15,7 @@ and Sound Exploration](docs/Mario_Paint_An_Accessible_Environment_of.pdf).
 
 ![Screenshot](mecca.png)
 
-The text representing your music data is accessible down below Data-Robot. It's a sequence of Clojure maps, one for each note. Copy and paste it into your favorite text editor to save your composition. Actual save function coming soon.
+The text representing your music data is accessible down below Data-Robot. It's a sequence of Clojure maps, one for each note. Copy and paste into your favorite text editor to save your composition. Actual save function coming soon.
 
 ## Progress
 
@@ -29,7 +29,31 @@ I'm able to parse a score into proper note data, the current challenge is to pro
 
 ## Future ideas
 
-When I'm personally building a song with this, the biggest feature that I wish I could reach for would be a pattern looping system which would facilitate and encourage working with smaller sections to be composed via a "song" track, which could be as simple as `A B A B` or something.
+It would be cool to be able to record, link or upload your own samples. However, when [Koji Kondo](https://en.wikipedia.org/wiki/Koji_Kondo) said that composing for the SNES is 1000 times harder than composing for the NES, he was warning us about the *choose-a-phone* problem. Being sample based, the SNES can play any sound you throw at it, while the NES only plays one set of built-in sounds. See, once you have no idea what instrument you are composing for, all bets are off. The nature of art is defined at least in part by the limitations of the medium. 
+
+As Rich Hickey [said](https://github.com/matthiasn/talk-transcripts/blob/master/Hickey_Rich/DesignCompositionPerformance.md), "no one wants to compose for a choose-a-phone ensemble".
+
+See the paper, [Game Scoring: Towards a Broader Theory](/docs/game-scoring.pdf) for a fantastic treatment of the specific musical inventions that came about through creatively overcoming the technological limitations historically involved in the development of game music.
+
+So how can we expand the sonic pallet without turning it into a choose-a-phone?
+
+This question goes right to the heart of a creative platform's design philosophy, and mine is something like (to put it into one line): "to subtly encourage the use of effective idioms while maintaining maximal expressivity."
+
+One idea is to make an 8-bit / 16-bit switch that will transform the whole UI respectively from synth oscillator to sample mode.
+
+For the synths, I believe that by using the very efficient algorithms from Blargg's [blip-buf](https://github.com/nesbox/blip-buf) library, a full emulation can be done in the browser quite easily. Since the [NES APU](https://wiki.nesdev.com/w/index.php/APU) produces sound via a [sample/hold](https://en.wikipedia.org/wiki/Sample_and_hold) circuit, it is only necessary to generate the ends of the waveforms (the transitions) since the middle part is the same regardless of frequency, differing only in length.
+
+* Noise channel produces pseudo-random bits by [linear feedback shift register](https://en.wikipedia.org/wiki/Linear-feedback_shift_register) method. This is then played back at 16 possible sample rates to produce hihats, snares and other percussive sounds. A much shorter bit sequence is also possible, which produces a metallic tone.
+
+* The triangle channel (for bass and kick drums) is actually a 16 step quantized triangle-ish wave with a slight shark fin shape that also has tiny sawteeth on it. Gotta get this stuff right. That's what gives the Nintendo basslines those really sweet whirling harmonic overtones.
+
+* The 2 pulse-wave channels offer a variable duty cycle, so the standard Web Audio square wave will also not do here. However, we do have the option of using a wavetable, which can produce an arbitrary periodic waveform defined by a list of sin/cosine terms for the Fourier coefficients, which can be easily derived for any sound by playing through the FFT provided by the analyzer node.
+
+* Linear-interpolated bandlimiting will be good enough, since we have the ability to use the hardware clock exposed by the Web Audio API to oversample at an extremely high rate, supressing aliasing far below perceptible limits.
+
+Also very exciting is the possibility of an SVG pixel art / animation studio. Like the way it was in Mario Paint but more better because stuff like custom color pallets, upload your own coloring books, etc.
+
+When I'm personally building a song with this, the biggest feature that I wish I could reach for is a kind of pattern looping system which would facilitate and encourage working with smaller sections to be composed via a "song" track, which could be as simple as `A B A B` or something. I'm going to look back to the tracker paradigm for inspiration here.
 
 This is the perfect job for Data-Robot, who is currently just sitting there waiting to be put to use. His job is to be concerned with the loading and saving of song data, which can be further divided into:
 
@@ -37,31 +61,9 @@ This is the perfect job for Data-Robot, who is currently just sitting there wait
 
 * *Song data* - A "conductor" track listing the order of repetitions of the various loops, and
 
-* *File data* - The entire current song.
+* *File data* - Load/save of entire song.
 
 Then again, if I were to refine the editor scrolling experience by, for example, adding buttons to "page forward/back", or notational constructs for creating inline loops, working with the entire score at once might not feel so cumbersome.
-
-It would be cool to be able to record, link or upload your own samples. However, when [Koji Kondo](https://en.wikipedia.org/wiki/Koji_Kondo) said that composing for the SNES is 1000 times harder than composing for the NES, he was warning us about the choose-a-phone problem. Being sample based, the SNES can play any sound you throw at it, while the NES only plays one set of built-in sounds. And once you have no idea what instrument you are composing for, all bets are off. The nature of art is defined at least in part by the limitations of the medium. 
-
-As Rich Hickey [said](https://github.com/matthiasn/talk-transcripts/blob/master/Hickey_Rich/DesignCompositionPerformance.md), "no one wants to compose for a choose-a-phone ensemble".
-
-See the paper, [Game Scoring: Towards a Broader Theory](/docs/game-scoring.pdf) for a fantastic treatment of the specific musical inventions that came about through creatively overcoming the technicological limitations in the development of game music.
-
-So how can we expand the sonic pallet without turning it into a choose-a-phone?
-
-This question goes right to the heart of a creative platform's design philosophy, and the idea is to subtly encourage the use of effective idioms while maintaining maximal expressivity.
-
-One idea is to make an 8-bit / 16-bit switch that will transform the whole UI respectively from synth oscillator to sample mode.
-
-For the synths, I believe that by using the very efficient algorithms from Blargg's [blip-buf](https://github.com/nesbox/blip-buf) library, a full emulation can be done in the browser quite easily. Since the [NES APU](https://wiki.nesdev.com/w/index.php/APU) produces sound via a [sample/hold](https://en.wikipedia.org/wiki/Sample_and_hold) circuit, it is only necessary to generate the ends of the waveforms (the transitions) since the middle part is the same regardless of frequency, differing only in length.
-
-* Noise channel produces pseudo-random bits by [linear feedback shift register](https://en.wikipedia.org/wiki/Linear-feedback_shift_register) method. This is then played back at 16 possible sample rates. A much shorter bit sequence is also possible, which produces a metallic tone.
-
-* Triangle wave (for bass and kick drums) is actually a 16 step quantized triangle-ish wave with a slight shark fin shape that also has tiny sawteeth on it. Gotta get this stuff right.
-
-* Linear-interpolated bandlimiting will be good enough, since we have the ability to use the hardware clock exposed by the Web Audio API to oversample at an extremely high rate, supressing aliasing far below perceptible limits.
-
-Also very exciting is the possibility of an SVG pixel art / animation studio. Like the way it was in Mario Paint but more better because stuff like custom color pallets, upload your own coloring books, etc.
 
 ## Start local development server:
 

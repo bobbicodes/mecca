@@ -15,6 +15,8 @@ and Sound Exploration](docs/Mario_Paint_An_Accessible_Environment_of.pdf).
 
 ![Screenshot](mecca.png)
 
+I ended up getting a bit carried away with the pixel art, after trying every SVG tool I could find I was still unsatisfied with the results, so ended up coding it all by hand as basic lines, shapes and paths. For example, the castle in the picture above is actually made of staggered rows of dashed lines representing bricks and mortar, organized in a [stretcher bond](https://en.wikipedia.org/wiki/Brickwork#Stretcher,_or_running_bond) masonry pattern.
+
 The text representing your music data is accessible down below Data-Robot. It's a sequence of Clojure maps, one for each note. Copy and paste into your favorite text editor to save your composition. Actual save function coming soon.
 
 ## Progress

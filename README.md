@@ -17,11 +17,11 @@ and Sound Exploration](docs/Mario_Paint_An_Accessible_Environment_of.pdf).
 
 I ended up getting a bit carried away with the pixel art, after trying every SVG tool I could find I was still unsatisfied with the results, so ended up coding it all by hand as basic lines, shapes and paths. For example, the castle in the picture above is actually a function that outputs staggered rows of dashed lines representing bricks and mortar organized in a [stretcher bond](https://en.wikipedia.org/wiki/Brickwork#Stretcher,_or_running_bond) masonry pattern. And that Mario is not even a sprite - he's a group of vector paths connected to form his limbs, hat and [moustache](https://laughingsquid.com/origin-of-marios-mustache-and-his-name/). And once this app blows up and I get sued by Nintendo, a new version will be out with a character called *Mr. Moustache*, who will in fact be nothing more than a bouncing moustache on a stick with a red hat on.
 
-The text representing your music data is accessible down below Data-Robot. It's a sequence of Clojure maps, one for each note. Copy and paste into your favorite text editor to save your composition. Actual save function coming soon.
+The EDN code representing your music data is output below Data-Robot. It's a sequence of Clojure maps, one for each note. Copy and paste into your favorite text editor to save your composition. Actual save function coming soon.
 
 ## Progress
 
-Implemented [Undodog](https://www.mariowiki.com/Undodog) and Redorabbit. The second one I made up. Actually I think it's supposed to be a frog but that's neither a pun nor alliterative so whatevs.
+Implemented [Undodog](https://www.mariowiki.com/Undodog) and Redo-Rabbit. The second one I made up. Actually I think it's supposed to be a frog but that's neither a pun nor alliterative so whatevs. It was a highly emotional fight between Redo-Robot, Redo-Wombat and Redo-'rangutan for the position, but the frog thing won out due to ~~me not having to design another button~~ seniority.
 
 Added a sharp button, expanding it to all 12 chromatic tones. Editor scrolls mostly right. Animation... not so much. While it might be reasonable to place visual elements at a lower priority than the app's audio scheduling system, they are closely related since both deal with coordination of time and reaction to events.
 

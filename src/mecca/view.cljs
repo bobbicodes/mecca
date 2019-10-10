@@ -8,7 +8,9 @@
             [mecca.castle :as castle]
             [mecca.sequencer :as sequencer]
             [mecca.editor :as editor]
-            [mecca.mario :as mario :refer [mario]]))
+            [mecca.xml :as xml]
+            [mecca.mario :as mario :refer [mario]]
+            [cljs.reader :refer [read-string]]))
 
 #_(defn bar-number [n x y scale]
   [:path {:transform (str "scale(" scale ") translate(" x "," y ")")
@@ -113,21 +115,22 @@
                       (if sharp?
                         [editor/sharp-symbol (+ 1000 (* 1200 x)) (+ 1000 (* 200 (- 83 pitch)))])
                       (case instrument
-                        1 [mario/mario-note (+ 2 (* 30 x)) (+ (* 5 (get pitch-map pitch)) 9) 0.2]
-                        2 [mario/shroom (+ 32 (* 30 x)) (+ (* 5 (get pitch-map pitch)) 12) 0.2]
-                        3 [mario/yoshi (+ 32 (* 30 x)) (+ (* 5 (get pitch-map pitch)) 10) 0.2]
-                        4 [mario/star (+ 32 (* 30 x)) (+ (* 5 (get pitch-map pitch)) 10) 0.2]
-                        5 [mario/flower (+ 32 (* 30 x)) (+ (* 5 (get pitch-map pitch)) 10) 0.2]
-                        6 [mario/gb (+ 32 (* 30 x)) (+ (* 5 (get pitch-map pitch)) 10) 0.2]
-                        7 [mario/dog (+ 32 (* 30 x)) (+ (* 5 (get pitch-map pitch)) 10) 0.2]
-                        8 [mario/kitty (+ 32 (* 30 x)) (+ (* 5 (get pitch-map pitch)) 10) 0.2]
-                        9 [mario/pig (+ 32 (* 30 x)) (+ (* 5 (get pitch-map pitch)) 10) 0.2]
-                        10 [mario/swan (+ 32 (* 30 x)) (+ (* 5 (get pitch-map pitch)) 10) 0.2]
-                        11 [mario/face (+ 32 (* 30 x)) (+ (* 5 (get pitch-map pitch)) 10) 0.2]
-                        12 [mario/plane (+ 32 (* 30 x)) (+ (* 5 (get pitch-map pitch)) 15) 0.2]
-                        13 [mario/boat (+ 32 (* 30 x)) (+ (* 5 (get pitch-map pitch)) 12) 0.2]
-                        14 [mario/car (+ 32 (* 30 x)) (+ (* 5 (get pitch-map pitch)) 12) 0.2]
-                        15 [mario/heart (+ 32 (* 30 x)) (+ (* 5 (get pitch-map pitch)) 12) 0.2]))))))
+                        1 [mario/mario-note (+ 2 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (inc pitch)))) 9) 0.2]
+                        2 [mario/shroom (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (inc pitch)))) 12) 0.2]
+                        3 [mario/yoshi (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (inc pitch)))) 10) 0.2]
+                        4 [mario/star (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (inc pitch)))) 10) 0.2]
+                        5 [mario/flower (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (inc pitch)))) 10) 0.2]
+                        6 [mario/gb (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (inc pitch)))) 10) 0.2]
+                        7 [mario/dog (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (inc pitch)))) 10) 0.2]
+                        8 [mario/kitty (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (inc pitch)))) 10) 0.2]
+                        9 [mario/pig (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (inc pitch)))) 10) 0.2]
+                        10 [mario/swan (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (inc pitch)))) 10) 0.2]
+                        11 [mario/face (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (inc pitch)))) 10) 0.2]
+                        12 [mario/plane (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (inc pitch)))) 15) 0.2]
+                        13 [mario/boat (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (inc pitch)))) 12) 0.2]
+                        14 [mario/car (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (inc pitch)))) 12) 0.2]
+                        15 [mario/heart (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (inc pitch)))) 12) 0.2]
+                        [mario/mario-note (+ 2 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (inc pitch)))) 9) 0.2]))))))
 
 (defn editor []
   (let [notes (subscribe [:notes])
@@ -175,7 +178,10 @@
     [:p (str "Play start: " @(subscribe [:play-start]))]
    [:p (str "Song time: " 
  (- (.-currentTime @audiocontext) @(subscribe [:play-start])))]
-   [:p (str "Notes: " @(subscribe [:notes]))]
+[:p "Notes: "]
+(into [:div]
+  (for [note @(subscribe [:notes])]
+    [:p (str note)]))
    [:p (str "Mario run: " @(subscribe [:mario-run]))]
    [:p (str "Instrument: " @(subscribe [:instrument]))]
    [:p 
@@ -189,5 +195,35 @@
   [:div
    [editor]
    [editor/controls]
+[:div
+ [:h3 "Import song"]
+ [:form
+  {:on-submit
+   (fn [e]
+     (.preventDefault e)
+     (dispatch [:submit-xml (.. e -target -elements -xml -value)]))}
+  [:label
+   "Import MusicXML:"
+   [:input
+    {:name "xml"
+     :type "text"
+     :default-value "Paste MusicXML"}]]
+  [:input {:type "submit"}]]
+ [:form
+  {:on-submit
+   (fn [e]
+     (.preventDefault e)
+     (dispatch [:set-notes (read-string (.. e -target -elements -edn -value))]))}
+  [:label
+   "Import EDN:"
+   [:input
+    {:name "edn"
+     :type "text"
+     :default-value "Paste EDN"}]]
+  [:input {:type "submit"}]]]
+[:div
+  [:p]
+  [:p (str "Song data: " @(subscribe [:xml]))]
+  [:p]]
    ;[sequencer/sequencer]
    [debug-info]])

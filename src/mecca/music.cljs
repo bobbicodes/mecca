@@ -111,7 +111,7 @@
             sounds (range 1 27)]
     (if-not (nil? (first sounds))
       (let [sound (first sounds)                   ; remove the '/mecca/resources/public' to run locally
-            decoded-buffer (<! (get-and-decode {:url (str "/mecca/resources/public/audio/" sound ".mp3")
+            decoded-buffer (<! (get-and-decode {:url (str "/audio/" sound ".mp3")
                                                 :sound sound}))]
         (prn sound)
         (prn decoded-buffer)
@@ -178,7 +178,9 @@
     (set! (.-buffer sample-source) audio-buffer)
     (.setValueAtTime
      (.-playbackRate sample-source)
-     (pitch->rate pitch)
+     (pitch->rate (if (< 83 pitch)
+                    (- pitch 24)
+                    pitch))
      time)
     (.connect sample-source (.-destination @context))
     (.start sample-source time)
@@ -190,4 +192,4 @@
         tempo (subscribe [:tempo])]
     (dispatch [:reset-position])
     (doall (for [{:keys [time instrument pitch]} @notes]
-             (play-at instrument pitch (+ now (* (/ 60 @tempo) time)))))))
+             (play-at instrument pitch (+ now (* (/ 15 @tempo) time)))))))

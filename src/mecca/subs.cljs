@@ -115,3 +115,9 @@
  :mario-jump
  (fn [db _]
    (:mario-jump db)))
+
+(rf/reg-sub
+ :xml
+ (fn [db _]
+   (:xml db)))
+

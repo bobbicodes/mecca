@@ -4,7 +4,7 @@ The Music Education, Composition, Creation Application
 
 MECCA is a sample-based music editor inspired by Mario Paint written in Clojurescript and re-frame.
 
-It was originally meant to be a chiptune tracker that would simply emulate the 4 channels of the NES. But then I started playing around with alternative interfaces and while working on an SVG music notation rendering engine I realized that my priorities were definitely out of whack, and what my program really needed was a jumping Mario.
+It was originally meant to be a chiptune tracker that would simply emulate the 4 channels of the NES. But then I started playing around with alternative interfaces and while working on an SVG music notation rendering engine I realized that my priorities were definitely out of whack, and what my program really needed was a jumping Mario and animal noises.
 
 I found that the specific subset of musical features used in the Mario Paint music maker provides a delightful scope of creative possibilities while remaining very approachable. And by using distinctively styled note heads that play samples of a common length, a whole set of elements to implement goes away, like rests, stems, beams, and the need for multiple staves for each voice.
 

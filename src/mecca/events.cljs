@@ -63,13 +63,326 @@
  (fn [db [_ instrument time pitch]]
    (if (= (.-state @audiocontext) "suspended")
      (.resume @audiocontext))
-   (music/play-sample instrument (if @(subscribe [:sharp?]) (+ 0.5 pitch) pitch))
+   (music/play-sample instrument (if @(subscribe [:sharp?]) (inc pitch) pitch))
    (update db :notes
            conj 
            {:time time
             :instrument instrument
-            :pitch (if @(subscribe [:sharp?]) (inc pitch) pitch)
-            :sharp? @(subscribe [:sharp?])})))
+            :pitch (if @(subscribe [:sharp?])
+                    (inc pitch) pitch)})))
+
+(reg-event-db
+ :load-megaman
+ (fn [db [_ notes]]
+   (dispatch [:set-tempo 360])
+   (assoc db :notes
+          ;(music/mmbass)
+          [{:time 0, :instrument 6, :pitch 72}
+
+           {:time 60, :instrument 8, :pitch 69}
+
+           {:time 59, :instrument 8, :pitch 70}
+
+           {:time 58, :instrument 8, :pitch 67}
+
+           {:time 57, :instrument 8, :pitch 60}
+
+           {:time 55, :instrument 8, :pitch 60}
+
+           {:time 52, :instrument 8, :pitch 69}
+
+           {:time 51, :instrument 8, :pitch 70}
+
+           {:time 50, :instrument 8, :pitch 67}
+
+           {:time 49, :instrument 8, :pitch 60}
+
+           {:time 51, :instrument 14  :pitch 72}
+           {:time 50, :instrument 14  :pitch 74}
+           {:time 49, :instrument 14  :pitch 75}
+           {:time 51, :instrument 14  :pitch 67}
+           {:time 50, :instrument 14  :pitch 70}
+           {:time 49, :instrument 14  :pitch 72}
+           {:time 48, :instrument 14  :pitch 70}
+           {:time 45, :instrument 14  :pitch 70}
+           {:time 43, :instrument 14  :pitch 72}
+           {:time 41, :instrument 14  :pitch 74}
+           {:time 39, :instrument 14  :pitch 75}
+           {:time 37, :instrument 14  :pitch 70}
+           {:time 36, :instrument 14  :pitch 74}
+           {:time 35.5, :instrument 14 :pitch 74}
+           {:time 35, :instrument 14  :pitch 74}
+           {:time 34, :instrument 14  :pitch 74}
+           {:time 33.5, :instrument 14 :pitch 74}
+           {:time 33, :instrument 14  :pitch 74}
+           {:time 48, :instrument 14  :pitch 74}
+           {:time 45, :instrument 14  :pitch 74}
+           {:time 43, :instrument 14  :pitch 75}
+           {:time 41, :instrument 14  :pitch 77}
+           {:time 39, :instrument 14  :pitch 79}
+           {:time 37, :instrument 14  :pitch 74}
+           {:time 36, :instrument 14  :pitch 77}
+           {:time 35.5, :instrument 6, :pitch 77}
+           {:time 35, :instrument 6  :pitch 77}
+           {:time 34, :instrument 6  :pitch 77}
+           {:time 33.5, :instrument 6, :pitch 77}
+           {:time 33, :instrument 14  :pitch 77}
+           {:time 29, :instrument 14  :pitch 74}
+           {:time 27, :instrument 14  :pitch 72}
+           {:time 25, :instrument 14  :pitch 74}
+           {:time 23, :instrument 14  :pitch 75}
+           {:time 21, :instrument 14  :pitch 67}
+           {:time 20, :instrument 14  :pitch 72}
+           {:time 19.5, :instrumen14 6, :pitch 72}
+           {:time 19, :instrument 6  :pitch 72}
+           {:time 18, :instrument 6  :pitch 72}
+           {:time 17.5, :instrument 6, :pitch 72}
+           {:time 17, :instrument 6  :pitch 72}
+           {:time 15, :instrument 6  :pitch 75}
+           {:time 14, :instrument 6  :pitch 74}
+           {:time 13, :instrument 6  :pitch 75}
+           {:time 8, :instrument 6, :pitch 75}
+           {:time 7, :instrument 6, :pitch 72}
+           {:time 11, :instrument 6  :pitch 67}
+           {:time 10, :instrument 6  :pitch 72}
+           {:time 9.5, :instrument 6 , :pitch 72}
+           {:time 9, :instrument 6, :pitch 72}
+           {:time 8, :instrument 6, :pitch 72}
+           {:time 7, :instrument 6, :pitch 67}
+           {:time 5, :instrument 6, :pitch 67}
+           {:time 4, :instrument 6, :pitch 72}
+           {:time 3.5, :instrument 14 :pitch 72}
+           {:time 3, :instrument 6, :pitch 72}
+           {:time 2, :instrument 6, :pitch 72}
+           {:time 1.5, :instrument 14 :pitch 72}
+           {:time 1, :instrument 6, :pitch 72}
+           {:time 29, :instrument 6  :pitch 77}
+
+           {:time 27, :instrument 6, :pitch 75}
+           
+           {:time 25, :instrument 6, :pitch 77}
+
+           {:time 23, :instrument 6, :pitch 79}
+
+           {:time 21, :instrument 6, :pitch 72}
+
+           {:time 20, :instrument 6, :pitch 75}
+
+           {:time 19.5, :instrument 6, :pitch 75}
+
+           {:time 19, :instrument 6, :pitch 75}
+
+           {:time 18, :instrument 6, :pitch 75}
+
+           {:time 17.5, :instrument 14 :pitch 75}
+           {:time 17, :instrument 14 :pitch 75}
+           {:time 15, :instrument 14 :pitch 79}
+           {:time 14, :instrument 14 :pitch 77}
+           {:time 13, :instrument 14 :pitch 79}
+           {:time 11, :instrument 14 :pitch 72}
+           {:time 10, :instrument 14 :pitch 75}
+           {:time 9.5, :instrument 14 :pitch 75}
+           {:time 9, :instrument 14 :pitch 75}
+           {:time 5, :instrument 14 :pitch 72}
+           {:time 4, :instrument 14 :pitch 75}
+           {:time 3.5, :instrument 14 :pitch 75}
+           {:time 3, :instrument 14 :pitch 75}
+           {:time 2, :instrument 14 :pitch 75}
+           {:time 1.5, :instrument 14 :pitch 75}
+           {:time 1, :instrument 14 :pitch 75}
+
+           {:time 0, :instrument 6, :pitch 60}
+
+           {:time 1, :instrument 6, :pitch 60}
+
+           {:time 1.5, :instrument 6, :pitch 60}
+
+           {:time 2, :instrument 6, :pitch 60}
+
+           {:time 3, :instrument 6, :pitch 60}
+
+           {:time 3.5, :instrument 6, :pitch 60}
+
+           {:time 4, :instrument 6, :pitch 60}
+
+           {:time 5, :instrument 6, :pitch 60}
+
+           {:time 5.5, :instrument 6, :pitch 60}
+
+           {:time 6, :instrument 6, :pitch 60}
+
+           {:time 7, :instrument 6, :pitch 60}
+
+           {:time 7.5, :instrument 6, :pitch 60}
+
+           {:time 8, :instrument 6, :pitch 60}
+
+           {:time 9, :instrument 6, :pitch 60}
+
+           {:time 9.5, :instrument 6, :pitch 60}
+
+           {:time 10, :instrument 6, :pitch 60}
+
+           {:time 11, :instrument 6, :pitch 60}
+
+           {:time 11.5, :instrument 6, :pitch 60}
+
+           {:time 12, :instrument 6, :pitch 60}
+
+           {:time 13, :instrument 6, :pitch 60}
+
+           {:time 13.5, :instrument 6, :pitch 60}
+
+           {:time 14, :instrument 6, :pitch 60}
+
+           {:time 15, :instrument 6, :pitch 60}
+
+           {:time 15.5, :instrument 6, :pitch 60}
+
+           {:time 16, :instrument 6, :pitch 56}
+
+           {:time 17, :instrument 6, :pitch 56}
+
+           {:time 17.5, :instrument 6, :pitch 56}
+
+           {:time 18, :instrument 6, :pitch 56}
+
+           {:time 19, :instrument 6, :pitch 56}
+
+           {:time 19.5, :instrument 6, :pitch 56}
+
+           {:time 20, :instrument 6, :pitch 56}
+
+           {:time 21, :instrument 6, :pitch 56}
+
+           {:time 21.5, :instrument 6, :pitch 56}
+
+           {:time 22, :instrument 6, :pitch 56}
+
+           {:time 23, :instrument 6, :pitch 56}
+
+           {:time 23.5, :instrument 6, :pitch 56}
+
+           {:time 24, :instrument 6, :pitch 56}
+
+           {:time 25, :instrument 6, :pitch 56}
+
+           {:time 25.5, :instrument 6, :pitch 56}
+
+           {:time 26, :instrument 6, :pitch 56}
+
+           {:time 27, :instrument 6, :pitch 56}
+
+           {:time 27.5, :instrument 6, :pitch 56}
+
+           {:time 28, :instrument 6, :pitch 56}
+
+           {:time 29, :instrument 6, :pitch 56}
+
+           {:time 29.5, :instrument 6, :pitch 56}
+
+           {:time 30, :instrument 6, :pitch 56}
+
+           {:time 31, :instrument 6, :pitch 56}
+
+           {:time 31.5, :instrument 6, :pitch 56}
+
+           {:time 32, :instrument 6, :pitch 58}
+
+           {:time 33, :instrument 6, :pitch 58}
+
+           {:time 33.5, :instrument 6, :pitch 58}
+
+           {:time 34, :instrument 6, :pitch 58}
+
+           {:time 35, :instrument 6, :pitch 58}
+
+           {:time 35.5, :instrument 6, :pitch 58}
+
+           {:time 36, :instrument 6, :pitch 58}
+
+           {:time 37, :instrument 6, :pitch 58}
+
+           {:time 37.5, :instrument 6, :pitch 58}
+
+           {:time 38, :instrument 6, :pitch 58}
+
+           {:time 39, :instrument 6, :pitch 58}
+
+           {:time 39.5, :instrument 6, :pitch 58}
+
+           {:time 40, :instrument 6, :pitch 58}
+
+           {:time 41, :instrument 6, :pitch 58}
+
+           {:time 41.5, :instrument 6, :pitch 58}
+
+           {:time 42, :instrument 6, :pitch 58}
+
+           {:time 43, :instrument 6, :pitch 58}
+
+           {:time 43.5, :instrument 6, :pitch 58}
+
+           {:time 44, :instrument 6, :pitch 58}
+
+           {:time 45, :instrument 6, :pitch 58}
+
+           {:time 45.5, :instrument 6, :pitch 58}
+
+           {:time 46, :instrument 6, :pitch 58}
+
+           {:time 47, :instrument 6, :pitch 58}
+
+           {:time 47.5, :instrument 6, :pitch 58}
+
+           {:time 48, :instrument 6, :pitch 60}
+
+           {:time 49, :instrument 6, :pitch 60}
+
+           {:time 49.5, :instrument 6, :pitch 60}
+
+           {:time 50, :instrument 6, :pitch 60}
+
+           {:time 51, :instrument 6, :pitch 60}
+
+           {:time 51.5, :instrument 6, :pitch 60}
+
+           {:time 52, :instrument 6, :pitch 60}
+
+           {:time 53, :instrument 6, :pitch 60}
+
+           {:time 53.5, :instrument 6, :pitch 60}
+
+           {:time 54, :instrument 6, :pitch 60}
+
+           {:time 55, :instrument 6, :pitch 60}
+
+           {:time 55.5, :instrument 6, :pitch 60}
+
+           {:time 56, :instrument 6, :pitch 60}
+
+           {:time 57, :instrument 6, :pitch 60}
+
+           {:time 57.5, :instrument 6, :pitch 60}
+
+           {:time 58, :instrument 6, :pitch 60}
+
+           {:time 59, :instrument 6, :pitch 60}
+
+           {:time 59.5, :instrument 6, :pitch 60}
+
+           {:time 60, :instrument 6, :pitch 60}
+
+           {:time 61, :instrument 6, :pitch 60}
+
+           {:time 61.5, :instrument 6, :pitch 60}
+
+           {:time 62, :instrument 6, :pitch 60}
+
+           {:time 63, :instrument 6, :pitch 60}
+
+           {:time 63.5, :instrument 6, :pitch 60}]
+          )))
 
 (reg-event-db
  :load-zelda

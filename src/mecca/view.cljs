@@ -77,12 +77,14 @@
 
 (defn note-cursor []
   (let [focused (subscribe [:focused-note-pos])
-        instrument (subscribe [:instrument])]
+        instrument (subscribe [:instrument])
+        sharp? (subscribe [:sharp?])]
     (fn []
       (when-not (= @focused [nil nil])
         (let [x (first @focused) y (last @focused)]
-          (if @(subscribe [:sharp?])
-            [editor/sharp-symbol (+ 1000 (* 1200 x)) (+ 1000 (* 200 y))])
+          (if @sharp?
+            [editor/sharp-symbol x y]
+          )
           (if @(subscribe [:eraser?])
             [editor/eraser-cursor (+ 36 (* 30 x)) (+ (* 5 y) 20) 0.2]
             (case @instrument
@@ -196,31 +198,17 @@
    [editor]
    [editor/controls]
 [:div
- [:h3 "Import song"]
- [:form
-  {:on-submit
-   (fn [e]
-     (.preventDefault e)
-     (dispatch [:submit-xml (.. e -target -elements -xml -value)]))}
-  [:label
-   "Import MusicXML:"
-   [:input
-    {:name "xml"
-     :type "text"
-     :default-value "Paste MusicXML"}]]
-  [:input {:type "submit"}]]
- [:form
-  {:on-submit
-   (fn [e]
-     (.preventDefault e)
-     (dispatch [:set-notes (read-string (.. e -target -elements -edn -value))]))}
-  [:label
-   "Import EDN:"
-   [:input
-    {:name "edn"
-     :type "text"
-     :default-value "Paste EDN"}]]
-  [:input {:type "submit"}]]]
+ [:label {:for "edn"} "Import song data:"
+  [:p]
+  [:form
+   {:on-submit
+    (fn [e]
+      (.preventDefault e)
+      (dispatch [:set-notes (read-string (.. e -target -elements -edn -value))]))}
+   [:textarea {:id "edn" :name "edn"
+               :rows 8 :cols 38}]
+   [:p]
+  [:input {:type "submit" :value "Import"}]]]]
 [:div
   [:p]
   [:p (str "Song data: " @(subscribe [:xml]))]

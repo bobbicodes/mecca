@@ -134,7 +134,7 @@
             sounds (range 1 27)]
     (if-not (nil? (first sounds))
       (let [sound (first sounds)                   ; remove the '/mecca/resources/public' to run locally
-            decoded-buffer (<! (get-and-decode {:url (str "/audio/" sound ".mp3")
+            decoded-buffer (<! (get-and-decode {:url (str "/mecca/resources/public/audio/" sound ".mp3")
                                                 :sound sound}))]
         (prn sound)
         (prn decoded-buffer)
@@ -189,8 +189,8 @@
      (.-playbackRate sample-source)
      (pitch->rate pitch)
      (.-currentTime @context))
-    (.connect sample-source compressor)
-    (.connect compressor (.-destination @context))
+    ;(.connect sample-source compressor)
+    (.connect sample-source (.-destination @context))
     (.start sample-source)
     sample-source))
 

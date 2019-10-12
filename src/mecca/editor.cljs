@@ -290,11 +290,10 @@
      [:path {:d "M110 88h1M103 94h1"
              :stroke "#c8d0a8"}]]))
 
-(defn sharp-symbol [x y]
-  [:path {:transform (str "scale(1) translate(" x "," (- y)")")
-          :on-click #(do (dispatch [:sharp-toggle])
-                         (music/play-sample 17 63))
-          :d "M15 5C15 4 14 4 13 4 13 4 12 4 12 5V14L7 12V2C7 2 6 1 6 1 5 1 5 2 5 2V11L3 11C3 11 2 11 2 11 2 11 1 11 1 12V16C1 16 1 17 2 17L5 18V28L3 27C3 27 2 27 2 27 2 27 1 28 1 28V32C1 32 1 33 2 33L5 34V44C5 45 5 45 6 45 6 45 7 45 7 44V35L12 37V47C12 47 13 48 13 48 14 48 15 47 15 47V38L17 38C17 39 17 39 17 39 18 39 18 38 18 37V34C18 33 18 33 17 32L15 31V21L17 22C17 22 17 22 17 22 18 22 18 22 18 21V17C18 17 18 16 17 16L15 15V5ZM7 29V19L12 20V30Z"}])
+(defn sharp-symbol [x y scale]
+   [:path {:transform (str "scale(" scale ") translate(" x "," y ")")
+           :stroke "black"
+           :d "M15 46C15 47 14 47 13 47 13 47 12 47 12 46V37L7 39V49C7 49 6 50 6 50 5 50 5 49 5 49V40L3 40C3 40 2 40 2 40 2 40 1 40 1 39V35C1 35 1 34 2 34L5 33V23L3 24C3 24 2 24 2 24 2 24 1 23 1 23V19C1 19 1 18 2 18L5 17V7C5 6 5 6 6 6 6 6 7 6 7 7V16L12 14V4C12 4 13 3 13 3 14 3 15 4 15 4V13L17 13C17 12 17 12 17 12 18 12 18 13 18 14V17C18 18 18 18 17 19L15 20V30L17 29C17 29 17 29 17 29 18 29 18 29 18 30V34C18 34 18 35 17 35L15 36V46ZM7 22V32L12 31V21Z"}])
 
 (defn sharp-button [x y scale]
   (let [sharp? (subscribe [:sharp?])]

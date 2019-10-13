@@ -70,7 +70,7 @@
                                                    (= pitch 15)
                                                    (= pitch 8)
                                                    (= pitch 5)
-                                                   (= pitch 0)))
+                                                   (= pitch 1)))
                                         (dispatch [:update-focus-note [time pitch]]))
                       :on-mouse-out #(dispatch [:update-focus-note [nil nil]])
                       :on-click (let [pitches [83 82 80 79 77 76 74 72 71 69 67 65 64 62 60 59 57 55]]

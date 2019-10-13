@@ -70,10 +70,11 @@
                                                    (= pitch 15)
                                                    (= pitch 8)
                                                    (= pitch 5)
-                                                   (= pitch 1)))
+                                                   (= pitch 1)
+                                                   (= pitch 0)))
                                         (dispatch [:update-focus-note [time pitch]]))
                       :on-mouse-out #(dispatch [:update-focus-note [nil nil]])
-                      :on-click (let [pitches [83 82 80 79 77 76 74 72 71 69 67 65 64 62 60 59 57 55]]
+                      :on-click (let [pitches [84 83 81 79 77 76 74 72 71 69 67 65 64 62 60 59 57 55]]
                                   (if @(subscribe [:eraser?])
                                     #(do (music/play-sample 18 63)
                                        (dispatch [:remove-note (+ time (dec @editor-x))
@@ -108,7 +109,7 @@
                 12 [mario/plane (+ 32 (* 30 x)) (+ (* 5 y) 15) 0.2]
                 13 [mario/boat (+ 32  (* 30 x)) (+ (* 5 y) 12) 0.2]
                 14 [mario/car (+ 32 (* 30 x)) (+ (* 5 y) 12) 0.2]
-                15 [mario/heart (+ 32 (* 30 x)) (+ (* 5 y) 12) 0.2]))]))))
+                15 [mario/heart (+ 32 (* 30 x)) (+ (* 5 y) 15) 0.2]))]))))
 
 (defn score-notes []
    (let [notes (subscribe [:notes])
@@ -118,7 +119,7 @@
                  :when (<= (dec @editor-x) time (+ 16 (dec @editor-x)))]
                     ^{:key [instrument time pitch]}
                     (let [x (- time (dec @editor-x))
-                          pitch-map (zipmap [83 82 80 79 77 76 74 72 71 69 67 65 64 62 60 59 57 55]
+                          pitch-map (zipmap [84 83 81 79 77 76 74 72 71 69 67 65 64 62 60 59 57 55]
                                             (range 18))]
                       [:g
                        (if-not (get pitch-map pitch)
@@ -139,7 +140,7 @@
                         12 [mario/plane (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (dec pitch)))) 15) 0.2]
                         13 [mario/boat (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (dec pitch)))) 12) 0.2]
                         14 [mario/car (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (dec pitch)))) 12) 0.2]
-                        15 [mario/heart (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (dec pitch)))) 12) 0.2]
+                        15 [mario/heart (+ 32 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (dec pitch)))) 15) 0.2]
                         [mario/mario-note (+ 2 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (dec pitch)))) 9) 0.2])])))))
 
 (defn editor []

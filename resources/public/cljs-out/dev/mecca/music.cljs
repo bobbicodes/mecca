@@ -29,6 +29,29 @@
       (dispatch [:schedule-note @current-note @next-note-time])
       (dispatch [:next-note]))))
 
+
+(defn mm [time instrument pitch]
+  [{:time time :instrument instrument :pitch pitch}
+   {:time (inc time) :instrument instrument :pitch pitch}
+   {:time (+ 1.5 time) :instrument instrument :pitch pitch}])
+
+(defn mm8 [time instrument pitch]
+  (apply concat
+   (for [beat (range 0 8 2)]
+     (mm (+ beat time) instrument pitch))))
+
+(defn mmbass []
+  (concat
+   (mm8 0 6 60)
+   (mm8 8 6 60)
+   (mm8 16 6 56)
+   (mm8 24 6 56)
+   (mm8 32 6 58)
+   (mm8 40 6 58)
+   (mm8 48 6 60)
+   (mm8 56 6 60)))
+
+
 (defn mario-jump? []
   (let [beat @(subscribe [:current-position])
         notes @(subscribe [:notes])]
@@ -166,8 +189,8 @@
      (.-playbackRate sample-source)
      (pitch->rate pitch)
      (.-currentTime @context))
-    (.connect sample-source compressor)
-    (.connect compressor (.-destination @context))
+    ;(.connect sample-source compressor)
+    (.connect sample-source (.-destination @context))
     (.start sample-source)
     sample-source))
 
@@ -178,7 +201,9 @@
     (set! (.-buffer sample-source) audio-buffer)
     (.setValueAtTime
      (.-playbackRate sample-source)
-     (pitch->rate pitch)
+     (pitch->rate (if (< 83 pitch)
+                    (- pitch 24)
+                    pitch))
      time)
     (.connect sample-source (.-destination @context))
     (.start sample-source time)

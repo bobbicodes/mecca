@@ -28,7 +28,7 @@ body {
   background-color: var(--sky);
   padding: 0;
   font-family: sans-serif, system-ui;
-  font-size: 120%;
+  font-size: 100%;
   color: var(--black);
 }
 
@@ -48,10 +48,10 @@ h2 {
 
   p {
     font-size : 16px;
-    padding : 8px;
+    padding : 2px;
     color: crimson;
     margin : 0;
-    line-height : 8px;
+    line-height : 16px;
 }
 
 label {

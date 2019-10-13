@@ -8,8 +8,8 @@ mecca.xml.get_measures = (function mecca$xml$get_measures(score){
 return cljs.core.cst$kw$content.cljs$core$IFn$_invoke$arity$1(cljs.core.nth.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$content.cljs$core$IFn$_invoke$arity$1(score),(7)));
 });
 mecca.xml.get_tag = (function mecca$xml$get_tag(tag,content){
-return cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p1__24100_SHARP_){
-return cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(tag,cljs.core.get.cljs$core$IFn$_invoke$arity$2(p1__24100_SHARP_,cljs.core.cst$kw$tag));
+return cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p1__20991_SHARP_){
+return cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(tag,cljs.core.get.cljs$core$IFn$_invoke$arity$2(p1__20991_SHARP_,cljs.core.cst$kw$tag));
 }),cljs.core.cst$kw$content.cljs$core$IFn$_invoke$arity$1(content));
 });
 mecca.xml.extract_notes = (function mecca$xml$extract_notes(measure){
@@ -28,8 +28,8 @@ mecca.xml.get_voice = (function mecca$xml$get_voice(note){
 return parseInt(mecca.xml.get_attr(cljs.core.cst$kw$voice,note));
 });
 mecca.xml.extract_voice = (function mecca$xml$extract_voice(measure,voice){
-return cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p1__24101_SHARP_){
-return cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(voice,mecca.xml.get_voice(p1__24101_SHARP_));
+return cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p1__20992_SHARP_){
+return cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(voice,mecca.xml.get_voice(p1__20992_SHARP_));
 }),mecca.xml.get_tag(cljs.core.cst$kw$note,measure));
 });
 mecca.xml.get_step = (function mecca$xml$get_step(pitch){
@@ -49,8 +49,8 @@ var alter = ((cljs.core.int_QMARK_(mecca.xml.get_alter(pitch)))?mecca.xml.get_al
 return ((cljs.core.get.cljs$core$IFn$_invoke$arity$2(pitch_steps,step) + base_pitch) + alter);
 });
 mecca.xml.parse_note = (function mecca$xml$parse_note(note,time){
-return new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,time,cljs.core.cst$kw$pitch,((mecca.xml.pitch__GT_midi(mecca.xml.get_pitch(note)) + (function (){var G__24102 = mecca.xml.get_voice(note);
-switch (G__24102) {
+return new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,time,cljs.core.cst$kw$pitch,((mecca.xml.pitch__GT_midi(mecca.xml.get_pitch(note)) + (function (){var G__20993 = mecca.xml.get_voice(note);
+switch (G__20993) {
 case (5):
 return (12);
 
@@ -59,8 +59,8 @@ default:
 return (0);
 
 }
-})()) + (6)),cljs.core.cst$kw$instrument,(function (){var G__24103 = mecca.xml.get_voice(note);
-switch (G__24103) {
+})()) + (6)),cljs.core.cst$kw$instrument,(function (){var G__20994 = mecca.xml.get_voice(note);
+switch (G__20994) {
 case (5):
 return (15);
 
@@ -70,7 +70,7 @@ return (14);
 
 break;
 default:
-throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__24103)].join('')));
+throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__20994)].join('')));
 
 }
 })()], null);
@@ -83,12 +83,12 @@ while(true){
 if(cljs.core.empty_QMARK_(notes)){
 return result;
 } else {
-var G__24106 = (time + (mecca.xml.get_duration(cljs.core.first(notes)) / (6)));
-var G__24107 = cljs.core.rest(notes);
-var G__24108 = cljs.core.conj.cljs$core$IFn$_invoke$arity$2(result,mecca.xml.parse_note(cljs.core.first(notes),time));
-time = G__24106;
-notes = G__24107;
-result = G__24108;
+var G__20997 = (time + (mecca.xml.get_duration(cljs.core.first(notes)) / (6)));
+var G__20998 = cljs.core.rest(notes);
+var G__20999 = cljs.core.conj.cljs$core$IFn$_invoke$arity$2(result,mecca.xml.parse_note(cljs.core.first(notes),time));
+time = G__20997;
+notes = G__20998;
+result = G__20999;
 continue;
 }
 break;
@@ -97,8 +97,8 @@ break;
 mecca.xml.parse_voice = (function mecca$xml$parse_voice(voice){
 var time = (1);
 var notes = cljs.core.flatten(cljs.core.map.cljs$core$IFn$_invoke$arity$2(((function (time){
-return (function (p1__24109_SHARP_){
-return mecca.xml.extract_voice(p1__24109_SHARP_,voice);
+return (function (p1__21000_SHARP_){
+return mecca.xml.extract_voice(p1__21000_SHARP_,voice);
 });})(time))
 ,mecca.xml.get_measures(mecca.score.zelda_parsed)));
 var result = cljs.core.PersistentVector.EMPTY;
@@ -106,12 +106,12 @@ while(true){
 if(cljs.core.empty_QMARK_(notes)){
 return result;
 } else {
-var G__24110 = (time + (mecca.xml.get_duration(cljs.core.first(notes)) / (6)));
-var G__24111 = cljs.core.rest(notes);
-var G__24112 = cljs.core.conj.cljs$core$IFn$_invoke$arity$2(result,mecca.xml.parse_note(cljs.core.first(notes),time));
-time = G__24110;
-notes = G__24111;
-result = G__24112;
+var G__21001 = (time + (mecca.xml.get_duration(cljs.core.first(notes)) / (6)));
+var G__21002 = cljs.core.rest(notes);
+var G__21003 = cljs.core.conj.cljs$core$IFn$_invoke$arity$2(result,mecca.xml.parse_note(cljs.core.first(notes),time));
+time = G__21001;
+notes = G__21002;
+result = G__21003;
 continue;
 }
 break;

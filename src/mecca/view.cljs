@@ -162,13 +162,12 @@
            :fill "none"
            :height 20 :width 63.5 :x 0.25 :y 14.5}]
        [:g.staff {:transform "translate(0,13.5) scale(1)"
-                  :style {:cursor "url(./images/hand.png),crosshair"}}
+                  :style {:cursor "url(/mecca/resources/public/images/hand.png),crosshair"}}
         [notation/staff-lines]
         [editor/retract-editor 2]
-        [:g#clefs
          [notation/treble-clef
           (- 0.8 (* 6 (dec @editor-x)))
-          6.3]]
+          6.3]
         [editor/advance-editor]
         [note-targets]
         [note-guides]

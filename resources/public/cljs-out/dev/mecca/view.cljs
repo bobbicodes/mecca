@@ -205,6 +205,9 @@
   [:div
    [editor]
    [editor/controls]
+   [:div 
+    [:input#input {:type "file"
+                   :on-change #(.log js/console "wat")}]]
 [:div
  [:label {:for "edn"} "Import song data:"
   [:p]

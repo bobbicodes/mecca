@@ -4,6 +4,7 @@
    [goog.dom :as gdom]
    [reagent.core :as r]
    [re-frame.core :as rf]
+   [re-pressed.core :as rp]
    [day8.re-frame.http-fx]
    [mecca.events]
    [mecca.subs]
@@ -12,6 +13,8 @@
    [cljs.core.async.macros :refer [go go-loop]]))
 
 (rf/dispatch-sync [:initialize-db])
+
+(rf/dispatch-sync [::rp/add-keyboard-event-listener "keydown"])
 
 (defn get-app-element []
   (gdom/getElement "app"))

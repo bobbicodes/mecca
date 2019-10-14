@@ -53,13 +53,12 @@
 
 
 (defn mario-jump? []
-  (let [beat @(subscribe [:current-position])
-        notes @(subscribe [:notes])]
+  (let [beat (subscribe [:current-position])
+        notes (subscribe [:notes])]
     (when @(subscribe [:playing?])
-      (if (< 0 (count (filter #(= (:time %) beat)
-                              @(subscribe [:notes]))))
-      (dispatch [:jump!])
-        (dispatch [:down!])))))
+      (if (< 0 (count (filter #(= (:time %) (+ @beat 1.5))
+                              @notes)))
+      (dispatch [:jump!])))))
 
 (defn mario-move []
   (let [playing? @(subscribe [:playing?])
@@ -89,7 +88,7 @@
       (song-done?)
   (scheduler))
 
-(defonce do-timer (js/setInterval dispatch-timer-event 150))
+(defonce do-timer (js/setInterval dispatch-timer-event 60))
 
 (defn load-sound [named-url]
   (let [out (chan)
@@ -133,7 +132,7 @@
   (go-loop [result {}
             sounds (range 1 27)]
     (if-not (nil? (first sounds))
-      (let [sound (first sounds)                   ; remove the '/mecca/resources/public' to run locally
+      (let [sound (first sounds)                   ; for Github Pages - remove the '/mecca/resources/public' to run locally
             decoded-buffer (<! (get-and-decode {:url (str "/mecca/resources/public/audio/" sound ".mp3")
                                                 :sound sound}))]
         (prn sound)

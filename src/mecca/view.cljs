@@ -6,6 +6,7 @@
             [mecca.events :as events]
             [mecca.notation :as notation]
             [mecca.castle :as castle]
+            [mecca.transport :as transport]
             [mecca.editor :as editor :refer [svg-paths]]
             [mecca.xml :as xml]
             [mecca.mario :as mario :refer [mario]]
@@ -188,12 +189,12 @@
     [:p (str "Play start: " @(subscribe [:play-start]))]
    [:p (str "Song time: " 
  (- (.-currentTime @audiocontext) @(subscribe [:play-start])))]
-[:p "Notes: "]
+[:p "Song data: "]
 (into [:p]
   (for [note @(subscribe [:notes])]
     (pr-str note)))
+   ;[:p (str "Mario run: " @(subscribe [:mario-run]))]
    [:p (str "Mario run: " @(subscribe [:mario-run]))]
-   [:p (str "Instrument: " @(subscribe [:instrument]))]
    [:p 
     (let [mouse-pos (subscribe [:focused-note-pos])]
       (str "Beat: " (first @mouse-pos) " Pitch: " (last @mouse-pos)))]
@@ -204,24 +205,28 @@
 (defn mecca []
   [:div
    [editor]
-   [editor/controls]
-   [:div 
-    [:input#input {:type "file"
-                   :on-change #(.log js/console "wat")}]]
-[:div
- [:label {:for "edn"} "Import song data:"
-  [:p]
-  [:form
-   {:on-submit
-    (fn [e]
-      (.preventDefault e)
-      (dispatch [:set-notes (read-string (.. e -target -elements -edn -value))]))}
-   [:textarea {:id "edn" :name "edn"
-               :rows 8 :cols 38}]
-   [:p]
-  [:input {:type "submit" :value "Import"}]]]]
-[:div
-  [:p]
-  [:p (str "Song data: " @(subscribe [:xml]))]
-  [:p]]
-   [debug-info]])
+   [transport/transport 140 0 0.5]
+   [editor/toolbar 71 0]
+   #_[:div
+    [:label {:for "edn"} "Load song data:"
+     [:p]
+     [:form
+      {:on-submit
+       (fn [e]
+         (.preventDefault e)
+         (dispatch [:set-notes (read-string (.. e -target -elements -edn -value))]))}
+      [:textarea {:id "edn" :name "edn"
+                  :rows 8 :cols 38}]
+      [:p]
+      [:input {:type "submit" :value "Import"}]]]]
+    #_[:div
+     [:input#input {:type "file"
+                    :on-change #(.log js/console "wat")}]]
+   [debug-info]
+   #_[:svg
+    (svg-paths [["#000000" "M0 0h14M0 1h1M13 1h1M0 2h1M4 2h1M13 2h1M0 3h1M3 3h2M13 3h1M0 4h1M2 4h1M4 4h1M9 4h1M13 4h1M0 5h1M2 5h4M8 5h1M13 5h1M0 6h1M4 6h1M7 6h1M13 6h1M0 7h1M6 7h1M9 7h1M13 7h1M0 8h1M5 8h1M8 8h2M13 8h1M0 9h1M4 9h1M7 9h1M9 9h1M13 9h1M0 10h1M7 10h4M13 10h1M0 11h1M9 11h1M13 11h1M0 12h1M13 12h1M0 13h1M13 13h1M0 14h14"]
+                ["#d6944a" "M1 1h1M12 1h1M1 13h1"]
+                ["#ffffff" "M2 1h10M1 2h1M1 3h1M1 4h1M1 5h1M1 6h1M1 7h1M1 8h1M1 9h1M1 10h1M1 11h1M1 12h1"]
+                ["#ffff00" "M2 2h2M5 2h7M2 3h1M5 3h7M3 4h1M5 4h4M10 4h2M6 5h2M9 5h3M2 6h2M5 6h2M8 6h4M2 7h4M7 7h2M10 7h2M2 8h3M6 8h2M10 8h2M2 9h2M5 9h2M8 9h1M10 9h2M2 10h5M11 10h1M2 11h7M10 11h2M2 12h10"]
+                ["#b54a00" "M12 2h1M12 3h1M12 4h1M12 5h1M12 6h1M12 7h1M12 8h1M12 9h1M12 10h1M12 11h1M12 12h1M2 13h11"]]
+               0 0 5)]])

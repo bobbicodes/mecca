@@ -1,5 +1,4 @@
 ^{:watch-dirs ["test" "src"]
   :css-dirs ["resources/public/css"]
   :auto-testing true}
-{:main mecca.core
- :externs ["externs.js"]}
+{:main mecca.core}

@@ -30,57 +30,66 @@
       (dispatch [:next-note]))))
 
 
-(defn mm [time instrument pitch]
-  [{:time time :instrument instrument :pitch pitch}
-   {:time (inc time) :instrument instrument :pitch pitch}
-   {:time (+ 1.5 time) :instrument instrument :pitch pitch}])
+(defn mmbass-minor-triad [time root]
+  [{:time time :instrument 15, :pitch root}
+   {:time (+ time 1.5) :instrument 15, :pitch root}
+   {:time (+ time 2) :instrument 15, :pitch (+ root 3)}
+   {:time (+ time 3) :instrument 15, :pitch (+ root 7)}
+   {:time (+ time 4.5) :instrument 15, :pitch root}
+   {:time (+ time 5) :instrument 15, :pitch root}
+   {:time (+ time 5.5) :instrument 15, :pitch root}
+   {:time (+ time 6) :instrument 15, :pitch (+ root 3)}
+   {:time (+ time 7) :instrument 15, :pitch (+ root 7)}])
 
-(defn mm8 [time instrument pitch]
+(defn mmbass-major-triad [time root]
+  [{:time time :instrument 15, :pitch root}
+   {:time (+ time 1.5) :instrument 15, :pitch root}
+   {:time (+ time 2) :instrument 15, :pitch (+ root 4)}
+   {:time (+ time 3) :instrument 15, :pitch (+ root 7)}
+   {:time (+ time 4.5) :instrument 15, :pitch root}
+   {:time (+ time 5) :instrument 15, :pitch root}
+   {:time (+ time 5.5) :instrument 15, :pitch root}
+   {:time (+ time 6) :instrument 15, :pitch (+ root 4)}
+   {:time (+ time 7) :instrument 15, :pitch (+ root 7)}])
+
+(defn mm8 [time pitch]
   (apply concat
    (for [beat (range 0 8 2)]
-     (mm (+ beat time) instrument pitch))))
+     (mmbass-minor-triad (+ beat time) pitch))))
 
 (defn mmbass []
   (concat
-   (mm8 0 6 60)
-   (mm8 8 6 60)
-   (mm8 16 6 56)
-   (mm8 24 6 56)
-   (mm8 32 6 58)
-   (mm8 40 6 58)
-   (mm8 48 6 60)
-   (mm8 56 6 60)))
-
+   (mmbass-minor-triad 0 64)
+   (mmbass-major-triad 8 60)
+   (mmbass-major-triad 16 62)
+   (mmbass-minor-triad 24 64)))
 
 (defn mario-jump? []
   (let [beat (subscribe [:current-position])
-        notes (subscribe [:notes])]
-    (when @(subscribe [:playing?])
-      (if (< 0 (count (filter #(= (:time %) (+ @beat 1.5))
+        notes (subscribe [:notes])
+        jump (subscribe [:mario-jump])]
+    (when (and @(subscribe [:playing?])
+           (zero? @jump))
+      (if (< 0 (count (filter #(= (:time %) (inc @beat))
                               @notes)))
       (dispatch [:jump!])))))
-
-(defn mario-move []
-  (let [playing? @(subscribe [:playing?])
-        beat @(subscribe [:current-position])]
-    (when playing?
-      (dispatch [:move-mario (* 40 beat)]))))
 
 (defn song-done? []
   (let [notes (subscribe [:notes])
         playing? @(subscribe [:playing?])
         now (.-currentTime @audiocontext)
         length (apply max (map #(:time %) @notes))
-        started @(subscribe [:play-start])
-        elapsed (- (current-time @audiocontext) started)
+        started (subscribe [:play-start])
+        elapsed (- (current-time @audiocontext) @started)
         beat-length (/ 60 @(subscribe [:tempo]))
-        current-beat (/ elapsed beat-length)]
+        current-beat (/ elapsed beat-length)
+        last-drawn-pos (subscribe [:current-position])]
     (when playing?
       (if (< length current-beat)
         (dispatch [:play-off])
-        (if (< (+ started beat-length) now)
-          (dispatch [:advance-position]))))
-    (mario-move)
+        (if (< @last-drawn-pos current-beat)
+          (do (dispatch [:move-mario])
+            (dispatch [:advance-position])))))
     (mario-jump?)))
 
 (defn dispatch-timer-event []
@@ -88,7 +97,7 @@
       (song-done?)
   (scheduler))
 
-(defonce do-timer (js/setInterval dispatch-timer-event 60))
+(defonce do-timer (js/setInterval dispatch-timer-event 30))
 
 (defn load-sound [named-url]
   (let [out (chan)

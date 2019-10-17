@@ -98,7 +98,7 @@
   (scheduler))
 
 (defonce do-timer
-  (js/setInterval dispatch-timer-event 150))
+  (js/setInterval dispatch-timer-event 30))
 
 (defn load-sound [named-url]
   (let [out (chan)

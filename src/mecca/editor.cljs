@@ -94,6 +94,16 @@
                     ["#737373" "M5 8h1M6 10h1M8 10h1M5 11h1M6 13h1"]])
                  x y scale))))
 
+(defn repeat-button [x y scale]
+  (svg-paths {:on-click #(do (dispatch [:repeat-toggle])
+                           (music/play-sample 17 63))}
+             (if @(subscribe [:repeat?])
+               [["#000000" "M0 0h13M0 1h1M12 1h1M0 2h1M12 2h1M0 3h1M3 3h8M12 3h1M0 4h1M6 4h1M8 4h3M12 4h1M0 5h1M3 5h8M12 5h1M0 6h1M6 6h1M8 6h3M12 6h1M0 7h1M3 7h8M12 7h1M0 8h1M6 8h1M8 8h3M12 8h1M0 9h1M3 9h8M12 9h1M0 10h1M6 10h1M8 10h3M12 10h1M0 11h1M3 11h8M12 11h1M0 12h1M12 12h1M0 13h13"]
+                ["#f8f800" "M1 1h11M1 2h11M1 3h2M11 3h1M1 4h5M7 4h1M11 4h1M1 5h2M11 5h1M1 6h5M7 6h1M11 6h1M1 7h2M11 7h1M1 8h5M7 8h1M11 8h1M1 9h2M11 9h1M1 10h5M7 10h1M11 10h1M1 11h2M11 11h1M1 12h11"]]
+               [["#000000" "M0 0h13M0 1h1M12 1h1M0 2h1M12 2h1M0 3h1M3 3h8M12 3h1M0 4h1M6 4h1M8 4h3M12 4h1M0 5h1M3 5h8M12 5h1M0 6h1M6 6h1M8 6h3M12 6h1M0 7h1M3 7h8M12 7h1M0 8h1M6 8h1M8 8h3M12 8h1M0 9h1M3 9h8M12 9h1M0 10h1M6 10h1M8 10h3M12 10h1M0 11h1M3 11h8M12 11h1M0 12h1M12 12h1M0 13h13"]
+                ["gray" "M1 1h11M1 2h11M1 3h2M11 3h1M1 4h5M7 4h1M11 4h1M1 5h2M11 5h1M1 6h5M7 6h1M11 6h1M1 7h2M11 7h1M1 8h5M7 8h1M11 8h1M1 9h2M11 9h1M1 10h5M7 10h1M11 10h1M1 11h2M11 11h1M1 12h11"]])
+             x y scale))
+
 (defn undo-dog [x y scale]
   (let [undos? (subscribe [:undos?])]     
     (fn [x y scale]
@@ -270,13 +280,20 @@
                     ["#000001" "M8 0h1M5 1h1M8 1h1M5 2h1M8 2h1M5 3h1M8 3h3M5 4h6M4 5h5M4 6h2M8 6h1M5 7h1M8 7h1M5 8h1M8 8h1M5 9h1M8 9h3M5 10h6M5 11h5M4 12h5M4 13h2M8 13h1M5 14h1M8 14h1M5 15h1M8 15h1M5 16h1"]])
                  x y scale))))
 
+(defn repeat-sign [x y scale]
+  [:path {:transform (str "translate(" x "," y ") scale(" (* scale 1.5) "," scale ")")
+          :pointer-events "none"
+          :stroke "black"
+          :d "M5 0h1M9 0h4M5 1h1M9 1h4M5 2h1M9 2h4M5 3h1M9 3h4M5 4h1M9 4h4M5 5h1M9 5h4M5 6h1M9 6h4M5 7h1M9 7h4M5 8h1M9 8h4M5 9h1M9 9h4M5 10h1M9 10h4M5 11h1M9 11h4M5 12h1M9 12h4M5 13h1M9 13h4M5 14h1M9 14h4M5 15h1M9 15h4M5 16h1M9 16h4M5 17h1M9 17h4M5 18h1M9 18h4M5 19h1M9 19h4M5 20h1M9 20h4M5 21h1M9 21h4M0 22h2M5 22h1M9 22h4M0 23h2M5 23h1M9 23h4M5 24h1M9 24h4M5 25h1M9 25h4M5 26h1M9 26h4M5 27h1M9 27h4M5 28h1M9 28h4M5 29h1M9 29h4M5 30h1M9 30h4M5 31h1M9 31h4M5 32h1M9 32h4M5 33h1M9 33h4M5 34h1M9 34h4M5 35h1M9 35h4M5 36h1M9 36h4M5 37h1M9 37h4M0 38h2M5 38h1M9 38h4M0 39h2M5 39h1M9 39h4M5 40h1M9 40h4M5 41h1M9 41h4M5 42h1M9 42h4M5 43h1M9 43h4M5 44h1M9 44h4M5 45h1M9 45h4M5 46h1M9 46h4M5 47h1M9 47h4M5 48h1M9 48h4M5 49h1M9 49h4M5 50h1M9 50h4M5 51h1M9 51h4M5 52h1M9 52h4M5 53h1M9 53h4M5 54h1M9 54h4M5 55h1M9 55h4M5 56h1M9 56h4M5 57h1M9 57h4M5 58h1M9 58h4M5 59h1M9 59h4M5 60h1M9 60h4M5 61h1M9 61h4"}])
+
 (defn toolbar [x y]
   [:svg {:view-box "0 -0.5 140 10.5" :shape-rendering "crispEdges"}
    [:rect {:x x :y y :width 68 :height 10 :stroke "black" :stroke-width 0.2 :fill "#f8b0f8"}]
    [undo-dog 28.5 (+ 0.5 y) 0.5]
    [redo-rabbit 35.2 (+ 0.48 y) 0.45]
-   [eraser 182 (+ 2 y) 0.5]
-   [sharp-button 200 (+ 2 y) 0.5]
+   [repeat-button 176 (+ 3 y) 0.5]
+   [eraser 192 (+ 2 y) 0.5]
+   [sharp-button 210 (+ 2 y) 0.5]
    (svg-paths {:on-click #(dispatch [:load-castle])} ghost 476 (+ 6 y) 0.24)
    (svg-paths {:on-click #(dispatch [:load-zelda])} zelda 490 (+ 4.5 y) 0.25)
    (svg-paths {:on-click #(dispatch [:load-megaman])} megaman 367 (- y 2) 0.35)])

@@ -17,6 +17,16 @@
    (:sharp? db)))
 
 (rf/reg-sub
+ :loop-end
+ (fn [db _]
+   (:loop-end db)))
+
+(rf/reg-sub
+ :repeat?
+ (fn [db _]
+   (:repeat? db)))
+
+(rf/reg-sub
  :eraser?
  (fn [db _]
    (:eraser? db)))

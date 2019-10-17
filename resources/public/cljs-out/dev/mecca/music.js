@@ -178,7 +178,7 @@ return mecca.music.scheduler();
 });
 if((typeof mecca !== 'undefined') && (typeof mecca.music !== 'undefined') && (typeof mecca.music.do_timer !== 'undefined')){
 } else {
-mecca.music.do_timer = setInterval(mecca.music.dispatch_timer_event,(30));
+mecca.music.do_timer = setInterval(mecca.music.dispatch_timer_event,(150));
 }
 mecca.music.load_sound = (function mecca$music$load_sound(named_url){
 var out = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$0();
@@ -807,9 +807,12 @@ var context = mecca.music.audiocontext;
 var audio_buffer = cljs.core.cst$kw$decoded_DASH_buffer.cljs$core$IFn$_invoke$arity$1(cljs.core.get.cljs$core$IFn$_invoke$arity$2(mecca.music.samples,instrument));
 var sample_source = cljs.core.deref(context).createBufferSource();
 var compressor = cljs.core.deref(context).createDynamicsCompressor();
+var analyser = cljs.core.deref(context).createAnalyser();
 sample_source.buffer = audio_buffer;
 
 sample_source.playbackRate.setValueAtTime(mecca.music.pitch__GT_rate(pitch),cljs.core.deref(context).currentTime);
+
+sample_source.connect(analyser);
 
 sample_source.connect(cljs.core.deref(context).destination);
 
@@ -897,4 +900,9 @@ break;
 ;
 return iter__4324__auto__(cljs.core.deref(notes));
 })());
+});
+mecca.music.get_bytes_BANG_ = (function mecca$music$get_bytes_BANG_(analyser,freq_data){
+analyser.getByteFrequencyData(freq_data);
+
+return freq_data;
 });

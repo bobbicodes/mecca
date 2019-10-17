@@ -97,7 +97,8 @@
       (song-done?)
   (scheduler))
 
-(defonce do-timer (js/setInterval dispatch-timer-event 30))
+(defonce do-timer
+  (js/setInterval dispatch-timer-event 150))
 
 (defn load-sound [named-url]
   (let [out (chan)
@@ -191,13 +192,14 @@
   (let [context audiocontext
         audio-buffer (:decoded-buffer (get samples instrument))
         sample-source (.createBufferSource @context)
-        compressor (.createDynamicsCompressor @context)]
+        compressor (.createDynamicsCompressor @context)
+        analyser (.createAnalyser @context)]
     (set! (.-buffer sample-source) audio-buffer)
     (.setValueAtTime
      (.-playbackRate sample-source)
      (pitch->rate pitch)
      (.-currentTime @context))
-    ;(.connect sample-source compressor)
+    (.connect sample-source analyser)
     (.connect sample-source (.-destination @context))
     (.start sample-source)
     sample-source))
@@ -224,3 +226,7 @@
     (dispatch [:reset-position])
     (doall (for [{:keys [time instrument pitch]} @notes]
              (play-at instrument pitch (+ now (* (/ 60 @tempo) time)))))))
+
+(defn get-bytes! [analyser freq-data]
+  (.getByteFrequencyData analyser freq-data)
+  freq-data)

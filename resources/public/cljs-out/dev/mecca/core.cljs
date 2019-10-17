@@ -16,6 +16,12 @@
 
 (rf/dispatch-sync [::rp/add-keyboard-event-listener "keydown"])
 
+(rf/dispatch
+ [::rp/set-keydown-rules
+  {:event-keys [[[:jump!]
+                 [{:keyCode 13}]
+                 [{:keyCode 32}]]]}])
+
 (defn get-app-element []
   (gdom/getElement "app"))
 

@@ -2,25 +2,25 @@
 goog.provide('mecca.key');
 goog.require('cljs.core');
 mecca.key.dodecagon = (function mecca$key$dodecagon(){
-return cljs.core.into.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"svg","svg",856789142),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"width","width",-384071477),(20),new cljs.core.Keyword(null,"height","height",1025178622),13.85], null)], null),(function (){var iter__4324__auto__ = (function mecca$key$dodecagon_$_iter__17009(s__17010){
+return cljs.core.into.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"svg","svg",856789142),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"width","width",-384071477),(20),new cljs.core.Keyword(null,"height","height",1025178622),13.85], null)], null),(function (){var iter__4324__auto__ = (function mecca$key$dodecagon_$_iter__22080(s__22081){
 return (new cljs.core.LazySeq(null,(function (){
-var s__17010__$1 = s__17010;
+var s__22081__$1 = s__22081;
 while(true){
-var temp__5457__auto__ = cljs.core.seq.call(null,s__17010__$1);
+var temp__5457__auto__ = cljs.core.seq.call(null,s__22081__$1);
 if(temp__5457__auto__){
-var s__17010__$2 = temp__5457__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__17010__$2)){
-var c__4322__auto__ = cljs.core.chunk_first.call(null,s__17010__$2);
+var s__22081__$2 = temp__5457__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__22081__$2)){
+var c__4322__auto__ = cljs.core.chunk_first.call(null,s__22081__$2);
 var size__4323__auto__ = cljs.core.count.call(null,c__4322__auto__);
-var b__17012 = cljs.core.chunk_buffer.call(null,size__4323__auto__);
-if((function (){var i__17011 = (0);
+var b__22083 = cljs.core.chunk_buffer.call(null,size__4323__auto__);
+if((function (){var i__22082 = (0);
 while(true){
-if((i__17011 < size__4323__auto__)){
-var key = cljs.core._nth.call(null,c__4322__auto__,i__17011);
-cljs.core.chunk_append.call(null,b__17012,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"g","g",1738089905),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"transform","transform",1381301764),["rotate(",cljs.core.str.cljs$core$IFn$_invoke$arity$1((key * (30))),",11,20)"].join('')], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"path","path",-188191168),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"stroke","stroke",1741823555),"black",new cljs.core.Keyword(null,"stroke-width","stroke-width",716836435),0.25,new cljs.core.Keyword(null,"fill","fill",883462889),"#6b8cff",new cljs.core.Keyword(null,"d","d",1972142424),"M11 20 7 5 15 5Z"], null)], null)], null));
+if((i__22082 < size__4323__auto__)){
+var key = cljs.core._nth.call(null,c__4322__auto__,i__22082);
+cljs.core.chunk_append.call(null,b__22083,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"g","g",1738089905),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"transform","transform",1381301764),["rotate(",cljs.core.str.cljs$core$IFn$_invoke$arity$1((key * (30))),",11,20)"].join('')], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"path","path",-188191168),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"stroke","stroke",1741823555),"black",new cljs.core.Keyword(null,"stroke-width","stroke-width",716836435),0.25,new cljs.core.Keyword(null,"fill","fill",883462889),"#6b8cff",new cljs.core.Keyword(null,"d","d",1972142424),"M11 20 7 5 15 5Z"], null)], null)], null));
 
-var G__17013 = (i__17011 + (1));
-i__17011 = G__17013;
+var G__22084 = (i__22082 + (1));
+i__22082 = G__22084;
 continue;
 } else {
 return true;
@@ -28,13 +28,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__17012),mecca$key$dodecagon_$_iter__17009.call(null,cljs.core.chunk_rest.call(null,s__17010__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__22083),mecca$key$dodecagon_$_iter__22080.call(null,cljs.core.chunk_rest.call(null,s__22081__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__17012),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__22083),null);
 }
 } else {
-var key = cljs.core.first.call(null,s__17010__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"g","g",1738089905),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"transform","transform",1381301764),["rotate(",cljs.core.str.cljs$core$IFn$_invoke$arity$1((key * (30))),",11,20)"].join('')], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"path","path",-188191168),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"stroke","stroke",1741823555),"black",new cljs.core.Keyword(null,"stroke-width","stroke-width",716836435),0.25,new cljs.core.Keyword(null,"fill","fill",883462889),"#6b8cff",new cljs.core.Keyword(null,"d","d",1972142424),"M11 20 7 5 15 5Z"], null)], null)], null),mecca$key$dodecagon_$_iter__17009.call(null,cljs.core.rest.call(null,s__17010__$2)));
+var key = cljs.core.first.call(null,s__22081__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"g","g",1738089905),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"transform","transform",1381301764),["rotate(",cljs.core.str.cljs$core$IFn$_invoke$arity$1((key * (30))),",11,20)"].join('')], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"path","path",-188191168),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"stroke","stroke",1741823555),"black",new cljs.core.Keyword(null,"stroke-width","stroke-width",716836435),0.25,new cljs.core.Keyword(null,"fill","fill",883462889),"#6b8cff",new cljs.core.Keyword(null,"d","d",1972142424),"M11 20 7 5 15 5Z"], null)], null)], null),mecca$key$dodecagon_$_iter__22080.call(null,cljs.core.rest.call(null,s__22081__$2)));
 }
 } else {
 return null;

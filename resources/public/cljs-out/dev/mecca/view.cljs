@@ -180,7 +180,7 @@
            :fill "none"
            :height 20 :width 63.5 :x 0.25 :y 14.5}]
        [:g.staff {:transform "translate(0,13.5) scale(1)"
-                  :style {:cursor "url(/mecca/resources/public/images/hand.png),crosshair"}}
+                  :style {:cursor "url(/images/hand.png),crosshair"}}
         [notation/staff-lines]
         [editor/retract-editor 2]
          [notation/treble-clef
@@ -217,7 +217,7 @@
    [editor]
    [transport/transport 140 0 0.5]
    [editor/toolbar 71 0]
-   #_[:div
+   [:div
     [:label {:for "edn"} "Load song data:"
      [:p]
      [:form

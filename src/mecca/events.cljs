@@ -254,6 +254,10 @@
  (fn [db [_ xml]]
    (assoc db :xml xml)))
 
+(reg-event-db
+ :load-song
+ (fn [db [_ notes]]
+   (assoc db :notes notes)))
 
 ;; TODO All this raw song data is going to be replaced,
 ;; to demonstrate how a piece of music with repeats

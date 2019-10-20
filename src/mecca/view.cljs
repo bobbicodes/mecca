@@ -217,7 +217,7 @@
    [editor]
    [transport/transport 140 0 0.5]
    [editor/toolbar 71 0]
-   #_[:div
+   [:div
     [:label {:for "edn"} "Load song data:"
      [:p]
      [:form

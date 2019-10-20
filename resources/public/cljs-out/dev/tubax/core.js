@@ -36,8 +36,8 @@ tubax.core.format_document = (function tubax$core$format_document(document){
 return cljs.core.first(document);
 });
 tubax.core.xml__GT_clj = (function tubax$core$xml__GT_clj(var_args){
-var G__20921 = arguments.length;
-switch (G__20921) {
+var G__20927 = arguments.length;
+switch (G__20927) {
 case 1:
 return tubax.core.xml__GT_clj.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -56,57 +56,57 @@ tubax.core.xml__GT_clj.cljs$core$IFn$_invoke$arity$1 = (function (source){
 return tubax.core.xml__GT_clj.cljs$core$IFn$_invoke$arity$2(source,cljs.core.PersistentArrayMap.EMPTY);
 });
 
-tubax.core.xml__GT_clj.cljs$core$IFn$_invoke$arity$2 = (function (source,p__20922){
-var map__20923 = p__20922;
-var map__20923__$1 = ((((!((map__20923 == null)))?(((((map__20923.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__20923.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__20923):map__20923);
-var strict = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__20923__$1,cljs.core.cst$kw$strict,true);
-var trim = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__20923__$1,cljs.core.cst$kw$trim,true);
-var normalize = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__20923__$1,cljs.core.cst$kw$normalize,false);
-var lowercase = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__20923__$1,cljs.core.cst$kw$lowercase,true);
-var xmlns = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__20923__$1,cljs.core.cst$kw$xmlns);
-var position = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__20923__$1,cljs.core.cst$kw$position,true);
-var strict_entities = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__20923__$1,cljs.core.cst$kw$strict_DASH_entities,false);
+tubax.core.xml__GT_clj.cljs$core$IFn$_invoke$arity$2 = (function (source,p__20928){
+var map__20929 = p__20928;
+var map__20929__$1 = ((((!((map__20929 == null)))?(((((map__20929.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__20929.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__20929):map__20929);
+var strict = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__20929__$1,cljs.core.cst$kw$strict,true);
+var trim = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__20929__$1,cljs.core.cst$kw$trim,true);
+var normalize = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__20929__$1,cljs.core.cst$kw$normalize,false);
+var lowercase = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__20929__$1,cljs.core.cst$kw$lowercase,true);
+var xmlns = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__20929__$1,cljs.core.cst$kw$xmlns);
+var position = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__20929__$1,cljs.core.cst$kw$position,true);
+var strict_entities = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__20929__$1,cljs.core.cst$kw$strict_DASH_entities,false);
 var parser = sax.parser(strict,({"trim": trim, "normalize": normalize, "lowercase": lowercase, "xmlns": xmlns, "position": position, "strictEntities": strict_entities}));
 var document = cljs.core.atom.cljs$core$IFn$_invoke$arity$1(tubax.core.new_document());
 var result = cljs.core.atom.cljs$core$IFn$_invoke$arity$1(null);
-parser.onopentag = ((function (parser,document,result,map__20923,map__20923__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities){
-return (function (p1__20915_SHARP_){
-return cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$2(document,cljs.core.partial.cljs$core$IFn$_invoke$arity$2(tubax.core.add_node_document,p1__20915_SHARP_));
-});})(parser,document,result,map__20923,map__20923__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities))
+parser.onopentag = ((function (parser,document,result,map__20929,map__20929__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities){
+return (function (p1__20921_SHARP_){
+return cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$2(document,cljs.core.partial.cljs$core$IFn$_invoke$arity$2(tubax.core.add_node_document,p1__20921_SHARP_));
+});})(parser,document,result,map__20929,map__20929__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities))
 ;
 
-parser.onclosetag = ((function (parser,document,result,map__20923,map__20923__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities){
-return (function (p1__20916_SHARP_){
-return cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$2(document,cljs.core.partial.cljs$core$IFn$_invoke$arity$2(tubax.core.close_node_document,p1__20916_SHARP_));
-});})(parser,document,result,map__20923,map__20923__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities))
+parser.onclosetag = ((function (parser,document,result,map__20929,map__20929__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities){
+return (function (p1__20922_SHARP_){
+return cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$2(document,cljs.core.partial.cljs$core$IFn$_invoke$arity$2(tubax.core.close_node_document,p1__20922_SHARP_));
+});})(parser,document,result,map__20929,map__20929__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities))
 ;
 
-parser.ontext = ((function (parser,document,result,map__20923,map__20923__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities){
-return (function (p1__20917_SHARP_){
-return cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$2(document,cljs.core.partial.cljs$core$IFn$_invoke$arity$2(tubax.core.add_text,p1__20917_SHARP_));
-});})(parser,document,result,map__20923,map__20923__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities))
+parser.ontext = ((function (parser,document,result,map__20929,map__20929__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities){
+return (function (p1__20923_SHARP_){
+return cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$2(document,cljs.core.partial.cljs$core$IFn$_invoke$arity$2(tubax.core.add_text,p1__20923_SHARP_));
+});})(parser,document,result,map__20929,map__20929__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities))
 ;
 
-parser.oncdata = ((function (parser,document,result,map__20923,map__20923__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities){
-return (function (p1__20918_SHARP_){
-return cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$2(document,cljs.core.partial.cljs$core$IFn$_invoke$arity$2(tubax.core.add_text,p1__20918_SHARP_));
-});})(parser,document,result,map__20923,map__20923__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities))
+parser.oncdata = ((function (parser,document,result,map__20929,map__20929__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities){
+return (function (p1__20924_SHARP_){
+return cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$2(document,cljs.core.partial.cljs$core$IFn$_invoke$arity$2(tubax.core.add_text,p1__20924_SHARP_));
+});})(parser,document,result,map__20929,map__20929__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities))
 ;
 
-parser.onend = ((function (parser,document,result,map__20923,map__20923__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities){
+parser.onend = ((function (parser,document,result,map__20929,map__20929__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities){
 return (function (){
 if((cljs.core.deref(result) == null)){
 return cljs.core.reset_BANG_(result,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$success,tubax.core.format_document(cljs.core.deref(document))], null));
 } else {
 return null;
 }
-});})(parser,document,result,map__20923,map__20923__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities))
+});})(parser,document,result,map__20929,map__20929__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities))
 ;
 
-parser.onerror = ((function (parser,document,result,map__20923,map__20923__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities){
-return (function (p1__20919_SHARP_){
-return cljs.core.reset_BANG_(result,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$error,[cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__20919_SHARP_)].join('')], null));
-});})(parser,document,result,map__20923,map__20923__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities))
+parser.onerror = ((function (parser,document,result,map__20929,map__20929__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities){
+return (function (p1__20925_SHARP_){
+return cljs.core.reset_BANG_(result,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$error,[cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__20925_SHARP_)].join('')], null));
+});})(parser,document,result,map__20929,map__20929__$1,strict,trim,normalize,lowercase,xmlns,position,strict_entities))
 ;
 
 parser.write(source);

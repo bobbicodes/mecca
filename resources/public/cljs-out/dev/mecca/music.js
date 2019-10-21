@@ -24,86 +24,32 @@ goog.exportSymbol('mecca.music.current_time', mecca.music.current_time);
 mecca.music.lookahead = 25.0;
 mecca.music.scheduleAheadTime = 0.1;
 mecca.music.scheduler = (function mecca$music$scheduler(){
-var next_note_time = (function (){var G__18547 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$next_DASH_note_DASH_time], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__18547) : re_frame.core.subscribe.call(null,G__18547));
+var next_note_time = (function (){var G__21614 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$next_DASH_note_DASH_time], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__21614) : re_frame.core.subscribe.call(null,G__21614));
 })();
-var current_note = (function (){var G__18548 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$current_DASH_note], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__18548) : re_frame.core.subscribe.call(null,G__18548));
+var current_note = (function (){var G__21615 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$current_DASH_note], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__21615) : re_frame.core.subscribe.call(null,G__21615));
 })();
 if((cljs.core.deref(next_note_time) < (mecca.music.scheduleAheadTime + mecca.music.current_time(cljs.core.deref(mecca.music.audiocontext))))){
-var G__18549 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$schedule_DASH_note,cljs.core.deref(current_note),cljs.core.deref(next_note_time)], null);
-return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__18549) : re_frame.core.dispatch.call(null,G__18549));
+var G__21616 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$schedule_DASH_note,cljs.core.deref(current_note),cljs.core.deref(next_note_time)], null);
+return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__21616) : re_frame.core.dispatch.call(null,G__21616));
 } else {
-var G__18550 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$next_DASH_note], null);
-return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__18550) : re_frame.core.dispatch.call(null,G__18550));
+var G__21617 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$next_DASH_note], null);
+return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__21617) : re_frame.core.dispatch.call(null,G__21617));
 }
-});
-mecca.music.mmbass_minor_triad = (function mecca$music$mmbass_minor_triad(time,root){
-return new cljs.core.PersistentVector(null, 9, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,time,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,root], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + 1.5),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,root], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + (2)),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(root + (3))], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + (3)),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(root + (7))], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + 4.5),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,root], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + (5)),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,root], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + 5.5),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,root], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + (6)),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(root + (3))], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + (7)),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(root + (7))], null)], null);
-});
-mecca.music.mmbass_major_triad = (function mecca$music$mmbass_major_triad(time,root){
-return new cljs.core.PersistentVector(null, 9, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,time,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,root], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + 1.5),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,root], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + (2)),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(root + (4))], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + (3)),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(root + (7))], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + 4.5),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,root], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + (5)),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,root], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + 5.5),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,root], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + (6)),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(root + (4))], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + (7)),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(root + (7))], null)], null);
-});
-mecca.music.mm8 = (function mecca$music$mm8(time,pitch){
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.concat,(function (){var iter__4324__auto__ = (function mecca$music$mm8_$_iter__18551(s__18552){
-return (new cljs.core.LazySeq(null,(function (){
-var s__18552__$1 = s__18552;
-while(true){
-var temp__5457__auto__ = cljs.core.seq(s__18552__$1);
-if(temp__5457__auto__){
-var s__18552__$2 = temp__5457__auto__;
-if(cljs.core.chunked_seq_QMARK_(s__18552__$2)){
-var c__4322__auto__ = cljs.core.chunk_first(s__18552__$2);
-var size__4323__auto__ = cljs.core.count(c__4322__auto__);
-var b__18554 = cljs.core.chunk_buffer(size__4323__auto__);
-if((function (){var i__18553 = (0);
-while(true){
-if((i__18553 < size__4323__auto__)){
-var beat = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4322__auto__,i__18553);
-cljs.core.chunk_append(b__18554,mecca.music.mmbass_minor_triad((beat + time),pitch));
-
-var G__18555 = (i__18553 + (1));
-i__18553 = G__18555;
-continue;
-} else {
-return true;
-}
-break;
-}
-})()){
-return cljs.core.chunk_cons(cljs.core.chunk(b__18554),mecca$music$mm8_$_iter__18551(cljs.core.chunk_rest(s__18552__$2)));
-} else {
-return cljs.core.chunk_cons(cljs.core.chunk(b__18554),null);
-}
-} else {
-var beat = cljs.core.first(s__18552__$2);
-return cljs.core.cons(mecca.music.mmbass_minor_triad((beat + time),pitch),mecca$music$mm8_$_iter__18551(cljs.core.rest(s__18552__$2)));
-}
-} else {
-return null;
-}
-break;
-}
-}),null,null));
-});
-return iter__4324__auto__(cljs.core.range.cljs$core$IFn$_invoke$arity$3((0),(8),(2)));
-})());
-});
-mecca.music.mmbass = (function mecca$music$mmbass(){
-return cljs.core.concat.cljs$core$IFn$_invoke$arity$variadic(mecca.music.mmbass_minor_triad((0),(64)),mecca.music.mmbass_major_triad((8),(60)),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([mecca.music.mmbass_major_triad((16),(62)),mecca.music.mmbass_minor_triad((24),(64))], 0));
 });
 mecca.music.mario_jump_QMARK_ = (function mecca$music$mario_jump_QMARK_(){
-var beat = (function (){var G__18557 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$current_DASH_position], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__18557) : re_frame.core.subscribe.call(null,G__18557));
+var beat = (function (){var G__21619 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$current_DASH_position], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__21619) : re_frame.core.subscribe.call(null,G__21619));
 })();
-var notes = (function (){var G__18558 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$notes], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__18558) : re_frame.core.subscribe.call(null,G__18558));
+var notes = (function (){var G__21620 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$notes], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__21620) : re_frame.core.subscribe.call(null,G__21620));
 })();
-var jump = (function (){var G__18559 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$mario_DASH_jump], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__18559) : re_frame.core.subscribe.call(null,G__18559));
+var jump = (function (){var G__21621 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$mario_DASH_jump], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__21621) : re_frame.core.subscribe.call(null,G__21621));
 })();
-if(cljs.core.truth_((function (){var and__3938__auto__ = cljs.core.deref((function (){var G__18561 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$playing_QMARK_], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__18561) : re_frame.core.subscribe.call(null,G__18561));
+if(cljs.core.truth_((function (){var and__3938__auto__ = cljs.core.deref((function (){var G__21623 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$playing_QMARK_], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__21623) : re_frame.core.subscribe.call(null,G__21623));
 })());
 if(cljs.core.truth_(and__3938__auto__)){
 return (cljs.core.deref(jump) === (0));
@@ -112,12 +58,12 @@ return and__3938__auto__;
 }
 })())){
 if(((0) < cljs.core.count(cljs.core.filter.cljs$core$IFn$_invoke$arity$2(((function (beat,notes,jump){
-return (function (p1__18556_SHARP_){
-return cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$time.cljs$core$IFn$_invoke$arity$1(p1__18556_SHARP_),(cljs.core.deref(beat) + (1)));
+return (function (p1__21618_SHARP_){
+return cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$time.cljs$core$IFn$_invoke$arity$1(p1__21618_SHARP_),(cljs.core.deref(beat) + (1)));
 });})(beat,notes,jump))
 ,cljs.core.deref(notes))))){
-var G__18562 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$jump_BANG_], null);
-return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__18562) : re_frame.core.dispatch.call(null,G__18562));
+var G__21624 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$jump_BANG_], null);
+return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__21624) : re_frame.core.dispatch.call(null,G__21624));
 } else {
 return null;
 }
@@ -126,40 +72,40 @@ return null;
 }
 });
 mecca.music.song_done_QMARK_ = (function mecca$music$song_done_QMARK_(){
-var notes = (function (){var G__18564 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$notes], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__18564) : re_frame.core.subscribe.call(null,G__18564));
+var notes = (function (){var G__21626 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$notes], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__21626) : re_frame.core.subscribe.call(null,G__21626));
 })();
-var playing_QMARK_ = cljs.core.deref((function (){var G__18565 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$playing_QMARK_], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__18565) : re_frame.core.subscribe.call(null,G__18565));
+var playing_QMARK_ = cljs.core.deref((function (){var G__21627 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$playing_QMARK_], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__21627) : re_frame.core.subscribe.call(null,G__21627));
 })());
 var now = cljs.core.deref(mecca.music.audiocontext).currentTime;
 var length = cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.max,cljs.core.map.cljs$core$IFn$_invoke$arity$2(((function (notes,playing_QMARK_,now){
-return (function (p1__18563_SHARP_){
-return cljs.core.cst$kw$time.cljs$core$IFn$_invoke$arity$1(p1__18563_SHARP_);
+return (function (p1__21625_SHARP_){
+return cljs.core.cst$kw$time.cljs$core$IFn$_invoke$arity$1(p1__21625_SHARP_);
 });})(notes,playing_QMARK_,now))
 ,cljs.core.deref(notes)));
-var started = (function (){var G__18566 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$play_DASH_start], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__18566) : re_frame.core.subscribe.call(null,G__18566));
+var started = (function (){var G__21628 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$play_DASH_start], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__21628) : re_frame.core.subscribe.call(null,G__21628));
 })();
 var elapsed = (mecca.music.current_time(cljs.core.deref(mecca.music.audiocontext)) - cljs.core.deref(started));
-var beat_length = ((60) / cljs.core.deref((function (){var G__18567 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$tempo], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__18567) : re_frame.core.subscribe.call(null,G__18567));
+var beat_length = ((60) / cljs.core.deref((function (){var G__21629 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$tempo], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__21629) : re_frame.core.subscribe.call(null,G__21629));
 })()));
 var current_beat = (elapsed / beat_length);
-var last_drawn_pos = (function (){var G__18568 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$current_DASH_position], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__18568) : re_frame.core.subscribe.call(null,G__18568));
+var last_drawn_pos = (function (){var G__21630 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$current_DASH_position], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__21630) : re_frame.core.subscribe.call(null,G__21630));
 })();
 if(cljs.core.truth_(playing_QMARK_)){
 if((length < current_beat)){
-var G__18569_18572 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$play_DASH_off], null);
-(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__18569_18572) : re_frame.core.dispatch.call(null,G__18569_18572));
+var G__21631_21634 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$play_DASH_off], null);
+(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__21631_21634) : re_frame.core.dispatch.call(null,G__21631_21634));
 } else {
 if((cljs.core.deref(last_drawn_pos) < current_beat)){
-var G__18570_18573 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$move_DASH_mario], null);
-(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__18570_18573) : re_frame.core.dispatch.call(null,G__18570_18573));
+var G__21632_21635 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$move_DASH_mario], null);
+(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__21632_21635) : re_frame.core.dispatch.call(null,G__21632_21635));
 
-var G__18571_18574 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$advance_DASH_position], null);
-(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__18571_18574) : re_frame.core.dispatch.call(null,G__18571_18574));
+var G__21633_21636 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$advance_DASH_position], null);
+(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__21633_21636) : re_frame.core.dispatch.call(null,G__21633_21636));
 } else {
 }
 }
@@ -169,8 +115,8 @@ var G__18571_18574 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.Persis
 return mecca.music.mario_jump_QMARK_();
 });
 mecca.music.dispatch_timer_event = (function mecca$music$dispatch_timer_event(){
-var G__18575_18576 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$tick_BANG_], null);
-(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__18575_18576) : re_frame.core.dispatch.call(null,G__18575_18576));
+var G__21637_21638 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$tick_BANG_], null);
+(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__21637_21638) : re_frame.core.dispatch.call(null,G__21637_21638));
 
 mecca.music.song_done_QMARK_();
 
@@ -232,65 +178,65 @@ source.buffer = buffer;
 return source;
 });
 mecca.music.get_and_decode = (function mecca$music$get_and_decode(named_url){
-var c__14735__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));
-cljs.core.async.impl.dispatch.run(((function (c__14735__auto__){
+var c__17802__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));
+cljs.core.async.impl.dispatch.run(((function (c__17802__auto__){
 return (function (){
-var f__14736__auto__ = (function (){var switch__14552__auto__ = ((function (c__14735__auto__){
-return (function (state_18588){
-var state_val_18589 = (state_18588[(1)]);
-if((state_val_18589 === (1))){
-var inst_18577 = mecca.music.load_sound(named_url);
-var state_18588__$1 = state_18588;
-return cljs.core.async.impl.ioc_helpers.take_BANG_(state_18588__$1,(2),inst_18577);
+var f__17803__auto__ = (function (){var switch__17619__auto__ = ((function (c__17802__auto__){
+return (function (state_21650){
+var state_val_21651 = (state_21650[(1)]);
+if((state_val_21651 === (1))){
+var inst_21639 = mecca.music.load_sound(named_url);
+var state_21650__$1 = state_21650;
+return cljs.core.async.impl.ioc_helpers.take_BANG_(state_21650__$1,(2),inst_21639);
 } else {
-if((state_val_18589 === (2))){
-var inst_18579 = (state_18588[(7)]);
-var inst_18579__$1 = (state_18588[(2)]);
-var state_18588__$1 = (function (){var statearr_18590 = state_18588;
-(statearr_18590[(7)] = inst_18579__$1);
+if((state_val_21651 === (2))){
+var inst_21641 = (state_21650[(7)]);
+var inst_21641__$1 = (state_21650[(2)]);
+var state_21650__$1 = (function (){var statearr_21652 = state_21650;
+(statearr_21652[(7)] = inst_21641__$1);
 
-return statearr_18590;
+return statearr_21652;
 })();
-if(cljs.core.truth_(inst_18579__$1)){
-var statearr_18591_18599 = state_18588__$1;
-(statearr_18591_18599[(1)] = (3));
+if(cljs.core.truth_(inst_21641__$1)){
+var statearr_21653_21661 = state_21650__$1;
+(statearr_21653_21661[(1)] = (3));
 
 } else {
-var statearr_18592_18600 = state_18588__$1;
-(statearr_18592_18600[(1)] = (4));
+var statearr_21654_21662 = state_21650__$1;
+(statearr_21654_21662[(1)] = (4));
 
 }
 
 return cljs.core.cst$kw$recur;
 } else {
-if((state_val_18589 === (3))){
-var inst_18579 = (state_18588[(7)]);
-var inst_18581 = mecca.music.decode(inst_18579);
-var state_18588__$1 = state_18588;
-return cljs.core.async.impl.ioc_helpers.take_BANG_(state_18588__$1,(6),inst_18581);
+if((state_val_21651 === (3))){
+var inst_21641 = (state_21650[(7)]);
+var inst_21643 = mecca.music.decode(inst_21641);
+var state_21650__$1 = state_21650;
+return cljs.core.async.impl.ioc_helpers.take_BANG_(state_21650__$1,(6),inst_21643);
 } else {
-if((state_val_18589 === (4))){
-var state_18588__$1 = state_18588;
-var statearr_18593_18601 = state_18588__$1;
-(statearr_18593_18601[(2)] = null);
+if((state_val_21651 === (4))){
+var state_21650__$1 = state_21650;
+var statearr_21655_21663 = state_21650__$1;
+(statearr_21655_21663[(2)] = null);
 
-(statearr_18593_18601[(1)] = (5));
+(statearr_21655_21663[(1)] = (5));
 
 
 return cljs.core.cst$kw$recur;
 } else {
-if((state_val_18589 === (5))){
-var inst_18586 = (state_18588[(2)]);
-var state_18588__$1 = state_18588;
-return cljs.core.async.impl.ioc_helpers.return_chan(state_18588__$1,inst_18586);
+if((state_val_21651 === (5))){
+var inst_21648 = (state_21650[(2)]);
+var state_21650__$1 = state_21650;
+return cljs.core.async.impl.ioc_helpers.return_chan(state_21650__$1,inst_21648);
 } else {
-if((state_val_18589 === (6))){
-var inst_18583 = (state_18588[(2)]);
-var state_18588__$1 = state_18588;
-var statearr_18594_18602 = state_18588__$1;
-(statearr_18594_18602[(2)] = inst_18583);
+if((state_val_21651 === (6))){
+var inst_21645 = (state_21650[(2)]);
+var state_21650__$1 = state_21650;
+var statearr_21656_21664 = state_21650__$1;
+(statearr_21656_21664[(2)] = inst_21645);
 
-(statearr_18594_18602[(1)] = (5));
+(statearr_21656_21664[(1)] = (5));
 
 
 return cljs.core.cst$kw$recur;
@@ -302,194 +248,194 @@ return null;
 }
 }
 }
-});})(c__14735__auto__))
+});})(c__17802__auto__))
 ;
-return ((function (switch__14552__auto__,c__14735__auto__){
+return ((function (switch__17619__auto__,c__17802__auto__){
 return (function() {
-var mecca$music$get_and_decode_$_state_machine__14553__auto__ = null;
-var mecca$music$get_and_decode_$_state_machine__14553__auto____0 = (function (){
-var statearr_18595 = [null,null,null,null,null,null,null,null];
-(statearr_18595[(0)] = mecca$music$get_and_decode_$_state_machine__14553__auto__);
+var mecca$music$get_and_decode_$_state_machine__17620__auto__ = null;
+var mecca$music$get_and_decode_$_state_machine__17620__auto____0 = (function (){
+var statearr_21657 = [null,null,null,null,null,null,null,null];
+(statearr_21657[(0)] = mecca$music$get_and_decode_$_state_machine__17620__auto__);
 
-(statearr_18595[(1)] = (1));
+(statearr_21657[(1)] = (1));
 
-return statearr_18595;
+return statearr_21657;
 });
-var mecca$music$get_and_decode_$_state_machine__14553__auto____1 = (function (state_18588){
+var mecca$music$get_and_decode_$_state_machine__17620__auto____1 = (function (state_21650){
 while(true){
-var ret_value__14554__auto__ = (function (){try{while(true){
-var result__14555__auto__ = switch__14552__auto__(state_18588);
-if(cljs.core.keyword_identical_QMARK_(result__14555__auto__,cljs.core.cst$kw$recur)){
+var ret_value__17621__auto__ = (function (){try{while(true){
+var result__17622__auto__ = switch__17619__auto__(state_21650);
+if(cljs.core.keyword_identical_QMARK_(result__17622__auto__,cljs.core.cst$kw$recur)){
 continue;
 } else {
-return result__14555__auto__;
+return result__17622__auto__;
 }
 break;
 }
-}catch (e18596){if((e18596 instanceof Object)){
-var ex__14556__auto__ = e18596;
-var statearr_18597_18603 = state_18588;
-(statearr_18597_18603[(5)] = ex__14556__auto__);
+}catch (e21658){if((e21658 instanceof Object)){
+var ex__17623__auto__ = e21658;
+var statearr_21659_21665 = state_21650;
+(statearr_21659_21665[(5)] = ex__17623__auto__);
 
 
-cljs.core.async.impl.ioc_helpers.process_exception(state_18588);
+cljs.core.async.impl.ioc_helpers.process_exception(state_21650);
 
 return cljs.core.cst$kw$recur;
 } else {
-throw e18596;
+throw e21658;
 
 }
 }})();
-if(cljs.core.keyword_identical_QMARK_(ret_value__14554__auto__,cljs.core.cst$kw$recur)){
-var G__18604 = state_18588;
-state_18588 = G__18604;
+if(cljs.core.keyword_identical_QMARK_(ret_value__17621__auto__,cljs.core.cst$kw$recur)){
+var G__21666 = state_21650;
+state_21650 = G__21666;
 continue;
 } else {
-return ret_value__14554__auto__;
+return ret_value__17621__auto__;
 }
 break;
 }
 });
-mecca$music$get_and_decode_$_state_machine__14553__auto__ = function(state_18588){
+mecca$music$get_and_decode_$_state_machine__17620__auto__ = function(state_21650){
 switch(arguments.length){
 case 0:
-return mecca$music$get_and_decode_$_state_machine__14553__auto____0.call(this);
+return mecca$music$get_and_decode_$_state_machine__17620__auto____0.call(this);
 case 1:
-return mecca$music$get_and_decode_$_state_machine__14553__auto____1.call(this,state_18588);
+return mecca$music$get_and_decode_$_state_machine__17620__auto____1.call(this,state_21650);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
-mecca$music$get_and_decode_$_state_machine__14553__auto__.cljs$core$IFn$_invoke$arity$0 = mecca$music$get_and_decode_$_state_machine__14553__auto____0;
-mecca$music$get_and_decode_$_state_machine__14553__auto__.cljs$core$IFn$_invoke$arity$1 = mecca$music$get_and_decode_$_state_machine__14553__auto____1;
-return mecca$music$get_and_decode_$_state_machine__14553__auto__;
+mecca$music$get_and_decode_$_state_machine__17620__auto__.cljs$core$IFn$_invoke$arity$0 = mecca$music$get_and_decode_$_state_machine__17620__auto____0;
+mecca$music$get_and_decode_$_state_machine__17620__auto__.cljs$core$IFn$_invoke$arity$1 = mecca$music$get_and_decode_$_state_machine__17620__auto____1;
+return mecca$music$get_and_decode_$_state_machine__17620__auto__;
 })()
-;})(switch__14552__auto__,c__14735__auto__))
+;})(switch__17619__auto__,c__17802__auto__))
 })();
-var state__14737__auto__ = (function (){var statearr_18598 = (f__14736__auto__.cljs$core$IFn$_invoke$arity$0 ? f__14736__auto__.cljs$core$IFn$_invoke$arity$0() : f__14736__auto__.call(null));
-(statearr_18598[(6)] = c__14735__auto__);
+var state__17804__auto__ = (function (){var statearr_21660 = (f__17803__auto__.cljs$core$IFn$_invoke$arity$0 ? f__17803__auto__.cljs$core$IFn$_invoke$arity$0() : f__17803__auto__.call(null));
+(statearr_21660[(6)] = c__17802__auto__);
 
-return statearr_18598;
+return statearr_21660;
 })();
-return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped(state__14737__auto__);
-});})(c__14735__auto__))
+return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped(state__17804__auto__);
+});})(c__17802__auto__))
 );
 
-return c__14735__auto__;
+return c__17802__auto__;
 });
 mecca.music.load_samples = (function mecca$music$load_samples(){
-var c__14735__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));
-cljs.core.async.impl.dispatch.run(((function (c__14735__auto__){
+var c__17802__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));
+cljs.core.async.impl.dispatch.run(((function (c__17802__auto__){
 return (function (){
-var f__14736__auto__ = (function (){var switch__14552__auto__ = ((function (c__14735__auto__){
-return (function (state_18633){
-var state_val_18634 = (state_18633[(1)]);
-if((state_val_18634 === (1))){
-var inst_18605 = cljs.core.PersistentHashMap.EMPTY;
-var inst_18606 = cljs.core.range.cljs$core$IFn$_invoke$arity$2((1),(27));
-var inst_18607 = inst_18605;
-var inst_18608 = inst_18606;
-var state_18633__$1 = (function (){var statearr_18635 = state_18633;
-(statearr_18635[(7)] = inst_18608);
+var f__17803__auto__ = (function (){var switch__17619__auto__ = ((function (c__17802__auto__){
+return (function (state_21695){
+var state_val_21696 = (state_21695[(1)]);
+if((state_val_21696 === (1))){
+var inst_21667 = cljs.core.PersistentHashMap.EMPTY;
+var inst_21668 = cljs.core.range.cljs$core$IFn$_invoke$arity$2((1),(19));
+var inst_21669 = inst_21667;
+var inst_21670 = inst_21668;
+var state_21695__$1 = (function (){var statearr_21697 = state_21695;
+(statearr_21697[(7)] = inst_21670);
 
-(statearr_18635[(8)] = inst_18607);
+(statearr_21697[(8)] = inst_21669);
 
-return statearr_18635;
+return statearr_21697;
 })();
-var statearr_18636_18648 = state_18633__$1;
-(statearr_18636_18648[(2)] = null);
+var statearr_21698_21710 = state_21695__$1;
+(statearr_21698_21710[(2)] = null);
 
-(statearr_18636_18648[(1)] = (2));
+(statearr_21698_21710[(1)] = (2));
 
 
 return cljs.core.cst$kw$recur;
 } else {
-if((state_val_18634 === (2))){
-var inst_18608 = (state_18633[(7)]);
-var inst_18610 = cljs.core.first(inst_18608);
-var inst_18611 = (inst_18610 == null);
-var inst_18612 = cljs.core.not(inst_18611);
-var state_18633__$1 = state_18633;
-if(inst_18612){
-var statearr_18637_18649 = state_18633__$1;
-(statearr_18637_18649[(1)] = (4));
+if((state_val_21696 === (2))){
+var inst_21670 = (state_21695[(7)]);
+var inst_21672 = cljs.core.first(inst_21670);
+var inst_21673 = (inst_21672 == null);
+var inst_21674 = cljs.core.not(inst_21673);
+var state_21695__$1 = state_21695;
+if(inst_21674){
+var statearr_21699_21711 = state_21695__$1;
+(statearr_21699_21711[(1)] = (4));
 
 } else {
-var statearr_18638_18650 = state_18633__$1;
-(statearr_18638_18650[(1)] = (5));
+var statearr_21700_21712 = state_21695__$1;
+(statearr_21700_21712[(1)] = (5));
 
 }
 
 return cljs.core.cst$kw$recur;
 } else {
-if((state_val_18634 === (3))){
-var inst_18631 = (state_18633[(2)]);
-var state_18633__$1 = state_18633;
-return cljs.core.async.impl.ioc_helpers.return_chan(state_18633__$1,inst_18631);
+if((state_val_21696 === (3))){
+var inst_21693 = (state_21695[(2)]);
+var state_21695__$1 = state_21695;
+return cljs.core.async.impl.ioc_helpers.return_chan(state_21695__$1,inst_21693);
 } else {
-if((state_val_18634 === (4))){
-var inst_18608 = (state_18633[(7)]);
-var inst_18614 = (state_18633[(9)]);
-var inst_18614__$1 = cljs.core.first(inst_18608);
-var inst_18615 = [cljs.core.cst$kw$url,cljs.core.cst$kw$sound];
-var inst_18616 = ["/mecca/resources/public/audio/",cljs.core.str.cljs$core$IFn$_invoke$arity$1(inst_18614__$1),".mp3"].join('');
-var inst_18617 = [inst_18616,inst_18614__$1];
-var inst_18618 = cljs.core.PersistentHashMap.fromArrays(inst_18615,inst_18617);
-var inst_18619 = mecca.music.get_and_decode(inst_18618);
-var state_18633__$1 = (function (){var statearr_18639 = state_18633;
-(statearr_18639[(9)] = inst_18614__$1);
+if((state_val_21696 === (4))){
+var inst_21670 = (state_21695[(7)]);
+var inst_21676 = (state_21695[(9)]);
+var inst_21676__$1 = cljs.core.first(inst_21670);
+var inst_21677 = [cljs.core.cst$kw$url,cljs.core.cst$kw$sound];
+var inst_21678 = ["/mecca/resources/public/audio/",cljs.core.str.cljs$core$IFn$_invoke$arity$1(inst_21676__$1),".mp3"].join('');
+var inst_21679 = [inst_21678,inst_21676__$1];
+var inst_21680 = cljs.core.PersistentHashMap.fromArrays(inst_21677,inst_21679);
+var inst_21681 = mecca.music.get_and_decode(inst_21680);
+var state_21695__$1 = (function (){var statearr_21701 = state_21695;
+(statearr_21701[(9)] = inst_21676__$1);
 
-return statearr_18639;
+return statearr_21701;
 })();
-return cljs.core.async.impl.ioc_helpers.take_BANG_(state_18633__$1,(7),inst_18619);
+return cljs.core.async.impl.ioc_helpers.take_BANG_(state_21695__$1,(7),inst_21681);
 } else {
-if((state_val_18634 === (5))){
-var inst_18607 = (state_18633[(8)]);
-var state_18633__$1 = state_18633;
-var statearr_18640_18651 = state_18633__$1;
-(statearr_18640_18651[(2)] = inst_18607);
+if((state_val_21696 === (5))){
+var inst_21669 = (state_21695[(8)]);
+var state_21695__$1 = state_21695;
+var statearr_21702_21713 = state_21695__$1;
+(statearr_21702_21713[(2)] = inst_21669);
 
-(statearr_18640_18651[(1)] = (6));
+(statearr_21702_21713[(1)] = (6));
 
 
 return cljs.core.cst$kw$recur;
 } else {
-if((state_val_18634 === (6))){
-var inst_18629 = (state_18633[(2)]);
-var state_18633__$1 = state_18633;
-var statearr_18641_18652 = state_18633__$1;
-(statearr_18641_18652[(2)] = inst_18629);
+if((state_val_21696 === (6))){
+var inst_21691 = (state_21695[(2)]);
+var state_21695__$1 = state_21695;
+var statearr_21703_21714 = state_21695__$1;
+(statearr_21703_21714[(2)] = inst_21691);
 
-(statearr_18641_18652[(1)] = (3));
+(statearr_21703_21714[(1)] = (3));
 
 
 return cljs.core.cst$kw$recur;
 } else {
-if((state_val_18634 === (7))){
-var inst_18608 = (state_18633[(7)]);
-var inst_18607 = (state_18633[(8)]);
-var inst_18614 = (state_18633[(9)]);
-var inst_18621 = (state_18633[(2)]);
-var inst_18622 = cljs.core.prn.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([inst_18614], 0));
-var inst_18623 = cljs.core.prn.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([inst_18621], 0));
-var inst_18624 = cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(inst_18607,inst_18614,inst_18621);
-var inst_18625 = cljs.core.rest(inst_18608);
-var inst_18607__$1 = inst_18624;
-var inst_18608__$1 = inst_18625;
-var state_18633__$1 = (function (){var statearr_18642 = state_18633;
-(statearr_18642[(7)] = inst_18608__$1);
+if((state_val_21696 === (7))){
+var inst_21670 = (state_21695[(7)]);
+var inst_21676 = (state_21695[(9)]);
+var inst_21669 = (state_21695[(8)]);
+var inst_21683 = (state_21695[(2)]);
+var inst_21684 = cljs.core.prn.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([inst_21676], 0));
+var inst_21685 = cljs.core.prn.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([inst_21683], 0));
+var inst_21686 = cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(inst_21669,inst_21676,inst_21683);
+var inst_21687 = cljs.core.rest(inst_21670);
+var inst_21669__$1 = inst_21686;
+var inst_21670__$1 = inst_21687;
+var state_21695__$1 = (function (){var statearr_21704 = state_21695;
+(statearr_21704[(7)] = inst_21670__$1);
 
-(statearr_18642[(8)] = inst_18607__$1);
+(statearr_21704[(10)] = inst_21684);
 
-(statearr_18642[(10)] = inst_18623);
+(statearr_21704[(8)] = inst_21669__$1);
 
-(statearr_18642[(11)] = inst_18622);
+(statearr_21704[(11)] = inst_21685);
 
-return statearr_18642;
+return statearr_21704;
 })();
-var statearr_18643_18653 = state_18633__$1;
-(statearr_18643_18653[(2)] = null);
+var statearr_21705_21715 = state_21695__$1;
+(statearr_21705_21715[(2)] = null);
 
-(statearr_18643_18653[(1)] = (2));
+(statearr_21705_21715[(1)] = (2));
 
 
 return cljs.core.cst$kw$recur;
@@ -502,185 +448,185 @@ return null;
 }
 }
 }
-});})(c__14735__auto__))
+});})(c__17802__auto__))
 ;
-return ((function (switch__14552__auto__,c__14735__auto__){
+return ((function (switch__17619__auto__,c__17802__auto__){
 return (function() {
-var mecca$music$load_samples_$_state_machine__14553__auto__ = null;
-var mecca$music$load_samples_$_state_machine__14553__auto____0 = (function (){
-var statearr_18644 = [null,null,null,null,null,null,null,null,null,null,null,null];
-(statearr_18644[(0)] = mecca$music$load_samples_$_state_machine__14553__auto__);
+var mecca$music$load_samples_$_state_machine__17620__auto__ = null;
+var mecca$music$load_samples_$_state_machine__17620__auto____0 = (function (){
+var statearr_21706 = [null,null,null,null,null,null,null,null,null,null,null,null];
+(statearr_21706[(0)] = mecca$music$load_samples_$_state_machine__17620__auto__);
 
-(statearr_18644[(1)] = (1));
+(statearr_21706[(1)] = (1));
 
-return statearr_18644;
+return statearr_21706;
 });
-var mecca$music$load_samples_$_state_machine__14553__auto____1 = (function (state_18633){
+var mecca$music$load_samples_$_state_machine__17620__auto____1 = (function (state_21695){
 while(true){
-var ret_value__14554__auto__ = (function (){try{while(true){
-var result__14555__auto__ = switch__14552__auto__(state_18633);
-if(cljs.core.keyword_identical_QMARK_(result__14555__auto__,cljs.core.cst$kw$recur)){
+var ret_value__17621__auto__ = (function (){try{while(true){
+var result__17622__auto__ = switch__17619__auto__(state_21695);
+if(cljs.core.keyword_identical_QMARK_(result__17622__auto__,cljs.core.cst$kw$recur)){
 continue;
 } else {
-return result__14555__auto__;
+return result__17622__auto__;
 }
 break;
 }
-}catch (e18645){if((e18645 instanceof Object)){
-var ex__14556__auto__ = e18645;
-var statearr_18646_18654 = state_18633;
-(statearr_18646_18654[(5)] = ex__14556__auto__);
+}catch (e21707){if((e21707 instanceof Object)){
+var ex__17623__auto__ = e21707;
+var statearr_21708_21716 = state_21695;
+(statearr_21708_21716[(5)] = ex__17623__auto__);
 
 
-cljs.core.async.impl.ioc_helpers.process_exception(state_18633);
+cljs.core.async.impl.ioc_helpers.process_exception(state_21695);
 
 return cljs.core.cst$kw$recur;
 } else {
-throw e18645;
+throw e21707;
 
 }
 }})();
-if(cljs.core.keyword_identical_QMARK_(ret_value__14554__auto__,cljs.core.cst$kw$recur)){
-var G__18655 = state_18633;
-state_18633 = G__18655;
+if(cljs.core.keyword_identical_QMARK_(ret_value__17621__auto__,cljs.core.cst$kw$recur)){
+var G__21717 = state_21695;
+state_21695 = G__21717;
 continue;
 } else {
-return ret_value__14554__auto__;
+return ret_value__17621__auto__;
 }
 break;
 }
 });
-mecca$music$load_samples_$_state_machine__14553__auto__ = function(state_18633){
+mecca$music$load_samples_$_state_machine__17620__auto__ = function(state_21695){
 switch(arguments.length){
 case 0:
-return mecca$music$load_samples_$_state_machine__14553__auto____0.call(this);
+return mecca$music$load_samples_$_state_machine__17620__auto____0.call(this);
 case 1:
-return mecca$music$load_samples_$_state_machine__14553__auto____1.call(this,state_18633);
+return mecca$music$load_samples_$_state_machine__17620__auto____1.call(this,state_21695);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
-mecca$music$load_samples_$_state_machine__14553__auto__.cljs$core$IFn$_invoke$arity$0 = mecca$music$load_samples_$_state_machine__14553__auto____0;
-mecca$music$load_samples_$_state_machine__14553__auto__.cljs$core$IFn$_invoke$arity$1 = mecca$music$load_samples_$_state_machine__14553__auto____1;
-return mecca$music$load_samples_$_state_machine__14553__auto__;
+mecca$music$load_samples_$_state_machine__17620__auto__.cljs$core$IFn$_invoke$arity$0 = mecca$music$load_samples_$_state_machine__17620__auto____0;
+mecca$music$load_samples_$_state_machine__17620__auto__.cljs$core$IFn$_invoke$arity$1 = mecca$music$load_samples_$_state_machine__17620__auto____1;
+return mecca$music$load_samples_$_state_machine__17620__auto__;
 })()
-;})(switch__14552__auto__,c__14735__auto__))
+;})(switch__17619__auto__,c__17802__auto__))
 })();
-var state__14737__auto__ = (function (){var statearr_18647 = (f__14736__auto__.cljs$core$IFn$_invoke$arity$0 ? f__14736__auto__.cljs$core$IFn$_invoke$arity$0() : f__14736__auto__.call(null));
-(statearr_18647[(6)] = c__14735__auto__);
+var state__17804__auto__ = (function (){var statearr_21709 = (f__17803__auto__.cljs$core$IFn$_invoke$arity$0 ? f__17803__auto__.cljs$core$IFn$_invoke$arity$0() : f__17803__auto__.call(null));
+(statearr_21709[(6)] = c__17802__auto__);
 
-return statearr_18647;
+return statearr_21709;
 })();
-return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped(state__14737__auto__);
-});})(c__14735__auto__))
+return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped(state__17804__auto__);
+});})(c__17802__auto__))
 );
 
-return c__14735__auto__;
+return c__17802__auto__;
 });
 if((typeof mecca !== 'undefined') && (typeof mecca.music !== 'undefined') && (typeof mecca.music.loading_samples !== 'undefined')){
 } else {
-mecca.music.loading_samples = (function (){var c__14735__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));
-cljs.core.async.impl.dispatch.run(((function (c__14735__auto__){
+mecca.music.loading_samples = (function (){var c__17802__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));
+cljs.core.async.impl.dispatch.run(((function (c__17802__auto__){
 return (function (){
-var f__14736__auto__ = (function (){var switch__14552__auto__ = ((function (c__14735__auto__){
-return (function (state_18662){
-var state_val_18663 = (state_18662[(1)]);
-if((state_val_18663 === (1))){
-var inst_18656 = mecca.music.load_samples();
-var state_18662__$1 = state_18662;
-return cljs.core.async.impl.ioc_helpers.take_BANG_(state_18662__$1,(2),inst_18656);
+var f__17803__auto__ = (function (){var switch__17619__auto__ = ((function (c__17802__auto__){
+return (function (state_21724){
+var state_val_21725 = (state_21724[(1)]);
+if((state_val_21725 === (1))){
+var inst_21718 = mecca.music.load_samples();
+var state_21724__$1 = state_21724;
+return cljs.core.async.impl.ioc_helpers.take_BANG_(state_21724__$1,(2),inst_21718);
 } else {
-if((state_val_18663 === (2))){
-var inst_18658 = (state_18662[(2)]);
-var inst_18659 = mecca.music.samples = inst_18658;
-var inst_18660 = cljs.core.prn.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["Samples loaded"], 0));
-var state_18662__$1 = (function (){var statearr_18664 = state_18662;
-(statearr_18664[(7)] = inst_18659);
+if((state_val_21725 === (2))){
+var inst_21720 = (state_21724[(2)]);
+var inst_21721 = mecca.music.samples = inst_21720;
+var inst_21722 = cljs.core.prn.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["Samples loaded"], 0));
+var state_21724__$1 = (function (){var statearr_21726 = state_21724;
+(statearr_21726[(7)] = inst_21721);
 
-return statearr_18664;
+return statearr_21726;
 })();
-return cljs.core.async.impl.ioc_helpers.return_chan(state_18662__$1,inst_18660);
+return cljs.core.async.impl.ioc_helpers.return_chan(state_21724__$1,inst_21722);
 } else {
 return null;
 }
 }
-});})(c__14735__auto__))
+});})(c__17802__auto__))
 ;
-return ((function (switch__14552__auto__,c__14735__auto__){
+return ((function (switch__17619__auto__,c__17802__auto__){
 return (function() {
-var mecca$music$state_machine__14553__auto__ = null;
-var mecca$music$state_machine__14553__auto____0 = (function (){
-var statearr_18665 = [null,null,null,null,null,null,null,null];
-(statearr_18665[(0)] = mecca$music$state_machine__14553__auto__);
+var mecca$music$state_machine__17620__auto__ = null;
+var mecca$music$state_machine__17620__auto____0 = (function (){
+var statearr_21727 = [null,null,null,null,null,null,null,null];
+(statearr_21727[(0)] = mecca$music$state_machine__17620__auto__);
 
-(statearr_18665[(1)] = (1));
+(statearr_21727[(1)] = (1));
 
-return statearr_18665;
+return statearr_21727;
 });
-var mecca$music$state_machine__14553__auto____1 = (function (state_18662){
+var mecca$music$state_machine__17620__auto____1 = (function (state_21724){
 while(true){
-var ret_value__14554__auto__ = (function (){try{while(true){
-var result__14555__auto__ = switch__14552__auto__(state_18662);
-if(cljs.core.keyword_identical_QMARK_(result__14555__auto__,cljs.core.cst$kw$recur)){
+var ret_value__17621__auto__ = (function (){try{while(true){
+var result__17622__auto__ = switch__17619__auto__(state_21724);
+if(cljs.core.keyword_identical_QMARK_(result__17622__auto__,cljs.core.cst$kw$recur)){
 continue;
 } else {
-return result__14555__auto__;
+return result__17622__auto__;
 }
 break;
 }
-}catch (e18666){if((e18666 instanceof Object)){
-var ex__14556__auto__ = e18666;
-var statearr_18667_18669 = state_18662;
-(statearr_18667_18669[(5)] = ex__14556__auto__);
+}catch (e21728){if((e21728 instanceof Object)){
+var ex__17623__auto__ = e21728;
+var statearr_21729_21731 = state_21724;
+(statearr_21729_21731[(5)] = ex__17623__auto__);
 
 
-cljs.core.async.impl.ioc_helpers.process_exception(state_18662);
+cljs.core.async.impl.ioc_helpers.process_exception(state_21724);
 
 return cljs.core.cst$kw$recur;
 } else {
-throw e18666;
+throw e21728;
 
 }
 }})();
-if(cljs.core.keyword_identical_QMARK_(ret_value__14554__auto__,cljs.core.cst$kw$recur)){
-var G__18670 = state_18662;
-state_18662 = G__18670;
+if(cljs.core.keyword_identical_QMARK_(ret_value__17621__auto__,cljs.core.cst$kw$recur)){
+var G__21732 = state_21724;
+state_21724 = G__21732;
 continue;
 } else {
-return ret_value__14554__auto__;
+return ret_value__17621__auto__;
 }
 break;
 }
 });
-mecca$music$state_machine__14553__auto__ = function(state_18662){
+mecca$music$state_machine__17620__auto__ = function(state_21724){
 switch(arguments.length){
 case 0:
-return mecca$music$state_machine__14553__auto____0.call(this);
+return mecca$music$state_machine__17620__auto____0.call(this);
 case 1:
-return mecca$music$state_machine__14553__auto____1.call(this,state_18662);
+return mecca$music$state_machine__17620__auto____1.call(this,state_21724);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
-mecca$music$state_machine__14553__auto__.cljs$core$IFn$_invoke$arity$0 = mecca$music$state_machine__14553__auto____0;
-mecca$music$state_machine__14553__auto__.cljs$core$IFn$_invoke$arity$1 = mecca$music$state_machine__14553__auto____1;
-return mecca$music$state_machine__14553__auto__;
+mecca$music$state_machine__17620__auto__.cljs$core$IFn$_invoke$arity$0 = mecca$music$state_machine__17620__auto____0;
+mecca$music$state_machine__17620__auto__.cljs$core$IFn$_invoke$arity$1 = mecca$music$state_machine__17620__auto____1;
+return mecca$music$state_machine__17620__auto__;
 })()
-;})(switch__14552__auto__,c__14735__auto__))
+;})(switch__17619__auto__,c__17802__auto__))
 })();
-var state__14737__auto__ = (function (){var statearr_18668 = (f__14736__auto__.cljs$core$IFn$_invoke$arity$0 ? f__14736__auto__.cljs$core$IFn$_invoke$arity$0() : f__14736__auto__.call(null));
-(statearr_18668[(6)] = c__14735__auto__);
+var state__17804__auto__ = (function (){var statearr_21730 = (f__17803__auto__.cljs$core$IFn$_invoke$arity$0 ? f__17803__auto__.cljs$core$IFn$_invoke$arity$0() : f__17803__auto__.call(null));
+(statearr_21730[(6)] = c__17802__auto__);
 
-return statearr_18668;
+return statearr_21730;
 })();
-return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped(state__14737__auto__);
-});})(c__14735__auto__))
+return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped(state__17804__auto__);
+});})(c__17802__auto__))
 );
 
-return c__14735__auto__;
+return c__17802__auto__;
 })();
 }
 mecca.music.pitch__GT_rate = (function mecca$music$pitch__GT_rate(midi_num){
-var G__18671 = midi_num;
-switch (G__18671) {
+var G__21733 = midi_num;
+switch (G__21733) {
 case (55):
 return 0.5;
 
@@ -798,7 +744,7 @@ return 2.519842099789747;
 
 break;
 default:
-throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__18671)].join('')));
+throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__21733)].join('')));
 
 }
 });
@@ -835,41 +781,41 @@ sample_source.start(time);
 return sample_source;
 });
 mecca.music.play_song_BANG_ = (function mecca$music$play_song_BANG_(){
-var notes = (function (){var G__18673 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$notes], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__18673) : re_frame.core.subscribe.call(null,G__18673));
+var notes = (function (){var G__21735 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$notes], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__21735) : re_frame.core.subscribe.call(null,G__21735));
 })();
 var now = cljs.core.deref(mecca.music.audiocontext).currentTime;
-var tempo = (function (){var G__18674 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$tempo], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__18674) : re_frame.core.subscribe.call(null,G__18674));
+var tempo = (function (){var G__21736 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$tempo], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__21736) : re_frame.core.subscribe.call(null,G__21736));
 })();
-var G__18675_18684 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$reset_DASH_position], null);
-(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__18675_18684) : re_frame.core.dispatch.call(null,G__18675_18684));
+var G__21737_21746 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$reset_DASH_position], null);
+(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__21737_21746) : re_frame.core.dispatch.call(null,G__21737_21746));
 
 return cljs.core.doall.cljs$core$IFn$_invoke$arity$1((function (){var iter__4324__auto__ = ((function (notes,now,tempo){
-return (function mecca$music$play_song_BANG__$_iter__18676(s__18677){
+return (function mecca$music$play_song_BANG__$_iter__21738(s__21739){
 return (new cljs.core.LazySeq(null,((function (notes,now,tempo){
 return (function (){
-var s__18677__$1 = s__18677;
+var s__21739__$1 = s__21739;
 while(true){
-var temp__5457__auto__ = cljs.core.seq(s__18677__$1);
+var temp__5457__auto__ = cljs.core.seq(s__21739__$1);
 if(temp__5457__auto__){
-var s__18677__$2 = temp__5457__auto__;
-if(cljs.core.chunked_seq_QMARK_(s__18677__$2)){
-var c__4322__auto__ = cljs.core.chunk_first(s__18677__$2);
+var s__21739__$2 = temp__5457__auto__;
+if(cljs.core.chunked_seq_QMARK_(s__21739__$2)){
+var c__4322__auto__ = cljs.core.chunk_first(s__21739__$2);
 var size__4323__auto__ = cljs.core.count(c__4322__auto__);
-var b__18679 = cljs.core.chunk_buffer(size__4323__auto__);
-if((function (){var i__18678 = (0);
+var b__21741 = cljs.core.chunk_buffer(size__4323__auto__);
+if((function (){var i__21740 = (0);
 while(true){
-if((i__18678 < size__4323__auto__)){
-var map__18680 = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4322__auto__,i__18678);
-var map__18680__$1 = ((((!((map__18680 == null)))?(((((map__18680.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__18680.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__18680):map__18680);
-var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__18680__$1,cljs.core.cst$kw$time);
-var instrument = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__18680__$1,cljs.core.cst$kw$instrument);
-var pitch = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__18680__$1,cljs.core.cst$kw$pitch);
-cljs.core.chunk_append(b__18679,mecca.music.play_at(instrument,pitch,(now + (((60) / cljs.core.deref(tempo)) * time))));
+if((i__21740 < size__4323__auto__)){
+var map__21742 = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4322__auto__,i__21740);
+var map__21742__$1 = ((((!((map__21742 == null)))?(((((map__21742.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__21742.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__21742):map__21742);
+var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__21742__$1,cljs.core.cst$kw$time);
+var instrument = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__21742__$1,cljs.core.cst$kw$instrument);
+var pitch = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__21742__$1,cljs.core.cst$kw$pitch);
+cljs.core.chunk_append(b__21741,mecca.music.play_at(instrument,pitch,(now + (((60) / cljs.core.deref(tempo)) * time))));
 
-var G__18685 = (i__18678 + (1));
-i__18678 = G__18685;
+var G__21747 = (i__21740 + (1));
+i__21740 = G__21747;
 continue;
 } else {
 return true;
@@ -877,17 +823,17 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons(cljs.core.chunk(b__18679),mecca$music$play_song_BANG__$_iter__18676(cljs.core.chunk_rest(s__18677__$2)));
+return cljs.core.chunk_cons(cljs.core.chunk(b__21741),mecca$music$play_song_BANG__$_iter__21738(cljs.core.chunk_rest(s__21739__$2)));
 } else {
-return cljs.core.chunk_cons(cljs.core.chunk(b__18679),null);
+return cljs.core.chunk_cons(cljs.core.chunk(b__21741),null);
 }
 } else {
-var map__18682 = cljs.core.first(s__18677__$2);
-var map__18682__$1 = ((((!((map__18682 == null)))?(((((map__18682.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__18682.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__18682):map__18682);
-var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__18682__$1,cljs.core.cst$kw$time);
-var instrument = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__18682__$1,cljs.core.cst$kw$instrument);
-var pitch = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__18682__$1,cljs.core.cst$kw$pitch);
-return cljs.core.cons(mecca.music.play_at(instrument,pitch,(now + (((60) / cljs.core.deref(tempo)) * time))),mecca$music$play_song_BANG__$_iter__18676(cljs.core.rest(s__18677__$2)));
+var map__21744 = cljs.core.first(s__21739__$2);
+var map__21744__$1 = ((((!((map__21744 == null)))?(((((map__21744.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__21744.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__21744):map__21744);
+var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__21744__$1,cljs.core.cst$kw$time);
+var instrument = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__21744__$1,cljs.core.cst$kw$instrument);
+var pitch = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__21744__$1,cljs.core.cst$kw$pitch);
+return cljs.core.cons(mecca.music.play_at(instrument,pitch,(now + (((60) / cljs.core.deref(tempo)) * time))),mecca$music$play_song_BANG__$_iter__21738(cljs.core.rest(s__21739__$2)));
 }
 } else {
 return null;
@@ -906,4 +852,3 @@ analyser.getByteFrequencyData(freq_data);
 
 return freq_data;
 });
-mecca.music.city = cljs.core.PersistentVector.fromArray([new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,67.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(67),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(66),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,65.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,64.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,60.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(73)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,59.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(73)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(59),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(58),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(57),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,56.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,55.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,50.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,49.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(49),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,48.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,47.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,46.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(43),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(42),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,41.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(41),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,40.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,39.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,35.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(35),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(34),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,31.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(31),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(73)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,27.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(73)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(27),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(26),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(25),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,24.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,23.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,18.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,17.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(17),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,16.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,15.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(15),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(11),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(10),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,9.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(9),cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,8.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,7.5,cljs.core.cst$kw$instrument,(1),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,67.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(67),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,66.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(66),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,63.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(63),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,59.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(59),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(58),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(57),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,56.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,55.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,50.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,49.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(49),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,48.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,47.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(47),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(43),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(42),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,41.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(41),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,40.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,39.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(105),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,104.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(104),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,103.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(103),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,102.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(102),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,101.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(101),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,100.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(100),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,35.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(35),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,34.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(34),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,31.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(31),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,27.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(27),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(26),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(25),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,24.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,23.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,18.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,17.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(17),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,16.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,15.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(15),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(11),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(10),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,9.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(9),cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,8.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,7.5,cljs.core.cst$kw$instrument,(5),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,129.5,cljs.core.cst$kw$instrument,(8),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(131),cljs.core.cst$kw$instrument,(8),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(128),cljs.core.cst$kw$instrument,(8),cljs.core.cst$kw$pitch,(65)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(147),cljs.core.cst$kw$instrument,(8),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,145.5,cljs.core.cst$kw$instrument,(8),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(144),cljs.core.cst$kw$instrument,(8),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,147.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(147),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,147.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,147.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,123.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,122.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(122),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,121.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,120.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(120),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,119.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,118.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(118),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,117.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,116.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(116),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(116),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,115.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(115),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,114.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(114),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,115.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(115),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,114.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(114),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,113.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,110.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(110),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,109.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(109),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(65)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,108.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(108),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(120),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,119.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(119),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,118.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(118),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,117.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(117),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,116.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(116),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,115.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(111),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,109.5,cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(61)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(108),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(111),cljs.core.cst$kw$instrument,(8),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,109.5,cljs.core.cst$kw$instrument,(8),cljs.core.cst$kw$pitch,(61)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(108),cljs.core.cst$kw$instrument,(8),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(111),cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,109.5,cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(61)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(108),cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(111),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,109.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(61)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(108),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,107.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(107),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,106.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(106),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,105.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,107.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(107),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,106.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(106),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,105.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(105),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,104.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(104),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,103.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(103),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,102.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(102),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,101.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(101),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,100.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(100),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,99.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(99),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,98.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(98),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,97.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(97),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,96.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(96),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,95.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(95),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,94.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(94),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,93.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(93),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(92),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,91.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(91),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,90.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,99.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(99),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,98.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(98),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,97.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(97),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,96.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(96),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,95.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(95),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,94.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(94),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,93.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(93),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,92.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(92),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,91.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(91),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,90.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(90),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,89.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(89),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,89.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(89),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(88),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,87.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(87),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,86.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(86),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,85.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(85),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(84),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,83.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(83),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(65)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,82.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(82),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,81.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(81),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(80),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,79.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(79),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,78.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(78),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,77.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(77),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(76),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,75.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(75),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,74.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,73.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(73),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,88.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(88),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(87),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(79)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(86),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(79)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(85),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(81)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(84),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(79)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(83),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(82),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(81),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(80),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(79)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(79),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(78),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(77),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(76),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(79)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(75),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(74),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(73),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(72),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(81)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,43.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(43),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,42.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,41.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(41),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,99.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(99),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,98.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(98),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,97.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(97),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,96.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(96),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,95.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(95),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,94.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(94),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,93.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(93),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,92.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(92),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,91.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(91),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,90.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(90),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,89.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(72),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,71.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(71),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,70.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(70),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,69.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(69),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(68),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,67.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(65)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(67),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,66.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(66),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,65.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(65),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(64),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,63.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(63),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,62.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(62),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,61.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(65)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(61),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(60),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,59.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(65)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(59),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,58.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(58),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,57.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(57),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(56),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,55.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(55),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,54.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(54),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,53.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(53),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(52),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,51.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(51),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,50.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(50),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,49.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(49),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(48),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,47.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(47),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,46.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,45.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(45),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(89),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,88.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(88),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,87.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(87),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,86.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,85.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(85),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(84),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,83.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(83),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,82.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(73)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(82),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,81.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,80.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(81),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(80),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,79.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(79),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(73)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,78.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(78),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,77.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(76),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,75.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(75),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(74),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,73.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(72),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,71.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(73)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(71),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,70.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(70),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,69.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(69),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,68.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(68),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,67.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(79)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(67),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,66.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(66),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,65.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(65),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(64),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,63.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,62.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,61.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(63),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(73)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(61),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(73)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(60),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,59.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(59),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,58.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,57.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(57),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(56),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,55.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(55),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,54.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(54),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,53.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(53),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(52),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,51.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(51),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,50.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,49.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(49),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(48),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,47.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(47),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,46.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(46),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,45.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(45),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(44),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,43.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(43),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,42.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,41.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(41),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(40),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,39.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(39),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,38.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,37.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(37),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(36),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,35.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(35),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,34.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(33),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(31),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(73)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(29),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(73)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(27),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(25),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(0),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(0),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,0.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(1),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,1.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(2),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,2.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(3),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,3.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(1),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,1.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,2.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(3),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,3.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(4),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,4.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(5),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,5.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(6),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,6.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(7),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,7.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,4.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(5),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,5.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,6.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(7),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,7.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(8),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(8),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,8.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(9),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,9.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(10),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,10.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(11),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,11.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(12),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,12.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(13),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,13.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(14),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,14.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(15),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,15.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(18),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(16),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(17),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,17.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,18.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(19),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,19.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,20.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(21),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,21.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,22.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(23),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,23.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(24),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(25),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,25.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(26),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,26.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(27),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,27.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(28),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,28.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(29),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,29.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(30),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,30.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(31),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,31.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(32),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(33),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,33.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(34),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,34.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(35),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,35.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(36),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(37),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,37.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(38),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,38.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(39),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,39.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,39.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(40),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(44),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,44.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,44.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,8.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(9),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,9.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,10.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(11),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,11.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,12.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(13),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,13.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(14),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(15),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,15.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,16.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(17),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,17.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(18),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(19),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,19.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(20),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(21),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,21.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,22.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(23),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,23.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(24),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,25.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,26.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,27.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(28),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,29.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(30),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,30.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,31.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(32),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,33.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(116),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(117),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,117.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(118),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,118.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(119),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,119.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(120),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,120.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(121),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,121.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(122),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,122.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(123),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,123.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(124),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(125),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(72)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,125.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(126),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,126.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(127),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,127.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(128),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,128.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(129),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,129.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(120),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,120.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(121),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,121.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(122),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,122.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(123),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,123.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(124),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,124.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,125.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(126),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,126.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,127.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(128),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,128.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,129.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(130),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,130.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,131.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(132),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,132.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,133.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(134),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,134.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(130),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,130.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(131),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,131.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(132),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,132.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,133.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(134),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,134.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(124),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,124.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,125.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(126),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,126.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,127.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(125),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(127),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(128),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,128.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(129),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,129.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(130),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,130.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(131),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,131.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(132),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,132.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(133),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,133.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(134),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,134.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,135.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(136),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,136.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,137.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(138),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,138.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,139.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(140),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,140.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,141.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(142),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,142.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,143.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(144),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,144.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,145.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(146),cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(144),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(65)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,144.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(145),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,145.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(146),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(64)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,146.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(135),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,135.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(136),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,136.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(137),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,137.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(138),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,138.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(139),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,139.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(140),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,140.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(133),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(135),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(137),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,135.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(136),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,136.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,137.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(138),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,138.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,139.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(139),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,139.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(140),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,140.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(55)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(141),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,141.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(142),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,142.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(143),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(143),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(60)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,143.5,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(141),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,141.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(142),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,142.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(143),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(77)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,143.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(144),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,144.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(145),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,145.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(146),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,146.5,cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(147),cljs.core.cst$kw$instrument,(13),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(144),cljs.core.cst$kw$instrument,(9),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,145.5,cljs.core.cst$kw$instrument,(9),cljs.core.cst$kw$pitch,(62)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(147),cljs.core.cst$kw$instrument,(9),cljs.core.cst$kw$pitch,(59)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,146.5,cljs.core.cst$kw$instrument,(15),cljs.core.cst$kw$pitch,(57)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(71),cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(72),cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(73),cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(74),cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(75),cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,75.5,cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,76.5,cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,79.5,cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,80.5,cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,81.5,cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(82),cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,82.5,cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(83),cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,83.5,cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,85.5,cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,86.5,cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(87),cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,87.5,cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(88),cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(89),cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,89.5,cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,91.5,cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(92),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(93),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(94),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,94.5,cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,103.5,cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(104),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(105),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(106),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,106.5,cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(107),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(67)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(108),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(66)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,109.5,cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(69)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(111),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,115.5,cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(116),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(117),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(118),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,118.5,cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,123.5,cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(124),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(125),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(126),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,126.5,cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(127),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(128),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,129.5,cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(131),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,131.5,cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(78)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(133),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(76)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(134),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,134.5,cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,139.5,cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(140),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(141),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(142),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,142.5,cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(143),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(144),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(73)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,145.5,cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(147),cljs.core.cst$kw$instrument,(7),cljs.core.cst$kw$pitch,(71)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(144),cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(73)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,145.5,cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(74)], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(147),cljs.core.cst$kw$instrument,(14),cljs.core.cst$kw$pitch,(71)], null)], true);

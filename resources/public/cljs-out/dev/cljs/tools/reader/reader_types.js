@@ -646,8 +646,8 @@ return (new cljs.tools.reader.reader_types.StringReader(s,cljs.core.count(s),(0)
  * Creates a PushbackReader from a given string
  */
 cljs.tools.reader.reader_types.string_push_back_reader = (function cljs$tools$reader$reader_types$string_push_back_reader(var_args){
-var G__19650 = arguments.length;
-switch (G__19650) {
+var G__22736 = arguments.length;
+switch (G__22736) {
 case 1:
 return cljs.tools.reader.reader_types.string_push_back_reader.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -679,8 +679,8 @@ return (new cljs.tools.reader.reader_types.PushbackReader((new cljs.tools.reader
  * Creates an IndexingPushbackReader from a given string or PushbackReader
  */
 cljs.tools.reader.reader_types.indexing_push_back_reader = (function cljs$tools$reader$reader_types$indexing_push_back_reader(var_args){
-var G__19653 = arguments.length;
-switch (G__19653) {
+var G__22739 = arguments.length;
+switch (G__22739) {
 case 1:
 return cljs.tools.reader.reader_types.indexing_push_back_reader.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -717,8 +717,8 @@ cljs.tools.reader.reader_types.indexing_push_back_reader.cljs$lang$maxFixedArity
  * Creates a SourceLoggingPushbackReader from a given string or PushbackReader
  */
 cljs.tools.reader.reader_types.source_logging_push_back_reader = (function cljs$tools$reader$reader_types$source_logging_push_back_reader(var_args){
-var G__19656 = arguments.length;
-switch (G__19656) {
+var G__22742 = arguments.length;
+switch (G__22742) {
 case 1:
 return cljs.tools.reader.reader_types.source_logging_push_back_reader.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -761,10 +761,10 @@ while(true){
 if(cljs.tools.reader.impl.utils.newline_QMARK_(c)){
 return [cljs.core.str.cljs$core$IFn$_invoke$arity$1(s)].join('');
 } else {
-var G__19658 = rdr.cljs$tools$reader$reader_types$Reader$read_char$arity$1(null);
-var G__19659 = s.append(c);
-c = G__19658;
-s = G__19659;
+var G__22744 = rdr.cljs$tools$reader$reader_types$Reader$read_char$arity$1(null);
+var G__22745 = s.append(c);
+c = G__22744;
+s = G__22745;
 continue;
 }
 break;

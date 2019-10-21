@@ -12,15 +12,15 @@ return key;
 }
 });
 ajax.url.value_encode = encodeURIComponent;
-ajax.url.key_value_pair_to_str = (function ajax$url$key_value_pair_to_str(p__18830){
-var vec__18831 = p__18830;
-var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__18831,(0),null);
-var v = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__18831,(1),null);
+ajax.url.key_value_pair_to_str = (function ajax$url$key_value_pair_to_str(p__21916){
+var vec__21917 = p__21916;
+var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__21917,(0),null);
+var v = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__21917,(1),null);
 return [cljs.core.str.cljs$core$IFn$_invoke$arity$1(ajax.url.key_encode(k)),"=",cljs.core.str.cljs$core$IFn$_invoke$arity$1((ajax.url.value_encode.cljs$core$IFn$_invoke$arity$1 ? ajax.url.value_encode.cljs$core$IFn$_invoke$arity$1(v) : ajax.url.value_encode.call(null,v)))].join('');
 });
 ajax.url.vec_key_transform_fn = (function ajax$url$vec_key_transform_fn(var_args){
-var G__18835 = arguments.length;
-switch (G__18835) {
+var G__21921 = arguments.length;
+switch (G__21921) {
 case 3:
 return ajax.url.vec_key_transform_fn.cljs$core$IFn$_invoke$arity$3((arguments[(0)]),(arguments[(1)]),(arguments[(2)]));
 
@@ -58,29 +58,29 @@ return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMP
 ajax.url.vec_key_transform_fn.cljs$lang$maxFixedArity = 3;
 
 ajax.url.to_vec_key_transform = (function ajax$url$to_vec_key_transform(vec_strategy){
-var vec_key_encode = (function (){var G__18837 = (function (){var or__3949__auto__ = vec_strategy;
+var vec_key_encode = (function (){var G__21923 = (function (){var or__3949__auto__ = vec_strategy;
 if(cljs.core.truth_(or__3949__auto__)){
 return or__3949__auto__;
 } else {
 return cljs.core.cst$kw$java;
 }
 })();
-var G__18837__$1 = (((G__18837 instanceof cljs.core.Keyword))?G__18837.fqn:null);
-switch (G__18837__$1) {
+var G__21923__$1 = (((G__21923 instanceof cljs.core.Keyword))?G__21923.fqn:null);
+switch (G__21923__$1) {
 case "java":
-return ((function (G__18837,G__18837__$1){
+return ((function (G__21923,G__21923__$1){
 return (function (k){
 return null;
 });
-;})(G__18837,G__18837__$1))
+;})(G__21923,G__21923__$1))
 
 break;
 case "rails":
-return ((function (G__18837,G__18837__$1){
+return ((function (G__21923,G__21923__$1){
 return (function (k){
 return "";
 });
-;})(G__18837,G__18837__$1))
+;})(G__21923,G__21923__$1))
 
 break;
 case "indexed":
@@ -88,15 +88,15 @@ return cljs.core.identity;
 
 break;
 default:
-throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__18837__$1)].join('')));
+throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__21923__$1)].join('')));
 
 }
 })();
 return ajax.url.vec_key_transform_fn.cljs$core$IFn$_invoke$arity$1(vec_key_encode);
 });
 ajax.url.param_to_key_value_pairs = (function ajax$url$param_to_key_value_pairs(var_args){
-var G__18840 = arguments.length;
-switch (G__18840) {
+var G__21926 = arguments.length;
+switch (G__21926) {
 case 3:
 return ajax.url.param_to_key_value_pairs.cljs$core$IFn$_invoke$arity$3((arguments[(0)]),(arguments[(1)]),(arguments[(2)]));
 
@@ -115,10 +115,10 @@ throw (new Error(["Invalid arity: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(
 }
 });
 
-ajax.url.param_to_key_value_pairs.cljs$core$IFn$_invoke$arity$3 = (function (vec_key_transform,prefix,p__18841){
-var vec__18842 = p__18841;
-var key = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__18842,(0),null);
-var value = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__18842,(1),null);
+ajax.url.param_to_key_value_pairs.cljs$core$IFn$_invoke$arity$3 = (function (vec_key_transform,prefix,p__21927){
+var vec__21928 = p__21927;
+var key = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__21928,(0),null);
+var value = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__21928,(1),null);
 
 var k1 = ajax.url.key_encode(key);
 var new_key = (cljs.core.truth_(prefix)?(cljs.core.truth_(key)?[cljs.core.str.cljs$core$IFn$_invoke$arity$1(prefix),"[",cljs.core.str.cljs$core$IFn$_invoke$arity$1(k1),"]"].join(''):prefix):k1);
@@ -144,10 +144,10 @@ return new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMP
 });
 
 ajax.url.param_to_key_value_pairs.cljs$core$IFn$_invoke$arity$2 = (function (vec_key_transform,prefix){
-return (function (p__18845){
-var vec__18846 = p__18845;
-var key = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__18846,(0),null);
-var value = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__18846,(1),null);
+return (function (p__21931){
+var vec__21932 = p__21931;
+var key = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__21932,(0),null);
+var value = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__21932,(1),null);
 
 var k1 = ajax.url.key_encode(key);
 var new_key = (cljs.core.truth_(prefix)?(cljs.core.truth_(key)?[cljs.core.str.cljs$core$IFn$_invoke$arity$1(prefix),"[",cljs.core.str.cljs$core$IFn$_invoke$arity$1(k1),"]"].join(''):prefix):k1);
@@ -174,10 +174,10 @@ return new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMP
 });
 
 ajax.url.param_to_key_value_pairs.cljs$core$IFn$_invoke$arity$1 = (function (vec_key_transform){
-return (function (prefix,p__18849){
-var vec__18850 = p__18849;
-var key = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__18850,(0),null);
-var value = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__18850,(1),null);
+return (function (prefix,p__21935){
+var vec__21936 = p__21935;
+var key = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__21936,(0),null);
+var value = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__21936,(1),null);
 
 var k1 = ajax.url.key_encode(key);
 var new_key = (cljs.core.truth_(prefix)?(cljs.core.truth_(key)?[cljs.core.str.cljs$core$IFn$_invoke$arity$1(prefix),"[",cljs.core.str.cljs$core$IFn$_invoke$arity$1(k1),"]"].join(''):prefix):k1);
@@ -206,8 +206,8 @@ return new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMP
 ajax.url.param_to_key_value_pairs.cljs$lang$maxFixedArity = 3;
 
 ajax.url.params_to_str = (function ajax$url$params_to_str(var_args){
-var G__18855 = arguments.length;
-switch (G__18855) {
+var G__21941 = arguments.length;
+switch (G__21941) {
 case 2:
 return ajax.url.params_to_str.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
@@ -240,8 +240,8 @@ ajax.url.params_to_str.cljs$lang$maxFixedArity = 2;
  * The request format for simple POST and GET.
  */
 ajax.url.url_request_format = (function ajax$url$url_request_format(var_args){
-var G__18858 = arguments.length;
-switch (G__18858) {
+var G__21944 = arguments.length;
+switch (G__21944) {
 case 0:
 return ajax.url.url_request_format.cljs$core$IFn$_invoke$arity$0();
 
@@ -260,10 +260,10 @@ ajax.url.url_request_format.cljs$core$IFn$_invoke$arity$0 = (function (){
 return ajax.url.url_request_format.cljs$core$IFn$_invoke$arity$1(cljs.core.PersistentArrayMap.EMPTY);
 });
 
-ajax.url.url_request_format.cljs$core$IFn$_invoke$arity$1 = (function (p__18859){
-var map__18860 = p__18859;
-var map__18860__$1 = ((((!((map__18860 == null)))?(((((map__18860.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__18860.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__18860):map__18860);
-var vec_strategy = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__18860__$1,cljs.core.cst$kw$vec_DASH_strategy);
+ajax.url.url_request_format.cljs$core$IFn$_invoke$arity$1 = (function (p__21945){
+var map__21946 = p__21945;
+var map__21946__$1 = ((((!((map__21946 == null)))?(((((map__21946.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__21946.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__21946):map__21946);
+var vec_strategy = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__21946__$1,cljs.core.cst$kw$vec_DASH_strategy);
 return new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$write,ajax.util.to_utf8_writer(ajax.url.params_to_str.cljs$core$IFn$_invoke$arity$1(vec_strategy)),cljs.core.cst$kw$content_DASH_type,"application/x-www-form-urlencoded; charset=utf-8"], null);
 });
 

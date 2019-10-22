@@ -29,9 +29,6 @@
       (dispatch [:schedule-note @current-note @next-note-time])
       (dispatch [:next-note]))))
 
-
-
-
 (defn mario-jump? []
   (let [beat (subscribe [:current-position])
         notes (subscribe [:notes])
@@ -66,7 +63,7 @@
   (scheduler))
 
 (defonce do-timer
-  (js/setInterval dispatch-timer-event 30))
+  (js/setInterval dispatch-timer-event 25))
 
 (defn load-sound [named-url]
   (let [out (chan)
@@ -119,9 +116,26 @@
                (rest sounds)))
       result)))
 
+;; Silly hack so I don't have to keep switching this!
+
+(defn load-samples-locally []
+  (go-loop [result {}
+            sounds (range 1 19)]
+    (if-not (nil? (first sounds))
+      (let [sound (first sounds)                   ; for Github Pages - remove the '/mecca/resources/public' to run locally
+            decoded-buffer (<! (get-and-decode {:url (str "/audio/" sound ".mp3")
+                                                :sound sound}))]
+        (prn sound)
+        (prn decoded-buffer)
+        (recur (assoc result sound decoded-buffer)
+               (rest sounds)))
+      result)))
+
 (defonce loading-samples
   (go
     (def samples (<! (load-samples)))
+    (if ((fn [_ buffer] (nil? buffer)) (first samples))
+      (def samples (<! (load-samples-locally))))
     (prn "Samples loaded")))
 
 (defn pitch->rate [midi-num]

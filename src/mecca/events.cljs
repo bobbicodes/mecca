@@ -6,9 +6,9 @@
    [ajax.protocols :as protocol]
    [day8.re-frame.undo :as undo :refer [undoable]]
    [mecca.mario :as mario :refer [mario]]
-   [mecca.megaman :as megaman]
-   [mecca.zelda :as zelda]
-   [mecca.city :as city]
+   [mecca.songs.megaman :as megaman]
+   [mecca.songs.zelda :as zelda]
+   [mecca.songs.city :as city]
    [mecca.music :as music :refer [audiocontext]]
    [goog.events :refer [listen unlisten]])
   (:import [goog.events EventType]))
@@ -232,15 +232,15 @@
 (reg-event-db
  :tick!
  (fn [db [_ _]]
-   (if (not= 0 @(subscribe [:mario-jump]))
+   (if (and (not= 0 @(subscribe [:mario-jump]))
+            @(subscribe [:playing?]))
+     
      (assoc
       (update
        (update db :mario-run #(if (= % 12) 0 (inc %)))
-       :mario-jump #(if (= 16 %) 0 (inc %)))
+       :mario-jump #(if (= 8 %) 0 (inc %)))
       :mario-y (- 61
-                  (get [5 10 15 20 24 27 29 30
-                        30 29 27 24 20 15 10 5]
-                       @(subscribe [:mario-jump]))))
+                  (get [5 10 15 25 30 25 15 5]                       @(subscribe [:mario-jump]))))
      (update db :mario-run #(if (= % 12) 0 (inc %))))))
 
 (reg-event-db
@@ -261,7 +261,7 @@
 (reg-event-db
  :load-megaman
  (fn [db [_ notes]]
-   (dispatch [:set-tempo 180])
+   (dispatch [:set-tempo 260])
    (assoc db :notes
           megaman/megaman)))
 

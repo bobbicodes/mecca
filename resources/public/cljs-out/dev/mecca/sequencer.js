@@ -31,7 +31,7 @@ mecca.sequencer.releaseControl = document.querySelector("#release");
 mecca.sequencer.releaseControl.addEventListener("input",(function (ev){
 return mecca.sequencer.releaseTime = Number(ev.target.value);
 }),false);
-mecca.sequencer.sweepLength = (2);
+.sweepLength = (2);
 mecca.sequencer.playSweep = (function mecca$sequencer$playSweep(){
 var osc = cljs.core.deref.call(null,mecca.music.audiocontext).createOscillator();
 var now = cljs.core.deref.call(null,mecca.music.audiocontext).currentTime;
@@ -105,3 +105,4 @@ return mecca.sequencer.bandHz = Number(ev.target.value);
 }),false);
 
 //# sourceMappingURL=sequencer.js.map
+quencer.js.map

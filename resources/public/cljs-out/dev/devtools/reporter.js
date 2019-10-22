@@ -6,14 +6,14 @@ goog.require('devtools.context');
 devtools.reporter.issues_url = "https://github.com/binaryage/cljs-devtools/issues";
 devtools.reporter.report_internal_error_BANG_ = (function devtools$reporter$report_internal_error_BANG_(var_args){
 var args__4534__auto__ = [];
-var len__4531__auto___25798 = arguments.length;
-var i__4532__auto___25799 = (0);
+var len__4531__auto___26262 = arguments.length;
+var i__4532__auto___26263 = (0);
 while(true){
-if((i__4532__auto___25799 < len__4531__auto___25798)){
-args__4534__auto__.push((arguments[i__4532__auto___25799]));
+if((i__4532__auto___26263 < len__4531__auto___26262)){
+args__4534__auto__.push((arguments[i__4532__auto___26263]));
 
-var G__25800 = (i__4532__auto___25799 + (1));
-i__4532__auto___25799 = G__25800;
+var G__26264 = (i__4532__auto___26263 + (1));
+i__4532__auto___26263 = G__26264;
 continue;
 } else {
 }
@@ -24,10 +24,10 @@ var argseq__4535__auto__ = ((((1) < args__4534__auto__.length))?(new cljs.core.I
 return devtools.reporter.report_internal_error_BANG_.cljs$core$IFn$_invoke$arity$variadic((arguments[(0)]),argseq__4535__auto__);
 });
 
-devtools.reporter.report_internal_error_BANG_.cljs$core$IFn$_invoke$arity$variadic = (function (e,p__25793){
-var vec__25794 = p__25793;
-var context = cljs.core.nth.call(null,vec__25794,(0),null);
-var footer = cljs.core.nth.call(null,vec__25794,(1),null);
+devtools.reporter.report_internal_error_BANG_.cljs$core$IFn$_invoke$arity$variadic = (function (e,p__26257){
+var vec__26258 = p__26257;
+var context = cljs.core.nth.call(null,vec__26258,(0),null);
+var footer = cljs.core.nth.call(null,vec__26258,(1),null);
 var console = devtools.context.get_console.call(null);
 try{var message = (((e instanceof Error))?(function (){var or__3949__auto__ = e.message;
 if(cljs.core.truth_(or__3949__auto__)){
@@ -63,18 +63,18 @@ group_collapsed.apply(console,header);
 log.apply(console,details);
 
 return group_end.call(console);
-}catch (e25797){var e__$1 = e25797;
+}catch (e26261){var e__$1 = e26261;
 return console.error("FATAL: report-internal-error! failed",e__$1);
 }});
 
 devtools.reporter.report_internal_error_BANG_.cljs$lang$maxFixedArity = (1);
 
 /** @this {Function} */
-devtools.reporter.report_internal_error_BANG_.cljs$lang$applyTo = (function (seq25791){
-var G__25792 = cljs.core.first.call(null,seq25791);
-var seq25791__$1 = cljs.core.next.call(null,seq25791);
+devtools.reporter.report_internal_error_BANG_.cljs$lang$applyTo = (function (seq26255){
+var G__26256 = cljs.core.first.call(null,seq26255);
+var seq26255__$1 = cljs.core.next.call(null,seq26255);
 var self__4518__auto__ = this;
-return self__4518__auto__.cljs$core$IFn$_invoke$arity$variadic(G__25792,seq25791__$1);
+return self__4518__auto__.cljs$core$IFn$_invoke$arity$variadic(G__26256,seq26255__$1);
 });
 
 

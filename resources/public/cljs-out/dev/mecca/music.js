@@ -38,7 +38,7 @@ var G__18550 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVe
 return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__18550) : re_frame.core.dispatch.call(null,G__18550));
 }
 });
-mecca.music.mario_jump_QMARK_ = (function mecca$music$mario_jump_QMARK_(){
+mecca.music.mario_jump = (function mecca$music$mario_jump(){
 var beat = (function (){var G__18552 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$current_DASH_position], null);
 return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__18552) : re_frame.core.subscribe.call(null,G__18552));
 })();
@@ -71,7 +71,7 @@ return null;
 return null;
 }
 });
-mecca.music.song_done_QMARK_ = (function mecca$music$song_done_QMARK_(){
+mecca.music.mario_move = (function mecca$music$mario_move(){
 var notes = (function (){var G__18559 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$notes], null);
 return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__18559) : re_frame.core.subscribe.call(null,G__18559));
 })();
@@ -112,15 +112,13 @@ var G__18566_18569 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.Persis
 } else {
 }
 
-return mecca.music.mario_jump_QMARK_();
+return mecca.music.mario_jump();
 });
 mecca.music.dispatch_timer_event = (function mecca$music$dispatch_timer_event(){
 var G__18570_18571 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$tick_BANG_], null);
 (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__18570_18571) : re_frame.core.dispatch.call(null,G__18570_18571));
 
-mecca.music.song_done_QMARK_();
-
-return mecca.music.scheduler();
+return mecca.music.mario_move();
 });
 if((typeof mecca !== 'undefined') && (typeof mecca.music !== 'undefined') && (typeof mecca.music.do_timer !== 'undefined')){
 } else {

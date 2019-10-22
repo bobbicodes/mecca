@@ -7,6 +7,11 @@
    (:scale db)))
 
 (rf/reg-sub
+ :file-upload
+ (fn [db _]
+   (:file-upload db)))
+
+(rf/reg-sub
  :playing?
  (fn [db _]
    (:playing? db)))

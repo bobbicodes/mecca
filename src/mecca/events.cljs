@@ -39,7 +39,8 @@
     :mario-y 61
     :mario-jump 0
     :mario-run 1
-    :xml ""}))
+    :xml ""
+    :file-upload ""}))
 
 (reg-event-db
  :remove-note
@@ -50,6 +51,11 @@
              (remove #(and (= time (:time %))
                            (= pitch (:pitch %)))
                      note)))))
+
+(reg-event-db
+ :upload-file
+ (fn [db [_ file]]
+   (assoc db :file-upload file)))
 
 (reg-event-db
  :set-time-signature

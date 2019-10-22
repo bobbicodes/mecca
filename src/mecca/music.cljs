@@ -29,7 +29,7 @@
       (dispatch [:schedule-note @current-note @next-note-time])
       (dispatch [:next-note]))))
 
-(defn mario-jump? []
+(defn mario-jump []
   (let [beat (subscribe [:current-position])
         notes (subscribe [:notes])
         jump (subscribe [:mario-jump])]
@@ -39,7 +39,7 @@
                               @notes)))
       (dispatch [:jump!])))))
 
-(defn song-done? []
+(defn mario-move []
   (let [notes (subscribe [:notes])
         playing? @(subscribe [:playing?])
         now (.-currentTime @audiocontext)
@@ -55,12 +55,13 @@
         (if (< @last-drawn-pos current-beat)
           (do (dispatch [:move-mario])
             (dispatch [:advance-position])))))
-    (mario-jump?)))
+    (mario-jump)))
 
 (defn dispatch-timer-event []
   (dispatch [:tick!])
-      (song-done?)
-  (scheduler))
+      (mario-move)
+  ;(scheduler)
+  )
 
 (defonce do-timer
   (js/setInterval dispatch-timer-event 25))

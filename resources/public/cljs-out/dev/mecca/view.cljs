@@ -204,7 +204,6 @@
   (for [note @(subscribe [:notes])]
     (pr-str note)))
    ;[:p (str "Mario run: " @(subscribe [:mario-run]))]
-   [:p (str "Mario run: " @(subscribe [:mario-run]))]
    [:p 
     (let [mouse-pos (subscribe [:focused-note-pos])]
       (str "Beat: " (first @mouse-pos) " Pitch: " (last @mouse-pos)))]
@@ -229,9 +228,13 @@
                   :rows 8 :cols 38}]
       [:p]
       [:input {:type "submit" :value "Import"}]]]]
-    #_[:div
+    [:div
      [:input#input {:type "file"
-                    :on-change #(.log js/console "wat")}]]
+                    :on-change
+                    (fn [event]
+                      (let [dom  (goog.object/get event "target")
+                            file (goog.object/getValueByKeys dom #js ["files" 0])]
+                        (dispatch [:upload-file file])))}]]
    [debug-info]
    #_[:svg
     (svg-paths [["#000000" "M0 0h14M0 1h1M13 1h1M0 2h1M4 2h1M13 2h1M0 3h1M3 3h2M13 3h1M0 4h1M2 4h1M4 4h1M9 4h1M13 4h1M0 5h1M2 5h4M8 5h1M13 5h1M0 6h1M4 6h1M7 6h1M13 6h1M0 7h1M6 7h1M9 7h1M13 7h1M0 8h1M5 8h1M8 8h2M13 8h1M0 9h1M4 9h1M7 9h1M9 9h1M13 9h1M0 10h1M7 10h4M13 10h1M0 11h1M9 11h1M13 11h1M0 12h1M13 12h1M0 13h1M13 13h1M0 14h14"]

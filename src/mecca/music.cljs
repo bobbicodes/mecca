@@ -18,13 +18,13 @@
 
 (def lookahead 25.0)
 
-(def scheduleAheadTime 0.1)
+(def schedule-ahead-time 0.1)
 
 (defn scheduler []
   (let [next-note-time (subscribe [:next-note-time])
         current-note (subscribe [:current-note])]
     (if (< @next-note-time
-         (+ scheduleAheadTime
+         (+ schedule-ahead-time
             (current-time @audiocontext)))
       (dispatch [:schedule-note @current-note @next-note-time])
       (dispatch [:next-note]))))

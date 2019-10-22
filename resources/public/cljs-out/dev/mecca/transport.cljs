@@ -95,4 +95,4 @@
    [play-button 187 17 scale]
    [tempo-down 105 9 scale]
    [tempo-up 131 9 scale]
-   (svg-paths tempo-slider (+ 110 @(subscribe [:tempo])) (+ 21 y) scale)])
+   (svg-paths tempo-slider (+ 220 (* 0.1 @(subscribe [:tempo]))) (+ 21 y) scale)])

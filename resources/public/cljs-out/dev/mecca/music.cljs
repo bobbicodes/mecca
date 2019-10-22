@@ -18,13 +18,13 @@
 
 (def lookahead 25.0)
 
-(def scheduleAheadTime 0.1)
+(def schedule-ahead-time 0.1)
 
 (defn scheduler []
   (let [next-note-time (subscribe [:next-note-time])
         current-note (subscribe [:current-note])]
     (if (< @next-note-time
-         (+ scheduleAheadTime
+         (+ schedule-ahead-time
             (current-time @audiocontext)))
       (dispatch [:schedule-note @current-note @next-note-time])
       (dispatch [:next-note]))))
@@ -116,26 +116,9 @@
                (rest sounds)))
       result)))
 
-;; Silly hack so I don't have to keep switching this!
-
-(defn load-samples-locally []
-  (go-loop [result {}
-            sounds (range 1 19)]
-    (if-not (nil? (first sounds))
-      (let [sound (first sounds)                   ; for Github Pages - remove the '/mecca/resources/public' to run locally
-            decoded-buffer (<! (get-and-decode {:url (str "/audio/" sound ".mp3")
-                                                :sound sound}))]
-        (prn sound)
-        (prn decoded-buffer)
-        (recur (assoc result sound decoded-buffer)
-               (rest sounds)))
-      result)))
-
 (defonce loading-samples
   (go
     (def samples (<! (load-samples)))
-    (if ((fn [_ buffer] (nil? buffer)) (first samples))
-      (def samples (<! (load-samples-locally))))
     (prn "Samples loaded")))
 
 (defn pitch->rate [midi-num]

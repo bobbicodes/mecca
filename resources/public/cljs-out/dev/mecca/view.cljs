@@ -9,6 +9,7 @@
             [mecca.transport :as transport]
             [mecca.editor :as editor :refer [svg-paths]]
             [mecca.xml :as xml]
+            [mecca.upload :as upload]
             [mecca.mario :as mario :refer [mario]]
             [cljs.reader :refer [read-string]]))
 
@@ -53,7 +54,7 @@
     (fn []
       (into [:g]
             (for [time (range 0 9 0.5)
-                  pitch (range 18)]
+                  pitch (range 19)]
               ^{:key [time pitch]}
               [:rect {:transform "translate(6.5,4)"
                       :x (* 6 time)
@@ -62,7 +63,7 @@
                       :stroke "black"
                       :stroke-width 0.2
                       :fill "gray"
-                      :visibility "hidden"
+                      :visibility "visible"
                       :opacity 0.2
                       :pointer-events "all"
                       :on-mouse-over #(if-not (and 
@@ -75,7 +76,7 @@
                                                    (= pitch 0)))
                                         (dispatch [:update-focus-note [time pitch]]))
                       :on-mouse-out #(dispatch [:update-focus-note [nil nil]])
-                      :on-click (let [pitches [84 83 81 79 77 76 74 72 71 69 67 65 64 62 60 59 57 55]]
+                      :on-click (let [pitches [84 83 81 79 77 76 74 72 71 69 67 65 64 62 60 59 57 55 53]]
                                   (cond
                                     @(subscribe [:eraser?])
                                     #(do (music/play-sample 18 63)
@@ -128,8 +129,8 @@
                  :when (<= (dec @editor-x) time (+ 16 (dec @editor-x)))]
                     ^{:key [instrument time pitch]}
                     (let [x (- time (dec @editor-x))
-                          pitch-map (zipmap [84 83 81 79 77 76 74 72 71 69 67 65 64 62 60 59 57 55]
-                                            (range 18))]
+                          pitch-map (zipmap [84 83 81 79 77 76 74 72 71 69 67 65 64 62 60 59 57 55 53]
+                                            (range 19))]
                       [:g
                        (if-not (get pitch-map pitch)
                         (svg-paths [["black" "M15 46C15 47 14 47 13 47 13 47 12 47 12 46V37L7 39V49C7 49 6 50 6 50 5 50 5 49 5 49V40L3 40C3 40 2 40 2 40 2 40 1 40 1 39V35C1 35 1 34 2 34L5 33V23L3 24C3 24 2 24 2 24 2 24 1 23 1 23V19C1 19 1 18 2 18L5 17V7C5 6 5 6 6 6 6 6 7 6 7 7V16L12 14V4C12 4 13 3 13 3 14 3 15 4 15 4V13L17 13C17 12 17 12 17 12 18 12 18 13 18 14V17C18 18 18 18 17 19L15 20V30L17 29C17 29 17 29 17 29 18 29 18 29 18 30V34C18 34 18 35 17 35L15 36V46ZM7 22V32L12 31V21Z"]]
@@ -231,10 +232,7 @@
     [:div
      [:input#input {:type "file"
                     :on-change
-                    (fn [event]
-                      (let [dom  (goog.object/get event "target")
-                            file (goog.object/getValueByKeys dom #js ["files" 0])]
-                        (dispatch [:upload-file file])))}]]
+                    upload/put-upload}]]
    [debug-info]
    #_[:svg
     (svg-paths [["#000000" "M0 0h14M0 1h1M13 1h1M0 2h1M4 2h1M13 2h1M0 3h1M3 3h2M13 3h1M0 4h1M2 4h1M4 4h1M9 4h1M13 4h1M0 5h1M2 5h4M8 5h1M13 5h1M0 6h1M4 6h1M7 6h1M13 6h1M0 7h1M6 7h1M9 7h1M13 7h1M0 8h1M5 8h1M8 8h2M13 8h1M0 9h1M4 9h1M7 9h1M9 9h1M13 9h1M0 10h1M7 10h4M13 10h1M0 11h1M9 11h1M13 11h1M0 12h1M13 12h1M0 13h1M13 13h1M0 14h14"]

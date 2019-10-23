@@ -125,7 +125,6 @@ cljs.core.cst$sym$prev_DASH_column = new cljs.core.Symbol(null,"prev-column","pr
 cljs.core.cst$kw$reader_DASH_exception = new cljs.core.Keyword(null,"reader-exception","reader-exception",-1938323098);
 cljs.core.cst$kw$not_DASH_initialized = new cljs.core.Keyword(null,"not-initialized","not-initialized",-1937378906);
 cljs.core.cst$kw$else = new cljs.core.Keyword(null,"else","else",-1508377146);
-cljs.core.cst$kw$upload_DASH_file = new cljs.core.Keyword(null,"upload-file","upload-file",1968287526);
 cljs.core.cst$kw$_LT__DASH_ = new cljs.core.Keyword(null,"<-","<-",760412998);
 cljs.core.cst$sym$left = new cljs.core.Symbol(null,"left","left",1241415590,null);
 cljs.core.cst$kw$path_SHARP_path38 = new cljs.core.Keyword(null,"path#path38","path#path38",-137147321);

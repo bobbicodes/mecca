@@ -122,37 +122,22 @@
     (def samples (<! (load-samples)))
     (prn "Samples loaded")))
 
+(defn add-semitone [rate]
+  (* rate (.pow js/Math 2 (/ 1 12))))
+
+(defn sub-semitone [rate]
+  (* rate (.pow js/Math 2 (/ -1 12))))
+
+(defn inc-rate [semis]
+  (reduce add-semitone (repeat semis 1)))
+
+(defn dec-rate [semis]
+  (reduce sub-semitone (repeat semis 1)))
+
 (defn pitch->rate [midi-num]
-  (case midi-num
-    55 0.5
-    56 0.5297315471796479
-    57 0.5612310241546867
-    58 0.5946035575013607
-    59 0.6299605249474368
-    60 0.6674199270850174
-    61 0.7071067811865477
-    62 0.7491535384383409
-    63 0.7937005259840998
-    64 0.8408964152537146
-    65 0.8908987181403394
-    66 0.9438743126816935
-    67 1
-    68 1.0594630943592953
-    69 1.122462048309373
-    70 1.1892071150027212
-    71 1.2599210498948734
-    72 1.3348398541700346
-    73 1.4142135623730954
-    74 1.498307076876682
-    75 1.5874010519682
-    76 1.6817928305074297
-    77 1.7817974362806792
-    78 1.8877486253633877
-    79 2
-    80 2.1189261887185906
-    81 2.244924096618746
-    82 2.3784142300054425
-    83 2.519842099789747))
+  (if (< 66 midi-num)
+    (inc-rate (- midi-num 66))
+    (dec-rate (- 68 midi-num))))
 
 (defn play-sample [instrument pitch]
   (let [context audiocontext
@@ -184,6 +169,18 @@
     (.connect sample-source (.-destination @context))
     (.start sample-source time)
     sample-source))
+
+(defn play-section [from to]
+  (let [notes (subscribe [:notes])
+        now (.-currentTime @audiocontext)
+        tempo (subscribe [:tempo])
+        section (filter #(<= from (:time %) to) @notes)]
+    (dispatch [:reset-position])
+    (doall (for [{:keys [time instrument pitch]} section]
+             (play-at instrument pitch (+ now (* (/ 60 @tempo) time)))))))
+
+(defn play-measure [n]
+  (play-section (- (* n 4) 4) (inc (* n 4))))
 
 (defn play-song! []
   (let [notes (subscribe [:notes])

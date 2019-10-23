@@ -53,9 +53,9 @@
                      note)))))
 
 (reg-event-db
- :upload-file
+ :file-upload
  (fn [db [_ file]]
-   (assoc db :file-upload file)))
+      (assoc db :file-upload file)))
 
 (reg-event-db
  :set-time-signature
@@ -280,6 +280,6 @@
 (reg-event-db
  :load-zelda
  (fn [db [_ notes]]
-   (dispatch [:set-tempo 150])
+   (dispatch [:set-tempo 350])
    (assoc db :notes zelda/zelda)))
 

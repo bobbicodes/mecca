@@ -135,15 +135,15 @@
          beat (subscribe [:current-position])
          to-play (filter #(= (+ 1 @beat) (:time %)) @notes)]
      (if (< 4 @beat)
-       (dispatch [:advance-editor]))
+       (dispatch [:advance-editor 0.5]))
      #_(doall (for [{:keys [instrument pitch]} to-play]
                 (music/play-sample instrument (if @(subscribe [:sharp?]) (+ 0.5 pitch) pitch))))
      (update db :current-position #(+ 0.5 %)))))
 
 (reg-event-db
  :advance-editor
- (fn [db [_ _]]
-   (update db :editor-beat-start #(+ 0.5 %))))
+ (fn [db [_ beats]]
+   (update db :editor-beat-start #(+ beats %))))
 
 (reg-event-db
  :move-mario

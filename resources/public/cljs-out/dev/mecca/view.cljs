@@ -63,7 +63,7 @@
                       :stroke "black"
                       :stroke-width 0.2
                       :fill "gray"
-                      :visibility "visible"
+                      :visibility "hidden"
                       :opacity 0.2
                       :pointer-events "all"
                       :on-mouse-over #(if-not (and 
@@ -188,6 +188,8 @@
           (- 0.8 (* 6 (dec @editor-x)))
           6.3]
         [editor/advance-editor]
+        [editor/advance-measure]
+        [editor/advance-end]
         [note-targets]
         [note-guides]
         [note-cursor]

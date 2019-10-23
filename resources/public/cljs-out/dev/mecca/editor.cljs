@@ -65,6 +65,26 @@
                ["#f8f800" "M3 2h1M0 3h5M0 4h6M0 5h5M3 6h1"]]
               x y scale)])
 
+(def advance-cue-measure
+  [["#f7f700" "M0 0h2M7 0h1M2 1h1M3 2h1M4 3h1M5 4h1"]
+   ["#000000" "M2 0h1M9 0h1M3 1h1M10 1h1M4 2h1M11 2h1M5 3h1M12 3h1M6 4h1M5 6h1M12 6h1M4 7h1M11 7h1M3 8h1M10 8h1M2 9h1M9 9h1"]
+   ["#d8c78b" "M8 0h1"]
+   ["#f7cc00" "M0 1h1M7 1h1M0 2h1M7 2h1M0 3h1M7 3h1M0 4h1M7 4h1M0 5h1M4 5h1M7 5h1M11 5h1M0 6h1M3 6h1M7 6h1M10 6h1M0 7h1M2 7h1M7 7h1M9 7h1M0 8h2M7 8h2"]
+   ["#ffde00" "M1 1h1M8 1h1M1 2h2M8 2h2M1 3h3M8 3h3M1 4h4M8 4h4M1 5h3M8 5h3M1 6h2M8 6h2M1 7h1M8 7h1"]
+   ["#ccb49e" "M9 1h1"]
+   ["#e8e165" "M10 2h1"]
+   ["#e6dd6c" "M11 3h1"]
+   ["#ded17f" "M12 4h1"]
+   ["#f79400" "M5 5h1M12 5h1M4 6h1M11 6h1M3 7h1M10 7h1M2 8h1M9 8h1M0 9h2M7 9h2"]])
+
+(def advance-cue-end
+  [["#f7f700" "M0 0h2M2 1h1M3 2h1M4 3h1M5 4h1"]
+   ["#000000" "M2 0h1M7 0h1M3 1h1M7 1h1M4 2h1M7 2h1M5 3h1M7 3h1M6 4h2M6 5h2M5 6h1M7 6h1M4 7h1M7 7h1M3 8h1M7 8h1M2 9h1M7 9h1"]
+  ;["#ffffff" "M3 0h4M4 1h3M5 2h2M6 3h1M6 6h1M5 7h2M4 8h3M3 9h4"]
+   ["#f7cc00" "M0 1h1M0 2h1M0 3h1M0 4h1M0 5h1M4 5h1M0 6h1M3 6h1M0 7h1M2 7h1M0 8h2"]
+   ["#ffde00" "M1 1h1M1 2h2M1 3h3M1 4h4M1 5h3M1 6h2M1 7h1"]
+   ["#f79400" "M5 5h1M4 6h1M3 7h1M2 8h1M0 9h2"]])
+
 (defn eraser-cursor [x y scale]
    (svg-paths {:pointer-events "none"}
     [["#000001" "M0 0h8M0 1h1M8 1h1M0 2h2M7 2h1M9 2h1M0 3h1M2 3h1M6 3h1M10 3h1M1 4h1M3 4h1M5 4h1M11 4h1M1 5h1M4 5h1M12 5h1M2 6h1M4 6h2M11 6h2M2 7h1M4 7h1M6 7h1M10 7h1M12 7h1M3 8h2M7 8h1M9 8h1M12 8h1M4 9h1M8 9h1M12 9h1M5 10h1M8 10h1M11 10h1M6 11h1M8 11h1M10 11h1M7 12h3M8 13h1"]
@@ -168,23 +188,58 @@
    ["#006fff" "M11 6h2M10 7h4M10 8h4M17 8h1M10 9h5M17 9h1M10 10h2M15 10h2M10 11h1M10 12h1M10 13h1M11 14h1M6 15h1M19 15h1M5 16h3M18 16h3M5 17h2M19 17h2M5 18h3M18 18h3M5 19h3M10 19h6M18 19h3M10 20h6M11 21h3M8 22h2M17 22h1M8 23h3M15 23h3M6 24h5M15 24h5M4 25h7M15 25h7"]
    ["#ffebd9" "M12 10h1M11 11h1M15 11h1M11 12h1M15 12h1M11 13h2M15 13h1M12 14h1M16 14h1M12 15h4"]])
 
-(defn advance-editor []
+(defn advance-measure []
   (let [mouseover? (r/atom false)]
     (fn []
       [:g
-       [:rect {:x 58 :y 2
-               :height 32
+       [:rect {:x 58 :y 5.5
+               :height 2.5
                :width 6
                :pointer-events "all"
                :visibility "hidden"
                :opacity 0.2
                :on-mouse-over #(reset! mouseover? true)
                :on-mouse-out #(reset! mouseover? false)
-               :on-click #(dispatch [:advance-editor])}]
+               :on-click #(dispatch [:advance-editor 4])}]
+       (if @mouseover?
+         (svg-paths {:pointer-events "none"} advance-cue-measure 300 30 0.2))])))
+
+(defn advance-editor []
+  (let [mouseover? (r/atom false)]
+    (fn []
+      [:g
+       [:rect {:x 58 :y 8
+               :height 12
+               :width 6
+               :pointer-events "all"
+               :visibility "hidden"
+               :opacity 0.2
+               :on-mouse-over #(reset! mouseover? true)
+               :on-mouse-out #(reset! mouseover? false)
+               :on-click #(dispatch [:advance-editor 0.5])}]
        (if @mouseover?
          [:g
           [scroll-cue-right (* 4 60.8) (* 4 8) 0.25]
           [scroll-cue-right (* 4 60.8) (* 4 14) 0.25]])])))
+
+(defn advance-end []
+  (let [mouseover? (r/atom false)
+        length (apply max (map #(:time %) @(subscribe [:notes])))
+        editor-pos (subscribe [:editor-beat-start])]
+    (fn []
+      [:g
+       [:rect {:x 58 :y 2
+               :height 3.5
+               :width 6
+               :pointer-events "all"
+               :visibility "hidden"
+               :opacity 0.2
+               :on-mouse-over #(reset! mouseover? true)
+               :on-mouse-out #(reset! mouseover? false)
+               :on-click (fn [e] (dispatch [:advance-editor (- (apply max (map #(:time %) @(subscribe [:notes])))
+                                                               @editor-pos)]))}]
+       (if @mouseover?
+         (svg-paths {:pointer-events "none"} advance-cue-end 305 20 0.2))])))
 
 (defn retract-editor [x]
   (let [mouseover? (r/atom false)]

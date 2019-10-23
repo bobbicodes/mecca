@@ -188,6 +188,8 @@
           (- 0.8 (* 6 (dec @editor-x)))
           6.3]
         [editor/advance-editor]
+        [editor/advance-measure]
+        [editor/advance-end]
         [note-targets]
         [note-guides]
         [note-cursor]

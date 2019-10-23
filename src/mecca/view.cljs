@@ -63,7 +63,7 @@
                       :stroke "black"
                       :stroke-width 0.2
                       :fill "gray"
-                      :visibility "visible"
+                      :visibility "hidden"
                       :opacity 0.2
                       :pointer-events "all"
                       :on-mouse-over #(if-not (and 

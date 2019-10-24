@@ -16,19 +16,6 @@
 (defn ^:export current-time [context]
   (.-currentTime context))
 
-(def lookahead 25.0)
-
-(def schedule-ahead-time 0.1)
-
-(defn scheduler []
-  (let [next-note-time (subscribe [:next-note-time])
-        current-note (subscribe [:current-note])]
-    (if (< @next-note-time
-         (+ schedule-ahead-time
-            (current-time @audiocontext)))
-      (dispatch [:schedule-note @current-note @next-note-time])
-      (dispatch [:next-note]))))
-
 (defn mario-jump []
   (let [beat (subscribe [:current-position])
         notes (subscribe [:notes])
@@ -47,6 +34,7 @@
         started (subscribe [:play-start])
         elapsed (- (current-time @audiocontext) @started)
         beat-length (/ 60 @(subscribe [:tempo]))
+        end-time (+ @started (* beat-length 4))
         current-beat (/ elapsed beat-length)
         last-drawn-pos (subscribe [:current-position])]
     (when playing?
@@ -59,12 +47,10 @@
 
 (defn dispatch-timer-event []
   (dispatch [:tick!])
-      (mario-move)
-  ;(scheduler)
-  )
+      (mario-move))
 
 (defonce do-timer
-  (js/setInterval dispatch-timer-event 25))
+  (js/setInterval dispatch-timer-event 60))
 
 (defn load-sound [named-url]
   (let [out (chan)
@@ -162,25 +148,60 @@
     (set! (.-buffer sample-source) audio-buffer)
     (.setValueAtTime
      (.-playbackRate sample-source)
-     (pitch->rate (if (< 83 pitch)
-                    (- pitch 24)
-                    pitch))
+     (pitch->rate pitch)
      time)
     (.connect sample-source (.-destination @context))
     (.start sample-source time)
     sample-source))
 
+(defn delay-note [beats note]
+  (update note :time #(+ beats %)))
+
+(defn advance-note [beats note]
+  (update note :time #(- % beats)))
+
+(defn queue-section [from to]
+  (let [notes (subscribe [:notes])
+        started (subscribe [:play-start])
+        tempo (subscribe [:tempo])
+        section (filter #(<= from (:time %) to) @notes)
+        advanced (map #(advance-note from %) section)]
+    (doall (for [{:keys [time instrument pitch]} section]
+             (play-at instrument pitch (+ @started (* (/ 60 @tempo) time)))))))
+
 (defn play-section [from to]
   (let [notes (subscribe [:notes])
         now (.-currentTime @audiocontext)
         tempo (subscribe [:tempo])
-        section (filter #(<= from (:time %) to) @notes)]
-    (dispatch [:reset-position])
-    (doall (for [{:keys [time instrument pitch]} section]
+        section (filter #(<= from (:time %) to) @notes)
+        advanced (map #(advance-note from %) section)]
+    (doall (for [{:keys [time instrument pitch]} advanced]
              (play-at instrument pitch (+ now (* (/ 60 @tempo) time)))))))
 
-(defn play-measure [n]
-  (play-section (- (* n 4) 4) (inc (* n 4))))
+(defn play-note []
+  (let [editor-start (subscribe [:editor-beat-start])
+        play-pos (if (< @editor-start 4)
+                   @editor-start
+                   (+ 4 @(subscribe [:editor-beat-start])))]
+    (play-section (dec play-pos) (- play-pos 0.5))))
+
+(defn play-notes [n]
+  (let [editor-start (subscribe [:editor-beat-start])
+        tempo (subscribe [:tempo])
+        beat-length (/ 60 @(subscribe [:tempo]))
+        play-pos (if (< @editor-start 4)
+                   @editor-start
+                   (+ 4 @(subscribe [:editor-beat-start])))]
+    (play-section (dec play-pos) (+ (dec play-pos) (* n 0.5)))))
+
+(defn play-from-here []
+  (let [notes (subscribe [:notes])
+        editor-start (subscribe [:editor-beat-start])
+        play-pos ;(if (< @editor-start 4)
+                   @editor-start
+                  ; (+ 4 @(subscribe [:editor-beat-start])))
+        length (apply max (map #(:time %) @notes))]
+    (play-section (dec play-pos) (+ 16 play-pos))))
 
 (defn play-song! []
   (let [notes (subscribe [:notes])

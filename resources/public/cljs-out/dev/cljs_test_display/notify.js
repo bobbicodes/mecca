@@ -27,15 +27,15 @@ return cljs_test_display.notify.with_permission.call(null,"granted",(function ()
 return (new Notification("All CLJS Tests Passed",({"icon": cljs_test_display.notify.green_url, "silent": true})));
 }));
 });
-cljs_test_display.notify.failure = (function cljs_test_display$notify$failure(p__22046){
-var map__22047 = p__22046;
-var map__22047__$1 = ((((!((map__22047 == null)))?(((((map__22047.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__22047.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__22047):map__22047);
-var error = cljs.core.get.call(null,map__22047__$1,new cljs.core.Keyword(null,"error","error",-978969032));
-var fail = cljs.core.get.call(null,map__22047__$1,new cljs.core.Keyword(null,"fail","fail",1706214930));
-return cljs_test_display.notify.with_permission.call(null,"granted",((function (map__22047,map__22047__$1,error,fail){
+cljs_test_display.notify.failure = (function cljs_test_display$notify$failure(p__22048){
+var map__22049 = p__22048;
+var map__22049__$1 = ((((!((map__22049 == null)))?(((((map__22049.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__22049.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__22049):map__22049);
+var error = cljs.core.get.call(null,map__22049__$1,new cljs.core.Keyword(null,"error","error",-978969032));
+var fail = cljs.core.get.call(null,map__22049__$1,new cljs.core.Keyword(null,"fail","fail",1706214930));
+return cljs_test_display.notify.with_permission.call(null,"granted",((function (map__22049,map__22049__$1,error,fail){
 return (function (){
 return (new Notification("CLJS Tests Failed",({"icon": cljs_test_display.notify.red_url, "silent": true, "body": [cljs.core.str.cljs$core$IFn$_invoke$arity$1((cljs.core.truth_(fail)?[cljs.core.str.cljs$core$IFn$_invoke$arity$1(fail)," failures "].join(''):null)),cljs.core.str.cljs$core$IFn$_invoke$arity$1((cljs.core.truth_(error)?[cljs.core.str.cljs$core$IFn$_invoke$arity$1(error)," errors"].join(''):null))].join('')})));
-});})(map__22047,map__22047__$1,error,fail))
+});})(map__22049,map__22049__$1,error,fail))
 );
 });
 

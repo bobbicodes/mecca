@@ -35,7 +35,7 @@
     :time-signature 4
     :tempo 120
     :notes []
-    :mario-x 54
+    :mario-x 16
     :mario-y 61
     :mario-jump 0
     :mario-run 1
@@ -78,7 +78,8 @@
    (music/play-song!)
    (assoc
     (assoc db :play-start (.-currentTime @audiocontext))
-    :playing? true)))
+    :playing? true)
+    ))
 
 (reg-event-db
  :sharp-on
@@ -153,7 +154,8 @@
 (reg-event-db
  :reset-editor
  (fn [db [_ _]]
-   (assoc db :editor-beat-start 1)))
+   (assoc (assoc db :editor-beat-start 1)
+          :mario-x 16)))
 
 (reg-event-db
  :retract-editor
@@ -240,13 +242,13 @@
  (fn [db [_ _]]
    (if (and (not= 0 @(subscribe [:mario-jump]))
             @(subscribe [:playing?]))
-     
      (assoc
       (update
        (update db :mario-run #(if (= % 12) 0 (inc %)))
        :mario-jump #(if (= 8 %) 0 (inc %)))
       :mario-y (- 61
-                  (get [5 10 15 25 30 25 15 5]                       @(subscribe [:mario-jump]))))
+                  (get [5 10 15 25 30 25 15 5]
+                       @(subscribe [:mario-jump]))))
      (update db :mario-run #(if (= % 12) 0 (inc %))))))
 
 (reg-event-db
@@ -280,6 +282,6 @@
 (reg-event-db
  :load-zelda
  (fn [db [_ notes]]
-   (dispatch [:set-tempo 350])
+   (dispatch [:set-tempo 390])
    (assoc db :notes zelda/zelda)))
 

@@ -3,8 +3,8 @@ goog.provide('mecca.songs.zelda');
 goog.require('cljs.core');
 goog.require('cljs.core.constants');
 mecca.songs.zelda.delay_note = (function mecca$songs$zelda$delay_note(beats,note){
-return cljs.core.update.cljs$core$IFn$_invoke$arity$3(note,cljs.core.cst$kw$time,(function (p1__20077_SHARP_){
-return (beats + p1__20077_SHARP_);
+return cljs.core.update.cljs$core$IFn$_invoke$arity$3(note,cljs.core.cst$kw$time,(function (p1__19843_SHARP_){
+return (beats + p1__19843_SHARP_);
 }));
 });
 mecca.songs.zelda.bass_triad = (function mecca$songs$zelda$bass_triad(time,pitch){
@@ -22,25 +22,25 @@ return new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMP
 mecca.songs.zelda.shroom = (function mecca$songs$zelda$shroom(time,pitch){
 return new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,time,cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,pitch], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + (7)),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,pitch], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + (6)),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,pitch], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + (4)),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,pitch], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + (3)),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,pitch], null),new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$time,(time + (2)),cljs.core.cst$kw$instrument,(2),cljs.core.cst$kw$pitch,pitch], null)], null);
 });
-mecca.songs.zelda.drums = cljs.core.flatten(cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,cljs.core.concat.cljs$core$IFn$_invoke$arity$2((function (){var iter__4324__auto__ = (function mecca$songs$zelda$iter__20078(s__20079){
+mecca.songs.zelda.drums = cljs.core.flatten(cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,cljs.core.concat.cljs$core$IFn$_invoke$arity$2((function (){var iter__4324__auto__ = (function mecca$songs$zelda$iter__19844(s__19845){
 return (new cljs.core.LazySeq(null,(function (){
-var s__20079__$1 = s__20079;
+var s__19845__$1 = s__19845;
 while(true){
-var temp__5457__auto__ = cljs.core.seq(s__20079__$1);
+var temp__5457__auto__ = cljs.core.seq(s__19845__$1);
 if(temp__5457__auto__){
-var s__20079__$2 = temp__5457__auto__;
-if(cljs.core.chunked_seq_QMARK_(s__20079__$2)){
-var c__4322__auto__ = cljs.core.chunk_first(s__20079__$2);
+var s__19845__$2 = temp__5457__auto__;
+if(cljs.core.chunked_seq_QMARK_(s__19845__$2)){
+var c__4322__auto__ = cljs.core.chunk_first(s__19845__$2);
 var size__4323__auto__ = cljs.core.count(c__4322__auto__);
-var b__20081 = cljs.core.chunk_buffer(size__4323__auto__);
-if((function (){var i__20080 = (0);
+var b__19847 = cljs.core.chunk_buffer(size__4323__auto__);
+if((function (){var i__19846 = (0);
 while(true){
-if((i__20080 < size__4323__auto__)){
-var beat = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4322__auto__,i__20080);
-cljs.core.chunk_append(b__20081,mecca.songs.zelda.boat(beat,(66)));
+if((i__19846 < size__4323__auto__)){
+var beat = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4322__auto__,i__19846);
+cljs.core.chunk_append(b__19847,mecca.songs.zelda.boat(beat,(66)));
 
-var G__20086 = (i__20080 + (1));
-i__20080 = G__20086;
+var G__19852 = (i__19846 + (1));
+i__19846 = G__19852;
 continue;
 } else {
 return true;
@@ -48,13 +48,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons(cljs.core.chunk(b__20081),mecca$songs$zelda$iter__20078(cljs.core.chunk_rest(s__20079__$2)));
+return cljs.core.chunk_cons(cljs.core.chunk(b__19847),mecca$songs$zelda$iter__19844(cljs.core.chunk_rest(s__19845__$2)));
 } else {
-return cljs.core.chunk_cons(cljs.core.chunk(b__20081),null);
+return cljs.core.chunk_cons(cljs.core.chunk(b__19847),null);
 }
 } else {
-var beat = cljs.core.first(s__20079__$2);
-return cljs.core.cons(mecca.songs.zelda.boat(beat,(66)),mecca$songs$zelda$iter__20078(cljs.core.rest(s__20079__$2)));
+var beat = cljs.core.first(s__19845__$2);
+return cljs.core.cons(mecca.songs.zelda.boat(beat,(66)),mecca$songs$zelda$iter__19844(cljs.core.rest(s__19845__$2)));
 }
 } else {
 return null;
@@ -64,25 +64,25 @@ break;
 }),null,null));
 });
 return iter__4324__auto__(cljs.core.range.cljs$core$IFn$_invoke$arity$3((64),(480),(8)));
-})(),(function (){var iter__4324__auto__ = (function mecca$songs$zelda$iter__20082(s__20083){
+})(),(function (){var iter__4324__auto__ = (function mecca$songs$zelda$iter__19848(s__19849){
 return (new cljs.core.LazySeq(null,(function (){
-var s__20083__$1 = s__20083;
+var s__19849__$1 = s__19849;
 while(true){
-var temp__5457__auto__ = cljs.core.seq(s__20083__$1);
+var temp__5457__auto__ = cljs.core.seq(s__19849__$1);
 if(temp__5457__auto__){
-var s__20083__$2 = temp__5457__auto__;
-if(cljs.core.chunked_seq_QMARK_(s__20083__$2)){
-var c__4322__auto__ = cljs.core.chunk_first(s__20083__$2);
+var s__19849__$2 = temp__5457__auto__;
+if(cljs.core.chunked_seq_QMARK_(s__19849__$2)){
+var c__4322__auto__ = cljs.core.chunk_first(s__19849__$2);
 var size__4323__auto__ = cljs.core.count(c__4322__auto__);
-var b__20085 = cljs.core.chunk_buffer(size__4323__auto__);
-if((function (){var i__20084 = (0);
+var b__19851 = cljs.core.chunk_buffer(size__4323__auto__);
+if((function (){var i__19850 = (0);
 while(true){
-if((i__20084 < size__4323__auto__)){
-var beat = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4322__auto__,i__20084);
-cljs.core.chunk_append(b__20085,mecca.songs.zelda.shroom(beat,(60)));
+if((i__19850 < size__4323__auto__)){
+var beat = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4322__auto__,i__19850);
+cljs.core.chunk_append(b__19851,mecca.songs.zelda.shroom(beat,(60)));
 
-var G__20087 = (i__20084 + (1));
-i__20084 = G__20087;
+var G__19853 = (i__19850 + (1));
+i__19850 = G__19853;
 continue;
 } else {
 return true;
@@ -90,13 +90,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons(cljs.core.chunk(b__20085),mecca$songs$zelda$iter__20082(cljs.core.chunk_rest(s__20083__$2)));
+return cljs.core.chunk_cons(cljs.core.chunk(b__19851),mecca$songs$zelda$iter__19848(cljs.core.chunk_rest(s__19849__$2)));
 } else {
-return cljs.core.chunk_cons(cljs.core.chunk(b__20085),null);
+return cljs.core.chunk_cons(cljs.core.chunk(b__19851),null);
 }
 } else {
-var beat = cljs.core.first(s__20083__$2);
-return cljs.core.cons(mecca.songs.zelda.shroom(beat,(60)),mecca$songs$zelda$iter__20082(cljs.core.rest(s__20083__$2)));
+var beat = cljs.core.first(s__19849__$2);
+return cljs.core.cons(mecca.songs.zelda.shroom(beat,(60)),mecca$songs$zelda$iter__19848(cljs.core.rest(s__19849__$2)));
 }
 } else {
 return null;

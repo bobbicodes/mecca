@@ -7,6 +7,16 @@
    (:scale db)))
 
 (rf/reg-sub
+ :audio-context
+ (fn [db _]
+   (:audio-context db)))
+
+(rf/reg-sub
+ :samples
+ (fn [db _]
+   (:samples db)))
+
+(rf/reg-sub
  :file-upload
  (fn [db _]
    (:file-upload db)))

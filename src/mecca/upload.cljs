@@ -44,5 +44,5 @@
 
 ;; sit around in a loop waiting for a string to appear in the file-reads channel and put it in the state atom to be read by reagent and rendered on the page.
 (go-loop []
-  (dispatch [:file-upload] (<! file-reads))
+  (dispatch [:file-upload (js/ArrayBuffer. (<! file-reads))])
   (recur))

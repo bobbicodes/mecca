@@ -9,14 +9,16 @@
    [mecca.songs.megaman :as megaman]
    [mecca.songs.zelda :as zelda]
    [mecca.songs.city :as city]
-   [mecca.music :as music :refer [audiocontext]]
+   [mecca.music :as music]
    [goog.events :refer [listen unlisten]])
   (:import [goog.events EventType]))
 
 (reg-event-db
  :initialize-db
  (fn [_ _]
-   {:focused-note-pos [nil nil]
+   {:audio-context (js/AudioContext.)
+    :samples nil
+    :focused-note-pos [nil nil]
     :eraser? false
     :playing? false
     :play-start 0
@@ -58,6 +60,11 @@
       (assoc db :file-upload file)))
 
 (reg-event-db
+ :load-samples
+ (fn [db [_ samples]]
+   (assoc db :samples samples)))
+
+(reg-event-db
  :set-time-signature
  (fn [db [_ beats-per-measure]]
    (update db :time-signature beats-per-measure)))
@@ -77,7 +84,7 @@
  (fn [db [_ _]]
    (music/play-song!)
    (assoc
-    (assoc db :play-start (.-currentTime @audiocontext))
+    (assoc db :play-start (.-currentTime @(subscribe [:audio-context])))
     :playing? true)
     ))
 
@@ -219,8 +226,8 @@
  :add-note
  (undoable "add note")
  (fn [db [_ instrument time pitch]]
-   (if (= (.-state @audiocontext) "suspended")
-     (.resume @audiocontext))
+   (if (= (.-state @(subscribe [:audio-context])) "suspended")
+     (.resume @(subscribe [:audio-context])))
    (music/play-sample instrument (if @(subscribe [:sharp?]) (inc pitch) pitch))
    (update db :notes
            conj 

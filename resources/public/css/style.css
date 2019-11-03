@@ -62,6 +62,10 @@ label {
   line-height : 8px;
 }
 
+.hand {
+  cursor: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 27 24" shape-rendering="crispEdges"><path stroke="#ff80ff" d="M0 0h2m3 0h7m3 0h1m2 0h9M0 1h1m5 0h3m10 0h8M7 2h1m12 0h7m-6 1h6m-6 1h6m-6 1h6M0 6h1m21 0h5M0 7h2m20 0h5M0 8h3m19 0h5M0 9h4m18 0h5M0 10h4m19 0h4M0 11h3m22 0h2M0 12h3m23 0h1M0 13h3m23 0h1M0 14h3m-3 1h4m-4 1h4m22 0h1M0 17h5m21 0h1M0 18h6m19 0h2M0 19h7m17 0h3M0 20h9m5 0h1m8 0h4M0 21h16m6 0h5M0 22h16m5 0h6M0 23h17m3 0h7"/><path stroke="gray" d="M2 0h3m7 0h3m1 0h2M1 1h1m3 0h1m3 0h3m3 0h1m2 0h1M0 2h1m5 0h1m1 0h1m3 0h1m6 0h1M0 3h1m6 0h1m12 0h1M0 4h1m7 0h1m7 0h2m2 0h1M0 5h1m8 0h1m7 0h1m2 0h1M1 6h1m12 0h2m2 0h1m2 0h1M2 7h1m12 0h1m5 0h1M3 8h1m7 0h2m3 0h1m4 0h1M4 9h1m7 0h2m7 0h1M4 10h2m8 0h1m7 0h1M3 11h4m15 0h3M3 12h1m2 0h2m13 0h1m2 0h2M3 13h1m3 0h2m16 0h1M3 14h1m22 0h1M4 15h1m21 0h1M4 16h1m20 0h1M5 17h1m11 0h1m7 0h1M6 18h2m8 0h1m7 0h1M7 19h3m4 0h3m6 0h1M9 20h5m1 0h2m5 0h1m-7 1h1m4 0h1m-6 1h2m1 0h2m-4 1h3"/><path stroke="#f8f8f8" d="M2 1h3m7 0h3m1 0h2M1 2h5m3 0h3m1 0h6M1 3h6m2 0h4m1 0h5M2 4h6m2 0h6m2 0h2M3 5h6m1 0h7m1 0h2M4 6h10m2 0h2m1 0h1M5 7h10m1 0h5M6 8h5m2 0h3m1 0h4M7 9h5m2 0h7M8 10h6m1 0h6M9 11h12M4 12h2m4 0h10m2 0h2M5 13h2m3 0h9m2 0h4M6 14h2m2 0h8m1 0h7M6 15h11m2 0h7M8 16h7m3 0h7m-14 1h2m5 0h5m-5 1h4m-3 1h2"/><path stroke="silver" d="M8 3h1m4 0h1m5 0h1M1 4h1m7 0h1M1 5h2M2 6h2m16 0h1M3 7h2M4 8h2M5 9h2m-1 1h2m13 0h1M7 11h2m12 0h1M8 12h2m10 0h1M4 13h1m4 0h1m9 0h2M4 14h2m2 0h2m8 0h1M5 15h1m11 0h2M5 16h3m7 0h3M6 17h5m2 0h4m6 0h2M8 18h8m1 0h1m4 0h2m-14 1h4m3 0h2m2 0h2m-6 1h5m-5 1h4m-3 1h1"/></svg>')
+}
+
 .jump1 {
   transform: translateY(-70px);
   animation: jumpup 0.4s 0s ease infinite;

@@ -214,6 +214,13 @@
       :next-note-time #(+ % seconds-per-beat)))))
 
 (reg-event-db
+ :play-note
+ (fn [db [_ pitch]]
+   (music/play-note pitch)
+   (assoc db :notes-in-queue [{:pitch pitch
+                               :time  0}])))
+
+(reg-event-db
  :schedule-note
  (fn [db [_ _]]
    (let [notes (subscribe [:notes])

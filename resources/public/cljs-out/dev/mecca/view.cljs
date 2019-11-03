@@ -150,7 +150,7 @@
         (dispatch [:jump-reset]))
       [:svg {:width "100%"
              :view-box "0 0 64 36"
-             :style {:cursor "url(/mario-music-composer/resources/public/images/hand.png),crosshair"}}
+             :style {:cursor "url(/mecca/resources/public/images/hand.png),crosshair"}}
        [mario/cloud 1 1]
        [mario/hill 40]
        [castle/brick-face 363 18 6]
@@ -184,8 +184,4 @@
   [:div
    [editor]
    [transport/transport 140 0 0.5]
-   [editor/toolbar 71 0]
-   [:div
-    [:input#input {:type "file"
-                   :on-change
-                   upload/put-upload}]]])
+   [editor/toolbar 71 0]])

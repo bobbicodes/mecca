@@ -114,6 +114,21 @@
     (inc-rate (- midi-num 66))
     (dec-rate (- 68 midi-num))))
 
+(defn play-note [pitch]
+  (let [context       @(subscribe [:audio-context])
+        samples       (subscribe [:samples])
+        instrument    (subscribe [:instrument])
+        audio-buffer  (:decoded-buffer (get @samples @instrument))
+        sample-source (.createBufferSource context)]
+    (set! (.-buffer sample-source) audio-buffer)
+    (.setValueAtTime
+     (.-playbackRate sample-source)
+     (pitch->rate pitch)
+     (.-currentTime context))
+    (.connect sample-source (.-destination context))
+    (.start sample-source)
+    sample-source))
+
 (defn play-sample [instrument pitch]
   (let [context (subscribe [:audio-context])
         samples (subscribe [:samples])
@@ -168,13 +183,6 @@
         advanced (map #(advance-note from %) section)]
     (doall (for [{:keys [time instrument pitch]} advanced]
              (play-at instrument pitch (+ now (* (/ 60 @tempo) time)))))))
-
-(defn play-note []
-  (let [editor-start (subscribe [:editor-beat-start])
-        play-pos (if (< @editor-start 4)
-                   @editor-start
-                   (+ 4 @(subscribe [:editor-beat-start])))]
-    (play-section (dec play-pos) (- play-pos 0.5))))
 
 (defn play-notes [n]
   (let [editor-start (subscribe [:editor-beat-start])

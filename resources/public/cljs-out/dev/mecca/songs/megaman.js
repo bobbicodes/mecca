@@ -3,27 +3,27 @@ goog.provide('mecca.songs.megaman');
 goog.require('cljs.core');
 goog.require('cljs.core.constants');
 mecca.songs.megaman.delay_note = (function mecca$songs$megaman$delay_note(beats,note){
-return cljs.core.update.cljs$core$IFn$_invoke$arity$3(note,cljs.core.cst$kw$time,(function (p1__19949_SHARP_){
-return (beats + p1__19949_SHARP_);
+return cljs.core.update.cljs$core$IFn$_invoke$arity$3(note,cljs.core.cst$kw$time,(function (p1__19950_SHARP_){
+return (beats + p1__19950_SHARP_);
 }));
 });
 mecca.songs.megaman.loop_notes = (function mecca$songs$megaman$loop_notes(notes){
-var length = cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.max,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__19950_SHARP_){
-return cljs.core.cst$kw$time.cljs$core$IFn$_invoke$arity$1(p1__19950_SHARP_);
+var length = cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.max,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__19951_SHARP_){
+return cljs.core.cst$kw$time.cljs$core$IFn$_invoke$arity$1(p1__19951_SHARP_);
 }),notes));
 return cljs.core.into.cljs$core$IFn$_invoke$arity$2(notes,cljs.core.map.cljs$core$IFn$_invoke$arity$2(((function (length){
-return (function (p1__19951_SHARP_){
-return mecca.songs.megaman.delay_note((length + (1)),p1__19951_SHARP_);
+return (function (p1__19952_SHARP_){
+return mecca.songs.megaman.delay_note((length + (1)),p1__19952_SHARP_);
 });})(length))
 ,notes));
 });
 mecca.songs.megaman.verse_chorus = (function mecca$songs$megaman$verse_chorus(verse,chorus){
-var length = cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.max,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__19952_SHARP_){
-return cljs.core.cst$kw$time.cljs$core$IFn$_invoke$arity$1(p1__19952_SHARP_);
+var length = cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.max,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__19953_SHARP_){
+return cljs.core.cst$kw$time.cljs$core$IFn$_invoke$arity$1(p1__19953_SHARP_);
 }),verse));
 return cljs.core.into.cljs$core$IFn$_invoke$arity$2(verse,cljs.core.map.cljs$core$IFn$_invoke$arity$2(((function (length){
-return (function (p1__19953_SHARP_){
-return mecca.songs.megaman.delay_note((length + (1)),p1__19953_SHARP_);
+return (function (p1__19954_SHARP_){
+return mecca.songs.megaman.delay_note((length + (1)),p1__19954_SHARP_);
 });})(length))
 ,chorus));
 });

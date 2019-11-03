@@ -184,8 +184,4 @@
   [:div
    [editor]
    [transport/transport 140 0 0.5]
-   [editor/toolbar 71 0]
-   [:div
-    [:input#input {:type "file"
-                   :on-change
-                   upload/put-upload}]]])
+   [editor/toolbar 71 0]])

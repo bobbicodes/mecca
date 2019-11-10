@@ -121,7 +121,7 @@ re_frame.core.reg_event_db.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$select
 var vec__20018 = p__20017;
 var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__20018,(0),null);
 var instrument = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__20018,(1),null);
-return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(db,cljs.core.cst$kw$instrument,instrument);
+return cljs.core.assoc.cljs$core$IFn$_invoke$arity$variadic(db,cljs.core.cst$kw$instrument,instrument,cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([cljs.core.cst$kw$eraser_QMARK_,false], 0));
 }));
 re_frame.core.reg_event_db.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$play_DASH_off,(function (db,p__20021){
 var vec__20022 = p__20021;

@@ -129,7 +129,9 @@
 (reg-event-db
  :select-instrument
  (fn [db [_ instrument]]
-   (assoc db :instrument instrument)))
+   (assoc db 
+          :instrument instrument
+          :eraser? false)))
 
 (reg-event-db
  :play-off

@@ -1,0 +1,1 @@
+["^ ","~:resource-id",["~:shadow.build.modules/append","~:main"],"~:source","\nshadow.cljs.devtools.client.env.module_loaded('main');\n\nmecca.core.init();","~:js","\nshadow.cljs.devtools.client.env.module_loaded('main');\n\nmecca.core.init();"]

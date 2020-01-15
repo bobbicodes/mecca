@@ -1,4 +1,4 @@
-(ns ^:figwheel-hooks mecca.notation
+(ns mecca.notation
   (:require
    [reagent.core :as r]
    [re-frame.core :as rf :refer [subscribe dispatch]]))

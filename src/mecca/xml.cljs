@@ -1,4 +1,4 @@
-(ns ^:figwheel-hooks mecca.xml
+(ns mecca.xml
   (:require [mecca.score :refer [zelda-parsed]]
             [re-frame.core :as rf :refer [subscribe dispatch]]))
 

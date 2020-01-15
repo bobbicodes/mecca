@@ -1,1 +1,0 @@
-{:optimizations :advanced, :main mecca.core, :output-to "resources/public/cljs-out/dev-main.js", :output-dir "resources/public/cljs-out/dev", :asset-path "/cljs-out/dev", :aot-cache false}

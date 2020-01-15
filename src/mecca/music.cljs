@@ -1,4 +1,4 @@
-(ns ^:figwheel-hooks mecca.music
+(ns mecca.music
   (:require
    [cljs.core.async :refer [<! timeout chan put! close!]]
    [re-frame.core :as rf :refer [subscribe dispatch]])
@@ -83,8 +83,8 @@
   (go-loop [result {}
             sounds (range 1 19)]
     (if-not (nil? (first sounds))
-      (let [sound (first sounds)                   ; for Github Pages - remove the '/mecca/resources/public' to run locally
-            decoded-buffer (<! (get-and-decode {:url (str "/mecca/resources/public/audio/" sound ".mp3")
+      (let [sound (first sounds)                   ; for Github Pages - remove the '/mecca/public' to run locally
+            decoded-buffer (<! (get-and-decode {:url (str "/mecca/public/audio/" sound ".mp3")
                                                 :sound sound}))]
         (prn sound)
         (prn decoded-buffer)

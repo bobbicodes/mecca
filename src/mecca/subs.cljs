@@ -1,4 +1,4 @@
-(ns ^:figwheel-hooks mecca.subs
+(ns mecca.subs
   (:require [re-frame.core :as rf :refer [reg-sub]]))
 
 (rf/reg-sub

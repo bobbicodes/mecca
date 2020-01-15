@@ -1,9 +1,7 @@
-(ns ^:figwheel-hooks mecca.events
+(ns mecca.events
   (:require
    [re-frame.core :refer [reg-event-db reg-event-fx dispatch subscribe]]
    [re-pressed.core :as rp]
-   [ajax.core :as ajax]
-   [ajax.protocols :as protocol]
    [day8.re-frame.undo :as undo :refer [undoable]]
    [mecca.mario :as mario :refer [mario]]
    [mecca.songs.megaman :as megaman]

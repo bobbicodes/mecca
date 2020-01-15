@@ -1,4 +1,4 @@
-(ns ^:figwheel-hooks mecca.castle)
+(ns mecca.castle)
 
 (defn mortar-row [x y width]
   [:line {:x1 x :x2 (+ x (* width 8))

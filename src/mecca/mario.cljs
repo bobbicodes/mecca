@@ -1,4 +1,4 @@
-(ns ^:figwheel-hooks mecca.mario
+(ns mecca.mario
   (:require
    [re-frame.core :as rf :refer [subscribe dispatch]]))
 

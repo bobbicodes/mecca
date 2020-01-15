@@ -1,4 +1,4 @@
-(ns ^:figwheel-hooks mecca.view
+(ns mecca.view
   (:require [mecca.music :as music]
             [mecca.subs :as subs]
             [re-frame.core :as rf :refer [subscribe dispatch]]
@@ -150,7 +150,7 @@
         (dispatch [:jump-reset]))
       [:svg {:width "100%"
              :view-box "0 0 64 36"
-             :style {:cursor "url(/mecca/resources/public/images/hand.png),crosshair"}}
+             :style {:cursor "url(/mecca/public/images/hand.png),pointer"}}
        [mario/cloud 1 1]
        [mario/hill 40]
        [castle/brick-face 363 18 6]

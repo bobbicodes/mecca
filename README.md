@@ -25,9 +25,23 @@ Implemented [Undodog](https://www.mariowiki.com/Undodog) and Redo-Rabbit. The se
 
 Added a sharp button, expanding it to all 12 chromatic tones. Editor scrolls mostly right. Animation... not so much. While it might be reasonable to place visual elements at a lower priority than the app's audio scheduling system, they are closely related since both deal with coordination of time and reaction to events.
 
-Currently working on MusicXML import feature. That means I had to actually use proper midi-numbers which broke the Mario Ghost House theme and Zelda Overworld sample songs. Which will be fine once I'm done because then we'll be able to import any number of songs.
+Update:
 
-I'm able to parse a score into proper note data, the current challenge is to provide effective import options for instrument selection for the various parts, or some sort of reliable strategy for assigning voices. This is very exciting because I can already sense the hilarity that is to ensue from the ability to hear a piece of music with such ridiculous sounds. Random animal noises, anyone? And it's going to be a long, fun-filled path of finding endless edge cases.
+You can now play the Mario sampler as a live instrument using the keyboard in 2 full octaves, following the common "virtual piano" configuration:
+
+ 2 3     5 6 7
+q w e r t y u i
+ a s    g h j
+z x c v b n m ,
+
+Currently working on parsers for import/export of various music formats, including (but not limited to):
+
+* MusicXML
+* MIDI
+* ABC
+* MEI
+* NSF (NES Sound Format)
+* SID (C64)
 
 ## Future ideas
 
@@ -66,6 +80,8 @@ This is the perfect job for Data-Robot, who is currently just sitting there wait
 * *File data* - Load/save of entire song.
 
 Then again, if I were to refine the editor scrolling experience by, for example, adding buttons to "page forward/back", or notational constructs for creating inline loops, working with the entire score at once might not feel so cumbersome.
+
+Update: Added buttons for *measure forward* and *scroll to end*.
 
 ## Development
 

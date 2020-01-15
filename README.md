@@ -29,10 +29,12 @@ Update:
 
 You can now play the Mario sampler as a live instrument using the keyboard in 2 full octaves, following the common "virtual piano" configuration:
 
+```
  2 3     5 6 7
 q w e r t y u i
  a s    g h j
 z x c v b n m ,
+```
 
 Currently working on parsers for import/export of various music formats, including (but not limited to):
 

@@ -119,7 +119,7 @@ $ npx shadow-cljs watch app
 [:app] Build completed. (134 files, 35 compiled, 0 warnings, 5.80s)
 ```
 
-Or simply `jack-in` from your editor if you use CIDER/Emacs/Calva, etc. Your app will be served at: at [http://localhost:8080](http://localhost:3000).
+Or simply `jack-in` from your editor if you use CIDER/Emacs/Calva, etc. Your app will be served at: at [http://localhost:3000](http://localhost:3000).
 
 ## Production build
 

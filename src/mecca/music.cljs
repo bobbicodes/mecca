@@ -1,6 +1,6 @@
 (ns mecca.music
   (:require
-   [cljs.core.async :refer [<! timeout chan put! close!]]
+   [cljs.core.async :refer [<! chan put! close!]]
    [re-frame.core :as rf :refer [subscribe dispatch]])
   (:require-macros
    [cljs.core.async.macros :refer [go go-loop]]))

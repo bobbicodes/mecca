@@ -3,8 +3,6 @@ pom.xml
 /lib/
 /classes/
 /out/
-/public/js/cljs-runtime/
-/.shadow-cljs/
 /target/
 /node_modules/
 .lein-deps-sum
@@ -15,3 +13,5 @@ pom.xml
 .cpcache/
 .rebel_readline_history
 
+.shadow-cljs/*
+public/js/cljs-runtime/*

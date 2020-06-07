@@ -61,11 +61,11 @@ One idea is to make an 8-bit / 16-bit switch that will transform the whole UI re
 
 For the synths, I believe that by using the very efficient algorithms from Blargg's [blip-buf](https://github.com/nesbox/blip-buf) library, a full emulation can be done in the browser quite easily. Since the [NES APU](https://wiki.nesdev.com/w/index.php/APU) produces sound via a [sample/hold](https://en.wikipedia.org/wiki/Sample_and_hold) circuit, it is only necessary to generate the ends of the waveforms (the transitions) since the middle part is the same regardless of frequency, differing only in length.
 
-* Noise channel produces pseudo-random bits by [linear feedback shift register](https://en.wikipedia.org/wiki/Linear-feedback_shift_register) method. This is then played back at 16 possible sample rates to produce hihats, snares and other percussive sounds. A much shorter bit sequence is also possible, which produces a metallic tone.
+* Noise channel produces pseudo-random bits by [linear feedback shift register](https://en.wikipedia.org/wiki/Linear-feedback_shift_register) method. This is then played back at 16 possible sample rates to produce hihats, snares and other percussive sounds. A much shorter bit sequence is also possible, which is perceived by the human cognitive auditory system as a metallic tone rather than noise due to its periodicity.
 
-* The triangle channel (for bass and kick drums) is actually a 16 step quantized triangle-ish wave with a slight shark fin shape that also has tiny sawteeth on it. Gotta get this stuff right. That's what gives the Nintendo basslines those really sweet whirling harmonic overtones.
+* The triangle channel (for bass and kick drums/toms) is actually a 16 step quantized triangle-ish wave with a slight shark fin shape that also has tiny sawteeth on it. Gotta get this stuff right. That's what gives the Nintendo basslines those really sweet whirling harmonic overtones. The waveform is actually produced by hijacking the channel's velocity control on the chip and using it as a 16-step counter. For this reason the bass channel has no adjustable velocity, notes are either _on_ or _off_.
 
-* The 2 pulse-wave channels offer a variable duty cycle, so the standard Web Audio square wave will also not do here. However, we do have the option of using a wavetable, which can produce an arbitrary periodic waveform defined by a list of sin/cosine terms for the Fourier coefficients, which can be easily derived for any sound by playing it through the FFT provided by the analyzer node.
+* The 2 pulse-wave (lead) channels offer a variable duty cycle, so the standard Web Audio square wave will also not do here. However, we do have the option of using a wavetable, which can produce an arbitrary periodic waveform defined by a list of sin/cosine terms for the Fourier coefficients, which can be easily derived for any sound by playing it through the FFT provided by the Web Audio analyzer node.
 
 * Linear-interpolated bandlimiting will be good enough, since we have the ability to use the hardware clock exposed by the Web Audio API to oversample at an extremely high rate, supressing aliasing far below perceptible limits.
 
@@ -87,24 +87,7 @@ Update: Added buttons for *measure forward* and *scroll to end*.
 
 ## Development
 
-You'll need to change the line in `music.cljs` to point to the directory with the samples:
-
-```clojure
-(defn load-samples []
-  (go-loop [result {}
-            sounds (range 1 27)]
-    (if-not (nil? (first sounds))
-      (let [sound (first sounds)
-            decoded-buffer (<! (get-and-decode {:url (str "/audio/" sound ".mp3")
-                                                :sound sound}))]
-        (prn sound)
-        (prn decoded-buffer)
-        (recur (assoc result sound decoded-buffer)
-               (rest sounds)))
-      result)))
-```
-
-Now you can do the thing:
+Do the thing:
 
 ```bash
 $ npm install

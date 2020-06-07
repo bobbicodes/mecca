@@ -343,7 +343,7 @@
 
 (defn toolbar [x y]
   [:svg {:view-box "0 -0.5 140 10.5" :shape-rendering "crispEdges"
-         :style {:cursor "url(/mecca/public/images/hand.png),pointer"}}
+         :style {:cursor "url(/images/hand.png),pointer"}}
    [:rect {:x x :y y :width 68 :height 10 :stroke "black" :stroke-width 0.2 :fill "#f8b0f8"}]
    [undo-dog 28.5 (+ 0.5 y) 0.5]
    [redo-rabbit 35.2 (+ 0.48 y) 0.45]

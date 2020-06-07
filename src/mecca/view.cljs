@@ -1,15 +1,10 @@
 (ns mecca.view
   (:require [mecca.music :as music]
-            [mecca.subs :as subs]
             [re-frame.core :as rf :refer [subscribe dispatch]]
-            [mecca.events :as events]
-            [mecca.notation :as notation]
             [mecca.castle :as castle]
             [mecca.transport :as transport]
             [mecca.editor :as editor :refer [svg-paths]]
-            [mecca.xml :as xml]
-            [mecca.upload :as upload]
-            [mecca.mario :as mario :refer [mario]]))
+            [mecca.mario :as mario]))
 
 (defn note-guides []
   (let [editor-x (subscribe [:editor-beat-start])]
@@ -137,16 +132,10 @@
                         [mario/mario-note (+ 2 (* 30 x)) (+ (* 5 (or (get pitch-map pitch) (get pitch-map (dec pitch)))) 9) 0.2])])))))
 
 (defn editor []
-  (let [notes (subscribe [:notes])
-        focused (subscribe [:focused-note-pos])
-        current-position (subscribe [:current-position])
-        editor-x (subscribe [:editor-beat-start])
-        play-start (subscribe [:play-start])
-        mario-run (subscribe [:mario-run])
-        mario-jump (subscribe [:mario-jump])
-        instrument (subscribe [:instrument])]
+  (let [editor-x (subscribe [:editor-beat-start])
+        mario-run (subscribe [:mario-run])]
     (fn []
-      (if (= 20 @mario-run)
+      (when (= 20 @mario-run)
         (dispatch [:jump-reset]))
       [:svg {:width "100%"
              :view-box "0 0 64 36"
@@ -165,9 +154,9 @@
            :fill "none"
            :height 20 :width 63.5 :x 0.25 :y 14.5}]
        [:g.staff {:transform "translate(0,13.5) scale(1)"}
-        [notation/staff-lines]
+        [editor/staff-lines]
         [editor/retract-editor 2]
-         [notation/treble-clef
+         [editor/treble-clef
           (- 0.8 (* 6 (dec @editor-x)))
           6.3]
         [editor/advance-editor]
@@ -177,7 +166,7 @@
         [note-guides]
         [note-cursor]
         [score-notes]
-        (if @(subscribe [:loop-end])
+        (when @(subscribe [:loop-end])
           [editor/repeat-sign (+ 7 (* 6 @(subscribe [:loop-end]))) 8 0.13])]])))
 
 (defn mecca []

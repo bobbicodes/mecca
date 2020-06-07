@@ -4,6 +4,7 @@ pom.xml
 /classes/
 /out/
 /public/js/cljs-runtime/
+/.shadow-cljs/
 /target/
 /node_modules/
 .lein-deps-sum

@@ -3,6 +3,7 @@ pom.xml
 /lib/
 /classes/
 /out/
+/public/js/cljs-runtime/
 /target/
 /node_modules/
 .lein-deps-sum

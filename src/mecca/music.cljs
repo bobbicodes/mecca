@@ -10,10 +10,10 @@
         notes (subscribe [:notes])
         jump (subscribe [:mario-jump])]
     (when (and @(subscribe [:playing?])
-           (zero? @jump))
+               (zero? @jump))
       (if (< 0 (count (filter #(= (:time %) (inc @beat))
                               @notes)))
-      (dispatch [:jump!])))))
+        (dispatch [:jump!])))))
 
 (defn mario-move []
   (let [notes (subscribe [:notes])
@@ -31,12 +31,12 @@
         (dispatch [:play-off])
         (if (< @last-drawn-pos current-beat)
           (do (dispatch [:move-mario])
-            (dispatch [:advance-position])))))
+              (dispatch [:advance-position])))))
     (mario-jump)))
 
 (defn dispatch-timer-event []
   (dispatch [:tick!])
-      (mario-move))
+  (mario-move))
 
 (defonce do-timer
   (js/setInterval dispatch-timer-event 60))
@@ -94,7 +94,7 @@
 
 (defonce loading-samples
   (go
-   (dispatch [:load-samples  (<! (load-samples))])
+    (dispatch [:load-samples  (<! (load-samples))])
     (prn "Samples loaded")))
 
 (defn add-semitone [rate]
@@ -197,7 +197,7 @@
   (let [notes (subscribe [:notes])
         editor-start (subscribe [:editor-beat-start])
         play-pos ;(if (< @editor-start 4)
-                   @editor-start
+        @editor-start
                   ; (+ 4 @(subscribe [:editor-beat-start])))
         length (apply max (map #(:time %) @notes))]
     (play-section (dec play-pos) (+ 16 play-pos))))

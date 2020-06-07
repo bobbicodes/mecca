@@ -1,150 +1,150 @@
 goog.provide('mecca.subs');
 goog.require('cljs.core');
 goog.require('re_frame.core');
-var G__46343_46401 = new cljs.core.Keyword(null,"scale","scale",-230427353);
-var G__46344_46402 = (function (db,_){
+var G__42208_42277 = new cljs.core.Keyword(null,"scale","scale",-230427353);
+var G__42209_42278 = (function (db,_){
 return new cljs.core.Keyword(null,"scale","scale",-230427353).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46343_46401,G__46344_46402) : re_frame.core.reg_sub.call(null,G__46343_46401,G__46344_46402));
-var G__46345_46403 = new cljs.core.Keyword(null,"audio-context","audio-context",1642559898);
-var G__46346_46404 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42208_42277,G__42209_42278) : re_frame.core.reg_sub.call(null,G__42208_42277,G__42209_42278));
+var G__42211_42283 = new cljs.core.Keyword(null,"audio-context","audio-context",1642559898);
+var G__42212_42284 = (function (db,_){
 return new cljs.core.Keyword(null,"audio-context","audio-context",1642559898).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46345_46403,G__46346_46404) : re_frame.core.reg_sub.call(null,G__46345_46403,G__46346_46404));
-var G__46347_46405 = new cljs.core.Keyword(null,"samples","samples",635504833);
-var G__46348_46406 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42211_42283,G__42212_42284) : re_frame.core.reg_sub.call(null,G__42211_42283,G__42212_42284));
+var G__42214_42285 = new cljs.core.Keyword(null,"samples","samples",635504833);
+var G__42215_42286 = (function (db,_){
 return new cljs.core.Keyword(null,"samples","samples",635504833).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46347_46405,G__46348_46406) : re_frame.core.reg_sub.call(null,G__46347_46405,G__46348_46406));
-var G__46349_46407 = new cljs.core.Keyword(null,"file-upload","file-upload",-1929678130);
-var G__46350_46408 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42214_42285,G__42215_42286) : re_frame.core.reg_sub.call(null,G__42214_42285,G__42215_42286));
+var G__42218_42287 = new cljs.core.Keyword(null,"file-upload","file-upload",-1929678130);
+var G__42219_42288 = (function (db,_){
 return new cljs.core.Keyword(null,"file-upload","file-upload",-1929678130).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46349_46407,G__46350_46408) : re_frame.core.reg_sub.call(null,G__46349_46407,G__46350_46408));
-var G__46351_46409 = new cljs.core.Keyword(null,"playing?","playing?",-1884542863);
-var G__46352_46410 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42218_42287,G__42219_42288) : re_frame.core.reg_sub.call(null,G__42218_42287,G__42219_42288));
+var G__42221_42289 = new cljs.core.Keyword(null,"playing?","playing?",-1884542863);
+var G__42222_42290 = (function (db,_){
 return new cljs.core.Keyword(null,"playing?","playing?",-1884542863).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46351_46409,G__46352_46410) : re_frame.core.reg_sub.call(null,G__46351_46409,G__46352_46410));
-var G__46353_46411 = new cljs.core.Keyword(null,"sharp?","sharp?",411396133);
-var G__46354_46412 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42221_42289,G__42222_42290) : re_frame.core.reg_sub.call(null,G__42221_42289,G__42222_42290));
+var G__42224_42293 = new cljs.core.Keyword(null,"sharp?","sharp?",411396133);
+var G__42225_42294 = (function (db,_){
 return new cljs.core.Keyword(null,"sharp?","sharp?",411396133).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46353_46411,G__46354_46412) : re_frame.core.reg_sub.call(null,G__46353_46411,G__46354_46412));
-var G__46355_46413 = new cljs.core.Keyword(null,"loop-end","loop-end",-88908047);
-var G__46356_46414 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42224_42293,G__42225_42294) : re_frame.core.reg_sub.call(null,G__42224_42293,G__42225_42294));
+var G__42227_42295 = new cljs.core.Keyword(null,"loop-end","loop-end",-88908047);
+var G__42228_42296 = (function (db,_){
 return new cljs.core.Keyword(null,"loop-end","loop-end",-88908047).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46355_46413,G__46356_46414) : re_frame.core.reg_sub.call(null,G__46355_46413,G__46356_46414));
-var G__46357_46415 = new cljs.core.Keyword(null,"repeat?","repeat?",1245600428);
-var G__46358_46416 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42227_42295,G__42228_42296) : re_frame.core.reg_sub.call(null,G__42227_42295,G__42228_42296));
+var G__42229_42297 = new cljs.core.Keyword(null,"repeat?","repeat?",1245600428);
+var G__42230_42298 = (function (db,_){
 return new cljs.core.Keyword(null,"repeat?","repeat?",1245600428).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46357_46415,G__46358_46416) : re_frame.core.reg_sub.call(null,G__46357_46415,G__46358_46416));
-var G__46359_46417 = new cljs.core.Keyword(null,"eraser?","eraser?",-561181785);
-var G__46360_46418 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42229_42297,G__42230_42298) : re_frame.core.reg_sub.call(null,G__42229_42297,G__42230_42298));
+var G__42231_42301 = new cljs.core.Keyword(null,"eraser?","eraser?",-561181785);
+var G__42232_42302 = (function (db,_){
 return new cljs.core.Keyword(null,"eraser?","eraser?",-561181785).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46359_46417,G__46360_46418) : re_frame.core.reg_sub.call(null,G__46359_46417,G__46360_46418));
-var G__46361_46419 = new cljs.core.Keyword(null,"play-start","play-start",-898241782);
-var G__46362_46420 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42231_42301,G__42232_42302) : re_frame.core.reg_sub.call(null,G__42231_42301,G__42232_42302));
+var G__42233_42303 = new cljs.core.Keyword(null,"play-start","play-start",-898241782);
+var G__42234_42304 = (function (db,_){
 return new cljs.core.Keyword(null,"play-start","play-start",-898241782).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46361_46419,G__46362_46420) : re_frame.core.reg_sub.call(null,G__46361_46419,G__46362_46420));
-var G__46363_46421 = new cljs.core.Keyword(null,"jumping?","jumping?",-2092574161);
-var G__46364_46422 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42233_42303,G__42234_42304) : re_frame.core.reg_sub.call(null,G__42233_42303,G__42234_42304));
+var G__42235_42305 = new cljs.core.Keyword(null,"jumping?","jumping?",-2092574161);
+var G__42236_42306 = (function (db,_){
 return new cljs.core.Keyword(null,"jumping?","jumping?",-2092574161).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46363_46421,G__46364_46422) : re_frame.core.reg_sub.call(null,G__46363_46421,G__46364_46422));
-var G__46365_46423 = new cljs.core.Keyword(null,"tempo","tempo",-1555208453);
-var G__46366_46424 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42235_42305,G__42236_42306) : re_frame.core.reg_sub.call(null,G__42235_42305,G__42236_42306));
+var G__42237_42307 = new cljs.core.Keyword(null,"tempo","tempo",-1555208453);
+var G__42238_42308 = (function (db,_){
 return new cljs.core.Keyword(null,"tempo","tempo",-1555208453).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46365_46423,G__46366_46424) : re_frame.core.reg_sub.call(null,G__46365_46423,G__46366_46424));
-var G__46367_46425 = new cljs.core.Keyword(null,"time","time",1385887882);
-var G__46368_46426 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42237_42307,G__42238_42308) : re_frame.core.reg_sub.call(null,G__42237_42307,G__42238_42308));
+var G__42239_42309 = new cljs.core.Keyword(null,"time","time",1385887882);
+var G__42240_42310 = (function (db,_){
 return new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46367_46425,G__46368_46426) : re_frame.core.reg_sub.call(null,G__46367_46425,G__46368_46426));
-var G__46369_46427 = new cljs.core.Keyword(null,"octave","octave",1066197953);
-var G__46370_46428 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42239_42309,G__42240_42310) : re_frame.core.reg_sub.call(null,G__42239_42309,G__42240_42310));
+var G__42241_42311 = new cljs.core.Keyword(null,"octave","octave",1066197953);
+var G__42242_42312 = (function (db,_){
 return new cljs.core.Keyword(null,"octave","octave",1066197953).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46369_46427,G__46370_46428) : re_frame.core.reg_sub.call(null,G__46369_46427,G__46370_46428));
-var G__46371_46429 = new cljs.core.Keyword(null,"key","key",-1516042587);
-var G__46372_46430 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42241_42311,G__42242_42312) : re_frame.core.reg_sub.call(null,G__42241_42311,G__42242_42312));
+var G__42243_42313 = new cljs.core.Keyword(null,"key","key",-1516042587);
+var G__42244_42314 = (function (db,_){
 return new cljs.core.Keyword(null,"key","key",-1516042587).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46371_46429,G__46372_46430) : re_frame.core.reg_sub.call(null,G__46371_46429,G__46372_46430));
-var G__46373_46431 = new cljs.core.Keyword(null,"current-position","current-position",2031348254);
-var G__46374_46432 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42243_42313,G__42244_42314) : re_frame.core.reg_sub.call(null,G__42243_42313,G__42244_42314));
+var G__42245_42315 = new cljs.core.Keyword(null,"current-position","current-position",2031348254);
+var G__42246_42316 = (function (db,_){
 return new cljs.core.Keyword(null,"current-position","current-position",2031348254).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46373_46431,G__46374_46432) : re_frame.core.reg_sub.call(null,G__46373_46431,G__46374_46432));
-var G__46375_46433 = new cljs.core.Keyword(null,"current-note","current-note",-1767945909);
-var G__46376_46434 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42245_42315,G__42246_42316) : re_frame.core.reg_sub.call(null,G__42245_42315,G__42246_42316));
+var G__42247_42317 = new cljs.core.Keyword(null,"current-note","current-note",-1767945909);
+var G__42248_42318 = (function (db,_){
 return new cljs.core.Keyword(null,"current-note","current-note",-1767945909).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46375_46433,G__46376_46434) : re_frame.core.reg_sub.call(null,G__46375_46433,G__46376_46434));
-var G__46377_46435 = new cljs.core.Keyword(null,"editor-beat-start","editor-beat-start",-334408415);
-var G__46378_46436 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42247_42317,G__42248_42318) : re_frame.core.reg_sub.call(null,G__42247_42317,G__42248_42318));
+var G__42249_42319 = new cljs.core.Keyword(null,"editor-beat-start","editor-beat-start",-334408415);
+var G__42250_42320 = (function (db,_){
 return new cljs.core.Keyword(null,"editor-beat-start","editor-beat-start",-334408415).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46377_46435,G__46378_46436) : re_frame.core.reg_sub.call(null,G__46377_46435,G__46378_46436));
-var G__46379_46437 = new cljs.core.Keyword(null,"next-note-time","next-note-time",-1117617128);
-var G__46380_46438 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42249_42319,G__42250_42320) : re_frame.core.reg_sub.call(null,G__42249_42319,G__42250_42320));
+var G__42251_42321 = new cljs.core.Keyword(null,"next-note-time","next-note-time",-1117617128);
+var G__42252_42322 = (function (db,_){
 return new cljs.core.Keyword(null,"next-note-time","next-note-time",-1117617128).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46379_46437,G__46380_46438) : re_frame.core.reg_sub.call(null,G__46379_46437,G__46380_46438));
-var G__46381_46439 = new cljs.core.Keyword(null,"time-signature","time-signature",-1730387952);
-var G__46382_46440 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42251_42321,G__42252_42322) : re_frame.core.reg_sub.call(null,G__42251_42321,G__42252_42322));
+var G__42253_42323 = new cljs.core.Keyword(null,"time-signature","time-signature",-1730387952);
+var G__42254_42324 = (function (db,_){
 return new cljs.core.Keyword(null,"time-signature","time-signature",-1730387952).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46381_46439,G__46382_46440) : re_frame.core.reg_sub.call(null,G__46381_46439,G__46382_46440));
-var G__46383_46441 = new cljs.core.Keyword(null,"instrument","instrument",-960698844);
-var G__46384_46442 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42253_42323,G__42254_42324) : re_frame.core.reg_sub.call(null,G__42253_42323,G__42254_42324));
+var G__42255_42325 = new cljs.core.Keyword(null,"instrument","instrument",-960698844);
+var G__42256_42326 = (function (db,_){
 return new cljs.core.Keyword(null,"instrument","instrument",-960698844).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46383_46441,G__46384_46442) : re_frame.core.reg_sub.call(null,G__46383_46441,G__46384_46442));
-var G__46385_46443 = new cljs.core.Keyword(null,"array-buffer","array-buffer",519008380);
-var G__46386_46444 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42255_42325,G__42256_42326) : re_frame.core.reg_sub.call(null,G__42255_42325,G__42256_42326));
+var G__42257_42327 = new cljs.core.Keyword(null,"array-buffer","array-buffer",519008380);
+var G__42258_42328 = (function (db,_){
 return new cljs.core.Keyword(null,"array-buffer","array-buffer",519008380).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46385_46443,G__46386_46444) : re_frame.core.reg_sub.call(null,G__46385_46443,G__46386_46444));
-var G__46387_46445 = new cljs.core.Keyword(null,"focused-note-pos","focused-note-pos",-1443473576);
-var G__46388_46446 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42257_42327,G__42258_42328) : re_frame.core.reg_sub.call(null,G__42257_42327,G__42258_42328));
+var G__42259_42330 = new cljs.core.Keyword(null,"focused-note-pos","focused-note-pos",-1443473576);
+var G__42260_42331 = (function (db,_){
 return new cljs.core.Keyword(null,"focused-note-pos","focused-note-pos",-1443473576).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46387_46445,G__46388_46446) : re_frame.core.reg_sub.call(null,G__46387_46445,G__46388_46446));
-var G__46389_46447 = new cljs.core.Keyword(null,"notes","notes",-1039600523);
-var G__46390_46448 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42259_42330,G__42260_42331) : re_frame.core.reg_sub.call(null,G__42259_42330,G__42260_42331));
+var G__42261_42333 = new cljs.core.Keyword(null,"notes","notes",-1039600523);
+var G__42262_42334 = (function (db,_){
 return new cljs.core.Keyword(null,"notes","notes",-1039600523).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46389_46447,G__46390_46448) : re_frame.core.reg_sub.call(null,G__46389_46447,G__46390_46448));
-var G__46391_46449 = new cljs.core.Keyword(null,"mario-x","mario-x",1743249500);
-var G__46392_46450 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42261_42333,G__42262_42334) : re_frame.core.reg_sub.call(null,G__42261_42333,G__42262_42334));
+var G__42265_42335 = new cljs.core.Keyword(null,"mario-x","mario-x",1743249500);
+var G__42266_42336 = (function (db,_){
 return new cljs.core.Keyword(null,"mario-x","mario-x",1743249500).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46391_46449,G__46392_46450) : re_frame.core.reg_sub.call(null,G__46391_46449,G__46392_46450));
-var G__46393_46451 = new cljs.core.Keyword(null,"mario-y","mario-y",1718385780);
-var G__46394_46452 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42265_42335,G__42266_42336) : re_frame.core.reg_sub.call(null,G__42265_42335,G__42266_42336));
+var G__42269_42338 = new cljs.core.Keyword(null,"mario-y","mario-y",1718385780);
+var G__42270_42339 = (function (db,_){
 return new cljs.core.Keyword(null,"mario-y","mario-y",1718385780).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46393_46451,G__46394_46452) : re_frame.core.reg_sub.call(null,G__46393_46451,G__46394_46452));
-var G__46395_46453 = new cljs.core.Keyword(null,"mario-run","mario-run",-1086168628);
-var G__46396_46454 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42269_42338,G__42270_42339) : re_frame.core.reg_sub.call(null,G__42269_42338,G__42270_42339));
+var G__42271_42341 = new cljs.core.Keyword(null,"mario-run","mario-run",-1086168628);
+var G__42272_42342 = (function (db,_){
 return new cljs.core.Keyword(null,"mario-run","mario-run",-1086168628).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46395_46453,G__46396_46454) : re_frame.core.reg_sub.call(null,G__46395_46453,G__46396_46454));
-var G__46397_46455 = new cljs.core.Keyword(null,"mario-jump","mario-jump",253829289);
-var G__46398_46456 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42271_42341,G__42272_42342) : re_frame.core.reg_sub.call(null,G__42271_42341,G__42272_42342));
+var G__42273_42343 = new cljs.core.Keyword(null,"mario-jump","mario-jump",253829289);
+var G__42274_42344 = (function (db,_){
 return new cljs.core.Keyword(null,"mario-jump","mario-jump",253829289).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46397_46455,G__46398_46456) : re_frame.core.reg_sub.call(null,G__46397_46455,G__46398_46456));
-var G__46399_46457 = new cljs.core.Keyword(null,"xml","xml",-1170142052);
-var G__46400_46458 = (function (db,_){
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42273_42343,G__42274_42344) : re_frame.core.reg_sub.call(null,G__42273_42343,G__42274_42344));
+var G__42275_42345 = new cljs.core.Keyword(null,"xml","xml",-1170142052);
+var G__42276_42346 = (function (db,_){
 return new cljs.core.Keyword(null,"xml","xml",-1170142052).cljs$core$IFn$_invoke$arity$1(db);
 });
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__46399_46457,G__46400_46458) : re_frame.core.reg_sub.call(null,G__46399_46457,G__46400_46458));
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__42275_42345,G__42276_42346) : re_frame.core.reg_sub.call(null,G__42275_42345,G__42276_42346));
 
 //# sourceMappingURL=mecca.subs.js.map

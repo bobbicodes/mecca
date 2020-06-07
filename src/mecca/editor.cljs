@@ -17,9 +17,9 @@
    (svg-paths nil paths x y scale))
   ([attrs paths x y scale]
    (into [:g (merge attrs
-              {:transform (str "scale(" scale ") translate(" x "," y ")")})]
-    (for [[color path] paths]
-      [:path {:stroke color :d path}]))))
+                    {:transform (str "scale(" scale ") translate(" x "," y ")")})]
+         (for [[color path] paths]
+           [:path {:stroke color :d path}]))))
 
 (def three-quarter-time-button
   {:off [["#000000" "M0 0h14M0 1h1M13 1h1M0 2h1M3 2h3M13 2h1M0 3h1M5 3h1M13 3h1M0 4h1M3 4h3M9 4h1M13 4h1M0 5h1M5 5h1M8 5h1M13 5h1M0 6h1M3 6h3M7 6h1M13 6h1M0 7h1M6 7h1M9 7h1M13 7h1M0 8h1M5 8h1M8 8h2M13 8h1M0 9h1M4 9h1M7 9h1M9 9h1M13 9h1M0 10h1M7 10h4M13 10h1M0 11h1M9 11h1M13 11h1M0 12h1M13 12h1M0 13h1M13 13h1M0 14h14"]
@@ -49,12 +49,12 @@
 
 ; will have on-click of #(dispatch [:set-time-signature <beats-per-measure>])
 #_(defn time-signature [x y scale]
-   (let [active (subscribe [:time-signature])]
-     (fn [x y scale]
-         (if (= 3 @active)))))
+    (let [active (subscribe [:time-signature])]
+      (fn [x y scale]
+        (if (= 3 @active)))))
 
 (defn scroll-cue-left [x y scale]
-  [:g.fade 
+  [:g.fade
    (svg-paths [["#000000" "M4 0h1M3 1h2M2 2h1M4 2h3M1 3h1M0 4h1M1 5h1M2 6h1M4 6h3M3 7h2M4 8h1"]
                ["#f8f800" "M3 2h1M2 3h5M1 4h6M2 5h5M3 6h1"]]
               x y scale)])
@@ -86,19 +86,19 @@
    ["#f79400" "M5 5h1M4 6h1M3 7h1M2 8h1M0 9h2"]])
 
 (defn eraser-cursor [x y scale]
-   (svg-paths {:pointer-events "none"}
-    [["#000001" "M0 0h8M0 1h1M8 1h1M0 2h2M7 2h1M9 2h1M0 3h1M2 3h1M6 3h1M10 3h1M1 4h1M3 4h1M5 4h1M11 4h1M1 5h1M4 5h1M12 5h1M2 6h1M4 6h2M11 6h2M2 7h1M4 7h1M6 7h1M10 7h1M12 7h1M3 8h2M7 8h1M9 8h1M12 8h1M4 9h1M8 9h1M12 9h1M5 10h1M8 10h1M11 10h1M6 11h1M8 11h1M10 11h1M7 12h3M8 13h1"]
-     ["#f8f8f8" "M1 1h7M2 2h5M3 3h3M8 3h1M4 4h1M7 4h1M9 4h1M6 5h1M8 5h1M10 5h1M7 6h1M9 6h1M8 7h1"]
-     ["#00f8f8" "M8 2h1M7 3h1M9 3h1M6 4h1M8 4h1M10 4h1M5 5h1M7 5h1M9 5h1M11 5h1M6 6h1M8 6h1M10 6h1M5 7h1M7 7h1M9 7h1M5 8h2M8 8h1M5 9h3M6 10h2M7 11h1"]
-     ["#c0c0c1" "M1 3h1M2 4h1M2 5h2M3 6h1M3 7h1"]
-     ["#0000f8" "M11 7h1M10 8h2M9 9h3M9 10h2M9 11h1"]]
-    x y scale))
+  (svg-paths {:pointer-events "none"}
+             [["#000001" "M0 0h8M0 1h1M8 1h1M0 2h2M7 2h1M9 2h1M0 3h1M2 3h1M6 3h1M10 3h1M1 4h1M3 4h1M5 4h1M11 4h1M1 5h1M4 5h1M12 5h1M2 6h1M4 6h2M11 6h2M2 7h1M4 7h1M6 7h1M10 7h1M12 7h1M3 8h2M7 8h1M9 8h1M12 8h1M4 9h1M8 9h1M12 9h1M5 10h1M8 10h1M11 10h1M6 11h1M8 11h1M10 11h1M7 12h3M8 13h1"]
+              ["#f8f8f8" "M1 1h7M2 2h5M3 3h3M8 3h1M4 4h1M7 4h1M9 4h1M6 5h1M8 5h1M10 5h1M7 6h1M9 6h1M8 7h1"]
+              ["#00f8f8" "M8 2h1M7 3h1M9 3h1M6 4h1M8 4h1M10 4h1M5 5h1M7 5h1M9 5h1M11 5h1M6 6h1M8 6h1M10 6h1M5 7h1M7 7h1M9 7h1M5 8h2M8 8h1M5 9h3M6 10h2M7 11h1"]
+              ["#c0c0c1" "M1 3h1M2 4h1M2 5h2M3 6h1M3 7h1"]
+              ["#0000f8" "M11 7h1M10 8h2M9 9h3M9 10h2M9 11h1"]]
+             x y scale))
 
 (defn eraser [x y scale]
   (let [active? (subscribe [:eraser?])]
     (fn [x y scale]
       (svg-paths {:on-click #(do (dispatch [:eraser-toggle])
-                                (if-not @active? (music/play-sample 18 63)))}
+                                 (if-not @active? (music/play-sample 18 63)))}
                  (if @active?
                    [["#ffffff" "M0 0h15M0 1h2M12 1h3M0 2h3M4 2h7M12 2h1M14 2h1M0 3h3M4 3h2M7 3h4M12 3h3M0 4h2M4 4h5M10 4h1M12 4h3M0 5h2M4 5h3M8 5h3M13 5h2M0 6h2M13 6h2M0 7h2M13 7h2M0 8h2M13 8h2M0 9h2M13 9h2M0 10h2M13 10h2M0 11h2M13 11h2M0 12h2M13 12h2M0 13h2M13 13h2M0 14h2M13 14h2M0 15h2M13 15h2M0 16h14"]
                     ["#ceefe7" "M2 1h1M13 2h1M6 3h1M2 4h1M9 4h1M7 5h1M14 16h1"]
@@ -116,7 +116,7 @@
 
 (defn repeat-button [x y scale]
   (svg-paths {:on-click #(do (dispatch [:repeat-toggle])
-                           (music/play-sample 17 63))}
+                             (music/play-sample 17 63))}
              (if @(subscribe [:repeat?])
                [["#000000" "M0 0h13M0 1h1M12 1h1M0 2h1M12 2h1M0 3h1M3 3h8M12 3h1M0 4h1M6 4h1M8 4h3M12 4h1M0 5h1M3 5h8M12 5h1M0 6h1M6 6h1M8 6h3M12 6h1M0 7h1M3 7h8M12 7h1M0 8h1M6 8h1M8 8h3M12 8h1M0 9h1M3 9h8M12 9h1M0 10h1M6 10h1M8 10h3M12 10h1M0 11h1M3 11h8M12 11h1M0 12h1M12 12h1M0 13h13"]
                 ["#f8f800" "M1 1h11M1 2h11M1 3h2M11 3h1M1 4h5M7 4h1M11 4h1M1 5h2M11 5h1M1 6h5M7 6h1M11 6h1M1 7h2M11 7h1M1 8h5M7 8h1M11 8h1M1 9h2M11 9h1M1 10h5M7 10h1M11 10h1M1 11h2M11 11h1M1 12h11"]]
@@ -125,31 +125,31 @@
              x y scale))
 
 (defn undo-dog [x y scale]
-  (let [undos? (subscribe [:undos?])]     
+  (let [undos? (subscribe [:undos?])]
     (fn [x y scale]
       (svg-paths {:on-click (if @undos? #(do (dispatch [:undo])
                                              (music/play-sample 16 63)))}
                  (if @undos?
-                  [["#000000" "M0 0h1M3 0h8M13 0h1M0 1h1M4 1h6M13 1h1M0 2h2M4 2h6M12 2h2M0 3h2M12 3h2M0 4h2M12 4h2M0 5h3M5 5h1M8 5h1M11 5h3M0 6h3M11 6h3M0 7h3M6 7h2M11 7h3M0 8h3M6 8h2M11 8h3M0 9h3M4 9h2M8 9h2M11 9h3M0 10h3M4 10h1M9 10h1M11 10h3M0 11h3M5 11h1M8 11h1M11 11h3M0 12h4M6 12h2M10 12h4M0 13h5M9 13h5M0 14h14"]
-                   ["#ffc694" "M1 0h1M12 0h1M1 1h1M3 1h1M11 1h2M11 2h1M3 3h2M2 4h2M9 4h1M11 4h1M3 5h1M9 5h1M3 6h1M9 6h1M3 7h1M8 7h2M3 8h1M8 8h2M3 9h1M3 10h1M4 12h1M6 13h1"]
-                   ["#ffefbd" "M2 0h1M11 0h1M2 1h1M10 1h1M2 2h1M10 2h1M2 3h1M5 3h6M4 4h5M4 5h1M6 5h2M4 6h1M6 6h2M4 7h2M4 8h2M4 11h1M5 12h1"]
-                   ["#d6944a" "M3 2h1M11 3h1M10 4h1M10 5h1M10 6h1M10 7h1M10 8h1M10 9h1M10 10h1M3 11h1M9 11h2M8 12h2M5 13h1M7 13h2"]
-                   ["#ffffff" "M5 6h1M8 6h1"]
-                   ["#b54a00" "M6 9h2M5 10h4M6 11h2"]]
-                  [["#000000" "M0 0h14M0 1h1M4 1h6M13 1h1M0 2h2M5 2h4M12 2h2M0 3h2M3 3h1M10 3h1M12 3h2M0 4h2M12 4h2M0 5h3M11 5h3M0 6h3M5 6h1M8 6h1M11 6h3M0 7h3M11 7h3M0 8h3M11 8h3M0 9h3M6 9h2M11 9h3M0 10h3M6 10h2M11 10h3M0 11h3M5 11h4M11 11h3M0 12h4M10 12h4M0 13h5M9 13h5M0 14h14"]
-                   ["#c6c6c6" "M1 1h3M10 1h3M2 2h1M4 2h1M9 2h1M5 3h4M4 4h1M6 4h1M8 4h1M4 5h1M6 5h2M6 6h1M4 7h2M4 8h3M5 9h1M4 10h2M4 11h1M5 12h1"]
-                   ["#737373" "M3 2h1M10 2h1M10 4h1M10 6h1M10 8h1M10 10h1M8 12h1M7 13h1"]
-                   ["#a5a5b5" "M11 2h1M2 3h1M4 3h1M9 3h1M11 3h1M3 4h1M9 4h1M3 5h1M9 5h1M3 6h1M7 6h1M9 6h1M3 7h1M7 7h3M3 8h1M7 8h3M3 9h1M8 9h2M3 10h1M8 10h2M4 12h1M6 12h2M6 13h1"]
-                   ["#848484" "M2 4h1M11 4h1M10 5h1M10 7h1M10 9h1M3 11h1M9 11h2M9 12h1M5 13h1M8 13h1"]
-                   ["#adadad" "M5 4h1M7 4h1M4 6h1M6 7h1M4 9h1"]
-                   ["#ffffff" "M5 5h1M8 5h1"]])
+                   [["#000000" "M0 0h1M3 0h8M13 0h1M0 1h1M4 1h6M13 1h1M0 2h2M4 2h6M12 2h2M0 3h2M12 3h2M0 4h2M12 4h2M0 5h3M5 5h1M8 5h1M11 5h3M0 6h3M11 6h3M0 7h3M6 7h2M11 7h3M0 8h3M6 8h2M11 8h3M0 9h3M4 9h2M8 9h2M11 9h3M0 10h3M4 10h1M9 10h1M11 10h3M0 11h3M5 11h1M8 11h1M11 11h3M0 12h4M6 12h2M10 12h4M0 13h5M9 13h5M0 14h14"]
+                    ["#ffc694" "M1 0h1M12 0h1M1 1h1M3 1h1M11 1h2M11 2h1M3 3h2M2 4h2M9 4h1M11 4h1M3 5h1M9 5h1M3 6h1M9 6h1M3 7h1M8 7h2M3 8h1M8 8h2M3 9h1M3 10h1M4 12h1M6 13h1"]
+                    ["#ffefbd" "M2 0h1M11 0h1M2 1h1M10 1h1M2 2h1M10 2h1M2 3h1M5 3h6M4 4h5M4 5h1M6 5h2M4 6h1M6 6h2M4 7h2M4 8h2M4 11h1M5 12h1"]
+                    ["#d6944a" "M3 2h1M11 3h1M10 4h1M10 5h1M10 6h1M10 7h1M10 8h1M10 9h1M10 10h1M3 11h1M9 11h2M8 12h2M5 13h1M7 13h2"]
+                    ["#ffffff" "M5 6h1M8 6h1"]
+                    ["#b54a00" "M6 9h2M5 10h4M6 11h2"]]
+                   [["#000000" "M0 0h14M0 1h1M4 1h6M13 1h1M0 2h2M5 2h4M12 2h2M0 3h2M3 3h1M10 3h1M12 3h2M0 4h2M12 4h2M0 5h3M11 5h3M0 6h3M5 6h1M8 6h1M11 6h3M0 7h3M11 7h3M0 8h3M11 8h3M0 9h3M6 9h2M11 9h3M0 10h3M6 10h2M11 10h3M0 11h3M5 11h4M11 11h3M0 12h4M10 12h4M0 13h5M9 13h5M0 14h14"]
+                    ["#c6c6c6" "M1 1h3M10 1h3M2 2h1M4 2h1M9 2h1M5 3h4M4 4h1M6 4h1M8 4h1M4 5h1M6 5h2M6 6h1M4 7h2M4 8h3M5 9h1M4 10h2M4 11h1M5 12h1"]
+                    ["#737373" "M3 2h1M10 2h1M10 4h1M10 6h1M10 8h1M10 10h1M8 12h1M7 13h1"]
+                    ["#a5a5b5" "M11 2h1M2 3h1M4 3h1M9 3h1M11 3h1M3 4h1M9 4h1M3 5h1M9 5h1M3 6h1M7 6h1M9 6h1M3 7h1M7 7h3M3 8h1M7 8h3M3 9h1M8 9h2M3 10h1M8 10h2M4 12h1M6 12h2M6 13h1"]
+                    ["#848484" "M2 4h1M11 4h1M10 5h1M10 7h1M10 9h1M3 11h1M9 11h2M9 12h1M5 13h1M8 13h1"]
+                    ["#adadad" "M5 4h1M7 4h1M4 6h1M6 7h1M4 9h1"]
+                    ["#ffffff" "M5 5h1M8 5h1"]])
                  (* x 5) (* y 5) scale))))
 
 (defn redo-rabbit [x y scale]
   (let [redos? (subscribe [:redos?])]
     (fn [x y scale]
       (svg-paths {:on-click (if @redos? #(dispatch [:redo]))}
-                 (if @redos? 
+                 (if @redos?
                    [["#ffffff" "M0 0h3M5 0h5M12 0h3M0 1h2M6 1h2M13 1h2M0 2h1M2 2h1M5 2h1M7 2h1M9 2h1M12 2h1M14 2h1M0 3h1M2 3h1M5 3h1M9 3h1M12 3h1M14 3h1M0 4h1M2 4h1M5 4h1M9 4h1M12 4h1M14 4h1M0 5h1M3 5h2M10 5h2M14 5h1M0 6h2M13 6h2M0 7h1M14 7h1M0 12h1M14 12h1M0 13h2M13 13h2M0 14h4M11 14h4M0 15h2M3 15h3M9 15h4M14 15h1M0 16h11M12 16h3"]
                     ["#000000" "M3 0h2M10 0h2M2 1h1M5 1h1M9 1h1M12 1h1M1 2h1M3 2h2M6 2h1M8 2h1M10 2h2M13 2h1M1 3h1M3 3h2M6 3h3M10 3h2M13 3h1M1 4h1M3 4h2M6 4h1M8 4h1M10 4h2M13 4h1M1 5h1M5 5h1M9 5h1M13 5h1M2 6h1M12 6h1M1 7h1M6 7h1M8 7h1M13 7h1M0 8h1M14 8h1M0 9h1M14 9h1M0 10h1M14 10h1M0 11h1M4 11h1M10 11h1M14 11h1M1 12h1M5 12h1M9 12h1M13 12h1M2 13h2M6 13h3M11 13h2M4 14h2M9 14h2M6 15h3"]
                     ["#00ff00" "M3 1h2M10 1h2M7 4h1M2 5h1M6 5h3M12 5h1M3 6h9M2 7h4M7 7h1M9 7h4M1 8h13M1 9h13M1 10h13M1 11h3M5 11h5M11 11h3M2 12h3M6 12h3M10 12h3M4 13h2M9 13h2M6 14h3"]
@@ -317,16 +317,16 @@
             ["#000000" "M11 5h2"]]})
 
 (defn sharp-symbol [x y scale]
-   [:path {:transform (str "scale(" scale ") translate(" x "," y ")")
-           :stroke "black"
-           :d "M15 46C15 47 14 47 13 47 13 47 12 47 12 46V37L7 39V49C7 49 6 50 6 50 5 50 5 49 5 49V40L3 40C3 40 2 40 2 40 2 40 1 40 1 39V35C1 35 1 34 2 34L5 33V23L3 24C3 24 2 24 2 24 2 24 1 23 1 23V19C1 19 1 18 2 18L5 17V7C5 6 5 6 6 6 6 6 7 6 7 7V16L12 14V4C12 4 13 3 13 3 14 3 15 4 15 4V13L17 13C17 12 17 12 17 12 18 12 18 13 18 14V17C18 18 18 18 17 19L15 20V30L17 29C17 29 17 29 17 29 18 29 18 29 18 30V34C18 34 18 35 17 35L15 36V46ZM7 22V32L12 31V21Z"}])
+  [:path {:transform (str "scale(" scale ") translate(" x "," y ")")
+          :stroke "black"
+          :d "M15 46C15 47 14 47 13 47 13 47 12 47 12 46V37L7 39V49C7 49 6 50 6 50 5 50 5 49 5 49V40L3 40C3 40 2 40 2 40 2 40 1 40 1 39V35C1 35 1 34 2 34L5 33V23L3 24C3 24 2 24 2 24 2 24 1 23 1 23V19C1 19 1 18 2 18L5 17V7C5 6 5 6 6 6 6 6 7 6 7 7V16L12 14V4C12 4 13 3 13 3 14 3 15 4 15 4V13L17 13C17 12 17 12 17 12 18 12 18 13 18 14V17C18 18 18 18 17 19L15 20V30L17 29C17 29 17 29 17 29 18 29 18 29 18 30V34C18 34 18 35 17 35L15 36V46ZM7 22V32L12 31V21Z"}])
 
 (defn sharp-button [x y scale]
   (let [sharp? (subscribe [:sharp?])]
     (fn [x y scale]
       (svg-paths {:on-click #(do (dispatch [:sharp-toggle])
                                  (music/play-sample 17 63))}
-                 (if @sharp? 
+                 (if @sharp?
                    [["#f8f8f8" "M0 0h5M7 0h1M10 0h5M0 1h5M7 1h1M10 1h5M0 2h5M7 2h1M10 2h5M0 3h5M11 3h4M0 4h5M11 4h4M0 5h4M10 5h5M0 6h4M10 6h5M0 7h4M7 7h1M10 7h5M0 8h5M7 8h1M10 8h5M0 9h5M7 9h1M11 9h4M0 10h5M11 10h4M0 11h4M11 11h4M0 12h4M10 12h5M0 13h4M7 13h1M10 13h5M0 14h5M7 14h1M10 14h5M0 15h5M7 15h1M10 15h5M0 16h5M7 16h1M9 16h6"]
                     ["#f8e8b8" "M5 0h2M9 0h1M6 1h1M9 1h1M6 2h1M9 2h1M6 3h2M7 6h1M9 6h1M4 7h1M6 7h1M9 7h1M6 8h1M9 8h1M6 9h1M9 13h1M6 14h1M9 14h1M6 15h1M9 15h1M6 16h1M8 16h1"]
                     ["#000001" "M8 0h1M5 1h1M8 1h1M5 2h1M8 2h1M5 3h1M8 3h3M5 4h6M4 5h5M4 6h2M8 6h1M5 7h1M8 7h1M5 8h1M8 8h1M5 9h1M8 9h3M5 10h6M5 11h5M4 12h5M4 13h2M8 13h1M5 14h1M8 14h1M5 15h1M8 15h1M5 16h1"]
@@ -357,7 +357,7 @@
 (defn current-note-display [x y scale]
   (let [current-note (subscribe [:instrument])]
     (fn [x y scale]
-      [:g 
+      [:g
        (svg-paths [["#000000" "M0 0h22M0 1h1M2 1h1M19 1h1M21 1h1M0 2h3M19 2h3M0 3h3M19 3h3M0 4h1M2 4h1M19 4h1M21 4h1M0 5h3M19 5h3M0 6h3M19 6h3M0 7h1M2 7h1M19 7h1M21 7h1M0 8h3M19 8h3M0 9h3M19 9h3M0 10h1M2 10h1M19 10h1M21 10h1M0 11h3M19 11h3M0 12h3M19 12h3M0 13h1M2 13h1M19 13h1M21 13h1M0 14h3M19 14h3M0 15h22"]
                    ["#f8f8f8" "M1 1h1M3 1h16M20 1h1M3 2h16M3 3h16M1 4h1M3 4h16M20 4h1M3 5h16M3 6h16M1 7h1M3 7h16M20 7h1M3 8h16M3 9h16M1 10h1M3 10h16M20 10h1M3 11h16M3 12h16M1 13h1M3 13h16M20 13h1M3 14h16"]]
                   x y scale)
@@ -390,7 +390,7 @@
 
 (defn note-blocks []
   [:g#notes {:transform "scale(0.2) translate(-50,-0.5)"}
-   [:g 
+   [:g
     [block 1 128]
     [mario/mario-icon 133 0 0.8]]
    [:g

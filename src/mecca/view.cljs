@@ -8,9 +8,8 @@
 
 (defn note-guides []
   (let [editor-x (subscribe [:editor-beat-start])]
-    (fn []
       (into [:g]
-            (for [beat (range 0 9 0.5)]
+            (for [beat (range 0 5 0.5)]
               (if (= 0
                      (mod (+ (dec @editor-x) beat) 4))
                 [:g
@@ -22,16 +21,15 @@
                 [:line {:x1 (+ 8 (* 6 beat)) :x2 (+ 8 (* 6 beat))
                         :y1 4 :y2 21 :stroke "black"
                         :stroke-width 0.075
-                        :stroke-dasharray 0.5}]))))))
+                        :stroke-dasharray 0.5}])))))
 
 
 (defn note-targets []
   (let [instrument (subscribe [:instrument])
         editor-x (subscribe [:editor-beat-start])
         sharp? (subscribe [:sharp?])]
-    (fn []
       (into [:g]
-            (for [time (range 0 9 0.5)
+            (for [time (range 0 5 0.5)
                   pitch (range 19)]
               ^{:key [time pitch]}
               [:rect {:transform "translate(6.5,4)"
@@ -65,7 +63,7 @@
                                     :else
                                     #(dispatch [:add-note @instrument
                                                 (+ time (dec @editor-x))
-                                                (get pitches pitch)])))}])))))
+                                                (get pitches pitch)])))}]))))
 
 (defn note-cursor []
   (let [focused (subscribe [:focused-note-pos])
@@ -134,20 +132,19 @@
 (defn editor []
   (let [editor-x (subscribe [:editor-beat-start])
         mario-run (subscribe [:mario-run])]
-    (fn []
       (when (= 20 @mario-run)
         (dispatch [:jump-reset]))
       [:svg {:width "100%"
              :view-box "0 0 64 36"
              :style {:cursor "url(/images/hand.png),pointer"}}
-       [mario/cloud 1 1]
+       [mario/cloud 1 18]
        [mario/hill 40]
-       [castle/brick-face 363 18 6]
-       [castle/brick-face 348 48 10]
+       [castle/brick-face 170 18 6]
+       [castle/brick-face 155 48 10]
        [mario/mario-sm]
-       [editor/current-note-display 47 0 0.22]
+       [editor/current-note-display 0 0 0.22]
        [editor/note-blocks]
-       [mario/floor-tile 16]
+       [mario/floor-tile 9]
        [:rect#editorframe
           {:stroke "black"
            :stroke-width 0.2
@@ -167,7 +164,7 @@
         [note-cursor]
         [score-notes]
         (when @(subscribe [:loop-end])
-          [editor/repeat-sign (+ 7 (* 6 @(subscribe [:loop-end]))) 8 0.13])]])))
+          [editor/repeat-sign (+ 7 (* 6 @(subscribe [:loop-end]))) 8 0.13])]]))
 
 (defn mecca []
   [:div

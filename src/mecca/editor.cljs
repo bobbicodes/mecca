@@ -25,7 +25,7 @@
    (doall
     (for [y (range 18)]
       ^{:key y}
-      [:line {:x1 1 :x2 63 :y1 y :y2 y
+      [:line {:x1 1 :x2 35 :y1 y :y2 y
               :stroke "black"
               :stroke-width (if (or (= y 30) (= y 18)) 0.06 0.15)
               :stroke-dasharray (if (or (= y 30) (= y 18)) 0.25)
@@ -395,8 +395,8 @@
          14 [mario/car  (+ x 15) 4 0.18]
          15 [mario/heart (+ x 17) 4 0.18])])))
 
-(defn block [instrument x]
-  (into [:g {:transform (str "translate(" x "," 1 ")")
+(defn block [instrument x y]
+  (into [:g {:transform (str "translate(" x "," y ")")
              :on-click #(do (dispatch [:select-instrument instrument])
                             (music/play-sample instrument 64))}]
         (for [[color path]
@@ -405,50 +405,52 @@
           [:path {:stroke color
                   :d path}])))
 
+(+ 174 16)
+(+ 160 20)
 (defn note-blocks []
   [:g#notes {:transform "scale(0.2) translate(-50,-0.5)"}
    [:g
-    [block 1 128]
-    [mario/mario-icon 133 0 0.8]]
+    [block 1 78 1]
+    [mario/mario-icon 70 0 0.8]]
    [:g
-    [block 2 144]
-    [mario/shroom 182 3 0.8]]
+    [block 2 94 1]
+    [mario/shroom 120 3 0.8]]
    [:g
-    [block 3 160]
-    [mario/yoshi 202 3 0.8]]
+    [block 3 110 1]
+    [mario/yoshi 139 3 0.8]]
    [:g
-    [block 4 176]
-    [mario/star 222 3 0.8]]
+    [block 4 126 1]
+    [mario/star 160 3 0.8]]
    [:g
-    [block 5 192]
-    [mario/flower 242 3 0.8]]
+    [block 5 142 1]
+    [mario/flower 180 3 0.8]]
    [:g
-    [block 6 208]
-    [mario/gb 264 3 0.8]]
+    [block 6 158 1]
+    [mario/gb 201 3 0.8]]
    [:g
-    [block 7 224]
+    [block 7 174 1]
     [mario/dog 282 4 0.8]]
    [:g
-    [block 8 240]
+    [block 8 190 1]
     [mario/kitty 302 3 0.8]]
    [:g
-    [block 9 256]
+    [block 9 206 1]
     [mario/pig 322 3 0.8]]
    [:g
-    [block 10 272]
+    [block 10 272 1]
     [mario/swan 342 3 0.8]]
    [:g
-    [block 11 288]
+    [block 11 288 1]
     [mario/face 372 3 0.78]]
    [:g
-    [block 12 304]
+    [block 12 304 1]
     [mario/plane 382 6 0.8]]
    [:g
-    [block 13 320]
+    [block 13 320 1]
     [mario/boat 402 4 0.8]]
    [:g
-    [block 14 336]
+    [block 14 336 1]
     [mario/car 422 5 0.8]]
    [:g
-    [block 15 352]
+    [block 15 352 1]
     [mario/heart 442 4 0.8]]])

@@ -9,7 +9,7 @@
 (defn note-guides []
   (let [editor-x (subscribe [:editor-beat-start])]
       (into [:g]
-            (for [beat (range 0 5 0.5)]
+            (for [beat (range 0 4.5 0.5)]
               (if (= 0
                      (mod (+ (dec @editor-x) beat) 4))
                 [:g
@@ -29,7 +29,7 @@
         editor-x (subscribe [:editor-beat-start])
         sharp? (subscribe [:sharp?])]
       (into [:g]
-            (for [time (range 0 5 0.5)
+            (for [time (range 0 4.5 0.5)
                   pitch (range 19)]
               ^{:key [time pitch]}
               [:rect {:transform "translate(6.5,4)"
@@ -135,7 +135,7 @@
       (when (= 20 @mario-run)
         (dispatch [:jump-reset]))
       [:svg {:width "100%"
-             :view-box "0 0 64 36"
+             :view-box "0 0 36 36"
              :style {:cursor "url(/images/hand.png),pointer"}}
        [mario/cloud 1 18]
        [mario/hill 40]
@@ -149,7 +149,7 @@
           {:stroke "black"
            :stroke-width 0.2
            :fill "none"
-           :height 20 :width 63.5 :x 0.25 :y 14.5}]
+           :height 20 :width 34.9 :x 0.25 :y 14.5}]
        [:g.staff {:transform "translate(0,13.5) scale(1)"}
         [editor/staff-lines]
         [editor/retract-editor 2]
@@ -169,5 +169,5 @@
 (defn mecca []
   [:div
    [editor]
-   [transport/transport 140 0 0.5]
-   [editor/toolbar 71 0]])
+   [transport/transport 0 0 0.5]
+   [editor/toolbar 0 0]])

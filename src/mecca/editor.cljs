@@ -209,7 +209,7 @@
   (let [mouseover? (r/atom false)]
     (fn []
       [:g
-       [:rect {:x 58 :y 5.5
+       [:rect {:x 32 :y 5.5
                :height 2.5
                :width 6
                :pointer-events "all"
@@ -219,13 +219,13 @@
                :on-mouse-out #(reset! mouseover? false)
                :on-click #(dispatch [:advance-editor 4])}]
        (if @mouseover?
-         (svg-paths {:pointer-events "none"} advance-cue-measure 300 30 0.2))])))
+         (svg-paths {:pointer-events "none"} advance-cue-measure 162 30 0.2))])))
 
 (defn advance-editor []
   (let [mouseover? (r/atom false)]
     (fn []
       [:g
-       [:rect {:x 58 :y 8
+       [:rect {:x 32 :y 8
                :height 12
                :width 6
                :pointer-events "all"
@@ -236,8 +236,8 @@
                :on-click #(dispatch [:advance-editor 0.5])}]
        (if @mouseover?
          [:g
-          [scroll-cue-right (* 4 60.8) (* 4 8) 0.25]
-          [scroll-cue-right (* 4 60.8) (* 4 14) 0.25]])])))
+          [scroll-cue-right (* 4 32.8) (* 4 8) 0.25]
+          [scroll-cue-right (* 4 32.8) (* 4 14) 0.25]])])))
 
 (defn advance-end []
   (let [mouseover? (r/atom false)
@@ -245,7 +245,7 @@
         editor-pos (subscribe [:editor-beat-start])]
     (fn []
       [:g
-       [:rect {:x 58 :y 2
+       [:rect {:x 32 :y 2
                :height 3.5
                :width 6
                :pointer-events "all"
@@ -256,7 +256,7 @@
                :on-click (fn [e] (dispatch [:advance-editor (- (apply max (map #(:time %) @(subscribe [:notes])))
                                                                @editor-pos)]))}]
        (if @mouseover?
-         (svg-paths {:pointer-events "none"} advance-cue-end 305 20 0.2))])))
+         (svg-paths {:pointer-events "none"} advance-cue-end 165 20 0.2))])))
 
 (defn retract-editor [x]
   (let [mouseover? (r/atom false)]
@@ -362,14 +362,14 @@
   [:svg {:view-box "0 -0.5 140 10.5" :shape-rendering "crispEdges"
          :style {:cursor "url(/images/hand.png),pointer"}}
    [:rect {:x x :y y :width 68 :height 10 :stroke "black" :stroke-width 0.2 :fill "#f8b0f8"}]
-   [undo-dog 28.5 (+ 0.5 y) 0.5]
-   [redo-rabbit 35.2 (+ 0.48 y) 0.45]
-   [repeat-button 176 (+ 3 y) 0.5]
-   [eraser 192 (+ 2 y) 0.5]
-   [sharp-button 210 (+ 2 y) 0.5]
-   (svg-paths {:on-click #(dispatch [:load-castle])} ghost 476 (+ 6 y) 0.24)
-   (svg-paths {:on-click #(dispatch [:load-zelda])} zelda 490 (+ 4.5 y) 0.25)
-   (svg-paths {:on-click #(dispatch [:load-megaman])} megaman 367 (- y 2) 0.35)])
+   [undo-dog 0.5 (+ 0.5 y) 0.5]
+   [redo-rabbit 4 (+ 0.48 y) 0.45]
+   [repeat-button 33 (+ 3 y) 0.5]
+   [eraser 47 (+ 2 y) 0.5]
+   [sharp-button 63 (+ 2 y) 0.5]
+   (svg-paths {:on-click #(dispatch [:load-castle])} ghost 166 (+ 6 y) 0.24)
+   (svg-paths {:on-click #(dispatch [:load-zelda])} zelda 196 (+ 4.5 y) 0.25)
+   (svg-paths {:on-click #(dispatch [:load-megaman])} megaman 167 (- y 2) 0.35)])
 
 (defn current-note-display [x y scale]
   (let [current-note (subscribe [:instrument])]
@@ -429,28 +429,28 @@
     [mario/gb 201 3 0.8]]
    [:g
     [block 7 174 1]
-    [mario/dog 282 4 0.8]]
+    [mario/dog 221 4 0.8]]
    [:g
     [block 8 190 1]
-    [mario/kitty 302 3 0.8]]
+    [mario/kitty 240 3 0.8]]
    [:g
     [block 9 206 1]
-    [mario/pig 322 3 0.8]]
+    [mario/pig 260 3 0.8]]
    [:g
-    [block 10 272 1]
-    [mario/swan 342 3 0.8]]
+    [block 10 94 16]
+    [mario/swan 120 20 0.8]]
    [:g
-    [block 11 288 1]
-    [mario/face 372 3 0.78]]
+    [block 11 110 16]
+    [mario/face 143 21 0.78]]
    [:g
-    [block 12 304 1]
-    [mario/plane 382 6 0.8]]
+    [block 12 126 16]
+    [mario/plane 160 24 0.8]]
    [:g
-    [block 13 320 1]
-    [mario/boat 402 4 0.8]]
+    [block 13 142 16]
+    [mario/boat 179 23 0.8]]
    [:g
-    [block 14 336 1]
-    [mario/car 422 5 0.8]]
+    [block 14 158 16]
+    [mario/car 200 24 0.8]]
    [:g
-    [block 15 352 1]
-    [mario/heart 442 4 0.8]]])
+    [block 15 174 16]
+    [mario/heart 221 22 0.8]]])

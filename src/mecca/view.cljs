@@ -47,7 +47,7 @@
                       :on-mouse-over #(if-not (and 
                                                @sharp?
                                                (or (= pitch 12)
-                                                   (= pitch 15)
+                                                  (= pitch 15)
                                                    (= pitch 8)
                                                    (= pitch 5)
                                                    (= pitch 1)

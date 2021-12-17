@@ -13,10 +13,10 @@ day8.re_frame.undo.undo_config_BANG_ = (function day8$re_frame$undo$undo_config_
 var temp__5733__auto__ = cljs.core.seq(clojure.set.difference.cljs$core$IFn$_invoke$arity$2(cljs.core.set(cljs.core.keys(new_config)),cljs.core.set(cljs.core.keys(cljs.core.deref(day8.re_frame.undo.config)))));
 if(temp__5733__auto__){
 var unknown_keys = temp__5733__auto__;
-var G__41897 = new cljs.core.Keyword(null,"error","error",-978969032);
-var G__41898 = "re-frame-undo: undo-config! called within unknown keys: ";
-var G__41899 = unknown_keys;
-return (re_frame.core.console.cljs$core$IFn$_invoke$arity$3 ? re_frame.core.console.cljs$core$IFn$_invoke$arity$3(G__41897,G__41898,G__41899) : re_frame.core.console.call(null,G__41897,G__41898,G__41899));
+var G__40965 = new cljs.core.Keyword(null,"error","error",-978969032);
+var G__40966 = "re-frame-undo: undo-config! called within unknown keys: ";
+var G__40967 = unknown_keys;
+return (re_frame.core.console.cljs$core$IFn$_invoke$arity$3 ? re_frame.core.console.cljs$core$IFn$_invoke$arity$3(G__40965,G__40966,G__40967) : re_frame.core.console.call(null,G__40965,G__40966,G__40967));
 } else {
 return cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(day8.re_frame.undo.config,cljs.core.merge,new_config);
 }
@@ -67,8 +67,8 @@ return cljs.core.reset_BANG_(day8.re_frame.undo.app_explain,"");
 day8.re_frame.undo.store_now_BANG_ = (function day8$re_frame$undo$store_now_BANG_(explanation){
 day8.re_frame.undo.clear_redos_BANG_();
 
-cljs.core.reset_BANG_(day8.re_frame.undo.undo_list,cljs.core.vec(cljs.core.take_last(day8.re_frame.undo.max_undos(),cljs.core.conj.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(day8.re_frame.undo.undo_list),(function (){var fexpr__41910 = new cljs.core.Keyword(null,"harvest-fn","harvest-fn",9140059).cljs$core$IFn$_invoke$arity$1(cljs.core.deref(day8.re_frame.undo.config));
-return (fexpr__41910.cljs$core$IFn$_invoke$arity$1 ? fexpr__41910.cljs$core$IFn$_invoke$arity$1(re_frame.db.app_db) : fexpr__41910.call(null,re_frame.db.app_db));
+cljs.core.reset_BANG_(day8.re_frame.undo.undo_list,cljs.core.vec(cljs.core.take_last(day8.re_frame.undo.max_undos(),cljs.core.conj.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(day8.re_frame.undo.undo_list),(function (){var fexpr__40986 = new cljs.core.Keyword(null,"harvest-fn","harvest-fn",9140059).cljs$core$IFn$_invoke$arity$1(cljs.core.deref(day8.re_frame.undo.config));
+return (fexpr__40986.cljs$core$IFn$_invoke$arity$1 ? fexpr__40986.cljs$core$IFn$_invoke$arity$1(re_frame.db.app_db) : fexpr__40986.call(null,re_frame.db.app_db));
 })()))));
 
 cljs.core.reset_BANG_(day8.re_frame.undo.undo_explain_list,cljs.core.vec(cljs.core.take_last(day8.re_frame.undo.max_undos(),cljs.core.conj.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(day8.re_frame.undo.undo_explain_list),cljs.core.deref(day8.re_frame.undo.app_explain)))));
@@ -120,9 +120,9 @@ return cljs.core.deref(day8.re_frame.undo.redo_explain_list);
 day8.re_frame.undo.undo = (function day8$re_frame$undo$undo(harvester,reinstater,undos,cur,redos){
 var u = cljs.core.deref(undos);
 var r = cljs.core.cons((harvester.cljs$core$IFn$_invoke$arity$1 ? harvester.cljs$core$IFn$_invoke$arity$1(cur) : harvester.call(null,cur)),cljs.core.deref(redos));
-var G__41915_41974 = cur;
-var G__41916_41975 = cljs.core.last(u);
-(reinstater.cljs$core$IFn$_invoke$arity$2 ? reinstater.cljs$core$IFn$_invoke$arity$2(G__41915_41974,G__41916_41975) : reinstater.call(null,G__41915_41974,G__41916_41975));
+var G__41006_41047 = cur;
+var G__41007_41048 = cljs.core.last(u);
+(reinstater.cljs$core$IFn$_invoke$arity$2 ? reinstater.cljs$core$IFn$_invoke$arity$2(G__41006_41047,G__41007_41048) : reinstater.call(null,G__41006_41047,G__41007_41048));
 
 cljs.core.reset_BANG_(redos,r);
 
@@ -138,8 +138,8 @@ day8.re_frame.undo.undo(new cljs.core.Keyword(null,"harvest-fn","harvest-fn",914
 
 day8.re_frame.undo.undo(cljs.core.deref,cljs.core.reset_BANG_,day8.re_frame.undo.undo_explain_list,day8.re_frame.undo.app_explain,day8.re_frame.undo.redo_explain_list);
 
-var G__41980 = (n - (1));
-n = G__41980;
+var G__41050 = (n - (1));
+n = G__41050;
 continue;
 } else {
 return null;
@@ -147,14 +147,14 @@ return null;
 break;
 }
 });
-day8.re_frame.undo.undo_handler = (function day8$re_frame$undo$undo_handler(_,p__41923){
-var vec__41930 = p__41923;
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__41930,(0),null);
-var n = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__41930,(1),null);
+day8.re_frame.undo.undo_handler = (function day8$re_frame$undo$undo_handler(_,p__41009){
+var vec__41010 = p__41009;
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__41010,(0),null);
+var n = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__41010,(1),null);
 if(cljs.core.not(day8.re_frame.undo.undos_QMARK_())){
-var G__41933_41981 = new cljs.core.Keyword(null,"warn","warn",-436710552);
-var G__41934_41982 = "re-frame: you did a (dispatch [:undo]), but there is nothing to undo.";
-(re_frame.core.console.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.console.cljs$core$IFn$_invoke$arity$2(G__41933_41981,G__41934_41982) : re_frame.core.console.call(null,G__41933_41981,G__41934_41982));
+var G__41016_41051 = new cljs.core.Keyword(null,"warn","warn",-436710552);
+var G__41017_41052 = "re-frame: you did a (dispatch [:undo]), but there is nothing to undo.";
+(re_frame.core.console.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.console.cljs$core$IFn$_invoke$arity$2(G__41016_41051,G__41017_41052) : re_frame.core.console.call(null,G__41016_41051,G__41017_41052));
 } else {
 day8.re_frame.undo.undo_n((function (){var or__4185__auto__ = n;
 if(cljs.core.truth_(or__4185__auto__)){
@@ -170,9 +170,9 @@ return cljs.core.PersistentArrayMap.EMPTY;
 day8.re_frame.undo.redo = (function day8$re_frame$undo$redo(harvester,reinstater,undos,cur,redos){
 var u = cljs.core.conj.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(undos),(harvester.cljs$core$IFn$_invoke$arity$1 ? harvester.cljs$core$IFn$_invoke$arity$1(cur) : harvester.call(null,cur)));
 var r = cljs.core.deref(redos);
-var G__41936_41983 = cur;
-var G__41938_41984 = cljs.core.first(r);
-(reinstater.cljs$core$IFn$_invoke$arity$2 ? reinstater.cljs$core$IFn$_invoke$arity$2(G__41936_41983,G__41938_41984) : reinstater.call(null,G__41936_41983,G__41938_41984));
+var G__41018_41053 = cur;
+var G__41019_41054 = cljs.core.first(r);
+(reinstater.cljs$core$IFn$_invoke$arity$2 ? reinstater.cljs$core$IFn$_invoke$arity$2(G__41018_41053,G__41019_41054) : reinstater.call(null,G__41018_41053,G__41019_41054));
 
 cljs.core.reset_BANG_(redos,cljs.core.rest(r));
 
@@ -188,8 +188,8 @@ day8.re_frame.undo.redo(new cljs.core.Keyword(null,"harvest-fn","harvest-fn",914
 
 day8.re_frame.undo.redo(cljs.core.deref,cljs.core.reset_BANG_,day8.re_frame.undo.undo_explain_list,day8.re_frame.undo.app_explain,day8.re_frame.undo.redo_explain_list);
 
-var G__41987 = (n - (1));
-n = G__41987;
+var G__41055 = (n - (1));
+n = G__41055;
 continue;
 } else {
 return null;
@@ -197,14 +197,14 @@ return null;
 break;
 }
 });
-day8.re_frame.undo.redo_handler = (function day8$re_frame$undo$redo_handler(_,p__41942){
-var vec__41943 = p__41942;
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__41943,(0),null);
-var n = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__41943,(1),null);
+day8.re_frame.undo.redo_handler = (function day8$re_frame$undo$redo_handler(_,p__41020){
+var vec__41021 = p__41020;
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__41021,(0),null);
+var n = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__41021,(1),null);
 if(cljs.core.not(day8.re_frame.undo.redos_QMARK_())){
-var G__41946_41990 = new cljs.core.Keyword(null,"warn","warn",-436710552);
-var G__41947_41991 = "re-frame: you did a (dispatch [:redo]), but there is nothing to redo.";
-(re_frame.core.console.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.console.cljs$core$IFn$_invoke$arity$2(G__41946_41990,G__41947_41991) : re_frame.core.console.call(null,G__41946_41990,G__41947_41991));
+var G__41024_41056 = new cljs.core.Keyword(null,"warn","warn",-436710552);
+var G__41025_41057 = "re-frame: you did a (dispatch [:redo]), but there is nothing to redo.";
+(re_frame.core.console.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.console.cljs$core$IFn$_invoke$arity$2(G__41024_41056,G__41025_41057) : re_frame.core.console.call(null,G__41024_41056,G__41025_41057));
 } else {
 day8.re_frame.undo.redo_n((function (){var or__4185__auto__ = n;
 if(cljs.core.truth_(or__4185__auto__)){
@@ -219,9 +219,9 @@ return cljs.core.PersistentArrayMap.EMPTY;
 });
 day8.re_frame.undo.purge_redo_handler = (function day8$re_frame$undo$purge_redo_handler(db,_){
 if(cljs.core.not(day8.re_frame.undo.redos_QMARK_())){
-var G__41953_41993 = new cljs.core.Keyword(null,"warn","warn",-436710552);
-var G__41954_41994 = "re-frame: you did a (dispatch [:purge-redos]), but there is nothing to redo.";
-(re_frame.core.console.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.console.cljs$core$IFn$_invoke$arity$2(G__41953_41993,G__41954_41994) : re_frame.core.console.call(null,G__41953_41993,G__41954_41994));
+var G__41026_41058 = new cljs.core.Keyword(null,"warn","warn",-436710552);
+var G__41027_41059 = "re-frame: you did a (dispatch [:purge-redos]), but there is nothing to redo.";
+(re_frame.core.console.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.console.cljs$core$IFn$_invoke$arity$2(G__41026_41058,G__41027_41059) : re_frame.core.console.call(null,G__41026_41058,G__41027_41059));
 } else {
 day8.re_frame.undo.clear_redos_BANG_();
 }
@@ -240,8 +240,8 @@ return db;
  *   
  */
 day8.re_frame.undo.undoable = (function day8$re_frame$undo$undoable(var_args){
-var G__41956 = arguments.length;
-switch (G__41956) {
+var G__41029 = arguments.length;
+switch (G__41029) {
 case 0:
 return day8.re_frame.undo.undoable.cljs$core$IFn$_invoke$arity$0();
 
@@ -261,37 +261,37 @@ return day8.re_frame.undo.undoable.cljs$core$IFn$_invoke$arity$1(null);
 }));
 
 (day8.re_frame.undo.undoable.cljs$core$IFn$_invoke$arity$1 = (function (explanation){
-var G__41957 = new cljs.core.Keyword(null,"id","id",-1388402092);
-var G__41958 = new cljs.core.Keyword(null,"undoable","undoable",303475882);
-var G__41959 = new cljs.core.Keyword(null,"after","after",594996914);
-var G__41960 = (function (context){
-var event = (function (){var G__41961 = context;
-var G__41962 = new cljs.core.Keyword(null,"event","event",301435442);
-return (re_frame.core.get_coeffect.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.get_coeffect.cljs$core$IFn$_invoke$arity$2(G__41961,G__41962) : re_frame.core.get_coeffect.call(null,G__41961,G__41962));
+var G__41030 = new cljs.core.Keyword(null,"id","id",-1388402092);
+var G__41031 = new cljs.core.Keyword(null,"undoable","undoable",303475882);
+var G__41032 = new cljs.core.Keyword(null,"after","after",594996914);
+var G__41033 = (function (context){
+var event = (function (){var G__41034 = context;
+var G__41035 = new cljs.core.Keyword(null,"event","event",301435442);
+return (re_frame.core.get_coeffect.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.get_coeffect.cljs$core$IFn$_invoke$arity$2(G__41034,G__41035) : re_frame.core.get_coeffect.call(null,G__41034,G__41035));
 })();
-var undo_effect = (function (){var G__41963 = context;
-var G__41964 = new cljs.core.Keyword(null,"undo","undo",-1818036302);
-return (re_frame.core.get_effect.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.get_effect.cljs$core$IFn$_invoke$arity$2(G__41963,G__41964) : re_frame.core.get_effect.call(null,G__41963,G__41964));
+var undo_effect = (function (){var G__41036 = context;
+var G__41037 = new cljs.core.Keyword(null,"undo","undo",-1818036302);
+return (re_frame.core.get_effect.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.get_effect.cljs$core$IFn$_invoke$arity$2(G__41036,G__41037) : re_frame.core.get_effect.call(null,G__41036,G__41037));
 })();
-var explanation__$1 = (((!((undo_effect == null))))?undo_effect:((cljs.core.fn_QMARK_(explanation))?(function (){var G__41965 = (function (){var G__41967 = context;
-var G__41968 = new cljs.core.Keyword(null,"db","db",993250759);
-return (re_frame.core.get_coeffect.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.get_coeffect.cljs$core$IFn$_invoke$arity$2(G__41967,G__41968) : re_frame.core.get_coeffect.call(null,G__41967,G__41968));
+var explanation__$1 = (((!((undo_effect == null))))?undo_effect:((cljs.core.fn_QMARK_(explanation))?(function (){var G__41038 = (function (){var G__41040 = context;
+var G__41041 = new cljs.core.Keyword(null,"db","db",993250759);
+return (re_frame.core.get_coeffect.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.get_coeffect.cljs$core$IFn$_invoke$arity$2(G__41040,G__41041) : re_frame.core.get_coeffect.call(null,G__41040,G__41041));
 })();
-var G__41966 = event;
-return (explanation.cljs$core$IFn$_invoke$arity$2 ? explanation.cljs$core$IFn$_invoke$arity$2(G__41965,G__41966) : explanation.call(null,G__41965,G__41966));
-})():((typeof explanation === 'string')?explanation:(((explanation == null))?"":(function (){var G__41969 = new cljs.core.Keyword(null,"error","error",-978969032);
-var G__41970 = "re-frame-undo: \"undoable\" interceptor on event ";
-var G__41971 = event;
-var G__41972 = " given a bad parameter. Got: ";
-var G__41973 = explanation;
-return (re_frame.core.console.cljs$core$IFn$_invoke$arity$5 ? re_frame.core.console.cljs$core$IFn$_invoke$arity$5(G__41969,G__41970,G__41971,G__41972,G__41973) : re_frame.core.console.call(null,G__41969,G__41970,G__41971,G__41972,G__41973));
+var G__41039 = event;
+return (explanation.cljs$core$IFn$_invoke$arity$2 ? explanation.cljs$core$IFn$_invoke$arity$2(G__41038,G__41039) : explanation.call(null,G__41038,G__41039));
+})():((typeof explanation === 'string')?explanation:(((explanation == null))?"":(function (){var G__41042 = new cljs.core.Keyword(null,"error","error",-978969032);
+var G__41043 = "re-frame-undo: \"undoable\" interceptor on event ";
+var G__41044 = event;
+var G__41045 = " given a bad parameter. Got: ";
+var G__41046 = explanation;
+return (re_frame.core.console.cljs$core$IFn$_invoke$arity$5 ? re_frame.core.console.cljs$core$IFn$_invoke$arity$5(G__41042,G__41043,G__41044,G__41045,G__41046) : re_frame.core.console.call(null,G__41042,G__41043,G__41044,G__41045,G__41046));
 })()
 ))));
 day8.re_frame.undo.store_now_BANG_(explanation__$1);
 
 return cljs.core.update.cljs$core$IFn$_invoke$arity$4(context,new cljs.core.Keyword(null,"effects","effects",-282369292),cljs.core.dissoc,new cljs.core.Keyword(null,"undo","undo",-1818036302));
 });
-return (re_frame.core.__GT_interceptor.cljs$core$IFn$_invoke$arity$4 ? re_frame.core.__GT_interceptor.cljs$core$IFn$_invoke$arity$4(G__41957,G__41958,G__41959,G__41960) : re_frame.core.__GT_interceptor.call(null,G__41957,G__41958,G__41959,G__41960));
+return (re_frame.core.__GT_interceptor.cljs$core$IFn$_invoke$arity$4 ? re_frame.core.__GT_interceptor.cljs$core$IFn$_invoke$arity$4(G__41030,G__41031,G__41032,G__41033) : re_frame.core.__GT_interceptor.call(null,G__41030,G__41031,G__41032,G__41033));
 }));
 
 (day8.re_frame.undo.undoable.cljs$lang$maxFixedArity = 1);

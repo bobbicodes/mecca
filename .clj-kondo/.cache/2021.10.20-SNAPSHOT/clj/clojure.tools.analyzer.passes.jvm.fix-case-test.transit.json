@@ -1,0 +1,1 @@
+["^ ","~$fix-case-test",["^ ","~:row",12,"~:col",1,"~:fixed-arities",["~#set",[1]],"~:name","^0","~:ns","~$clojure.tools.analyzer.passes.jvm.fix-case-test","~:top-ns","^7"],"~:filename","/home/bob/.m2/repository/org/clojure/tools.analyzer.jvm/1.2.0/tools.analyzer.jvm-1.2.0.jar:clojure/tools/analyzer/passes/jvm/fix_case_test.clj"]

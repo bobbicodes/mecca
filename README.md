@@ -11,7 +11,7 @@ I found that the specific subset of musical features used in the Mario Paint mus
 Check out the inspiring paper [Mario Paint: An Accessible Environment of Musical Creativity
 and Sound Exploration](docs/Mario_Paint_An_Accessible_Environment_of.pdf).
 
-[Live app in its current state](https://porkostomus.github.io/mecca/)
+[Live app in its current state](https://BTowersCoding.github.io/mecca/)
 
 ![Screenshot](mecca.png)
 

@@ -362,14 +362,14 @@
   [:svg {:view-box "0 -0.5 140 10.5" :shape-rendering "crispEdges"
          :style {:cursor "url(/images/hand.png),pointer"}}
    [:rect {:x x :y y :width 68 :height 10 :stroke "black" :stroke-width 0.2 :fill "#f8b0f8"}]
-   [undo-dog 28.5 (+ 0.5 y) 0.5]
-   [redo-rabbit 35.2 (+ 0.48 y) 0.45]
-   [repeat-button 176 (+ 3 y) 0.5]
-   [eraser 192 (+ 2 y) 0.5]
-   [sharp-button 210 (+ 2 y) 0.5]
-   (svg-paths {:on-click #(dispatch [:load-castle])} ghost 476 (+ 6 y) 0.24)
-   (svg-paths {:on-click #(dispatch [:load-zelda])} zelda 490 (+ 4.5 y) 0.25)
-   (svg-paths {:on-click #(dispatch [:load-megaman])} megaman 367 (- y 2) 0.35)])
+   [undo-dog 0 (+ 0.5 y) 0.5]
+   [redo-rabbit 3 (+ 0.48 y) 0.45]
+   [repeat-button 28 (+ 3 y) 0.5]
+   [eraser 42 (+ 2 y) 0.5]
+   [sharp-button 58 (+ 2 y) 0.5]
+   (svg-paths {:on-click #(dispatch [:load-castle])} ghost 156 (+ 6 y) 0.24)
+   (svg-paths {:on-click #(dispatch [:load-zelda])} zelda 185 (+ 4.5 y) 0.25)
+   (svg-paths {:on-click #(dispatch [:load-megaman])} megaman 150 (- y 2) 0.35)])
 
 (defn current-note-display [x y scale]
   (let [current-note (subscribe [:instrument])]

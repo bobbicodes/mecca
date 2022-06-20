@@ -172,5 +172,5 @@
 (defn mecca []
   [:div
    [editor]
-   [transport/transport 140 0 0.5]
-   [editor/toolbar 71 0]])
+   [transport/transport 0 0 0.5]
+   [editor/toolbar 0 0]])

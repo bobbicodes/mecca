@@ -1,24 +1,24 @@
 goog.provide('mecca.songs.megaman');
 goog.require('cljs.core');
 mecca.songs.megaman.delay_note = (function mecca$songs$megaman$delay_note(beats,note){
-return cljs.core.update.cljs$core$IFn$_invoke$arity$3(note,new cljs.core.Keyword(null,"time","time",1385887882),(function (p1__42001_SHARP_){
-return (beats + p1__42001_SHARP_);
+return cljs.core.update.cljs$core$IFn$_invoke$arity$3(note,new cljs.core.Keyword(null,"time","time",1385887882),(function (p1__37616_SHARP_){
+return (beats + p1__37616_SHARP_);
 }));
 });
 mecca.songs.megaman.loop_notes = (function mecca$songs$megaman$loop_notes(notes){
-var length = cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.max,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__42002_SHARP_){
-return new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__42002_SHARP_);
+var length = cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.max,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__37620_SHARP_){
+return new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__37620_SHARP_);
 }),notes));
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(notes,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__42003_SHARP_){
-return mecca.songs.megaman.delay_note((length + (1)),p1__42003_SHARP_);
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(notes,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__37621_SHARP_){
+return mecca.songs.megaman.delay_note((length + (1)),p1__37621_SHARP_);
 }),notes));
 });
 mecca.songs.megaman.verse_chorus = (function mecca$songs$megaman$verse_chorus(verse,chorus){
-var length = cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.max,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__42004_SHARP_){
-return new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__42004_SHARP_);
+var length = cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.max,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__37622_SHARP_){
+return new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__37622_SHARP_);
 }),verse));
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(verse,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__42005_SHARP_){
-return mecca.songs.megaman.delay_note((length + (1)),p1__42005_SHARP_);
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(verse,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__37623_SHARP_){
+return mecca.songs.megaman.delay_note((length + (1)),p1__37623_SHARP_);
 }),chorus));
 });
 mecca.songs.megaman.bass_triad = (function mecca$songs$megaman$bass_triad(time,root,third){

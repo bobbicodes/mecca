@@ -2050,3 +2050,877 @@ cljs꞉mecca.demo꞉> 
 18
 {:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
 "Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"

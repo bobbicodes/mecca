@@ -179,3 +179,1580 @@ cljs꞉mecca.songs.confuzion꞉> 
 18
 {:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
 "Samples loaded"
+
+; TypeError: Cannot read properties of undefined (reading 'bass1')
+;     at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:256)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:302:151)
+    at Object.shadow$cljs$devtools$client$env$process_next_BANG_ [as process_next_BANG_] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:284:90)
+    at Object.shadow$cljs$devtools$client$env$process_ws_msg [as process_ws_msg] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:305:40)
+cljs꞉mecca.songs.confuzion꞉> 
+
+; TypeError: Cannot read properties of undefined (reading 'bass1')
+;     at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:256)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:302:151)
+    at Object.shadow$cljs$devtools$client$env$process_next_BANG_ [as process_next_BANG_] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:284:90)
+    at Object.shadow$cljs$devtools$client$env$process_ws_msg [as process_ws_msg] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:305:40)
+cljs꞉mecca.songs.confuzion꞉> 
+
+; TypeError: Cannot read properties of undefined (reading 'bass1')
+;     at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:229)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:302:151)
+    at Object.shadow$cljs$devtools$client$env$process_next_BANG_ [as process_next_BANG_] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:284:90)
+    at Object.shadow$cljs$devtools$client$env$process_ws_msg [as process_ws_msg] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:305:40)
+cljs꞉mecca.songs.confuzion꞉> 
+; Evaluating file: confuzion.cljs
+nil
+cljs꞉mecca.songs.confuzion꞉> 
+mecca.songs.confuzion
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/note-beats
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass2
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass3
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass4
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass5
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass6
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass7
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-2
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-3
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-4
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-5
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 3, :instrument 3, :pitch 67} {:time 2, :instrument 13, :pitch 77} {:time 1, :instrument 13, :pitch 77} {:time 0, :instrument 13, :pitch 77} {:time 0, :instrument 15, :pitch 71} {:time 1.5, :instrument 15, :pitch 71} {:time 2, :instrument 15, :pitch 71} {:time 3, :instrument 15, :pitch 73} {:time 3.5, :instrument 15, :pitch 69} {:time 4, :instrument 15, :pitch 69} {:time 5.5, :instrument 15, :pitch 69} {:time 6, :instrument 15, :pitch 69} {:time 8, :instrument 15, :pitch 64} {:time 9.5, :instrument 15, :pitch 64} {:time 10, :instrument 15, :pitch 64} {:time 12, :instrument 15, :pitch 64} {:time 13.5, :instrument 15, :pitch 64} {:time 14, :instrument 15, :pitch 64})
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 3, :instrument 3, :pitch 67} {:time 2, :instrument 13, :pitch 77} {:time 1, :instrument 13, :pitch 77} {:time 0, :instrument 13, :pitch 77})
+cljs꞉mecca.songs.confuzion꞉> 
+
+; ------ REPL Error while processing ---------------------------------------------
+; (def drums1
+  {:time 3, :instrument 3, :pitch 67} {:time 2, :instrument 13, :pitch 77} {:time 1, :instrument 13, :pitch 77} {:time 0, :instrument 13, :pitch 77})
+Error in phase :compilation
+Too many arguments to def at line 1 mecca/songs/confuzion.cljs
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/delay-note
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums2
+cljs꞉mecca.songs.confuzion꞉> 
+
+; ------ REPL Error while processing ---------------------------------------------
+; (def drums-pat-1
+  (drums1 0)
+  (drums1 16)
+  (drums1 32)
+  (drums1 48)
+  (drums1 64)
+  (drums1 80)
+  (drums1 96)
+  (drums1 110))
+Error in phase :compilation
+Too many arguments to def at line 1 mecca/songs/confuzion.cljs
+cljs꞉mecca.songs.confuzion꞉> 
+
+; ------ REPL Error while processing ---------------------------------------------
+; (def drums-pat-1
+  (drums1 0)
+  (drums1 16)
+  (drums1 32)
+  (drums1 48)
+  (drums1 64)
+  (drums1 80)
+  (drums1 96)
+  (drums1 110))
+Error in phase :compilation
+Too many arguments to def at line 1 mecca/songs/confuzion.cljs
+cljs꞉mecca.songs.confuzion꞉> 
+
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: :5:5
+ Use of undeclared Var mecca.songs.confuzion/drums-pat-1
+--------------------------------------------------------------------------------
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; ------ REPL Error while processing ---------------------------------------------
+; (def drums-pat-1
+  (drums1 0)
+  (drums1 16)
+  (drums1 32)
+  (drums1 48)
+  (drums1 64)
+  (drums1 80)
+  (drums1 96)
+  (drums1 110))
+Error in phase :compilation
+Too many arguments to def at line 1 mecca/songs/confuzion.cljs
+cljs꞉mecca.songs.confuzion꞉> 
+
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: :5:5
+ Use of undeclared Var mecca.songs.confuzion/drums-pat-1
+--------------------------------------------------------------------------------
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: :1:1
+ Use of undeclared Var mecca.songs.confuzion/drums-pat-1
+--------------------------------------------------------------------------------
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+mecca.songs.confuzion
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/note-beats
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/delay-note
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/loop-notes
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass2
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass3
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass4
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass5
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass6
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass7
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-2
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-3
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-4
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-5
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: :3:5
+ Use of undeclared Var mecca.songs.confuzion/drums1
+--------------------------------------------------------------------------------
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: :4:5
+ Use of undeclared Var mecca.songs.confuzion/drums1
+--------------------------------------------------------------------------------
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: :5:5
+ Use of undeclared Var mecca.songs.confuzion/drums1
+--------------------------------------------------------------------------------
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: :6:5
+ Use of undeclared Var mecca.songs.confuzion/drums1
+--------------------------------------------------------------------------------
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: :7:5
+ Use of undeclared Var mecca.songs.confuzion/drums1
+--------------------------------------------------------------------------------
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: :8:5
+ Use of undeclared Var mecca.songs.confuzion/drums1
+--------------------------------------------------------------------------------
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: :9:5
+ Use of undeclared Var mecca.songs.confuzion/drums1
+--------------------------------------------------------------------------------
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: :10:5
+ Use of undeclared Var mecca.songs.confuzion/drums1
+--------------------------------------------------------------------------------
+; TypeError: Cannot read properties of undefined (reading 'call')
+;     at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:2:93)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:3:1194)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:302:151)
+    at Object.shadow$cljs$devtools$client$env$process_next_BANG_ [as process_next_BANG_] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:284:90)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums2
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+mecca.songs.confuzion
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/note-beats
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/delay-note
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/loop-notes
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass2
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass3
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass4
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass5
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass6
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass7
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-2
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-3
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-4
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-5
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums2
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums2
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-2
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 7, :instrument 14, :pitch 76} {:time 6.5, :instrument 14, :pitch 76} {:time 6, :instrument 14, :pitch 74} {:time 5.5, :instrument 14, :pitch 76} {:time 5, :instrument 14, :pitch 76} {:time 4.5, :instrument 14, :pitch 78} {:time 4, :instrument 14, :pitch 78} {:time 3.5, :instrument 14, :pitch 78} {:time 3, :instrument 14, :pitch 76} {:time 2.5, :instrument 14, :pitch 74} {:time 2, :instrument 14, :pitch 71} {:time 1.5, :instrument 14, :pitch 69})
+({:time 1.5, :instrument 14, :pitch 69} {:time 2, :instrument 14, :pitch 71} {:time 2.5, :instrument 14, :pitch 74} {:time 3, :instrument 14, :pitch 76} {:time 3.5, :instrument 14, :pitch 78} {:time 4, :instrument 14, :pitch 78} {:time 4.5, :instrument 14, :pitch 78} {:time 5, :instrument 14, :pitch 76} {:time 5.5, :instrument 14, :pitch 76} {:time 6, :instrument 14, :pitch 74} {:time 6.5, :instrument 14, :pitch 76} {:time 7, :instrument 14, :pitch 76})
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+
+; TypeError: Cannot set properties of undefined (setting 'lead1')
+;     at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:2:29)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:3:1145)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:302:151)
+    at Object.shadow$cljs$devtools$client$env$process_next_BANG_ [as process_next_BANG_] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:284:90)
+cljs꞉mecca.songs.confuzion꞉> 
+mecca.songs.confuzion
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/note-beats
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/delay-note
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/loop-notes
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass2
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass3
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass4
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass5
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass6
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass7
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-2
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-3
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-4
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-5
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums2
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-2
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 8.6865, :instrument 14, :pitch 68} {:time 8.5, :instrument 14, :pitch 74} {:time 8, :instrument 14, :pitch 74} {:time 7.75, :instrument 14, :pitch 76} {:time 7.5, :instrument 14, :pitch 74} {:time 7, :instrument 14, :pitch 76} {:time 6.5, :instrument 14, :pitch 76} {:time 6, :instrument 14, :pitch 74} {:time 5.5, :instrument 14, :pitch 76} {:time 5, :instrument 14, :pitch 76} {:time 4.5, :instrument 14, :pitch 78} {:time 4, :instrument 14, :pitch 78} {:time 3.5, :instrument 14, :pitch 78} {:time 3, :instrument 14, :pitch 76} {:time 2.5, :instrument 14, :pitch 74} {:time 2, :instrument 14, :pitch 71} {:time 1.5, :instrument 14, :pitch 69})
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/glis
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/glis
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71})
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71})
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71})
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 10, :instrument 8, :pitch 71} {:time 9.875, :instrument 8, :pitch 71} {:time 9.75, :instrument 8, :pitch 71} {:time 9.625, :instrument 8, :pitch 71} {:time 9.5, :instrument 8, :pitch 71} {:time 9.375, :instrument 8, :pitch 71} {:time 9.25, :instrument 8, :pitch 71} {:time 9.125, :instrument 8, :pitch 71} {:time 9, :instrument 8, :pitch 71} {:time 8.875, :instrument 8, :pitch 71} {:time 8.75, :instrument 8, :pitch 71} {:time 8.625, :instrument 8, :pitch 71})
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/glis
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 10, :instrument 8, :pitch 71} {:time 10.03125, :instrument 8, :pitch 71} {:time 10.0625, :instrument 8, :pitch 71} {:time 10.09375, :instrument 8, :pitch 71} {:time 10.125, :instrument 8, :pitch 71} {:time 10.15625, :instrument 8, :pitch 71} {:time 10.1875, :instrument 8, :pitch 71} {:time 10.21875, :instrument 8, :pitch 71} {:time 10.25, :instrument 8, :pitch 71} {:time 10.28125, :instrument 8, :pitch 71} {:time 10.3125, :instrument 8, :pitch 71} {:time 10.34375, :instrument 8, :pitch 71})
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 10, :instrument 8, :pitch 71} {:time 10.03125, :instrument 8, :pitch 71} {:time 10.0625, :instrument 8, :pitch 71} {:time 10.09375, :instrument 8, :pitch 71} {:time 10.125, :instrument 8, :pitch 71} {:time 10.15625, :instrument 8, :pitch 71} {:time 10.1875, :instrument 8, :pitch 71} {:time 10.21875, :instrument 8, :pitch 71} {:time 10.25, :instrument 8, :pitch 71} {:time 10.28125, :instrument 8, :pitch 71} {:time 10.3125, :instrument 8, :pitch 71} {:time 10.34375, :instrument 8, :pitch 71})
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/glis
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 10, :instrument 8, :pitch 70} {:time 10.03125, :instrument 8, :pitch 70} {:time 10.0625, :instrument 8, :pitch 70} {:time 10.09375, :instrument 8, :pitch 70} {:time 10.125, :instrument 8, :pitch 70} {:time 10.15625, :instrument 8, :pitch 70} {:time 10.1875, :instrument 8, :pitch 70} {:time 10.21875, :instrument 8, :pitch 70} {:time 10.25, :instrument 8, :pitch 70} {:time 10.28125, :instrument 8, :pitch 70} {:time 10.3125, :instrument 8, :pitch 70} {:time 10.34375, :instrument 8, :pitch 70})
+cljs꞉mecca.songs.confuzion꞉> 
+(update (update (nth chord note) :time (fn* [p1__26489#] (+ p1__26489# (* 0.03125 note)))) :pitch dec)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/glis
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/glis
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 10, :instrument 8, :pitch 71} {:time 10.03125, :instrument 8, :pitch 71} {:time 10.0625, :instrument 8, :pitch 71} {:time 10.09375, :instrument 8, :pitch 71} {:time 10.125, :instrument 8, :pitch 71} {:time 10.15625, :instrument 8, :pitch 71} {:time 10.1875, :instrument 8, :pitch 71} {:time 10.21875, :instrument 8, :pitch 71} {:time 10.25, :instrument 8, :pitch 71} {:time 10.28125, :instrument 8, :pitch 71} {:time 10.3125, :instrument 8, :pitch 71} {:time 10.34375, :instrument 8, :pitch 71})
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/glis
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/glis
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/glis
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 10, :instrument 8, :pitch 71} {:time 10.03125, :instrument 8, :pitch 71} {:time 10.0625, :instrument 8, :pitch 71} {:time 10.09375, :instrument 8, :pitch 71} {:time 10.125, :instrument 8, :pitch 71} {:time 10.15625, :instrument 8, :pitch 71} {:time 10.1875, :instrument 8, :pitch 71} {:time 10.21875, :instrument 8, :pitch 71} {:time 10.25, :instrument 8, :pitch 71} {:time 10.28125, :instrument 8, :pitch 71} {:time 10.3125, :instrument 8, :pitch 71} {:time 10.34375, :instrument 8, :pitch 71})
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/glis
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10, :instrument 8, :pitch 71})
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/glis
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 10, :instrument 8, :pitch 71} {:time 10.03125, :instrument 8, :pitch 71} {:time 10.0625, :instrument 8, :pitch 71} {:time 10.09375, :instrument 8, :pitch 71} {:time 10.125, :instrument 8, :pitch 71} {:time 10.15625, :instrument 8, :pitch 71} {:time 10.1875, :instrument 8, :pitch 71} {:time 10.21875, :instrument 8, :pitch 71} {:time 10.25, :instrument 8, :pitch 71} {:time 10.28125, :instrument 8, :pitch 71} {:time 10.3125, :instrument 8, :pitch 71} {:time 10.34375, :instrument 8, :pitch 71})
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Failed to read input: clojure.lang.ExceptionInfo: repl-input.cljs [line 1, col 512] Unmatched delimiter ). {:type :reader-exception, :ex-kind :reader-error, :file "repl-input.cljs", :line 1, :col 512}
+cljs꞉mecca.songs.confuzion꞉> 
+[{:time 10, :instrument 8, :pitch 71} {:time 10.03125, :instrument 8, :pitch 71} {:time 10.0625, :instrument 8, :pitch 71} {:time 10.09375, :instrument 8, :pitch 71} {:time 10.125, :instrument 8, :pitch 71} {:time 10.15625, :instrument 8, :pitch 71} {:time 10.1875, :instrument 8, :pitch 71} {:time 10.21875, :instrument 8, :pitch 71} {:time 10.25, :instrument 8, :pitch 71} {:time 10.28125, :instrument 8, :pitch 71} {:time 10.3125, :instrument 8, :pitch 71} {:time 10.34375, :instrument 8, :pitch 71}]
+cljs꞉mecca.songs.confuzion꞉> 
+{:time 10, :instrument 8, :pitch 70}
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/glis
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 10, :instrument 8, :pitch 70} {:time 10.03125, :instrument 8, :pitch 70} {:time 10.0625, :instrument 8, :pitch 70} {:time 10.09375, :instrument 8, :pitch 70} {:time 10.125, :instrument 8, :pitch 70} {:time 10.15625, :instrument 8, :pitch 70} {:time 10.1875, :instrument 8, :pitch 70} {:time 10.21875, :instrument 8, :pitch 70} {:time 10.25, :instrument 8, :pitch 70} {:time 10.28125, :instrument 8, :pitch 70} {:time 10.3125, :instrument 8, :pitch 70} {:time 10.34375, :instrument 8, :pitch 70})
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/glis
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 10, :instrument 8, :pitch 71} {:time 10.03125, :instrument 8, :pitch 70} {:time 10.0625, :instrument 8, :pitch 69} {:time 10.09375, :instrument 8, :pitch 68} {:time 10.125, :instrument 8, :pitch 67} {:time 10.15625, :instrument 8, :pitch 66} {:time 10.1875, :instrument 8, :pitch 65} {:time 10.21875, :instrument 8, :pitch 64} {:time 10.25, :instrument 8, :pitch 63} {:time 10.28125, :instrument 8, :pitch 62} {:time 10.3125, :instrument 8, :pitch 61} {:time 10.34375, :instrument 8, :pitch 60})
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/glis
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+mecca.songs.confuzion
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/note-beats
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/delay-note
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/loop-notes
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass2
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass3
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass4
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass5
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass6
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass7
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-2
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-3
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-4
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/bass-pat-5
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums2
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/drums-pat-2
+cljs꞉mecca.songs.confuzion꞉> 
+
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: :23:6
+ Use of undeclared Var mecca.songs.confuzion/glis
+--------------------------------------------------------------------------------
+; TypeError: Cannot read properties of undefined (reading 'call')
+;     at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:2:4701)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:3:1145)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:302:151)
+    at Object.shadow$cljs$devtools$client$env$process_next_BANG_ [as process_next_BANG_] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:284:90)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/glis
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 1.5, :instrument 14, :pitch 69} {:time 2, :instrument 14, :pitch 71} {:time 2.5, :instrument 14, :pitch 74} {:time 3, :instrument 14, :pitch 76} {:time 3.5, :instrument 14, :pitch 78} {:time 4, :instrument 14, :pitch 78} {:time 4.5, :instrument 14, :pitch 78} {:time 5, :instrument 14, :pitch 76} {:time 5.5, :instrument 14, :pitch 76} {:time 6, :instrument 14, :pitch 74} {:time 6.5, :instrument 14, :pitch 76} {:time 7, :instrument 14, :pitch 76} {:time 7.5, :instrument 14, :pitch 74} {:time 7.75, :instrument 14, :pitch 76} {:time 8, :instrument 14, :pitch 74} {:time 8.5, :instrument 14, :pitch 74} {:time 9, :instrument 14, :pitch 74} {:time 9.5, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10.03125, :instrument 8, :pitch 70} {:time 10.0625, :instrument 8, :pitch 69} {:time 10.09375, :instrument 8, :pitch 68} {:time 10.125, :instrument 8, :pitch 67} {:time 10.15625, :instrument 8, :pitch 66} {:time 10.1875, :instrument 8, :pitch 65} {:time 10.21875, :instrument 8, :pitch 64} {:time 10.25, :instrument 8, :pitch 63} {:time 10.28125, :instrument 8, :pitch 62} {:time 10.3125, :instrument 8, :pitch 61} {:time 10.34375, :instrument 8, :pitch 60})
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 10.5, :instrument 8, :pitch 60} {:time 0, :instrument 15, :pitch 71} {:time 1.5, :instrument 15, :pitch 71} {:time 2, :instrument 15, :pitch 71} {:time 3, :instrument 15, :pitch 73} {:time 3.5, :instrument 15, :pitch 69} {:time 4, :instrument 15, :pitch 69} {:time 5.5, :instrument 15, :pitch 69} {:time 6, :instrument 15, :pitch 69} {:time 8, :instrument 15, :pitch 64} {:time 9.5, :instrument 15, :pitch 64} {:time 10, :instrument 15, :pitch 64} {:time 12, :instrument 15, :pitch 64} {:time 13.5, :instrument 15, :pitch 64} {:time 14, :instrument 15, :pitch 64} {:time 15, :instrument 3, :pitch 67} {:time 14, :instrument 13, :pitch 77} {:time 13, :instrument 13, :pitch 77} {:time 12, :instrument 13, :pitch 77} {:time 11, :instrument 3, :pitch 67} {:time 10, :instrument 13, :pitch 77} {:time 9, :instrument 13, :pitch 77} {:time 8, :instrument 13, :pitch 77} {:time 7, :instrument 3, :pitch 67} {:time 6, :instrument 13, :pitch 77} {:time 5, :instrument 13, :pitch 77} {:time 4, :instrument 13, :pitch 77} {:time 3, :instrument 3, :pitch 67} {:time 2, :instrument 13, :pitch 77} {:time 1, :instrument 13, :pitch 77} {:time 0, :instrument 13, :pitch 77} {:time 1.5, :instrument 14, :pitch 69} {:time 2, :instrument 14, :pitch 71} {:time 2.5, :instrument 14, :pitch 74} {:time 3, :instrument 14, :pitch 76} {:time 3.5, :instrument 14, :pitch 78} {:time 4, :instrument 14, :pitch 78} {:time 4.5, :instrument 14, :pitch 78} {:time 5, :instrument 14, :pitch 76} {:time 5.5, :instrument 14, :pitch 76} {:time 6, :instrument 14, :pitch 74} {:time 6.5, :instrument 14, :pitch 76} {:time 7, :instrument 14, :pitch 76} {:time 7.5, :instrument 14, :pitch 74} {:time 7.75, :instrument 14, :pitch 76} {:time 8, :instrument 14, :pitch 74} {:time 8.5, :instrument 14, :pitch 74} {:time 9, :instrument 14, :pitch 74} {:time 9.5, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10.03125, :instrument 8, :pitch 70} {:time 10.0625, :instrument 8, :pitch 69} {:time 10.09375, :instrument 8, :pitch 68} {:time 10.125, :instrument 8, :pitch 67} {:time 10.15625, :instrument 8, :pitch 66} {:time 10.1875, :instrument 8, :pitch 65} {:time 10.21875, :instrument 8, :pitch 64} {:time 10.25, :instrument 8, :pitch 63} {:time 10.28125, :instrument 8, :pitch 62} {:time 10.3125, :instrument 8, :pitch 61} {:time 10.34375, :instrument 8, :pitch 60})
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 0, :instrument 15, :pitch 71} {:time 0, :instrument 13, :pitch 77} {:time 1, :instrument 13, :pitch 77} {:time 1.5, :instrument 15, :pitch 71} {:time 1.5, :instrument 14, :pitch 69} {:time 2, :instrument 15, :pitch 71} {:time 2, :instrument 13, :pitch 77} {:time 2, :instrument 14, :pitch 71} {:time 2.5, :instrument 14, :pitch 74} {:time 3, :instrument 15, :pitch 73} {:time 3, :instrument 3, :pitch 67} {:time 3, :instrument 14, :pitch 76} {:time 3.5, :instrument 15, :pitch 69} {:time 3.5, :instrument 14, :pitch 78} {:time 4, :instrument 15, :pitch 69} {:time 4, :instrument 13, :pitch 77} {:time 4, :instrument 14, :pitch 78} {:time 4.5, :instrument 14, :pitch 78} {:time 5, :instrument 13, :pitch 77} {:time 5, :instrument 14, :pitch 76} {:time 5.5, :instrument 15, :pitch 69} {:time 5.5, :instrument 14, :pitch 76} {:time 6, :instrument 15, :pitch 69} {:time 6, :instrument 13, :pitch 77} {:time 6, :instrument 14, :pitch 74} {:time 6.5, :instrument 14, :pitch 76} {:time 7, :instrument 3, :pitch 67} {:time 7, :instrument 14, :pitch 76} {:time 7.5, :instrument 14, :pitch 74} {:time 7.75, :instrument 14, :pitch 76} {:time 8, :instrument 15, :pitch 64} {:time 8, :instrument 13, :pitch 77} {:time 8, :instrument 14, :pitch 74} {:time 8.5, :instrument 14, :pitch 74} {:time 9, :instrument 13, :pitch 77} {:time 9, :instrument 14, :pitch 74} {:time 9.5, :instrument 15, :pitch 64} {:time 9.5, :instrument 14, :pitch 71} {:time 10, :instrument 15, :pitch 64} {:time 10, :instrument 13, :pitch 77} {:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10.03125, :instrument 8, :pitch 70} {:time 10.0625, :instrument 8, :pitch 69} {:time 10.09375, :instrument 8, :pitch 68} {:time 10.125, :instrument 8, :pitch 67} {:time 10.15625, :instrument 8, :pitch 66} {:time 10.1875, :instrument 8, :pitch 65} {:time 10.21875, :instrument 8, :pitch 64} {:time 10.25, :instrument 8, :pitch 63} {:time 10.28125, :instrument 8, :pitch 62} {:time 10.3125, :instrument 8, :pitch 61} {:time 10.34375, :instrument 8, :pitch 60} {:time 10.5, :instrument 8, :pitch 60} {:time 11, :instrument 3, :pitch 67} {:time 12, :instrument 15, :pitch 64} {:time 12, :instrument 13, :pitch 77} {:time 13, :instrument 13, :pitch 77} {:time 13.5, :instrument 15, :pitch 64} {:time 14, :instrument 15, :pitch 64} {:time 14, :instrument 13, :pitch 77} {:time 15, :instrument 3, :pitch 67})
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 1.5, :instrument 14, :pitch 69} {:time 2, :instrument 14, :pitch 71} {:time 2.5, :instrument 14, :pitch 74} {:time 3, :instrument 14, :pitch 76} {:time 3.5, :instrument 14, :pitch 78} {:time 4, :instrument 14, :pitch 78} {:time 4.5, :instrument 14, :pitch 78} {:time 5, :instrument 14, :pitch 76} {:time 5.5, :instrument 14, :pitch 76} {:time 6, :instrument 14, :pitch 74} {:time 6.5, :instrument 14, :pitch 76} {:time 7, :instrument 14, :pitch 76} {:time 7.5, :instrument 14, :pitch 74} {:time 7.75, :instrument 14, :pitch 76} {:time 8, :instrument 14, :pitch 74} {:time 8.5, :instrument 14, :pitch 74} {:time 9, :instrument 14, :pitch 74} {:time 9.5, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10.03125, :instrument 8, :pitch 70} {:time 10.0625, :instrument 8, :pitch 69} {:time 10.09375, :instrument 8, :pitch 68} {:time 10.125, :instrument 8, :pitch 67} {:time 10.15625, :instrument 8, :pitch 66} {:time 10.1875, :instrument 8, :pitch 65} {:time 10.21875, :instrument 8, :pitch 64} {:time 10.25, :instrument 8, :pitch 63} {:time 10.28125, :instrument 8, :pitch 62} {:time 10.3125, :instrument 8, :pitch 61} {:time 10.34375, :instrument 8, :pitch 60} {:time 10.4, :instrument 8, :pitch 60} {:time 10.5, :instrument 8, :pitch 60} {:time 12, :instrument 14, :pitch 74} {:time 12.5, :instrument 14, :pitch 74} {:time 13.5, :instrument 14, :pitch 74} {:time 14.5, :instrument 14, :pitch 71} {:time 15.5, :instrument 14, :pitch 69} {:time 16, :instrument 14, :pitch 71})
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 1.5, :instrument 14, :pitch 69} {:time 2, :instrument 14, :pitch 71} {:time 2.5, :instrument 14, :pitch 74} {:time 3, :instrument 14, :pitch 76} {:time 3.5, :instrument 14, :pitch 78} {:time 4, :instrument 14, :pitch 78} {:time 4.5, :instrument 14, :pitch 78} {:time 5, :instrument 14, :pitch 76} {:time 5.5, :instrument 14, :pitch 76} {:time 6, :instrument 14, :pitch 74} {:time 6.5, :instrument 14, :pitch 76} {:time 7, :instrument 14, :pitch 76} {:time 7.5, :instrument 14, :pitch 74} {:time 7.75, :instrument 14, :pitch 76} {:time 8, :instrument 14, :pitch 74} {:time 8.5, :instrument 14, :pitch 74} {:time 9, :instrument 14, :pitch 74} {:time 9.5, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10.03125, :instrument 8, :pitch 70} {:time 10.0625, :instrument 8, :pitch 69} {:time 10.09375, :instrument 8, :pitch 68} {:time 10.125, :instrument 8, :pitch 67} {:time 10.15625, :instrument 8, :pitch 66} {:time 10.1875, :instrument 8, :pitch 65} {:time 10.21875, :instrument 8, :pitch 64} {:time 10.25, :instrument 8, :pitch 63} {:time 10.28125, :instrument 8, :pitch 62} {:time 10.3125, :instrument 8, :pitch 61} {:time 10.34375, :instrument 8, :pitch 60} {:time 10.4, :instrument 8, :pitch 60} {:time 10.5, :instrument 8, :pitch 60} {:time 12, :instrument 14, :pitch 74} {:time 12.5, :instrument 14, :pitch 74} {:time 13.5, :instrument 14, :pitch 74} {:time 14.5, :instrument 14, :pitch 71} {:time 15.5, :instrument 14, :pitch 69} {:time 16, :instrument 14, :pitch 71} {:time 16, :instrument 8, :pitch 71} {:time 16.03125, :instrument 8, :pitch 70} {:time 16.0625, :instrument 8, :pitch 69} {:time 16.09375, :instrument 8, :pitch 68} {:time 16.125, :instrument 8, :pitch 67} {:time 16.15625, :instrument 8, :pitch 66} {:time 16.1875, :instrument 8, :pitch 65})
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 1.5, :instrument 14, :pitch 69} {:time 2, :instrument 14, :pitch 71} {:time 2.5, :instrument 14, :pitch 74} {:time 3, :instrument 14, :pitch 76} {:time 3.5, :instrument 14, :pitch 78} {:time 4, :instrument 14, :pitch 78} {:time 4.5, :instrument 14, :pitch 78} {:time 5, :instrument 14, :pitch 76} {:time 5.5, :instrument 14, :pitch 76} {:time 6, :instrument 14, :pitch 74} {:time 6.5, :instrument 14, :pitch 76} {:time 7, :instrument 14, :pitch 76} {:time 7.5, :instrument 14, :pitch 74} {:time 7.75, :instrument 14, :pitch 76} {:time 8, :instrument 14, :pitch 74} {:time 8.5, :instrument 14, :pitch 74} {:time 9, :instrument 14, :pitch 74} {:time 9.5, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71} {:time 12, :instrument 14, :pitch 74} {:time 12.5, :instrument 14, :pitch 74} {:time 13.5, :instrument 14, :pitch 74} {:time 14.5, :instrument 14, :pitch 71} {:time 15.5, :instrument 14, :pitch 69} {:time 16, :instrument 14, :pitch 71} {:time 17.5, :instrument 14, :pitch 64} {:time 18, :instrument 14, :pitch 66} {:time 18.5, :instrument 14, :pitch 69} {:time 19, :instrument 14, :pitch 71} {:time 20, :instrument 14, :pitch 71} {:time 20.5, :instrument 14, :pitch 73} {:time 21.5, :instrument 14, :pitch 69} {:time 22.5, :instrument 14, :pitch 69} {:time 24, :instrument 14, :pitch 66} {:time 24.5, :instrument 14, :pitch 64} {:time 25.5, :instrument 14, :pitch 64})
+cljs꞉mecca.songs.confuzion꞉> 
+({:time 1.5, :instrument 14, :pitch 69} {:time 2, :instrument 14, :pitch 71} {:time 2.5, :instrument 14, :pitch 74} {:time 3, :instrument 14, :pitch 76} {:time 3.5, :instrument 14, :pitch 78} {:time 4, :instrument 14, :pitch 78} {:time 4.5, :instrument 14, :pitch 78} {:time 5, :instrument 14, :pitch 76} {:time 5.5, :instrument 14, :pitch 76} {:time 6, :instrument 14, :pitch 74} {:time 6.5, :instrument 14, :pitch 76} {:time 7, :instrument 14, :pitch 76} {:time 7.5, :instrument 14, :pitch 74} {:time 7.75, :instrument 14, :pitch 76} {:time 8, :instrument 14, :pitch 74} {:time 8.5, :instrument 14, :pitch 74} {:time 9, :instrument 14, :pitch 74} {:time 9.5, :instrument 14, :pitch 71} {:time 10, :instrument 14, :pitch 71} {:time 10, :instrument 8, :pitch 71} {:time 10.03125, :instrument 8, :pitch 70} {:time 10.0625, :instrument 8, :pitch 69} {:time 10.09375, :instrument 8, :pitch 68} {:time 10.125, :instrument 8, :pitch 67} {:time 10.15625, :instrument 8, :pitch 66} {:time 10.1875, :instrument 8, :pitch 65} {:time 10.21875, :instrument 8, :pitch 64} {:time 10.25, :instrument 8, :pitch 63} {:time 10.28125, :instrument 8, :pitch 62} {:time 10.3125, :instrument 8, :pitch 61} {:time 10.34375, :instrument 8, :pitch 60} {:time 10.4, :instrument 8, :pitch 60} {:time 10.5, :instrument 8, :pitch 60} {:time 12, :instrument 14, :pitch 74} {:time 12.5, :instrument 14, :pitch 74} {:time 13.5, :instrument 14, :pitch 74} {:time 14.5, :instrument 14, :pitch 71} {:time 15.5, :instrument 14, :pitch 69} {:time 16, :instrument 14, :pitch 71} {:time 16, :instrument 8, :pitch 71} {:time 16.03125, :instrument 8, :pitch 70} {:time 16.0625, :instrument 8, :pitch 69} {:time 16.09375, :instrument 8, :pitch 68} {:time 16.125, :instrument 8, :pitch 67} {:time 16.15625, :instrument 8, :pitch 66} {:time 16.1875, :instrument 8, :pitch 65} {:time 16.2, :instrument 8, :pitch 64} {:time 16.21875, :instrument 8, :pitch 64} {:time 16.3, :instrument 8, :pitch 64} {:time 16.4, :instrument 8, :pitch 64} {:time 17.5, :instrument 14, :pitch 64} {:time 18, :instrument 14, :pitch 66} {:time 18.5, :instrument 14, :pitch 69} {:time 19, :instrument 14, :pitch 71} {:time 20, :instrument 14, :pitch 71} {:time 20.5, :instrument 14, :pitch 73} {:time 21.5, :instrument 14, :pitch 69} {:time 22.5, :instrument 14, :pitch 69} {:time 24, :instrument 14, :pitch 66} {:time 24.5, :instrument 14, :pitch 64} {:time 25.5, :instrument 14, :pitch 64})
+cljs꞉mecca.songs.confuzion꞉> 
+#'mecca.songs.confuzion/lead1
+cljs꞉mecca.songs.confuzion꞉> 
+
+; Error: No protocol method IDeref.-deref defined for type null: 
+;     at Object.cljs$core$missing_protocol [as missing_protocol] (/js/cljs-runtime/cljs.core.js:313:9)
+    at Object.cljs$core$_deref [as _deref] (/js/cljs-runtime/cljs.core.js:2190:17)
+    at cljs$core$deref (/js/cljs-runtime/cljs.core.js:4859:18)
+    at eval (eval at shadow$cljs$devtools$client$browser$global_eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js), <anonymous>:1:17)
+    at eval (<anonymous>)
+    at Object.shadow$cljs$devtools$client$browser$global_eval [as global_eval] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:806:16)
+    at eval (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:815:44)
+    at Object.shadow$cljs$devtools$client$env$repl_call [as repl_call] (/js/cljs-runtime/shadow.cljs.devtools.client.env.js:162:108)
+    at Object.shadow$cljs$devtools$client$browser$repl_invoke [as repl_invoke] (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:814:46)
+    at shadow$cljs$devtools$client$browser$handle_message (/js/cljs-runtime/shadow.cljs.devtools.client.browser.js:892:37)
+cljs꞉mecca.songs.confuzion꞉> 

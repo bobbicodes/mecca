@@ -8,14 +8,6 @@
    (map :time
         @(subscribe [:notes]))))
 
-(defn delay-note [beats note]
-  (update note :time #(+ beats %)))
-
-(defn loop-notes [notes]
-  (let [length (apply max (map #(:time %) notes))]
-    (into notes
-          (map #(delay-note (inc length) %) notes))))
-
 @(dispatch
   [:set-tempo 156.5])
 
@@ -70,14 +62,16 @@
 
 (defn drums2 [time]
   (map (fn [m] (update m :time #(+ % time)))
-       [{:time 7.5, :instrument 3, :pitch 67} {:time 7, :instrument 13, :pitch 77} {:time 6.5, :instrument 13, :pitch 77} {:time 6, :instrument 13, :pitch 77} {:time 5.5, :instrument 3, :pitch 67} {:time 5, :instrument 13, :pitch 77} {:time 4.5, :instrument 13, :pitch 77} {:time 4, :instrument 13, :pitch 77} {:time 3.5, :instrument 3, :pitch 67} {:time 3, :instrument 13, :pitch 77} {:time 2.5, :instrument 13, :pitch 77} {:time 2, :instrument 13, :pitch 77} {:time 1.5, :instrument 3, :pitch 67} {:time 1, :instrument 13, :pitch 77} {:time 0.5, :instrument 13, :pitch 77} {:time 0, :instrument 13, :pitch 77}]))
+       [{:time 7.5, :instrument 13, :pitch 77} {:time 7, :instrument 3, :pitch 67} {:time 6.5, :instrument 13, :pitch 77} {:time 6, :instrument 13, :pitch 77} {:time 5.5, :instrument 13, :pitch 77} {:time 5, :instrument 3, :pitch 67} {:time 4.5, :instrument 13, :pitch 77} {:time 4, :instrument 13, :pitch 77} {:time 3.5, :instrument 13, :pitch 77} {:time 3, :instrument 3, :pitch 67} {:time 2.5, :instrument 13, :pitch 77} {:time 2, :instrument 13, :pitch 77} {:time 1.5, :instrument 13, :pitch 77} {:time 1, :instrument 3, :pitch 67} {:time 0.5, :instrument 13, :pitch 77} {:time 0, :instrument 13, :pitch 77}]))
 
 (def drums-pat-1
   (concat (drums1 0) (drums1 16) (drums1 32) (drums1 48) (drums1 64) (drums1 80) (drums1 96) (drums1 112)
    [{:time 131, :instrument 3, :pitch 67} {:time 130, :instrument 13, :pitch 77} {:time 129, :instrument 13, :pitch 77} {:time 128, :instrument 13, :pitch 77}]))
 
 (def drums-pat-2
-  (drums2 132))
+  (concat
+   (drums2 132)
+   (drums2 140)))
 
 (defn glis [notes]
   (let [chord (reverse (sort-by :pitch notes))
@@ -107,21 +101,24 @@
 (def lead4
   [{:time 93.5, :instrument 14, :pitch 64} {:time 94, :instrument 14, :pitch 66} {:time 94.5, :instrument 14, :pitch 69} {:time 95, :instrument 14, :pitch 71} {:time 95.5, :instrument 14, :pitch 73} {:time 97, :instrument 14, :pitch 71} {:time 98, :instrument 14, :pitch 69} {:time 98.5, :instrument 14, :pitch 71} {:time 99.5, :instrument 14, :pitch 69} {:time 99.75, :instrument 14, :pitch 71} {:time 100, :instrument 14, :pitch 69} {:time 101.5, :instrument 14, :pitch 66}])
 
-(def gb1 [{:time 102, :instrument 6, :pitch 66} {:time 103, :instrument 6, :pitch 74} {:time 104, :instrument 6, :pitch 73}])
+(def gb1 [{:time 102, :instrument 6, :pitch 66} {:time 103, :instrument 6, :pitch 74} {:time 104, :instrument 6, :pitch 73} {:time 118, :instrument 6, :pitch 66} {:time 119, :instrument 6, :pitch 74} {:time 120, :instrument 6, :pitch 73} {:time 125.5, :instrument 6, :pitch 71} {:time 126, :instrument 6, :pitch 71} {:time 126.5, :instrument 6, :pitch 71} {:time 128, :instrument 6, :pitch 71} {:time 128.5, :instrument 6, :pitch 73} {:time 129.5, :instrument 6, :pitch 69} {:time 133.5, :instrument 6, :pitch 69} {:time 134, :instrument 6, :pitch 69} {:time 135, :instrument 6, :pitch 66} {:time 136, :instrument 6, :pitch 69} {:time 137.5, :instrument 6, :pitch 68}])
+
+(def lead5 [{:time 93.5, :instrument 14, :pitch 64} {:time 94, :instrument 14, :pitch 66} {:time 94.5, :instrument 14, :pitch 69} {:time 95, :instrument 14, :pitch 71} {:time 95.5, :instrument 14, :pitch 73} {:time 97, :instrument 14, :pitch 71} {:time 98, :instrument 14, :pitch 69} {:time 98.5, :instrument 14, :pitch 71} {:time 99.5, :instrument 14, :pitch 69} {:time 99.75, :instrument 14, :pitch 71} {:time 100, :instrument 14, :pitch 69} {:time 101.5, :instrument 14, :pitch 66} {:time 105.5, :instrument 14, :pitch 69} {:time 106, :instrument 14, :pitch 69} {:time 106.5, :instrument 14, :pitch 69} {:time 107, :instrument 14, :pitch 68} {:time 107.5, :instrument 14, :pitch 68} {:time 108, :instrument 14, :pitch 66} {:time 105.5, :instrument 14, :pitch 57} {:time 106, :instrument 14, :pitch 57} {:time 106.5, :instrument 14, :pitch 57} {:time 107, :instrument 14, :pitch 56} {:time 107.5, :instrument 14, :pitch 56} {:time 108, :instrument 14, :pitch 54} {:time 110, :instrument 14, :pitch 78} {:time 110.5, :instrument 14, :pitch 76} {:time 111, :instrument 14, :pitch 73} {:time 111.5, :instrument 14, :pitch 71} {:time 112, :instrument 14, :pitch 73} {:time 114.5, :instrument 14, :pitch 71} {:time 115, :instrument 14, :pitch 73} {:time 115.5, :instrument 14, :pitch 71} {:time 116, :instrument 14, :pitch 71} {:time 116.5, :instrument 14, :pitch 69} {:time 117.5, :instrument 14, :pitch 69} {:time 118, :instrument 6, :pitch 66} {:time 119, :instrument 6, :pitch 74} {:time 120, :instrument 6, :pitch 73}])
+
+(def plane1 [{:time 125.5, :instrument 12, :pitch 86} {:time 126, :instrument 12, :pitch 86} {:time 126.5, :instrument 12, :pitch 86} {:time 128, :instrument 12, :pitch 86} {:time 128.5, :instrument 12, :pitch 88} {:time 129.5, :instrument 12, :pitch 85} {:time 133.5, :instrument 12, :pitch 85} {:time 134, :instrument 12, :pitch 85} {:time 135, :instrument 12, :pitch 81} {:time 136, :instrument 12, :pitch 85} {:time 137.5, :instrument 12, :pitch 83}])
 
 @(dispatch
-  [:set-notes lead1])
+  [:set-notes lead5])
 
 @(dispatch
   [:set-notes
    (concat
-    (bass1 0) (bass1 16) (drums1 0) (drums1 16)
-    (bass2 32) (drums1 32) (drums1 48)
-    (drums1 64) (drums1 80) (drums1 96) (bass3 64) (bass4 92)
-    lead1 (lead2 32) lead3 lead4 gb1
+    bass-pat-1
+    drums-pat-1 drums-pat-2
+    lead1 (lead2 32) lead3 lead4 gb1 lead5 plane1
     )])
 
-(reverse
+(sort-by :time
  (filter #(= 6 (:instrument %))
          @(subscribe [:notes])))
 
@@ -129,5 +126,5 @@
   [:set-notes
 (sort-by :time
          (filter #(or (= 14 (:instrument %))
-                      (= 8 (:instrument %)))
+                      (= 6 (:instrument %)))
          @(subscribe [:notes])))])

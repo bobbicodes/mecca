@@ -16,3 +16,4 @@ pom.xml
 *.cache
 public/js/cljs-runtime/
 .calva/
+.calva/output-window/output.calva-repl

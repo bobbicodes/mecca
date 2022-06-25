@@ -91,7 +91,7 @@
 (concat pitches last-note)))
 
 (def lead1
-  (concat [{:time 1.5, :instrument 14, :pitch 69} {:time 2, :instrument 14, :pitch 71} {:time 2.5, :instrument 14, :pitch 74} {:time 3, :instrument 14, :pitch 76} {:time 3.5, :instrument 14, :pitch 78} {:time 5, :instrument 14, :pitch 76} {:time 6, :instrument 14, :pitch 74} {:time 6.5, :instrument 14, :pitch 76} {:time 7.5, :instrument 14, :pitch 74} {:time 7.75, :instrument 14, :pitch 76} {:time 8, :instrument 14, :pitch 74} {:time 9, :instrument 14, :pitch 74} {:time 9.5, :instrument 14, :pitch 71}]
+  (concat [{:time 1.5, :instrument 14, :pitch 69} {:time 2, :instrument 14, :pitch 71} {:time 2.5, :instrument 14, :pitch 74} {:time 3, :instrument 14, :pitch 76} {:time 3.5, :instrument 14, :pitch 78} {:time 4, :instrument 14, :pitch 78} {:time 4.5, :instrument 14, :pitch 78} {:time 5, :instrument 14, :pitch 76} {:time 6, :instrument 14, :pitch 74} {:time 6.5, :instrument 14, :pitch 76} {:time 7.5, :instrument 14, :pitch 74} {:time 7.75, :instrument 14, :pitch 76} {:time 8, :instrument 14, :pitch 74} {:time 9, :instrument 14, :pitch 74} {:time 9.5, :instrument 14, :pitch 71}]
     (glis (repeat 12 {:time 10 :instrument 8, :pitch 71}))
     [{:time 12, :instrument 14, :pitch 74} {:time 12.5, :instrument 14, :pitch 74} {:time 13.5, :instrument 14, :pitch 74} {:time 14.5, :instrument 14, :pitch 71} {:time 15.5, :instrument 14, :pitch 69} {:time 16, :instrument 14, :pitch 71}]
     (glis (repeat 8 {:time 16, :instrument 8, :pitch 71}))
@@ -101,25 +101,28 @@
   (map (fn [m] (update m :time #(+ % time)))
   [{:time 0, :instrument 5, :pitch 66} {:time 1.5, :instrument 5, :pitch 71} {:time 7, :instrument 5, :pitch 71} {:time 8, :instrument 5, :pitch 71} {:time 8.5, :instrument 5, :pitch 69} {:time 9.5, :instrument 5, :pitch 64} {:time 15, :instrument 5, :pitch 66} {:time 16, :instrument 5, :pitch 67} {:time 16.5, :instrument 5, :pitch 64} {:time 17, :instrument 5, :pitch 59} {:time 17.5, :instrument 5, :pitch 64} {:time 21, :instrument 5, :pitch 61} {:time 21.5, :instrument 5, :pitch 61} {:time 22.5, :instrument 5, :pitch 62} {:time 24, :instrument 5, :pitch 66} {:time 25.5, :instrument 5, :pitch 64}]))
 
+(def lead3
+  [{:time 65, :instrument 5, :pitch 73} {:time 65.5, :instrument 5, :pitch 73} {:time 67, :instrument 5, :pitch 73} {:time 68, :instrument 5, :pitch 73} {:time 69, :instrument 5, :pitch 74} {:time 69.5, :instrument 5, :pitch 71} {:time 73.5, :instrument 5, :pitch 71} {:time 74, :instrument 5, :pitch 71} {:time 75, :instrument 5, :pitch 71} {:time 76, :instrument 5, :pitch 71} {:time 76.5, :instrument 5, :pitch 73} {:time 77, :instrument 5, :pitch 71} {:time 77.5, :instrument 5, :pitch 69} {:time 81, :instrument 5, :pitch 69} {:time 81.5, :instrument 5, :pitch 69} {:time 82.5, :instrument 5, :pitch 68} {:time 83.5, :instrument 5, :pitch 66} {:time 84, :instrument 5, :pitch 68} {:time 85.5, :instrument 5, :pitch 66} {:time 88, :instrument 5, :pitch 65} {:time 88.5, :instrument 5, :pitch 66} {:time 89.5, :instrument 5, :pitch 68} {:time 92, :instrument 5, :pitch 69}])
+
+(def lead4
+  [{:time 93.5, :instrument 14, :pitch 64} {:time 94, :instrument 14, :pitch 66} {:time 94.5, :instrument 14, :pitch 69} {:time 95, :instrument 14, :pitch 71} {:time 95.5, :instrument 14, :pitch 73} {:time 97, :instrument 14, :pitch 71} {:time 98, :instrument 14, :pitch 69} {:time 98.5, :instrument 14, :pitch 71} {:time 99.5, :instrument 14, :pitch 69} {:time 99.75, :instrument 14, :pitch 71} {:time 100, :instrument 14, :pitch 69} {:time 101.5, :instrument 14, :pitch 66}])
+
+(def gb1 [{:time 102, :instrument 6, :pitch 66} {:time 103, :instrument 6, :pitch 74} {:time 104, :instrument 6, :pitch 73}])
+
 @(dispatch
   [:set-notes lead1])
 
 @(dispatch
   [:set-notes
    (concat
-    (bass1 0)
-    (bass1 16)
-    (drums1 0)
-    (drums1 16)
-    (bass2 32)
-    (drums1 32)
-    (drums1 48)
-    lead1
-    (lead2 32)
+    (bass1 0) (bass1 16) (drums1 0) (drums1 16)
+    (bass2 32) (drums1 32) (drums1 48)
+    (drums1 64) (drums1 80) (drums1 96) (bass3 64) (bass4 92)
+    lead1 (lead2 32) lead3 lead4 gb1
     )])
 
 (reverse
- (filter #(= 5 (:instrument %))
+ (filter #(= 6 (:instrument %))
          @(subscribe [:notes])))
 
 @(dispatch

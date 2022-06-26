@@ -111,3 +111,7 @@ npx shadow-cljs release app
 ```
 
 Thanks to [Bruce Hauman](https://github.com/bhauman), [Chris Ford](https://github.com/ctford) and [Dave Yarwood](https://github.com/daveyarwood) for blazing the CLJS Web Audio trail. No way could I have figured this all out myself.
+
+## Funding
+
+My greatest passion is making music with code, and I believe that there is a vital connection between these domains that is being missed in our educational culture. When the execution of a program results in a richer sensory experience, it facilitates an intuitive understanding of algorithms by engaging the student in a more tangible feedback loop. By teaching these disciplines together, it can unlock an appreciation and continued interest in each of them, and may result in more people building stuff we never thought possible! Sponsor me on [Patreon](https://www.patreon.com/porkostomus) to help me build software for music education.

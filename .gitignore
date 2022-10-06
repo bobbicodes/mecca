@@ -13,5 +13,6 @@ pom.xml
 .cpcache/
 .rebel_readline_history
 
-.shadow-cljs/*
 public/js/cljs-runtime/*
+.clj-kondo/.cache/
+.shadow-cljs/

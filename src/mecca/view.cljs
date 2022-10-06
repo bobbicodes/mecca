@@ -185,8 +185,6 @@
                             (edn/read-string (-> % .-target .-result))]))))}]
 )
 
-@(subscribe [:notes])
-
 (defn mecca []
   [:div
    [editor]
@@ -201,4 +199,5 @@
                  (.click link)
                  (.removeChild (.-body js/document) link))}
     "Download"]
-   [load-song]])
+   
+     [load-song]])

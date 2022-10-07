@@ -1,0 +1,103 @@
+; This is the Calva evaluation results output window.
+; TIPS: The keyboard shortcut `ctrl+alt+o o` shows and focuses this window
+;   when connected to a REPL session.
+; Please see https://calva.io/output/ for more info.
+; Happy coding! ♥️
+
+; Jacking in...
+; Aborting jack-in. No project type selected.
+; Jacking in...
+; Starting Jack-in Terminal: npx.cmd shadow-cljs -d cider/cider-nrepl:0.28.5 watch :app
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS:
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉shadow.user꞉>  ; Use `alt+enter` to evaluate
+; Creating cljs repl session...
+; Connecting cljs repl: shadow-cljs...
+;   The Calva Connection Log might have more connection progress information.
+; Connected session: cljs, repl: :app
+; TIPS: You can choose which REPL to use (clj or cljs):
+;    *Calva: Toggle REPL connection*
+;    (There is a button in the status bar for this)
+; Jack-in done.
+cljs꞉cljs.user꞉>  ; Use `alt+enter` to evaluate
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+1
+{:sound 1, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/1.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+2
+{:sound 2, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/2.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+3
+{:sound 3, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/3.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+4
+{:sound 4, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/4.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+5
+{:sound 5, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/5.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+6
+{:sound 6, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/6.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+7
+{:sound 7, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/7.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+8
+{:sound 8, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/8.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+9
+{:sound 9, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/9.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+10
+{:sound 10, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/10.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+11
+{:sound 11, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/11.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+12
+{:sound 12, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/12.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+13
+{:sound 13, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/13.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+14
+{:sound 14, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/14.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+15
+{:sound 15, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/15.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+16
+{:sound 16, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/16.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+17
+{:sound 17, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/17.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+18
+{:sound 18, :decoded-buffer #object[AudioBuffer [object AudioBuffer]], :url "/audio/18.mp3", :buffer #object[ArrayBuffer [object ArrayBuffer]]}
+"Samples loaded"
+[{:time 0, :instrument 1, :pitch 59} {:time 2, :instrument 1, :pitch 71} {:time 4, :instrument 1, :pitch 59} {:time 4.5, :instrument 1, :pitch 59} {:time 5, :instrument 1, :pitch 59} {:time 5.5, :instrument 1, :pitch 59} {:time 6, :instrument 1, :pitch 71} {:time 7, :instrument 1, :pitch 65} {:time 16, :instrument 1, :pitch 59} {:time 18, :instrument 1, :pitch 71} {:time 20, :instrument 1, :pitch 59} {:time 20.5, :instrument 1, :pitch 59} {:time 21, :instrument 1, :pitch 59} {:time 21.5, :instrument 1, :pitch 59} {:time 22, :instrument 1, :pitch 71} {:time 23, :instrument 1, :pitch 65} {:time 32, :instrument 1, :pitch 64} {:time 34, :instrument 1, :pitch 76} {:time 36, :instrument 1, :pitch 64} {:time 36.5, :instrument 1, :pitch 64} {:time 37, :instrument 1, :pitch 64} {:time 37.5, :instrument 1, :pitch 64} {:time 38, :instrument 1, :pitch 76} {:time 39, :instrument 1, :pitch 70} {:time 48, :instrument 1, :pitch 64} {:time 50, :instrument 1, :pitch 76} {:time 52, :instrument 1, :pitch 64} {:time 52.5, :instrument 1, :pitch 64} {:time 53, :instrument 1, :pitch 64} {:time 53.5, :instrument 1, :pitch 64} {:time 54, :instrument 1, :pitch 76} {:time 55, :instrument 1, :pitch 70} {:time 64, :instrument 1, :pitch 59} {:time 66, :instrument 1, :pitch 71} {:time 68, :instrument 1, :pitch 59} {:time 68.5, :instrument 1, :pitch 59} {:time 69, :instrument 1, :pitch 59} {:time 69.5, :instrument 1, :pitch 59} {:time 70, :instrument 1, :pitch 71} {:time 71, :instrument 1, :pitch 65} {:time 80, :instrument 1, :pitch 59} {:time 82, :instrument 1, :pitch 71} {:time 84, :instrument 1, :pitch 59} {:time 84.5, :instrument 1, :pitch 59} {:time 85, :instrument 1, :pitch 59} {:time 85.5, :instrument 1, :pitch 59} {:time 86, :instrument 1, :pitch 71} {:time 87, :instrument 1, :pitch 65} {:time 96, :instrument 1, :pitch 66} {:time 98, :instrument 1, :pitch 78} {:time 100, :instrument 1, :pitch 66} {:time 100.5, :instrument 1, :pitch 66} {:time 101, :instrument 1, :pitch 66} {:time 101.5, :instrument 1, :pitch 66} {:time 102, :instrument 1, :pitch 78} {:time 103, :instrument 1, :pitch 72} {:time 112, :instrument 1, :pitch 64} {:time 114, :instrument 1, :pitch 76} {:time 116, :instrument 1, :pitch 64} {:time 116.5, :instrument 1, :pitch 64} {:time 117, :instrument 1, :pitch 64} {:time 117.5, :instrument 1, :pitch 64} {:time 118, :instrument 1, :pitch 76} {:time 119, :instrument 1, :pitch 70} {:time 128, :instrument 1, :pitch 59} {:time 130, :instrument 1, :pitch 71} {:time 132, :instrument 1, :pitch 59} {:time 132.5, :instrument 1, :pitch 59} {:time 133, :instrument 1, :pitch 59} {:time 133.5, :instrument 1, :pitch 59} {:time 134, :instrument 1, :pitch 71} {:time 135, :instrument 1, :pitch 65} {:time 144, :instrument 1, :pitch 59} {:time 146, :instrument 1, :pitch 71} {:time 148, :instrument 1, :pitch 59} {:time 148.5, :instrument 1, :pitch 59} {:time 149, :instrument 1, :pitch 59} {:time 149.5, :instrument 1, :pitch 59} {:time 150, :instrument 1, :pitch 71} {:time 151, :instrument 1, :pitch 65} {:time 0, :instrument 15, :pitch 59} {:time 0.5, :instrument 15, :pitch 71} {:time 1, :instrument 15, :pitch 59} {:time 1.5, :instrument 15, :pitch 71} {:time 2, :instrument 15, :pitch 59} {:time 2.5, :instrument 15, :pitch 71} {:time 3, :instrument 15, :pitch 59} {:time 3.5, :instrument 15, :pitch 71} {:time 4, :instrument 15, :pitch 59} {:time 4.5, :instrument 15, :pitch 71} {:time 5, :instrument 15, :pitch 59} {:time 5.5, :instrument 15, :pitch 71} {:time 6, :instrument 15, :pitch 59} {:time 6.5, :instrument 15, :pitch 71} {:time 7, :instrument 15, :pitch 59} {:time 7.5, :instrument 15, :pitch 71} {:time 8, :instrument 15, :pitch 65} {:time 8.5, :instrument 15, :pitch 77} {:time 9, :instrument 15, :pitch 65} {:time 9.5, :instrument 15, :pitch 77} {:time 10, :instrument 15, :pitch 65}]
+cljs꞉mecca.view꞉> 

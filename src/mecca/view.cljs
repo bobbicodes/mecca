@@ -9,6 +9,8 @@
             [mecca.editor :as editor :refer [svg-paths]]
             [mecca.xml :as xml]
             [mecca.upload :as upload]
+            [goog.object :as o]
+            [clojure.edn :as edn]
             [mecca.mario :as mario :refer [mario]]))
 
 (defn note-guides []
@@ -179,9 +181,32 @@
         [score-notes]
         (if @(subscribe [:loop-end])
           [editor/repeat-sign (+ 7 (* 6 @(subscribe [:loop-end]))) 8 0.13])]])))
+(defn load-song []
+  [:input#input
+   {:type      "file"
+    :on-change
+    (fn [e]
+      (let [dom    (o/get e "target")
+            file   (o/getValueByKeys dom #js ["files" 0])
+            reader (js/FileReader.)]
+        (.readAsText reader file)
+        (set! (.-onload reader)
+              #(dispatch [:set-notes
+                          (edn/read-string (-> % .-target .-result))]))))}])
 
 (defn mecca []
   [:div
    [editor]
    [transport/transport 140 0 0.5]
-   [editor/toolbar 71 0]])
+   [editor/toolbar 71 0]
+   [:button
+    {:on-click #(let [file-blob (js/Blob. [@(subscribe [:notes])] #js {"type" "text/plain"})
+                      link (.createElement js/document "a")]
+                  (set! (.-href link) (.createObjectURL js/URL file-blob))
+                  (.setAttribute link "download" "mecca.txt")
+                  (.appendChild (.-body js/document) link)
+                  (.click link)
+                  (.removeChild (.-body js/document) link))}
+    "Download"]
+
+   [load-song]])

@@ -110,8 +110,14 @@
         trimmed (partition parts data)
         mean #(/ (apply + %) (count %))
         median #(first (drop (/ 2 (count %)) (sort %)))]
+    [:g
+     [:rect#sampleframe
+      {:stroke "black"
+       :stroke-width 0.2
+       :fill "none"
+       :height 9.5 :width 20 :x 25 :y 4.25}]
      [:path {:transform (str "scale(0.1), translate(250,-20)")
              :d (make-path (reverse (scale (map first trimmed) 0 64)))
              :stroke       "black"
              :stroke-width 0.5
-             :fill         "none"}]))
+             :fill         "none"}]]))

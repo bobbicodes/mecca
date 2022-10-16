@@ -3,17 +3,17 @@ goog.require('cljs.core');
 goog.require('cljs.core.async');
 goog.require('re_frame.core');
 mecca.music.mario_jump = (function mecca$music$mario_jump(){
-var beat = (function (){var G__43162 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"current-position","current-position",2031348254)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43162) : re_frame.core.subscribe.call(null,G__43162));
+var beat = (function (){var G__37756 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"current-position","current-position",2031348254)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37756) : re_frame.core.subscribe.call(null,G__37756));
 })();
-var notes = (function (){var G__43163 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"notes","notes",-1039600523)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43163) : re_frame.core.subscribe.call(null,G__43163));
+var notes = (function (){var G__37757 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"notes","notes",-1039600523)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37757) : re_frame.core.subscribe.call(null,G__37757));
 })();
-var jump = (function (){var G__43164 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"mario-jump","mario-jump",253829289)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43164) : re_frame.core.subscribe.call(null,G__43164));
+var jump = (function (){var G__37758 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"mario-jump","mario-jump",253829289)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37758) : re_frame.core.subscribe.call(null,G__37758));
 })();
-if(cljs.core.truth_((function (){var and__4174__auto__ = cljs.core.deref((function (){var G__43167 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"playing?","playing?",-1884542863)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43167) : re_frame.core.subscribe.call(null,G__43167));
+if(cljs.core.truth_((function (){var and__4174__auto__ = cljs.core.deref((function (){var G__37761 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"playing?","playing?",-1884542863)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37761) : re_frame.core.subscribe.call(null,G__37761));
 })());
 if(cljs.core.truth_(and__4174__auto__)){
 return (cljs.core.deref(jump) === (0));
@@ -21,11 +21,11 @@ return (cljs.core.deref(jump) === (0));
 return and__4174__auto__;
 }
 })())){
-if(((0) < cljs.core.count(cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p1__43161_SHARP_){
-return cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__43161_SHARP_),(cljs.core.deref(beat) + (1)));
+if(((0) < cljs.core.count(cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p1__37755_SHARP_){
+return cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__37755_SHARP_),(cljs.core.deref(beat) + (1)));
 }),cljs.core.deref(notes))))){
-var G__43168 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"jump!","jump!",-1168155200)], null);
-return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__43168) : re_frame.core.dispatch.call(null,G__43168));
+var G__37762 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"jump!","jump!",-1168155200)], null);
+return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__37762) : re_frame.core.dispatch.call(null,G__37762));
 } else {
 return null;
 }
@@ -34,41 +34,41 @@ return null;
 }
 });
 mecca.music.mario_move = (function mecca$music$mario_move(){
-var notes = (function (){var G__43170 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"notes","notes",-1039600523)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43170) : re_frame.core.subscribe.call(null,G__43170));
+var notes = (function (){var G__37764 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"notes","notes",-1039600523)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37764) : re_frame.core.subscribe.call(null,G__37764));
 })();
-var playing_QMARK_ = cljs.core.deref((function (){var G__43171 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"playing?","playing?",-1884542863)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43171) : re_frame.core.subscribe.call(null,G__43171));
+var playing_QMARK_ = cljs.core.deref((function (){var G__37765 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"playing?","playing?",-1884542863)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37765) : re_frame.core.subscribe.call(null,G__37765));
 })());
-var now = cljs.core.deref((function (){var G__43172 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"audio-context","audio-context",1642559898)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43172) : re_frame.core.subscribe.call(null,G__43172));
+var now = cljs.core.deref((function (){var G__37766 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"audio-context","audio-context",1642559898)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37766) : re_frame.core.subscribe.call(null,G__37766));
 })()).currentTime;
-var length = cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.max,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__43169_SHARP_){
-return new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__43169_SHARP_);
+var length = cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.max,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__37763_SHARP_){
+return new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__37763_SHARP_);
 }),cljs.core.deref(notes)));
-var started = (function (){var G__43173 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"play-start","play-start",-898241782)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43173) : re_frame.core.subscribe.call(null,G__43173));
+var started = (function (){var G__37767 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"play-start","play-start",-898241782)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37767) : re_frame.core.subscribe.call(null,G__37767));
 })();
 var elapsed = (now - cljs.core.deref(started));
-var beat_length = ((60) / cljs.core.deref((function (){var G__43174 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tempo","tempo",-1555208453)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43174) : re_frame.core.subscribe.call(null,G__43174));
+var beat_length = ((60) / cljs.core.deref((function (){var G__37768 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tempo","tempo",-1555208453)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37768) : re_frame.core.subscribe.call(null,G__37768));
 })()));
 var end_time = (cljs.core.deref(started) + (beat_length * (4)));
 var current_beat = (elapsed / beat_length);
-var last_drawn_pos = (function (){var G__43175 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"current-position","current-position",2031348254)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43175) : re_frame.core.subscribe.call(null,G__43175));
+var last_drawn_pos = (function (){var G__37769 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"current-position","current-position",2031348254)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37769) : re_frame.core.subscribe.call(null,G__37769));
 })();
 if(cljs.core.truth_(playing_QMARK_)){
 if((length < current_beat)){
-var G__43176_43342 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"play-off","play-off",2116693509)], null);
-(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__43176_43342) : re_frame.core.dispatch.call(null,G__43176_43342));
+var G__37770_37935 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"play-off","play-off",2116693509)], null);
+(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__37770_37935) : re_frame.core.dispatch.call(null,G__37770_37935));
 } else {
 if((cljs.core.deref(last_drawn_pos) < current_beat)){
-var G__43177_43343 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"move-mario","move-mario",-317739908)], null);
-(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__43177_43343) : re_frame.core.dispatch.call(null,G__43177_43343));
+var G__37771_37936 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"move-mario","move-mario",-317739908)], null);
+(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__37771_37936) : re_frame.core.dispatch.call(null,G__37771_37936));
 
-var G__43178_43344 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"advance-position","advance-position",-23796893)], null);
-(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__43178_43344) : re_frame.core.dispatch.call(null,G__43178_43344));
+var G__37772_37937 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"advance-position","advance-position",-23796893)], null);
+(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__37772_37937) : re_frame.core.dispatch.call(null,G__37772_37937));
 } else {
 }
 }
@@ -78,8 +78,8 @@ var G__43178_43344 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.Persis
 return mecca.music.mario_jump();
 });
 mecca.music.dispatch_timer_event = (function mecca$music$dispatch_timer_event(){
-var G__43179_43345 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tick!","tick!",68058958)], null);
-(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__43179_43345) : re_frame.core.dispatch.call(null,G__43179_43345));
+var G__37773_37938 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tick!","tick!",68058958)], null);
+(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__37773_37938) : re_frame.core.dispatch.call(null,G__37773_37938));
 
 return mecca.music.mario_move();
 });
@@ -111,8 +111,8 @@ return out;
 mecca.music.decode = (function mecca$music$decode(named_url){
 var out = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$0();
 if(cljs.core.truth_(new cljs.core.Keyword(null,"buffer","buffer",617295198).cljs$core$IFn$_invoke$arity$1(named_url))){
-cljs.core.deref((function (){var G__43180 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"audio-context","audio-context",1642559898)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43180) : re_frame.core.subscribe.call(null,G__43180));
+cljs.core.deref((function (){var G__37775 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"audio-context","audio-context",1642559898)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37775) : re_frame.core.subscribe.call(null,G__37775));
 })()).decodeAudioData(new cljs.core.Keyword(null,"buffer","buffer",617295198).cljs$core$IFn$_invoke$arity$1(named_url),(function (decoded_buffer){
 cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(out,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(named_url,new cljs.core.Keyword(null,"decoded-buffer","decoded-buffer",598746700),decoded_buffer));
 
@@ -129,71 +129,71 @@ cljs.core.async.close_BANG_(out);
 return out;
 });
 mecca.music.buffer_source = (function mecca$music$buffer_source(buffer){
-var source = cljs.core.deref((function (){var G__43181 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"audio-context","audio-context",1642559898)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43181) : re_frame.core.subscribe.call(null,G__43181));
+var source = cljs.core.deref((function (){var G__37776 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"audio-context","audio-context",1642559898)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37776) : re_frame.core.subscribe.call(null,G__37776));
 })()).createBufferSource();
 (source.buffer = buffer);
 
 return source;
 });
 mecca.music.get_and_decode = (function mecca$music$get_and_decode(named_url){
-var c__34784__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));
+var c__30026__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));
 cljs.core.async.impl.dispatch.run((function (){
-var f__34785__auto__ = (function (){var switch__34462__auto__ = (function (state_43193){
-var state_val_43194 = (state_43193[(1)]);
-if((state_val_43194 === (1))){
-var inst_43182 = mecca.music.load_sound(named_url);
-var state_43193__$1 = state_43193;
-return cljs.core.async.impl.ioc_helpers.take_BANG_(state_43193__$1,(2),inst_43182);
+var f__30027__auto__ = (function (){var switch__29676__auto__ = (function (state_37788){
+var state_val_37789 = (state_37788[(1)]);
+if((state_val_37789 === (1))){
+var inst_37777 = mecca.music.load_sound(named_url);
+var state_37788__$1 = state_37788;
+return cljs.core.async.impl.ioc_helpers.take_BANG_(state_37788__$1,(2),inst_37777);
 } else {
-if((state_val_43194 === (2))){
-var inst_43184 = (state_43193[(7)]);
-var inst_43184__$1 = (state_43193[(2)]);
-var state_43193__$1 = (function (){var statearr_43195 = state_43193;
-(statearr_43195[(7)] = inst_43184__$1);
+if((state_val_37789 === (2))){
+var inst_37779 = (state_37788[(7)]);
+var inst_37779__$1 = (state_37788[(2)]);
+var state_37788__$1 = (function (){var statearr_37790 = state_37788;
+(statearr_37790[(7)] = inst_37779__$1);
 
-return statearr_43195;
+return statearr_37790;
 })();
-if(cljs.core.truth_(inst_43184__$1)){
-var statearr_43196_43346 = state_43193__$1;
-(statearr_43196_43346[(1)] = (3));
+if(cljs.core.truth_(inst_37779__$1)){
+var statearr_37791_37939 = state_37788__$1;
+(statearr_37791_37939[(1)] = (3));
 
 } else {
-var statearr_43197_43347 = state_43193__$1;
-(statearr_43197_43347[(1)] = (4));
+var statearr_37792_37940 = state_37788__$1;
+(statearr_37792_37940[(1)] = (4));
 
 }
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-if((state_val_43194 === (3))){
-var inst_43184 = (state_43193[(7)]);
-var inst_43186 = mecca.music.decode(inst_43184);
-var state_43193__$1 = state_43193;
-return cljs.core.async.impl.ioc_helpers.take_BANG_(state_43193__$1,(6),inst_43186);
+if((state_val_37789 === (3))){
+var inst_37779 = (state_37788[(7)]);
+var inst_37781 = mecca.music.decode(inst_37779);
+var state_37788__$1 = state_37788;
+return cljs.core.async.impl.ioc_helpers.take_BANG_(state_37788__$1,(6),inst_37781);
 } else {
-if((state_val_43194 === (4))){
-var state_43193__$1 = state_43193;
-var statearr_43198_43374 = state_43193__$1;
-(statearr_43198_43374[(2)] = null);
+if((state_val_37789 === (4))){
+var state_37788__$1 = state_37788;
+var statearr_37793_37941 = state_37788__$1;
+(statearr_37793_37941[(2)] = null);
 
-(statearr_43198_43374[(1)] = (5));
+(statearr_37793_37941[(1)] = (5));
 
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-if((state_val_43194 === (5))){
-var inst_43191 = (state_43193[(2)]);
-var state_43193__$1 = state_43193;
-return cljs.core.async.impl.ioc_helpers.return_chan(state_43193__$1,inst_43191);
+if((state_val_37789 === (5))){
+var inst_37786 = (state_37788[(2)]);
+var state_37788__$1 = state_37788;
+return cljs.core.async.impl.ioc_helpers.return_chan(state_37788__$1,inst_37786);
 } else {
-if((state_val_43194 === (6))){
-var inst_43188 = (state_43193[(2)]);
-var state_43193__$1 = state_43193;
-var statearr_43199_43379 = state_43193__$1;
-(statearr_43199_43379[(2)] = inst_43188);
+if((state_val_37789 === (6))){
+var inst_37783 = (state_37788[(2)]);
+var state_37788__$1 = state_37788;
+var statearr_37794_37942 = state_37788__$1;
+(statearr_37794_37942[(2)] = inst_37783);
 
-(statearr_43199_43379[(1)] = (5));
+(statearr_37794_37942[(1)] = (5));
 
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
@@ -207,186 +207,186 @@ return null;
 }
 });
 return (function() {
-var mecca$music$get_and_decode_$_state_machine__34463__auto__ = null;
-var mecca$music$get_and_decode_$_state_machine__34463__auto____0 = (function (){
-var statearr_43200 = [null,null,null,null,null,null,null,null];
-(statearr_43200[(0)] = mecca$music$get_and_decode_$_state_machine__34463__auto__);
+var mecca$music$get_and_decode_$_state_machine__29677__auto__ = null;
+var mecca$music$get_and_decode_$_state_machine__29677__auto____0 = (function (){
+var statearr_37797 = [null,null,null,null,null,null,null,null];
+(statearr_37797[(0)] = mecca$music$get_and_decode_$_state_machine__29677__auto__);
 
-(statearr_43200[(1)] = (1));
+(statearr_37797[(1)] = (1));
 
-return statearr_43200;
+return statearr_37797;
 });
-var mecca$music$get_and_decode_$_state_machine__34463__auto____1 = (function (state_43193){
+var mecca$music$get_and_decode_$_state_machine__29677__auto____1 = (function (state_37788){
 while(true){
-var ret_value__34464__auto__ = (function (){try{while(true){
-var result__34465__auto__ = switch__34462__auto__(state_43193);
-if(cljs.core.keyword_identical_QMARK_(result__34465__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
+var ret_value__29678__auto__ = (function (){try{while(true){
+var result__29679__auto__ = switch__29676__auto__(state_37788);
+if(cljs.core.keyword_identical_QMARK_(result__29679__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
 continue;
 } else {
-return result__34465__auto__;
+return result__29679__auto__;
 }
 break;
 }
-}catch (e43201){if((e43201 instanceof Object)){
-var ex__34466__auto__ = e43201;
-var statearr_43202_43384 = state_43193;
-(statearr_43202_43384[(5)] = ex__34466__auto__);
+}catch (e37798){if((e37798 instanceof Object)){
+var ex__29680__auto__ = e37798;
+var statearr_37800_37943 = state_37788;
+(statearr_37800_37943[(5)] = ex__29680__auto__);
 
 
-cljs.core.async.impl.ioc_helpers.process_exception(state_43193);
+cljs.core.async.impl.ioc_helpers.process_exception(state_37788);
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-throw e43201;
+throw e37798;
 
 }
 }})();
-if(cljs.core.keyword_identical_QMARK_(ret_value__34464__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
-var G__43389 = state_43193;
-state_43193 = G__43389;
+if(cljs.core.keyword_identical_QMARK_(ret_value__29678__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
+var G__37944 = state_37788;
+state_37788 = G__37944;
 continue;
 } else {
-return ret_value__34464__auto__;
+return ret_value__29678__auto__;
 }
 break;
 }
 });
-mecca$music$get_and_decode_$_state_machine__34463__auto__ = function(state_43193){
+mecca$music$get_and_decode_$_state_machine__29677__auto__ = function(state_37788){
 switch(arguments.length){
 case 0:
-return mecca$music$get_and_decode_$_state_machine__34463__auto____0.call(this);
+return mecca$music$get_and_decode_$_state_machine__29677__auto____0.call(this);
 case 1:
-return mecca$music$get_and_decode_$_state_machine__34463__auto____1.call(this,state_43193);
+return mecca$music$get_and_decode_$_state_machine__29677__auto____1.call(this,state_37788);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
-mecca$music$get_and_decode_$_state_machine__34463__auto__.cljs$core$IFn$_invoke$arity$0 = mecca$music$get_and_decode_$_state_machine__34463__auto____0;
-mecca$music$get_and_decode_$_state_machine__34463__auto__.cljs$core$IFn$_invoke$arity$1 = mecca$music$get_and_decode_$_state_machine__34463__auto____1;
-return mecca$music$get_and_decode_$_state_machine__34463__auto__;
+mecca$music$get_and_decode_$_state_machine__29677__auto__.cljs$core$IFn$_invoke$arity$0 = mecca$music$get_and_decode_$_state_machine__29677__auto____0;
+mecca$music$get_and_decode_$_state_machine__29677__auto__.cljs$core$IFn$_invoke$arity$1 = mecca$music$get_and_decode_$_state_machine__29677__auto____1;
+return mecca$music$get_and_decode_$_state_machine__29677__auto__;
 })()
 })();
-var state__34786__auto__ = (function (){var statearr_43203 = (f__34785__auto__.cljs$core$IFn$_invoke$arity$0 ? f__34785__auto__.cljs$core$IFn$_invoke$arity$0() : f__34785__auto__.call(null));
-(statearr_43203[(6)] = c__34784__auto__);
+var state__30028__auto__ = (function (){var statearr_37802 = (f__30027__auto__.cljs$core$IFn$_invoke$arity$0 ? f__30027__auto__.cljs$core$IFn$_invoke$arity$0() : f__30027__auto__.call(null));
+(statearr_37802[(6)] = c__30026__auto__);
 
-return statearr_43203;
+return statearr_37802;
 })();
-return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped(state__34786__auto__);
+return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped(state__30028__auto__);
 }));
 
-return c__34784__auto__;
+return c__30026__auto__;
 });
 mecca.music.load_samples = (function mecca$music$load_samples(){
-var c__34784__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));
+var c__30026__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));
 cljs.core.async.impl.dispatch.run((function (){
-var f__34785__auto__ = (function (){var switch__34462__auto__ = (function (state_43232){
-var state_val_43233 = (state_43232[(1)]);
-if((state_val_43233 === (1))){
-var inst_43204 = cljs.core.PersistentHashMap.EMPTY;
-var inst_43205 = cljs.core.range.cljs$core$IFn$_invoke$arity$2((1),(19));
-var inst_43206 = inst_43204;
-var inst_43207 = inst_43205;
-var state_43232__$1 = (function (){var statearr_43234 = state_43232;
-(statearr_43234[(7)] = inst_43207);
+var f__30027__auto__ = (function (){var switch__29676__auto__ = (function (state_37837){
+var state_val_37838 = (state_37837[(1)]);
+if((state_val_37838 === (1))){
+var inst_37807 = cljs.core.PersistentHashMap.EMPTY;
+var inst_37808 = cljs.core.range.cljs$core$IFn$_invoke$arity$2((1),(19));
+var inst_37809 = inst_37807;
+var inst_37810 = inst_37808;
+var state_37837__$1 = (function (){var statearr_37840 = state_37837;
+(statearr_37840[(7)] = inst_37809);
 
-(statearr_43234[(8)] = inst_43206);
+(statearr_37840[(8)] = inst_37810);
 
-return statearr_43234;
+return statearr_37840;
 })();
-var statearr_43235_43390 = state_43232__$1;
-(statearr_43235_43390[(2)] = null);
+var statearr_37841_37945 = state_37837__$1;
+(statearr_37841_37945[(2)] = null);
 
-(statearr_43235_43390[(1)] = (2));
+(statearr_37841_37945[(1)] = (2));
 
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-if((state_val_43233 === (2))){
-var inst_43207 = (state_43232[(7)]);
-var inst_43209 = cljs.core.first(inst_43207);
-var inst_43210 = (inst_43209 == null);
-var inst_43211 = cljs.core.not(inst_43210);
-var state_43232__$1 = state_43232;
-if(inst_43211){
-var statearr_43236_43391 = state_43232__$1;
-(statearr_43236_43391[(1)] = (4));
+if((state_val_37838 === (2))){
+var inst_37810 = (state_37837[(8)]);
+var inst_37812 = cljs.core.first(inst_37810);
+var inst_37813 = (inst_37812 == null);
+var inst_37814 = cljs.core.not(inst_37813);
+var state_37837__$1 = state_37837;
+if(inst_37814){
+var statearr_37842_37946 = state_37837__$1;
+(statearr_37842_37946[(1)] = (4));
 
 } else {
-var statearr_43237_43392 = state_43232__$1;
-(statearr_43237_43392[(1)] = (5));
+var statearr_37843_37947 = state_37837__$1;
+(statearr_37843_37947[(1)] = (5));
 
 }
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-if((state_val_43233 === (3))){
-var inst_43230 = (state_43232[(2)]);
-var state_43232__$1 = state_43232;
-return cljs.core.async.impl.ioc_helpers.return_chan(state_43232__$1,inst_43230);
+if((state_val_37838 === (3))){
+var inst_37834 = (state_37837[(2)]);
+var state_37837__$1 = state_37837;
+return cljs.core.async.impl.ioc_helpers.return_chan(state_37837__$1,inst_37834);
 } else {
-if((state_val_43233 === (4))){
-var inst_43213 = (state_43232[(9)]);
-var inst_43207 = (state_43232[(7)]);
-var inst_43213__$1 = cljs.core.first(inst_43207);
-var inst_43214 = [new cljs.core.Keyword(null,"url","url",276297046),new cljs.core.Keyword(null,"sound","sound",-2127407070)];
-var inst_43215 = ["/audio/",cljs.core.str.cljs$core$IFn$_invoke$arity$1(inst_43213__$1),".mp3"].join('');
-var inst_43216 = [inst_43215,inst_43213__$1];
-var inst_43217 = cljs.core.PersistentHashMap.fromArrays(inst_43214,inst_43216);
-var inst_43218 = mecca.music.get_and_decode(inst_43217);
-var state_43232__$1 = (function (){var statearr_43238 = state_43232;
-(statearr_43238[(9)] = inst_43213__$1);
+if((state_val_37838 === (4))){
+var inst_37810 = (state_37837[(8)]);
+var inst_37816 = (state_37837[(9)]);
+var inst_37816__$1 = cljs.core.first(inst_37810);
+var inst_37817 = [new cljs.core.Keyword(null,"url","url",276297046),new cljs.core.Keyword(null,"sound","sound",-2127407070)];
+var inst_37819 = ["/audio/",cljs.core.str.cljs$core$IFn$_invoke$arity$1(inst_37816__$1),".mp3"].join('');
+var inst_37820 = [inst_37819,inst_37816__$1];
+var inst_37821 = cljs.core.PersistentHashMap.fromArrays(inst_37817,inst_37820);
+var inst_37822 = mecca.music.get_and_decode(inst_37821);
+var state_37837__$1 = (function (){var statearr_37844 = state_37837;
+(statearr_37844[(9)] = inst_37816__$1);
 
-return statearr_43238;
+return statearr_37844;
 })();
-return cljs.core.async.impl.ioc_helpers.take_BANG_(state_43232__$1,(7),inst_43218);
+return cljs.core.async.impl.ioc_helpers.take_BANG_(state_37837__$1,(7),inst_37822);
 } else {
-if((state_val_43233 === (5))){
-var inst_43206 = (state_43232[(8)]);
-var state_43232__$1 = state_43232;
-var statearr_43239_43416 = state_43232__$1;
-(statearr_43239_43416[(2)] = inst_43206);
+if((state_val_37838 === (5))){
+var inst_37809 = (state_37837[(7)]);
+var state_37837__$1 = state_37837;
+var statearr_37845_37948 = state_37837__$1;
+(statearr_37845_37948[(2)] = inst_37809);
 
-(statearr_43239_43416[(1)] = (6));
+(statearr_37845_37948[(1)] = (6));
 
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-if((state_val_43233 === (6))){
-var inst_43228 = (state_43232[(2)]);
-var state_43232__$1 = state_43232;
-var statearr_43240_43417 = state_43232__$1;
-(statearr_43240_43417[(2)] = inst_43228);
+if((state_val_37838 === (6))){
+var inst_37832 = (state_37837[(2)]);
+var state_37837__$1 = state_37837;
+var statearr_37846_37949 = state_37837__$1;
+(statearr_37846_37949[(2)] = inst_37832);
 
-(statearr_43240_43417[(1)] = (3));
+(statearr_37846_37949[(1)] = (3));
 
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-if((state_val_43233 === (7))){
-var inst_43213 = (state_43232[(9)]);
-var inst_43207 = (state_43232[(7)]);
-var inst_43206 = (state_43232[(8)]);
-var inst_43220 = (state_43232[(2)]);
-var inst_43221 = cljs.core.prn.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([inst_43213], 0));
-var inst_43222 = cljs.core.prn.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([inst_43220], 0));
-var inst_43223 = cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(inst_43206,inst_43213,inst_43220);
-var inst_43224 = cljs.core.rest(inst_43207);
-var inst_43206__$1 = inst_43223;
-var inst_43207__$1 = inst_43224;
-var state_43232__$1 = (function (){var statearr_43241 = state_43232;
-(statearr_43241[(7)] = inst_43207__$1);
+if((state_val_37838 === (7))){
+var inst_37809 = (state_37837[(7)]);
+var inst_37810 = (state_37837[(8)]);
+var inst_37816 = (state_37837[(9)]);
+var inst_37824 = (state_37837[(2)]);
+var inst_37825 = cljs.core.prn.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([inst_37816], 0));
+var inst_37826 = cljs.core.prn.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([inst_37824], 0));
+var inst_37827 = cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(inst_37809,inst_37816,inst_37824);
+var inst_37828 = cljs.core.rest(inst_37810);
+var inst_37809__$1 = inst_37827;
+var inst_37810__$1 = inst_37828;
+var state_37837__$1 = (function (){var statearr_37847 = state_37837;
+(statearr_37847[(7)] = inst_37809__$1);
 
-(statearr_43241[(10)] = inst_43222);
+(statearr_37847[(8)] = inst_37810__$1);
 
-(statearr_43241[(11)] = inst_43221);
+(statearr_37847[(10)] = inst_37826);
 
-(statearr_43241[(8)] = inst_43206__$1);
+(statearr_37847[(11)] = inst_37825);
 
-return statearr_43241;
+return statearr_37847;
 })();
-var statearr_43242_43451 = state_43232__$1;
-(statearr_43242_43451[(2)] = null);
+var statearr_37848_37950 = state_37837__$1;
+(statearr_37848_37950[(2)] = null);
 
-(statearr_43242_43451[(1)] = (2));
+(statearr_37848_37950[(1)] = (2));
 
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
@@ -401,176 +401,176 @@ return null;
 }
 });
 return (function() {
-var mecca$music$load_samples_$_state_machine__34463__auto__ = null;
-var mecca$music$load_samples_$_state_machine__34463__auto____0 = (function (){
-var statearr_43243 = [null,null,null,null,null,null,null,null,null,null,null,null];
-(statearr_43243[(0)] = mecca$music$load_samples_$_state_machine__34463__auto__);
+var mecca$music$load_samples_$_state_machine__29677__auto__ = null;
+var mecca$music$load_samples_$_state_machine__29677__auto____0 = (function (){
+var statearr_37849 = [null,null,null,null,null,null,null,null,null,null,null,null];
+(statearr_37849[(0)] = mecca$music$load_samples_$_state_machine__29677__auto__);
 
-(statearr_43243[(1)] = (1));
+(statearr_37849[(1)] = (1));
 
-return statearr_43243;
+return statearr_37849;
 });
-var mecca$music$load_samples_$_state_machine__34463__auto____1 = (function (state_43232){
+var mecca$music$load_samples_$_state_machine__29677__auto____1 = (function (state_37837){
 while(true){
-var ret_value__34464__auto__ = (function (){try{while(true){
-var result__34465__auto__ = switch__34462__auto__(state_43232);
-if(cljs.core.keyword_identical_QMARK_(result__34465__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
+var ret_value__29678__auto__ = (function (){try{while(true){
+var result__29679__auto__ = switch__29676__auto__(state_37837);
+if(cljs.core.keyword_identical_QMARK_(result__29679__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
 continue;
 } else {
-return result__34465__auto__;
+return result__29679__auto__;
 }
 break;
 }
-}catch (e43244){if((e43244 instanceof Object)){
-var ex__34466__auto__ = e43244;
-var statearr_43245_43452 = state_43232;
-(statearr_43245_43452[(5)] = ex__34466__auto__);
+}catch (e37851){if((e37851 instanceof Object)){
+var ex__29680__auto__ = e37851;
+var statearr_37852_37951 = state_37837;
+(statearr_37852_37951[(5)] = ex__29680__auto__);
 
 
-cljs.core.async.impl.ioc_helpers.process_exception(state_43232);
+cljs.core.async.impl.ioc_helpers.process_exception(state_37837);
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-throw e43244;
+throw e37851;
 
 }
 }})();
-if(cljs.core.keyword_identical_QMARK_(ret_value__34464__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
-var G__43453 = state_43232;
-state_43232 = G__43453;
+if(cljs.core.keyword_identical_QMARK_(ret_value__29678__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
+var G__37952 = state_37837;
+state_37837 = G__37952;
 continue;
 } else {
-return ret_value__34464__auto__;
+return ret_value__29678__auto__;
 }
 break;
 }
 });
-mecca$music$load_samples_$_state_machine__34463__auto__ = function(state_43232){
+mecca$music$load_samples_$_state_machine__29677__auto__ = function(state_37837){
 switch(arguments.length){
 case 0:
-return mecca$music$load_samples_$_state_machine__34463__auto____0.call(this);
+return mecca$music$load_samples_$_state_machine__29677__auto____0.call(this);
 case 1:
-return mecca$music$load_samples_$_state_machine__34463__auto____1.call(this,state_43232);
+return mecca$music$load_samples_$_state_machine__29677__auto____1.call(this,state_37837);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
-mecca$music$load_samples_$_state_machine__34463__auto__.cljs$core$IFn$_invoke$arity$0 = mecca$music$load_samples_$_state_machine__34463__auto____0;
-mecca$music$load_samples_$_state_machine__34463__auto__.cljs$core$IFn$_invoke$arity$1 = mecca$music$load_samples_$_state_machine__34463__auto____1;
-return mecca$music$load_samples_$_state_machine__34463__auto__;
+mecca$music$load_samples_$_state_machine__29677__auto__.cljs$core$IFn$_invoke$arity$0 = mecca$music$load_samples_$_state_machine__29677__auto____0;
+mecca$music$load_samples_$_state_machine__29677__auto__.cljs$core$IFn$_invoke$arity$1 = mecca$music$load_samples_$_state_machine__29677__auto____1;
+return mecca$music$load_samples_$_state_machine__29677__auto__;
 })()
 })();
-var state__34786__auto__ = (function (){var statearr_43246 = (f__34785__auto__.cljs$core$IFn$_invoke$arity$0 ? f__34785__auto__.cljs$core$IFn$_invoke$arity$0() : f__34785__auto__.call(null));
-(statearr_43246[(6)] = c__34784__auto__);
+var state__30028__auto__ = (function (){var statearr_37853 = (f__30027__auto__.cljs$core$IFn$_invoke$arity$0 ? f__30027__auto__.cljs$core$IFn$_invoke$arity$0() : f__30027__auto__.call(null));
+(statearr_37853[(6)] = c__30026__auto__);
 
-return statearr_43246;
+return statearr_37853;
 })();
-return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped(state__34786__auto__);
+return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped(state__30028__auto__);
 }));
 
-return c__34784__auto__;
+return c__30026__auto__;
 });
 if((typeof mecca !== 'undefined') && (typeof mecca.music !== 'undefined') && (typeof mecca.music.loading_samples !== 'undefined')){
 } else {
-mecca.music.loading_samples = (function (){var c__34784__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));
+mecca.music.loading_samples = (function (){var c__30026__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));
 cljs.core.async.impl.dispatch.run((function (){
-var f__34785__auto__ = (function (){var switch__34462__auto__ = (function (state_43256){
-var state_val_43257 = (state_43256[(1)]);
-if((state_val_43257 === (1))){
-var inst_43247 = cljs.core.PersistentVector.EMPTY_NODE;
-var inst_43248 = mecca.music.load_samples();
-var state_43256__$1 = (function (){var statearr_43258 = state_43256;
-(statearr_43258[(7)] = inst_43247);
+var f__30027__auto__ = (function (){var switch__29676__auto__ = (function (state_37863){
+var state_val_37864 = (state_37863[(1)]);
+if((state_val_37864 === (1))){
+var inst_37854 = cljs.core.PersistentVector.EMPTY_NODE;
+var inst_37855 = mecca.music.load_samples();
+var state_37863__$1 = (function (){var statearr_37865 = state_37863;
+(statearr_37865[(7)] = inst_37854);
 
-return statearr_43258;
+return statearr_37865;
 })();
-return cljs.core.async.impl.ioc_helpers.take_BANG_(state_43256__$1,(2),inst_43248);
+return cljs.core.async.impl.ioc_helpers.take_BANG_(state_37863__$1,(2),inst_37855);
 } else {
-if((state_val_43257 === (2))){
-var inst_43247 = (state_43256[(7)]);
-var inst_43250 = (state_43256[(2)]);
-var inst_43251 = [new cljs.core.Keyword(null,"load-samples","load-samples",-40877701),inst_43250];
-var inst_43252 = (new cljs.core.PersistentVector(null,2,(5),inst_43247,inst_43251,null));
-var inst_43253 = (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(inst_43252) : re_frame.core.dispatch.call(null,inst_43252));
-var inst_43254 = cljs.core.prn.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["Samples loaded"], 0));
-var state_43256__$1 = (function (){var statearr_43259 = state_43256;
-(statearr_43259[(8)] = inst_43253);
+if((state_val_37864 === (2))){
+var inst_37854 = (state_37863[(7)]);
+var inst_37857 = (state_37863[(2)]);
+var inst_37858 = [new cljs.core.Keyword(null,"load-samples","load-samples",-40877701),inst_37857];
+var inst_37859 = (new cljs.core.PersistentVector(null,2,(5),inst_37854,inst_37858,null));
+var inst_37860 = (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(inst_37859) : re_frame.core.dispatch.call(null,inst_37859));
+var inst_37861 = cljs.core.prn.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["Samples loaded"], 0));
+var state_37863__$1 = (function (){var statearr_37867 = state_37863;
+(statearr_37867[(8)] = inst_37860);
 
-return statearr_43259;
+return statearr_37867;
 })();
-return cljs.core.async.impl.ioc_helpers.return_chan(state_43256__$1,inst_43254);
+return cljs.core.async.impl.ioc_helpers.return_chan(state_37863__$1,inst_37861);
 } else {
 return null;
 }
 }
 });
 return (function() {
-var mecca$music$state_machine__34463__auto__ = null;
-var mecca$music$state_machine__34463__auto____0 = (function (){
-var statearr_43260 = [null,null,null,null,null,null,null,null,null];
-(statearr_43260[(0)] = mecca$music$state_machine__34463__auto__);
+var mecca$music$state_machine__29677__auto__ = null;
+var mecca$music$state_machine__29677__auto____0 = (function (){
+var statearr_37868 = [null,null,null,null,null,null,null,null,null];
+(statearr_37868[(0)] = mecca$music$state_machine__29677__auto__);
 
-(statearr_43260[(1)] = (1));
+(statearr_37868[(1)] = (1));
 
-return statearr_43260;
+return statearr_37868;
 });
-var mecca$music$state_machine__34463__auto____1 = (function (state_43256){
+var mecca$music$state_machine__29677__auto____1 = (function (state_37863){
 while(true){
-var ret_value__34464__auto__ = (function (){try{while(true){
-var result__34465__auto__ = switch__34462__auto__(state_43256);
-if(cljs.core.keyword_identical_QMARK_(result__34465__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
+var ret_value__29678__auto__ = (function (){try{while(true){
+var result__29679__auto__ = switch__29676__auto__(state_37863);
+if(cljs.core.keyword_identical_QMARK_(result__29679__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
 continue;
 } else {
-return result__34465__auto__;
+return result__29679__auto__;
 }
 break;
 }
-}catch (e43261){if((e43261 instanceof Object)){
-var ex__34466__auto__ = e43261;
-var statearr_43262_43456 = state_43256;
-(statearr_43262_43456[(5)] = ex__34466__auto__);
+}catch (e37869){if((e37869 instanceof Object)){
+var ex__29680__auto__ = e37869;
+var statearr_37871_37953 = state_37863;
+(statearr_37871_37953[(5)] = ex__29680__auto__);
 
 
-cljs.core.async.impl.ioc_helpers.process_exception(state_43256);
+cljs.core.async.impl.ioc_helpers.process_exception(state_37863);
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-throw e43261;
+throw e37869;
 
 }
 }})();
-if(cljs.core.keyword_identical_QMARK_(ret_value__34464__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
-var G__43457 = state_43256;
-state_43256 = G__43457;
+if(cljs.core.keyword_identical_QMARK_(ret_value__29678__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
+var G__37954 = state_37863;
+state_37863 = G__37954;
 continue;
 } else {
-return ret_value__34464__auto__;
+return ret_value__29678__auto__;
 }
 break;
 }
 });
-mecca$music$state_machine__34463__auto__ = function(state_43256){
+mecca$music$state_machine__29677__auto__ = function(state_37863){
 switch(arguments.length){
 case 0:
-return mecca$music$state_machine__34463__auto____0.call(this);
+return mecca$music$state_machine__29677__auto____0.call(this);
 case 1:
-return mecca$music$state_machine__34463__auto____1.call(this,state_43256);
+return mecca$music$state_machine__29677__auto____1.call(this,state_37863);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
-mecca$music$state_machine__34463__auto__.cljs$core$IFn$_invoke$arity$0 = mecca$music$state_machine__34463__auto____0;
-mecca$music$state_machine__34463__auto__.cljs$core$IFn$_invoke$arity$1 = mecca$music$state_machine__34463__auto____1;
-return mecca$music$state_machine__34463__auto__;
+mecca$music$state_machine__29677__auto__.cljs$core$IFn$_invoke$arity$0 = mecca$music$state_machine__29677__auto____0;
+mecca$music$state_machine__29677__auto__.cljs$core$IFn$_invoke$arity$1 = mecca$music$state_machine__29677__auto____1;
+return mecca$music$state_machine__29677__auto__;
 })()
 })();
-var state__34786__auto__ = (function (){var statearr_43263 = (f__34785__auto__.cljs$core$IFn$_invoke$arity$0 ? f__34785__auto__.cljs$core$IFn$_invoke$arity$0() : f__34785__auto__.call(null));
-(statearr_43263[(6)] = c__34784__auto__);
+var state__30028__auto__ = (function (){var statearr_37872 = (f__30027__auto__.cljs$core$IFn$_invoke$arity$0 ? f__30027__auto__.cljs$core$IFn$_invoke$arity$0() : f__30027__auto__.call(null));
+(statearr_37872[(6)] = c__30026__auto__);
 
-return statearr_43263;
+return statearr_37872;
 })();
-return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped(state__34786__auto__);
+return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped(state__30028__auto__);
 }));
 
-return c__34784__auto__;
+return c__30026__auto__;
 })();
 }
 mecca.music.add_semitone = (function mecca$music$add_semitone(rate){
@@ -593,14 +593,14 @@ return mecca.music.dec_rate(((68) - midi_num));
 }
 });
 mecca.music.play_note = (function mecca$music$play_note(pitch){
-var context = cljs.core.deref((function (){var G__43264 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"audio-context","audio-context",1642559898)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43264) : re_frame.core.subscribe.call(null,G__43264));
+var context = cljs.core.deref((function (){var G__37874 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"audio-context","audio-context",1642559898)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37874) : re_frame.core.subscribe.call(null,G__37874));
 })());
-var samples = (function (){var G__43265 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"samples","samples",635504833)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43265) : re_frame.core.subscribe.call(null,G__43265));
+var samples = (function (){var G__37875 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"samples","samples",635504833)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37875) : re_frame.core.subscribe.call(null,G__37875));
 })();
-var instrument = (function (){var G__43266 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"instrument","instrument",-960698844)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43266) : re_frame.core.subscribe.call(null,G__43266));
+var instrument = (function (){var G__37876 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"instrument","instrument",-960698844)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37876) : re_frame.core.subscribe.call(null,G__37876));
 })();
 var audio_buffer = new cljs.core.Keyword(null,"decoded-buffer","decoded-buffer",598746700).cljs$core$IFn$_invoke$arity$1(cljs.core.get.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(samples),cljs.core.deref(instrument)));
 var sample_source = context.createBufferSource();
@@ -615,11 +615,11 @@ sample_source.start();
 return sample_source;
 });
 mecca.music.play_sample = (function mecca$music$play_sample(instrument,pitch){
-var context = (function (){var G__43267 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"audio-context","audio-context",1642559898)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43267) : re_frame.core.subscribe.call(null,G__43267));
+var context = (function (){var G__37877 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"audio-context","audio-context",1642559898)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37877) : re_frame.core.subscribe.call(null,G__37877));
 })();
-var samples = (function (){var G__43268 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"samples","samples",635504833)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43268) : re_frame.core.subscribe.call(null,G__43268));
+var samples = (function (){var G__37878 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"samples","samples",635504833)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37878) : re_frame.core.subscribe.call(null,G__37878));
 })();
 var audio_buffer = new cljs.core.Keyword(null,"decoded-buffer","decoded-buffer",598746700).cljs$core$IFn$_invoke$arity$1(cljs.core.get.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(samples),instrument));
 var sample_source = cljs.core.deref(context).createBufferSource();
@@ -638,11 +638,11 @@ sample_source.start();
 return sample_source;
 });
 mecca.music.play_at = (function mecca$music$play_at(instrument,pitch,time){
-var context = (function (){var G__43269 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"audio-context","audio-context",1642559898)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43269) : re_frame.core.subscribe.call(null,G__43269));
+var context = (function (){var G__37879 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"audio-context","audio-context",1642559898)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37879) : re_frame.core.subscribe.call(null,G__37879));
 })();
-var samples = (function (){var G__43270 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"samples","samples",635504833)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43270) : re_frame.core.subscribe.call(null,G__43270));
+var samples = (function (){var G__37880 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"samples","samples",635504833)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37880) : re_frame.core.subscribe.call(null,G__37880));
 })();
 var audio_buffer = new cljs.core.Keyword(null,"decoded-buffer","decoded-buffer",598746700).cljs$core$IFn$_invoke$arity$1(cljs.core.get.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(samples),instrument));
 var sample_source = cljs.core.deref(context).createBufferSource();
@@ -657,54 +657,54 @@ sample_source.start(time);
 return sample_source;
 });
 mecca.music.delay_note = (function mecca$music$delay_note(beats,note){
-return cljs.core.update.cljs$core$IFn$_invoke$arity$3(note,new cljs.core.Keyword(null,"time","time",1385887882),(function (p1__43271_SHARP_){
-return (beats + p1__43271_SHARP_);
+return cljs.core.update.cljs$core$IFn$_invoke$arity$3(note,new cljs.core.Keyword(null,"time","time",1385887882),(function (p1__37881_SHARP_){
+return (beats + p1__37881_SHARP_);
 }));
 });
 mecca.music.advance_note = (function mecca$music$advance_note(beats,note){
-return cljs.core.update.cljs$core$IFn$_invoke$arity$3(note,new cljs.core.Keyword(null,"time","time",1385887882),(function (p1__43272_SHARP_){
-return (p1__43272_SHARP_ - beats);
+return cljs.core.update.cljs$core$IFn$_invoke$arity$3(note,new cljs.core.Keyword(null,"time","time",1385887882),(function (p1__37882_SHARP_){
+return (p1__37882_SHARP_ - beats);
 }));
 });
 mecca.music.queue_section = (function mecca$music$queue_section(from,to){
-var notes = (function (){var G__43275 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"notes","notes",-1039600523)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43275) : re_frame.core.subscribe.call(null,G__43275));
+var notes = (function (){var G__37885 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"notes","notes",-1039600523)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37885) : re_frame.core.subscribe.call(null,G__37885));
 })();
-var started = (function (){var G__43276 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"play-start","play-start",-898241782)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43276) : re_frame.core.subscribe.call(null,G__43276));
+var started = (function (){var G__37887 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"play-start","play-start",-898241782)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37887) : re_frame.core.subscribe.call(null,G__37887));
 })();
-var tempo = (function (){var G__43277 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tempo","tempo",-1555208453)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43277) : re_frame.core.subscribe.call(null,G__43277));
+var tempo = (function (){var G__37888 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tempo","tempo",-1555208453)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37888) : re_frame.core.subscribe.call(null,G__37888));
 })();
-var section = cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p1__43273_SHARP_){
-return (((from <= new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__43273_SHARP_))) && ((new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__43273_SHARP_) <= to)));
+var section = cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p1__37883_SHARP_){
+return (((from <= new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__37883_SHARP_))) && ((new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__37883_SHARP_) <= to)));
 }),cljs.core.deref(notes));
-var advanced = cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__43274_SHARP_){
-return mecca.music.advance_note(from,p1__43274_SHARP_);
+var advanced = cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__37884_SHARP_){
+return mecca.music.advance_note(from,p1__37884_SHARP_);
 }),section);
-return cljs.core.doall.cljs$core$IFn$_invoke$arity$1((function (){var iter__4582__auto__ = (function mecca$music$queue_section_$_iter__43278(s__43279){
+return cljs.core.doall.cljs$core$IFn$_invoke$arity$1((function (){var iter__4582__auto__ = (function mecca$music$queue_section_$_iter__37889(s__37890){
 return (new cljs.core.LazySeq(null,(function (){
-var s__43279__$1 = s__43279;
+var s__37890__$1 = s__37890;
 while(true){
-var temp__5735__auto__ = cljs.core.seq(s__43279__$1);
+var temp__5735__auto__ = cljs.core.seq(s__37890__$1);
 if(temp__5735__auto__){
-var s__43279__$2 = temp__5735__auto__;
-if(cljs.core.chunked_seq_QMARK_(s__43279__$2)){
-var c__4580__auto__ = cljs.core.chunk_first(s__43279__$2);
+var s__37890__$2 = temp__5735__auto__;
+if(cljs.core.chunked_seq_QMARK_(s__37890__$2)){
+var c__4580__auto__ = cljs.core.chunk_first(s__37890__$2);
 var size__4581__auto__ = cljs.core.count(c__4580__auto__);
-var b__43281 = cljs.core.chunk_buffer(size__4581__auto__);
-if((function (){var i__43280 = (0);
+var b__37892 = cljs.core.chunk_buffer(size__4581__auto__);
+if((function (){var i__37891 = (0);
 while(true){
-if((i__43280 < size__4581__auto__)){
-var map__43282 = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4580__auto__,i__43280);
-var map__43282__$1 = (((((!((map__43282 == null))))?(((((map__43282.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__43282.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__43282):map__43282);
-var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43282__$1,new cljs.core.Keyword(null,"time","time",1385887882));
-var instrument = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43282__$1,new cljs.core.Keyword(null,"instrument","instrument",-960698844));
-var pitch = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43282__$1,new cljs.core.Keyword(null,"pitch","pitch",1495126700));
-cljs.core.chunk_append(b__43281,mecca.music.play_at(instrument,pitch,(cljs.core.deref(started) + (((60) / cljs.core.deref(tempo)) * time))));
+if((i__37891 < size__4581__auto__)){
+var map__37894 = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4580__auto__,i__37891);
+var map__37894__$1 = (((((!((map__37894 == null))))?(((((map__37894.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__37894.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__37894):map__37894);
+var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37894__$1,new cljs.core.Keyword(null,"time","time",1385887882));
+var instrument = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37894__$1,new cljs.core.Keyword(null,"instrument","instrument",-960698844));
+var pitch = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37894__$1,new cljs.core.Keyword(null,"pitch","pitch",1495126700));
+cljs.core.chunk_append(b__37892,mecca.music.play_at(instrument,pitch,(cljs.core.deref(started) + (((60) / cljs.core.deref(tempo)) * time))));
 
-var G__43543 = (i__43280 + (1));
-i__43280 = G__43543;
+var G__37955 = (i__37891 + (1));
+i__37891 = G__37955;
 continue;
 } else {
 return true;
@@ -712,17 +712,17 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons(cljs.core.chunk(b__43281),mecca$music$queue_section_$_iter__43278(cljs.core.chunk_rest(s__43279__$2)));
+return cljs.core.chunk_cons(cljs.core.chunk(b__37892),mecca$music$queue_section_$_iter__37889(cljs.core.chunk_rest(s__37890__$2)));
 } else {
-return cljs.core.chunk_cons(cljs.core.chunk(b__43281),null);
+return cljs.core.chunk_cons(cljs.core.chunk(b__37892),null);
 }
 } else {
-var map__43284 = cljs.core.first(s__43279__$2);
-var map__43284__$1 = (((((!((map__43284 == null))))?(((((map__43284.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__43284.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__43284):map__43284);
-var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43284__$1,new cljs.core.Keyword(null,"time","time",1385887882));
-var instrument = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43284__$1,new cljs.core.Keyword(null,"instrument","instrument",-960698844));
-var pitch = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43284__$1,new cljs.core.Keyword(null,"pitch","pitch",1495126700));
-return cljs.core.cons(mecca.music.play_at(instrument,pitch,(cljs.core.deref(started) + (((60) / cljs.core.deref(tempo)) * time))),mecca$music$queue_section_$_iter__43278(cljs.core.rest(s__43279__$2)));
+var map__37896 = cljs.core.first(s__37890__$2);
+var map__37896__$1 = (((((!((map__37896 == null))))?(((((map__37896.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__37896.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__37896):map__37896);
+var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37896__$1,new cljs.core.Keyword(null,"time","time",1385887882));
+var instrument = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37896__$1,new cljs.core.Keyword(null,"instrument","instrument",-960698844));
+var pitch = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37896__$1,new cljs.core.Keyword(null,"pitch","pitch",1495126700));
+return cljs.core.cons(mecca.music.play_at(instrument,pitch,(cljs.core.deref(started) + (((60) / cljs.core.deref(tempo)) * time))),mecca$music$queue_section_$_iter__37889(cljs.core.rest(s__37890__$2)));
 }
 } else {
 return null;
@@ -735,44 +735,44 @@ return iter__4582__auto__(section);
 })());
 });
 mecca.music.play_section = (function mecca$music$play_section(from,to){
-var notes = (function (){var G__43288 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"notes","notes",-1039600523)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43288) : re_frame.core.subscribe.call(null,G__43288));
+var notes = (function (){var G__37900 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"notes","notes",-1039600523)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37900) : re_frame.core.subscribe.call(null,G__37900));
 })();
-var now = cljs.core.deref((function (){var G__43289 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"audio-context","audio-context",1642559898)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43289) : re_frame.core.subscribe.call(null,G__43289));
+var now = cljs.core.deref((function (){var G__37901 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"audio-context","audio-context",1642559898)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37901) : re_frame.core.subscribe.call(null,G__37901));
 })()).currentTime;
-var tempo = (function (){var G__43290 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tempo","tempo",-1555208453)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43290) : re_frame.core.subscribe.call(null,G__43290));
+var tempo = (function (){var G__37902 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tempo","tempo",-1555208453)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37902) : re_frame.core.subscribe.call(null,G__37902));
 })();
-var section = cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p1__43286_SHARP_){
-return (((from <= new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__43286_SHARP_))) && ((new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__43286_SHARP_) <= to)));
+var section = cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p1__37898_SHARP_){
+return (((from <= new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__37898_SHARP_))) && ((new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__37898_SHARP_) <= to)));
 }),cljs.core.deref(notes));
-var advanced = cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__43287_SHARP_){
-return mecca.music.advance_note(from,p1__43287_SHARP_);
+var advanced = cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__37899_SHARP_){
+return mecca.music.advance_note(from,p1__37899_SHARP_);
 }),section);
-return cljs.core.doall.cljs$core$IFn$_invoke$arity$1((function (){var iter__4582__auto__ = (function mecca$music$play_section_$_iter__43291(s__43292){
+return cljs.core.doall.cljs$core$IFn$_invoke$arity$1((function (){var iter__4582__auto__ = (function mecca$music$play_section_$_iter__37903(s__37904){
 return (new cljs.core.LazySeq(null,(function (){
-var s__43292__$1 = s__43292;
+var s__37904__$1 = s__37904;
 while(true){
-var temp__5735__auto__ = cljs.core.seq(s__43292__$1);
+var temp__5735__auto__ = cljs.core.seq(s__37904__$1);
 if(temp__5735__auto__){
-var s__43292__$2 = temp__5735__auto__;
-if(cljs.core.chunked_seq_QMARK_(s__43292__$2)){
-var c__4580__auto__ = cljs.core.chunk_first(s__43292__$2);
+var s__37904__$2 = temp__5735__auto__;
+if(cljs.core.chunked_seq_QMARK_(s__37904__$2)){
+var c__4580__auto__ = cljs.core.chunk_first(s__37904__$2);
 var size__4581__auto__ = cljs.core.count(c__4580__auto__);
-var b__43294 = cljs.core.chunk_buffer(size__4581__auto__);
-if((function (){var i__43293 = (0);
+var b__37906 = cljs.core.chunk_buffer(size__4581__auto__);
+if((function (){var i__37905 = (0);
 while(true){
-if((i__43293 < size__4581__auto__)){
-var map__43295 = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4580__auto__,i__43293);
-var map__43295__$1 = (((((!((map__43295 == null))))?(((((map__43295.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__43295.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__43295):map__43295);
-var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43295__$1,new cljs.core.Keyword(null,"time","time",1385887882));
-var instrument = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43295__$1,new cljs.core.Keyword(null,"instrument","instrument",-960698844));
-var pitch = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43295__$1,new cljs.core.Keyword(null,"pitch","pitch",1495126700));
-cljs.core.chunk_append(b__43294,mecca.music.play_at(instrument,pitch,(now + (((60) / cljs.core.deref(tempo)) * time))));
+if((i__37905 < size__4581__auto__)){
+var map__37907 = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4580__auto__,i__37905);
+var map__37907__$1 = (((((!((map__37907 == null))))?(((((map__37907.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__37907.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__37907):map__37907);
+var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37907__$1,new cljs.core.Keyword(null,"time","time",1385887882));
+var instrument = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37907__$1,new cljs.core.Keyword(null,"instrument","instrument",-960698844));
+var pitch = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37907__$1,new cljs.core.Keyword(null,"pitch","pitch",1495126700));
+cljs.core.chunk_append(b__37906,mecca.music.play_at(instrument,pitch,(now + (((60) / cljs.core.deref(tempo)) * time))));
 
-var G__43545 = (i__43293 + (1));
-i__43293 = G__43545;
+var G__37956 = (i__37905 + (1));
+i__37905 = G__37956;
 continue;
 } else {
 return true;
@@ -780,17 +780,17 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons(cljs.core.chunk(b__43294),mecca$music$play_section_$_iter__43291(cljs.core.chunk_rest(s__43292__$2)));
+return cljs.core.chunk_cons(cljs.core.chunk(b__37906),mecca$music$play_section_$_iter__37903(cljs.core.chunk_rest(s__37904__$2)));
 } else {
-return cljs.core.chunk_cons(cljs.core.chunk(b__43294),null);
+return cljs.core.chunk_cons(cljs.core.chunk(b__37906),null);
 }
 } else {
-var map__43297 = cljs.core.first(s__43292__$2);
-var map__43297__$1 = (((((!((map__43297 == null))))?(((((map__43297.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__43297.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__43297):map__43297);
-var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43297__$1,new cljs.core.Keyword(null,"time","time",1385887882));
-var instrument = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43297__$1,new cljs.core.Keyword(null,"instrument","instrument",-960698844));
-var pitch = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43297__$1,new cljs.core.Keyword(null,"pitch","pitch",1495126700));
-return cljs.core.cons(mecca.music.play_at(instrument,pitch,(now + (((60) / cljs.core.deref(tempo)) * time))),mecca$music$play_section_$_iter__43291(cljs.core.rest(s__43292__$2)));
+var map__37909 = cljs.core.first(s__37904__$2);
+var map__37909__$1 = (((((!((map__37909 == null))))?(((((map__37909.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__37909.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__37909):map__37909);
+var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37909__$1,new cljs.core.Keyword(null,"time","time",1385887882));
+var instrument = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37909__$1,new cljs.core.Keyword(null,"instrument","instrument",-960698844));
+var pitch = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37909__$1,new cljs.core.Keyword(null,"pitch","pitch",1495126700));
+return cljs.core.cons(mecca.music.play_at(instrument,pitch,(now + (((60) / cljs.core.deref(tempo)) * time))),mecca$music$play_section_$_iter__37903(cljs.core.rest(s__37904__$2)));
 }
 } else {
 return null;
@@ -803,69 +803,69 @@ return iter__4582__auto__(advanced);
 })());
 });
 mecca.music.play_notes = (function mecca$music$play_notes(n){
-var editor_start = (function (){var G__43299 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"editor-beat-start","editor-beat-start",-334408415)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43299) : re_frame.core.subscribe.call(null,G__43299));
+var editor_start = (function (){var G__37911 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"editor-beat-start","editor-beat-start",-334408415)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37911) : re_frame.core.subscribe.call(null,G__37911));
 })();
-var tempo = (function (){var G__43300 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tempo","tempo",-1555208453)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43300) : re_frame.core.subscribe.call(null,G__43300));
+var tempo = (function (){var G__37912 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tempo","tempo",-1555208453)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37912) : re_frame.core.subscribe.call(null,G__37912));
 })();
-var beat_length = ((60) / cljs.core.deref((function (){var G__43301 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tempo","tempo",-1555208453)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43301) : re_frame.core.subscribe.call(null,G__43301));
+var beat_length = ((60) / cljs.core.deref((function (){var G__37913 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tempo","tempo",-1555208453)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37913) : re_frame.core.subscribe.call(null,G__37913));
 })()));
-var play_pos = (((cljs.core.deref(editor_start) < (4)))?cljs.core.deref(editor_start):((4) + cljs.core.deref((function (){var G__43302 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"editor-beat-start","editor-beat-start",-334408415)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43302) : re_frame.core.subscribe.call(null,G__43302));
+var play_pos = (((cljs.core.deref(editor_start) < (4)))?cljs.core.deref(editor_start):((4) + cljs.core.deref((function (){var G__37914 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"editor-beat-start","editor-beat-start",-334408415)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37914) : re_frame.core.subscribe.call(null,G__37914));
 })())));
 return mecca.music.play_section((play_pos - (1)),((play_pos - (1)) + (n * 0.5)));
 });
 mecca.music.play_from_here = (function mecca$music$play_from_here(){
-var notes = (function (){var G__43304 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"notes","notes",-1039600523)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43304) : re_frame.core.subscribe.call(null,G__43304));
+var notes = (function (){var G__37916 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"notes","notes",-1039600523)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37916) : re_frame.core.subscribe.call(null,G__37916));
 })();
-var editor_start = (function (){var G__43305 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"editor-beat-start","editor-beat-start",-334408415)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43305) : re_frame.core.subscribe.call(null,G__43305));
+var editor_start = (function (){var G__37917 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"editor-beat-start","editor-beat-start",-334408415)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37917) : re_frame.core.subscribe.call(null,G__37917));
 })();
 var play_pos = cljs.core.deref(editor_start);
-var length = cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.max,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__43303_SHARP_){
-return new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__43303_SHARP_);
+var length = cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.max,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__37915_SHARP_){
+return new cljs.core.Keyword(null,"time","time",1385887882).cljs$core$IFn$_invoke$arity$1(p1__37915_SHARP_);
 }),cljs.core.deref(notes)));
 return mecca.music.play_section((play_pos - (1)),((16) + play_pos));
 });
 mecca.music.play_song_BANG_ = (function mecca$music$play_song_BANG_(){
-var notes = (function (){var G__43306 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"notes","notes",-1039600523)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43306) : re_frame.core.subscribe.call(null,G__43306));
+var notes = (function (){var G__37918 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"notes","notes",-1039600523)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37918) : re_frame.core.subscribe.call(null,G__37918));
 })();
-var now = cljs.core.deref((function (){var G__43307 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"audio-context","audio-context",1642559898)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43307) : re_frame.core.subscribe.call(null,G__43307));
+var now = cljs.core.deref((function (){var G__37919 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"audio-context","audio-context",1642559898)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37919) : re_frame.core.subscribe.call(null,G__37919));
 })()).currentTime;
-var tempo = (function (){var G__43308 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tempo","tempo",-1555208453)], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__43308) : re_frame.core.subscribe.call(null,G__43308));
+var tempo = (function (){var G__37920 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tempo","tempo",-1555208453)], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__37920) : re_frame.core.subscribe.call(null,G__37920));
 })();
-var G__43309_43548 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"reset-position","reset-position",-804750860)], null);
-(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__43309_43548) : re_frame.core.dispatch.call(null,G__43309_43548));
+var G__37921_37957 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"reset-position","reset-position",-804750860)], null);
+(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__37921_37957) : re_frame.core.dispatch.call(null,G__37921_37957));
 
-return cljs.core.doall.cljs$core$IFn$_invoke$arity$1((function (){var iter__4582__auto__ = (function mecca$music$play_song_BANG__$_iter__43310(s__43311){
+return cljs.core.doall.cljs$core$IFn$_invoke$arity$1((function (){var iter__4582__auto__ = (function mecca$music$play_song_BANG__$_iter__37922(s__37923){
 return (new cljs.core.LazySeq(null,(function (){
-var s__43311__$1 = s__43311;
+var s__37923__$1 = s__37923;
 while(true){
-var temp__5735__auto__ = cljs.core.seq(s__43311__$1);
+var temp__5735__auto__ = cljs.core.seq(s__37923__$1);
 if(temp__5735__auto__){
-var s__43311__$2 = temp__5735__auto__;
-if(cljs.core.chunked_seq_QMARK_(s__43311__$2)){
-var c__4580__auto__ = cljs.core.chunk_first(s__43311__$2);
+var s__37923__$2 = temp__5735__auto__;
+if(cljs.core.chunked_seq_QMARK_(s__37923__$2)){
+var c__4580__auto__ = cljs.core.chunk_first(s__37923__$2);
 var size__4581__auto__ = cljs.core.count(c__4580__auto__);
-var b__43313 = cljs.core.chunk_buffer(size__4581__auto__);
-if((function (){var i__43312 = (0);
+var b__37925 = cljs.core.chunk_buffer(size__4581__auto__);
+if((function (){var i__37924 = (0);
 while(true){
-if((i__43312 < size__4581__auto__)){
-var map__43314 = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4580__auto__,i__43312);
-var map__43314__$1 = (((((!((map__43314 == null))))?(((((map__43314.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__43314.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__43314):map__43314);
-var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43314__$1,new cljs.core.Keyword(null,"time","time",1385887882));
-var instrument = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43314__$1,new cljs.core.Keyword(null,"instrument","instrument",-960698844));
-var pitch = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43314__$1,new cljs.core.Keyword(null,"pitch","pitch",1495126700));
-cljs.core.chunk_append(b__43313,mecca.music.play_at(instrument,pitch,(now + (((60) / cljs.core.deref(tempo)) * time))));
+if((i__37924 < size__4581__auto__)){
+var map__37926 = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4580__auto__,i__37924);
+var map__37926__$1 = (((((!((map__37926 == null))))?(((((map__37926.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__37926.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__37926):map__37926);
+var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37926__$1,new cljs.core.Keyword(null,"time","time",1385887882));
+var instrument = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37926__$1,new cljs.core.Keyword(null,"instrument","instrument",-960698844));
+var pitch = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37926__$1,new cljs.core.Keyword(null,"pitch","pitch",1495126700));
+cljs.core.chunk_append(b__37925,mecca.music.play_at(instrument,pitch,(now + (((60) / cljs.core.deref(tempo)) * time))));
 
-var G__43553 = (i__43312 + (1));
-i__43312 = G__43553;
+var G__37958 = (i__37924 + (1));
+i__37924 = G__37958;
 continue;
 } else {
 return true;
@@ -873,17 +873,17 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons(cljs.core.chunk(b__43313),mecca$music$play_song_BANG__$_iter__43310(cljs.core.chunk_rest(s__43311__$2)));
+return cljs.core.chunk_cons(cljs.core.chunk(b__37925),mecca$music$play_song_BANG__$_iter__37922(cljs.core.chunk_rest(s__37923__$2)));
 } else {
-return cljs.core.chunk_cons(cljs.core.chunk(b__43313),null);
+return cljs.core.chunk_cons(cljs.core.chunk(b__37925),null);
 }
 } else {
-var map__43316 = cljs.core.first(s__43311__$2);
-var map__43316__$1 = (((((!((map__43316 == null))))?(((((map__43316.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__43316.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__43316):map__43316);
-var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43316__$1,new cljs.core.Keyword(null,"time","time",1385887882));
-var instrument = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43316__$1,new cljs.core.Keyword(null,"instrument","instrument",-960698844));
-var pitch = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43316__$1,new cljs.core.Keyword(null,"pitch","pitch",1495126700));
-return cljs.core.cons(mecca.music.play_at(instrument,pitch,(now + (((60) / cljs.core.deref(tempo)) * time))),mecca$music$play_song_BANG__$_iter__43310(cljs.core.rest(s__43311__$2)));
+var map__37928 = cljs.core.first(s__37923__$2);
+var map__37928__$1 = (((((!((map__37928 == null))))?(((((map__37928.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__37928.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__37928):map__37928);
+var time = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37928__$1,new cljs.core.Keyword(null,"time","time",1385887882));
+var instrument = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37928__$1,new cljs.core.Keyword(null,"instrument","instrument",-960698844));
+var pitch = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__37928__$1,new cljs.core.Keyword(null,"pitch","pitch",1495126700));
+return cljs.core.cons(mecca.music.play_at(instrument,pitch,(now + (((60) / cljs.core.deref(tempo)) * time))),mecca$music$play_song_BANG__$_iter__37922(cljs.core.rest(s__37923__$2)));
 }
 } else {
 return null;

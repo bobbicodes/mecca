@@ -114,10 +114,10 @@
      [:rect#sampleframe
       {:stroke "black"
        :stroke-width 0.2
-       :fill "none"
-       :height 9.5 :width 20 :x 25 :y 4.25}]
-     [:path {:transform (str "scale(0.1), translate(250,-20)")
+       :fill "white"
+       :height 9 :width 20 :x 25 :y 4.5}]
+     [:path {:transform (str "scale(0.1), translate(250,-24)")
              :d (make-path (reverse (scale (map first trimmed) 0 64)))
-             :stroke       "black"
-             :stroke-width 0.5
+             :stroke       "blue"
+             :stroke-width 1
              :fill         "none"}]]))

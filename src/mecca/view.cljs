@@ -4,7 +4,8 @@
             [mecca.castle :as castle]
             [mecca.transport :as transport]
             [mecca.editor :as editor :refer [svg-paths]]
-            [mecca.mario :as mario]))
+            [mecca.mario :as mario]
+            [mecca.graph :as graph :refer [current-sample array-buff]]))
 
 (defn note-guides []
   (let [editor-x (subscribe [:editor-beat-start])]
@@ -133,6 +134,7 @@
 
 (defn editor []
   (let [editor-x (subscribe [:editor-beat-start])
+        sample-edit? (subscribe [:sample-edit?])
         mario-run (subscribe [:mario-run])]
     (fn []
       (when (= 20 @mario-run)
@@ -140,13 +142,17 @@
       [:svg {:width "100%"
              :view-box "0 0 64 36"
              :style {:cursor "url(/images/hand.png),pointer"}}
-       [mario/cloud 1 1]
+       [mario/cloud 1 1 0.1]
+       [svg-paths {:on-click #(dispatch [:sample-edit-toggle])} graph/wave-button 85 65 0.017]
+       
        [mario/hill 40]
        [castle/brick-face 363 18 6]
        [castle/brick-face 348 48 10]
        [mario/mario-sm]
        [editor/current-note-display 47 0 0.22]
        [editor/note-blocks]
+       (when @sample-edit?
+         [graph/graph @array-buff])
        [mario/floor-tile 16]
        [:rect#editorframe
           {:stroke "black"
@@ -170,7 +176,12 @@
           [editor/repeat-sign (+ 7 (* 6 @(subscribe [:loop-end]))) 8 0.13])]])))
 
 (defn mecca []
+  (let [sample-edit? (subscribe [:sample-edit?])]
   [:div
+   (when @sample-edit?
+     [:div
+      [graph/file-upload]])
+   
    [editor]
    [transport/transport 140 0 0.5]
-   [editor/toolbar 71 0]])
+   [editor/toolbar 71 0]]))

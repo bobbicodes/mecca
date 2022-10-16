@@ -40,7 +40,8 @@
     :mario-jump 0
     :mario-run 1
     :xml ""
-    :file-upload ""}))
+    :file-upload ""
+    :sample-edit? false}))
 
 (reg-event-db
  :remove-note
@@ -90,6 +91,11 @@
  :sharp-on
  (fn [db [_ _]]
    (assoc db :sharp? true)))
+
+(reg-event-db
+ :sample-edit-toggle
+ (fn [db [_ _]]
+   (update db :sample-edit? not)))
 
 (reg-event-db
  :sharp-toggle

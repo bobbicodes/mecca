@@ -117,6 +117,11 @@
    (:focused-note-pos db)))
 
 (rf/reg-sub
+ :sample-edit?
+ (fn [db _]
+   (:sample-edit? db)))
+
+(rf/reg-sub
  :notes
  (fn [db _]
    (:notes db)))

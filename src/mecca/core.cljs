@@ -10,9 +10,9 @@
 
 (rf/dispatch-sync [:initialize-db])
 
-(rf/dispatch-sync [::rp/add-keyboard-event-listener "keydown"])
+#_(rf/dispatch-sync [::rp/add-keyboard-event-listener "keydown"])
 
-(rf/dispatch
+#_(rf/dispatch
  [::rp/set-keydown-rules
   {:event-keys [[[:jump!] [{:keyCode 13}] [{:keyCode 32}]]
                 [[:play-note 48] [{:keyCode 90}]]

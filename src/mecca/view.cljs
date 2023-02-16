@@ -1,6 +1,7 @@
 (ns mecca.view
   (:require [mecca.music :as music]
             [re-frame.core :as rf :refer [subscribe dispatch]]
+            [reagent.core :as r]
             [mecca.castle :as castle]
             [mecca.transport :as transport]
             [mecca.editor :as editor :refer [svg-paths]]
@@ -171,9 +172,14 @@
         (when @(subscribe [:loop-end])
           [editor/repeat-sign (+ 7 (* 6 @(subscribe [:loop-end]))) 8 0.13])]])))
 
+(defonce points
+  (r/atom {:max [2 2]
+           :min [-2 -2]
+           :mid [nil nil]}))
+
 (defn mecca []
   [:div
    [editor]
-
+   [sci-editor/editor (str @points) !points {:eval? true}]
    [transport/transport 140 0 0.5]
    [editor/toolbar 71 0]])

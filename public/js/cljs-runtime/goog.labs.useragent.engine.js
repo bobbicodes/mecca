@@ -2,39 +2,21 @@ goog.provide("goog.labs.userAgent.engine");
 goog.require("goog.array");
 goog.require("goog.labs.userAgent.util");
 goog.require("goog.string");
-/**
- * @return {boolean}
- */
 goog.labs.userAgent.engine.isPresto = function() {
   return goog.labs.userAgent.util.matchUserAgent("Presto");
 };
-/**
- * @return {boolean}
- */
 goog.labs.userAgent.engine.isTrident = function() {
   return goog.labs.userAgent.util.matchUserAgent("Trident") || goog.labs.userAgent.util.matchUserAgent("MSIE");
 };
-/**
- * @return {boolean}
- */
 goog.labs.userAgent.engine.isEdge = function() {
   return goog.labs.userAgent.util.matchUserAgent("Edge");
 };
-/**
- * @return {boolean}
- */
 goog.labs.userAgent.engine.isWebKit = function() {
   return goog.labs.userAgent.util.matchUserAgentIgnoreCase("WebKit") && !goog.labs.userAgent.engine.isEdge();
 };
-/**
- * @return {boolean}
- */
 goog.labs.userAgent.engine.isGecko = function() {
   return goog.labs.userAgent.util.matchUserAgent("Gecko") && !goog.labs.userAgent.engine.isWebKit() && !goog.labs.userAgent.engine.isTrident() && !goog.labs.userAgent.engine.isEdge();
 };
-/**
- * @return {string}
- */
 goog.labs.userAgent.engine.getVersion = function() {
   var userAgentString = goog.labs.userAgent.util.getUserAgent();
   if (userAgentString) {
@@ -57,11 +39,6 @@ goog.labs.userAgent.engine.getVersion = function() {
   }
   return "";
 };
-/**
- * @private
- * @param {!Array<!Array<string>>} tuples
- * @return {(!Array<string>|undefined)}
- */
 goog.labs.userAgent.engine.getEngineTuple_ = function(tuples) {
   if (!goog.labs.userAgent.engine.isEdge()) {
     return tuples[1];
@@ -73,19 +50,9 @@ goog.labs.userAgent.engine.getEngineTuple_ = function(tuples) {
     }
   }
 };
-/**
- * @param {(string|number)} version
- * @return {boolean}
- */
 goog.labs.userAgent.engine.isVersionOrHigher = function(version) {
   return goog.string.compareVersions(goog.labs.userAgent.engine.getVersion(), version) >= 0;
 };
-/**
- * @private
- * @param {!Array<!Array<string>>} tuples
- * @param {string} key
- * @return {string}
- */
 goog.labs.userAgent.engine.getVersionForKey_ = function(tuples, key) {
   var pair = goog.array.find(tuples, function(pair) {
     return key == pair[0];

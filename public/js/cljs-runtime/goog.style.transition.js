@@ -10,14 +10,9 @@ goog.require("goog.functions");
 goog.require("goog.html.SafeHtml");
 goog.require("goog.style");
 goog.require("goog.userAgent");
-/** @typedef {({property:string,duration:number,timing:string,delay:number}|string)} */ goog.style.transition.Css3Property;
-/**
- * @param {Element} element
- * @param {(goog.style.transition.Css3Property|Array<goog.style.transition.Css3Property>)} properties
- * @suppress {strictMissingProperties}
- */
+goog.style.transition.Css3Property;
 goog.style.transition.set = function(element, properties) {
-  if (!goog.isArray(properties)) {
+  if (!Array.isArray(properties)) {
     properties = [properties];
   }
   goog.asserts.assert(properties.length > 0, "At least one Css3Property should be specified.");
@@ -33,15 +28,9 @@ goog.style.transition.set = function(element, properties) {
   });
   goog.style.transition.setPropertyValue_(element, values.join(","));
 };
-/**
- * @param {Element} element
- */
 goog.style.transition.removeAll = function(element) {
   goog.style.transition.setPropertyValue_(element, "");
 };
-/**
- * @return {boolean}
- */
 goog.style.transition.isSupported = goog.functions.cacheReturnValue(function() {
   if (goog.userAgent.IE) {
     return goog.userAgent.isVersionOrHigher("10.0");
@@ -54,15 +43,10 @@ goog.style.transition.isSupported = goog.functions.cacheReturnValue(function() {
     style[vendorPrefix + "-transition"] = transition;
   }
   goog.dom.safe.setInnerHtml(el, goog.html.SafeHtml.create("div", {"style":style}));
-  var testElement = /** @type {Element} */ (el.firstChild);
+  var testElement = el.firstChild;
   goog.asserts.assert(testElement.nodeType == Node.ELEMENT_NODE);
   return goog.style.getStyle(testElement, "transition") != "";
 });
-/**
- * @private
- * @param {Element} element
- * @param {string} transitionValue
- */
 goog.style.transition.setPropertyValue_ = function(element, transitionValue) {
   goog.style.setStyle(element, "transition", transitionValue);
 };

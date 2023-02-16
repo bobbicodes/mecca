@@ -2,6 +2,7 @@
                       :modules    {:main {:init-fn mecca.core/init}}
                       :output-dir "public/js"
                       :target     :browser}}
+ :deps         true
  :dependencies [[org.clojure/core.async "0.4.500"]
                 [re-frame "0.10.8"]
                 [day8.re-frame/undo "0.3.3"]

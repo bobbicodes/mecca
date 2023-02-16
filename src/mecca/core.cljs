@@ -1,6 +1,7 @@
 (ns mecca.core
   (:require
    [reagent.core :as r]
+   [reagent.dom :as rdom]
    [re-frame.core :as rf]
    [re-pressed.core :as rp]
    [mecca.events]
@@ -51,7 +52,7 @@
 
 (defn ^:dev/after-load start []
   (rf/clear-subscription-cache!)
-  (r/render [view/mecca]
+  (rdom/render [view/mecca]
             (.getElementById js/document "app")))
 
 (defn ^:export init []

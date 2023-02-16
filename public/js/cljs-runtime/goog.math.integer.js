@@ -1,14 +1,7 @@
 goog.provide("goog.math.Integer");
 goog.require("goog.reflect");
-/**
- * @final
- * @struct
- * @constructor
- * @param {Array<number>} bits
- * @param {number} sign
- */
 goog.math.Integer = function(bits, sign) {
-  /** @private @type {number} */ this.sign_ = sign;
+  this.sign_ = sign;
   var localBits = [];
   var top = true;
   for (var i = bits.length - 1; i >= 0; i--) {
@@ -18,13 +11,9 @@ goog.math.Integer = function(bits, sign) {
       top = false;
     }
   }
-  /** @private @const @type {!Array<number>} */ this.bits_ = localBits;
+  this.bits_ = localBits;
 };
-/** @private @type {!Object<number,!goog.math.Integer>} */ goog.math.Integer.IntCache_ = {};
-/**
- * @param {number} value
- * @return {!goog.math.Integer}
- */
+goog.math.Integer.IntCache_ = {};
 goog.math.Integer.fromInt = function(value) {
   if (-128 <= value && value < 128) {
     return goog.reflect.cache(goog.math.Integer.IntCache_, value, function(val) {
@@ -33,10 +22,6 @@ goog.math.Integer.fromInt = function(value) {
   }
   return new goog.math.Integer([value | 0], value < 0 ? -1 : 0);
 };
-/**
- * @param {number} value
- * @return {!goog.math.Integer}
- */
 goog.math.Integer.fromNumber = function(value) {
   if (isNaN(value) || !isFinite(value)) {
     return goog.math.Integer.ZERO;
@@ -54,19 +39,10 @@ goog.math.Integer.fromNumber = function(value) {
     }
   }
 };
-/**
- * @param {Array<number>} bits
- * @return {!goog.math.Integer}
- */
 goog.math.Integer.fromBits = function(bits) {
   var high = bits[bits.length - 1];
   return new goog.math.Integer(bits, high & 1 << 31 ? -1 : 0);
 };
-/**
- * @param {string} str
- * @param {number=} opt_radix
- * @return {!goog.math.Integer}
- */
 goog.math.Integer.fromString = function(str, opt_radix) {
   if (str.length == 0) {
     throw new Error("number format error: empty string");
@@ -97,19 +73,13 @@ goog.math.Integer.fromString = function(str, opt_radix) {
   }
   return result;
 };
-/** @private @type {number} */ goog.math.Integer.TWO_PWR_32_DBL_ = (1 << 16) * (1 << 16);
-/** @type {!goog.math.Integer} */ goog.math.Integer.ZERO = goog.math.Integer.fromInt(0);
-/** @type {!goog.math.Integer} */ goog.math.Integer.ONE = goog.math.Integer.fromInt(1);
-/** @private @const @type {!goog.math.Integer} */ goog.math.Integer.TWO_PWR_24_ = goog.math.Integer.fromInt(1 << 24);
-/**
- * @return {number}
- */
+goog.math.Integer.TWO_PWR_32_DBL_ = (1 << 16) * (1 << 16);
+goog.math.Integer.ZERO = goog.math.Integer.fromInt(0);
+goog.math.Integer.ONE = goog.math.Integer.fromInt(1);
+goog.math.Integer.TWO_PWR_24_ = goog.math.Integer.fromInt(1 << 24);
 goog.math.Integer.prototype.toInt = function() {
   return this.bits_.length > 0 ? this.bits_[0] : this.sign_;
 };
-/**
- * @return {number}
- */
 goog.math.Integer.prototype.toNumber = function() {
   if (this.isNegative()) {
     return -this.negate().toNumber();
@@ -123,11 +93,6 @@ goog.math.Integer.prototype.toNumber = function() {
     return val;
   }
 };
-/**
- * @param {number=} opt_radix
- * @return {string}
- * @override
- */
 goog.math.Integer.prototype.toString = function(opt_radix) {
   var radix = opt_radix || 10;
   if (radix < 2 || 36 < radix) {
@@ -158,10 +123,6 @@ goog.math.Integer.prototype.toString = function(opt_radix) {
     }
   }
 };
-/**
- * @param {number} index
- * @return {number}
- */
 goog.math.Integer.prototype.getBits = function(index) {
   if (index < 0) {
     return 0;
@@ -173,23 +134,13 @@ goog.math.Integer.prototype.getBits = function(index) {
     }
   }
 };
-/**
- * @param {number} index
- * @return {number}
- */
 goog.math.Integer.prototype.getBitsUnsigned = function(index) {
   var val = this.getBits(index);
   return val >= 0 ? val : goog.math.Integer.TWO_PWR_32_DBL_ + val;
 };
-/**
- * @return {number}
- */
 goog.math.Integer.prototype.getSign = function() {
   return this.sign_;
 };
-/**
- * @return {boolean}
- */
 goog.math.Integer.prototype.isZero = function() {
   if (this.sign_ != 0) {
     return false;
@@ -201,22 +152,12 @@ goog.math.Integer.prototype.isZero = function() {
   }
   return true;
 };
-/**
- * @return {boolean}
- */
 goog.math.Integer.prototype.isNegative = function() {
   return this.sign_ == -1;
 };
-/**
- * @return {boolean}
- */
 goog.math.Integer.prototype.isOdd = function() {
   return this.bits_.length == 0 && this.sign_ == -1 || this.bits_.length > 0 && (this.bits_[0] & 1) != 0;
 };
-/**
- * @param {goog.math.Integer} other
- * @return {boolean}
- */
 goog.math.Integer.prototype.equals = function(other) {
   if (this.sign_ != other.sign_) {
     return false;
@@ -229,45 +170,21 @@ goog.math.Integer.prototype.equals = function(other) {
   }
   return true;
 };
-/**
- * @param {goog.math.Integer} other
- * @return {boolean}
- */
 goog.math.Integer.prototype.notEquals = function(other) {
   return !this.equals(other);
 };
-/**
- * @param {goog.math.Integer} other
- * @return {boolean}
- */
 goog.math.Integer.prototype.greaterThan = function(other) {
   return this.compare(other) > 0;
 };
-/**
- * @param {goog.math.Integer} other
- * @return {boolean}
- */
 goog.math.Integer.prototype.greaterThanOrEqual = function(other) {
   return this.compare(other) >= 0;
 };
-/**
- * @param {goog.math.Integer} other
- * @return {boolean}
- */
 goog.math.Integer.prototype.lessThan = function(other) {
   return this.compare(other) < 0;
 };
-/**
- * @param {goog.math.Integer} other
- * @return {boolean}
- */
 goog.math.Integer.prototype.lessThanOrEqual = function(other) {
   return this.compare(other) <= 0;
 };
-/**
- * @param {goog.math.Integer} other
- * @return {number}
- */
 goog.math.Integer.prototype.compare = function(other) {
   var diff = this.subtract(other);
   if (diff.isNegative()) {
@@ -280,10 +197,6 @@ goog.math.Integer.prototype.compare = function(other) {
     }
   }
 };
-/**
- * @param {number} numBits
- * @return {!goog.math.Integer}
- */
 goog.math.Integer.prototype.shorten = function(numBits) {
   var arr_index = numBits - 1 >> 5;
   var bit_index = (numBits - 1) % 32;
@@ -302,22 +215,12 @@ goog.math.Integer.prototype.shorten = function(numBits) {
     return new goog.math.Integer(bits, 0);
   }
 };
-/**
- * @return {!goog.math.Integer}
- */
 goog.math.Integer.prototype.negate = function() {
   return this.not().add(goog.math.Integer.ONE);
 };
-/**
- * @return {!goog.math.Integer}
- */
 goog.math.Integer.prototype.abs = function() {
   return this.isNegative() ? this.negate() : this;
 };
-/**
- * @param {goog.math.Integer} other
- * @return {!goog.math.Integer}
- */
 goog.math.Integer.prototype.add = function(other) {
   var len = Math.max(this.bits_.length, other.bits_.length);
   var arr = [];
@@ -336,17 +239,9 @@ goog.math.Integer.prototype.add = function(other) {
   }
   return goog.math.Integer.fromBits(arr);
 };
-/**
- * @param {goog.math.Integer} other
- * @return {!goog.math.Integer}
- */
 goog.math.Integer.prototype.subtract = function(other) {
   return this.add(other.negate());
 };
-/**
- * @param {goog.math.Integer} other
- * @return {!goog.math.Integer}
- */
 goog.math.Integer.prototype.multiply = function(other) {
   if (this.isZero()) {
     return goog.math.Integer.ZERO;
@@ -398,11 +293,6 @@ goog.math.Integer.prototype.multiply = function(other) {
   }
   return new goog.math.Integer(arr, 0);
 };
-/**
- * @private
- * @param {Array<number>} bits
- * @param {number} index
- */
 goog.math.Integer.carry16_ = function(bits, index) {
   while ((bits[index] & 65535) != bits[index]) {
     bits[index + 1] += bits[index] >>> 16;
@@ -410,11 +300,6 @@ goog.math.Integer.carry16_ = function(bits, index) {
     index++;
   }
 };
-/**
- * @private
- * @param {!goog.math.Integer} other
- * @return {!goog.math.Integer.DivisionResult}
- */
 goog.math.Integer.prototype.slowDivide_ = function(other) {
   if (this.isNegative() || other.isNegative()) {
     throw new Error("slowDivide_ only works with positive integers.");
@@ -442,28 +327,13 @@ goog.math.Integer.prototype.slowDivide_ = function(other) {
   var remainder = this.subtract(res.multiply(other));
   return new goog.math.Integer.DivisionResult(res, remainder);
 };
-/**
- * @param {!goog.math.Integer} other
- * @return {!goog.math.Integer}
- */
 goog.math.Integer.prototype.divide = function(other) {
   return this.divideAndRemainder(other).quotient;
 };
-/**
- * @final
- * @struct
- * @constructor
- * @param {!goog.math.Integer} quotient
- * @param {!goog.math.Integer} remainder
- */
 goog.math.Integer.DivisionResult = function(quotient, remainder) {
-  /** @const */ this.quotient = quotient;
-  /** @const */ this.remainder = remainder;
+  this.quotient = quotient;
+  this.remainder = remainder;
 };
-/**
- * @param {!goog.math.Integer} other
- * @return {!goog.math.Integer.DivisionResult}
- */
 goog.math.Integer.prototype.divideAndRemainder = function(other) {
   if (other.isZero()) {
     throw new Error("division by zero");
@@ -505,16 +375,9 @@ goog.math.Integer.prototype.divideAndRemainder = function(other) {
   }
   return new goog.math.Integer.DivisionResult(res, rem);
 };
-/**
- * @param {!goog.math.Integer} other
- * @return {!goog.math.Integer}
- */
 goog.math.Integer.prototype.modulo = function(other) {
   return this.divideAndRemainder(other).remainder;
 };
-/**
- * @return {!goog.math.Integer}
- */
 goog.math.Integer.prototype.not = function() {
   var len = this.bits_.length;
   var arr = [];
@@ -523,10 +386,6 @@ goog.math.Integer.prototype.not = function() {
   }
   return new goog.math.Integer(arr, ~this.sign_);
 };
-/**
- * @param {goog.math.Integer} other
- * @return {!goog.math.Integer}
- */
 goog.math.Integer.prototype.and = function(other) {
   var len = Math.max(this.bits_.length, other.bits_.length);
   var arr = [];
@@ -535,10 +394,6 @@ goog.math.Integer.prototype.and = function(other) {
   }
   return new goog.math.Integer(arr, this.sign_ & other.sign_);
 };
-/**
- * @param {goog.math.Integer} other
- * @return {!goog.math.Integer}
- */
 goog.math.Integer.prototype.or = function(other) {
   var len = Math.max(this.bits_.length, other.bits_.length);
   var arr = [];
@@ -547,10 +402,6 @@ goog.math.Integer.prototype.or = function(other) {
   }
   return new goog.math.Integer(arr, this.sign_ | other.sign_);
 };
-/**
- * @param {goog.math.Integer} other
- * @return {!goog.math.Integer}
- */
 goog.math.Integer.prototype.xor = function(other) {
   var len = Math.max(this.bits_.length, other.bits_.length);
   var arr = [];
@@ -559,10 +410,6 @@ goog.math.Integer.prototype.xor = function(other) {
   }
   return new goog.math.Integer(arr, this.sign_ ^ other.sign_);
 };
-/**
- * @param {number} numBits
- * @return {!goog.math.Integer}
- */
 goog.math.Integer.prototype.shiftLeft = function(numBits) {
   var arr_delta = numBits >> 5;
   var bit_delta = numBits % 32;
@@ -577,10 +424,6 @@ goog.math.Integer.prototype.shiftLeft = function(numBits) {
   }
   return new goog.math.Integer(arr, this.sign_);
 };
-/**
- * @param {number} numBits
- * @return {!goog.math.Integer}
- */
 goog.math.Integer.prototype.shiftRight = function(numBits) {
   var arr_delta = numBits >> 5;
   var bit_delta = numBits % 32;

@@ -1,14 +1,11 @@
 goog.provide("shadow.js");
-/** @dict */ shadow.js.files = {};
-/** @dict */ shadow.js.nativeRequires = {};
-/** @define {string} */ shadow.js.NODE_ENV = goog.define("shadow.js.NODE_ENV", "development");
+shadow.js.files = {};
+shadow.js.nativeRequires = {};
+shadow.js.NODE_ENV = goog.define("shadow.js.NODE_ENV", "development");
 shadow.js.requireStack = [];
 shadow.js.add_native_require = function(name, obj) {
   shadow.js.nativeRequires[name] = obj;
 };
-/**
- * @return {ShadowJS}
- */
 shadow.js.jsRequire = function(name, opts) {
   var nativeObj = shadow.js.nativeRequires[name];
   if (nativeObj !== undefined) {
@@ -53,7 +50,11 @@ shadow.js.jsRequire = function(name, opts) {
   }
   return module["exports"];
 };
-/** @dict */ shadow.js.modules = {};
+shadow.js.jsRequire.cache = {};
+shadow.js.jsRequire.resolve = function(name) {
+  return name;
+};
+shadow.js.modules = {};
 shadow.js.require = function(name, opts) {
   return shadow.js.jsRequire(name, opts);
 };

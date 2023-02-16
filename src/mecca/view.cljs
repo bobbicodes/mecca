@@ -177,11 +177,16 @@
         (when @(subscribe [:loop-end])
           [editor/repeat-sign (+ 7 (* 6 @(subscribe [:loop-end]))) 8 0.13])]])))
 
-
+(defn eval-all [s]
+  (try (sci/eval-string s {:classes {'js goog/global :allow :all}})
+       (catch :default e
+         (str e))))
 
 (defn mecca []
   [:div
    [editor]
    [sci-editor/editor (str @points) !points {:eval? true}]
+   [:button {:on-click #(dispatch [:set-notes (eval-all (str (some-> @!points .-state .-doc str)))])}
+"Eval"]
    [transport/transport 140 0 0.5]
    [editor/toolbar 71 0]])

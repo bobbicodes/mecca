@@ -7,61 +7,47 @@ goog.require("goog.events.Event");
 goog.require("goog.events.EventType");
 goog.require("goog.reflect");
 goog.require("goog.userAgent");
-/** @define {boolean} */ goog.events.USE_LAYER_XY_AS_OFFSET_XY = goog.define("goog.events.USE_LAYER_XY_AS_OFFSET_XY", false);
-/**
- * @constructor
- * @extends {goog.events.Event}
- * @param {Event=} opt_e
- * @param {EventTarget=} opt_currentTarget
- */
+goog.events.USE_LAYER_XY_AS_OFFSET_XY = goog.define("goog.events.USE_LAYER_XY_AS_OFFSET_XY", false);
 goog.events.BrowserEvent = function(opt_e, opt_currentTarget) {
   goog.events.BrowserEvent.base(this, "constructor", opt_e ? opt_e.type : "");
-  /** @override @type {?Node} */ this.target = null;
-  /** @override @type {(?Node|undefined)} */ this.currentTarget = null;
-  /** @type {?Node} */ this.relatedTarget = null;
-  /** @type {number} */ this.offsetX = 0;
-  /** @type {number} */ this.offsetY = 0;
-  /** @type {number} */ this.clientX = 0;
-  /** @type {number} */ this.clientY = 0;
-  /** @type {number} */ this.screenX = 0;
-  /** @type {number} */ this.screenY = 0;
-  /** @type {number} */ this.button = 0;
-  /** @type {string} */ this.key = "";
-  /** @type {number} */ this.keyCode = 0;
-  /** @type {number} */ this.charCode = 0;
-  /** @type {boolean} */ this.ctrlKey = false;
-  /** @type {boolean} */ this.altKey = false;
-  /** @type {boolean} */ this.shiftKey = false;
-  /** @type {boolean} */ this.metaKey = false;
-  /** @type {?Object} */ this.state = null;
-  /** @type {boolean} */ this.platformModifierKey = false;
-  /** @type {number} */ this.pointerId = 0;
-  /** @type {string} */ this.pointerType = "";
-  /** @private @type {?Event} */ this.event_ = null;
+  this.target = null;
+  this.currentTarget = null;
+  this.relatedTarget = null;
+  this.offsetX = 0;
+  this.offsetY = 0;
+  this.clientX = 0;
+  this.clientY = 0;
+  this.screenX = 0;
+  this.screenY = 0;
+  this.button = 0;
+  this.key = "";
+  this.keyCode = 0;
+  this.charCode = 0;
+  this.ctrlKey = false;
+  this.altKey = false;
+  this.shiftKey = false;
+  this.metaKey = false;
+  this.state = null;
+  this.platformModifierKey = false;
+  this.pointerId = 0;
+  this.pointerType = "";
+  this.event_ = null;
   if (opt_e) {
     this.init(opt_e, opt_currentTarget);
   }
 };
 goog.inherits(goog.events.BrowserEvent, goog.events.Event);
-/** @enum {number} */ goog.events.BrowserEvent.MouseButton = {LEFT:0, MIDDLE:1, RIGHT:2};
-/** @enum {string} */ goog.events.BrowserEvent.PointerType = {MOUSE:"mouse", PEN:"pen", TOUCH:"touch"};
-/**
- * @type {!Array<number>}
- * @deprecated Use `goog.events.BrowserEvent.IE_BUTTON_MAP` instead.
- */
+goog.events.BrowserEvent.MouseButton = {LEFT:0, MIDDLE:1, RIGHT:2};
+goog.events.BrowserEvent.PointerType = {MOUSE:"mouse", PEN:"pen", TOUCH:"touch"};
 goog.events.BrowserEvent.IEButtonMap = goog.debug.freeze([1, 4, 2]);
-/** @const @type {!Array<number>} */ goog.events.BrowserEvent.IE_BUTTON_MAP = goog.events.BrowserEvent.IEButtonMap;
-/** @const @type {!Object<number,goog.events.BrowserEvent.PointerType>} */ goog.events.BrowserEvent.IE_POINTER_TYPE_MAP = goog.debug.freeze({2:goog.events.BrowserEvent.PointerType.TOUCH, 3:goog.events.BrowserEvent.PointerType.PEN, 4:goog.events.BrowserEvent.PointerType.MOUSE});
-/**
- * @param {Event} e
- * @param {EventTarget=} opt_currentTarget
- */
+goog.events.BrowserEvent.IE_BUTTON_MAP = goog.events.BrowserEvent.IEButtonMap;
+goog.events.BrowserEvent.IE_POINTER_TYPE_MAP = goog.debug.freeze({2:goog.events.BrowserEvent.PointerType.TOUCH, 3:goog.events.BrowserEvent.PointerType.PEN, 4:goog.events.BrowserEvent.PointerType.MOUSE});
 goog.events.BrowserEvent.prototype.init = function(e, opt_currentTarget) {
   var type = this.type = e.type;
-  /** @type {?Touch} */ var relevantTouch = e.changedTouches && e.changedTouches.length ? e.changedTouches[0] : null;
-  this.target = /** @type {Node} */ (e.target) || e.srcElement;
-  this.currentTarget = /** @type {Node} */ (opt_currentTarget);
-  var relatedTarget = /** @type {Node} */ (e.relatedTarget);
+  var relevantTouch = e.changedTouches && e.changedTouches.length ? e.changedTouches[0] : null;
+  this.target = e.target || e.srcElement;
+  this.currentTarget = opt_currentTarget;
+  var relatedTarget = e.relatedTarget;
   if (relatedTarget) {
     if (goog.userAgent.GECKO) {
       if (!goog.reflect.canAccessProperty(relatedTarget, "nodeName")) {
@@ -113,10 +99,6 @@ goog.events.BrowserEvent.prototype.init = function(e, opt_currentTarget) {
     this.preventDefault();
   }
 };
-/**
- * @param {goog.events.BrowserEvent.MouseButton} button
- * @return {boolean}
- */
 goog.events.BrowserEvent.prototype.isButton = function(button) {
   if (!goog.events.BrowserFeature.HAS_W3C_BUTTON) {
     if (this.type == "click") {
@@ -128,13 +110,10 @@ goog.events.BrowserEvent.prototype.isButton = function(button) {
     return this.event_.button == button;
   }
 };
-/**
- * @return {boolean}
- */
 goog.events.BrowserEvent.prototype.isMouseActionButton = function() {
-  return this.isButton(goog.events.BrowserEvent.MouseButton.LEFT) && !(goog.userAgent.WEBKIT && goog.userAgent.MAC && this.ctrlKey);
+  return this.isButton(goog.events.BrowserEvent.MouseButton.LEFT) && !(goog.userAgent.MAC && this.ctrlKey);
 };
-/** @override */ goog.events.BrowserEvent.prototype.stopPropagation = function() {
+goog.events.BrowserEvent.prototype.stopPropagation = function() {
   goog.events.BrowserEvent.superClass_.stopPropagation.call(this);
   if (this.event_.stopPropagation) {
     this.event_.stopPropagation();
@@ -142,7 +121,7 @@ goog.events.BrowserEvent.prototype.isMouseActionButton = function() {
     this.event_.cancelBubble = true;
   }
 };
-/** @override */ goog.events.BrowserEvent.prototype.preventDefault = function() {
+goog.events.BrowserEvent.prototype.preventDefault = function() {
   goog.events.BrowserEvent.superClass_.preventDefault.call(this);
   var be = this.event_;
   if (!be.preventDefault) {
@@ -161,17 +140,9 @@ goog.events.BrowserEvent.prototype.isMouseActionButton = function() {
     be.preventDefault();
   }
 };
-/**
- * @return {Event}
- */
 goog.events.BrowserEvent.prototype.getBrowserEvent = function() {
   return this.event_;
 };
-/**
- * @private
- * @param {!Event} e
- * @return {string}
- */
 goog.events.BrowserEvent.getPointerType_ = function(e) {
   if (typeof e.pointerType === "string") {
     return e.pointerType;

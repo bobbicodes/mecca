@@ -1,9 +1,5 @@
 goog.provide("goog.dom.asserts");
 goog.require("goog.asserts");
-/**
- * @param {?Object} o
- * @return {!Location}
- */
 goog.dom.asserts.assertIsLocation = function(o) {
   if (goog.asserts.ENABLE_ASSERTS) {
     var win = goog.dom.asserts.getWindow_(o);
@@ -13,14 +9,8 @@ goog.dom.asserts.assertIsLocation = function(o) {
       }
     }
   }
-  return (/** @type {!Location} */ (o));
+  return o;
 };
-/**
- * @private
- * @param {?Object} o
- * @param {string} typename
- * @return {!Element}
- */
 goog.dom.asserts.assertIsElementType_ = function(o, typename) {
   if (goog.asserts.ENABLE_ASSERTS) {
     var win = goog.dom.asserts.getWindow_(o);
@@ -30,118 +20,53 @@ goog.dom.asserts.assertIsElementType_ = function(o, typename) {
       }
     }
   }
-  return (/** @type {!Element} */ (o));
+  return o;
 };
-/**
- * @param {?Object} o
- * @return {!HTMLAnchorElement}
- */
 goog.dom.asserts.assertIsHTMLAnchorElement = function(o) {
-  return (/** @type {!HTMLAnchorElement} */ (goog.dom.asserts.assertIsElementType_(o, "HTMLAnchorElement")));
+  return goog.dom.asserts.assertIsElementType_(o, "HTMLAnchorElement");
 };
-/**
- * @param {?Object} o
- * @return {!HTMLButtonElement}
- */
 goog.dom.asserts.assertIsHTMLButtonElement = function(o) {
-  return (/** @type {!HTMLButtonElement} */ (goog.dom.asserts.assertIsElementType_(o, "HTMLButtonElement")));
+  return goog.dom.asserts.assertIsElementType_(o, "HTMLButtonElement");
 };
-/**
- * @param {?Object} o
- * @return {!HTMLLinkElement}
- */
 goog.dom.asserts.assertIsHTMLLinkElement = function(o) {
-  return (/** @type {!HTMLLinkElement} */ (goog.dom.asserts.assertIsElementType_(o, "HTMLLinkElement")));
+  return goog.dom.asserts.assertIsElementType_(o, "HTMLLinkElement");
 };
-/**
- * @param {?Object} o
- * @return {!HTMLImageElement}
- */
 goog.dom.asserts.assertIsHTMLImageElement = function(o) {
-  return (/** @type {!HTMLImageElement} */ (goog.dom.asserts.assertIsElementType_(o, "HTMLImageElement")));
+  return goog.dom.asserts.assertIsElementType_(o, "HTMLImageElement");
 };
-/**
- * @param {?Object} o
- * @return {!HTMLAudioElement}
- */
 goog.dom.asserts.assertIsHTMLAudioElement = function(o) {
-  return (/** @type {!HTMLAudioElement} */ (goog.dom.asserts.assertIsElementType_(o, "HTMLAudioElement")));
+  return goog.dom.asserts.assertIsElementType_(o, "HTMLAudioElement");
 };
-/**
- * @param {?Object} o
- * @return {!HTMLVideoElement}
- */
 goog.dom.asserts.assertIsHTMLVideoElement = function(o) {
-  return (/** @type {!HTMLVideoElement} */ (goog.dom.asserts.assertIsElementType_(o, "HTMLVideoElement")));
+  return goog.dom.asserts.assertIsElementType_(o, "HTMLVideoElement");
 };
-/**
- * @param {?Object} o
- * @return {!HTMLInputElement}
- */
 goog.dom.asserts.assertIsHTMLInputElement = function(o) {
-  return (/** @type {!HTMLInputElement} */ (goog.dom.asserts.assertIsElementType_(o, "HTMLInputElement")));
+  return goog.dom.asserts.assertIsElementType_(o, "HTMLInputElement");
 };
-/**
- * @param {?Object} o
- * @return {!HTMLTextAreaElement}
- */
 goog.dom.asserts.assertIsHTMLTextAreaElement = function(o) {
-  return (/** @type {!HTMLTextAreaElement} */ (goog.dom.asserts.assertIsElementType_(o, "HTMLTextAreaElement")));
+  return goog.dom.asserts.assertIsElementType_(o, "HTMLTextAreaElement");
 };
-/**
- * @param {?Object} o
- * @return {!HTMLCanvasElement}
- */
 goog.dom.asserts.assertIsHTMLCanvasElement = function(o) {
-  return (/** @type {!HTMLCanvasElement} */ (goog.dom.asserts.assertIsElementType_(o, "HTMLCanvasElement")));
+  return goog.dom.asserts.assertIsElementType_(o, "HTMLCanvasElement");
 };
-/**
- * @param {?Object} o
- * @return {!HTMLEmbedElement}
- */
 goog.dom.asserts.assertIsHTMLEmbedElement = function(o) {
-  return (/** @type {!HTMLEmbedElement} */ (goog.dom.asserts.assertIsElementType_(o, "HTMLEmbedElement")));
+  return goog.dom.asserts.assertIsElementType_(o, "HTMLEmbedElement");
 };
-/**
- * @param {?Object} o
- * @return {!HTMLFormElement}
- */
 goog.dom.asserts.assertIsHTMLFormElement = function(o) {
-  return (/** @type {!HTMLFormElement} */ (goog.dom.asserts.assertIsElementType_(o, "HTMLFormElement")));
+  return goog.dom.asserts.assertIsElementType_(o, "HTMLFormElement");
 };
-/**
- * @param {?Object} o
- * @return {!HTMLFrameElement}
- */
 goog.dom.asserts.assertIsHTMLFrameElement = function(o) {
-  return (/** @type {!HTMLFrameElement} */ (goog.dom.asserts.assertIsElementType_(o, "HTMLFrameElement")));
+  return goog.dom.asserts.assertIsElementType_(o, "HTMLFrameElement");
 };
-/**
- * @param {?Object} o
- * @return {!HTMLIFrameElement}
- */
 goog.dom.asserts.assertIsHTMLIFrameElement = function(o) {
-  return (/** @type {!HTMLIFrameElement} */ (goog.dom.asserts.assertIsElementType_(o, "HTMLIFrameElement")));
+  return goog.dom.asserts.assertIsElementType_(o, "HTMLIFrameElement");
 };
-/**
- * @param {?Object} o
- * @return {!HTMLObjectElement}
- */
 goog.dom.asserts.assertIsHTMLObjectElement = function(o) {
-  return (/** @type {!HTMLObjectElement} */ (goog.dom.asserts.assertIsElementType_(o, "HTMLObjectElement")));
+  return goog.dom.asserts.assertIsElementType_(o, "HTMLObjectElement");
 };
-/**
- * @param {?Object} o
- * @return {!HTMLScriptElement}
- */
 goog.dom.asserts.assertIsHTMLScriptElement = function(o) {
-  return (/** @type {!HTMLScriptElement} */ (goog.dom.asserts.assertIsElementType_(o, "HTMLScriptElement")));
+  return goog.dom.asserts.assertIsElementType_(o, "HTMLScriptElement");
 };
-/**
- * @private
- * @param {*} value
- * @return {string}
- */
 goog.dom.asserts.debugStringForType_ = function(value) {
   if (goog.isObject(value)) {
     try {
@@ -153,17 +78,11 @@ goog.dom.asserts.debugStringForType_ = function(value) {
     return value === undefined ? "undefined" : value === null ? "null" : typeof value;
   }
 };
-/**
- * @private
- * @param {?Object} o
- * @return {?Window}
- * @suppress {strictMissingProperties}
- */
 goog.dom.asserts.getWindow_ = function(o) {
   try {
     var doc = o && o.ownerDocument;
-    var win = doc && (/** @type {?Window} */ (doc.defaultView || doc.parentWindow));
-    win = win || /** @type {!Window} */ (goog.global);
+    var win = doc && (doc.defaultView || doc.parentWindow);
+    win = win || goog.global;
     if (win.Element && win.Location) {
       return win;
     }

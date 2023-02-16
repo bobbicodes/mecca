@@ -7,6 +7,7 @@
             ["@codemirror/state" :refer [EditorState EditorSelection]]
             ["@codemirror/view" :as view :refer [EditorView]]
             [mecca.sci :as sci]
+            [re-frame.core :as rf :refer [subscribe dispatch]]
             [clojure.string :as str]
             [applied-science.js-interop :as j]
             [nextjournal.clojure-mode.extensions.close-brackets :as close-brackets]
@@ -99,6 +100,9 @@
 
 (defonce !points (r/atom ""))
 (defonce !tri (r/atom ""))
+
+(defonce points
+  (r/atom []))
 
 (defn eval-all [s]
   (try (sci.core/eval-string s {:classes {'js goog/global :allow :all}})

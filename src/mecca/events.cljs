@@ -2,6 +2,7 @@
   (:require
    [re-frame.core :refer [reg-event-db reg-event-fx dispatch subscribe]]
    [re-pressed.core :as rp]
+   [mecca.sci-editor :as sci-editor :refer [!points points]]
    [day8.re-frame.undo :as undo :refer [undoable]]
    [mecca.mario :as mario :refer [mario]]
    [mecca.songs.megaman :as megaman]
@@ -235,13 +236,15 @@
  (fn [db [_ instrument time pitch]]
    (if (= (.-state @(subscribe [:audio-context])) "suspended")
      (.resume @(subscribe [:audio-context])))
+   ;(sci-editor/update-editor! (str @(subscribe [:notes])))
    (music/play-sample instrument (if @(subscribe [:sharp?]) (inc pitch) pitch))
    (update db :notes
            conj 
            {:time time
             :instrument instrument
             :pitch (if @(subscribe [:sharp?])
-                    (inc pitch) pitch)})))
+                    (inc pitch) pitch)})
+   ))
 
 
 ;; TODO This is gross.

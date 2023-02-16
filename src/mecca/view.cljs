@@ -7,7 +7,7 @@
             [mecca.editor :as editor :refer [svg-paths]]
             [mecca.mario :as mario]
             [sci.core :as sci]
-            [mecca.sci-editor :as sci-editor :refer [!points]]))
+            [mecca.sci-editor :as sci-editor :refer [!points points]]))
 
 (defn note-guides []
   (let [editor-x (subscribe [:editor-beat-start])]
@@ -66,9 +66,14 @@
                                     @(subscribe [:repeat?])
                                     #(dispatch [:set-loop-end time])
                                     :else
-                                    #(dispatch [:add-note @instrument
-                                                (+ time (dec @editor-x))
-                                                (get pitches pitch)])))}])))))
+                                    #(do
+                                      (dispatch [:add-note @instrument
+                                                  (+ time (dec @editor-x))
+                                                  (get pitches pitch)])
+                                       (sci-editor/update-editor! (str (conj @(subscribe [:notes]) 
+                                                                             {:instrument @instrument
+                                                                              :time (+ time (dec @editor-x))
+                                                                              :pitch (get pitches pitch)}))))))}])))))
 
 (defn note-cursor []
   (let [focused (subscribe [:focused-note-pos])
@@ -172,10 +177,7 @@
         (when @(subscribe [:loop-end])
           [editor/repeat-sign (+ 7 (* 6 @(subscribe [:loop-end]))) 8 0.13])]])))
 
-(defonce points
-  (r/atom {:max [2 2]
-           :min [-2 -2]
-           :mid [nil nil]}))
+
 
 (defn mecca []
   [:div

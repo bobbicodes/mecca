@@ -4,7 +4,9 @@
             [mecca.castle :as castle]
             [mecca.transport :as transport]
             [mecca.editor :as editor :refer [svg-paths]]
-            [mecca.mario :as mario]))
+            [mecca.mario :as mario]
+            [sci.core :as sci]
+            [mecca.sci-editor :as sci-editor :refer [!points]]))
 
 (defn note-guides []
   (let [editor-x (subscribe [:editor-beat-start])]
@@ -172,5 +174,6 @@
 (defn mecca []
   [:div
    [editor]
+
    [transport/transport 140 0 0.5]
    [editor/toolbar 71 0]])

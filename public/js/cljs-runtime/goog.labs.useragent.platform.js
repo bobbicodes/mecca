@@ -1,81 +1,39 @@
 goog.provide("goog.labs.userAgent.platform");
 goog.require("goog.labs.userAgent.util");
 goog.require("goog.string");
-/**
- * @return {boolean}
- */
 goog.labs.userAgent.platform.isAndroid = function() {
   return goog.labs.userAgent.util.matchUserAgent("Android");
 };
-/**
- * @return {boolean}
- */
 goog.labs.userAgent.platform.isIpod = function() {
   return goog.labs.userAgent.util.matchUserAgent("iPod");
 };
-/**
- * @return {boolean}
- */
 goog.labs.userAgent.platform.isIphone = function() {
   return goog.labs.userAgent.util.matchUserAgent("iPhone") && !goog.labs.userAgent.util.matchUserAgent("iPod") && !goog.labs.userAgent.util.matchUserAgent("iPad");
 };
-/**
- * @return {boolean}
- */
 goog.labs.userAgent.platform.isIpad = function() {
   return goog.labs.userAgent.util.matchUserAgent("iPad");
 };
-/**
- * @return {boolean}
- */
 goog.labs.userAgent.platform.isIos = function() {
   return goog.labs.userAgent.platform.isIphone() || goog.labs.userAgent.platform.isIpad() || goog.labs.userAgent.platform.isIpod();
 };
-/**
- * @return {boolean}
- */
 goog.labs.userAgent.platform.isMacintosh = function() {
   return goog.labs.userAgent.util.matchUserAgent("Macintosh");
 };
-/**
- * @return {boolean}
- */
 goog.labs.userAgent.platform.isLinux = function() {
   return goog.labs.userAgent.util.matchUserAgent("Linux");
 };
-/**
- * @return {boolean}
- */
 goog.labs.userAgent.platform.isWindows = function() {
   return goog.labs.userAgent.util.matchUserAgent("Windows");
 };
-/**
- * @return {boolean}
- */
 goog.labs.userAgent.platform.isChromeOS = function() {
   return goog.labs.userAgent.util.matchUserAgent("CrOS");
 };
-/**
- * @return {boolean}
- */
 goog.labs.userAgent.platform.isChromecast = function() {
   return goog.labs.userAgent.util.matchUserAgent("CrKey");
 };
-/**
- * @return {boolean}
- */
 goog.labs.userAgent.platform.isKaiOS = function() {
   return goog.labs.userAgent.util.matchUserAgentIgnoreCase("KaiOS");
 };
-/**
- * @return {boolean}
- */
-goog.labs.userAgent.platform.isGo2Phone = function() {
-  return goog.labs.userAgent.util.matchUserAgentIgnoreCase("GAFP");
-};
-/**
- * @return {string}
- */
 goog.labs.userAgent.platform.getVersion = function() {
   var userAgentString = goog.labs.userAgent.util.getUserAgent();
   var version = "", re;
@@ -120,10 +78,6 @@ goog.labs.userAgent.platform.getVersion = function() {
   }
   return version || "";
 };
-/**
- * @param {(string|number)} version
- * @return {boolean}
- */
 goog.labs.userAgent.platform.isVersionOrHigher = function(version) {
   return goog.string.compareVersions(goog.labs.userAgent.platform.getVersion(), version) >= 0;
 };

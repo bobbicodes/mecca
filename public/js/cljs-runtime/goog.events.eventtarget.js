@@ -6,54 +6,31 @@ goog.require("goog.events.Event");
 goog.require("goog.events.Listenable");
 goog.require("goog.events.ListenerMap");
 goog.require("goog.object");
-/**
- * @constructor
- * @extends {goog.Disposable}
- * @implements {goog.events.Listenable}
- */
+goog.requireType("goog.events.EventId");
+goog.requireType("goog.events.EventLike");
+goog.requireType("goog.events.ListenableKey");
 goog.events.EventTarget = function() {
   goog.Disposable.call(this);
-  /** @private @type {!goog.events.ListenerMap} */ this.eventTargetListeners_ = new goog.events.ListenerMap(this);
-  /** @private @type {!Object} */ this.actualEventTarget_ = this;
-  /** @private @type {?goog.events.EventTarget} */ this.parentEventTarget_ = null;
+  this.eventTargetListeners_ = new goog.events.ListenerMap(this);
+  this.actualEventTarget_ = this;
+  this.parentEventTarget_ = null;
 };
 goog.inherits(goog.events.EventTarget, goog.Disposable);
 goog.events.Listenable.addImplementation(goog.events.EventTarget);
-/** @private @const @type {number} */ goog.events.EventTarget.MAX_ANCESTORS_ = 1000;
-/**
- * @return {goog.events.EventTarget}
- * @override
- */
+goog.events.EventTarget.MAX_ANCESTORS_ = 1000;
 goog.events.EventTarget.prototype.getParentEventTarget = function() {
   return this.parentEventTarget_;
 };
-/**
- * @param {goog.events.EventTarget} parent
- */
 goog.events.EventTarget.prototype.setParentEventTarget = function(parent) {
   this.parentEventTarget_ = parent;
 };
-/**
- * @param {(string|!goog.events.EventId)} type
- * @param {(function(?):?|{handleEvent:function(?):?}|null)} handler
- * @param {boolean=} opt_capture
- * @param {Object=} opt_handlerScope
- * @deprecated Use `#listen` instead, when possible. Otherwise, use `goog.events.listen` if you are passing Object (instead of Function) as handler.
- */
 goog.events.EventTarget.prototype.addEventListener = function(type, handler, opt_capture, opt_handlerScope) {
   goog.events.listen(this, type, handler, opt_capture, opt_handlerScope);
 };
-/**
- * @param {string} type
- * @param {(function(?):?|{handleEvent:function(?):?}|null)} handler
- * @param {boolean=} opt_capture
- * @param {Object=} opt_handlerScope
- * @deprecated Use `#unlisten` instead, when possible. Otherwise, use `goog.events.unlisten` if you are passing Object (instead of Function) as handler.
- */
 goog.events.EventTarget.prototype.removeEventListener = function(type, handler, opt_capture, opt_handlerScope) {
   goog.events.unlisten(this, type, handler, opt_capture, opt_handlerScope);
 };
-/** @override */ goog.events.EventTarget.prototype.dispatchEvent = function(e) {
+goog.events.EventTarget.prototype.dispatchEvent = function(e) {
   this.assertInitialized_();
   var ancestorsTree, ancestor = this.getParentEventTarget();
   if (ancestor) {
@@ -66,31 +43,31 @@ goog.events.EventTarget.prototype.removeEventListener = function(type, handler, 
   }
   return goog.events.EventTarget.dispatchEventInternal_(this.actualEventTarget_, e, ancestorsTree);
 };
-/** @protected @override */ goog.events.EventTarget.prototype.disposeInternal = function() {
+goog.events.EventTarget.prototype.disposeInternal = function() {
   goog.events.EventTarget.superClass_.disposeInternal.call(this);
   this.removeAllListeners();
   this.parentEventTarget_ = null;
 };
-/** @override */ goog.events.EventTarget.prototype.listen = function(type, listener, opt_useCapture, opt_listenerScope) {
+goog.events.EventTarget.prototype.listen = function(type, listener, opt_useCapture, opt_listenerScope) {
   this.assertInitialized_();
   return this.eventTargetListeners_.add(String(type), listener, false, opt_useCapture, opt_listenerScope);
 };
-/** @override */ goog.events.EventTarget.prototype.listenOnce = function(type, listener, opt_useCapture, opt_listenerScope) {
+goog.events.EventTarget.prototype.listenOnce = function(type, listener, opt_useCapture, opt_listenerScope) {
   return this.eventTargetListeners_.add(String(type), listener, true, opt_useCapture, opt_listenerScope);
 };
-/** @override */ goog.events.EventTarget.prototype.unlisten = function(type, listener, opt_useCapture, opt_listenerScope) {
+goog.events.EventTarget.prototype.unlisten = function(type, listener, opt_useCapture, opt_listenerScope) {
   return this.eventTargetListeners_.remove(String(type), listener, opt_useCapture, opt_listenerScope);
 };
-/** @override */ goog.events.EventTarget.prototype.unlistenByKey = function(key) {
+goog.events.EventTarget.prototype.unlistenByKey = function(key) {
   return this.eventTargetListeners_.removeByKey(key);
 };
-/** @override */ goog.events.EventTarget.prototype.removeAllListeners = function(opt_type) {
+goog.events.EventTarget.prototype.removeAllListeners = function(opt_type) {
   if (!this.eventTargetListeners_) {
     return 0;
   }
   return this.eventTargetListeners_.removeAll(opt_type);
 };
-/** @override */ goog.events.EventTarget.prototype.fireListeners = function(type, capture, eventObject) {
+goog.events.EventTarget.prototype.fireListeners = function(type, capture, eventObject) {
   var listenerArray = this.eventTargetListeners_.listeners[String(type)];
   if (!listenerArray) {
     return true;
@@ -108,39 +85,26 @@ goog.events.EventTarget.prototype.removeEventListener = function(type, handler, 
       rv = listenerFn.call(listenerHandler, eventObject) !== false && rv;
     }
   }
-  return rv && eventObject.returnValue_ != false;
+  return rv && !eventObject.defaultPrevented;
 };
-/** @override */ goog.events.EventTarget.prototype.getListeners = function(type, capture) {
+goog.events.EventTarget.prototype.getListeners = function(type, capture) {
   return this.eventTargetListeners_.getListeners(String(type), capture);
 };
-/** @override */ goog.events.EventTarget.prototype.getListener = function(type, listener, capture, opt_listenerScope) {
+goog.events.EventTarget.prototype.getListener = function(type, listener, capture, opt_listenerScope) {
   return this.eventTargetListeners_.getListener(String(type), listener, capture, opt_listenerScope);
 };
-/** @override */ goog.events.EventTarget.prototype.hasListener = function(opt_type, opt_capture) {
+goog.events.EventTarget.prototype.hasListener = function(opt_type, opt_capture) {
   var id = opt_type !== undefined ? String(opt_type) : undefined;
   return this.eventTargetListeners_.hasListener(id, opt_capture);
 };
-/**
- * @param {!Object} target
- */
 goog.events.EventTarget.prototype.setTargetForTesting = function(target) {
   this.actualEventTarget_ = target;
 };
-/** @private */ goog.events.EventTarget.prototype.assertInitialized_ = function() {
+goog.events.EventTarget.prototype.assertInitialized_ = function() {
   goog.asserts.assert(this.eventTargetListeners_, "Event target is not initialized. Did you call the superclass " + "(goog.events.EventTarget) constructor?");
 };
-/**
- * @private
- * @param {!Object} target
- * @param {(goog.events.Event|Object|string)} e
- * @param {Array<goog.events.Listenable>=} opt_ancestorsTree
- * @return {boolean}
- */
 goog.events.EventTarget.dispatchEventInternal_ = function(target, e, opt_ancestorsTree) {
-  /**
-   * @suppress {missingProperties}
-   */
-  var type = e.type || /** @type {string} */ (e);
+  var type = e.type || e;
   if (typeof e === "string") {
     e = new goog.events.Event(e, target);
   } else {
@@ -154,20 +118,20 @@ goog.events.EventTarget.dispatchEventInternal_ = function(target, e, opt_ancesto
   }
   var rv = true, currentTarget;
   if (opt_ancestorsTree) {
-    for (var i = opt_ancestorsTree.length - 1; !e.propagationStopped_ && i >= 0; i--) {
+    for (var i = opt_ancestorsTree.length - 1; !e.hasPropagationStopped() && i >= 0; i--) {
       currentTarget = e.currentTarget = opt_ancestorsTree[i];
       rv = currentTarget.fireListeners(type, true, e) && rv;
     }
   }
-  if (!e.propagationStopped_) {
-    currentTarget = /** @type {?} */ (e.currentTarget = target);
+  if (!e.hasPropagationStopped()) {
+    currentTarget = e.currentTarget = target;
     rv = currentTarget.fireListeners(type, true, e) && rv;
-    if (!e.propagationStopped_) {
+    if (!e.hasPropagationStopped()) {
       rv = currentTarget.fireListeners(type, false, e) && rv;
     }
   }
   if (opt_ancestorsTree) {
-    for (i = 0; !e.propagationStopped_ && i < opt_ancestorsTree.length; i++) {
+    for (i = 0; !e.hasPropagationStopped() && i < opt_ancestorsTree.length; i++) {
       currentTarget = e.currentTarget = opt_ancestorsTree[i];
       rv = currentTarget.fireListeners(type, false, e) && rv;
     }

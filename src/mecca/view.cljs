@@ -1,10 +1,14 @@
 (ns mecca.view
   (:require [mecca.music :as music]
             [re-frame.core :as rf :refer [subscribe dispatch]]
+            [reagent.core :as r]
             [mecca.castle :as castle]
             [mecca.transport :as transport]
             [mecca.editor :as editor :refer [svg-paths]]
-            [mecca.mario :as mario]))
+            [mecca.mario :as mario]
+            [sci.core :as sci]
+            [mecca.sci-editor :as sci-editor :refer [!points points]]
+            [clojure.pprint :as pp]))
 
 (defn note-guides []
   (let [editor-x (subscribe [:editor-beat-start])]
@@ -63,9 +67,15 @@
                                     @(subscribe [:repeat?])
                                     #(dispatch [:set-loop-end time])
                                     :else
-                                    #(dispatch [:add-note @instrument
-                                                (+ time (dec @editor-x))
-                                                (get pitches pitch)])))}])))))
+                                    #(do
+                                      (dispatch [:add-note @instrument
+                                                  (+ time (dec @editor-x))
+                                                  (get pitches pitch)])
+                                       (sci-editor/update-editor! 
+                                        (str (conj @(subscribe [:notes]) 
+                                                   {:instrument @instrument
+                                                    :time       (+ time (dec @editor-x))
+                                                    :pitch      (get pitches pitch)}))))))}])))))
 
 (defn note-cursor []
   (let [focused (subscribe [:focused-note-pos])
@@ -169,8 +179,20 @@
         (when @(subscribe [:loop-end])
           [editor/repeat-sign (+ 7 (* 6 @(subscribe [:loop-end]))) 8 0.13])]])))
 
+(defn eval-all [s]
+  (try (sci/eval-string s {:classes {'js goog/global :allow :all}})
+       (catch :default e
+         (str e))))
+
 (defn mecca []
   [:div
    [editor]
-   [transport/transport 140 0 0.5]
-   [editor/toolbar 71 0]])
+   [:div.flex-container
+    [:div.flex-item
+   [sci-editor/editor "(for [beat (range 12)]
+  {:time beat 
+   :instrument (inc beat) 
+   :pitch (+ 60 beat)})" !points {:eval? true}]]
+   [:div.flex-item
+   [transport/transport 0 -0.5 0.5]]
+   [editor/toolbar 0 0]]])

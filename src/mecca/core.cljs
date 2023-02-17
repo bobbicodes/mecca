@@ -1,6 +1,7 @@
 (ns mecca.core
   (:require
    [reagent.core :as r]
+   [reagent.dom :as rdom]
    [re-frame.core :as rf]
    [re-pressed.core :as rp]
    [mecca.events]
@@ -9,9 +10,9 @@
 
 (rf/dispatch-sync [:initialize-db])
 
-(rf/dispatch-sync [::rp/add-keyboard-event-listener "keydown"])
+#_(rf/dispatch-sync [::rp/add-keyboard-event-listener "keydown"])
 
-(rf/dispatch
+#_(rf/dispatch
  [::rp/set-keydown-rules
   {:event-keys [[[:jump!] [{:keyCode 13}] [{:keyCode 32}]]
                 [[:play-note 48] [{:keyCode 90}]]
@@ -51,7 +52,7 @@
 
 (defn ^:dev/after-load start []
   (rf/clear-subscription-cache!)
-  (r/render [view/mecca]
+  (rdom/render [view/mecca]
             (.getElementById js/document "app")))
 
 (defn ^:export init []

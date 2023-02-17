@@ -3,7 +3,9 @@
    [reagent.core :as r]
    [re-frame.core :as rf :refer [subscribe dispatch]]
    [mecca.music :as music]
-   [mecca.mario :as mario]))
+   [mecca.mario :as mario]
+   [sci.core :as sci]
+   [mecca.sci-editor :as sci-editor :refer [!points points]]))
 
 (defn svg-paths
   ([paths]
@@ -358,18 +360,42 @@
           :stroke "black"
           :d "M5 0h1M9 0h4M5 1h1M9 1h4M5 2h1M9 2h4M5 3h1M9 3h4M5 4h1M9 4h4M5 5h1M9 5h4M5 6h1M9 6h4M5 7h1M9 7h4M5 8h1M9 8h4M5 9h1M9 9h4M5 10h1M9 10h4M5 11h1M9 11h4M5 12h1M9 12h4M5 13h1M9 13h4M5 14h1M9 14h4M5 15h1M9 15h4M5 16h1M9 16h4M5 17h1M9 17h4M5 18h1M9 18h4M5 19h1M9 19h4M5 20h1M9 20h4M5 21h1M9 21h4M0 22h2M5 22h1M9 22h4M0 23h2M5 23h1M9 23h4M5 24h1M9 24h4M5 25h1M9 25h4M5 26h1M9 26h4M5 27h1M9 27h4M5 28h1M9 28h4M5 29h1M9 29h4M5 30h1M9 30h4M5 31h1M9 31h4M5 32h1M9 32h4M5 33h1M9 33h4M5 34h1M9 34h4M5 35h1M9 35h4M5 36h1M9 36h4M5 37h1M9 37h4M0 38h2M5 38h1M9 38h4M0 39h2M5 39h1M9 39h4M5 40h1M9 40h4M5 41h1M9 41h4M5 42h1M9 42h4M5 43h1M9 43h4M5 44h1M9 44h4M5 45h1M9 45h4M5 46h1M9 46h4M5 47h1M9 47h4M5 48h1M9 48h4M5 49h1M9 49h4M5 50h1M9 50h4M5 51h1M9 51h4M5 52h1M9 52h4M5 53h1M9 53h4M5 54h1M9 54h4M5 55h1M9 55h4M5 56h1M9 56h4M5 57h1M9 57h4M5 58h1M9 58h4M5 59h1M9 59h4M5 60h1M9 60h4M5 61h1M9 61h4"}])
 
+(defn eval-all [s]
+  (try (sci/eval-string s {:classes {'js goog/global :allow :all}})
+       (catch :default e
+         (str e))))
+
 (defn toolbar [x y]
-  [:svg {:view-box "0 -0.5 140 10.5" :shape-rendering "crispEdges"
-         :style {:cursor "url(/images/hand.png),pointer"}}
-   [:rect {:x x :y y :width 68 :height 10 :stroke "black" :stroke-width 0.2 :fill "#f8b0f8"}]
-   [undo-dog 28.5 (+ 0.5 y) 0.5]
-   [redo-rabbit 35.2 (+ 0.48 y) 0.45]
-   [repeat-button 176 (+ 3 y) 0.5]
-   [eraser 192 (+ 2 y) 0.5]
-   [sharp-button 210 (+ 2 y) 0.5]
-   (svg-paths {:on-click #(dispatch [:load-castle])} ghost 476 (+ 6 y) 0.24)
-   (svg-paths {:on-click #(dispatch [:load-zelda])} zelda 490 (+ 4.5 y) 0.25)
-   (svg-paths {:on-click #(dispatch [:load-megaman])} megaman 367 (- y 2) 0.35)])
+  [:svg {:view-box "0 -0.5 140 25.5" :shape-rendering "crispEdges"
+         :style {:cursor "url(/images/hand.png),pointer"}
+                 :transform (str "scale(" 0.5 ") translate(" 460 "," 5 ")")}
+   [:rect {:x x :y y :width 168 :height 19 :stroke "black" :stroke-width 0.2 :fill "#f8b0f8"}]
+   ;; Clojure eval button
+   [:g {:on-click #(dispatch [:set-notes (eval-all (str (some-> @!points .-state .-doc str)))])}
+    [:path {:transform (str "scale(" 0.07 ") translate(" 5 "," 5 ")")
+               :d "M128 0a128 128 0 1 0 0 256 128 128 0 0 0 0-256"
+               :fill "#ffffff"}]
+    [:path {:transform (str "scale(" 0.07 ") translate(" 5 "," 5 ")")
+            :d "M123 130a535 535 0 0 0-15 40 47 47 0 0 0-1 16 61 61 0 0 0 40 0l-4-4c-8-11-12-26-20-52M93 78a61 61 0 0 0-1 100c4-16 13-30 28-59l-3-7c-4-10-10-22-15-27l-9-7"
+            :fill "#91dc47"}]
+    [:path {:transform (str "scale(" 0.07 ") translate(" 5 "," 5 ")")
+            :d "m181 198-20-4A73 73 0 0 1 80 73l-13-2c-22 1-44 13-54 45l-1 12a116 116 0 0 0 211 67 135 135 0 0 1-42 3"
+            :fill "#63b132"}]
+    [:path {:transform (str "scale(" 0.07 ") translate(" 5 "," 5 ")")
+            :d "m160 176 4 2c15-12 25-30 25-50a61 61 0 0 0-80-58c12 14 18 35 24 57l5 14c3 8 8 18 13 25 3 5 6 9 9 10"
+            :fill "#90b4fe"}]
+    [:path {:transform (str "scale(" 0.07 ") translate(" 5 "," 5 ")")
+            :d "M128 13c-39 0-73 19-94 48a62 62 0 0 1 64 0 74 74 0 0 1 103 67h1c0 21-9 39-22 53h10c13 0 27-3 37-11 7-6 13-15 16-27l1-15c0-64-52-115-116-115"
+            :fill "#5881d8"}]] 
+ 
+   [undo-dog (+ x 3.8) (+ 0.4 y) 1]
+   [redo-rabbit (+ x 7.7) (+ 0.48 y) 0.9]
+   [repeat-button (+ x 50) (+ 3 y) 1]
+   [eraser (+ x 72) (+ 2 y) 0.9]
+   [sharp-button (+ x 89) (+ 2.1 y) 0.9]
+   (svg-paths {:on-click #(dispatch [:load-castle])} ghost (+ x 192) (+ 5 y) 0.5)
+   (svg-paths {:on-click #(dispatch [:load-zelda])} zelda (+ x 227) (+ 4.5 y) 0.5)
+   (svg-paths {:on-click #(dispatch [:load-megaman])} megaman (+ x 192) (- y 2) 0.65)])
 
 (defn current-note-display [x y scale]
   (let [current-note (subscribe [:instrument])]

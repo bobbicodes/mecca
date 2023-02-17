@@ -1,5 +1,4 @@
 goog.provide("goog.style");
-goog.forwardDeclare("goog.events.Event");
 goog.require("goog.array");
 goog.require("goog.asserts");
 goog.require("goog.dom");
@@ -15,11 +14,7 @@ goog.require("goog.object");
 goog.require("goog.reflect");
 goog.require("goog.string");
 goog.require("goog.userAgent");
-/**
- * @param {Element} element
- * @param {(string|Object)} style
- * @param {(string|number|boolean)=} opt_value
- */
+goog.requireType("goog.events.Event");
 goog.style.setStyle = function(element, style, opt_value) {
   if (typeof style === "string") {
     goog.style.setStyle_(element, opt_value, style);
@@ -29,25 +24,13 @@ goog.style.setStyle = function(element, style, opt_value) {
     }
   }
 };
-/**
- * @private
- * @param {Element} element
- * @param {(string|number|boolean|undefined)} value
- * @param {string} style
- */
 goog.style.setStyle_ = function(element, value, style) {
   var propertyName = goog.style.getVendorJsStyleName_(element, style);
   if (propertyName) {
-    element.style[propertyName] = /** @type {?} */ (value);
+    element.style[propertyName] = value;
   }
 };
-/** @private @type {!Object<string,string>} */ goog.style.styleNameCache_ = {};
-/**
- * @private
- * @param {Element} element
- * @param {string} style
- * @return {string}
- */
+goog.style.styleNameCache_ = {};
 goog.style.getVendorJsStyleName_ = function(element, style) {
   var propertyName = goog.style.styleNameCache_[style];
   if (!propertyName) {
@@ -63,12 +46,6 @@ goog.style.getVendorJsStyleName_ = function(element, style) {
   }
   return propertyName;
 };
-/**
- * @private
- * @param {Element} element
- * @param {string} style
- * @return {string}
- */
 goog.style.getVendorStyleName_ = function(element, style) {
   var camelStyle = goog.string.toCamelCase(style);
   if (element.style[camelStyle] === undefined) {
@@ -79,11 +56,6 @@ goog.style.getVendorStyleName_ = function(element, style) {
   }
   return style;
 };
-/**
- * @param {Element} element
- * @param {string} property
- * @return {string}
- */
 goog.style.getStyle = function(element, property) {
   var styleValue = element.style[goog.string.toCamelCase(property)];
   if (typeof styleValue !== "undefined") {
@@ -91,11 +63,6 @@ goog.style.getStyle = function(element, property) {
   }
   return element.style[goog.style.getVendorJsStyleName_(element, property)] || "";
 };
-/**
- * @param {Element} element
- * @param {string} property
- * @return {string}
- */
 goog.style.getComputedStyle = function(element, property) {
   var doc = goog.dom.getOwnerDocument(element);
   if (doc.defaultView && doc.defaultView.getComputedStyle) {
@@ -106,92 +73,40 @@ goog.style.getComputedStyle = function(element, property) {
   }
   return "";
 };
-/**
- * @param {Element} element
- * @param {string} style
- * @return {string}
- */
 goog.style.getCascadedStyle = function(element, style) {
-  return (/** @type {string} */ (element.currentStyle ? element.currentStyle[style] : null));
+  return element.currentStyle ? element.currentStyle[style] : null;
 };
-/**
- * @private
- * @param {Element} element
- * @param {string} style
- * @return {string}
- */
 goog.style.getStyle_ = function(element, style) {
   return goog.style.getComputedStyle(element, style) || goog.style.getCascadedStyle(element, style) || element.style && element.style[style];
 };
-/**
- * @param {!Element} element
- * @return {?string}
- */
 goog.style.getComputedBoxSizing = function(element) {
   return goog.style.getStyle_(element, "boxSizing") || goog.style.getStyle_(element, "MozBoxSizing") || goog.style.getStyle_(element, "WebkitBoxSizing") || null;
 };
-/**
- * @param {Element} element
- * @return {string}
- */
 goog.style.getComputedPosition = function(element) {
   return goog.style.getStyle_(element, "position");
 };
-/**
- * @param {Element} element
- * @return {string}
- */
 goog.style.getBackgroundColor = function(element) {
   return goog.style.getStyle_(element, "backgroundColor");
 };
-/**
- * @param {Element} element
- * @return {string}
- */
 goog.style.getComputedOverflowX = function(element) {
   return goog.style.getStyle_(element, "overflowX");
 };
-/**
- * @param {Element} element
- * @return {string}
- */
 goog.style.getComputedOverflowY = function(element) {
   return goog.style.getStyle_(element, "overflowY");
 };
-/**
- * @param {Element} element
- * @return {(string|number)}
- */
 goog.style.getComputedZIndex = function(element) {
   return goog.style.getStyle_(element, "zIndex");
 };
-/**
- * @param {Element} element
- * @return {string}
- */
 goog.style.getComputedTextAlign = function(element) {
   return goog.style.getStyle_(element, "textAlign");
 };
-/**
- * @param {Element} element
- * @return {string}
- */
 goog.style.getComputedCursor = function(element) {
   return goog.style.getStyle_(element, "cursor");
 };
-/**
- * @param {Element} element
- * @return {string}
- */
 goog.style.getComputedTransform = function(element) {
   var property = goog.style.getVendorStyleName_(element, "transform");
   return goog.style.getStyle_(element, property) || goog.style.getStyle_(element, "transform");
 };
-/**
- * @param {Element} el
- * @param {(string|number|goog.math.Coordinate)} arg1
- * @param {(string|number)=} opt_arg2
- */
 goog.style.setPosition = function(el, arg1, opt_arg2) {
   var x, y;
   if (arg1 instanceof goog.math.Coordinate) {
@@ -201,20 +116,12 @@ goog.style.setPosition = function(el, arg1, opt_arg2) {
     x = arg1;
     y = opt_arg2;
   }
-  el.style.left = goog.style.getPixelStyleValue_(/** @type {(number|string)} */ (x), false);
-  el.style.top = goog.style.getPixelStyleValue_(/** @type {(number|string)} */ (y), false);
+  el.style.left = goog.style.getPixelStyleValue_(x, false);
+  el.style.top = goog.style.getPixelStyleValue_(y, false);
 };
-/**
- * @param {Element} element
- * @return {!goog.math.Coordinate}
- */
 goog.style.getPosition = function(element) {
-  return new goog.math.Coordinate(/** @type {!HTMLElement} */ (element).offsetLeft, /** @type {!HTMLElement} */ (element).offsetTop);
+  return new goog.math.Coordinate(element.offsetLeft, element.offsetTop);
 };
-/**
- * @param {Node=} opt_node
- * @return {Element}
- */
 goog.style.getClientViewportElement = function(opt_node) {
   var doc;
   if (opt_node) {
@@ -227,10 +134,6 @@ goog.style.getClientViewportElement = function(opt_node) {
   }
   return doc.documentElement;
 };
-/**
- * @param {!Document} doc
- * @return {!goog.math.Coordinate}
- */
 goog.style.getViewportPageOffset = function(doc) {
   var body = doc.body;
   var documentElement = doc.documentElement;
@@ -238,29 +141,13 @@ goog.style.getViewportPageOffset = function(doc) {
   var scrollTop = body.scrollTop || documentElement.scrollTop;
   return new goog.math.Coordinate(scrollLeft, scrollTop);
 };
-/**
- * @private
- * @param {!Element} el
- * @return {Object}
- */
 goog.style.getBoundingClientRect_ = function(el) {
-  var rect;
   try {
-    rect = el.getBoundingClientRect();
+    return el.getBoundingClientRect();
   } catch (e) {
     return {"left":0, "top":0, "right":0, "bottom":0};
   }
-  if (goog.userAgent.IE && el.ownerDocument.body) {
-    var doc = el.ownerDocument;
-    rect.left -= doc.documentElement.clientLeft + doc.body.clientLeft;
-    rect.top -= doc.documentElement.clientTop + doc.body.clientTop;
-  }
-  return rect;
 };
-/**
- * @param {Element} element
- * @return {Element}
- */
 goog.style.getOffsetParent = function(element) {
   if (goog.userAgent.IE && !goog.userAgent.isDocumentModeOrHigher(8)) {
     goog.asserts.assert(element && "offsetParent" in element);
@@ -271,20 +158,16 @@ goog.style.getOffsetParent = function(element) {
   var skipStatic = positionStyle == "fixed" || positionStyle == "absolute";
   for (var parent = element.parentNode; parent && parent != doc; parent = parent.parentNode) {
     if (parent.nodeType == goog.dom.NodeType.DOCUMENT_FRAGMENT && parent.host) {
-      parent = /** @type {!Element} */ (parent.host);
+      parent = parent.host;
     }
-    positionStyle = goog.style.getStyle_(/** @type {!Element} */ (parent), "position");
+    positionStyle = goog.style.getStyle_(parent, "position");
     skipStatic = skipStatic && positionStyle == "static" && parent != doc.documentElement && parent != doc.body;
     if (!skipStatic && (parent.scrollWidth > parent.clientWidth || parent.scrollHeight > parent.clientHeight || positionStyle == "fixed" || positionStyle == "absolute" || positionStyle == "relative")) {
-      return (/** @type {!Element} */ (parent));
+      return parent;
     }
   }
   return null;
 };
-/**
- * @param {Element} element
- * @return {goog.math.Box}
- */
 goog.style.getVisibleRectForElement = function(element) {
   var visibleRect = new goog.math.Box(0, Infinity, Infinity, 0);
   var dom = goog.dom.getDomHelper(element);
@@ -311,12 +194,6 @@ goog.style.getVisibleRectForElement = function(element) {
   visibleRect.bottom = Math.min(visibleRect.bottom, scrollY + winSize.height);
   return visibleRect.top >= 0 && visibleRect.left >= 0 && visibleRect.bottom > visibleRect.top && visibleRect.right > visibleRect.left ? visibleRect : null;
 };
-/**
- * @param {Element} element
- * @param {Element=} opt_container
- * @param {boolean=} opt_center
- * @return {!goog.math.Coordinate}
- */
 goog.style.getContainerOffsetToScrollInto = function(element, opt_container, opt_center) {
   var container = opt_container || goog.dom.getDocumentScrollElement();
   var elementPos = goog.style.getPageOffset(element);
@@ -347,28 +224,15 @@ goog.style.getContainerOffsetToScrollInto = function(element, opt_container, opt
   }
   return new goog.math.Coordinate(scrollLeft, scrollTop);
 };
-/**
- * @param {Element} element
- * @param {Element=} opt_container
- * @param {boolean=} opt_center
- */
 goog.style.scrollIntoContainerView = function(element, opt_container, opt_center) {
   var container = opt_container || goog.dom.getDocumentScrollElement();
   var offset = goog.style.getContainerOffsetToScrollInto(element, container, opt_center);
   container.scrollLeft = offset.x;
   container.scrollTop = offset.y;
 };
-/**
- * @param {Element} el
- * @return {!goog.math.Coordinate}
- */
 goog.style.getClientLeftTop = function(el) {
   return new goog.math.Coordinate(el.clientLeft, el.clientTop);
 };
-/**
- * @param {Element} el
- * @return {!goog.math.Coordinate}
- */
 goog.style.getPageOffset = function(el) {
   var doc = goog.dom.getOwnerDocument(el);
   goog.asserts.assertObject(el, "Parameter is required");
@@ -383,25 +247,12 @@ goog.style.getPageOffset = function(el) {
   pos.y = box.top + scrollCoord.y;
   return pos;
 };
-/**
- * @param {Element} el
- * @return {number}
- */
 goog.style.getPageOffsetLeft = function(el) {
   return goog.style.getPageOffset(el).x;
 };
-/**
- * @param {Element} el
- * @return {number}
- */
 goog.style.getPageOffsetTop = function(el) {
   return goog.style.getPageOffset(el).y;
 };
-/**
- * @param {Element} el
- * @param {Window} relativeWin
- * @return {!goog.math.Coordinate}
- */
 goog.style.getFramedPageOffset = function(el, relativeWin) {
   var position = new goog.math.Coordinate(0, 0);
   var currentWin = goog.dom.getWindow(goog.dom.getOwnerDocument(el));
@@ -416,11 +267,6 @@ goog.style.getFramedPageOffset = function(el, relativeWin) {
   } while (currentWin && currentWin != relativeWin && currentWin != currentWin.parent && (currentEl = currentWin.frameElement) && (currentWin = currentWin.parent));
   return position;
 };
-/**
- * @param {goog.math.Rect} rect
- * @param {goog.dom.DomHelper} origBase
- * @param {goog.dom.DomHelper} newBase
- */
 goog.style.translateRectForAnotherFrame = function(rect, origBase, newBase) {
   if (origBase.getDocument() != newBase.getDocument()) {
     var body = origBase.getDocument().body;
@@ -433,43 +279,24 @@ goog.style.translateRectForAnotherFrame = function(rect, origBase, newBase) {
     rect.top += pos.y;
   }
 };
-/**
- * @param {(Element|Event|goog.events.Event)} a
- * @param {(Element|Event|goog.events.Event)} b
- * @return {!goog.math.Coordinate}
- */
 goog.style.getRelativePosition = function(a, b) {
   var ap = goog.style.getClientPosition(a);
   var bp = goog.style.getClientPosition(b);
   return new goog.math.Coordinate(ap.x - bp.x, ap.y - bp.y);
 };
-/**
- * @private
- * @param {!Element} el
- * @return {!goog.math.Coordinate}
- */
 goog.style.getClientPositionForElement_ = function(el) {
   var box = goog.style.getBoundingClientRect_(el);
   return new goog.math.Coordinate(box.left, box.top);
 };
-/**
- * @param {(Element|Event|goog.events.Event)} el
- * @return {!goog.math.Coordinate}
- */
 goog.style.getClientPosition = function(el) {
   goog.asserts.assert(el);
   if (el.nodeType == goog.dom.NodeType.ELEMENT) {
-    return goog.style.getClientPositionForElement_(/** @type {!Element} */ (el));
+    return goog.style.getClientPositionForElement_(el);
   } else {
     var targetEvent = el.changedTouches ? el.changedTouches[0] : el;
     return new goog.math.Coordinate(targetEvent.clientX, targetEvent.clientY);
   }
 };
-/**
- * @param {Element} el
- * @param {(number|goog.math.Coordinate)} x
- * @param {number=} opt_y
- */
 goog.style.setPageOffset = function(el, x, opt_y) {
   var cur = goog.style.getPageOffset(el);
   if (x instanceof goog.math.Coordinate) {
@@ -478,13 +305,8 @@ goog.style.setPageOffset = function(el, x, opt_y) {
   }
   var dx = goog.asserts.assertNumber(x) - cur.x;
   var dy = Number(opt_y) - cur.y;
-  goog.style.setPosition(el, /** @type {!HTMLElement} */ (el).offsetLeft + dx, /** @type {!HTMLElement} */ (el).offsetTop + dy);
+  goog.style.setPosition(el, el.offsetLeft + dx, el.offsetTop + dy);
 };
-/**
- * @param {Element} element
- * @param {(string|number|goog.math.Size)} w
- * @param {(string|number)=} opt_h
- */
 goog.style.setSize = function(element, w, opt_h) {
   var h;
   if (w instanceof goog.math.Size) {
@@ -496,49 +318,24 @@ goog.style.setSize = function(element, w, opt_h) {
     }
     h = opt_h;
   }
-  goog.style.setWidth(element, /** @type {(string|number)} */ (w));
+  goog.style.setWidth(element, w);
   goog.style.setHeight(element, h);
 };
-/**
- * @private
- * @param {(string|number)} value
- * @param {boolean} round
- * @return {string}
- */
 goog.style.getPixelStyleValue_ = function(value, round) {
   if (typeof value == "number") {
     value = (round ? Math.round(value) : value) + "px";
   }
   return value;
 };
-/**
- * @param {Element} element
- * @param {(string|number)} height
- */
 goog.style.setHeight = function(element, height) {
   element.style.height = goog.style.getPixelStyleValue_(height, true);
 };
-/**
- * @param {Element} element
- * @param {(string|number)} width
- */
 goog.style.setWidth = function(element, width) {
   element.style.width = goog.style.getPixelStyleValue_(width, true);
 };
-/**
- * @param {Element} element
- * @return {!goog.math.Size}
- */
 goog.style.getSize = function(element) {
-  return goog.style.evaluateWithTemporaryDisplay_(goog.style.getSizeWithDisplay_, /** @type {!Element} */ (element));
+  return goog.style.evaluateWithTemporaryDisplay_(goog.style.getSizeWithDisplay_, element);
 };
-/**
- * @private
- * @param {function(!Element):T} fn
- * @param {!Element} element
- * @return {T}
- * @template T
- */
 goog.style.evaluateWithTemporaryDisplay_ = function(fn, element) {
   if (goog.style.getStyle_(element, "display") != "none") {
     return fn(element);
@@ -556,14 +353,9 @@ goog.style.evaluateWithTemporaryDisplay_ = function(fn, element) {
   style.visibility = originalVisibility;
   return retVal;
 };
-/**
- * @private
- * @param {Element} element
- * @return {!goog.math.Size}
- */
 goog.style.getSizeWithDisplay_ = function(element) {
-  var offsetWidth = /** @type {!HTMLElement} */ (element).offsetWidth;
-  var offsetHeight = /** @type {!HTMLElement} */ (element).offsetHeight;
+  var offsetWidth = element.offsetWidth;
+  var offsetHeight = element.offsetHeight;
   var webkitOffsetsZero = goog.userAgent.WEBKIT && !offsetWidth && !offsetHeight;
   if ((offsetWidth === undefined || webkitOffsetsZero) && element.getBoundingClientRect) {
     var clientRect = goog.style.getBoundingClientRect_(element);
@@ -571,10 +363,6 @@ goog.style.getSizeWithDisplay_ = function(element) {
   }
   return new goog.math.Size(offsetWidth, offsetHeight);
 };
-/**
- * @param {!Element} element
- * @return {goog.math.Size}
- */
 goog.style.getTransformedSize = function(element) {
   if (!element.getBoundingClientRect) {
     return null;
@@ -582,35 +370,17 @@ goog.style.getTransformedSize = function(element) {
   var clientRect = goog.style.evaluateWithTemporaryDisplay_(goog.style.getBoundingClientRect_, element);
   return new goog.math.Size(clientRect.right - clientRect.left, clientRect.bottom - clientRect.top);
 };
-/**
- * @param {Element} element
- * @return {!goog.math.Rect}
- */
 goog.style.getBounds = function(element) {
   var o = goog.style.getPageOffset(element);
   var s = goog.style.getSize(element);
   return new goog.math.Rect(o.x, o.y, s.width, s.height);
 };
-/**
- * @param {*} selector
- * @return {string}
- * @deprecated Use goog.string.toCamelCase instead.
- */
 goog.style.toCamelCase = function(selector) {
   return goog.string.toCamelCase(String(selector));
 };
-/**
- * @param {string} selector
- * @return {string}
- * @deprecated Use goog.string.toSelectorCase instead.
- */
 goog.style.toSelectorCase = function(selector) {
   return goog.string.toSelectorCase(selector);
 };
-/**
- * @param {Element} el
- * @return {(number|string)}
- */
 goog.style.getOpacity = function(el) {
   goog.asserts.assert(el);
   var style = el.style;
@@ -631,10 +401,6 @@ goog.style.getOpacity = function(el) {
   }
   return result == "" ? result : Number(result);
 };
-/**
- * @param {Element} el
- * @param {(number|string)} alpha
- */
 goog.style.setOpacity = function(el, alpha) {
   goog.asserts.assert(el);
   var style = el.style;
@@ -654,10 +420,6 @@ goog.style.setOpacity = function(el, alpha) {
     }
   }
 };
-/**
- * @param {Element} el
- * @param {string} src
- */
 goog.style.setTransparentBackgroundImage = function(el, src) {
   var style = el.style;
   if (goog.userAgent.IE && !goog.userAgent.isVersionOrHigher("8")) {
@@ -668,9 +430,6 @@ goog.style.setTransparentBackgroundImage = function(el, src) {
     style.backgroundRepeat = "no-repeat";
   }
 };
-/**
- * @param {Element} el
- */
 goog.style.clearTransparentBackgroundImage = function(el) {
   var style = el.style;
   if ("filter" in style) {
@@ -679,38 +438,20 @@ goog.style.clearTransparentBackgroundImage = function(el) {
     style.backgroundImage = "none";
   }
 };
-/**
- * @param {Element} el
- * @param {*} display
- * @deprecated Use goog.style.setElementShown instead.
- */
 goog.style.showElement = function(el, display) {
   goog.style.setElementShown(el, display);
 };
-/**
- * @param {Element} el
- * @param {*} isShown
- */
 goog.style.setElementShown = function(el, isShown) {
   el.style.display = isShown ? "" : "none";
 };
-/**
- * @param {Element} el
- * @return {boolean}
- */
 goog.style.isElementShown = function(el) {
   return el.style.display != "none";
 };
-/**
- * @param {!goog.html.SafeStyleSheet} safeStyleSheet
- * @param {?Node=} opt_node
- * @return {(!HTMLStyleElement|!StyleSheet)}
- */
 goog.style.installSafeStyleSheet = function(safeStyleSheet, opt_node) {
   var dh = goog.dom.getDomHelper(opt_node);
   var doc = dh.getDocument();
   if (goog.userAgent.IE && doc.createStyleSheet) {
-    /** @type {(!HTMLStyleElement|!StyleSheet)} */ var styleSheet = doc.createStyleSheet();
+    var styleSheet = doc.createStyleSheet();
     goog.style.setSafeStyleSheet(styleSheet, safeStyleSheet);
     return styleSheet;
   } else {
@@ -721,33 +462,31 @@ goog.style.installSafeStyleSheet = function(safeStyleSheet, opt_node) {
       body.parentNode.insertBefore(head, body);
     }
     var el = dh.createDom(goog.dom.TagName.STYLE);
+    var nonce = goog.getScriptNonce();
+    if (nonce) {
+      el.setAttribute("nonce", nonce);
+    }
     goog.style.setSafeStyleSheet(el, safeStyleSheet);
     dh.appendChild(head, el);
     return el;
   }
 };
-/**
- * @param {(Element|StyleSheet)} styleSheet
- */
 goog.style.uninstallStyles = function(styleSheet) {
-  var node = styleSheet.ownerNode || styleSheet.owningElement || /** @type {Element} */ (styleSheet);
+  var node = styleSheet.ownerNode || styleSheet.owningElement || styleSheet;
   goog.dom.removeNode(node);
 };
-/**
- * @param {(!Element|!StyleSheet)} element
- * @param {!goog.html.SafeStyleSheet} safeStyleSheet
- */
 goog.style.setSafeStyleSheet = function(element, safeStyleSheet) {
   var stylesString = goog.html.SafeStyleSheet.unwrap(safeStyleSheet);
   if (goog.userAgent.IE && element.cssText !== undefined) {
     element.cssText = stylesString;
   } else {
-    element.innerHTML = stylesString;
+    if (goog.global.trustedTypes) {
+      goog.dom.setTextContent(element, stylesString);
+    } else {
+      element.innerHTML = stylesString;
+    }
   }
 };
-/**
- * @param {Element} el
- */
 goog.style.setPreWrap = function(el) {
   var style = el.style;
   if (goog.userAgent.IE && !goog.userAgent.isVersionOrHigher("8")) {
@@ -761,9 +500,6 @@ goog.style.setPreWrap = function(el) {
     }
   }
 };
-/**
- * @param {Element} el
- */
 goog.style.setInlineBlock = function(el) {
   var style = el.style;
   style.position = "relative";
@@ -774,18 +510,10 @@ goog.style.setInlineBlock = function(el) {
     style.display = "inline-block";
   }
 };
-/**
- * @param {Element} el
- * @return {boolean}
- */
 goog.style.isRightToLeft = function(el) {
   return "rtl" == goog.style.getStyle_(el, "direction");
 };
-/** @private @type {?string} */ goog.style.unselectableStyle_ = goog.userAgent.GECKO ? "MozUserSelect" : goog.userAgent.WEBKIT || goog.userAgent.EDGE ? "WebkitUserSelect" : null;
-/**
- * @param {Element} el
- * @return {boolean}
- */
+goog.style.unselectableStyle_ = goog.userAgent.GECKO ? "MozUserSelect" : goog.userAgent.WEBKIT || goog.userAgent.EDGE ? "WebkitUserSelect" : null;
 goog.style.isUnselectable = function(el) {
   if (goog.style.unselectableStyle_) {
     return el.style[goog.style.unselectableStyle_].toLowerCase() == "none";
@@ -796,11 +524,6 @@ goog.style.isUnselectable = function(el) {
   }
   return false;
 };
-/**
- * @param {Element} el
- * @param {boolean} unselectable
- * @param {boolean=} opt_noRecurse
- */
 goog.style.setUnselectable = function(el, unselectable, opt_noRecurse) {
   var descendants = !opt_noRecurse ? el.getElementsByTagName("*") : null;
   var name = goog.style.unselectableStyle_;
@@ -828,17 +551,9 @@ goog.style.setUnselectable = function(el, unselectable, opt_noRecurse) {
     }
   }
 };
-/**
- * @param {Element} element
- * @return {!goog.math.Size}
- */
 goog.style.getBorderBoxSize = function(element) {
-  return new goog.math.Size(/** @type {!HTMLElement} */ (element).offsetWidth, /** @type {!HTMLElement} */ (element).offsetHeight);
+  return new goog.math.Size(element.offsetWidth, element.offsetHeight);
 };
-/**
- * @param {Element} element
- * @param {goog.math.Size} size
- */
 goog.style.setBorderBoxSize = function(element, size) {
   var doc = goog.dom.getOwnerDocument(element);
   var isCss1CompatMode = goog.dom.getDomHelper(doc).isCss1CompatMode();
@@ -857,16 +572,12 @@ goog.style.setBorderBoxSize = function(element, size) {
     goog.style.setBoxSizingSize_(element, size, "border-box");
   }
 };
-/**
- * @param {Element} element
- * @return {!goog.math.Size}
- */
 goog.style.getContentBoxSize = function(element) {
   var doc = goog.dom.getOwnerDocument(element);
   var ieCurrentStyle = goog.userAgent.IE && element.currentStyle;
   if (ieCurrentStyle && goog.dom.getDomHelper(doc).isCss1CompatMode() && ieCurrentStyle.width != "auto" && ieCurrentStyle.height != "auto" && !ieCurrentStyle.boxSizing) {
-    var width = goog.style.getIePixelValue_(element, /** @type {string} */ (ieCurrentStyle.width), "width", "pixelWidth");
-    var height = goog.style.getIePixelValue_(element, /** @type {string} */ (ieCurrentStyle.height), "height", "pixelHeight");
+    var width = goog.style.getIePixelValue_(element, ieCurrentStyle.width, "width", "pixelWidth");
+    var height = goog.style.getIePixelValue_(element, ieCurrentStyle.height, "height", "pixelHeight");
     return new goog.math.Size(width, height);
   } else {
     var borderBoxSize = goog.style.getBorderBoxSize(element);
@@ -875,10 +586,6 @@ goog.style.getContentBoxSize = function(element) {
     return new goog.math.Size(borderBoxSize.width - borderBox.left - paddingBox.left - paddingBox.right - borderBox.right, borderBoxSize.height - borderBox.top - paddingBox.top - paddingBox.bottom - borderBox.bottom);
   }
 };
-/**
- * @param {Element} element
- * @param {goog.math.Size} size
- */
 goog.style.setContentBoxSize = function(element, size) {
   var doc = goog.dom.getOwnerDocument(element);
   var isCss1CompatMode = goog.dom.getDomHelper(doc).isCss1CompatMode();
@@ -897,12 +604,6 @@ goog.style.setContentBoxSize = function(element, size) {
     goog.style.setBoxSizingSize_(element, size, "content-box");
   }
 };
-/**
- * @private
- * @param {Element} element
- * @param {goog.math.Size} size
- * @param {string} boxSizing
- */
 goog.style.setBoxSizingSize_ = function(element, size, boxSizing) {
   var style = element.style;
   if (goog.userAgent.GECKO) {
@@ -917,14 +618,6 @@ goog.style.setBoxSizingSize_ = function(element, size, boxSizing) {
   style.width = Math.max(size.width, 0) + "px";
   style.height = Math.max(size.height, 0) + "px";
 };
-/**
- * @private
- * @param {Element} element
- * @param {string} value
- * @param {string} name
- * @param {string} pixelName
- * @return {number}
- */
 goog.style.getIePixelValue_ = function(element, value, name, pixelName) {
   if (/^\d+px?$/.test(value)) {
     return parseInt(value, 10);
@@ -939,22 +632,10 @@ goog.style.getIePixelValue_ = function(element, value, name, pixelName) {
     return +pixelValue;
   }
 };
-/**
- * @private
- * @param {Element} element
- * @param {string} propName
- * @return {number}
- */
 goog.style.getIePixelDistance_ = function(element, propName) {
   var value = goog.style.getCascadedStyle(element, propName);
   return value ? goog.style.getIePixelValue_(element, value, "left", "pixelLeft") : 0;
 };
-/**
- * @private
- * @param {Element} element
- * @param {string} stylePrefix
- * @return {!goog.math.Box}
- */
 goog.style.getBox_ = function(element, stylePrefix) {
   if (goog.userAgent.IE) {
     var left = goog.style.getIePixelDistance_(element, stylePrefix + "Left");
@@ -970,27 +651,13 @@ goog.style.getBox_ = function(element, stylePrefix) {
     return new goog.math.Box(parseFloat(top), parseFloat(right), parseFloat(bottom), parseFloat(left));
   }
 };
-/**
- * @param {Element} element
- * @return {!goog.math.Box}
- */
 goog.style.getPaddingBox = function(element) {
   return goog.style.getBox_(element, "padding");
 };
-/**
- * @param {Element} element
- * @return {!goog.math.Box}
- */
 goog.style.getMarginBox = function(element) {
   return goog.style.getBox_(element, "margin");
 };
-/** @private @type {!Object} */ goog.style.ieBorderWidthKeywords_ = {"thin":2, "medium":4, "thick":6};
-/**
- * @private
- * @param {Element} element
- * @param {string} prop
- * @return {number}
- */
+goog.style.ieBorderWidthKeywords_ = {"thin":2, "medium":4, "thick":6};
 goog.style.getIePixelBorder_ = function(element, prop) {
   if (goog.style.getCascadedStyle(element, prop + "Style") == "none") {
     return 0;
@@ -1001,10 +668,6 @@ goog.style.getIePixelBorder_ = function(element, prop) {
   }
   return goog.style.getIePixelValue_(element, width, "left", "pixelLeft");
 };
-/**
- * @param {Element} element
- * @return {!goog.math.Box}
- */
 goog.style.getBorderBox = function(element) {
   if (goog.userAgent.IE && !goog.userAgent.isDocumentModeOrHigher(9)) {
     var left = goog.style.getIePixelBorder_(element, "borderLeft");
@@ -1020,10 +683,6 @@ goog.style.getBorderBox = function(element) {
     return new goog.math.Box(parseFloat(top), parseFloat(right), parseFloat(bottom), parseFloat(left));
   }
 };
-/**
- * @param {Element} el
- * @return {string}
- */
 goog.style.getFontFamily = function(el) {
   var doc = goog.dom.getOwnerDocument(el);
   var font = "";
@@ -1045,21 +704,13 @@ goog.style.getFontFamily = function(el) {
   }
   return goog.string.stripQuotes(font, "\"'");
 };
-/** @private @type {RegExp} */ goog.style.lengthUnitRegex_ = /[^\d]+$/;
-/**
- * @param {string} value
- * @return {?string}
- */
+goog.style.lengthUnitRegex_ = /[^\d]+$/;
 goog.style.getLengthUnits = function(value) {
   var units = value.match(goog.style.lengthUnitRegex_);
   return units && units[0] || null;
 };
-/** @private @type {!Object} */ goog.style.ABSOLUTE_CSS_LENGTH_UNITS_ = {"cm":1, "in":1, "mm":1, "pc":1, "pt":1};
-/** @private @type {!Object} */ goog.style.CONVERTIBLE_RELATIVE_CSS_UNITS_ = {"em":1, "ex":1};
-/**
- * @param {Element} el
- * @return {number}
- */
+goog.style.ABSOLUTE_CSS_LENGTH_UNITS_ = {"cm":1, "in":1, "mm":1, "pc":1, "pt":1};
+goog.style.CONVERTIBLE_RELATIVE_CSS_UNITS_ = {"em":1, "ex":1};
 goog.style.getFontSize = function(el) {
   var fontSize = goog.style.getStyle_(el, "fontSize");
   var sizeUnits = goog.style.getLengthUnits(fontSize);
@@ -1071,7 +722,7 @@ goog.style.getFontSize = function(el) {
       return goog.style.getIePixelValue_(el, fontSize, "left", "pixelLeft");
     } else {
       if (el.parentNode && el.parentNode.nodeType == goog.dom.NodeType.ELEMENT && String(sizeUnits) in goog.style.CONVERTIBLE_RELATIVE_CSS_UNITS_) {
-        var parentElement = /** @type {!Element} */ (el.parentNode);
+        var parentElement = el.parentNode;
         var parentSize = goog.style.getStyle_(parentElement, "fontSize");
         return goog.style.getIePixelValue_(parentElement, fontSize == parentSize ? "1em" : fontSize, "left", "pixelLeft");
       }
@@ -1083,10 +734,6 @@ goog.style.getFontSize = function(el) {
   goog.dom.removeNode(sizeElement);
   return fontSize;
 };
-/**
- * @param {string} value
- * @return {!Object}
- */
 goog.style.parseStyleAttribute = function(value) {
   var result = {};
   goog.array.forEach(value.split(/\s*;\s*/), function(pair) {
@@ -1099,10 +746,6 @@ goog.style.parseStyleAttribute = function(value) {
   });
   return result;
 };
-/**
- * @param {Object} obj
- * @return {string}
- */
 goog.style.toStyleAttribute = function(obj) {
   var buffer = [];
   goog.object.forEach(obj, function(value, key) {
@@ -1110,24 +753,12 @@ goog.style.toStyleAttribute = function(obj) {
   });
   return buffer.join("");
 };
-/**
- * @param {Element} el
- * @param {string} value
- */
 goog.style.setFloat = function(el, value) {
   el.style[goog.userAgent.IE ? "styleFloat" : "cssFloat"] = value;
 };
-/**
- * @param {Element} el
- * @return {string}
- */
 goog.style.getFloat = function(el) {
   return el.style[goog.userAgent.IE ? "styleFloat" : "cssFloat"] || "";
 };
-/**
- * @param {string=} opt_className
- * @return {number}
- */
 goog.style.getScrollbarWidth = function(opt_className) {
   var outerDiv = goog.dom.createElement(goog.dom.TagName.DIV);
   if (opt_className) {
@@ -1142,11 +773,7 @@ goog.style.getScrollbarWidth = function(opt_className) {
   goog.dom.removeNode(outerDiv);
   return width;
 };
-/** @private @const @type {!RegExp} */ goog.style.MATRIX_TRANSLATION_REGEX_ = new RegExp("matrix\\([0-9\\.\\-]+, [0-9\\.\\-]+, " + "[0-9\\.\\-]+, [0-9\\.\\-]+, " + "([0-9\\.\\-]+)p?x?, ([0-9\\.\\-]+)p?x?\\)");
-/**
- * @param {!Element} element
- * @return {!goog.math.Coordinate}
- */
+goog.style.MATRIX_TRANSLATION_REGEX_ = new RegExp("matrix\\([0-9\\.\\-]+, [0-9\\.\\-]+, " + "[0-9\\.\\-]+, [0-9\\.\\-]+, " + "([0-9\\.\\-]+)p?x?, ([0-9\\.\\-]+)p?x?\\)");
 goog.style.getCssTranslation = function(element) {
   var transform = goog.style.getComputedTransform(element);
   if (!transform) {

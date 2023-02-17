@@ -8,7 +8,9 @@
             [mecca.mario :as mario]
             [sci.core :as sci]
             [mecca.sci-editor :as sci-editor :refer [!points points]]
-            [clojure.pprint :as pp]))
+            [clojure.pprint :as pp]
+            [goog.object :as o]
+            [clojure.edn :as edn]))
 
 (defn note-guides []
   (let [editor-x (subscribe [:editor-beat-start])]
@@ -184,15 +186,38 @@
        (catch :default e
          (str e))))
 
+(defn load-song []
+  [:input#input
+   {:type      "file"
+    :on-change
+    (fn [e]
+      (let [dom    (o/get e "target")
+            file   (o/getValueByKeys dom #js ["files" 0])
+            reader (js/FileReader.)]
+        (.readAsText reader file)
+        (set! (.-onload reader)
+              #(dispatch [:set-notes
+                          (edn/read-string (-> % .-target .-result))]))))}])
+
 (defn mecca []
   [:div
    [editor]
    [:div.flex-container
     [:div.flex-item
-   [sci-editor/editor "(for [beat (range 12)]
+     [sci-editor/editor "(for [beat (range 12)]
   {:time beat 
    :instrument (inc beat) 
    :pitch (+ 60 beat)})" !points {:eval? true}]]
-   [:div.flex-item
-   [transport/transport 0 -0.5 0.5]]
-   [editor/toolbar 0 0]]])
+    [:div.flex-item
+     [transport/transport 0 -0.5 0.5]
+    [editor/toolbar 0 0]
+     [:button
+      {:on-click #(let [file-blob (js/Blob. [@(subscribe [:notes])] #js {"type" "text/plain"})
+                        link (.createElement js/document "a")]
+                    (set! (.-href link) (.createObjectURL js/URL file-blob))
+                    (.setAttribute link "download" "mecca.txt")
+                    (.appendChild (.-body js/document) link)
+                    (.click link)
+                    (.removeChild (.-body js/document) link))}
+      "Download"]
+     [load-song]]]])

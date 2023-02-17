@@ -53,7 +53,7 @@ As [Rich Hickey said](https://github.com/matthiasn/talk-transcripts/blob/master/
 
 See the paper, [Game Scoring: Towards a Broader Theory](/docs/game-scoring.pdf) for a fantastic treatment of the specific musical inventions that came about through creatively overcoming the technological limitations historically involved in the development of game music.
 
-So how can we expand the sonic pallet without turning it into a choose-a-phone?
+So how can we expand the sonic palette without turning it into a choose-a-phone?
 
 This question goes right to the heart of a creative platform's design philosophy, and mine is something like (to put it in one line): "to subtly encourage the use of effective idioms while maintaining maximal expressivity."
 
@@ -65,7 +65,7 @@ For the synths, I believe that by using the very efficient algorithms from Blarg
 
 * The triangle channel (for bass and kick drums/toms) is actually a 16 step quantized triangle-ish wave with a slight shark fin shape that also has tiny sawteeth on it. Gotta get this stuff right. That's what gives the Nintendo basslines those really sweet whirling harmonic overtones. The waveform is actually produced by hijacking the channel's velocity control on the chip and using it as a 16-step counter. For this reason the bass channel has no adjustable velocity, notes are either _on_ or _off_.
 
-* The 2 pulse-wave (lead) channels offer a variable duty cycle, so the standard Web Audio square wave will also not do here. However, we do have the option of using a wavetable, which can produce an arbitrary periodic waveform defined by a list of sin/cosine terms for the Fourier coefficients, which can be easily derived for any sound by playing it through the FFT provided by the Web Audio analyzer node.
+* The 2 pulse-wave (lead) channels offer a variable duty cycle, so the standard Web Audio square wave will also not do here. However, we do have the option of using a wavetable, which can produce an arbitrary periodic waveform defined by a list of sin/cosine terms for the Fourier coefficients, which can be easily derived for any sound by playing it through the FFT ~~provided by the Web Audio analyzer node~~ EDIT: it seems we will need a separate FFT library for this (or write one) because, quite annoyingly, the analyzer node's FFT doesn't provide the sine/cosine values, only the frequencies...
 
 * Linear-interpolated bandlimiting will be good enough, since we have the ability to use the hardware clock exposed by the Web Audio API to oversample at an extremely high rate, supressing aliasing far below perceptible limits.
 

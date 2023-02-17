@@ -59,3 +59,8 @@ clj꞉shadow.user꞉> 
 cljs꞉cljs.user꞉> 
 [{:time 2.5, :instrument 1, :pitch 71} {:time 5.5, :instrument 1, :pitch 67}]
 cljs꞉mecca.view꞉> 
+[]
+nil
+cljs꞉mecca.view꞉> 
+"[]\n"
+cljs꞉mecca.view꞉> 

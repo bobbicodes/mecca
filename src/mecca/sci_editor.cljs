@@ -94,7 +94,7 @@
     [:div
      {:ref mount!
       :style {:background-color "#F8B0F8"
-              :width 550
+              :width 450
               }}]
     (finally (j/call @!view :destroy))))
 

@@ -7,7 +7,8 @@
             [mecca.editor :as editor :refer [svg-paths]]
             [mecca.mario :as mario]
             [sci.core :as sci]
-            [mecca.sci-editor :as sci-editor :refer [!points points]]))
+            [mecca.sci-editor :as sci-editor :refer [!points points]]
+            [clojure.pprint :as pp]))
 
 (defn note-guides []
   (let [editor-x (subscribe [:editor-beat-start])]
@@ -70,10 +71,11 @@
                                       (dispatch [:add-note @instrument
                                                   (+ time (dec @editor-x))
                                                   (get pitches pitch)])
-                                       (sci-editor/update-editor! (str (conj @(subscribe [:notes]) 
-                                                                             {:instrument @instrument
-                                                                              :time (+ time (dec @editor-x))
-                                                                              :pitch (get pitches pitch)}))))))}])))))
+                                       (sci-editor/update-editor! 
+                                        (str (conj @(subscribe [:notes]) 
+                                                   {:instrument @instrument
+                                                    :time       (+ time (dec @editor-x))
+                                                    :pitch      (get pitches pitch)}))))))}])))))
 
 (defn note-cursor []
   (let [focused (subscribe [:focused-note-pos])
@@ -185,9 +187,12 @@
 (defn mecca []
   [:div
    [editor]
+   [:div.flex-container
+    [:div.flex-item
    [sci-editor/editor "(for [beat (range 12)]
-  {:time beat :instrument (inc beat) :pitch (+ 60 beat)})" !points {:eval? true}]
-   [:button {:on-click #(dispatch [:set-notes (eval-all (str (some-> @!points .-state .-doc str)))])}
-"Eval"]
-   [transport/transport 140 0 0.5]
-   [editor/toolbar 71 0]])
+  {:time beat 
+   :instrument (inc beat) 
+   :pitch (+ 60 beat)})" !points {:eval? true}]]
+   [:div.flex-item
+   [transport/transport 0 -0.5 0.5]]
+   [editor/toolbar 0 0]]])

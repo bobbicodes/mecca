@@ -367,3 +367,15 @@ input[type=range]:focus::-ms-thumb {
   background-color: var(--boxHigh);
 }
 
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.flex-item {
+  width: 470px;
+  height: 100px;
+  line-height: 30px;
+  text-align: left;
+}

@@ -185,7 +185,8 @@
 (defn mecca []
   [:div
    [editor]
-   [sci-editor/editor (str @points) !points {:eval? true}]
+   [sci-editor/editor "(for [beat (range 12)]
+  {:time beat :instrument (inc beat) :pitch (+ 60 beat)})" !points {:eval? true}]
    [:button {:on-click #(dispatch [:set-notes (eval-all (str (some-> @!points .-state .-doc str)))])}
 "Eval"]
    [transport/transport 140 0 0.5]

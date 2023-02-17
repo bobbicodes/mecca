@@ -371,11 +371,12 @@ input[type=range]:focus::-ms-thumb {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
+  column-count: 2;
 }
 
 .flex-item {
   width: 470px;
-  height: 100px;
+  height: 500px;
   line-height: 30px;
   text-align: left;
 }

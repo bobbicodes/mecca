@@ -38,7 +38,7 @@
     (history)
     highlight/defaultHighlightStyle
     (view/drawSelection)
-    ;(lineNumbers)
+    (lineNumbers)
     ;(fold/foldGutter)
     (.. EditorState -allowMultipleSelections (of true))
     (if false

@@ -81,6 +81,7 @@
 (reg-event-db
  :play-on
  (fn [db [_ _]]
+   (.resume @(subscribe [:audio-context]))
    (music/play-song!)
    (assoc
     (assoc db :play-start (.-currentTime @(subscribe [:audio-context])))
@@ -110,6 +111,7 @@
 (reg-event-db
  :pause
  (fn [db [_ _]]
+   (.suspend @(subscribe [:audio-context]))
    (assoc db :playing? false)))
 
 (reg-event-db

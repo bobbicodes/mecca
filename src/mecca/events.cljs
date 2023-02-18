@@ -34,7 +34,7 @@
     :array-buffer nil
     :time 0
     :time-signature 4
-    :tempo 120
+    :tempo 180
     :notes []
     :mario-x 16
     :mario-y 61

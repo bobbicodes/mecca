@@ -99,10 +99,13 @@
     (finally (j/call @!view :destroy))))
 
 (defonce !points (r/atom ""))
-(defonce !tri (r/atom ""))
+(defonce !result (r/atom ""))
 
 (defonce points
   (r/atom []))
+
+(def result
+  (r/atom "Output꞉ "))
 
 (defn eval-all [s]
   (try (sci.core/eval-string s {:classes {'js goog/global :allow :all}})
@@ -112,3 +115,7 @@
 (defn update-editor! [text]
   (let [end (count (some-> @!points .-state .-doc str))]
     (.dispatch @!points #js{:changes #js{:from 0 :to end :insert text}})))
+
+(defn update-result! [text]
+  (let [end (count (some-> @!result .-state .-doc str))]
+    (.dispatch @!result #js{:changes #js{:from 0 :to end :insert text}})))

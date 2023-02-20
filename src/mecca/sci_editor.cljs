@@ -107,6 +107,8 @@
 (def result
   (r/atom "Output꞉ "))
 
+@result
+
 (defn eval-all [s]
   (try (sci.core/eval-string s {:classes {'js goog/global :allow :all}})
        (catch :default e
@@ -119,3 +121,6 @@
 (defn update-result! [text]
   (let [end (count (some-> @!result .-state .-doc str))]
     (.dispatch @!result #js{:changes #js{:from 0 :to end :insert text}})))
+
+
+

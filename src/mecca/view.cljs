@@ -200,46 +200,7 @@
               #(dispatch [:set-notes
                           (edn/read-string (-> % .-target .-result))]))))}])
 
-(def demo "(defn bass1 [time]
-  [{:time (+ time 0), :instrument 15, :pitch 71} {:time (+ time 1.5) :instrument 15, :pitch 71} {:time (+ time 2) :instrument 15, :pitch 71} {:time (+ time 3) :instrument 15, :pitch 73} {:time (+ time 3.5) :instrument 15, :pitch 69} {:time (+ time 4) :instrument 15, :pitch 69} {:time (+ time 5.5) :instrument 15, :pitch 69} {:time (+ time 6) :instrument 15, :pitch 69} {:time (+ time 8) :instrument 15, :pitch 64} {:time (+ time 9.5) :instrument 15, :pitch 64} {:time (+ time 10) :instrument 15, :pitch 64} {:time (+ time 12) :instrument 15, :pitch 64} {:time (+ time 13.5) :instrument 15, :pitch 64} {:time (+ time 14) :instrument 15, :pitch 64}])
-
-(def bass-pat-1
-  (concat (bass1 0) (bass1 16)))
-
-(defn drums1 [time]
-  (map (fn [m] (update m :time #(+ % time)))
-    [{:time 15,:instrument 2,:pitch 67} {:time 14,:instrument 13,:pitch 77} {:time 13,:instrument 13,:pitch 77} {:time 12,:instrument 13,:pitch 77} {:time 11,:instrument 2,:pitch 67} {:time 10,:instrument 13,:pitch 77} {:time 9,:instrument 13,:pitch 77} {:time 8,:instrument 13,:pitch 77} {:time 7,:instrument 2,:pitch 67} {:time 6,:instrument 13,:pitch 77} {:time 5,:instrument 13,:pitch 77} {:time 4,:instrument 13,:pitch 77} {:time 3,:instrument 2,:pitch 67} {:time 2,:instrument 13,:pitch 77} {:time 1,:instrument 13,:pitch 77} {:time 0,:instrument 13,:pitch 77}]))
-
-(defn drums-pat-1 [time]
-  (map (fn [m] (update m :time #(+ % time)))
-       (concat (drums1 0) (drums1 16))))
-
-(defn glis [notes]
-  (let [chord (reverse (sort-by :pitch notes))
-        times (for [note (range (count chord))]
-                (update (nth chord note) :time #(+ % (* 0.1 note))))
-        pitches (for [note (range (count times))]
-                  (update (nth times note) :pitch #(- % note)))
-        last-note (repeat 3 (last pitches))
-        last-note (for [note (range 1 3)]
-                    (update (nth last-note note) :time #(+ % (/ note 10.0))))]
-    (concat pitches last-note)))
-
-(defn lead1 [time]
-  (map (fn [m] (update m :time #(+ % time)))
-       (concat [{:time 1.5, :instrument 14, :pitch 69} {:time 2, :instrument 14, :pitch 71} {:time 2.5, :instrument 14, :pitch 74} {:time 3, :instrument 14, :pitch 76} {:time 3.5, :instrument 14, :pitch 78} {:time 4, :instrument 14, :pitch 78} {:time 4.5, :instrument 14, :pitch 78} {:time 5, :instrument 14, :pitch 76} {:time 6, :instrument 14, :pitch 74} {:time 6.5, :instrument 14, :pitch 76} {:time 7.5, :instrument 14, :pitch 74} {:time 7.75, :instrument 14, :pitch 76} {:time 8, :instrument 14, :pitch 74} {:time 9, :instrument 14, :pitch 74} {:time 9.5, :instrument 14, :pitch 71}]
-               (glis (repeat 12 {:time 10 :instrument 14, :pitch 71}))
-               [{:time 12, :instrument 14, :pitch 74} {:time 12.5, :instrument 14, :pitch 74} {:time 13.5, :instrument 14, :pitch 74} {:time 14.5, :instrument 14, :pitch 71} {:time 15.5, :instrument 14, :pitch 69} {:time 16, :instrument 14, :pitch 71}]
-               (glis (repeat 8 {:time 16, :instrument 14, :pitch 71}))
-               [{:time 17.5, :instrument 14, :pitch 64} {:time 18, :instrument 14, :pitch 66} {:time 18.5, :instrument 14, :pitch 69} {:time 19, :instrument 14, :pitch 71} {:time 20, :instrument 14, :pitch 71} {:time 20.5, :instrument 14, :pitch 73} {:time 21.5, :instrument 14, :pitch 69} {:time 22.5, :instrument 14, :pitch 69} {:time 24, :instrument 14, :pitch 66} {:time 24.5, :instrument 14, :pitch 64} {:time 25.5, :instrument 14, :pitch 64}])))
-
-(def rhythm
-  (concat
-   bass-pat-1
-   (drums-pat-1 0)
-    (lead1 0)))
-
-rhythm")
+(def demo "(range 5)")
 
 (defn mecca []
   [:div
@@ -249,7 +210,7 @@ rhythm")
      [sci-editor/editor demo !points {:eval? true}]
      [:p]
      [:p "Evaluation results"]
-     [sci-editor/editor @result !result {:eval? true}]]
+     [sci-editor/editor @(subscribe [:eval-result]) !result]]
     [:div.flex-item
      [transport/transport 0 -0.5 0.5]
     [editor/toolbar 0 0]

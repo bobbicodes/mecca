@@ -403,3 +403,389 @@ clj꞉mecca.view꞉> 
 clj꞉mecca.view꞉> 
 ; nREPL Connection was closed
 ; nREPL Connection was closed
+; nREPL Connection was closed
+; Jacking in...
+; Connecting using "shadow-cljs" project type.
+; You can make Calva auto-select this:
+; "calva.autoSelectReplConnectProjectType": "shadow-cljs"
+;   - See https://calva.io/connect/#auto-select-project-type
+; 
+; Starting Jack-in Terminal: npx.cmd shadow-cljs -d cider/cider-nrepl:0.28.5 watch :app
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS:
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉shadow.user꞉> 
+; Creating cljs repl session...
+; Connecting cljs repl: shadow-cljs...
+;   The Calva Connection Log might have more connection progress information.
+; Connected session: cljs, repl: :app
+; TIPS: You can choose which REPL to use (clj or cljs):
+;    *Calva: Toggle REPL connection*
+;    (There is a button in the status bar for this)
+; Jack-in done.
+cljs꞉cljs.user꞉> 
+#object[EditorView [object Object]]
+cljs꞉mecca.core꞉> 
+"[{:instrument 1,:time 2,:pitch 72}]"
+cljs꞉mecca.core꞉> 
+""
+cljs꞉mecca.view꞉> 
+#object[EditorView [object Object]]
+cljs꞉mecca.core꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:1
+;  Use of undeclared Var mecca.core/
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.core꞉> 
+"[{:instrument 1,:time 2,:pitch 72}]\n\n\n"
+cljs꞉mecca.core꞉> 
+[{:instrument 1, :time 2, :pitch 72}]
+cljs꞉mecca.core꞉> 
+"[{:instrument 1, :time 2, :pitch 72}]"
+cljs꞉mecca.view꞉> 
+#object[EditorView [object Object]]
+cljs꞉mecca.editor꞉> 
+"(0 1 2 3 4 5 6 7)"
+cljs꞉mecca.editor꞉> 
+"(0 1 2 3 4 5 6 7)"
+cljs꞉mecca.core꞉> 
+#object[EditorView [object Object]]
+cljs꞉mecca.core꞉> 
+"(range 5)"
+cljs꞉mecca.core꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.core꞉> 
+""
+cljs꞉mecca.sci-editor꞉> 
+""
+cljs꞉mecca.sci-editor꞉> 
+""
+cljs꞉mecca.sci-editor꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.sci-editor꞉> 
+[:set-result "(0 1 2 3 4)"]
+cljs꞉mecca.sci-editor꞉> 
+nil
+cljs꞉mecca.sci-editor꞉> 
+""
+cljs꞉mecca.sci-editor꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.sci-editor꞉> 
+nil
+cljs꞉mecca.sci-editor꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.sci-editor꞉> 
+nil
+cljs꞉mecca.sci-editor꞉> 
+nil
+cljs꞉mecca.view꞉> 
+nil
+cljs꞉mecca.sci-editor꞉> 
+nil
+cljs꞉mecca.sci-editor꞉> 
+""
+cljs꞉mecca.sci-editor꞉> 
+nil
+cljs꞉mecca.sci-editor꞉> 
+""
+cljs꞉mecca.sci-editor꞉> 
+nil
+cljs꞉mecca.sci-editor꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.sci-editor꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.view꞉> 
+#object[reagent.ratom.RAtom {:val #object[EditorView [object Object]]}]
+cljs꞉mecca.view꞉> 
+#object[EditorView [object Object]]
+cljs꞉mecca.view꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.view꞉> 
+nil
+cljs꞉mecca.sci-editor꞉> 
+"(range 5)"
+cljs꞉mecca.core꞉> 
+"(range 4)"
+cljs꞉mecca.core꞉> 
+"(0 1)"
+cljs꞉mecca.view꞉> 
+"(0 1)"
+cljs꞉mecca.view꞉> 
+"(0 1)"
+cljs꞉mecca.view꞉> 
+"(0 1)"
+cljs꞉mecca.view꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.core꞉> 
+nil
+cljs꞉mecca.events꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.core꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.core꞉> 
+nil
+cljs꞉mecca.core꞉> 
+"(0 1 2 3 4 5 6 7 8)"
+cljs꞉mecca.core꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.core꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.core꞉> 
+nil
+cljs꞉mecca.core꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:3
+;  Use of undeclared Var mecca.core/subscribe
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.core꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.core꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.core꞉> 
+"(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32)"
+cljs꞉mecca.core꞉> 
+"(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32)"
+cljs꞉mecca.core꞉> 
+"(0 1)"
+cljs꞉mecca.core꞉> 
+"(0 1)"
+cljs꞉mecca.core꞉> 
+"(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32)"
+cljs꞉mecca.core꞉> 
+nil
+; ------ REPL Error while processing ---------------------------------------------
+; (ns mecca.core
+;   (:require
+;    [reagent.core :as r]
+;    [reagent.dom :as rdom]
+;    [mecca.sci-editor :as sci-editor :refer [!points points result !result]]
+;    [re-frame.core :as rf]
+;    [re-pressed.core :as rp]
+;    [mecca.events]
+;    [mecca.sci]
+;    [mecca.subs]
+;    [mecca.view :as view]))
+; no source by id: [:shadow.build.classpath/resource "mecca/core.cljs"]
+; {:id [:shadow.build.classpath/resource "mecca/core.cljs"]}
+; ExceptionInfo: no source by id: [:shadow.build.classpath/resource "mecca/core.cljs"]
+; 	shadow.build.data/get-source-by-id (data.clj:171)
+; 	shadow.build.data/get-source-by-id (data.clj:168)
+; 	shadow.build.compiler/remove-dead-js-deps/remove-fn--14108/fn--14109 (compiler.clj:1202)
+; 	clojure.core/complement/fn--5686 (core.clj:1443)
+; 	clojure.core/filter/fn--5911 (core.clj:2821)
+; 	clojure.lang.LazySeq.sval (LazySeq.java:42)
+; 	clojure.lang.LazySeq.seq (LazySeq.java:51)
+; 	clojure.lang.ChunkedCons.chunkedNext (ChunkedCons.java:59)
+; 	clojure.core/chunk-next (core.clj:710)
+; 	clojure.core.protocols/fn--8176 (protocols.clj:137)
+; 	clojure.core.protocols/fn--8176 (protocols.clj:124)
+; 	clojure.core.protocols/fn--8136/G--8131--8145 (protocols.clj:19)
+; 	clojure.core.protocols/seq-reduce (protocols.clj:31)
+; 	clojure.core.protocols/fn--8168 (protocols.clj:75)
+; 	clojure.core.protocols/fn--8168 (protocols.clj:75)
+; 	clojure.core.protocols/fn--8110/G--8105--8123 (protocols.clj:13)
+; 	clojure.core/reduce (core.clj:6830)
+; 	clojure.core/into (core.clj:6897)
+; 	clojure.core/into (core.clj:6889)
+; 	shadow.build.compiler/remove-dead-js-deps/remove-fn--14108 (compiler.clj:1204)
+; 	clojure.core/update (core.clj:6185)
+; 	clojure.core/update (core.clj:6177)
+; 	shadow.build.compiler/remove-dead-js-deps/fn--14113/fn--14114 (compiler.clj:1210)
+; 	clojure.core/map/fn--5884 (core.clj:2757)
+; 	clojure.lang.LazySeq.sval (LazySeq.java:42)
+; 	clojure.lang.LazySeq.seq (LazySeq.java:51)
+; 	clojure.lang.RT.seq (RT.java:535)
+; 	clojure.core/seq--5419 (core.clj:139)
+; 	clojure.core.protocols/seq-reduce (protocols.clj:24)
+; 	clojure.core.protocols/fn--8168 (protocols.clj:75)
+; 	clojure.core.protocols/fn--8168 (protocols.clj:75)
+; 	clojure.core.protocols/fn--8110/G--8105--8123 (protocols.clj:13)
+; 	clojure.core/reduce (core.clj:6830)
+; 	clojure.core/into (core.clj:6897)
+; 	clojure.core/into (core.clj:6889)
+; 	shadow.build.compiler/remove-dead-js-deps/fn--14113 (compiler.clj:1211)
+; 	clojure.core/update (core.clj:6185)
+; 	clojure.core/update (core.clj:6177)
+; 	shadow.build.compiler/remove-dead-js-deps (compiler.clj:1208)
+; 	shadow.build.compiler/remove-dead-js-deps (compiler.clj:1197)
+; 	shadow.build.compiler/compile-all (compiler.clj:1451)
+; 	shadow.build.compiler/compile-all (compiler.clj:1307)
+; 	shadow.build.api/compile-sources (api.clj:261)
+; 	shadow.build.api/compile-sources (api.clj:253)
+; 	shadow.build.api/compile-sources (api.clj:265)
+; 	shadow.build.api/compile-sources (api.clj:253)
+; 	shadow.cljs.repl/repl-ns (repl.clj:330)
+; 	shadow.cljs.repl/repl-ns (repl.clj:310)
+; 	shadow.cljs.repl/process-read-result (repl.clj:495)
+; 	shadow.cljs.repl/process-read-result (repl.clj:475)
+; 	shadow.cljs.repl/process-input (repl.clj:659)
+; 	shadow.cljs.repl/process-input (repl.clj:637)
+; 	shadow.cljs.devtools.server.worker.impl/eval16193/fn--16196 (impl.clj:685)
+; 	clojure.lang.MultiFn.invoke (MultiFn.java:234)
+; 	shadow.cljs.devtools.server.util/server-thread/fn--15837/fn--15838/fn--15846 (util.clj:284)
+; 	shadow.cljs.devtools.server.util/server-thread/fn--15837/fn--15838 (util.clj:283)
+; 	shadow.cljs.devtools.server.util/server-thread/fn--15837 (util.clj:256)
+; 	java.lang.Thread.run (Thread.java:833)
+; 
+cljs꞉mecca.core꞉> 
+#object[EditorView [object Object]]
+cljs꞉mecca.core꞉> 
+"(range 3)"
+cljs꞉mecca.core꞉> 
+(0
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ ...)
+cljs꞉mecca.core꞉> 
+"(range 53)"
+cljs꞉mecca.core꞉> 
+"(0 1 2)"
+cljs꞉mecca.core꞉> 
+""
+cljs꞉mecca.events꞉> 
+""
+cljs꞉mecca.events꞉> 
+nil
+; ------ WARNING - :redef --------------------------------------------------------
+;  Resource: <eval>:1:1
+;  test already refers to: cljs.core/test being replaced by: mecca.events/test
+; --------------------------------------------------------------------------------
+; 
+; 
+; ------ WARNING - :undeclared-ns ------------------------------------------------
+;  Resource: <eval>:1:12
+;  No such namespace: r, could not locate r.cljs, r.cljc, or JavaScript source providing "r"
+; --------------------------------------------------------------------------------
+; 
+; 
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:12
+;  Use of undeclared Var r/atom
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.events꞉> 
+"test"
+cljs꞉mecca.events꞉> 
+"test"
+cljs꞉mecca.events꞉> 
+#object[EditorView [object Object]]
+cljs꞉mecca.events꞉> 
+
+; Timeout while waiting for result.
+cljs꞉mecca.events꞉> 
+
+; Timeout while waiting for result.
+cljs꞉mecca.events꞉> 
+
+; Timeout while waiting for result.
+cljs꞉mecca.events꞉> 
+
+; Timeout while waiting for result.
+cljs꞉mecca.events꞉> 
+
+; Timeout while waiting for result.
+cljs꞉mecca.events꞉> 
+#'mecca.sci-editor/result
+cljs꞉mecca.sci-editor꞉> 
+
+; Timeout while waiting for result.
+cljs꞉mecca.events꞉> 
+#'mecca.sci-editor/result
+cljs꞉mecca.sci-editor꞉> 
+
+; Timeout while waiting for result.
+cljs꞉mecca.sci-editor꞉> 
+
+; Timeout while waiting for result.
+cljs꞉mecca.sci-editor꞉> 
+
+; Timeout while waiting for result.
+cljs꞉mecca.sci-editor꞉> 
+
+; Timeout while waiting for result.
+cljs꞉mecca.sci-editor꞉> 
+
+; Timeout while waiting for result.
+cljs꞉mecca.sci-editor꞉> 
+
+; Timeout while waiting for result.
+cljs꞉mecca.sci-editor꞉> 
+nil
+cljs꞉mecca.events꞉> 
+nil
+cljs꞉mecca.events꞉> 
+"tis"
+cljs꞉mecca.view꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.core꞉> 
+nil
+cljs꞉mecca.events꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.core꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.core꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.events꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.events꞉> 
+"(0 1 2 3 4)"
+cljs꞉mecca.events꞉> 
+nil
+cljs꞉mecca.events꞉> 

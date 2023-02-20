@@ -372,8 +372,8 @@
    [:rect {:x x :y y :width 168 :height 19 :stroke "black" :stroke-width 0.2 :fill "#f8b0f8"}]
    ;; Clojure eval button
    [:g {:on-click #(do (dispatch [:set-notes (eval-all (str (some-> @!points .-state .-doc str)))])
-                       (sci-editor/update-result!
-                        (str "Output꞉ " (eval-all (str (some-> @!points .-state .-doc str))))))}
+                       (dispatch [:set-result
+                                  (str (eval-all (str (some-> @!points .-state .-doc str))))]))}
     [:path {:transform (str "scale(" 0.07 ") translate(" 5 "," 5 ")")
                :d "M128 0a128 128 0 1 0 0 256 128 128 0 0 0 0-256"
                :fill "#ffffff"}]

@@ -220,13 +220,14 @@
     [:div.flex-item
      [transport/transport 20 -0.5 0.4]
     [editor/toolbar 0 0]
-     [:button
-      {:on-click #(let [file-blob (js/Blob. [@(subscribe [:notes])] #js {"type" "text/plain"})
-                        link (.createElement js/document "a")]
-                    (set! (.-href link) (.createObjectURL js/URL file-blob))
-                    (.setAttribute link "download" "mecca.txt")
-                    (.appendChild (.-body js/document) link)
-                    (.click link)
-                    (.removeChild (.-body js/document) link))}
-      "Download"]
-     [load-song]]]])
+     [:center
+      [:button
+       {:on-click #(let [file-blob (js/Blob. [@(subscribe [:notes])] #js {"type" "text/plain"})
+                         link (.createElement js/document "a")]
+                     (set! (.-href link) (.createObjectURL js/URL file-blob))
+                     (.setAttribute link "download" "mecca.txt")
+                     (.appendChild (.-body js/document) link)
+                     (.click link)
+                     (.removeChild (.-body js/document) link))}
+       "Download"]
+      [load-song]]]]])

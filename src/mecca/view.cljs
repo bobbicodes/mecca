@@ -7,7 +7,7 @@
             [mecca.editor :as editor :refer [svg-paths]]
             [mecca.mario :as mario]
             [sci.core :as sci]
-            [mecca.sci-editor :as sci-editor :refer [!points points result !result]]
+            [mecca.sci-editor :as sci-editor :refer [!points points eval-result !result]]
             [clojure.pprint :as pp]
             [goog.object :as o]
             [clojure.edn :as edn]))
@@ -209,8 +209,8 @@
     [:div.flex-item
      [sci-editor/editor demo !points {:eval? true}]
      [:p]
-     [:p "Evaluation results"]
-     [sci-editor/editor @(subscribe [:eval-result]) !result]]
+     [:p "Output:"]
+     [sci-editor/editor @eval-result !result {:eval? true}]]
     [:div.flex-item
      [transport/transport 0 -0.5 0.5]
     [editor/toolbar 0 0]

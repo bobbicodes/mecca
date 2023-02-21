@@ -3,7 +3,7 @@
    [re-frame.core :refer [reg-event-db reg-event-fx dispatch subscribe]]
    [re-pressed.core :as rp]
    [reagent.core :as r]
-   [mecca.sci-editor :as sci-editor :refer [!points points result !result eval-all]]
+   [mecca.sci-editor :as sci-editor :refer [!points points eval-result !result eval-all]]
    [day8.re-frame.undo :as undo :refer [undoable]]
    [mecca.mario :as mario :refer [mario]]
    [mecca.songs.megaman :as megaman]

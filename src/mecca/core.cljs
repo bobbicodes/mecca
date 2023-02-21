@@ -2,7 +2,7 @@
   (:require
    [reagent.core :as r]
    [reagent.dom :as rdom]
-   [mecca.sci-editor :as sci-editor :refer [!points points result !result]]
+   [mecca.sci-editor :as sci-editor :refer [!points points eval-result !result]]
    [re-frame.core :as rf]
    [re-pressed.core :as rp]
    [mecca.events]

@@ -71,6 +71,9 @@
                                extensions
                                (j/push! extensions))})))
 
+(def eval-result
+  (r/atom ""))
+
 (defn editor
   [source !view {:keys [eval?]}]
   (r/with-let
@@ -80,22 +83,24 @@
                 (reset! !view (new EditorView
                                    (j/obj :state (make-state
                                                   (cond-> #js [extensions]
-                                                    eval? (.concat
-                                                           #js
-                                                            [(sci/extension
+                                                    eval? (.concat #js [(sci/extension
                                                               {:modifier "Alt"
                                                                :on-result
                                                                (fn [result]
+                                                                 (reset! eval-result result)
                                                                  (reset! last-result result))})]))
                                                   source)
 
 
                                           :parent el)))))]
     [:div
-     {:ref mount!
-      :style {:background-color "#F8B0F8"
-              :width 450
-              }}]
+     [:div {:class "rounded-md mb-0 text-sm monospace overflow-auto relative border shadow-lg bg-white"
+            :ref   mount!
+            :style {:max-height 410
+                    :background-color "#F8B0F8"}}]
+     (println (str "Eval:" eval?))
+     [:p @last-result]
+     (println (str "last-result:" @last-result))]
     (finally (j/call @!view :destroy))))
 
 (defonce !points (r/atom ""))
@@ -103,11 +108,6 @@
 
 (defonce points
   (r/atom []))
-
-(def result
-  (r/atom "Output꞉ "))
-
-@result
 
 (defn eval-all [s]
   (try (sci.core/eval-string s {:classes {'js goog/global :allow :all}})

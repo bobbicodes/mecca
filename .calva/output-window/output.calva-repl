@@ -801,3 +801,4 @@ cljs꞉mecca.sci-editor꞉> 
 cljs꞉mecca.view꞉> 
 "#error {:message \"[line 1, col 11] Invalid symbol: TypeError:.\", :data {:type :sci.error/parse, :ex-kind :reader-error, :file nil, :line 1, :col 11, :phase \"parse\"}, :cause #error {:message \"[line 1, col 11] Invalid symbol: TypeError:.\", :data {:type :reader-exception, :ex-kind :reader-error, :file nil, :line 1, :col 11}}}"
 cljs꞉mecca.view꞉> 
+; nREPL Connection was closed

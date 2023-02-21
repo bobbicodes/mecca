@@ -366,9 +366,9 @@
          (str e))))
 
 (defn toolbar [x y]
-  [:svg {:view-box "0 -0.5 140 18.5" :shape-rendering "crispEdges"
+  [:svg {:view-box "0 -0.5 140 19" :shape-rendering "crispEdges"
          :style {:cursor "url(/mecca/public/images/hand.png),pointer"}
-                 :transform (str "scale(" 1 ") translate(" 0 "," 0 ")")}
+                 :transform (str "scale(" 0.8 ") translate(" 15 "," -40 ")")}
    [:rect {:x x :y y :width 168 :height 19 :stroke "black" :stroke-width 0.2 :fill "#f8b0f8"}]
    ;; Clojure eval button
    [:g {:on-click #(do (dispatch [:set-notes (eval-all (str (some-> @!points .-state .-doc str)))])

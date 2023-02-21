@@ -200,19 +200,25 @@
               #(dispatch [:set-notes
                           (edn/read-string (-> % .-target .-result))]))))}])
 
-(def demo "(range 5)")
+(def demo "(defn scale [intervals]
+  (reductions + (cycle intervals)))
+
+(def double-harmonic-minor [1 3 1 2 1 3 1])
+
+(let [scale (reductions + 60 double-harmonic-minor)]
+  (for [beat (range 8)]
+    {:instrument 1
+     :time beat
+     :pitch (nth scale beat)}))")
 
 (defn mecca []
   [:div
    [editor]
    [:div.flex-container
     [:div.flex-item
-     [sci-editor/editor demo !points {:eval? true}]
-     [:p]
-     [:p "Output:"]
-     [sci-editor/editor @eval-result !result {:eval? true}]]
+     [sci-editor/editor demo !points {:eval? true}]]
     [:div.flex-item
-     [transport/transport 0 -0.5 0.5]
+     [transport/transport 20 -0.5 0.4]
     [editor/toolbar 0 0]
      [:button
       {:on-click #(let [file-blob (js/Blob. [@(subscribe [:notes])] #js {"type" "text/plain"})

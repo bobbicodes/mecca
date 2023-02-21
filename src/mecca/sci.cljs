@@ -60,8 +60,7 @@
    [{:key (str modifier "-Shift-Enter")
      :doc "Evaluates top-level form at cursor"}]})
 
-(defn extension [{:keys [modifier
-                         on-result]}]
+(defn extension [{:keys [modifier on-result]}]
   (.of view/keymap
        (j/lit
         [{:key "Mod-Enter"

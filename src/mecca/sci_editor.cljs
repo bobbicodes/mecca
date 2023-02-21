@@ -72,7 +72,7 @@
                                (j/push! extensions))})))
 
 (def eval-result
-  (r/atom ""))
+  (r/atom "Cmd+Enter/Ctrl+Enter/Alt+Enter to Eval"))
 
 (defn editor
   [source !view {:keys [eval?]}]
@@ -98,9 +98,8 @@
             :ref   mount!
             :style {:max-height 410
                     :background-color "#F8B0F8"}}]
-     (println (str "Eval:" eval?))
-     [:p @last-result]
-     (println (str "last-result:" @last-result))]
+     (when eval?   
+       (reset! eval-result @last-result))]
     (finally (j/call @!view :destroy))))
 
 (defonce !points (r/atom ""))

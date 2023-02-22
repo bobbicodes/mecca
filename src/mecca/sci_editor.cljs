@@ -24,7 +24,7 @@
                        :line-height "1.6"
                        :font-size "16px"
                        :font-family "var(--code-font)"}
-           ".cm-matchingBracket" {:border-bottom "1px solid var(--black)"
+           ".cm-matchingBracket" {:border-bottom "2px solid var(--black)"
                                   :color "inherit"}
            ".cm-gutters" {:background "transparent", :border "none"}
            ".cm-gutterElement" {:margin-left "5px"}
@@ -96,7 +96,7 @@
     [:div
      [:div {:class "rounded-md mb-0 text-sm monospace overflow-auto relative border shadow-lg bg-white"
             :ref   mount!
-            :style {:max-height 410
+            :style {:max-height 360
                     :background-color "#F8B0F8"}}]
      (when eval?   
        (reset! eval-result @last-result))]

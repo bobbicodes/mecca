@@ -17,6 +17,11 @@
    (:eval-result db)))
 
 (rf/reg-sub
+ :status
+ (fn [db _]
+   (:status db)))
+
+(rf/reg-sub
  :samples
  (fn [db _]
    (:samples db)))

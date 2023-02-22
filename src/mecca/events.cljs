@@ -20,6 +20,7 @@
     :samples nil
     :focused-note-pos [nil nil]
     :eraser? false
+    :status ""
     :playing? false
     :play-start 0
     :jumping? false
@@ -67,6 +68,11 @@
  :file-upload
  (fn [db [_ file]]
       (assoc db :file-upload file)))
+
+(reg-event-db
+ :set-status
+ (fn [db [_ file]]
+      (assoc db :status file)))
 
 (reg-event-db
  :load-samples

@@ -116,7 +116,9 @@
 (defn eraser [x y scale]
   (let [active? (subscribe [:eraser?])]
     (fn [x y scale]
-      (svg-paths {:on-click #(do (dispatch [:eraser-toggle])
+      (svg-paths {:on-mouse-over #(dispatch [:set-status "Eraser"])
+        :on-mouse-out #(dispatch [:set-status ""])
+        :on-click #(do (dispatch [:eraser-toggle])
                                  (if-not @active? (music/play-sample 18 63)))}
                  (if @active?
                    [["#ffffff" "M0 0h15M0 1h2M12 1h3M0 2h3M4 2h7M12 2h1M14 2h1M0 3h3M4 3h2M7 3h4M12 3h3M0 4h2M4 4h5M10 4h1M12 4h3M0 5h2M4 5h3M8 5h3M13 5h2M0 6h2M13 6h2M0 7h2M13 7h2M0 8h2M13 8h2M0 9h2M13 9h2M0 10h2M13 10h2M0 11h2M13 11h2M0 12h2M13 12h2M0 13h2M13 13h2M0 14h2M13 14h2M0 15h2M13 15h2M0 16h14"]
@@ -146,7 +148,9 @@
 (defn undo-dog [x y scale]
   (let [undos? (subscribe [:undos?])]
     (fn [x y scale]
-      (svg-paths {:on-click (if @undos? #(do (dispatch [:undo])
+      (svg-paths {:on-mouse-over #(dispatch [:set-status "Undo"])
+        :on-mouse-out #(dispatch [:set-status ""])
+        :on-click (if @undos? #(do (dispatch [:undo])
                                              (music/play-sample 16 63)))}
                  (if @undos?
                    [["#000000" "M0 0h1M3 0h8M13 0h1M0 1h1M4 1h6M13 1h1M0 2h2M4 2h6M12 2h2M0 3h2M12 3h2M0 4h2M12 4h2M0 5h3M5 5h1M8 5h1M11 5h3M0 6h3M11 6h3M0 7h3M6 7h2M11 7h3M0 8h3M6 8h2M11 8h3M0 9h3M4 9h2M8 9h2M11 9h3M0 10h3M4 10h1M9 10h1M11 10h3M0 11h3M5 11h1M8 11h1M11 11h3M0 12h4M6 12h2M10 12h4M0 13h5M9 13h5M0 14h14"]
@@ -167,7 +171,9 @@
 (defn redo-rabbit [x y scale]
   (let [redos? (subscribe [:redos?])]
     (fn [x y scale]
-      (svg-paths {:on-click (if @redos? #(dispatch [:redo]))}
+      (svg-paths {:on-mouse-over #(dispatch [:set-status "Redo"])
+        :on-mouse-out #(dispatch [:set-status ""])
+        :on-click (if @redos? #(dispatch [:redo]))}
                  (if @redos?
                    [["#ffffff" "M0 0h3M5 0h5M12 0h3M0 1h2M6 1h2M13 1h2M0 2h1M2 2h1M5 2h1M7 2h1M9 2h1M12 2h1M14 2h1M0 3h1M2 3h1M5 3h1M9 3h1M12 3h1M14 3h1M0 4h1M2 4h1M5 4h1M9 4h1M12 4h1M14 4h1M0 5h1M3 5h2M10 5h2M14 5h1M0 6h2M13 6h2M0 7h1M14 7h1M0 12h1M14 12h1M0 13h2M13 13h2M0 14h4M11 14h4M0 15h2M3 15h3M9 15h4M14 15h1M0 16h11M12 16h3"]
                     ["#000000" "M3 0h2M10 0h2M2 1h1M5 1h1M9 1h1M12 1h1M1 2h1M3 2h2M6 2h1M8 2h1M10 2h2M13 2h1M1 3h1M3 3h2M6 3h3M10 3h2M13 3h1M1 4h1M3 4h2M6 4h1M8 4h1M10 4h2M13 4h1M1 5h1M5 5h1M9 5h1M13 5h1M2 6h1M12 6h1M1 7h1M6 7h1M8 7h1M13 7h1M0 8h1M14 8h1M0 9h1M14 9h1M0 10h1M14 10h1M0 11h1M4 11h1M10 11h1M14 11h1M1 12h1M5 12h1M9 12h1M13 12h1M2 13h2M6 13h3M11 13h2M4 14h2M9 14h2M6 15h3"]
@@ -343,7 +349,9 @@
 (defn sharp-button [x y scale]
   (let [sharp? (subscribe [:sharp?])]
     (fn [x y scale]
-      (svg-paths {:on-click #(do (dispatch [:sharp-toggle])
+      (svg-paths {:on-mouse-over #(dispatch [:set-status "Sharp"])
+        :on-mouse-out #(dispatch [:set-status ""])
+        :on-click #(do (dispatch [:sharp-toggle])
                                  (music/play-sample 17 63))}
                  (if @sharp?
                    [["#f8f8f8" "M0 0h5M7 0h1M10 0h5M0 1h5M7 1h1M10 1h5M0 2h5M7 2h1M10 2h5M0 3h5M11 3h4M0 4h5M11 4h4M0 5h4M10 5h5M0 6h4M10 6h5M0 7h4M7 7h1M10 7h5M0 8h5M7 8h1M10 8h5M0 9h5M7 9h1M11 9h4M0 10h5M11 10h4M0 11h4M11 11h4M0 12h4M10 12h5M0 13h4M7 13h1M10 13h5M0 14h5M7 14h1M10 14h5M0 15h5M7 15h1M10 15h5M0 16h5M7 16h1M9 16h6"]
@@ -366,12 +374,14 @@
          (str e))))
 
 (defn toolbar [x y]
-  [:svg {:view-box "0 -0.5 140 19" :shape-rendering "crispEdges"
+  [:svg {:view-box "0 -0.5 140 30" :shape-rendering "crispEdges"
          :style {:cursor "url(/mecca/public/images/hand.png),pointer"}
                  :transform (str "scale(" 0.8 ") translate(" 15 "," -40 ")")}
    [:rect {:x x :y y :width 168 :height 19 :stroke "black" :stroke-width 0.2 :fill "#f8b0f8"}]
    ;; Clojure eval button
-   [:g {:on-click #(do (dispatch [:set-notes (eval-all (str (some-> @!points .-state .-doc str)))])
+   [:g {:on-mouse-over #(dispatch [:set-status "Eval"])
+        :on-mouse-out #(dispatch [:set-status ""])
+    :on-click #(do (dispatch [:set-notes (eval-all (str (some-> @!points .-state .-doc str)))])
                        (dispatch [:set-result
                                   (str (eval-all (str (some-> @!points .-state .-doc str))))]))}
     [:path {:transform (str "scale(" 0.07 ") translate(" 5 "," 5 ")")
@@ -388,16 +398,22 @@
             :fill "#90b4fe"}]
     [:path {:transform (str "scale(" 0.07 ") translate(" 5 "," 5 ")")
             :d "M128 13c-39 0-73 19-94 48a62 62 0 0 1 64 0 74 74 0 0 1 103 67h1c0 21-9 39-22 53h10c13 0 27-3 37-11 7-6 13-15 16-27l1-15c0-64-52-115-116-115"
-            :fill "#5881d8"}]] 
+            :fill "#5881d8"}]
+    [:text {:x 0 :y 28 :style {:font-size "0.3em"}} @(subscribe [:status])]] 
  
    [undo-dog (+ x 3.8) (+ 0.4 y) 1]
    [redo-rabbit (+ x 7.7) (+ 0.48 y) 0.9]
-   [repeat-button (+ x 50) (+ 3 y) 1]
    [eraser (+ x 72) (+ 2 y) 0.9]
    [sharp-button (+ x 89) (+ 2.1 y) 0.9]
-   (svg-paths {:on-click #(dispatch [:load-castle])} ghost (+ x 192) (+ 5 y) 0.5)
-   (svg-paths {:on-click #(dispatch [:load-zelda])} zelda (+ x 227) (+ 4.5 y) 0.5)
-   (svg-paths {:on-click #(dispatch [:load-megaman])} megaman (+ x 192) (- y 2) 0.65)])
+   (svg-paths {:on-mouse-over #(dispatch [:set-status "Demo song"])
+        :on-mouse-out #(dispatch [:set-status ""])
+        :on-click #(dispatch [:load-castle])} ghost (+ x 192) (+ 5 y) 0.5)
+   (svg-paths {:on-mouse-over #(dispatch [:set-status "Demo: Zelda Theme"])
+        :on-mouse-out #(dispatch [:set-status ""])
+        :on-click #(dispatch [:load-zelda])} zelda (+ x 227) (+ 4.5 y) 0.5)
+   (svg-paths {:on-mouse-over #(dispatch [:set-status "Demo: Mega Man"])
+        :on-mouse-out #(dispatch [:set-status ""])
+        :on-click #(dispatch [:load-megaman])} megaman (+ x 192) (- y 2) 0.65)])
 
 (defn current-note-display [x y scale]
   (let [current-note (subscribe [:instrument])]

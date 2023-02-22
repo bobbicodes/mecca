@@ -16,4 +16,3 @@ pom.xml
 public/js/cljs-runtime/*
 .clj-kondo/.cache/
 .shadow-cljs/
-public/js/cljs-runtime/re_frame.trace.js.map

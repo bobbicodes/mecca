@@ -39,7 +39,7 @@
     highlight/defaultHighlightStyle
     (view/drawSelection)
     (lineNumbers)
-    ;(fold/foldGutter)
+    (fold/foldGutter)
     (.. EditorState -allowMultipleSelections (of true))
     (if false
      ;; use live-reloading grammar

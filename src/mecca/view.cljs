@@ -7,7 +7,7 @@
             [mecca.editor :as editor :refer [svg-paths]]
             [mecca.mario :as mario]
             [sci.core :as sci]
-            [mecca.sci-editor :as sci-editor :refer [!points points]]
+            [mecca.sci-editor :as sci-editor :refer [!points points eval-result !result]]
             [clojure.pprint :as pp]
             [goog.object :as o]
             [clojure.edn :as edn]))
@@ -30,6 +30,10 @@
                         :stroke-width 0.075
                         :stroke-dasharray 0.5}]))))))
 
+(defn eval-all [s]
+  (try (sci/eval-string s {:classes {'js goog/global :allow :all}})
+       (catch :default e
+         (str e))))
 
 (defn note-targets []
   (let [instrument (subscribe [:instrument])
@@ -77,7 +81,9 @@
                                         (str (conj @(subscribe [:notes]) 
                                                    {:instrument @instrument
                                                     :time       (+ time (dec @editor-x))
-                                                    :pitch      (get pitches pitch)}))))))}])))))
+                                                    :pitch      (get pitches pitch)})))
+                                       (sci-editor/update-result!
+                                        (str "Output꞉ " (eval-all (str (some-> @!points .-state .-doc str))))))))}])))))
 
 (defn note-cursor []
   (let [focused (subscribe [:focused-note-pos])
@@ -151,7 +157,7 @@
         (dispatch [:jump-reset]))
       [:svg {:width "100%"
              :view-box "0 0 64 36"
-             :style {:cursor "url(/images/hand.png),pointer"}}
+             :style {:cursor "url(/mecca/public/images/hand.png),pointer"}}
        [mario/cloud 1 1]
        [mario/hill 40]
        [castle/brick-face 363 18 6]
@@ -181,11 +187,6 @@
         (when @(subscribe [:loop-end])
           [editor/repeat-sign (+ 7 (* 6 @(subscribe [:loop-end]))) 8 0.13])]])))
 
-(defn eval-all [s]
-  (try (sci/eval-string s {:classes {'js goog/global :allow :all}})
-       (catch :default e
-         (str e))))
-
 (defn load-song []
   [:input#input
    {:type      "file"
@@ -199,25 +200,34 @@
               #(dispatch [:set-notes
                           (edn/read-string (-> % .-target .-result))]))))}])
 
+(def demo "(defn scale [intervals]
+  (reductions + (cycle intervals)))
+
+(def double-harmonic-minor [1 3 1 2 1 3 1])
+
+(let [scale (reductions + 60 double-harmonic-minor)]
+  (for [beat (range 8)]
+    {:instrument 1
+     :time beat
+     :pitch (nth scale beat)}))")
+
 (defn mecca []
   [:div
    [editor]
    [:div.flex-container
     [:div.flex-item
-     [sci-editor/editor "(for [beat (range 12)]
-  {:time beat 
-   :instrument (inc beat) 
-   :pitch (+ 60 beat)})" !points {:eval? true}]]
+     [sci-editor/editor demo !points {:eval? true}]]
     [:div.flex-item
-     [transport/transport 0 -0.5 0.5]
+     [transport/transport 20 -0.5 0.4]
     [editor/toolbar 0 0]
-     [:button
-      {:on-click #(let [file-blob (js/Blob. [@(subscribe [:notes])] #js {"type" "text/plain"})
-                        link (.createElement js/document "a")]
-                    (set! (.-href link) (.createObjectURL js/URL file-blob))
-                    (.setAttribute link "download" "mecca.txt")
-                    (.appendChild (.-body js/document) link)
-                    (.click link)
-                    (.removeChild (.-body js/document) link))}
-      "Download"]
-     [load-song]]]])
+     [:center
+      [:button
+       {:on-click #(let [file-blob (js/Blob. [@(subscribe [:notes])] #js {"type" "text/plain"})
+                         link (.createElement js/document "a")]
+                     (set! (.-href link) (.createObjectURL js/URL file-blob))
+                     (.setAttribute link "download" "mecca.txt")
+                     (.appendChild (.-body js/document) link)
+                     (.click link)
+                     (.removeChild (.-body js/document) link))}
+       "Download"]
+      [load-song]]]]])

@@ -12,6 +12,11 @@
    (:audio-context db)))
 
 (rf/reg-sub
+ :eval-result
+ (fn [db _]
+   (:eval-result db)))
+
+(rf/reg-sub
  :samples
  (fn [db _]
    (:samples db)))

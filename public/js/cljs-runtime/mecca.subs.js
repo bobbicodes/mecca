@@ -5,6 +5,9 @@ return new cljs.core.Keyword(null,"scale","scale",-230427353).cljs$core$IFn$_inv
 re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$variadic(new cljs.core.Keyword(null,"audio-context","audio-context",1642559898),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([(function (db,_){
 return new cljs.core.Keyword(null,"audio-context","audio-context",1642559898).cljs$core$IFn$_invoke$arity$1(db);
 })], 0));
+re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$variadic(new cljs.core.Keyword(null,"eval-result","eval-result",937286342),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([(function (db,_){
+return new cljs.core.Keyword(null,"eval-result","eval-result",937286342).cljs$core$IFn$_invoke$arity$1(db);
+})], 0));
 re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$variadic(new cljs.core.Keyword(null,"samples","samples",635504833),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([(function (db,_){
 return new cljs.core.Keyword(null,"samples","samples",635504833).cljs$core$IFn$_invoke$arity$1(db);
 })], 0));

@@ -38,7 +38,7 @@
     (history)
     highlight/defaultHighlightStyle
     (view/drawSelection)
-    ;(lineNumbers)
+    (lineNumbers)
     ;(fold/foldGutter)
     (.. EditorState -allowMultipleSelections (of true))
     (if false
@@ -71,6 +71,9 @@
                                extensions
                                (j/push! extensions))})))
 
+(def eval-result
+  (r/atom "Cmd+Enter/Ctrl+Enter/Alt+Enter to Eval"))
+
 (defn editor
   [source !view {:keys [eval?]}]
   (r/with-let
@@ -80,26 +83,27 @@
                 (reset! !view (new EditorView
                                    (j/obj :state (make-state
                                                   (cond-> #js [extensions]
-                                                    eval? (.concat
-                                                           #js
-                                                            [(sci/extension
+                                                    eval? (.concat #js [(sci/extension
                                                               {:modifier "Alt"
                                                                :on-result
                                                                (fn [result]
+                                                                 (reset! eval-result result)
                                                                  (reset! last-result result))})]))
                                                   source)
 
 
                                           :parent el)))))]
     [:div
-     {:ref mount!
-      :style {:background-color "#F8B0F8"
-              :width 450
-              }}]
+     [:div {:class "rounded-md mb-0 text-sm monospace overflow-auto relative border shadow-lg bg-white"
+            :ref   mount!
+            :style {:max-height 410
+                    :background-color "#F8B0F8"}}]
+     (when eval?   
+       (reset! eval-result @last-result))]
     (finally (j/call @!view :destroy))))
 
 (defonce !points (r/atom ""))
-(defonce !tri (r/atom ""))
+(defonce !result (r/atom ""))
 
 (defonce points
   (r/atom []))
@@ -112,3 +116,10 @@
 (defn update-editor! [text]
   (let [end (count (some-> @!points .-state .-doc str))]
     (.dispatch @!points #js{:changes #js{:from 0 :to end :insert text}})))
+
+(defn update-result! [text]
+  (let [end (count (some-> @!result .-state .-doc str))]
+    (.dispatch @!result #js{:changes #js{:from 0 :to end :insert text}})))
+
+
+

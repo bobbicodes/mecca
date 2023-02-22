@@ -84,7 +84,7 @@
             sounds (range 1 19)]
     (if-not (nil? (first sounds))
       (let [sound (first sounds)
-            decoded-buffer (<! (get-and-decode {:url (str "/audio/" sound ".mp3")
+            decoded-buffer (<! (get-and-decode {:url (str "/mecca/public/audio/" sound ".mp3")
                                                 :sound sound}))]
         (prn sound)
         (prn decoded-buffer)

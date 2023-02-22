@@ -2,7 +2,8 @@
   (:require
    [re-frame.core :refer [reg-event-db reg-event-fx dispatch subscribe]]
    [re-pressed.core :as rp]
-   [mecca.sci-editor :as sci-editor :refer [!points points]]
+   [reagent.core :as r]
+   [mecca.sci-editor :as sci-editor :refer [!points points eval-result !result eval-all]]
    [day8.re-frame.undo :as undo :refer [undoable]]
    [mecca.mario :as mario :refer [mario]]
    [mecca.songs.megaman :as megaman]
@@ -34,13 +35,14 @@
     :array-buffer nil
     :time 0
     :time-signature 4
-    :tempo 120
+    :tempo 180
     :notes []
     :mario-x 16
     :mario-y 61
     :mario-jump 0
     :mario-run 1
     :xml ""
+    :eval-result ""
     :file-upload ""}))
 
 (reg-event-db
@@ -52,6 +54,14 @@
              (remove #(and (= time (:time %))
                            (= pitch (:pitch %)))
                      note)))))
+
+(def test-atom (r/atom ""))
+
+(reg-event-db
+ :set-result
+ (fn [db [_ s]]
+   (sci-editor/update-result! (str (eval-all (str (some-> @!points .-state .-doc str)))))
+   (assoc db :eval-result (str (eval-all (str (some-> @!points .-state .-doc str)))))))
 
 (reg-event-db
  :file-upload

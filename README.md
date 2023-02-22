@@ -2,7 +2,7 @@
 
 The Music Education, Composition, Creation Application
 
-MECCA is a sample-based music editor inspired by Mario Paint written in Clojurescript and re-frame.
+MECCA is a live music coding environment for Clojure code inspired by Mario Paint.
 
 It was originally meant to be a chiptune tracker that would simply emulate the 4 channels of the NES. But then I started playing around with alternative interfaces and while working on an SVG music notation rendering engine I realized that my priorities were definitely out of whack, and what my program really needed was a jumping Mario and animal noises.
 
@@ -16,34 +16,6 @@ and Sound Exploration](docs/Mario_Paint_An_Accessible_Environment_of.pdf).
 ![Screenshot](mecca.png)
 
 I ended up getting a bit carried away with the pixel art, after trying every SVG tool I could find I was still unsatisfied with the results, so ended up coding it all by hand as basic lines, shapes and paths. For example, the [castle](https://github.com/porkostomus/mecca/blob/master/src/mecca/castle.cljs) in the picture above is actually a function that outputs staggered rows of dashed lines representing bricks and mortar organized in a [stretcher bond](https://en.wikipedia.org/wiki/Brickwork#Stretcher,_or_running_bond) masonry pattern. And that Mario is not even a sprite - he's a group of vector paths connected to form his limbs, hat and [moustache](https://laughingsquid.com/origin-of-marios-mustache-and-his-name/). And once this app blows up and I get sued by Nintendo, a new version will be out with a character called *Mr. Moustache*, who will in fact be nothing more than a bouncing moustache on a stick with a red hat on.
-
-The EDN code representing your music data is output below Data-Robot. It's a sequence of Clojure maps, one for each note. Copy and paste into your favorite text editor to save your composition. Actual save function coming soon.
-
-## Progress
-
-Implemented [Undodog](https://www.mariowiki.com/Undodog) and Redo-Rabbit. The second one I made up. Actually I think it's supposed to be a frog but that's neither a pun nor alliterative so whatevs. It was a highly emotional fight between Redo-Robot, Redo-Wombat and Redo-'rangutan for the position, but the frog thing won out due to ~~me not having to design another button~~ seniority.
-
-Added a sharp button, expanding it to all 12 chromatic tones. Editor scrolls mostly right. Animation... not so much. While it might be reasonable to place visual elements at a lower priority than the app's audio scheduling system, they are closely related since both deal with coordination of time and reaction to events.
-
-Update:
-
-You can now play the Mario sampler as a live instrument using the keyboard in 2 full octaves, following the common "virtual piano" configuration:
-
-```
- 2 3     5 6 7
-q w e r t y u i
- a s    g h j
-z x c v b n m ,
-```
-
-Currently working on parsers for import/export of various music formats, including (but not limited to):
-
-* MusicXML
-* MIDI
-* ABC
-* MEI
-* NSF (NES Sound Format)
-* SID (C64)
 
 ## Future ideas
 
@@ -68,22 +40,6 @@ For the synths, I believe that by using the very efficient algorithms from Blarg
 * The 2 pulse-wave (lead) channels offer a variable duty cycle, so the standard Web Audio square wave will also not do here. However, we do have the option of using a wavetable, which can produce an arbitrary periodic waveform defined by a list of sin/cosine terms for the Fourier coefficients, which can be easily derived for any sound by playing it through the FFT ~~provided by the Web Audio analyzer node~~ EDIT: it seems we will need a separate FFT library for this (or write one) because, quite annoyingly, the analyzer node's FFT doesn't provide the sine/cosine values, only the frequencies...
 
 * Linear-interpolated bandlimiting will be good enough, since we have the ability to use the hardware clock exposed by the Web Audio API to oversample at an extremely high rate, supressing aliasing far below perceptible limits.
-
-Also very exciting is the possibility of an SVG pixel art / animation studio. Like the way it was in Mario Paint but more better because stuff like custom color pallets, upload your own coloring books, etc.
-
-When I'm personally building a song with this, the biggest feature that I wish I could reach for is a kind of pattern looping system which would facilitate and encourage working with smaller sections to be composed via a "song" track, which could be as simple as `A B A B` or something. I'm going to look back to the tracker paradigm for inspiration here.
-
-This is the perfect job for Data-Robot, who is currently just sitting there waiting to be put to use. His job is to be concerned with the loading and saving of song data, which can be further divided into:
-
-* *Pattern data* - content to be looped, whether at the "beat" level i.e. drum/bass patterns, or the "song" level (verse/chorus).
-
-* *Song data* - A "conductor" track listing the order of repetitions of the various loops, and
-
-* *File data* - Load/save of entire song.
-
-Then again, if I were to refine the editor scrolling experience by, for example, adding buttons to "page forward/back", or notational constructs for creating inline loops, working with the entire score at once might not feel so cumbersome.
-
-Update: Added buttons for *measure forward* and *scroll to end*.
 
 ## Development
 

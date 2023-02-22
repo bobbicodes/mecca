@@ -24,7 +24,7 @@
                        :line-height "1.6"
                        :font-size "16px"
                        :font-family "var(--code-font)"}
-           ".cm-matchingBracket" {:border-bottom "1px solid var(--teal-color)"
+           ".cm-matchingBracket" {:border-bottom "1px solid var(--black)"
                                   :color "inherit"}
            ".cm-gutters" {:background "transparent", :border "none"}
            ".cm-gutterElement" {:margin-left "5px"}

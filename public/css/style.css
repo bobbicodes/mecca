@@ -51,7 +51,7 @@ h2 {
     padding : 2px;
     color: black;
     margin : 0;
-    line-height : 16px;
+    line-height : 10px;
 }
 
 label {
@@ -102,7 +102,7 @@ label {
 
 .flex-item {
   width: 560px;
-  height: 400px;
-  line-height: 30px;
+  height: 500px;
+  line-height: 20px;
   text-align: left;
 }

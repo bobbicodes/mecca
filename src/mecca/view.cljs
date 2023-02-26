@@ -7,9 +7,12 @@
             [mecca.editor :as editor :refer [svg-paths]]
             [mecca.mario :as mario]
             [sci.core :as sci]
+            [mecca.sci]
             [mecca.sci-editor :as sci-editor :refer [!points points eval-result !result]]
+            [nextjournal.clojure-mode.keymap :as keymap]
             [clojure.pprint :as pp]
             [goog.object :as o]
+            [clojure.string :as str]
             [clojure.edn :as edn]))
 
 (defn note-guides []
@@ -204,12 +207,70 @@
   (reductions + (cycle intervals)))
 
 (def double-harmonic-minor [1 3 1 2 1 3 1])
+(def blues [3 2 1 1 3 2])
 
-(let [scale (reductions + 60 double-harmonic-minor)]
-  (for [beat (range 8)]
+(defn scale-note [note]
+  (nth (reductions + 60 (cycle blues)) note))
+
+(let [notes (range 10)]
+  (for [beat (range (count notes))]
     {:instrument 1
      :time beat
-     :pitch (nth scale beat)}))")
+     :pitch (scale-note (nth notes beat))}))")
+
+(defn linux? []
+  (some? (re-find #"(Linux)|(X11)" js/navigator.userAgent)))
+
+(defn mac? []
+  (and (not (linux?))
+       (some? (re-find #"(Mac)|(iPhone)|(iPad)|(iPod)" js/navigator.platform))))
+
+(defn key-mapping []
+  (cond-> {"ArrowUp" "↑"
+           "ArrowDown" "↓"
+           "ArrowRight" "→"
+           "ArrowLeft" "←"
+           "Mod" "Ctrl"}
+    (mac?)
+    (merge {"Alt" "⌥"
+            "Shift" "⇧"
+            "Enter" "⏎"
+            "Ctrl" "⌃"
+            "Mod" "⌘"})))
+
+(defn render-key [key]
+  (let [keys (into [] (map #(get ((memoize key-mapping)) % %) (str/split key #"-")))]
+    (into [:span]
+          (map-indexed (fn [i k]
+                         [:<>
+                          (when-not (zero? i) [:span " + "])
+                          [:kbd.kbd k]]) keys))))
+
+(defn key-bindings-table [keymap]
+  [:table.w-full.text-sm
+   [:thead
+    [:tr.border-t
+     [:th.px-3.py-1.align-top.text-left.text-xs.uppercase.font-normal.black-50 "Command"]
+     [:th.px-3.py-1.align-top.text-left.text-xs.uppercase.font-normal.black-50 "Keybinding"]
+     [:th.px-3.py-1.align-top.text-left.text-xs.uppercase.font-normal.black-50 "Alternate Binding"]
+     [:th.px-3.py-1.align-top.text-left.text-xs.uppercase.font-normal.black-50 {:style {:min-width 290}} "Description"]]]
+   (into [:tbody]
+         (->> keymap
+              (sort-by first)
+              (map (fn [[command [{:keys [key shift doc]} & [{alternate-key :key}]]]]
+                     [:<>
+                      [:tr.border-t.hover:bg-gray-100
+                       [:td.px-3.py-1.align-top.monospace.whitespace-nowrap [:b (name command)]]
+                       [:td.px-3.py-1.align-top.text-right.text-sm.whitespace-nowrap (render-key key)]
+                       [:td.px-3.py-1.align-top.text-right.text-sm.whitespace-nowrap (some-> alternate-key render-key)]
+                       [:td.px-3.py-1.align-top doc]]
+                      (when shift
+                        [:tr.border-t.hover:bg-gray-100
+                         [:td.px-3.py-1.align-top [:b (name shift)]]
+                         [:td.px-3.py-1.align-top.text-sm.whitespace-nowrap.text-right
+                          (render-key (str "Shift-" key))]
+                         [:td.px-3.py-1.align-top.text-sm]
+                         [:td.px-3.py-1.align-top]])]))))])
 
 (defn mecca []
   [:div
@@ -230,4 +291,6 @@
                      (.click link)
                      (.removeChild (.-body js/document) link))}
        "Download"]
-      [load-song]]]]])
+      [load-song]]]]
+   [:div
+   [key-bindings-table (merge keymap/paredit-keymap* (mecca.sci/keymap* "Alt"))]]])

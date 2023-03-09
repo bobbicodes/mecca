@@ -41,8 +41,13 @@
 (defonce !points (r/atom ""))
 
 (defn update-editor! [text]
-  (let [end (count (some-> @!points .-state .-doc str))]
-    (.dispatch @!points #js{:changes #js{:from 0 :to end :insert text}})))
+  (let [code (str (first (str/split (str (some-> @!points .-state .-doc str)) #" => ")))
+        end (count (some-> @!points .-state .-doc str))]
+    (.dispatch @!points #js{:changes #js{:from 0 :to end :insert text}
+                            :selection #js{:anchor (count code) :head (count code)}})))
+
+(let [])
+(.dispatch @!points #js{:selection #js{:anchor 5 :head 5}})
 
 (j/defn eval-at-cursor [on-result ^:js {:keys [state]}]
   (some->> (eval-region/cursor-node-string state)

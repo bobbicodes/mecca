@@ -46,15 +46,18 @@
     (.dispatch @!points #js{:changes #js{:from 0 :to end :insert text}
                             :selection #js{:anchor (count code) :head (count code)}})))
 
-(let [])
-(.dispatch @!points #js{:selection #js{:anchor 5 :head 5}})
+(defonce eval-tail (atom nil))
 
 (j/defn eval-at-cursor [on-result ^:js {:keys [state]}]
-  (some->> (eval-region/cursor-node-string state)
-           (eval-string)
-           (on-result))
-  (update-editor! (str (first (str/split (str (some-> @!points .-state .-doc str)) #" => "))
-                       (when-not (= "" @last-result) " => ") @last-result))
+  (let [cursor-pos (some-> @!points .-state .-selection .-main .-head)
+        code (first (str/split (str (some-> @!points .-state .-doc str)) #" => "))]
+    (some->> (eval-region/cursor-node-string state)
+             (eval-string)
+             (on-result))
+    (update-editor! (str (subs code 0 cursor-pos)
+                         (when-not (= "" @last-result) " => ") 
+                         @last-result " " 
+                         (reset! eval-tail (subs code cursor-pos (count code))))))
   true)
 
 (j/defn eval-top-level [on-result ^:js {:keys [state]}]

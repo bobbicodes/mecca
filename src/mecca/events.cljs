@@ -6,7 +6,7 @@
    [mecca.sci-editor :as sci-editor :refer [points !result eval-all]]
    [day8.re-frame.undo :as undo :refer [undoable]]
    [mecca.mario :as mario :refer [mario]]
-   [mecca.sci :refer [eval-result !points last-result update-editor!]]
+   [mecca.sci :refer [eval-result !points last-result update-editor! eval-tail]]
    [mecca.songs.megaman :as megaman]
    [mecca.songs.zelda :as zelda]
    [mecca.songs.city :as city]
@@ -72,7 +72,8 @@
  (fn [db [_]]
    (when (not= "" @last-result)
      (reset! last-result "")
-     (update-editor! (str (first (str/split (str (some-> @!points .-state .-doc str)) #" => ")))))
+     (update-editor! (str (first (str/split (str (some-> @!points .-state .-doc str)) #" => ")) @eval-tail)))
+   ;(reset! eval-tail "")
    (assoc db :eval-result "")))
 
 

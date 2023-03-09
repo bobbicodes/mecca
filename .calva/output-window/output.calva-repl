@@ -540,3 +540,111 @@ cljs꞉mecca.sci꞉> 
 cljs꞉mecca.sci꞉> 
 "(map inc (range 8))"
 cljs꞉mecca.sci꞉> 
+#object[EditorView [object Object]]
+cljs꞉mecca.sci꞉> 
+"(map inc (range 8))"
+cljs꞉mecca.sci꞉> 
+"[object Object]"
+cljs꞉mecca.sci꞉> 
+"[object Object]"
+cljs꞉mecca.sci꞉> 
+"["
+cljs꞉mecca.sci꞉> 
+"[object Object]"
+cljs꞉mecca.sci꞉> 
+:repl/exception!
+; 
+; Execution error (ReferenceError) at (<cljs repl>:1).
+; winddow is not defined
+cljs꞉mecca.sci꞉> 
+"[object Window]"
+cljs꞉mecca.sci꞉> 
+[object Object]
+nil
+cljs꞉mecca.sci꞉> 
+nil
+cljs꞉mecca.sci꞉> 
+nil
+cljs꞉mecca.sci꞉> 
+("[" "o" "b" "j" "e" "c" "t" " " "O" "b" "j" "e" "c" "t" "]")
+cljs꞉mecca.sci꞉> 
+:repl/print-error!
+; The result object failed to print. It is available via *1 if you want to interact with it.
+; 
+; The exception was: 
+; 
+; Error: [object Object] is not ISeqable
+cljs꞉mecca.sci꞉> 
+(#object[SelectionRange [object Object]])
+cljs꞉mecca.sci꞉> 
+nil
+cljs꞉mecca.sci꞉> 
+#object[SelectionRange [object Object]]
+cljs꞉mecca.sci꞉> 
+19
+cljs꞉mecca.sci꞉> 
+18
+cljs꞉mecca.sci꞉> 
+"(map inc (range 8))"
+cljs꞉mecca.sci꞉> 
+18
+cljs꞉mecca.sci꞉> 
+18
+cljs꞉mecca.sci꞉> 
+"(map inc (range 8)"
+cljs꞉mecca.sci꞉> 
+19
+cljs꞉mecca.sci꞉> 
+19
+cljs꞉mecca.sci꞉> 
+")"
+cljs꞉mecca.sci꞉> 
+18
+cljs꞉mecca.sci꞉> 
+"))"
+cljs꞉mecca.events꞉> 
+"))"
+cljs꞉mecca.events꞉> 
+"(map inc (range 8)"
+cljs꞉mecca.sci꞉> 
+"(map inc (range 8) ))"
+cljs꞉mecca.sci꞉> 
+"(map inc (range 8) ))"
+cljs꞉mecca.sci꞉> 
+"(map inc (range 8) ))"
+cljs꞉mecca.sci꞉> 
+#'mecca.sci/code
+cljs꞉mecca.sci꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:14
+;  Use of undeclared Var mecca.sci/cursor-pos
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.sci꞉> 
+#'mecca.sci/cursor-pos
+cljs꞉mecca.sci꞉> 
+"(map inc (range 8)"
+cljs꞉mecca.sci꞉> 
+"))"
+cljs꞉mecca.sci꞉> 
+17
+cljs꞉mecca.sci꞉> 
+19
+cljs꞉mecca.sci꞉> 
+"(map inc (range 8) )"
+cljs꞉mecca.sci꞉> 
+"(map inc (range 8)(0 1 2 3 4 5 6 7) )"
+cljs꞉mecca.sci꞉> 
+"(map inc (range 8) => (0 1 2 3 4 5 6 7) )"
+cljs꞉mecca.sci꞉> 
+"(map inc (range 8)"
+cljs꞉mecca.sci꞉> 
+19
+cljs꞉mecca.sci꞉> 
+"(map inc (range 8))"
+cljs꞉mecca.sci꞉> 
+"(map inc (range 8))"
+cljs꞉mecca.sci꞉> 
+"(map inc (range 8)"
+cljs꞉mecca.sci꞉> 

@@ -174,7 +174,7 @@
     (fn [x y scale]
       (svg-paths {:on-mouse-over #(dispatch [:set-status "Redo"])
         :on-mouse-out #(dispatch [:set-status ""])
-        :on-click (if @redos? #(dispatch [:redo]))}
+        :on-click (when @redos? #(dispatch [:redo]))}
                  (if @redos?
                    [["#ffffff" "M0 0h3M5 0h5M12 0h3M0 1h2M6 1h2M13 1h2M0 2h1M2 2h1M5 2h1M7 2h1M9 2h1M12 2h1M14 2h1M0 3h1M2 3h1M5 3h1M9 3h1M12 3h1M14 3h1M0 4h1M2 4h1M5 4h1M9 4h1M12 4h1M14 4h1M0 5h1M3 5h2M10 5h2M14 5h1M0 6h2M13 6h2M0 7h1M14 7h1M0 12h1M14 12h1M0 13h2M13 13h2M0 14h4M11 14h4M0 15h2M3 15h3M9 15h4M14 15h1M0 16h11M12 16h3"]
                     ["#000000" "M3 0h2M10 0h2M2 1h1M5 1h1M9 1h1M12 1h1M1 2h1M3 2h2M6 2h1M8 2h1M10 2h2M13 2h1M1 3h1M3 3h2M6 3h3M10 3h2M13 3h1M1 4h1M3 4h2M6 4h1M8 4h1M10 4h2M13 4h1M1 5h1M5 5h1M9 5h1M13 5h1M2 6h1M12 6h1M1 7h1M6 7h1M8 7h1M13 7h1M0 8h1M14 8h1M0 9h1M14 9h1M0 10h1M14 10h1M0 11h1M4 11h1M10 11h1M14 11h1M1 12h1M5 12h1M9 12h1M13 12h1M2 13h2M6 13h3M11 13h2M4 14h2M9 14h2M6 15h3"]
@@ -227,7 +227,7 @@
                :on-mouse-over #(reset! mouseover? true)
                :on-mouse-out #(reset! mouseover? false)
                :on-click #(dispatch [:advance-editor 4])}]
-       (if @mouseover?
+       (when @mouseover?
          (svg-paths {:pointer-events "none"} advance-cue-measure 300 30 0.2))])))
 
 (defn advance-editor []
@@ -243,7 +243,7 @@
                :on-mouse-over #(reset! mouseover? true)
                :on-mouse-out #(reset! mouseover? false)
                :on-click #(dispatch [:advance-editor 0.5])}]
-       (if @mouseover?
+       (when @mouseover?
          [:g
           [scroll-cue-right (* 4 60.8) (* 4 8) 0.25]
           [scroll-cue-right (* 4 60.8) (* 4 14) 0.25]])])))
@@ -264,7 +264,7 @@
                :on-mouse-out #(reset! mouseover? false)
                :on-click (fn [e] (dispatch [:advance-editor (- (apply max (map #(:time %) @(subscribe [:notes])))
                                                                @editor-pos)]))}]
-       (if @mouseover?
+       (when @mouseover?
          (svg-paths {:pointer-events "none"} advance-cue-end 305 20 0.2))])))
 
 (defn retract-editor [x]
@@ -280,7 +280,7 @@
                :on-mouse-over #(reset! mouseover? true)
                :on-mouse-out #(reset! mouseover? false)
                :on-click #(dispatch [:retract-editor])}]
-       (if @mouseover?
+       (when @mouseover?
          [:g
           [scroll-cue-left (* 4 (+ 3 x)) (* 4 8)  0.25]
           [scroll-cue-left (* 4 (+ 3 x)) (* 4 14) 0.25]])])))

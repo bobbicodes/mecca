@@ -63,7 +63,6 @@
 (reg-event-db
  :set-result
  (fn [db [_ s]]
-   (reset! last-result s)
    (update-editor! (str (first (str/split (str (some-> @!points .-state .-doc str)) #" => "))
                          (when-not (= "" @last-result) " => ") @last-result))
    (assoc db :eval-result (str (eval-all (str (some-> @!points .-state .-doc str)))))))

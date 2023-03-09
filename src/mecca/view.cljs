@@ -7,7 +7,7 @@
             [mecca.editor :as editor :refer [svg-paths]]
             [mecca.mario :as mario]
             [sci.core :as sci]
-            [mecca.sci :refer [eval-result !points]]
+            [mecca.sci :refer [eval-result !points last-result update-editor!]]
             [mecca.sci-editor :as sci-editor :refer [points !result]]
             [nextjournal.clojure-mode.keymap :as keymap]
             [clojure.pprint :as pp]
@@ -80,7 +80,7 @@
                                       (dispatch [:add-note @instrument
                                                   (+ time (dec @editor-x))
                                                   (get pitches pitch)])
-                                       (sci-editor/update-editor! 
+                                       (update-editor! 
                                         (str (conj @(subscribe [:notes]) 
                                                    {:instrument @instrument
                                                     :time       (+ time (dec @editor-x))

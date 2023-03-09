@@ -6,9 +6,12 @@
    [re-frame.core :as rf]
    [re-pressed.core :as rp]
    [mecca.events]
+   [goog.events :as gev]
+   [goog.events.KeyCodes :as keycodes]
    [mecca.sci :refer [eval-result !points]]
    [mecca.subs]
-   [mecca.view :as view]))
+   [mecca.view :as view])
+  (:import [goog.events EventType KeyHandler]))
 
 (rf/dispatch-sync [:initialize-db])
 
@@ -24,7 +27,7 @@
 (rf/dispatch
  [::rp/set-keydown-rules
   {:event-keys [[
-                 [:clear-result ""]
+                 [:clear-result]
                   [{:keyCode 27}]]]
    :always-listen-keys [{:keyCode   13 :shiftKey true}]
    :prevent-default-keys [{:keyCode   13 :shiftKey true}]

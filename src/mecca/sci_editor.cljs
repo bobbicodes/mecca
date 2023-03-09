@@ -49,12 +49,6 @@
     (.of view/keymap cm-clj/complete-keymap)
     (.of view/keymap historyKeymap)])
 
-@eval-result
-
-@(subscribe [:eval-result])
-
-(def mystate (r/atom nil))
-
 (defn make-state [extensions doc]
   (let [[doc ranges] (->> (re-seq #"\||<[^>]*?>|[^<>|]+" doc)
                           (reduce (fn [[^string doc ranges] match]
@@ -75,14 +69,9 @@
                        (.create EditorSelection (to-array ranges))
                        js/undefined)
                  :extensions 
-                 (reset! mystate
                          (cond-> #js[(.. EditorState -allowMultipleSelections (of true))]
                            extensions
-                           (j/push! extensions)))})))
-
-
-
-@last-result
+                           (j/push! extensions))})))
 
 (defn editor
   [source !view {:keys [eval?]}]
@@ -125,10 +114,6 @@
   (try (sci.core/eval-string s {:classes {'js goog/global :allow :all}})
        (catch :default e
          (str e))))
-
-(defn update-editor! [text]
-  (let [end (count (some-> @!points .-state .-doc str))]
-    (.dispatch @!points #js{:changes #js{:from 0 :to end :insert text}})))
 
 (defn update-result! [text]
   (let [end (count (some-> @!result .-state .-doc str))]

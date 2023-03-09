@@ -345,3 +345,5 @@ cljs꞉mecca.editor꞉> 
 cljs꞉mecca.editor꞉> 
 "(map inc (range 8))"
 cljs꞉mecca.view꞉> 
+""
+cljs꞉mecca.sci꞉> 

@@ -45,11 +45,11 @@
     (.dispatch @!points #js{:changes #js{:from 0 :to end :insert text}})))
 
 (j/defn eval-at-cursor [on-result ^:js {:keys [state]}]
-    (update-editor! (str (first (str/split (str (some-> @!points .-state .-doc str)) #" => "))
-                         (when-not (= "" @last-result) " => ") @last-result))
   (some->> (eval-region/cursor-node-string state)
            (eval-string)
            (on-result))
+  (update-editor! (str (first (str/split (str (some-> @!points .-state .-doc str)) #" => "))
+                       (when-not (= "" @last-result) " => ") @last-result))
   true)
 
 (j/defn eval-top-level [on-result ^:js {:keys [state]}]

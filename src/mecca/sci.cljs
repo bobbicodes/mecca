@@ -44,8 +44,6 @@
   (let [end (count (some-> @!points .-state .-doc str))]
     (.dispatch @!points #js{:changes #js{:from 0 :to end :insert text}})))
 
-@last-result
-
 (j/defn eval-at-cursor [on-result ^:js {:keys [state]}]
     (update-editor! (str (first (str/split (str (some-> @!points .-state .-doc str)) #" => "))
                          (when-not (= "" @last-result) " => ") @last-result))

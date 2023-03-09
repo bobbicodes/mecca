@@ -8,7 +8,7 @@
             [sci.impl.evaluator]
             [clojure.string :as str]))
 
-(defonce last-result (r/atom (sci/eval-string "(map inc (range 8))")))
+(defonce last-result (r/atom ""))
 
 (def eval-result
   (r/atom ""))

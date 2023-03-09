@@ -648,3 +648,5 @@ cljs꞉mecca.sci꞉> 
 cljs꞉mecca.sci꞉> 
 "(map inc (range 8)"
 cljs꞉mecca.sci꞉> 
+(1 2 3 4 5 6 7 8)
+cljs꞉mecca.sci-editor꞉> 

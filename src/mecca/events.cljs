@@ -73,7 +73,7 @@
    (when (not= "" @last-result)
      (reset! last-result "")
      (update-editor! (str (first (str/split (str (some-> @!points .-state .-doc str)) #" => ")) @eval-tail)))
-   ;(reset! eval-tail "")
+   (reset! eval-tail "")
    (assoc db :eval-result "")))
 
 

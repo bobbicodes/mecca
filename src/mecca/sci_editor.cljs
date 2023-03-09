@@ -6,7 +6,7 @@
             ["@codemirror/history" :refer [history historyKeymap]]
             ["@codemirror/state" :refer [EditorState EditorSelection]]
             ["@codemirror/view" :as view :refer [EditorView]]
-            [mecca.sci :as sci]
+            [mecca.sci :as sci :refer [eval-result !points last-result]]
             [re-frame.core :as rf :refer [subscribe dispatch]]
             [clojure.string :as str]
             [applied-science.js-interop :as j]
@@ -49,11 +49,17 @@
     (.of view/keymap cm-clj/complete-keymap)
     (.of view/keymap historyKeymap)])
 
+@eval-result
+
+@(subscribe [:eval-result])
+
+(def mystate (r/atom nil))
+
 (defn make-state [extensions doc]
   (let [[doc ranges] (->> (re-seq #"\||<[^>]*?>|[^<>|]+" doc)
                           (reduce (fn [[^string doc ranges] match]
                                     (cond (= match "|")
-                                          [doc (conj ranges (.cursor EditorSelection (count doc)))]
+                                          [(str doc) (conj ranges (.cursor EditorSelection (count doc)))]
 
                                           (str/starts-with? match "<")
                                           [(str doc (subs match 1 (dec (count match))))
@@ -64,35 +70,42 @@
                                           [(str doc match) ranges])) ["" []]))]
     (.create EditorState
              #js{:doc doc
-                 :selection (if (seq ranges)
-                              (.create EditorSelection (to-array ranges))
-                              js/undefined)
-                 :extensions (cond-> #js[(.. EditorState -allowMultipleSelections (of true))]
-                               extensions
-                               (j/push! extensions))})))
+                 :selection 
+                     (if (seq ranges)
+                       (.create EditorSelection (to-array ranges))
+                       js/undefined)
+                 :extensions 
+                 (reset! mystate
+                         (cond-> #js[(.. EditorState -allowMultipleSelections (of true))]
+                           extensions
+                           (j/push! extensions)))})))
 
-(def eval-result
-  (r/atom "Cmd+Enter/Ctrl+Enter/Alt+Enter to Eval"))
+
+
+@last-result
 
 (defn editor
   [source !view {:keys [eval?]}]
   (r/with-let
-    [last-result (when eval? (r/atom (sci/eval-string source)))
-     mount! (fn [el]
-              (when el
-                (reset! !view (new EditorView
-                                   (j/obj :state (make-state
-                                                  (cond-> #js [extensions]
-                                                    eval? (.concat #js [(sci/extension
-                                                              {:modifier "Alt"
-                                                               :on-result
-                                                               (fn [result]
-                                                                 (reset! eval-result result)
-                                                                 (reset! last-result result))})]))
-                                                  source)
-
-
-                                          :parent el)))))]
+    [mount! 
+     (fn [el]
+       (when el
+         (reset! !view 
+                 (new EditorView
+                      (j/obj :state 
+                             (make-state
+                              (cond-> 
+                               #js [extensions]
+                                eval? 
+                                (.concat #js 
+                                          [(sci/extension
+                                            {:modifier  "Alt"
+                                             :on-result 
+                                             (fn [result]
+                                               (reset! eval-result result)
+                                               (reset! last-result result))})]))
+                              source)
+                             :parent el)))))]
     [:div
      [:div {:class "rounded-md mb-0 text-sm monospace overflow-auto relative border shadow-lg bg-white"
             :ref   mount!
@@ -102,7 +115,7 @@
        (reset! eval-result @last-result))]
     (finally (j/call @!view :destroy))))
 
-(defonce !points (r/atom ""))
+
 (defonce !result (r/atom ""))
 
 (defonce points
@@ -120,6 +133,3 @@
 (defn update-result! [text]
   (let [end (count (some-> @!result .-state .-doc str))]
     (.dispatch @!result #js{:changes #js{:from 0 :to end :insert text}})))
-
-
-

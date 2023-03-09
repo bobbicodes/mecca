@@ -1,13 +1,13 @@
 G__27213$jscomp$inline_2111:m2
 G__27216$jscomp$inline_2114:o2
 G__27238$jscomp$inline_2117:q2
+G__29864$jscomp$inline_2864:bta
+G__29864__$1$jscomp$inline_2865:cta
+G__29864__$2$jscomp$inline_2866:dta
+G__29868$jscomp$inline_2868:eta
+G__29868__$1$jscomp$inline_2869:fta
+G__29868__$2$jscomp$inline_2870:gta
 G__36524$jscomp$inline_2172:u4
-G__43367$jscomp$inline_2864:N$
-G__43367__$1$jscomp$inline_2865:O$
-G__43367__$2$jscomp$inline_2866:P$
-G__43371$jscomp$inline_2868:T$
-G__43371__$1$jscomp$inline_2869:U$
-G__43371__$2$jscomp$inline_2870:V$
 JSCompiler_StaticMethods_assoc_BANG_:jm
 JSCompiler_StaticMethods_cleanupKeysArray_:db
 JSCompiler_StaticMethods_clearOutstandingEvents_:ipa
@@ -1395,6 +1395,7 @@ cljs$cst$keyword$RegExp:Iaa
 cljs$cst$keyword$StringContent:lba
 cljs$cst$keyword$_GT__GT_:SK
 cljs$cst$keyword$_LT__DASH_:DR
+cljs$cst$keyword$_LT__GT_:T$
 cljs$cst$keyword$add_DASH_event:it
 cljs$cst$keyword$add_DASH_note:Ay
 cljs$cst$keyword$added:MG
@@ -1423,6 +1424,7 @@ cljs$cst$keyword$atom:sK
 cljs$cst$keyword$audio_DASH_context:vH
 cljs$cst$keyword$auto_DASH_resolve:kx
 cljs$cst$keyword$auto_DASH_run:iR
+cljs$cst$keyword$b:Vsa
 cljs$cst$keyword$background_DASH_color:Kaa
 cljs$cst$keyword$barf_DASH_backward:mR
 cljs$cst$keyword$barf_DASH_forward:fL
@@ -1569,7 +1571,10 @@ cljs$cst$keyword$eraser_DASH_toggle:yO
 cljs$cst$keyword$eraser_QMARK_:JU
 cljs$cst$keyword$error:ON
 cljs$cst$keyword$eval:jV
+cljs$cst$keyword$eval_DASH_at_DASH_cursor:Lsa
+cljs$cst$keyword$eval_DASH_cell:Ysa
 cljs$cst$keyword$eval_DASH_result:PV
+cljs$cst$keyword$eval_DASH_top_DASH_level:Wsa
 cljs$cst$keyword$eval_QMARK_:nN
 cljs$cst$keyword$event:TN
 cljs$cst$keyword$event_DASH_keys:nG
@@ -1595,6 +1600,7 @@ cljs$cst$keyword$flush_DASH_on_DASH_newline:Qb
 cljs$cst$keyword$fn:YU
 cljs$cst$keyword$fn_DASH_expr:CS
 cljs$cst$keyword$focused_DASH_note_DASH_pos:DO
+cljs$cst$keyword$font_DASH_size:Qsa
 cljs$cst$keyword$form:Sx
 cljs$cst$keyword$from:gL
 cljs$cst$keyword$from_DASH_to:qO
@@ -1637,6 +1643,7 @@ cljs$cst$keyword$jump_BANG_:XM
 cljs$cst$keyword$jump_DASH_reset:nda
 cljs$cst$keyword$jumping_QMARK_:CF
 cljs$cst$keyword$k:zS
+cljs$cst$keyword$kbd_DOT_kbd:Osa
 cljs$cst$keyword$key:oV
 cljs$cst$keyword$keyCode:Aw
 cljs$cst$keyword$keys:jv
@@ -1692,6 +1699,7 @@ cljs$cst$keyword$methods:BI
 cljs$cst$keyword$min_DASH_remaining:YQ
 cljs$cst$keyword$min_DASH_var_DASH_args:Ds
 cljs$cst$keyword$min_DASH_varargs:xJ
+cljs$cst$keyword$min_DASH_width:Rsa
 cljs$cst$keyword$mincol:DJ
 cljs$cst$keyword$minpad:QA
 cljs$cst$keyword$miser:KU
@@ -1899,6 +1907,7 @@ cljs$cst$keyword$set_DASH_key:Rq
 cljs$cst$keyword$set_DASH_loop_DASH_end:DB
 cljs$cst$keyword$set_DASH_notes:DP
 cljs$cst$keyword$set_DASH_result:YR
+cljs$cst$keyword$set_DASH_status:N$
 cljs$cst$keyword$set_DASH_tempo:Zw
 cljs$cst$keyword$set_DASH_time_DASH_signature:uH
 cljs$cst$keyword$shape_DASH_rendering:qM
@@ -1914,6 +1923,7 @@ cljs$cst$keyword$slurp_DASH_forward:lq
 cljs$cst$keyword$sound:$ca
 cljs$cst$keyword$source:wL
 cljs$cst$keyword$source_DASH_key:RB
+cljs$cst$keyword$span:U$
 cljs$cst$keyword$spec:pL
 cljs$cst$keyword$special:xy
 cljs$cst$keyword$splicing_QMARK_:DV
@@ -1943,10 +1953,20 @@ cljs$cst$keyword$suppress_DASH_namespaces:dw
 cljs$cst$keyword$svg:tV
 cljs$cst$keyword$symbol:lC
 cljs$cst$keyword$syntax_DASH_quote:WQ
+cljs$cst$keyword$table_DOT_w_DASH_full_DOT_text_DASH_sm:Msa
 cljs$cst$keyword$tag:AR
 cljs$cst$keyword$tag_DASH_class:Nz
+cljs$cst$keyword$tbody:Ksa
+cljs$cst$keyword$td_DOT_px_DASH_3_DOT_py_DASH_1_DOT_align_DASH_top:O$
+cljs$cst$keyword$td_DOT_px_DASH_3_DOT_py_DASH_1_DOT_align_DASH_top_DOT_monospace_DOT_whitespace_DASH_nowrap:Jsa
+cljs$cst$keyword$td_DOT_px_DASH_3_DOT_py_DASH_1_DOT_align_DASH_top_DOT_text_DASH_right_DOT_text_DASH_sm_DOT_whitespace_DASH_nowrap:Tsa
+cljs$cst$keyword$td_DOT_px_DASH_3_DOT_py_DASH_1_DOT_align_DASH_top_DOT_text_DASH_sm:Usa
+cljs$cst$keyword$td_DOT_px_DASH_3_DOT_py_DASH_1_DOT_align_DASH_top_DOT_text_DASH_sm_DOT_whitespace_DASH_nowrap_DOT_text_DASH_right:Nsa
 cljs$cst$keyword$tempo:mV
 cljs$cst$keyword$test:FR
+cljs$cst$keyword$text:Ssa
+cljs$cst$keyword$th_DOT_px_DASH_3_DOT_py_DASH_1_DOT_align_DASH_top_DOT_text_DASH_left_DOT_text_DASH_xs_DOT_uppercase_DOT_font_DASH_normal_DOT_black_DASH_50:P$
+cljs$cst$keyword$thead:Psa
 cljs$cst$keyword$tick_BANG_:WP
 cljs$cst$keyword$time:V
 cljs$cst$keyword$time_DASH_signature:XL
@@ -1955,6 +1975,8 @@ cljs$cst$keyword$to:CN
 cljs$cst$keyword$tools_DOT_reader_SLASH_opts:Jea
 cljs$cst$keyword$top_DASH_fn:Mx
 cljs$cst$keyword$total:Ix
+cljs$cst$keyword$tr_DOT_border_DASH_t:Xsa
+cljs$cst$keyword$tr_DOT_border_DASH_t_DOT_hover_COLON_bg_DASH_gray_DASH_100:fG
 cljs$cst$keyword$trailing_DASH_white_DASH_space:Ct
 cljs$cst$keyword$transform:gA
 cljs$cst$keyword$transposeChars:dT
@@ -1992,7 +2014,7 @@ cljs$cst$keyword$warn:CU
 cljs$cst$keyword$when:eG
 cljs$cst$keyword$while:lx
 cljs$cst$keyword$width:Ut
-cljs$cst$keyword$with_DASH_let38360:fG
+cljs$cst$keyword$with_DASH_let29479:Wqa
 cljs$cst$keyword$writing:Zv
 cljs$cst$keyword$x:IS
 cljs$cst$keyword$x1:aN
@@ -3694,7 +3716,6 @@ mecca$editor$ghost:Zqa
 mecca$editor$megaman:ara
 mecca$editor$note_blocks:ira
 mecca$editor$redo_rabbit:Yqa
-mecca$editor$repeat_button:Wqa
 mecca$editor$repeat_sign:B8
 mecca$editor$retract_editor:era
 mecca$editor$scroll_cue_left:z8
@@ -3781,11 +3802,14 @@ mecca$transport$tempo_up:Lqa
 mecca$transport$transport:Pqa
 mecca$view$editor:ysa
 mecca$view$eval_all:I$
+mecca$view$key_bindings_table:ata
+mecca$view$key_mapping:$sa
 mecca$view$load_song:zsa
 mecca$view$mecca:Dfa
 mecca$view$note_cursor:wsa
 mecca$view$note_guides:usa
 mecca$view$note_targets:vsa
+mecca$view$render_key:V$
 mecca$view$score_notes:xsa
 method_cache__4714__auto__$jscomp$inline_3256:sla
 method_cache__4714__auto__$jscomp$inline_3284:Sla
@@ -3805,6 +3829,7 @@ module$contents$goog$array_indexOf:ra
 module$contents$goog$array_sort:ta
 module$contents$goog$array_stableSort:va
 module$node_modules$$codemirror$commands$dist$index_cjs:x6
+module$node_modules$$codemirror$fold$dist$index_cjs:Zsa
 module$node_modules$$codemirror$gutter$dist$index_cjs:Ffa
 module$node_modules$$codemirror$highlight$dist$index_cjs:qY
 module$node_modules$$codemirror$history$dist$index_cjs:rY

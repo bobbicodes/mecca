@@ -7,8 +7,8 @@
             [mecca.editor :as editor :refer [svg-paths]]
             [mecca.mario :as mario]
             [sci.core :as sci]
-            [mecca.sci]
-            [mecca.sci-editor :as sci-editor :refer [!points points eval-result !result]]
+            [mecca.sci :refer [eval-result !points]]
+            [mecca.sci-editor :as sci-editor :refer [points !result]]
             [nextjournal.clojure-mode.keymap :as keymap]
             [clojure.pprint :as pp]
             [goog.object :as o]
@@ -160,7 +160,7 @@
         (dispatch [:jump-reset]))
       [:svg {:width "100%"
              :view-box "0 0 64 36"
-             :style {:cursor "url(/mecca/public/images/hand.png),pointer"}}
+             :style {:cursor "url(/images/hand.png),pointer"}}
        [mario/cloud 1 1]
        [mario/hill 40]
        [castle/brick-face 363 18 6]
@@ -203,20 +203,7 @@
               #(dispatch [:set-notes
                           (edn/read-string (-> % .-target .-result))]))))}])
 
-(def demo "(defn scale [intervals]
-  (reductions + (cycle intervals)))
-
-(def double-harmonic-minor [1 3 1 2 1 3 1])
-(def blues [3 2 1 1 3 2])
-
-(defn scale-note [note]
-  (nth (reductions + 60 (cycle blues)) note))
-
-(let [notes (range 10)]
-  (for [beat (range (count notes))]
-    {:instrument 1
-     :time beat
-     :pitch (scale-note (nth notes beat))}))")
+(def demo "(map inc (range 8))")
 
 (defn linux? []
   (some? (re-find #"(Linux)|(X11)" js/navigator.userAgent)))

@@ -30,3 +30,282 @@ clj꞉shadow.user꞉>  ; Use `alt+enter` to evaluate
 ;    (There is a button in the status bar for this)
 ; Jack-in done.
 cljs꞉cljs.user꞉>  ; Use `alt+enter` to evaluate
+(1 2 3 4 5 6 7 8)
+cljs꞉mecca.sci-editor꞉> 
+(0 1 2 3 4 5 6 7)
+cljs꞉mecca.sci-editor꞉> 
+(1 2 3 4 5 6 7 8)
+cljs꞉mecca.sci-editor꞉> 
+(1 2 3 4 5 6 7 8)
+cljs꞉mecca.sci-editor꞉> 
+(1 2 3 4 5 6 7 8)
+cljs꞉mecca.sci-editor꞉> 
+""
+cljs꞉mecca.sci-editor꞉> 
+(1 2 3 4 5 6 7 8)
+cljs꞉mecca.sci-editor꞉> 
+#object[EditorView [object Object]]
+cljs꞉mecca.sci-editor꞉> 
+" => (1 2 3 4 5 6 7 8)"
+cljs꞉mecca.sci-editor꞉> 
+21
+cljs꞉mecca.sci-editor꞉> 
+#object[reagent.ratom.RAtom {:val #object[EditorView [object Object]]}]
+cljs꞉mecca.view꞉> 
+19
+cljs꞉mecca.sci-editor꞉> 
+44
+cljs꞉mecca.sci-editor꞉> 
+#'mecca.sci-editor/something
+cljs꞉mecca.sci-editor꞉> 
+2
+cljs꞉mecca.sci-editor꞉> 
+#object[EditorState [object Object]]
+cljs꞉mecca.sci-editor꞉> 
+"(map inc (range 8))"
+cljs꞉mecca.view꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+;  Use of undeclared Var mecca.sci-editor/last-result
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.sci-editor꞉> 
+" => (1 2 3 4 5 6 7 8)"
+cljs꞉mecca.sci-editor꞉> 
+" => (0 1 2 3 4 5 6 7)"
+cljs꞉mecca.sci-editor꞉> 
+" => (0 1 2 3 4 5 6 7)"
+cljs꞉mecca.sci-editor꞉> 
+" => (0 1 2 3 4 5 6 7)"
+cljs꞉mecca.sci-editor꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+;  Use of undeclared Var mecca.sci/eval-result
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.sci꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+;  Use of undeclared Var mecca.sci/eval-result
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.sci꞉> 
+""
+cljs꞉mecca.core꞉> 
+[]
+cljs꞉mecca.sci-editor꞉> 
+[]
+cljs꞉mecca.sci-editor꞉> 
+["(map inc (range 8)) = (1 2 3 4 5 6 7 8)" []]
+cljs꞉mecca.sci-editor꞉> 
+(0 1 2 3 4 5 6 7)
+cljs꞉mecca.sci-editor꞉> 
+["(map inc (range 8)) = (1 2 3 4 5 6 7 8)" []]
+cljs꞉mecca.sci-editor꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+;  Use of undeclared Var mecca.sci-editor/!view
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.sci-editor꞉> 
+#object[EditorView [object Object]]
+cljs꞉mecca.view꞉> 
+["(map inc (range 8)) = (1 2 3 4 5 6 7 8)" []]
+cljs꞉mecca.sci-editor꞉> 
+("(map inc (range 8))")
+cljs꞉mecca.sci-editor꞉> 
+("(map inc (range 8))")
+cljs꞉mecca.sci-editor꞉> 
+("(map inc (range 8))")
+cljs꞉mecca.sci-editor꞉> 
+""
+cljs꞉mecca.sci-editor꞉> 
+(0 1 2 3 4 5 6 7)
+cljs꞉mecca.sci-editor꞉> 
+(0 1 2 3 4 5 6 7)
+cljs꞉mecca.sci꞉> 
+("(map inc (range 8)) =" " (1 2 3 4 5 6 7 8)")
+cljs꞉mecca.sci-editor꞉> 
+nil
+cljs꞉mecca.sci-editor꞉> 
+nil
+cljs꞉mecca.sci-editor꞉> 
+nil
+cljs꞉mecca.sci-editor꞉> 
+#js [#object[FacetProvider [object Object]] #js [#js [#js [#object[FacetProvider [object Object]] #object[FacetProvider [object Object]]] #js [#object[StateField [object Object]] #object[FacetProvider [object Object]] #object[ViewPlugin [object Object]]] #object[HighlightStyle [object Object]] #js [#object[FacetProvider [object Object]] #object[ViewPlugin [object Object]] #object[PrecExtension [object Object]]] #js [#object[FacetProvider [object Object]] #js [#js [#object[ViewPlugin [object Object]] #object[PrecExtension [object Object]]] #object[FacetProvider [object Object]]]] #js [#object[ViewPlugin [object Object]] #js [#js [#object[ViewPlugin [object Object]] #object[PrecExtension [object Object]]] #object[FacetProvider [object Object]]] #js [#object[StateField [object Object]] #object[PrecExtension [object Object]]]] #object[FacetProvider [object Object]] #js [#object[LezerLanguage [object Object]] #object[FacetProvider [object Object]] #js [#object[PrecExtension [object Object]] #object[StateField [object Object]] #object[FacetProvider [object Object]]] #object[StateField [object Object]] #object[FacetProvider [object Object]] #object[FacetProvider [object Object]] #js [#js [#object[StateField [object Object]] #object[FacetProvider [object Object]] #object[ViewPlugin [object Object]]] #object[StateField [object Object]] #object[FacetProvider [object Object]]]] #object[FacetProvider [object Object]] #object[FacetProvider [object Object]]] #object[FacetProvider [object Object]]]]
+cljs꞉mecca.sci-editor꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+;  Use of undeclared Var mecca.sci-editor/last-result
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.sci-editor꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+;  Use of undeclared Var mecca.sci-editor/last-result
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.sci-editor꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+;  Use of undeclared Var mecca.sci-editor/last-result
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.sci-editor꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+;  Use of undeclared Var mecca.sci-editor/last-result
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.sci-editor꞉> 
+(0 1 2 3 4 5 6 7)
+cljs꞉mecca.sci-editor꞉> 
+"(map inc (range 8))"
+cljs꞉mecca.view꞉> 
+(0 1 2 3 4 5 6 7)
+cljs꞉mecca.sci-editor꞉> 
+(1 2 3 4 5 6 7 8)
+cljs꞉mecca.sci-editor꞉> 
+(0 1 2 3 4 5 6 7)
+cljs꞉mecca.sci-editor꞉> 
+(1 2 3 4 5 6 7 8)
+cljs꞉mecca.sci-editor꞉> 
+(0 1 2 3 4 5 6 7)
+cljs꞉mecca.sci-editor꞉> 
+(0 1 2 3 4 5 6 7)
+cljs꞉mecca.sci-editor꞉> 
+(1 2 3 4 5 6 7 8)
+cljs꞉mecca.sci꞉> 
+(0 1)
+cljs꞉mecca.sci-editor꞉> 
+#object[EditorView [object Object]]
+cljs꞉mecca.sci-editor꞉> 
+[]
+cljs꞉mecca.sci-editor꞉> 
+"(map inc (range 8)) => (1 2 3 4 5 6 7 8)"
+cljs꞉mecca.sci꞉> 
+(0 1 2 3 4 5 6 7)
+cljs꞉mecca.sci꞉> 
+"(map inc (range 8)) => (1 2 3 4 5 6 7 8)"
+cljs꞉mecca.sci꞉> 
+nil
+; ------ WARNING - :undeclared-ns ------------------------------------------------
+;  Resource: <eval>:1:2
+;  No such namespace: str, could not locate str.cljs, str.cljc, or JavaScript source providing "str"
+; --------------------------------------------------------------------------------
+; 
+; 
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+;  Use of undeclared Var str/split
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.sci꞉> 
+nil
+; ------ WARNING - :undeclared-ns ------------------------------------------------
+;  Resource: <eval>:1:2
+;  No such namespace: str, could not locate str.cljs, str.cljc, or JavaScript source providing "str"
+; --------------------------------------------------------------------------------
+; 
+; 
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+;  Use of undeclared Var str/split
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.sci꞉> 
+nil
+; ------ WARNING - :undeclared-ns ------------------------------------------------
+;  Resource: <eval>:1:2
+;  No such namespace: str, could not locate str.cljs, str.cljc, or JavaScript source providing "str"
+; --------------------------------------------------------------------------------
+; 
+; 
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+;  Use of undeclared Var str/split
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.sci꞉> 
+nil
+; ------ WARNING - :undeclared-ns ------------------------------------------------
+;  Resource: <eval>:1:2
+;  No such namespace: str, could not locate str.cljs, str.cljc, or JavaScript source providing "str"
+; --------------------------------------------------------------------------------
+; 
+; 
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+;  Use of undeclared Var str/split
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.sci꞉> 
+nil
+; ------ WARNING - :undeclared-ns ------------------------------------------------
+;  Resource: <eval>:1:2
+;  No such namespace: str, could not locate str.cljs, str.cljc, or JavaScript source providing "str"
+; --------------------------------------------------------------------------------
+; 
+; 
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+;  Use of undeclared Var str/split
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.sci꞉> 
+nil
+; ------ WARNING - :undeclared-ns ------------------------------------------------
+;  Resource: <eval>:1:2
+;  No such namespace: str, could not locate str.cljs, str.cljc, or JavaScript source providing "str"
+; --------------------------------------------------------------------------------
+; 
+; 
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+;  Use of undeclared Var str/split
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.sci꞉> 
+nil
+; ------ WARNING - :undeclared-ns ------------------------------------------------
+;  Resource: <eval>:1:2
+;  No such namespace: str, could not locate str.cljs, str.cljc, or JavaScript source providing "str"
+; --------------------------------------------------------------------------------
+; 
+; 
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:2
+;  Use of undeclared Var str/split
+; --------------------------------------------------------------------------------
+; 
+cljs꞉mecca.sci꞉> 
+[]
+cljs꞉mecca.sci꞉> 
+["(map inc (range 8))" "(0 1 2 3 4 5 6 7)"]
+cljs꞉mecca.sci꞉> 
+"(map inc (range 8))"
+cljs꞉mecca.sci꞉> 
+""
+cljs꞉mecca.sci-editor꞉> 
+#object[EditorView [object Object]]
+cljs꞉mecca.events꞉> 
+"(map inc (range 8)) => (1 2 3 4 5 6 7 8)"
+cljs꞉mecca.events꞉> 
+["(map inc (range 8))" "(1 2 3 4 5 6 7 8)"]
+cljs꞉mecca.events꞉> 
+"(map inc (range 8))"
+cljs꞉mecca.events꞉> 
+"(map inc (range 8))"
+cljs꞉mecca.events꞉> 
+""
+cljs꞉mecca.sci꞉> 
+"(map inc (range 8))"
+cljs꞉mecca.sci꞉> 

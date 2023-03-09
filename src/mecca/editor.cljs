@@ -3,9 +3,10 @@
    [reagent.core :as r]
    [re-frame.core :as rf :refer [subscribe dispatch]]
    [mecca.music :as music]
+   [mecca.sci :refer [!points]]
    [mecca.mario :as mario]
    [sci.core :as sci]
-   [mecca.sci-editor :as sci-editor :refer [!points points]]))
+   [mecca.sci-editor :as sci-editor :refer [points]]))
 
 (defn svg-paths
   ([paths]
@@ -375,7 +376,7 @@
 
 (defn toolbar [x y]
   [:svg {:view-box "0 -0.5 140 30" :shape-rendering "crispEdges"
-         :style {:cursor "url(/mecca/public/images/hand.png),pointer"}
+         :style {:cursor "url(/images/hand.png),pointer"}
                  :transform (str "scale(" 0.8 ") translate(" 15 "," -40 ")")}
    [:rect {:x x :y y :width 168 :height 19 :stroke "black" :stroke-width 0.2 :fill "#f8b0f8"}]
    ;; Clojure eval button

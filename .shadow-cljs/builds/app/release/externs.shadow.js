@@ -3,6 +3,7 @@
 /** @const {ShadowJS} */ var FileReader;
 /** @const {ShadowJS} */ var Function;
 /** @const {ShadowJS} */ var URL;
+/** @const {ShadowJS} */ var navigator;
 /** @const {ShadowJS} */ var setInterval;
 /** @const {ShadowJS} */ var undefined;
 ShadowJS.prototype.$$typeof;

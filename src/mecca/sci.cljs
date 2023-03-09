@@ -4,7 +4,14 @@
             [applied-science.js-interop :as j]
             [nextjournal.clojure-mode.extensions.eval-region :as eval-region]
             [sci.core :as sci]
-            [sci.impl.evaluator]))
+            [reagent.core :as r]
+            [sci.impl.evaluator]
+            [clojure.string :as str]))
+
+(defonce last-result (r/atom (sci/eval-string "(map inc (range 8))")))
+
+(def eval-result
+  (r/atom ""))
 
 (defonce context
   (sci/init {:classes {'js goog/global
@@ -31,7 +38,17 @@
        (catch :default e
          (str e))))
 
+(defonce !points (r/atom ""))
+
+(defn update-editor! [text]
+  (let [end (count (some-> @!points .-state .-doc str))]
+    (.dispatch @!points #js{:changes #js{:from 0 :to end :insert text}})))
+
+@last-result
+
 (j/defn eval-at-cursor [on-result ^:js {:keys [state]}]
+    (update-editor! (str (first (str/split (str (some-> @!points .-state .-doc str)) #" => "))
+                         (when-not (= "" @last-result) " => ") @last-result))
   (some->> (eval-region/cursor-node-string state)
            (eval-string)
            (on-result))
@@ -51,20 +68,22 @@
 
 (defn keymap* [modifier]
   {:eval-cell
-   [{:key "Mod-Enter"
+   [{:key (str modifier "-Enter")
      :doc "Evaluate cell"}]
    :eval-at-cursor
-   [{:key (str modifier "-Enter")
+   [{:key "Mod-Enter"
      :doc "Evaluates form at cursor"}]
    :eval-top-level
-   [{:key (str modifier "-Shift-Enter")
+   [{:key "Shift-Enter"
      :doc "Evaluates top-level form at cursor"}]})
 
 (defn extension [{:keys [modifier on-result]}]
   (.of view/keymap
        (j/lit
-        [{:key "Mod-Enter"
+        [{:key (str modifier "-Enter")
           :run (partial eval-cell on-result)}
-         {:key (str modifier "-Enter")
+         {:key  "Mod-Enter"
+          :run (partial eval-at-cursor on-result)}
+         {:key "Enter"
           :shift (partial eval-top-level on-result)
-          :run (partial eval-at-cursor on-result)}])))
+          :run #()}])))

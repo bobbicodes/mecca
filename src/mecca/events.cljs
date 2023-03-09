@@ -3,13 +3,15 @@
    [re-frame.core :refer [reg-event-db reg-event-fx dispatch subscribe]]
    [re-pressed.core :as rp]
    [reagent.core :as r]
-   [mecca.sci-editor :as sci-editor :refer [!points points eval-result !result eval-all]]
+   [mecca.sci-editor :as sci-editor :refer [points !result eval-all]]
    [day8.re-frame.undo :as undo :refer [undoable]]
    [mecca.mario :as mario :refer [mario]]
+   [mecca.sci :refer [eval-result !points last-result update-editor!]]
    [mecca.songs.megaman :as megaman]
    [mecca.songs.zelda :as zelda]
    [mecca.songs.city :as city]
    [mecca.music :as music]
+   [clojure.string :as str]
    [goog.events :refer [listen unlisten]])
   (:import [goog.events EventType]))
 
@@ -61,8 +63,18 @@
 (reg-event-db
  :set-result
  (fn [db [_ s]]
-   (sci-editor/update-result! (str (eval-all (str (some-> @!points .-state .-doc str)))))
+   (reset! last-result s)
+   (update-editor! (str (first (str/split (str (some-> @!points .-state .-doc str)) #" => "))
+                         (when-not (= "" @last-result) " => ") @last-result))
    (assoc db :eval-result (str (eval-all (str (some-> @!points .-state .-doc str)))))))
+
+(reg-event-db
+ :clear-result
+ (fn [db [_]]
+   (reset! last-result "")
+   (update-editor! (str (first (str/split (str (some-> @!points .-state .-doc str)) #" => "))))
+   (assoc db :eval-result (str (eval-all (str (some-> @!points .-state .-doc str)))))))
+
 
 (reg-event-db
  :file-upload

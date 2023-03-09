@@ -24,11 +24,18 @@
 
 (rf/dispatch [:set-result (str (eval-all (str (some-> @!points .-state .-doc str))))])
 
+(into []
+      (for [n (range 100)]
+        [[:clear-result]
+         [{:keyCode n}]]))
+
 (rf/dispatch
  [::rp/set-keydown-rules
-  {:event-keys [[
-                 [:clear-result]
-                  [{:keyCode 27}]]]
+  {:event-keys 
+                (into []
+                      (for [n (into [8 27 32 37 38 39 40] (range 40 100))]
+                        [[:clear-result]
+                         [{:keyCode n}]]))
    :always-listen-keys [{:keyCode   13 :shiftKey true}]
    :prevent-default-keys [{:keyCode   13 :shiftKey true}]
    }])

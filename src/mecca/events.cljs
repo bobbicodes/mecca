@@ -70,9 +70,10 @@
 (reg-event-db
  :clear-result
  (fn [db [_]]
-   (reset! last-result "")
-   (update-editor! (str (first (str/split (str (some-> @!points .-state .-doc str)) #" => "))))
-   (assoc db :eval-result (str (eval-all (str (some-> @!points .-state .-doc str)))))))
+   (when (not= "" @last-result)
+     (reset! last-result "")
+     (update-editor! (str (first (str/split (str (some-> @!points .-state .-doc str)) #" => ")))))
+   (assoc db :eval-result "")))
 
 
 (reg-event-db

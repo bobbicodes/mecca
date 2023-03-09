@@ -347,3 +347,174 @@ cljs꞉mecca.editor꞉> 
 cljs꞉mecca.view꞉> 
 ""
 cljs꞉mecca.sci꞉> 
+[{:keyCode 0}
+ {:keyCode 1}
+ {:keyCode 2}
+ {:keyCode 3}
+ {:keyCode 4}
+ {:keyCode 5}
+ {:keyCode 6}
+ {:keyCode 7}
+ {:keyCode 8}
+ {:keyCode 9}
+ {:keyCode 10}
+ {:keyCode 11}
+ {:keyCode 12}
+ {:keyCode 13}
+ {:keyCode 14}
+ {:keyCode 15}
+ {:keyCode 16}
+ {:keyCode 17}
+ {:keyCode 18}
+ {:keyCode 19}
+ {:keyCode 20}
+ {:keyCode 21}
+ {:keyCode 22}
+ {:keyCode 23}
+ {:keyCode 24}
+ {:keyCode 25}
+ {:keyCode 26}
+ {:keyCode 27}
+ {:keyCode 28}
+ {:keyCode 29}
+ {:keyCode 30}
+ {:keyCode 31}
+ {:keyCode 32}
+ {:keyCode 33}
+ {:keyCode 34}
+ {:keyCode 35}
+ {:keyCode 36}
+ {:keyCode 37}
+ {:keyCode 38}
+ {:keyCode 39}
+ {:keyCode 40}
+ {:keyCode 41}
+ {:keyCode 42}
+ {:keyCode 43}
+ {:keyCode 44}
+ {:keyCode 45}
+ {:keyCode 46}
+ {:keyCode 47}
+ {:keyCode 48}
+ {:keyCode 49}
+ ...]
+cljs꞉mecca.core꞉> 
+[{:keyCode 0}
+ {:keyCode 1}
+ {:keyCode 2}
+ {:keyCode 3}
+ {:keyCode 4}
+ {:keyCode 5}
+ {:keyCode 6}
+ {:keyCode 7}
+ {:keyCode 8}
+ {:keyCode 9}
+ {:keyCode 10}
+ {:keyCode 11}
+ {:keyCode 12}
+ {:keyCode 13}
+ {:keyCode 14}
+ {:keyCode 15}
+ {:keyCode 16}
+ {:keyCode 17}
+ {:keyCode 18}
+ {:keyCode 19}
+ {:keyCode 20}
+ {:keyCode 21}
+ {:keyCode 22}
+ {:keyCode 23}
+ {:keyCode 24}
+ {:keyCode 25}
+ {:keyCode 26}
+ {:keyCode 27}
+ {:keyCode 28}
+ {:keyCode 29}
+ {:keyCode 30}
+ {:keyCode 31}
+ {:keyCode 32}
+ {:keyCode 33}
+ {:keyCode 34}
+ {:keyCode 35}
+ {:keyCode 36}
+ {:keyCode 37}
+ {:keyCode 38}
+ {:keyCode 39}
+ {:keyCode 40}
+ {:keyCode 41}
+ {:keyCode 42}
+ {:keyCode 43}
+ {:keyCode 44}
+ {:keyCode 45}
+ {:keyCode 46}
+ {:keyCode 47}
+ {:keyCode 48}
+ {:keyCode 49}
+ ...]
+cljs꞉mecca.core꞉> 
+[[[:clear-result] [{:keyCode 0}]]
+ [[:clear-result] [{:keyCode 1}]]
+ [[:clear-result] [{:keyCode 2}]]
+ [[:clear-result] [{:keyCode 3}]]
+ [[:clear-result] [{:keyCode 4}]]
+ [[:clear-result] [{:keyCode 5}]]
+ [[:clear-result] [{:keyCode 6}]]
+ [[:clear-result] [{:keyCode 7}]]
+ [[:clear-result] [{:keyCode 8}]]
+ [[:clear-result] [{:keyCode 9}]]]
+cljs꞉mecca.core꞉> 
+""
+cljs꞉mecca.events꞉> 
+"(map inc (range 8))"
+cljs꞉mecca.events꞉> 
+[8
+ 27
+ 32
+ 37
+ 38
+ 39
+ 40
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ ...]
+cljs꞉mecca.core꞉> 

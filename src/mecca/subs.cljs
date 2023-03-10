@@ -17,6 +17,11 @@
    (:eval-result db)))
 
 (rf/reg-sub
+ :cursor
+ (fn [db _]
+   (:cursor-pos db)))
+
+(rf/reg-sub
  :status
  (fn [db _]
    (:status db)))

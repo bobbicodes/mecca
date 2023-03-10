@@ -46,7 +46,8 @@
     :mario-run 1
     :xml ""
     :eval-result ""
-    :file-upload ""}))
+    :file-upload ""
+    :cursor-pos 19}))
 
 (reg-event-db
  :remove-note
@@ -81,6 +82,11 @@
  :file-upload
  (fn [db [_ file]]
       (assoc db :file-upload file)))
+
+(reg-event-db
+ :cursor-right
+ (fn [db [_ pos]]
+   (update db :cursor-pos inc)))
 
 (reg-event-db
  :set-status

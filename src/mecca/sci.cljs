@@ -5,6 +5,7 @@
             [nextjournal.clojure-mode.extensions.eval-region :as eval-region]
             [sci.core :as sci]
             [reagent.core :as r]
+            [re-frame.core :refer [subscribe]]
             [sci.impl.evaluator]
             [clojure.string :as str]))
 
@@ -44,7 +45,7 @@
   (let [code (str (first (str/split (str (some-> @!points .-state .-doc str)) #" => ")))
         end (count (some-> @!points .-state .-doc str))]
     (.dispatch @!points #js{:changes #js{:from 0 :to end :insert text}
-                            :selection #js{:anchor (count code) :head (count code)}})))
+                            :selection #js{:anchor @(subscribe [:cursor]) :head @(subscribe [:cursor])}})))
 
 (defonce eval-tail (atom nil))
 
@@ -77,10 +78,10 @@
    [{:key (str modifier "-Enter")
      :doc "Evaluate cell"}]
    :eval-at-cursor
-   [{:key "Mod-Enter"
+   [{:key "Shift-Enter"
      :doc "Evaluates form at cursor"}]
    :eval-top-level
-   [{:key "Shift-Enter"
+   [{:key "Mod-Enter"
      :doc "Evaluates top-level form at cursor"}]})
 
 (defn extension [{:keys [modifier on-result]}]
@@ -89,7 +90,7 @@
         [{:key (str modifier "-Enter")
           :run (partial eval-cell on-result)}
          {:key  "Mod-Enter"
-          :run (partial eval-at-cursor on-result)}
+          :run (partial eval-top-level on-result)}
          {:key "Enter"
-          :shift (partial eval-top-level on-result)
+          :shift (partial eval-at-cursor on-result)
           :run #()}])))

@@ -32,10 +32,11 @@
 (rf/dispatch
  [::rp/set-keydown-rules
   {:event-keys 
-                (into []
-                      (for [n (into [8 27 32 37 38 39 40] (range 40 100))]
-                        [[:clear-result]
-                         [{:keyCode n}]]))
+                (conj (into []
+                            (for [n (into [8 27 32 37 38 40] (range 40 100))]
+                              [[:clear-result]
+                               [{:keyCode n}]]))
+                      [[:cursor-right] [{:keyCode 39}]])
    :always-listen-keys [{:keyCode   13 :shiftKey true}]
    :prevent-default-keys [{:keyCode   13 :shiftKey true}]
    }])

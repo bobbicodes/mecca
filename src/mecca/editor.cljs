@@ -375,7 +375,7 @@
 
 (defn toolbar [x y]
   [:svg {:view-box "0 -0.5 140 30" :shape-rendering "crispEdges"
-         :style {:cursor "url(/mecca/public/images/hand.png),pointer"}
+         :style {:cursor "url(images/hand.png),pointer"}
                  :transform (str "scale(" 0.8 ") translate(" 15 "," -40 ")")}
    [:rect {:x x :y y :width 168 :height 19 :stroke "black" :stroke-width 0.2 :fill "#f8b0f8"}]
    ;; Clojure eval button
@@ -400,7 +400,6 @@
             :d "M128 13c-39 0-73 19-94 48a62 62 0 0 1 64 0 74 74 0 0 1 103 67h1c0 21-9 39-22 53h10c13 0 27-3 37-11 7-6 13-15 16-27l1-15c0-64-52-115-116-115"
             :fill "#5881d8"}]
     [:text {:x 0 :y 28 :style {:font-size "0.3em"}} @(subscribe [:status])]] 
- 
    [undo-dog (+ x 3.8) (+ 0.4 y) 1]
    [redo-rabbit (+ x 7.7) (+ 0.48 y) 0.9]
    [eraser (+ x 72) (+ 2 y) 0.9]
